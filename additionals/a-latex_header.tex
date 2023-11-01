@@ -1,0 +1,183 @@
+% ########################
+% Load necessary packages
+% ########################
+
+\RequirePackage{babel}[2020/10/27]  % set language via option in document class
+
+\usepackage[%
+			%headsepline,  % plotted line under each headline
+			%plainheadsepline,  % plotted line over each headline even on plain pages (chapter beginning)
+			%footsepline,  % plotted line over each footline
+			plainfootsepline  % plotted line over each footline even on plain pages
+			]{scrlayer-scrpage}  % package for manipulating headlines
+%ihead{\Ifstr{\leftmark}{\rightmark}{}{\rightmark}}
+%\ohead{\pagemark}
+%\ofoot*{\pagemark}
+
+\usepackage[inner = 3cm,
+			outer = 2.5cm,
+			top = 3.25cm,
+			bottom = 3cm
+			]{geometry}  % manipulate page margins
+
+\usepackage{setspace}  % change linespacing
+
+\usepackage[T1]{fontenc}  % changed font encoding to west-european letters
+\usepackage{textalpha}  % use greek letters in text directly like α -> package textgreek
+\usepackage{lmodern}  % modification of fonts to make them 'clearer'
+\usepackage{textcomp}  % eg. modified € und § symbols
+\usepackage{csquotes}  % provides advanced facilities for inline and display quotations
+
+%\usepackage[scaled]{uarial}  % Use Arial-clone font as sffamily-font
+
+\usepackage{xcolor}  % makes latex more colorful
+
+\usepackage{microtype}  % Better results in line breaks and overfull boxes
+%error
+
+\usepackage[labelsep=quad,  % Add a \quad after caption label
+			format=hang,  % Captionlabels with multiple lines are hanging
+			font={footnotesize, sf},  % changing font for caption label and
+			%text
+			labelfont=bf  % changing font only for caption text
+			]{caption}  % additional options for captions and required for subcaption package
+
+\usepackage{subcaption}  % includes subfigure environment
+
+\usepackage{amssymb}
+\usepackage{amsmath}  % highly improves math mode
+\usepackage{booktabs}  % beautify tables
+\usepackage{longtable}  % environment to create tables of a length of multiple pages
+\usepackage{tabularx}  % create tabulars with a fixed width (one flexible col)
+\usepackage{pdfpages}  % include multiple pages of pdf documents
+\usepackage{lscape}  % introduced the landscape environment to turn tables landscape
+
+\usepackage{datetime}
+\newdateformat{myDateFormat}{\THEDAY. \monthname[\THEMONTH] \THEYEAR}
+
+\ifdefined\DRAFT
+	\usepackage[firstpageonly=true,
+				scale=4
+				]{draftwatermark}
+\fi
+
+\usepackage{todonotes}  % creates to-do items and figures
+
+%%%%%% Hyperref Settings
+\ifdefined\DRAFT
+	\def\myTypeOfDocumentPDF{\myTypeOfDocument (Draftversion)}
+\else
+	\def\myTypeOfDocumentPDF{\myTypeOfDocument}
+\fi
+\usepackage[hidelinks,  % hide links in pdf document
+			pdftitle = {\myTitle},
+			pdfsubject = {\myTypeOfDocument},
+			pdfauthor = {\myAuthor},
+			pdfproducer = {\myUniversity},
+			]{hyperref}
+
+\usepackage{graphicx}  % include graphics
+
+\usepackage[style = numeric-comp,
+			backend=bibtex,
+			maxbibnames = 99, % arbitrary high value to ensure that all authors are listet in the bibliography
+			maxcitenames = 2, % truncate nameslist for citations
+			giveninits = true, % abbrevation for first name
+			date = year, % controls the basic format of printed date specifications
+			uniquelist = false, % This feature allows ambiguous labelname list --> unique dateformat (e.g. 2020a, 2020b)
+			]{biblatex}  % use biblatex for bibliography
+
+\usepackage[range-units=single  % on default show only a single unit when using /SIrange{}
+			]{siunitx}  % helpfull to show value-unit-pairs in text
+
+\usepackage{enumitem}  % improves enumerate and itemize environment
+
+\usepackage{ziffer}  % conversion of punctuation in maths mode (switches . and ,)
+\usepackage{lineno}  % create line numbering for review process
+\usepackage{blindtext}  % creates blindtexts
+\usepackage{nicefrac}
+\usepackage{textgreek}
+
+\usepackage[printonlyused]{acronym} % nohyperlinks
+\usepackage{etoolbox}
+\makeatletter
+\expandafter\patchcmd\csname AC@\AC@prefix{}@acro\endcsname{{#3}}{{\MakeUppercase #3}}{}{}
+\expandafter\patchcmd\csname AC@\AC@prefix{}@acro\endcsname{{#3}}{{\MakeUppercase #3}}{}{}
+\makeatother
+
+% ########################
+% Define page design
+% ########################
+
+% Define formatting of headlines
+\setkomafont{chapter}{\Large\sffamily}
+\setkomafont{section}{\large\sffamily}
+\setkomafont{subsection}{\normalsize\sffamily}
+\setkomafont{subsubsection}{\normalsize\sffamily}
+\setkomafont{pageheadfoot}{\footnotesize}
+\setkomafont{pagefoot}{\usekomafont{pageheadfoot}}
+\setkomafont{pagenumber}{\usekomafont{pageheadfoot}}
+\addtokomafont{disposition}{\rmfamily}
+\setcounter{secnumdepth}{\subsubsectionnumdepth}  % activate numbering of subsubsection
+
+% Define header
+\clearpairofpagestyles  % clear existing header and footer
+% without *: only on regular pages
+% with *: also on plain pages (like chapter beginning)
+\ohead{\sffamily\headmark}  % Inside show caption of chapter (left) / section (right); [\sffamily\leftmark] on plain pages allways chapter (leftmark)
+
+% Define footer
+%\ifoot*{\sffamily Dissertation \myAuthor}  % Show authors name
+\ofoot*{\sffamily\pagemark}  % Show page number
+
+% Set line spacing to 1.15
+\setstretch{1.15}
+
+% Set parskip to 0.25 instead of half or full
+\setparsizes{0em}{0.25\baselineskip plus .25\baselineskip}{1em plus 1fil}
+
+% Disable single lines at the start of a paragraph (orphans)
+\clubpenalty = 10000
+% Disable single lines at the end of a paragraph (widows)
+\widowpenalty = 10000 \displaywidowpenalty = 10000
+
+% Defaults for figure environments
+\setkeys{Gin}{keepaspectratio=true}  % allways keep aspact ratio of figures
+
+% Define enumerate end itemize environment defaults
+\setlist{nosep, itemsep=0.3ex}  % set margin of enumerate and itemize environment
+\setlist[itemize]{label=--}  % set itemize label to dash
+
+
+% ########################
+% Define predefined colors
+% ########################
+\definecolor{grey}{rgb}{0.8,0.8,0.8}  % Define grey
+
+
+% ########################
+% Table enhancements
+% ########################
+
+% Adding new columntypes with option of width specification and vertical centering
+% Example: \begin{tabular}{L{4.0cm}C{3cm}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}m{#1}} % flush left with  width specification
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}m{#1}} % flush right with  width specification
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}  % centered with  width specification
+
+% ################################################
+% Language setup for siunitx
+% ################################################
+\addto\extrasngerman{\sisetup{locale = DE}}
+\addto\extrasenglish{\sisetup{locale = US}}
+
+% ################################################
+% Additional user settings
+% ################################################
+\graphicspath{{figures/}}  % define graphics standard path
+%\input{additionals/acronyms}  % import acronyms
+
+
+\renewcommand*{\chapterformat}{%
+\mbox{\chapappifchapterprefix{\nobreakspace}%
+\scalebox{3}{\color{gray}\thechapter\autodot \color{black}$\vert$}\enskip}}

@@ -1,47 +1,54 @@
+\def\DRAFT{} % comment out for the printable document!
+%\def\REVIEW{}
 
-\documentclass[	paper=a4, twoside = true, fontsize = 12,  % font size for \normalsize set to 12
-				% parskip = half,  % paragraphs are separated by 0.5\baselineskip
-				% BCOR = 0cm,  % sets bonding correction (Bindekorrektur) to 0 cm
-				toc = bibliography,  % add bibliography to table of contens
-				numbers = noendperiod,  % no dot at the end of chapter and section labels
-				english,  % set language to english
-			]{scrbook}  % document class
+
+\ifdefined\DRAFT
+	\documentclass[	paper=a4, twoside = true, fontsize = 12,  % font size for \normalsize set to 12
+					toc = bibliography,  % add bibliography to table of contens
+					numbers = noendperiod,  % no dot at the end of chapter and section labels
+					english, openany,
+					]{scrbook}  % document class
+\else
+	\documentclass[	paper=a4, twoside = true, fontsize = 12,  % font size for \normalsize set to 12
+					% parskip = half,  % paragraphs are separated by 0.5\baselineskip
+					% BCOR = 0cm,  % sets bonding correction (Bindekorrektur) to 0 cm
+					toc = bibliography,  % add bibliography to table of contens
+					numbers = noendperiod,  % no dot at the end of chapter and section labels
+					english,  % set language to english
+				]{scrbook}  % document class
+\fi
 
 % ################################################
 % Definitions
 % ################################################
-\def\DRAFT{} % comment out for the finished document!
+
 \def\myTypeOfDocument{Dissertation}
 \def\myAuthor{Florian Kleiner}  % authors name
 \def\myUniversity{Bauhaus-Universität Weimar}
 \def\myFirstReviewer{Professor Dr.-Ing. Horst-Michael Ludwig}  % name of first reviewer
 \def\mySecondReviewer{Unknown}  % name of second reviewer
-\def\myThirdReviewer{Unknown}   % name of second reviewer
+\def\myThirdReviewer{Unknown}   % name of third reviewer
 \def\myExamDate{xx.xx.2025}
 \def\myTitle{2D and 3D characterization of clinker phases and hydrated cementitious binders by a variety of modern imaging techniques}
 %\def\mySubtitle{(Arbeitstitel)}
 \input{additionals/a-latex_header.tex}  % import packages and design definitions
-\def\myCompileDate{\myDateFormat\today}
 
 \addbibresource{Dissertation.bib}
 
 \begin{document}
-
-	\input{additionals/b-titlepage}  % include correct title page
-
 	\frontmatter  % start front matter section
+		\input{additionals/b-titlepage}  % include correct title page
+
 		\pagenumbering{Roman}  % set page numbering to Roman
 
 		\input{additionals/c-acknowledgements}
 		\tableofcontents  % print table of contents
 		\input{additionals/d-symbols}  % include list of symbols
 
-
-	% Helpfull features for review process
-	%\linenumbers  % add numbers to each line
-	%\setstretch{2}  % set line spacing to factor 2
 	\mainmatter  % start main matter (arabic page numbering)
-
+		\ifdefined\REVIEW
+			\linenumbers
+		\fi
 		%Einleitung (SEM/Zement/Bildverarbeitung)
 		%Methodik/Theorie (SEM/Kategorisierung von Zementen?)
 		%Ergebnisse

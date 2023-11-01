@@ -1,3 +1,4 @@
+
 % ########################
 % Load necessary packages
 % ########################
@@ -54,10 +55,12 @@
 
 \usepackage{datetime}
 \newdateformat{myDateFormat}{\THEDAY. \monthname[\THEMONTH] \THEYEAR}
+\def\myCompileDate{\myDateFormat\today}
 
 \ifdefined\DRAFT
 	\usepackage[firstpageonly=true,
-				scale=4
+				scale=5,
+				fontsize=12pt, % DO NOT REMOVE, else the package will generate an error
 				]{draftwatermark}
 \fi
 
@@ -69,11 +72,12 @@
 \else
 	\def\myTypeOfDocumentPDF{\myTypeOfDocument}
 \fi
+
 \usepackage[hidelinks,  % hide links in pdf document
-			pdftitle = {\myTitle},
-			pdfsubject = {\myTypeOfDocument},
-			pdfauthor = {\myAuthor},
-			pdfproducer = {\myUniversity},
+			pdftitle    = {\myTitle},
+			pdfsubject  = {\myTypeOfDocumentPDF},
+			pdfauthor   = {\myAuthor},
+			%pdfproducer = {\myUniversity},
 			]{hyperref}
 
 \usepackage{graphicx}  % include graphics

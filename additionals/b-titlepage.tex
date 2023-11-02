@@ -1,6 +1,6 @@
 \begin{titlepage}
 	\vspace*{0\baselineskip}
-	\rmfamily{
+	\sffamily{
 
 		{\centering
 			\LARGE\textbf{\myTitle}\par\large
@@ -8,8 +8,12 @@
 			%\vspace*{0.2\baselineskip}
 			%{\large \textbf{\mySubtitle}}
 
-			\vspace*{3\baselineskip}
-			\Large\uppercase{Dissertation}\large
+			\vspace*{1\baselineskip}
+			\Large\MakeUppercase{\myTypeOfDocument}\large
+
+			\ifdefined\DRAFT
+				(Entwurfsversion)
+			\fi
 
 			\vspace*{1\baselineskip}
 			zur Erlangung des akademischen Grades

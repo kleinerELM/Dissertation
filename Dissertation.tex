@@ -1,3 +1,4 @@
+% !TeX TS-program = xelatex
 \def\DRAFT{} % comment out for the printable document!
 %\def\REVIEW{}
 
@@ -37,11 +38,14 @@
 
 \begin{document}
 	\frontmatter  % start front matter section
+		\selectlanguage{german}
 		\input{additionals/b-titlepage}  % include correct title page
 
 		\pagenumbering{Roman}  % set page numbering to Roman
 
 		\input{additionals/c-acknowledgements}
+
+		\selectlanguage{english}
 		\tableofcontents  % print table of contents
 		\input{additionals/d-symbols}  % include list of symbols
 

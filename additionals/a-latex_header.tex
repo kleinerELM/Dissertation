@@ -3,17 +3,12 @@
 % Load necessary packages
 % ########################
 
-\RequirePackage{babel}[2020/10/27]  % set language via option in document class
-
 \usepackage[%
 			%headsepline,  % plotted line under each headline
 			%plainheadsepline,  % plotted line over each headline even on plain pages (chapter beginning)
 			%footsepline,  % plotted line over each footline
 			plainfootsepline  % plotted line over each footline even on plain pages
 			]{scrlayer-scrpage}  % package for manipulating headlines
-%ihead{\Ifstr{\leftmark}{\rightmark}{}{\rightmark}}
-%\ohead{\pagemark}
-%\ofoot*{\pagemark}
 
 \usepackage[inner = 3cm,
 			outer = 2.5cm,
@@ -23,9 +18,32 @@
 
 \usepackage{setspace}  % change linespacing
 
-\usepackage[T1]{fontenc}  % changed font encoding to west-european letters
+\usepackage{ifxetex}
+\ifxetex
+
+	\usepackage{fontspec}
+	\IfFileExists{./font/LinotypeSyntaxCom-Regular.ttf}{
+		\setsansfont{LinotypeSyntaxCom}[
+			Path=./font/,
+			Extension = .ttf,
+			UprightFont=*-Regular,
+			BoldFont=*-Bold,
+			ItalicFont=*-Italic,
+			BoldItalicFont=*-BoldIt
+		]
+	}{
+		\usepackage{lmodern}
+	}
+	\usepackage{polyglossia}
+	\setmainlanguage{english}
+	\setotherlanguages{german}
+\else
+	\usepackage[english,german]{babel}
+	\usepackage[T1]{fontenc}  % changed font encoding to west-european letters
+	\usepackage{lmodern}  % modification of fonts to make them 'clearer'
+\fi
+
 \usepackage{textalpha}  % use greek letters in text directly like α -> package textgreek
-\usepackage{lmodern}  % modification of fonts to make them 'clearer'
 \usepackage{textcomp}  % eg. modified € und § symbols
 \usepackage{csquotes}  % provides advanced facilities for inline and display quotations
 
@@ -53,34 +71,11 @@
 \usepackage{pdfpages}  % include multiple pages of pdf documents
 \usepackage{lscape}  % introduced the landscape environment to turn tables landscape
 
+\usepackage{todonotes}  % creates to-do items and figures
+\usepackage{graphicx}  % include graphics
 \usepackage{datetime}
 \newdateformat{myDateFormat}{\THEDAY. \monthname[\THEMONTH] \THEYEAR}
 \def\myCompileDate{\myDateFormat\today}
-
-\ifdefined\DRAFT
-	\usepackage[firstpageonly=true,
-				scale=5,
-				fontsize=12pt, % DO NOT REMOVE, else the package will generate an error
-				]{draftwatermark}
-\fi
-
-\usepackage{todonotes}  % creates to-do items and figures
-
-%%%%%% Hyperref Settings
-\ifdefined\DRAFT
-	\def\myTypeOfDocumentPDF{\myTypeOfDocument (Draftversion)}
-\else
-	\def\myTypeOfDocumentPDF{\myTypeOfDocument}
-\fi
-
-\usepackage[hidelinks,  % hide links in pdf document
-			pdftitle    = {\myTitle},
-			pdfsubject  = {\myTypeOfDocumentPDF},
-			pdfauthor   = {\myAuthor},
-			%pdfproducer = {\myUniversity},
-			]{hyperref}
-
-\usepackage{graphicx}  % include graphics
 
 \usepackage[style = numeric-comp,
 			backend=bibtex,
@@ -134,6 +129,18 @@
 %\ifoot*{\sffamily Dissertation \myAuthor}  % Show authors name
 \ofoot*{\sffamily\pagemark}  % Show page number
 
+\ifdefined\DRAFT
+	\usepackage[firstpageonly=true,
+				scale=5,
+				fontsize=12pt, % DO NOT REMOVE, else the package will generate an errors
+				]{draftwatermark}
+
+	\def\myTypeOfDocumentPDF{\myTypeOfDocument\ (Entwurfsversion)}
+	\ifoot*{\color{gray} (Entwurf vom \myDateFormat\today)}
+\else
+	\def\myTypeOfDocumentPDF{\myTypeOfDocument}
+\fi
+
 % Set line spacing to 1.15
 \setstretch{1.15}
 
@@ -172,7 +179,7 @@
 % ################################################
 % Language setup for siunitx
 % ################################################
-\addto\extrasngerman{\sisetup{locale = DE}}
+%\addto\extrasngerman{\sisetup{locale = DE}}
 \addto\extrasenglish{\sisetup{locale = US}}
 
 % ################################################
@@ -182,6 +189,14 @@
 %\input{additionals/acronyms}  % import acronyms
 
 
+%%%%%% Hyperref Settings
+\usepackage[hidelinks,  % hide links in pdf document
+			pdftitle    = {\myTitle},
+			pdfsubject  = {\myTypeOfDocumentPDF},
+			pdfauthor   = {\myAuthor},
+			%pdfproducer = {\myUniversity},
+			]{hyperref}
+
 \renewcommand*{\chapterformat}{%
 \mbox{\chapappifchapterprefix{\nobreakspace}%
-\scalebox{3}{\color{gray}\thechapter\autodot \color{black}$\vert$}\enskip}}
+\scalebox{3}{\color{gray}\sffamily\thechapter\autodot \color{black}$\vert$}\enskip}}

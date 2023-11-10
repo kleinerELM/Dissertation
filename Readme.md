@@ -15,3 +15,7 @@ Um den Draftmodus zu verlassen sollte die zweite Zeile in `./Dissertation.tex` a
 `% \def\DRAFT{}`
 
 Alle Designdefinitionen sind in `./additionals/a-latex_header.tex` eingepflegt.
+
+## XeLaTeX Konfiguration in VSCode
+shell escape muss in latexmk aktiv sein für svg package:
+https://tex.stackexchange.com/questions/516604/how-to-enable-shell-escape-or-write18-visual-studio-code-latex-workshop

@@ -73,6 +73,7 @@
 
 \usepackage{todonotes}  % creates to-do items and figures
 \usepackage{graphicx}  % include graphics
+\usepackage{svg}
 \usepackage{datetime}
 \newdateformat{myDateFormat}{\THEDAY. \monthname[\THEMONTH] \THEYEAR}
 \def\myCompileDate{\myDateFormat\today}
@@ -199,4 +200,4 @@
 
 \renewcommand*{\chapterformat}{%
 \mbox{\chapappifchapterprefix{\nobreakspace}%
-\scalebox{3}{\color{gray}\sffamily\thechapter\autodot \color{black}$\vert$}\enskip}}
+\scalebox{3}{\color{gray}\sffamily\thechapter\autodot \color{black}$\vert$} \enskip}} % \hspace*{\stretch{0.5}}\includegraphics[height=2cm]{figures/Titlepage.pdf}

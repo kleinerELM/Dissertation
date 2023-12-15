@@ -71,9 +71,9 @@
 \usepackage{pdfpages}  % include multiple pages of pdf documents
 \usepackage{lscape}  % introduced the landscape environment to turn tables landscape
 
+\usepackage{placeins}
 \usepackage{todonotes}  % creates to-do items and figures
 \usepackage{graphicx}  % include graphics
-\usepackage{svg}
 \usepackage{datetime}
 \newdateformat{myDateFormat}{\THEDAY. \monthname[\THEMONTH] \THEYEAR}
 \def\myCompileDate{\myDateFormat\today}
@@ -200,4 +200,6 @@
 
 \renewcommand*{\chapterformat}{%
 \mbox{\chapappifchapterprefix{\nobreakspace}%
-\scalebox{3}{\color{gray}\sffamily\thechapter\autodot \color{black}$\vert$} \enskip}} % \hspace*{\stretch{0.5}}\includegraphics[height=2cm]{figures/Titlepage.pdf}
+\scalebox{3}{\color{gray}\sffamily\thechapter\autodot \color{black}$\vert$}\enskip}}
+
+\captionsetup{singlelinecheck=false,justification=raggedright}

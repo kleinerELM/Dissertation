@@ -1,60 +1,159 @@
 \chapter{Methods}
 
-In this Dissertation, a myriad of different experimental and evaluation methods was used.
+In this thesis, a myriad of different experimental and evaluation methods was used.
 These methods will be detailed in this chapter.
 
 \section{The preparation process for SEM imaging}
 
 To obtain high-quality images using a \ac{SEM}, a lot of preparation methods are possible depending on the specimen type.
-A selection of them is listet here:
+A selection of methods used within this work are listed here:
 
 \begin{itemize}
 	\item \textbf{Scatter samples}. This means sprinkling powdery material over an adhesive carbon pad, followed by the removal of loose material by using compressed air. This method is fairly dangerous for the \ac{SEM} if not done properly.
 	\item \textbf{Fractured surface}. Crack the specimen, lean it with compressed air and observe the freshly prepared surface.
-	\item \textbf{Cross section (large scale)}. Most mineral specimens have to be embedded in epoxy resin and are then mechanically polished.
-	\item \textbf{\Ac{FIB} cross section}. Cutting and polishing a small surface (up to 40 $\times$ \SI{10}{\micro\metre}) using \ac{FIB}
-	\item \textbf{Cryo preparation}. ...
+	\item \textbf{Cross section (large scale)}. Most mineral specimens have to be embedded in epoxy resin and are then mechanically polished. The polishing result can be improved by \ac{ArBIB}.
+	\item \textbf{Cross section (small scale)}. A small rectangular specimen (embedded or resin free) can be polished using an \ac{ArBIB} to polish an area of about \SI{1}{\square\milli\meter}.
+	\item \textbf{\Ac{FIB} cross section}. Cutting and polishing a small surface (up to 40\,$\times$\,\SI{10}{\square\micro\metre}) using \ac{FIB}.
+	\item \textbf{Cryo preparation}. To observe water containing specimens (for slurries, pastes or very young specimens), the specimen is frozen within \SIlist{400}{\milli\second} down to about \SIlist{113}{\kelvin} at \SIlist{>\,2000}{\bar} to avoid ice-cristallization. The specimen can then be processed by \ac{FIB} or by sublimation.
 \end{itemize}
 
-The standard, polished cross section is often used to obtain \ac{BSE} images.
-However, to do a quantitave image analysis, very smooth surfaces are required.
 
 \subsection{mechanical polishing}
 
-Those surfaces can be achieved by mechanically polishing epoxy embedded specimens.
-The epoxy resin need to be of a very low viscosity to deeply penetrate the specimen and fill the majority of pores.
-In this work, a combination of the resin R1370 and the hardener R1376, by Agar Scientific was used.
+%The standard polished cross section is often used to obtain \ac{BSE} images.
+To do a quantitative image analysis, very smooth specimen surfaces are required.
+Those surfaces are usually achieved by mechanically polishing epoxy embedded specimens.
 
 To embed the specimen, it has first to be dried at \SIrange{40}{60}{\celsius}, depending on the sensitivity of the specimen, in an oven for \SI{12}{\hour}.
-The sample, which has been brought to the correct size, is now poured over with epoxy resin in a mold.
-This is followed by degassing in two \SI{30}{\min} cycles.
+The sample, which has been brought to the correct size, is now poured over with epoxy resin of a very low viscosity in a mold.
+This is required to deeply penetrate the specimen and fill the majority of pores.
+In this work, a combination of the resin R1370 and the hardener R1376, by Agar Scientific was used.
+The embedded specimen will then be degassed in two \SI{30}{\min} cycles.
 
 After hardening for \SI{24}{\hour} in an oven at \SI{40}{\celsius}, the specimen can be polished.
 This is done in multiple steps using diamond-oil-slurries.
 The particle sizes of the diamond pastes will be sequentially reduced (15, 9, 3, 1 down to \SI{0.25}{\micro\metre}).
-While this polishing method is good enough for many applications, high-resolution imaging or \ac{EBSD} require even better surface qualities.
+While this polishing method is good enough for many applications like BSE- or EDX-imaging, high-resolution imaging or \ac{EBSD} require even better surface qualities.
 
-\subsection{Argon Broad Ion Beam Polishing (moving specimen)}
+\subsection{Argon Broad Ion Beam polishing (moving specimen)}
 
-Surface polishing using argon ions can be applied to improve mechanically polished specimens or to remove thin coatings.
-To polish a large area, the specimen is semi-erratically moved under a grazing incidence angle of three ion beams.
+Most \ac{ArBIB} devices provide two modes of operation.
+In one of the modes, the mechanically polished specimen is semi-erratically moved under a grazing incidence angle under the ion beam.
+This method can be applied to improve or clean mechanically polished specimens or to remove thin coatings (e.g. carbon or gold) applied for previous measurements.
+In this study, a triple ion beam milling system (EM TIC 3X, Leica) was used (Figure \ref{fig:bib_device}).
+The \ac{ArBIB} polishing is carried out under low pressure (\SIrange{10}{40}{\milli\bar}) conditions in an argon atmosphere.
 
-\subsection{Argon Broad Ion Beam Polishing (fixed specimen)}
+\subsection{Argon Broad Ion Beam sectioning (fixed specimen)}
 
-\blindtext
+Another mode requires a smaller pre-cut sample (5\,$\times$\,3\,$\times$\,\SI{10}{\milli\meter}) in a fixed sample holder.
+The three argon ion beams intersect at a sharp edged tungsten mask forming a horizontal milling sector of approximately of \SI{100}{\degree} (Figure \ref{fig:bib_device}).
+The mask and the specimen surface are arranged in a way that only \SIrange{20}{100}{\micro\meter} of the sample are exposed to the ion beam above the mask (Figure \ref{fig:bib_scheme}).
 
+\begin{figure}[h!]
+    \centering
+
+	\begin{subfigure}{0.4\textwidth}
+		\includegraphics[width=\textwidth]{methods/bib_device.pdf}
+		\caption{Photo of the specimen camber of the \ac{ArBIB} polishing device.}
+		\label{fig:bib_device}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.58\textwidth}
+		\includegraphics[width=\textwidth]{methods/bib_scheme.pdf}
+		\caption{Principle of \ac{ArBIB} sectioning of a stationary specimen using a tungsten blade, side view.}
+		\label{fig:bib_scheme}
+	\end{subfigure}
+    \caption{Illustration of the \ac{ArBIB} sectioning principle for a stationary specimen.}
+    \label{fig:bib}
+\end{figure}
+\FloatBarrier
 
 \section{SEM / Focussed Ion Beam}
 
+Modern \ac{SEM}-devices can be equipped with a wide range of detectors, stages and tools.
+The most common detectors are \ac{SE} and \ac{BSE} detectors of various types (e.g. \ac{ETD} or \ac{TLD}).
+Most modern SEMs easily allow to image large areas using these detectors in a high resolution by acquiring multiple images and stitching them afterwards.
+
+For chemical analysis, \ac{EDX} detectors can provide point and area mappings (see section \ref{sec:edx}).
+A less common detector type, the \ac{EBSD}, allows to obtain crystallographic information of a clean specimen surface (see section \ref{sec:ebsd}).
+
+Besides these classical detectors, modern SEMs can also be combined with a \ac{FIB}.
+While this ion source allows for another way of imaging, it also enables to cut the specimen or deposit coatings (e.g. carbon or platinum) at specified locations (see section \ref{sec:fib}).
+
 \subsection{Energy-dispersive X-ray spectroscopy}
+\label{sec:edx}
+
+
 
 \subsection{Electron backscatter diffraction}
+\label{sec:ebsd}
 
 % depends on the future success with 3D FIB
 
 \subsection{Serial sectioning using Focussed Ion Beam}
+\label{sec:fib}
 
+The \ac{FIB} allows to manipulate specimens.
+Instead of electrons, Ga-ions are accelerated to the specimen surface.
+This allows the targeted removal of material or to deposit coatings to protect a region of interest, to glue  the specimen to a surface or to make a surface conductive.
+The device used in this thesis provides carbon an platinum coatings.
 
+These capabilities, combined with the other detectors available, allow to capture a three-dimensional dataset using multiple of these detectors (e.g. \ac{BSE}, \ac{EDX}, \ac{EBSD}).
+However, in contrast to X-ray computer tomography, this method is intrinsic destructive.
+
+The cementitious specimen should be embedded in resin and at least mechanically polished to find a suitable \ac{ROI} using the \ac{BSE} detector.
+Resin filled pores have advantages for later pore segmentation.
+
+The ion and the electron beam are arranged in an angle of \SI{52}{\degree}, while the ion beam hits the specimen in an angle of \SI{90}{\degree} as shown in Figure~\ref{fig:fib_scheme}.
+The \ac{ROI} has to be in the eucentric point.
+This means, if the specimen is tilted, the point does not move in the life image and therefore is in the rotational center.
+
+\begin{figure}[h!]
+    \centering
+
+	\begin{subfigure}[t]{0.56\textwidth}
+		\includegraphics[width=\textwidth]{methods/fib_scheme.pdf}
+		\caption{Principle of \ac{FIB}-nT sectioning within the bulk material.}
+		\label{fig:fib_scheme}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{0.43\textwidth}
+		\includegraphics[width=\textwidth]{methods/fib_top.jpg}
+		\caption{Ion image of the tomography side  of a hydrated alite.}
+		\label{fig:fib_top}
+	\end{subfigure}
+    \caption{Illustration of the \ac{FIBnt} process. The circle and line on the top right of (b) is a fiducial for constant positioning.}
+    \label{fig:fib}
+\end{figure}
+
+The standard method to obtain \ac{FIBnt}-images is to dig trenches around the \ac{ROI} (typically 10\,$\times$\,10\,$\times$\,\SI{10}{\cubic\micro\meter}) as illustrated in Figure~\ref{fig:fib_top}.
+Beforehand, the \ac{ROI} is coated with a layer of platinum for protection and a fiducial side is set.
+The fiducial is required to correct for specimen drift during the cutting process.
+After a polishing run and the imaging setup, the cutting process can start.
+The ion cutting is done at \SI{30}{\kilo\volt} and {\color{red} \SI{0.123456}{\milli\ampere}}.
+Each slice can be cut down to a thickness of \SI{10}{\nano\meter}.
+After cutting, a the slice can be imaged using multiple detectors.
+
+Depending on the detector type and the geometrical positioning of the detector there might be some imaging limits and the imaging should not be done for every slice.
+For example, the \ac{EDX}-detector requires high voltages for a useful signal, which might damage the specimen, or the specimen has to be rotated to obtain a \ac{EBSD} signal.
+Furthermore, both detectors require a lot of measurement time, which significantly influences the overall measuring duration.
+The recording of a 10\,$\times$\,10\,$\times$\,\SI{10}{\cubic\micro\meter} cube using only a high-resolution BSE detector takes about {\color{red} \SI{24}{\hour}} excluding the preparation.
+
+Since cementitious material is not conductive and the trenches are not coated throughout, charging effects can negatively influence the image quality (e.g. warping) or cause uncorrectable image drift during the process.
+Additionally, a vertical shadowing effect can be observed in many cases {\color{red} [src]}
+To avoid or at least reduce these issues, the \ac{ROI} was completely cut free and a lift-out was done.
+Therefore, a needle is inserted and connected to the cube using the platinum coating process before the cube is complete cut loose from the bulk material.
+Afterwards, the cube is welded to a copper comb as shown in Figure~\ref{fig:fib_liftout}.
+
+\begin{figure}[h!]
+    \centering
+
+	\includegraphics[width=\textwidth]{methods/fib_liftout.jpg}
+    \caption{\SI{20}{\micro\meter} wide specimen (A). On the left is the needle welded to the specimen (B). They are navigated and welded to the copper comb (C). The platinum vapor source (D) used for welding is visible on the right.}
+    \label{fig:fib_liftout}
+\end{figure}
+
+\FloatBarrier
 \section{Laser Ablation - Inductively Coupled Plasma - Mass Spectrometry}
 
 %\section{}

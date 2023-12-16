@@ -11,14 +11,16 @@ A selection of methods used within this work are listed here:
 \begin{itemize}
 	\item \textbf{Scatter samples}. This means sprinkling powdery material over an adhesive carbon pad, followed by the removal of loose material by using compressed air. This method is fairly dangerous for the \ac{SEM} if not done properly.
 	\item \textbf{Fractured surface}. Crack the specimen, lean it with compressed air and observe the freshly prepared surface.
-	\item \textbf{Cross section (large scale)}. Most mineral specimens have to be embedded in epoxy resin and are then mechanically polished. The polishing result can be improved by \ac{ArBIB}.
-	\item \textbf{Cross section (small scale)}. A small rectangular specimen (embedded or resin free) can be polished using an \ac{ArBIB} to polish an area of about \SI{1}{\square\milli\meter}.
-	\item \textbf{\Ac{FIB} cross section}. Cutting and polishing a small surface (up to 40\,$\times$\,\SI{10}{\square\micro\metre}) using \ac{FIB}.
+	\item \textbf{Cross section (large scale)}. Most mineral specimens have to be embedded in epoxy resin and are then mechanically polished. (Section~\ref{sec:mech_pol}) The polishing result can be improved by \ac{ArBIB}. (Section~\ref{sec:bib_pol_moving})
+	\item \textbf{Cross section (small scale)}. A small rectangular specimen (embedded or resin free) can be polished using an \ac{ArBIB} to polish an area of about \SI{1}{\square\milli\meter}. (Section~\ref{sec:bib_pol_fixed})
+	\item \textbf{\Ac{FIB} cross section}. Cutting and polishing a small surface (up to 40\,$\times$\,\SI{10}{\square\micro\metre}) using \ac{FIB}. (Section~\ref{sec:fib})
 	\item \textbf{Cryo preparation}. To observe water containing specimens (for slurries, pastes or very young specimens), the specimen is frozen within \SIlist{400}{\milli\second} down to about \SIlist{113}{\kelvin} at \SIlist{>\,2000}{\bar} to avoid ice-cristallization. The specimen can then be processed by \ac{FIB} or by sublimation.
 \end{itemize}
 
+A selection of these methods is described in more detail in the following sections.
 
-\subsection{mechanical polishing}
+\subsection{Mechanical polishing}
+\label{sec:mech_pol}
 
 %The standard polished cross section is often used to obtain \ac{BSE} images.
 To do a quantitative image analysis, very smooth specimen surfaces are required.
@@ -36,6 +38,7 @@ The particle sizes of the diamond pastes will be sequentially reduced (15, 9, 3,
 While this polishing method is good enough for many applications like BSE- or EDX-imaging, high-resolution imaging or \ac{EBSD} require even better surface qualities.
 
 \subsection{Argon Broad Ion Beam polishing (moving specimen)}
+\label{sec:bib_pol_moving}
 
 Most \ac{ArBIB} devices provide two modes of operation.
 In one of the modes, the mechanically polished specimen is semi-erratically moved under a grazing incidence angle under the ion beam.
@@ -44,6 +47,7 @@ In this study, a triple ion beam milling system (EM TIC 3X, Leica) was used (Fig
 The \ac{ArBIB} polishing is carried out under low pressure (\SIrange{10}{40}{\milli\bar}) conditions in an argon atmosphere.
 
 \subsection{Argon Broad Ion Beam sectioning (fixed specimen)}
+\label{sec:bib_pol_fixed}
 
 Another mode requires a smaller pre-cut sample (5\,$\times$\,3\,$\times$\,\SI{10}{\milli\meter}) in a fixed sample holder.
 The three argon ion beams intersect at a sharp edged tungsten mask forming a horizontal milling sector of approximately of \SI{100}{\degree} (Figure \ref{fig:bib_device}).
@@ -69,28 +73,30 @@ The mask and the specimen surface are arranged in a way that only \SIrange{20}{1
 \FloatBarrier
 
 \section{SEM / Focussed Ion Beam}
+\label{sec:sem}
 
 Modern \ac{SEM}-devices can be equipped with a wide range of detectors, stages and tools.
 The most common detectors are \ac{SE} and \ac{BSE} detectors of various types (e.g. \ac{ETD} or \ac{TLD}).
 Most modern SEMs easily allow to image large areas using these detectors in a high resolution by acquiring multiple images and stitching them afterwards.
 
-For chemical analysis, \ac{EDX} detectors can provide point and area mappings (see section \ref{sec:edx}).
-A less common detector type, the \ac{EBSD}, allows to obtain crystallographic information of a clean specimen surface (see section \ref{sec:ebsd}).
+For chemical analysis, \ac{EDX} detectors can provide point and area mappings (see Section~\ref{sec:edx}).
+A less common detector type, the \ac{EBSD}, allows to obtain crystallographic information of a clean specimen surface (see Section~\ref{sec:ebsd}).
 
 Besides these classical detectors, modern SEMs can also be combined with a \ac{FIB}.
-While this ion source allows for another way of imaging, it also enables to cut the specimen or deposit coatings (e.g. carbon or platinum) at specified locations (see section \ref{sec:fib}).
+While this ion source allows for another way of imaging, it also enables to cut the specimen or deposit coatings (e.g. carbon or platinum) at specified locations (see Section~\ref{sec:fib}).
 
-\subsection{Energy-dispersive X-ray spectroscopy}
+\subsection{Energy-Dispersive X-ray spectroscopy (EDX)}
 \label{sec:edx}
 
 
 
-\subsection{Electron backscatter diffraction}
+
+\subsection{Electron Backscatter Diffraction (EBSD)}
 \label{sec:ebsd}
 
 % depends on the future success with 3D FIB
 
-\subsection{Serial sectioning using Focussed Ion Beam}
+\subsection{Serial sectioning using Focussed Ion Beam (FIB)}
 \label{sec:fib}
 
 The \ac{FIB} allows to manipulate specimens.
@@ -154,6 +160,56 @@ Afterwards, the cube is welded to a copper comb as shown in Figure~\ref{fig:fib_
 \end{figure}
 
 \FloatBarrier
-\section{Laser Ablation - Inductively Coupled Plasma - Mass Spectrometry}
+\section{Laser Ablation - Inductively Coupled Plasma - Mass Spectrometry (LA-ICP-MS)}
+
+\FloatBarrier
+\section{Pore size measurement}
+
+On initial thought, the measurement of pores seems to be fairly easy.
+However, while air voids in mortar and concrete are mostly spherical due to the surface tension of the fresh binder, this significantly changes below a scale of tens of micrometers, where the capillary pores begin.
+These pores feature much more complex, fractal like geometries.
+
+There are a lot of methods to measure the \ac{PSD} of a hardened specimen.
+However, each method has different measurement ranges as illustrated in Figure~\ref{fig:pore_sizes}.
+
+\begin{figure}[h!]
+    \centering
+
+	\includegraphics[width=.6\textwidth]{methods/pore_sizes.pdf}
+    \caption{Phase and pore sizes compared to the measurement ranges of selected methods. Redrawn and extended based on {\color{red}Romberg [???]}.} %Romberg, H.: Zementsteinporen und Betoneigenschaften. Beton-Informationen, 78-05. 	Beton-Verl., Düsseldorf, 1978.
+    \label{fig:pore_sizes}
+\end{figure}
+
+Image based methods like the SEM or the \textmu-CT have already been introduced above.
+However, they inherently have either resolution issues, only give a 2-dimensional view or do not give representative results due to a small \ac{ROI}.
+Therefore, more indirect methods based on physical principles can help to obtain more statistically significant results.
+In this thesis, \ac{MIP} and \ac{LTDSC} were used as complementary methods to the image based methods.
+
+\FloatBarrier
+\subsection{Mercury Intrusion Porosimetry (MIP)}
+\label{fig:mip}
+
+\ac{MIP} is a rather old and well known method to measure the \ac{PSD} of porous materials.
+However, to to the use of hazardous mercury and therefore high cost, it has a reduced relevance today.
+Nevertheless, it is a reliable method to measure open porosity down to a few \SI{}{\nano\meter}.
+In this thesis, an Autopore IV 9500 (Micromeritics GmbH) was used.
+It requires small pieces of dried specimen of about 5\,$\times$\,5\,$\times$\,\SI{5}{\cubic\micro\meter}.
+It stepwise covers an pressure range of 0.003 to \SI{206}{\mega\pascal}, which roughly translates to 0.002 to \SI{200}{\micro\meter}.
+However, values above {\color{red} ~\SI{20}{\micro\meter} should be ignored, since these are mostly micro cracks}.% geschätzt aus bettinas arbeit
+
+\FloatBarrier
+\subsection{Low Temperature - Differential Scanning Calorimetry (LT-DSC)}
+\label{fig:ltdsc}
+
+Another, less common method to measure the \ac{PSD} is the \ac{LTDSC}.
+Its principle is based on the freezing behavior of pore water, the pore type and pore size.
+The smaller the pore, the lower is the freezing temperature of the water within.
+For example, water in connected capillary pores freezes until \SI{-20}{\celsius}, isolated pores between \SIrange{-20}{-35}{\celsius} and gel pores freeze below \SI{-35}{\celsius}.
+However, measurements below \SI{-40}{\celsius} do not result in usable data, since in this case other effect overlay this phenomenon.
+
+To obtain data about the gel porosity of the DSC Polyma 214 of the company Netzsch was used. It is connected to the cooling system Intercooler IC70.
+The specimens have to be sliced to fit the small aluminium crucibles with a inner volume of approx. \SI{60}{\micro\litre}.
+These crucibles sealed  air tight by cold-welding a lid under pressure.
+
 
 %\section{}

@@ -79,7 +79,7 @@
 \def\myCompileDate{\myDateFormat\today}
 
 \usepackage[style = numeric-comp,
-			backend=bibtex,
+			backend = bibtex,
 			maxbibnames = 99, % arbitrary high value to ensure that all authors are listet in the bibliography
 			maxcitenames = 2, % truncate nameslist for citations
 			giveninits = true, % abbrevation for first name
@@ -88,8 +88,6 @@
 			]{biblatex}  % use biblatex for bibliography
 
 \usepackage[range-units=single,  % on default show only a single unit when using /SIrange{}
-			%input-decimal-markers = {.},
-			%output-decimal-marker = {.},
 			]{siunitx}  % helpful to show value-unit-pairs in text
 
 \addto\extrasngerman{\sisetup{locale = DE}}
@@ -97,7 +95,7 @@
 
 \usepackage{enumitem}  % improves enumerate and itemize environment
 
-\usepackage{ziffer}  % conversion of punctuation in maths mode (switches . and ,)
+%\usepackage{ziffer}  % conversion of punctuation in maths mode (switches . and ,) % usage leads to an error with siunitx (missing decimal point)
 \usepackage{lineno}  % create line numbering for review process
 \usepackage{blindtext}  % creates blindtexts
 \usepackage{nicefrac}

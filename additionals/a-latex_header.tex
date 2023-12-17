@@ -38,7 +38,7 @@
 	\setmainlanguage{english}
 	\setotherlanguages{german}
 \else
-	\usepackage[english,german]{babel}
+	\usepackage[main=english,ngerman]{babel}
 	\usepackage[T1]{fontenc}  % changed font encoding to west-european letters
 	\usepackage{lmodern}  % modification of fonts to make them 'clearer'
 \fi
@@ -87,8 +87,13 @@
 			uniquelist = false, % This feature allows ambiguous labelname list --> unique dateformat (e.g. 2020a, 2020b)
 			]{biblatex}  % use biblatex for bibliography
 
-\usepackage[range-units=single  % on default show only a single unit when using /SIrange{}
-			]{siunitx}  % helpfull to show value-unit-pairs in text
+\usepackage[range-units=single,  % on default show only a single unit when using /SIrange{}
+			%input-decimal-markers = {.},
+			%output-decimal-marker = {.},
+			]{siunitx}  % helpful to show value-unit-pairs in text
+
+\addto\extrasngerman{\sisetup{locale = DE}}
+\addto\extrasenglish{\sisetup{locale = US}}
 
 \usepackage{enumitem}  % improves enumerate and itemize environment
 

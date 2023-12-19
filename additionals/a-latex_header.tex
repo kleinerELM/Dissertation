@@ -100,6 +100,7 @@
 \usepackage{blindtext}  % creates blindtexts
 \usepackage{nicefrac}
 \usepackage{textgreek}
+\usepackage{xspace}
 \usepackage{epigraph}
 \setlength\epigraphwidth{.6\textwidth}
 \usepackage[printonlyused]{acronym} % nohyperlinks
@@ -109,6 +110,32 @@
 \expandafter\patchcmd\csname AC@\AC@prefix{}@acro\endcsname{{#3}}{{\MakeUppercase #3}}{}{}
 \expandafter\patchcmd\csname AC@\AC@prefix{}@acro\endcsname{{#3}}{{\MakeUppercase #3}}{}{}
 \makeatother
+
+% condition enviornment for equations to describe the variables
+% https://tex.stackexchange.com/questions/95838/how-to-write-a-perfect-equation-parameters-description
+\usepackage{pgfplots}
+\pgfplotsset{compat = newest}
+\usepackage{array} %,tabularx
+
+% \newenvironment{conditions}
+%   {\par\vspace{\abovedisplayskip}\noindent
+%    \begin{tabular}{>{$}l<{$} @{} >{${}}c<{{}$} @{} l}}
+%   {\end{tabular}\par\vspace{\belowdisplayskip}}
+
+% \newenvironment{conditions*}
+%   {\par\vspace{\abovedisplayskip}\noindent
+%    \tabularx{\columnwidth}{>{$}l<{$} @{}>{${}}c<{{}$}@{} >{\raggedright\arraybackslash}X}}
+%   {\endtabularx\par\vspace{\belowdisplayskip}}
+
+
+\newlength{\conditionwd}
+\newenvironment{conditions}[1][where:]
+{%
+	#1\tabularx{\textwidth-\widthof{#1}}[t]{
+	>{$}l<{$} @{${}={}$} X@{}
+	}%
+}
+{\endtabularx\\[\belowdisplayskip]}
 
 % ########################
 % Define page design

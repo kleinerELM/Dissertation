@@ -108,7 +108,7 @@ Instead of electrons, Ga-ions are accelerated to the specimen surface.
 This allows the targeted removal of material or to deposit coatings to protect a region of interest, to glue  the specimen to a surface or to make a surface conductive.
 The device used in this thesis provides carbon an platinum coatings.
 
-These capabilities, combined with the other detectors available, allow to capture a three-dimensional dataset using multiple of these detectors (e.g. \ac{BSE}, \ac{EDX}, \ac{EBSD}).
+These capabilities, allow to capture three-dimensional datasets using one or a combination of the detectors available (e.g. \ac{BSE}, \ac{EDX}, \ac{EBSD}).
 However, in contrast to X-ray computer tomography, this method is intrinsic destructive.
 
 The cementitious specimen should be embedded in resin and at least mechanically polished to find a suitable \ac{ROI} using the \ac{BSE} detector.
@@ -166,6 +166,15 @@ Afterwards, the cube is welded to a copper comb as shown in Figure~\ref{fig:fib_
 \FloatBarrier
 \section{Laser Ablation - Inductively Coupled Plasma - Mass Spectrometry (LA-ICP-MS)}
 
+A \ac{LAICPMS} consists of a laser to ablate the specimen surface, a microscope to aim the laser at the measurement side, a inductively coupled plasma (ICP) to ionize the ablated flow of material within a carrier gas and a mass spectrometer (MS).
+This allows to detect minor and trace elements as well as isotopes in a spatially resolved manner.
+Therefore, \ac{LAICPMS} is in wide use as an analytical method to determine the age of geological samples \cite{liu.2013} or for spatially resolved elemental mapping of heavy metals in biological tissue \cite{limbeck.2015}.
+
+The laser ablation was done with a ns-Nd:YAG-laser at the quintupled wavelength of 213\,nm (ESI NWR 213).
+A quadrupole ICP-MS (Perkin Elmer NexION 300D) was used for the elemental analysis.
+The carrier gas chosen was helium due to its well-known advantages over other transport gases, such as its higher sensitivity for most ICP-MS instruments and smaller particle size distributions \cite{gunther.1999}.
+The samples were placed in a two-volume sample cell and purged for at least 10\,min.
+
 \FloatBarrier
 \section{Pore size measurement}
 
@@ -179,7 +188,7 @@ However, each method has different measurement ranges as illustrated in Figure~\
 \begin{figure}[h!]
     \centering
 
-	\includegraphics[width=.6\textwidth]{methods/pore_sizes.pdf}
+	\includegraphics[width=.7\textwidth]{methods/pore_sizes.pdf}
     \caption{Phase and pore sizes compared to the measurement ranges of selected methods. Redrawn and extended based on {\color{red}Romberg [???]}.} %Romberg, H.: Zementsteinporen und Betoneigenschaften. Beton-Informationen, 78-05. 	Beton-Verl., Düsseldorf, 1978.
     \label{fig:pore_sizes}
 \end{figure}
@@ -205,15 +214,121 @@ However, values above {\color{red} ~\SI{20}{\micro\meter} should be ignored, sin
 \subsection{Low Temperature - Differential Scanning Calorimetry (LT-DSC)}
 \label{fig:ltdsc}
 
-Another, less common method to measure the \ac{PSD} is the \ac{LTDSC}.
+Another, less common method to indirectly measure the \ac{PSD}, especially in the nano-pore range, is the \ac{LTDSC}.
 Its principle is based on the freezing behavior of pore water, the pore type and pore size.
-The smaller the pore, the lower is the freezing temperature of the water within.
+Brun et al. \cite{brun.1977} proposed an approximate solution to convert between freezing/melting point of water and the pore radius for cylindrical pores.
+The equation for freezing is :
+\begin{equation}
+	r_\text{P} = -\frac{64.67}{\Delta T }+0.57;~~~\SI{0}{\kelvin} > \Delta T > \SI{-40}{\kelvin},
+	\label{eq:brun_freeze}
+\end{equation}
+\begin{conditions}
+	r_\text{P} & pore radius in \si{\nano\meter}\\
+	\Delta T  &  freezing point depression in \si{\kelvin},
+\end{conditions}
+
+and for melting:
+\begin{equation}
+	r_\text{P} = -\frac{32.33}{\Delta T }+0.68;~~~\SI{0}{\kelvin} > \Delta T > \SI{-40}{\kelvin},
+	\label{eq:brun_melt}
+\end{equation}
+
+while $\Delta T $ is defined as:
+
+\begin{equation}
+	\Delta T = T - T_\text{m}
+	\label{eq:brun_dT}
+\end{equation}
+\begin{conditions}
+	T          &   actual melting point in \si{\kelvin}, \\
+	T_\text{m} &   theoretical freezing point in \si{\kelvin}.
+\end{conditions}
+
+However, $\Delta T$ measurements below \SI{-40}{\celsius} are not covered by these equations.
+
+Brun et al. \cite{brun.1977} considered an adsorbed water film in the pores (thickness of \SI{.8}{\nano\meter}) and also a temperature correction for surface tension and for the melting entropy.
+The relationship resulting from Equations~\ref{eq:brun_freeze} and \ref{eq:brun_melt} are plotted in Figure~\ref{fig:pore_sizes}.
+
+\begin{figure}[!htb]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+				legend style={at={(0.97,.94)},anchor=north east},
+				xmin=-40, xmax=0,
+				ymin=0, ymax=12,
+				width=0.95\linewidth,
+				height=0.4\linewidth,
+				grid=major,
+				xlabel={freezing point depression $\Delta T$ in \si{\kelvin}},
+				ylabel={pore radius $r_\text{P}$ in \si{\nano\meter}},
+				xtick={0,-10,...,-40},
+				ytick={0,2,...,12},
+				grid style={line width=.1pt, draw=gray!10},
+				x dir=reverse
+            ]
+			\addplot[domain=0:-60, samples=50] {0.57-64.67/x};
+            \addlegendentry{freezing \cite{brun.1977}};
+			\addplot[domain=0:-60, samples=50, dashed] {0.68-32.33/x};
+            \addlegendentry{melting \cite{brun.1977}};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Depression of the freezing or melting point as functions of the pore radius. Calculated according to Brun et al. \cite{brun.1977} for water using Equations~\ref{eq:brun_freeze} and \ref{eq:brun_melt}.}
+    \label{fig:pore_sizes}
+\end{figure}
+% TODO Stockhausen??
+
+This shows that smaller pores lead to lower freezing temperatures of the water inside the pores.
+However, this also depends on the pore type.
 For example, water in connected capillary pores freezes until \SI{-20}{\celsius}, isolated pores between \SIrange{-20}{-35}{\celsius} and gel pores freeze below \SI{-35}{\celsius}.
-However, measurements below \SI{-40}{\celsius} do not result in usable data, since in this case other effect overlay this phenomenon.
+This is also illustrated in Figure~\ref{fig:freeze}.
+If a larger pore (D) is only connected to smaller pore (C) or is isolated, it can only freeze at the same temperature as the smaller sized pore (C), while similar sized pores (B) were already frozen.
 
-To obtain data about the gel porosity of the DSC Polyma 214 of the company Netzsch was used. It is connected to the cooling system Intercooler IC70.
-The specimens have to be sliced to fit the small aluminium crucibles with a inner volume of approx. \SI{60}{\micro\litre}.
-These crucibles sealed  air tight by cold-welding a lid under pressure.
+\begin{figure}[h!]
+    \centering
 
+	\includegraphics[width=.5\textwidth]{methods/freeze.pdf}
+    \caption{Scheme of the freezing process within a connected pore system. Freezing happens sequentially from A to B, followed by C and D at once. Based on Sun et al. \cite{sun.2010}.}
+    \label{fig:freeze}
+\end{figure}
 
-%\section{}
+To obtain data about the capillary and gel porosity, the DSC Polyma 214 from Netzsch, connected to the cooling system Intercooler IC70 was used.
+The specimens were sliced to fit the small aluminium crucibles with a inner volume of approx. \SI{60}{\micro\litre}.
+These crucibles sealed air tight by cold-welding a lid under pressure and measured against an empty reference crucible.
+
+\begin{figure}[!htb]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+				legend style={at={(0.97,.94)},anchor=north east},
+				xmin=0, xmax=150,
+				ymin=-65, ymax=25,
+				width=0.95\linewidth,
+				height=0.4\linewidth,
+				grid=major,
+				xlabel={time $t$ in \si{\min}},
+				ylabel={temperature $\vartheta$ in \si{\celsius}},
+				xtick={0,20,...,150},
+				ytick={-60,-40,...,20},
+				grid style={line width=.1pt, draw=gray!10}
+				%axis lines=middle
+            ]
+			\addplot[mark=none, gray!40] coordinates {(0,0) (150,0)};
+			\addplot [red, dashed,mark=.] coordinates {
+				(0,20) (20,-20) (22,-20) (40,20) (48,-20) (49,-20) (50,-5) (60,0) (75,0) (105,-60) (110,-60) (150,20)};
+
+			\addplot[mark=none, gray] coordinates {(75,30) (75,-70)};
+
+			%\node[black,right] at (axis cs:8010){\small{$W=0$}};
+			\node[right] at (axis cs:78,10)  {$\rightarrow$ measurement};
+			\node[right] at (axis cs:5,-40) {$\rightarrow$ inducing of ice nuclei};
+
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Temperature regime of a \ac{LTDSC}-measurement, based on Sun et al. \cite{sun.2010} and Müller \cite{mueller.2021}.}
+    \label{fig:ltdc_regime}
+\end{figure}
+
+The temperature regime used is shown in Figure~\ref{fig:ltdc_regime}.
+The first \SI{75}{\min} of the program are there to create ice nuclei and therefore to avoid supercooling.
+The measurement itself is done within the last \SI{75}{\min} and the temperature change was set to $\pm$\,\SI{2}{\kelvin\per\min}.
+

@@ -266,9 +266,9 @@ The relationship resulting from Equations~\ref{eq:brun_freeze} and \ref{eq:brun_
 				grid style={line width=.1pt, draw=gray!10},
 				x dir=reverse
             ]
-			\addplot[domain=0:-60, samples=50] {0.57-64.67/x};
+			\addplot[blue, domain=0:-40, samples=50] {0.57-64.67/x};
             \addlegendentry{freezing \cite{brun.1977}};
-			\addplot[domain=0:-60, samples=50, dashed] {0.68-32.33/x};
+			\addplot[red, domain=0:-40, samples=50, dashed] {0.68-32.33/x};
             \addlegendentry{melting \cite{brun.1977}};
         \end{axis}
     \end{tikzpicture}
@@ -298,12 +298,14 @@ These crucibles sealed air tight by cold-welding a lid under pressure and measur
 \begin{figure}[!htb]
     \centering
     \begin{tikzpicture}
+		\pgfplotsset{every axis/.style={xmin=0, xmax=150,
+		ymin=-65, ymax=25,
+		width=0.8\linewidth,
+		height=0.4\linewidth
+		}}
         \begin{axis}[
-				legend style={at={(0.97,.94)},anchor=north east},
-				xmin=0, xmax=150,
-				ymin=-65, ymax=25,
-				width=0.95\linewidth,
-				height=0.4\linewidth,
+				legend style={at={(.97,.94)},anchor=north east},
+				axis y line*=left,
 				grid=major,
 				xlabel={time $t$ in \si{\min}},
 				ylabel={temperature $\vartheta$ in \si{\celsius}},
@@ -313,8 +315,12 @@ These crucibles sealed air tight by cold-welding a lid under pressure and measur
 				%axis lines=middle
             ]
 			\addplot[mark=none, gray!40] coordinates {(0,0) (150,0)};
-			\addplot [red, dashed,mark=.] coordinates {
-				(0,20) (20,-20) (22,-20) (40,20) (48,-20) (49,-20) (50,-5) (60,0) (75,0) (105,-60) (110,-60) (150,20)};
+			\addplot [green, dashed,mark=.] coordinates {
+				(0,20) (20,-20) (22,-20) (40,20) (48,-20) (49,-20) (50,-5) (60,0) (75,0)};
+				\addplot [green, dashed,mark=.] coordinates {
+					(95,-40) (105,-60) (110,-60) (120,-40)};
+				\addplot [green, dashed,mark=.] coordinates {
+					(140,0) (150,20) };
 
 			\addplot[mark=none, gray] coordinates {(75,30) (75,-70)};
 
@@ -323,12 +329,37 @@ These crucibles sealed air tight by cold-welding a lid under pressure and measur
 			\node[right] at (axis cs:5,-40) {$\rightarrow$ inducing of ice nuclei};
 
         \end{axis}
+		% 3rd ordinate right
+		\begin{axis}[blue,
+			axis y line*=right,
+			axis x line=none,
+			ylabel={pore radius $r_\text{P}$ in \si{\nano\meter}},
+			xtick={0,20,...,150},
+			ytick      ={ -40, -30, -20, -10,  -1},
+			yticklabels={2.19,2.27,3.80,7.04,65.2},
+			ylabel style=black,
+		  ]
+		  \pgfplotsset{every outer y axis line/.style={xshift=1.25cm}, every tick/.style={xshift=1.25cm}, every y tick label/.style={xshift=1.25cm} }
+		  \addplot [blue, dashed] coordinates {
+			   (75,0) (95,-40)};
+
+        \end{axis}
+		% 2nd ordinate right
+		\begin{axis}[red,
+			axis y line*=right,
+			axis x line=none,
+			xtick={0,20,...,150},
+			ytick      ={ -40, -30, -20, -10,  -1},
+			yticklabels={1.49,1.76,2.30,3.91,33.0},
+		  ]
+		  \addplot [red, dashed] coordinates {
+			(120,-40) (140,0)};
+        \end{axis}
     \end{tikzpicture}
-    \caption{Temperature regime of a \ac{LTDSC}-measurement, based on Sun et al. \cite{sun.2010} and Müller \cite{mueller.2021}.}
+    \caption{Temperature regime of a \ac{LTDSC}-measurement, based on Sun et al. \cite{sun.2010} and Müller \cite{mueller.2021}. Red axis: pore radius on melting; blue axis: pore radius on freezing. The top value is the pore radius at \SI{-1}{\celsius}.}
     \label{fig:ltdc_regime}
 \end{figure}
 
 The temperature regime used is shown in Figure~\ref{fig:ltdc_regime}.
 The first \SI{75}{\min} of the program are there to create ice nuclei and therefore to avoid supercooling.
 The measurement itself is done within the last \SI{75}{\min} and the temperature change was set to $\pm$\,\SI{2}{\kelvin\per\min}.
-

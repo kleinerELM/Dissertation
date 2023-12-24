@@ -303,3 +303,6 @@ TSWLatexianTemp*
 # cannot distribute the university font due to legal reasons.
 # Therefore all ttf fonts will be ignored!
 *.ttf
+
+# due to their size, the raw ttf images are not synced
+*.tif

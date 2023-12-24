@@ -85,6 +85,26 @@ A less common detector type, the \ac{EBSD}, allows to obtain crystallographic in
 Besides these classical detectors, modern SEMs can also be combined with a \ac{FIB}.
 While this ion source allows for another way of imaging, it also enables to cut the specimen or deposit coatings (e.g. carbon or platinum) at specified locations (see Section~\ref{sec:fib}).
 
+High electron beam energy also can cause damage on the specimen surface as demonstrated in Figure~\ref{fig:edx_damage}
+
+\begin{figure}[h!]
+    \centering
+
+	\begin{subfigure}[t]{0.56\textwidth}
+		\includegraphics[width=\textwidth]{methods/EDX_damage_a.png}
+		\caption{-}
+		\label{fig:edx_damage_a}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{0.43\textwidth}
+		\includegraphics[width=\textwidth]{methods/EDX_damage_b.png}
+		\caption{-}
+		\label{fig:edx_damage_b}
+	\end{subfigure}
+    \caption{-}
+    \label{fig:edx_damage}
+\end{figure}
+
 \subsection{Energy-Dispersive X-ray spectroscopy (EDX)}
 \label{sec:edx}
 
@@ -150,7 +170,16 @@ Furthermore, both detectors require a lot of measurement time, which significant
 The recording of a 10\,$\times$\,10\,$\times$\,\SI{10}{\cubic\micro\meter} cube using only a high-resolution BSE detector takes about {\color{red} \SI{24}{\hour}} excluding the preparation.
 
 Since cementitious material is not conductive and the trenches are not coated throughout, charging effects can negatively influence the image quality (e.g. warping) or cause uncorrectable image drift during the process.
-Additionally, a vertical shadowing effect can be observed in many cases {\color{red} [src]}
+Additionally, a vertical shadowing effect can be observed in many cases {\color{red} [src]} and redepositioning may appear in front of the \ac{ROI} as shown in Figure~\ref{fig:fib_artifacts}.
+
+\begin{figure}[h!]
+    \centering
+
+	\includegraphics[width=\textwidth]{methods/fib_liftout.jpg}
+    \caption{Imaging issues of the \ac{ROI} within the bulk material.}
+    \label{fig:fib_artifacts}
+\end{figure}
+
 To avoid or at least reduce these issues, the \ac{ROI} was completely cut free and a lift-out was done.
 Therefore, a needle is inserted and connected to the cube using the platinum coating process before the cube is complete cut loose from the bulk material.
 Afterwards, the cube is welded to a copper comb as shown in Figure~\ref{fig:fib_liftout}.
@@ -161,6 +190,26 @@ Afterwards, the cube is welded to a copper comb as shown in Figure~\ref{fig:fib_
 	\includegraphics[width=\textwidth]{methods/fib_liftout.jpg}
     \caption{\SI{20}{\micro\meter} wide specimen (A). On the left is the needle welded to the specimen (B). They are navigated and welded to the copper comb (C). The platinum vapor source (D) used for welding is visible on the right.}
     \label{fig:fib_liftout}
+\end{figure}
+
+\subsection{artifacts induced by the electron beam}
+
+While the \ac{SEM} is widley used to analyze cement based materials, it has its pitfalls.
+In contrast to an light microscope, it can alter the specimen during the observation significantly.
+For example, early publications define \csh as gel.
+In one part, this due to its low crystallinity, which is not detectable using \ac{XRD} but only \ac{TEM}.
+On the other part, the \csh-crystals appeared gel like due to preparation artifacts and sevier electron beam damage of the water containing phases.
+This causes them to melt into a gel-like structure, hence its early name.
+Nowadays, this is not an issue anymore due to significant progress in the sensitivity of the dectectors of electron microscopes.
+However, depending on the magnification and used detectors (e.g. \ac{EDX}), a lot of energy might be introduced on the imaged surface, causing electron beam damage.
+This damage can cause \csh-structures to bent or melt and introduce pores within originally compact phases (Figre~\ref{fig:ebeam_damage}).
+
+\begin{figure}[h!]
+    \centering
+
+	\includegraphics[width=\textwidth]{methods/ebeam_damage.png}
+    \caption{Electron beam damage of a \csh needle of \SI{28}{\day} hydrated alite. Imaged at a high magnification at \SI{350}{\volt} accelerating voltage and a stage bias of \SI{200}{\volt}. The image set was  captured within a timespan of \SI{124}{\second} during continuous electron beam exposure \cite{kleiner.2021}.} %wrong citation - correct: https://zenodo.org/records/5215574
+    \label{fig:ebeam_damage}
 \end{figure}
 
 \FloatBarrier

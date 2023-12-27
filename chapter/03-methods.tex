@@ -14,7 +14,7 @@ A selection of methods used within this work are listed here:
 	\item \textbf{Cross section (large scale)}. Most mineral specimens have to be embedded in epoxy resin and are then mechanically polished. (Section~\ref{sec:mech_pol}) The polishing result can be improved by \ac{ArBIB}. (Section~\ref{sec:bib_pol_moving})
 	\item \textbf{Cross section (small scale)}. A small rectangular specimen (embedded or resin free) can be polished using an \ac{ArBIB} to polish an area of about \SI{1}{\square\milli\meter}. (Section~\ref{sec:bib_pol_fixed})
 	\item \textbf{\Ac{FIB} cross section}. Cutting and polishing a small surface (up to 40\,$\times$\,\SI{10}{\square\micro\metre}) using \ac{FIB}. (Section~\ref{sec:fib})
-	\item \textbf{Cryo preparation}. To observe water containing specimens (for slurries, pastes or very young specimens), the specimen is frozen within \SIlist{400}{\milli\second} down to about \SIlist{113}{\kelvin} at \SIlist{>\,2000}{\bar} to avoid ice-cristallization. The specimen can then be processed by \ac{FIB} or by sublimation.
+	\item \textbf{Cryo preparation}. To observe water containing specimens (for slurries, pastes or very young specimens), the specimen is frozen within \SIlist{400}{\milli\second} down to about \SIlist{113}{\kelvin} at \SIlist{>\,2000}{\bar} to avoid ice-crystallization. The specimen can then be processed by \ac{FIB} or by sublimation.
 \end{itemize}
 
 A selection of these methods is described in more detail in the following sections.
@@ -85,26 +85,25 @@ A less common detector type, the \ac{EBSD}, allows to obtain crystallographic in
 Besides these classical detectors, modern SEMs can also be combined with a \ac{FIB}.
 While this ion source allows for another way of imaging, it also enables to cut the specimen or deposit coatings (e.g. carbon or platinum) at specified locations (see Section~\ref{sec:fib}).
 
-High electron beam energy also can cause damage on the specimen surface as demonstrated in Figure~\ref{fig:edx_damage}
+While the \ac{SEM} is widley used to analyze cement based materials, it has its pitfalls.
+In contrast to an light microscope, it can alter the specimen during the observation significantly.
+For example, early publications define \csh as gel.
+In one part, this due to its low crystallinity, which is not detectable using \ac{XRD} but only \ac{TEM}.
+On the other part, the \csh-crystals appeared gel like due to preparation artifacts and sevier electron beam damage of the water containing phases.
+This causes them to melt into a gel-like structure, hence its early name.
+Nowadays, this is not an issue anymore due to significant progress in the sensitivity of the dectectors of electron microscopes.
+However, depending on the magnification and used detectors (e.g. \ac{EDX}), a lot of energy might be introduced on the imaged surface, causing electron beam damage.
+This damage can cause \csh-structures to bent or melt and introduce pores within originally compact phases (Figre~\ref{fig:ebeam_damage}).
 
 \begin{figure}[h!]
     \centering
 
-	\begin{subfigure}[t]{0.56\textwidth}
-		\includegraphics[width=\textwidth]{methods/EDX_damage_a.png}
-		\caption{-}
-		\label{fig:edx_damage_a}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[t]{0.43\textwidth}
-		\includegraphics[width=\textwidth]{methods/EDX_damage_b.png}
-		\caption{-}
-		\label{fig:edx_damage_b}
-	\end{subfigure}
-    \caption{-}
-    \label{fig:edx_damage}
+	\includegraphics[width=\textwidth]{methods/ebeam_damage.png}
+    \caption{Electron beam damage of a \csh needle of \SI{28}{\day} hydrated alite. Imaged at a high magnification at \SI{350}{\volt} accelerating voltage and a stage bias of \SI{200}{\volt}. The image set was  captured within a timespan of \SI{124}{\second} during continuous electron beam exposure \cite{kleiner.2021}.} %wrong citation - correct: https://zenodo.org/records/5215574
+    \label{fig:ebeam_damage}
 \end{figure}
 
+\FloatBarrier
 \subsection{Energy-Dispersive X-ray spectroscopy (EDX)}
 \label{sec:edx}
 
@@ -114,12 +113,36 @@ The electrons in the atoms of the sample are excited by the electron beam and su
 However, the excitation voltages has to be about twice as high than the excpected X-ray-energyies $K_\alpha$ or $K_l$ of the expected elements to collect enough signal.
 This results in a minimal required electron beam voltage of \SI{12}{\kilo\volt} to measure Fe with a $K_{\alpha}$ of \SI{6.4}{\kilo\electronvolt}. % https://www.nist.gov/pml/x-ray-transition-energies-database
 
+However, a high powered electron beam can also damage specimens.
+For example, C-S-H phases and portlandite may be dehydrated after a prolonged \ac{EDX}-measurement.
+This may result in a geometrical deformation as shown in Figure~\ref{fig:ebeam_damage} or may also introduce pores with a diameter of several \SI{}{\nano\meter} as demonstrated in Figure~\ref{fig:edx_damage_a} and \ref{fig:edx_damage_b} which are slices of a \ac{FIB}-stack before and after an \ac{EDX}-measurement.
 
+\begin{figure}[H]
+    \centering
+
+	\begin{subfigure}[t]{0.49\textwidth}
+		\includegraphics[width=\textwidth]{methods/EDX_damage_a.png}
+		\caption{A undamaged slice before an \ac{EDX}-measurement.}
+		\label{fig:edx_damage_a}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{0.49\textwidth}
+		\includegraphics[width=\textwidth]{methods/EDX_damage_b.png}
+		\caption{Damaged surface after an \ac{EDX}-measurement.}
+		\label{fig:edx_damage_b}
+	\end{subfigure}
+    \caption{Effect of \ac{EDX} on a hydrated \alite surface, prepared using \ac{FIB}.} %({\color{red} \SI{xx}{\kilo\volt},\SI{xx}{\pico\ampere} for \SI{xx}{\seconds}}) 
+    \label{fig:edx_damage}
+\end{figure}
+
+
+\FloatBarrier
 \subsection{Electron Backscatter Diffraction (EBSD)}
 \label{sec:ebsd}
 
 % depends on the future success with 3D FIB
 
+\FloatBarrier
 \subsection{Serial sectioning using Focussed Ion Beam (FIB)}
 \label{sec:fib}
 
@@ -169,22 +192,46 @@ For example, the \ac{EDX}-detector requires high voltages for a useful signal, w
 Furthermore, both detectors require a lot of measurement time, which significantly influences the overall measuring duration.
 The recording of a 10\,$\times$\,10\,$\times$\,\SI{10}{\cubic\micro\meter} cube using only a high-resolution BSE detector takes about {\color{red} \SI{24}{\hour}} excluding the preparation.
 
-Since cementitious material is not conductive and the trenches are not coated throughout, charging effects can negatively influence the image quality (e.g. warping) or cause uncorrectable image drift during the process.
-Additionally, a vertical shadowing effect can be observed in many cases {\color{red} [src]} and redepositioning may appear in front of the \ac{ROI} as shown in Figure~\ref{fig:fib_artifacts}.
-
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
 
-	\includegraphics[width=\textwidth]{methods/fib_liftout.jpg}
-    \caption{Imaging issues of the \ac{ROI} within the bulk material.}
+	\begin{subfigure}[t]{0.32\textwidth}
+		\includegraphics[width=\textwidth]{methods/fib_artifacts_b.pdf}
+		\caption{Redeposition in front of the \ac{ROI} and slight vertical shadowing.}
+		\label{fig:fib_artifacts_b}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{0.32\textwidth}
+		\includegraphics[width=\textwidth]{methods/fib_artifacts_c.pdf}
+		\caption{Charging effects in form of drift artifacts and redepositioning.}
+		\label{fig:fib_artifacts_c}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{0.32\textwidth}
+		\includegraphics[width=\textwidth]{methods/fib_artifacts_a.pdf}
+		\caption{Curtaining and charging effects.}
+		\label{fig:fib_artifacts_a}
+	\end{subfigure}
+    \caption{Imaging issues of hydrated and embedded \alite specimens during the \ac{FIBnt}-process within the bulk material.}
     \label{fig:fib_artifacts}
 \end{figure}
 
-To avoid or at least reduce these issues, the \ac{ROI} was completely cut free and a lift-out was done.
+The cutting process can introduce some typical artifacts like curtaining or vertical shadowing.
+Curtaining is caused by the cutting process causing vertical line artifacts in the direction of the ion beam (Figure~\ref{fig:fib_artifacts_a}).
+This artifacts may be reduced in post processing using a \ac{FFT} filter (see Section {\color{red} X.X}).
+The shadowing effect is caused by a loss of signal of the backscattered electrons due to the trench geometry (Figure~\ref{fig:fib_artifacts_b}).
+This well known effect {\color{red} [src]} can be fairly easily corrected in post processing.
+
+
+However, there are more severe uncorrectable artifacts. 
+Since cementitious material is not conductive and the trenches are not coated throughout, charging effects can negatively influence the image quality (e.g. Figure~\ref{fig:fib_artifacts_c} and \ref{fig:fib_artifacts_a}) or cause uncorrectable image drift during the process.
+redepositioning of the removed material usually happens on the trenches, however it may also appear in front of the \ac{ROI} or even on the specimen surface after longer imaging periods as shown in Figure~\ref{fig:fib_artifacts_b} and \ref{fig:fib_artifacts_c}.
+
+To avoid or at least reduce these issues, the \ac{ROI} was cut free and a lifted out of the bulk material.
 Therefore, a needle is inserted and connected to the cube using the platinum coating process before the cube is complete cut loose from the bulk material.
 Afterwards, the cube is welded to a copper comb as shown in Figure~\ref{fig:fib_liftout}.
 
-\begin{figure}[h!]
+\begin{figure}[htb!]
     \centering
 
 	\includegraphics[width=\textwidth]{methods/fib_liftout.jpg}
@@ -192,25 +239,6 @@ Afterwards, the cube is welded to a copper comb as shown in Figure~\ref{fig:fib_
     \label{fig:fib_liftout}
 \end{figure}
 
-\subsection{artifacts induced by the electron beam}
-
-While the \ac{SEM} is widley used to analyze cement based materials, it has its pitfalls.
-In contrast to an light microscope, it can alter the specimen during the observation significantly.
-For example, early publications define \csh as gel.
-In one part, this due to its low crystallinity, which is not detectable using \ac{XRD} but only \ac{TEM}.
-On the other part, the \csh-crystals appeared gel like due to preparation artifacts and sevier electron beam damage of the water containing phases.
-This causes them to melt into a gel-like structure, hence its early name.
-Nowadays, this is not an issue anymore due to significant progress in the sensitivity of the dectectors of electron microscopes.
-However, depending on the magnification and used detectors (e.g. \ac{EDX}), a lot of energy might be introduced on the imaged surface, causing electron beam damage.
-This damage can cause \csh-structures to bent or melt and introduce pores within originally compact phases (Figre~\ref{fig:ebeam_damage}).
-
-\begin{figure}[h!]
-    \centering
-
-	\includegraphics[width=\textwidth]{methods/ebeam_damage.png}
-    \caption{Electron beam damage of a \csh needle of \SI{28}{\day} hydrated alite. Imaged at a high magnification at \SI{350}{\volt} accelerating voltage and a stage bias of \SI{200}{\volt}. The image set was  captured within a timespan of \SI{124}{\second} during continuous electron beam exposure \cite{kleiner.2021}.} %wrong citation - correct: https://zenodo.org/records/5215574
-    \label{fig:ebeam_damage}
-\end{figure}
 
 \FloatBarrier
 \section{Laser Ablation - Inductively Coupled Plasma - Mass Spectrometry (LA-ICP-MS)}

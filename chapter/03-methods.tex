@@ -34,7 +34,7 @@ The embedded specimen will then be degassed in two \SI{30}{\min} cycles.
 
 After hardening for \SI{24}{\hour} in an oven at \SI{40}{\celsius}, the specimen can be polished.
 This is done in multiple steps using diamond-oil-slurries.
-The particle sizes of the diamond pastes will be sequentially reduced (15, 9, 3, 1 down to \SI{0.25}{\micro\metre}).
+The particle sizes of the diamond pastes will be sequentially reduced (15, 9, 3, 1 down to \SI{0.25}{\micro\meter}).
 While this polishing method is good enough for many applications like BSE- or EDX-imaging, high-resolution imaging or \ac{EBSD} require even better surface qualities.
 
 \subsection{Argon Broad Ion Beam polishing (moving specimen)}
@@ -70,8 +70,10 @@ The mask and the specimen surface are arranged in a way that only \SIrange{20}{1
     \caption{Illustration of the \ac{ArBIB} sectioning principle for a stationary specimen.}
     \label{fig:bib}
 \end{figure}
-\FloatBarrier
 
+TODO DAMAGES
+
+\FloatBarrier
 \section{SEM / Focussed Ion Beam}
 \label{sec:sem}
 
@@ -89,17 +91,18 @@ While the \ac{SEM} is widley used to analyze cement based materials, it has its 
 In contrast to an light microscope, it can alter the specimen during the observation significantly.
 For example, early publications define \csh as gel.
 In one part, this due to its low crystallinity, which is not detectable using \ac{XRD} but only \ac{TEM}.
-On the other part, the \csh-crystals appeared gel like due to preparation artifacts and sevier electron beam damage of the water containing phases.
+On the other part, the \csh-crystals appeared gel like due to preparation artifacts and severe electron beam damage of the water containing phases.
 This causes them to melt into a gel-like structure, hence its early name.
-Nowadays, this is not an issue anymore due to significant progress in the sensitivity of the dectectors of electron microscopes.
-However, depending on the magnification and used detectors (e.g. \ac{EDX}), a lot of energy might be introduced on the imaged surface, causing electron beam damage.
-This damage can cause \csh-structures to bent or melt and introduce pores within originally compact phases (Figre~\ref{fig:ebeam_damage}).
+Nowadays, this is less of an issue anymore due to significant progress in the sensitivity of the detectors of electron microscopes.
+However, to obtain enough signal for some detectors (e.g. \ac{EDX} or \ac{EBSD}), intensive electron beam exposure might still be required, which can cause visible damage \cite{rossen.2017}.
+Also, at very high magnifications, the energy density is very high even at low voltages and currents.
+This can cause \csh-structures to bent or melt and introduce pores within originally compact phases (Figre~\ref{fig:ebeam_damage}).
 
 \begin{figure}[h!]
     \centering
 
 	\includegraphics[width=\textwidth]{methods/ebeam_damage.png}
-    \caption{Electron beam damage of a \csh needle of \SI{28}{\day} hydrated alite. Imaged at a high magnification at \SI{350}{\volt} accelerating voltage and a stage bias of \SI{200}{\volt}. The image set was  captured within a timespan of \SI{124}{\second} during continuous electron beam exposure \cite{kleiner.2021}.} %wrong citation - correct: https://zenodo.org/records/5215574
+    \caption{Electron beam damage of a \csh needle of \SI{28}{\day} hydrated alite. SE images captured at \SI{350}{\volt} accelerating voltage and \SI{200}{\volt} stage bias. The image set was captured within \SI{124}{\second} during continuous electron beam exposure \cite{kleiner.2021}.} %wrong citation - correct: https://zenodo.org/records/5215574
     \label{fig:ebeam_damage}
 \end{figure}
 
@@ -110,7 +113,7 @@ This damage can cause \csh-structures to bent or melt and introduce pores within
 \ac{EDX} is a widely used technology available even on smaller \ac{SEM}-devices.
 It is based on the interaction of the electron beam with the sample surface.
 The electrons in the atoms of the sample are excited by the electron beam and subsequently emit an individual X-ray pattern that enables the source atoms to be identified.
-However, the excitation voltages has to be about twice as high than the excpected X-ray-energyies $K_\alpha$ or $K_l$ of the expected elements to collect enough signal.
+However, the excitation voltages has to be about twice as high than the expected X-ray-energyies $K_\alpha$ or $K_l$ of the expected elements to collect enough signal.
 This results in a minimal required electron beam voltage of \SI{12}{\kilo\volt} to measure Fe with a $K_{\alpha}$ of \SI{6.4}{\kilo\electronvolt}. % https://www.nist.gov/pml/x-ray-transition-energies-database
 
 However, a high powered electron beam can also damage specimens.
@@ -135,6 +138,7 @@ This may result in a geometrical deformation as shown in Figure~\ref{fig:ebeam_d
     \label{fig:edx_damage}
 \end{figure}
 
+- data overlap due to volume analysis - some mentioned in \cite{rossen.2017}
 
 \FloatBarrier
 \subsection{Electron Backscatter Diffraction (EBSD)}

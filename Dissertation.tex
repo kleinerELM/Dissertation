@@ -43,10 +43,9 @@
 
 \begin{document}
 	\frontmatter  % start front matter section
-		\selectlanguage{german}
-		%\input{additionals/a-cover}  % include correct title page
+		%\input{additionals/a-cover}
 		\input{additionals/b-titlepage}  % include correct title page
-		\input{additionals/e-dedication}  % include correct title page
+		\input{additionals/e-dedication}
 
 		\pagenumbering{Roman}  % set page numbering to Roman
 
@@ -69,14 +68,16 @@
 		\input{chapter/01-introduction}
 		\input{chapter/02-literature}
 		\input{chapter/03-methods}
-		\input{chapter/04-results}
+		\input{chapter/04-algorithms}
+		\input{chapter/05-hydrate-rim}
+		%\input{chapter/04-results}
 
 		\printbibliography[title={Bibliography}]  % print bibliography
-
 
 	%\appendix  % begin appendix
 	%	\input{chapter/AA-appendix}  % include appendix content
 
+	\selectlanguage{ngerman}
 	\input{additionals/z-declaration}
 
 \end{document}

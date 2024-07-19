@@ -1,4 +1,4 @@
-\chapter{Methods}
+\chapter{Experimental Methods}
 
 In this thesis, a myriad of different experimental and evaluation methods was used.
 These methods will be detailed in this chapter.
@@ -50,7 +50,7 @@ The \ac{ArBIB} polishing is carried out under low pressure (\SIrange{10}{40}{\mi
 \label{sec:bib_pol_fixed}
 
 Another mode requires a smaller pre-cut sample (5\,$\times$\,3\,$\times$\,\SI{10}{\cubic\milli\meter}) in a fixed sample holder.
-The three argon ion beams intersect at a sharp edged tungsten mask forming a horizontal milling sector of approx.~\SI{100}{\degree} (Figure \ref{fig:bib_device}).
+The three argon ion beams intersect at a sharp edged tungsten mask forming a horizontal milling sector of approximately of \SI{100}{\degree} (Figure \ref{fig:bib_device}).
 The mask and the specimen surface are arranged in a way that only \SIrange{20}{100}{\micro\meter} of the sample are exposed to the ion beam above the mask (Figure \ref{fig:bib_scheme}).
 
 \begin{figure}[h!]
@@ -70,10 +70,8 @@ The mask and the specimen surface are arranged in a way that only \SIrange{20}{1
     \caption{Illustration of the \ac{ArBIB} sectioning principle for a stationary specimen.}
     \label{fig:bib}
 \end{figure}
-
-TODO DAMAGES
-
 \FloatBarrier
+
 \section{SEM / Focussed Ion Beam}
 \label{sec:sem}
 
@@ -101,7 +99,7 @@ This can cause \csh-structures to bent or melt and introduce pores within origin
 \begin{figure}[h!]
     \centering
 
-	\includegraphics[width=\textwidth]{methods/ebeam_damage.png}
+	\includegraphics[width=\textwidth]{methods/ebeam_damage.pdf}
     \caption{Electron beam damage of a \csh needle of \SI{28}{\day} hydrated alite. SE images captured at \SI{350}{\volt} accelerating voltage and \SI{200}{\volt} stage bias. The image set was captured within \SI{124}{\second} during continuous electron beam exposure \cite{kleiner.2021}.} %wrong citation - correct: https://zenodo.org/records/5215574
     \label{fig:ebeam_damage}
 \end{figure}
@@ -113,7 +111,7 @@ This can cause \csh-structures to bent or melt and introduce pores within origin
 \ac{EDX} is a widely used technology available even on smaller \ac{SEM}-devices.
 It is based on the interaction of the electron beam with the sample surface.
 The electrons in the atoms of the sample are excited by the electron beam and subsequently emit an individual X-ray pattern that enables the source atoms to be identified.
-However, the excitation voltages has to be about twice as high than the expected X-ray-energyies $K_\alpha$ or $K_l$ of the expected elements to collect enough signal.
+However, the excitation voltages has to be about twice as high than the excpected X-ray-energyies $K_\alpha$ or $K_l$ of the expected elements to collect enough signal.
 This results in a minimal required electron beam voltage of \SI{12}{\kilo\volt} to measure Fe with a $K_{\alpha}$ of \SI{6.4}{\kilo\electronvolt}. % https://www.nist.gov/pml/x-ray-transition-energies-database
 
 However, a high powered electron beam can also damage specimens.
@@ -141,6 +139,7 @@ This may result in a geometrical deformation as shown in Figure~\ref{fig:ebeam_d
 - data overlap due to volume analysis - some mentioned in \cite{rossen.2017}
 
 \FloatBarrier
+
 \subsection{Electron Backscatter Diffraction (EBSD)}
 \label{sec:ebsd}
 
@@ -229,20 +228,17 @@ This well known effect {\color{red} [src]} can be fairly easily corrected in pos
 
 However, there are more severe uncorrectable artifacts. 
 Since cementitious material is not conductive and the trenches are not coated throughout, charging effects can negatively influence the image quality (e.g. Figure~\ref{fig:fib_artifacts_c} and \ref{fig:fib_artifacts_a}) or cause uncorrectable image drift during the process.
-redepositioning of the removed material usually happens on the trenches, however it may also appear in front of the \ac{ROI} or even on the specimen surface after longer imaging periods as shown in Figure~\ref{fig:fib_artifacts_b} and \ref{fig:fib_artifacts_c}.
-
-To avoid or at least reduce these issues, the \ac{ROI} was cut free and a lifted out of the bulk material.
+redepositioning of the removed material usually happens on the trenches, however it may also appear in front of the \ac{ROI} or even on the specimen surface after longer imaging periods as shown in Figure~\ref{fig:fib_artifacts_b} and \ref{fig:fib_artifacts_c}.To avoid or at least reduce these issues, the \ac{ROI} was completely cut free and a lift-out was done.
 Therefore, a needle is inserted and connected to the cube using the platinum coating process before the cube is complete cut loose from the bulk material.
 Afterwards, the cube is welded to a copper comb as shown in Figure~\ref{fig:fib_liftout}.
 
-\begin{figure}[htb!]
+\begin{figure}[h!]
     \centering
 
 	\includegraphics[width=\textwidth]{methods/fib_liftout.jpg}
     \caption{\SI{20}{\micro\meter} wide specimen (A). On the left is the needle welded to the specimen (B). They are navigated and welded to the copper comb (C). The platinum vapor source (D) used for welding is visible on the right.}
     \label{fig:fib_liftout}
 \end{figure}
-
 
 \FloatBarrier
 \section{Laser Ablation - Inductively Coupled Plasma - Mass Spectrometry (LA-ICP-MS)}
@@ -270,7 +266,7 @@ However, each method has different measurement ranges as illustrated in Figure~\
     \centering
 
 	\includegraphics[width=.7\textwidth]{methods/pore_sizes.pdf}
-    \caption{Phase and pore sizes compared to the measurement ranges of selected methods. Redrawn and extended based on Romberg \cite{romberg.1978} and Setzer \cite{setzer.1994}.}
+    \caption{Phase and pore sizes compared to the measurement ranges of selected methods. Redrawn and extended based on {\color{red}Romberg [???]}.} %Romberg, H.: Zementsteinporen und Betoneigenschaften. Beton-Informationen, 78-05. 	Beton-Verl., Düsseldorf, 1978.
     \label{fig:pore_sizes}
 \end{figure}
 
@@ -373,7 +369,7 @@ If a larger pore (D) is only connected to smaller pore (C) or is isolated, it ca
 \end{figure}
 
 To obtain data about the capillary and gel porosity, the DSC Polyma 214 from Netzsch, connected to the cooling system Intercooler IC70 was used.
-The specimens were sliced to fit the small aluminium crucibles with a inner volume of approx.~\SI{60}{\micro\litre}.
+The specimens were sliced to fit the small aluminium crucibles with a inner volume of approx. \SI{60}{\micro\litre}.
 These crucibles sealed air tight by cold-welding a lid under pressure and measured against an empty reference crucible.
 
 \begin{figure}[!htb]

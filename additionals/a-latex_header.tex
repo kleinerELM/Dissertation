@@ -74,9 +74,6 @@
 \usepackage{placeins}
 \usepackage{todonotes}  % creates to-do items and figures
 \usepackage{graphicx}  % include graphics
-\usepackage{datetime}
-\newdateformat{myDateFormat}{\THEDAY. \monthname[\THEMONTH] \THEYEAR}
-\def\myCompileDate{\myDateFormat\today}
 
 \usepackage[style = numeric-comp,
 			backend = bibtex,
@@ -92,6 +89,7 @@
 
 \addto\extrasngerman{\sisetup{locale = DE}}
 \addto\extrasenglish{\sisetup{locale = US}}
+
 
 \usepackage{enumitem}  % improves enumerate and itemize environment
 
@@ -169,7 +167,7 @@
 				]{draftwatermark}
 
 	\def\myTypeOfDocumentPDF{\myTypeOfDocument\ (Entwurfsversion)}
-	\ifoot*{\color{gray} (Entwurf vom \myDateFormat\today)}
+	\ifoot*{\color{gray} (Entwurf vom \today)}%\myDateFormat
 \else
 	\def\myTypeOfDocumentPDF{\myTypeOfDocument}
 \fi

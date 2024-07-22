@@ -19,7 +19,7 @@ A selection of methods used within this work are listed here:
 
 A selection of these methods is described in more detail in the following sections.
 
-\subsection{Mechanical polishing}
+\subsection{Mechanical polishing} -> 
 \label{sec:mech_pol}
 
 %The standard polished cross section is often used to obtain \ac{BSE} images.
@@ -87,20 +87,20 @@ While this ion source allows for another way of imaging, it also enables to cut 
 
 While the \ac{SEM} is widley used to analyze cement based materials, it has its pitfalls.
 In contrast to an light microscope, it can alter the specimen during the observation significantly.
-For example, early publications define \csh as gel.
+For example, early publications define \ac{CSH} as gel.
 In one part, this due to its low crystallinity, which is not detectable using \ac{XRD} but only \ac{TEM}.
-On the other part, the \csh-crystals appeared gel like due to preparation artifacts and severe electron beam damage of the water containing phases.
+On the other part, the \ac{CSH}-crystals appeared gel like due to preparation artifacts and severe electron beam damage of the water containing phases.
 This causes them to melt into a gel-like structure, hence its early name.
 Nowadays, this is less of an issue anymore due to significant progress in the sensitivity of the detectors of electron microscopes.
 However, to obtain enough signal for some detectors (e.g. \ac{EDX} or \ac{EBSD}), intensive electron beam exposure might still be required, which can cause visible damage \cite{rossen.2017}.
 Also, at very high magnifications, the energy density is very high even at low voltages and currents.
-This can cause \csh-structures to bent or melt and introduce pores within originally compact phases (Figre~\ref{fig:ebeam_damage}).
+This can cause \ac{CSH}-structures to bent or melt and introduce pores within originally compact phases (Figure~\ref{fig:ebeam_damage}).
 
 \begin{figure}[h!]
     \centering
 
 	\includegraphics[width=\textwidth]{methods/ebeam_damage.pdf}
-    \caption{Electron beam damage of a \csh needle of \SI{28}{\day} hydrated alite. SE images captured at \SI{350}{\volt} accelerating voltage and \SI{200}{\volt} stage bias. The image set was captured within \SI{124}{\second} during continuous electron beam exposure \cite{kleiner.2021}.} %wrong citation - correct: https://zenodo.org/records/5215574
+    \caption{Electron beam damage of a \ac{CSH} needle of \SI{28}{\day} hydrated alite. SE images captured at \SI{350}{\volt} accelerating voltage and \SI{200}{\volt} stage bias. The image set was captured within \SI{124}{\second} during continuous electron beam exposure \cite{kleiner.2021}.} %wrong citation - correct: https://zenodo.org/records/5215574
     \label{fig:ebeam_damage}
 \end{figure}
 
@@ -111,11 +111,11 @@ This can cause \csh-structures to bent or melt and introduce pores within origin
 \ac{EDX} is a widely used technology available even on smaller \ac{SEM}-devices.
 It is based on the interaction of the electron beam with the sample surface.
 The electrons in the atoms of the sample are excited by the electron beam and subsequently emit an individual X-ray pattern that enables the source atoms to be identified.
-However, the excitation voltages has to be about twice as high than the excpected X-ray-energyies $K_\alpha$ or $K_l$ of the expected elements to collect enough signal.
-This results in a minimal required electron beam voltage of \SI{12}{\kilo\volt} to measure Fe with a $K_{\alpha}$ of \SI{6.4}{\kilo\electronvolt}. % https://www.nist.gov/pml/x-ray-transition-energies-database
+However, the excitation voltages has to be about twice as high than the excpected X-ray emission lines \acs{Ka} or \acs{Kb} of the expected elements to collect enough signal.
+This results in a minimal required electron beam voltage of \SI{12}{\kilo\volt} to measure Fe with a \ac{Ka} of \SI{6.4}{\kilo\electronvolt} \cite{Hudson.2003}. 
 
 However, a high powered electron beam can also damage specimens.
-For example, C-S-H phases and portlandite may be dehydrated after a prolonged \ac{EDX}-measurement.
+For example, \ac{CSH} phases and portlandite may be dehydrated after a prolonged \ac{EDX}-measurement.
 This may result in a geometrical deformation as shown in Figure~\ref{fig:ebeam_damage} or may also introduce pores with a diameter of several \SI{}{\nano\meter} as demonstrated in Figure~\ref{fig:edx_damage_a} and \ref{fig:edx_damage_b} which are slices of a \ac{FIB}-stack before and after an \ac{EDX}-measurement.
 
 \begin{figure}[H]
@@ -132,7 +132,7 @@ This may result in a geometrical deformation as shown in Figure~\ref{fig:ebeam_d
 		\caption{Damaged surface after an \ac{EDX}-measurement.}
 		\label{fig:edx_damage_b}
 	\end{subfigure}
-    \caption{Effect of \ac{EDX} on a hydrated \alite surface, prepared using \ac{FIB}.} %({\color{red} \SI{xx}{\kilo\volt},\SI{xx}{\pico\ampere} for \SI{xx}{\seconds}}) 
+    \caption{Effect of \ac{EDX} on a hydrated \ac{C3S} surface, prepared using \ac{FIB}.} %({\color{red} \SI{xx}{\kilo\volt},\SI{xx}{\pico\ampere} for \SI{xx}{\seconds}}) 
     \label{fig:edx_damage}
 \end{figure}
 
@@ -155,7 +155,7 @@ This allows the targeted removal of material or to deposit coatings to protect a
 The device used in this thesis provides carbon an platinum coatings.
 
 These capabilities, allow to capture three-dimensional datasets using one or a combination of the detectors available (e.g. \ac{BSE}, \ac{EDX}, \ac{EBSD}).
-However, in contrast to X-ray computer tomography, this method is intrinsic destructive.
+In contrast to X-ray computer tomography, this method is intrinsic destructive.
 
 The cementitious specimen should be embedded in resin and at least mechanically polished to find a suitable \ac{ROI} using the \ac{BSE} detector.
 Resin filled pores have advantages for later pore segmentation.
@@ -215,7 +215,7 @@ The recording of a 10\,$\times$\,10\,$\times$\,\SI{10}{\cubic\micro\meter} cube 
 		\caption{Curtaining and charging effects.}
 		\label{fig:fib_artifacts_a}
 	\end{subfigure}
-    \caption{Imaging issues of hydrated and embedded \alite specimens during the \ac{FIBnt}-process within the bulk material.}
+    \caption{Imaging issues of hydrated and embedded \ac{C3S} specimens during the \ac{FIBnt}-process within the bulk material.}
     \label{fig:fib_artifacts}
 \end{figure}
 
@@ -243,13 +243,13 @@ Afterwards, the cube is welded to a copper comb as shown in Figure~\ref{fig:fib_
 \FloatBarrier
 \section{Laser Ablation - Inductively Coupled Plasma - Mass Spectrometry (LA-ICP-MS)}
 
-A \ac{LAICPMS} consists of a laser to ablate the specimen surface, a microscope to aim the laser at the measurement side, a inductively coupled plasma (ICP) to ionize the ablated flow of material within a carrier gas and a mass spectrometer (MS).
+A \ac{LAICPMS} consists of a laser to ablate the specimen surface, a microscope to aim the laser at the measurement side, a \ac{ICP} to ionize the ablated flow of material within a carrier gas and a \ac{ms}.
 This allows to detect minor and trace elements as well as isotopes in a spatially resolved manner.
 Therefore, \ac{LAICPMS} is in wide use as an analytical method to determine the age of geological samples \cite{liu.2013} or for spatially resolved elemental mapping of heavy metals in biological tissue \cite{limbeck.2015}.
 
-The laser ablation was done with a ns-Nd:YAG-laser at the quintupled wavelength of 213\,nm (ESI NWR 213).
-A quadrupole ICP-MS (Perkin Elmer NexION 300D) was used for the elemental analysis.
-The carrier gas chosen was helium due to its well-known advantages over other transport gases, such as its higher sensitivity for most ICP-MS instruments and smaller particle size distributions \cite{gunther.1999}.
+The laser ablation was done with a ns-Nd:YAG-laser at the quintupled wavelength of 213\,nm (\textit{ESI NWR 213}).
+A quadrupole \ac{ICP}-\ac{MS} (\textit{NexION 300D} from \textit{Perkin Elmer}) was used for the elemental analysis.
+The carrier gas chosen was helium due to its well-known advantages over other transport gases, such as its higher sensitivity for most \ac{ICP}-\ac{MS} instruments and smaller particle size distributions \cite{gunther.1999}.
 The samples were placed in a two-volume sample cell and purged for at least 10\,min.
 
 \FloatBarrier
@@ -270,7 +270,7 @@ However, each method has different measurement ranges as illustrated in Figure~\
     \label{fig:pore_sizes}
 \end{figure}
 
-Image based methods like the SEM or the \textmu-CT have already been introduced above.
+Image based methods like the \ac{SEM} or the \ac{mCT} have already been introduced above.
 However, they inherently have either resolution issues, only give a 2-dimensional view or do not give representative results due to a small \ac{ROI}.
 Therefore, more indirect methods based on physical principles can help to obtain more statistically significant results.
 In this thesis, \ac{MIP} and \ac{LTDSC} were used as complementary methods to the image based methods.
@@ -282,7 +282,7 @@ In this thesis, \ac{MIP} and \ac{LTDSC} were used as complementary methods to th
 \ac{MIP} is a rather old and well known method to measure the \ac{PSD} of porous materials.
 However, to to the use of hazardous mercury and therefore high cost, it has a reduced relevance today.
 Nevertheless, it is a reliable method to measure open porosity down to a few \SI{}{\nano\meter}.
-In this thesis, an Autopore IV 9500 (Micromeritics GmbH) was used.
+In this thesis, an \textit{Autopore IV 9500} from \textit{Micromeritics GmbH} was used for the \ac{MIP} investigations.
 It requires small pieces of dried specimen of about 5\,$\times$\,5\,$\times$\,\SI{5}{\cubic\micro\meter}.
 It stepwise covers an pressure range of 0.003 to \SI{206}{\mega\pascal}, which roughly translates to 0.002 to \SI{200}{\micro\meter}.
 However, values above {\color{red} ~\SI{20}{\micro\meter} should be ignored, since these are mostly micro cracks}.% geschätzt aus bettinas arbeit
@@ -291,7 +291,7 @@ However, values above {\color{red} ~\SI{20}{\micro\meter} should be ignored, sin
 \subsection{Low Temperature - Differential Scanning Calorimetry (LT-DSC)}
 \label{fig:ltdsc}
 
-Another, less common method to indirectly measure the \ac{PSD}, especially in the nano-pore range, is the \ac{LTDSC}.
+Another less common method to indirectly measure the \ac{PSD}, especially in the nano-pore range, is the \ac{LTDSC}.
 Its principle is based on the freezing behavior of pore water, the pore type and pore size.
 Brun et al. \cite{brun.1977} proposed an approximate solution to convert between freezing/melting point of water and the pore radius for cylindrical pores.
 The equation for freezing is :
@@ -310,7 +310,7 @@ and for melting:
 	\label{eq:brun_melt}
 \end{equation}
 
-while $\Delta T $ is defined as:
+while $\Delta T$ is defined as:
 
 \begin{equation}
 	\Delta T = T - T_\text{m}
@@ -324,7 +324,7 @@ while $\Delta T $ is defined as:
 However, $\Delta T$ measurements below \SI{-40}{\celsius} are not covered by these equations.
 
 Brun et al. \cite{brun.1977} considered an adsorbed water film in the pores (thickness of \SI{.8}{\nano\meter}) and also a temperature correction for surface tension and for the melting entropy.
-The relationship resulting from Equations~\ref{eq:brun_freeze} and \ref{eq:brun_melt} are plotted in Figure~\ref{fig:pore_sizes}.
+The relationship resulting from Equations~\ref{eq:brun_freeze} and \ref{eq:brun_melt} are plotted in Figure~\ref{fig:freezing_depression}.
 
 \begin{figure}[!htb]
     \centering
@@ -350,7 +350,7 @@ The relationship resulting from Equations~\ref{eq:brun_freeze} and \ref{eq:brun_
         \end{axis}
     \end{tikzpicture}
     \caption{Depression of the freezing or melting point as functions of the pore radius. Calculated according to Brun et al. \cite{brun.1977} for water using Equations~\ref{eq:brun_freeze} and \ref{eq:brun_melt}.}
-    \label{fig:pore_sizes}
+    \label{fig:freezing_depression}
 \end{figure}
 % TODO Stockhausen??
 
@@ -368,7 +368,7 @@ If a larger pore (D) is only connected to smaller pore (C) or is isolated, it ca
     \label{fig:freeze}
 \end{figure}
 
-To obtain data about the capillary and gel porosity, the DSC Polyma 214 from Netzsch, connected to the cooling system Intercooler IC70 was used.
+To obtain data about the capillary and gel porosity, the \textit{DSC Polyma 214} from \textit{Netzsch}, connected to the cooling system \textit{Intercooler IC70} was used.
 The specimens were sliced to fit the small aluminium crucibles with a inner volume of approx. \SI{60}{\micro\litre}.
 These crucibles sealed air tight by cold-welding a lid under pressure and measured against an empty reference crucible.
 

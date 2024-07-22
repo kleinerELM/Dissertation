@@ -2,6 +2,7 @@
 	"latex-workshop.latex.tools": [
 
 
+
 		{
 			"name": "latexmk",
 			"command": "latexmk",
@@ -125,7 +126,13 @@
 				"%DOC%.tex"
 			],
 			"env": {}
-		}
+		},
+        {
+            "name": "updatepdf",
+            "command": "${@command:latex-workshop.refresh-viewer}" ,
+            "args": [],
+            "env": {}
+        }
 	],
 	"cSpell.words": [
 		"poroimetry"

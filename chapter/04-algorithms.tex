@@ -1,7 +1,7 @@
 \chapter{Algorithms}
 
 This chapter descripes the algorithms used to process and evaluate image data.
-The code used in this chapter is publicly available and was written for Python 3.x.
+The code used in this chapter is publicly available and was written for \textit{Python 3.x}.
 
 \section{hydrate rim measurement}
 
@@ -22,7 +22,7 @@ Nevertheless, the hydration products can not be separated using a simple thresho
 
 \begin{figure}[h]
 	\centerline{\includegraphics[width=\columnwidth]{hydrate-rim/fig1.horizontal.png}}
-	\caption{Detail of the stitched, unprocessed \ac{BSE} images of embedded and polished alite sections after 7 (A) and 28 days (B) of hydration. Identifiable phases from dark to light grey: resin/pores, \ac{CSH}, \ac{CH}, alite. The images also show a typical deviation in image contrast, even after using identical imaging parameters (12\,kV, 0.8\,nA). \label{fig:hlt_contrast}}
+	\caption{Detail of the stitched, unprocessed \ac{BSE} images of embedded and polished alite sections after 7 (A) and 28 days (B) of hydration. Identifiable phases from dark to light grey: resin/pores, \ac{CSH}, \ac{CH}, alite. The images also show a typical deviation in image contrast, even after using identical imaging parameters (\SI{12}{\kilo\volt}, \SI{12}{\nano\ampere}). \label{fig:hlt_contrast}}
 \end{figure}
 
 Therefore, the software can also be used to process pre-segmented images (e.g. manually segmented or segmented by machine learning algorithms).
@@ -37,9 +37,14 @@ Therefore, the software can also be used to process pre-segmented images (e.g. m
 
 After the segmentation, the holes within segmented clinker particles were removed to avoid errors in the following analysis.
 
-Only clinker particles with a grain diameter between 0.3 and 9.0\,\textmu m (grain area between 0.07 to 63.6\,\textmu m$^{2}$) were used to determine the hydrate layer thickness.
+Only clinker particles with a grain diameter between 0.3 and \SI{9.0}{\micro\meter} (grain area between 0.07 to \SI{63.6}{\square\micro\meter}) were used to determine the hydrate layer thickness.
 Furthermore, particles with a circularity lower than 0.3 are excluded to avoid extreme sectioning effects.
 For very oval particles, the hydrate fringe could otherwise be greatly overestimated and undercuts could also lead to undesirable results.
+
+\begin{figure}[htb]
+	\centerline{\includegraphics[width=.3\columnwidth]{hydrate-rim/sectioning_effect.pdf}}
+	\caption{Sketch to illustrate the sectioning effect. $a << b$ \label{fig:sectioning_effect}} % add graph?
+\end{figure}
 
 In addition, the clinker particles shrink over time and small grains are consumed.
 Since the selected size of the grain diameters was kept constant regardless of the specimen age, this effect is not taken into account in this analysis. %kann man das irgendwie messen, wie sich der Korngrößendurchmesser ändert mit der Zeit? Einen Peak gabs ja leider nicht... Eventuell mal Korngrößenverteilungen gegenüberstellen...
@@ -60,17 +65,23 @@ The \ac{HLT} was determined using 360 steps, representing a 1$^\circ$ angle per 
 To achieve this, the distance from the alite phase (left-hand side of Figure \ref{fig:hlt-method}C, blue) to the next pore (red) is measured.
 If there is no adjacent pore within $r_\text{ROI}$, the measurement was ignored (Figure \ref{fig:hlt-method}D, areas with adjacent grey).
 To reduce errors, 3$^\circ$ before and after those areas are ignored as well (Figure \ref{fig:hlt-method}D, marked as darker vertical lines).
-Furthermore, measurements of grains which provided less than [TODO]x valid measurements are excluded from the statistical analysis.
+Furthermore, measurements of grains which provided less than 90 valid measurements (\SI{25}{\percent} of 360 possible measurements) are excluded from the statistical analysis. % less than 25% of 360 possible measurements
 
 \begin{figure*}[tb]
 \centerline{\includegraphics[width=\textwidth]{hydrate-rim/Mechanism.pdf}}
 \caption{Illustration of the processing that is done to measure the \ac{HLT}. In the center of A, B and E is an unhydrated clinker (1) grain within alite hydrated for 7 days. A: raw image; B: segmented image (red: pores, green: hydrates, blue: alite); C: transformation of B into polar coordinates, the clinker grain (blue) is on the left; D: like C, but only with the identified hydrate in green (grey areas were excluded from processing); E: version of D transformed into Cartesian coordinates.\label{fig:hlt-method}}
 \end{figure*}
 
-Subsequently, the histogram of the HLT distribution is analyzed.
-To safely determine the maxima $l_\text{max}$, a function is fit to the \ac{HLT} histogram using Equation \eqref{eqn:fitcurve}, where $l$ is the \ac{HLT} and $f$ is the frequency.
+Subsequently, the histogram of the \ac{HLT} distribution is analyzed.
+To safely determine the most frequent \ac{HLT}, a function is fitted to the histogram using Equation \eqref{eqn:fitcurve}.
 
 \begin{equation}
 	\label{eqn:fitcurve}
 	f = a \cdot e^{-0.5 \left( \frac{log(l-d)-b}{c} \right)}
 \end{equation}
+\begin{conditions}
+	f				&	frequency, \\
+	a, b, c, d		&   fit parameters, \\
+	l				&	\ac{HLT}, \\
+	l_\text{max}	&	most frequent \ac{HLT}.
+\end{conditions}

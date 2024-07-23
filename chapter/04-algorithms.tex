@@ -5,7 +5,56 @@ The code used in this chapter is publicly available and was written for \textit{
 
 \section{hydrate rim measurement}
 
-The hydrate rim measurement is done on \ac{BSE} images of embedded ad polished hydrated clinker phases.
+The hydrate rim measurement is done using \ac{BSE} images of embedded and polished hydrated clinker phases.
+In other words, all measurements are taken on random sections through grains and their hydrate layers.
+This causes an unavoidable sectioning effect as illustrated in Figure \ref{fig:sectioning_effect_a}.
+This means that, depending on the cutting position, the \ac{HLT} can be significantly overestimated (Figure \ref{fig:sectioning_effect_b}, blue).
+
+\begin{figure}[h!]
+    \centering
+
+	\begin{subfigure}{0.45\textwidth}
+		\centerline{\includegraphics[width=.9\textwidth]{hydrate-rim/sectioning_effect_3D.pdf}}
+		\caption{Sketch to illustrate the sectioning effect. } % add graph?
+		\label{fig:sectioning_effect_a}
+
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.54\textwidth}
+
+		\begin{tikzpicture}
+			\begin{axis}[
+					legend style={at={(0.97,.94)},anchor=north east},
+					xmin=0, xmax=1.4,
+					ymin=0, ymax=1.4,
+					width=0.7\textwidth,
+					height=0.7\textwidth,
+					grid=major,
+					xlabel={sectioning distance from center point},
+					ylabel={radius, \acs{HLT}},
+					ytick={0,.3,1,1.3},
+					xtick={0,.3,1,1.3},
+					grid style={line width=.1pt, draw=gray!10},
+					legend style={at={(1.03,.5)},anchor=west,font=\tiny}
+				]
+				\addplot[green,  domain=0:1, samples=360] {sqrt(2*1*(x+1) - (x+1)^2)};
+				\addlegendentry{grain radius};
+				\addplot[red, domain=0:1.35, samples=1000] {sqrt(2*1.3*(x+1.3) - (x+1.3)^2)};
+				\addlegendentry{outer radius};
+				\addplot[blue,   domain=0:1, samples=1000] {sqrt(2*1.3*(x+1.3) - (x+1.3)^2) - sqrt(2*1*(x+1) - (x+1)^2)};
+				\addlegendentry{\acs{HLT}};
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Influence of the sectioning position on the \acs{HLT}}
+		\label{fig:sectioning_effect_b}
+	\end{subfigure}
+	
+    \caption{Illustration of the sectioning effect of a spherical grain. $a \ll b$}
+    \label{fig:sectioning_effect}
+\end{figure}
+
+For the example chosen in Figure \ref{fig:sectioning_effect_b}, the effect for a \ac{HLT} of 0.3 is a mean overestimation of 23.8\%. %0,3715/0,3; 1,341
+% https://www.wolframalpha.com/input?i=integral&assumption=%7B%22F%22%2C+%22Integral%22%2C+%22rangestart%22%7D+-%3E%220%22&assumption=%7B%22C%22%2C+%22integral%22%7D+-%3E+%7B%22Calculator%22%2C+%22dflt%22%7D&assumption=%7B%22F%22%2C+%22Integral%22%2C+%22integrand%22%7D+-%3E%22sqrt%282*1.3*%28x%2B1.3%29+-+%28x%2B1.3%29%5E2%29+-+sqrt%282*1*%28x%2B1%29+-+%28x%2B1%29%5E2%29%22&assumption=%7B%22F%22%2C+%22Integral%22%2C+%22rangeend%22%7D+-%3E%22.9%22
 
 First, the image contrast is logarithmically enhanced using the \textit{scikit-image} \cite{vanderWalt.2014} library.
 For most images, a denoising step is recommended using algorithms like Non Local Means \cite{Buades.2011}.
@@ -40,11 +89,6 @@ After the segmentation, the holes within segmented clinker particles were remove
 Only clinker particles with a grain diameter between 0.3 and \SI{9.0}{\micro\meter} (grain area between 0.07 to \SI{63.6}{\square\micro\meter}) were used to determine the hydrate layer thickness.
 Furthermore, particles with a circularity lower than 0.3 are excluded to avoid extreme sectioning effects.
 For very oval particles, the hydrate fringe could otherwise be greatly overestimated and undercuts could also lead to undesirable results.
-
-\begin{figure}[htb]
-	\centerline{\includegraphics[width=.3\columnwidth]{hydrate-rim/sectioning_effect.pdf}}
-	\caption{Sketch to illustrate the sectioning effect. $a << b$ \label{fig:sectioning_effect}} % add graph?
-\end{figure}
 
 In addition, the clinker particles shrink over time and small grains are consumed.
 Since the selected size of the grain diameters was kept constant regardless of the specimen age, this effect is not taken into account in this analysis. %kann man das irgendwie messen, wie sich der Korngrößendurchmesser ändert mit der Zeit? Einen Peak gabs ja leider nicht... Eventuell mal Korngrößenverteilungen gegenüberstellen...

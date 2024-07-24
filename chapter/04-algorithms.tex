@@ -8,14 +8,46 @@ The code used in this chapter is publicly available and was written for \textit{
 The hydrate rim measurement is done using \ac{BSE} images of embedded and polished hydrated clinker phases.
 In other words, all measurements are taken on random sections through grains and their hydrate layers.
 This causes an unavoidable sectioning effect as illustrated in Figure \ref{fig:sectioning_effect_a}.
-This means that, depending on the cutting position, the \ac{HLT} can be significantly overestimated (Figure \ref{fig:sectioning_effect_b}, blue).
+Equations \ref{eq:sectioning_effect_1} and \ref{eq:sectioning_effect_2} can be used to calculate the \ac{HLT} ($t$) for a spherical particle, depending on the sectioning distance from center point ($x$).
+
+\begin{equation}
+	f(x, r) = \sqrt{2r(x+r) - (x+r)^2}
+	\label{eq:sectioning_effect_1}
+\end{equation}
+\begin{conditions}
+	f	&	measured \ac{HLT}, \\
+	r	&   radius, \\
+	x	&   sectioning distance from center point; $0 \leq x \leq r$.
+\end{conditions}
+
+\begin{equation}
+	t(x) = f(x, r_\text{outer}) - f(x, r_\text{grain})
+	\label{eq:sectioning_effect_2}
+\end{equation}
+\begin{conditions}
+	t				&	measured \ac{HLT}, \\
+	r_\text{outer}	&   radius of the grain + hydrade layer, \\
+	r_\text{grain}	&   grain radius.
+\end{conditions}
+
+\begin{equation}
+	M_\text{HLT} = \int_{0}^{i} t(x) \,dx
+	\label{eq:sectioning_effect_3}
+\end{equation}
+\begin{conditions}
+	m_\text{HLT}	&	mean \ac{HLT} of a grain, \\
+	d				&   $0 < i \leq 1$, \\
+	r_\text{grain}	&   grain radius.
+\end{conditions}
+
+Figure \ref{fig:sectioning_effect_b} (blue curve) indicates, that the \ac{HLT} can be significantly overestimated.
 
 \begin{figure}[h!]
     \centering
 
 	\begin{subfigure}{0.45\textwidth}
 		\centerline{\includegraphics[width=.9\textwidth]{hydrate-rim/sectioning_effect_3D.pdf}}
-		\caption{Sketch to illustrate the sectioning effect. } % add graph?
+		\caption{Two imaging planes (blue) at different sectioning positions within a sphere, where $a \ll b$.} % add graph?
 		\label{fig:sectioning_effect_a}
 
 	\end{subfigure}
@@ -45,23 +77,25 @@ This means that, depending on the cutting position, the \ac{HLT} can be signific
 				\addlegendentry{\acs{HLT}};
 			\end{axis}
 		\end{tikzpicture}
-		\caption{Influence of the sectioning position on the \acs{HLT}}
+		\caption{Influence of the sectioning position on the \acs{HLT} ($t(x)$), calculated using Equation \ref{eq:sectioning_effect_2}.}
 		\label{fig:sectioning_effect_b}
 	\end{subfigure}
 	
-    \caption{Illustration of the sectioning effect of a spherical grain. $a \ll b$}
+    \caption{Illustration of the sectioning effect of a spherical grain. }
     \label{fig:sectioning_effect}
 \end{figure}
 
-For the example chosen in Figure \ref{fig:sectioning_effect_b}, the effect for a \ac{HLT} of 0.3 is a mean overestimation of 23.8\%. %0,3715/0,3; 1,341
 % https://www.wolframalpha.com/input?i=integral&assumption=%7B%22F%22%2C+%22Integral%22%2C+%22rangestart%22%7D+-%3E%220%22&assumption=%7B%22C%22%2C+%22integral%22%7D+-%3E+%7B%22Calculator%22%2C+%22dflt%22%7D&assumption=%7B%22F%22%2C+%22Integral%22%2C+%22integrand%22%7D+-%3E%22sqrt%282*1.3*%28x%2B1.3%29+-+%28x%2B1.3%29%5E2%29+-+sqrt%282*1*%28x%2B1%29+-+%28x%2B1%29%5E2%29%22&assumption=%7B%22F%22%2C+%22Integral%22%2C+%22rangeend%22%7D+-%3E%22.9%22
+For example, for a \ac{HLT} of 0.3 (as shown in Figure \ref{fig:sectioning_effect_b}) a mean overestimation of 23.8\% can be expected. %0,3715/0,3
+
 
 \begin{figure}[h]
-	\centerline{\includegraphics[width=\columnwidth]{hydrate-rim/sectioning_overestimation.pdf}}
-	\caption{Overestimation of the \ac{HLT} depending from the HLT / grain diameter ratio and the integral limit of the function $d$ (Figure \ref{fig:sectioning_effect_b}, blue) }
+	\centerline{\includegraphics[width=\columnwidth, trim={0 1.7cm 0 1.8cm}, clip]{hydrate-rim/sectioning_overestimation.pdf}}
+	\caption{Overestimation of the \ac{HLT} depending on the HLT / grain diameter ratio and the integral limit $i$ (see Equation \ref{eq:sectioning_effect_2}). }
 	\label{fig:hlt_overestimation}
 \end{figure}
 
+%% actual algorithm description
 First, the image contrast is logarithmically enhanced using the \textit{scikit-image} \cite{vanderWalt.2014} library.
 For most images, a denoising step is recommended using algorithms like Non Local Means \cite{Buades.2011}.
 The script uses the implementation provided by the \textit{OpenCV} \cite{Bradski.2000} library.

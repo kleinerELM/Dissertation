@@ -56,6 +56,12 @@ This means that, depending on the cutting position, the \ac{HLT} can be signific
 For the example chosen in Figure \ref{fig:sectioning_effect_b}, the effect for a \ac{HLT} of 0.3 is a mean overestimation of 23.8\%. %0,3715/0,3; 1,341
 % https://www.wolframalpha.com/input?i=integral&assumption=%7B%22F%22%2C+%22Integral%22%2C+%22rangestart%22%7D+-%3E%220%22&assumption=%7B%22C%22%2C+%22integral%22%7D+-%3E+%7B%22Calculator%22%2C+%22dflt%22%7D&assumption=%7B%22F%22%2C+%22Integral%22%2C+%22integrand%22%7D+-%3E%22sqrt%282*1.3*%28x%2B1.3%29+-+%28x%2B1.3%29%5E2%29+-+sqrt%282*1*%28x%2B1%29+-+%28x%2B1%29%5E2%29%22&assumption=%7B%22F%22%2C+%22Integral%22%2C+%22rangeend%22%7D+-%3E%22.9%22
 
+\begin{figure}[h]
+	\centerline{\includegraphics[width=\columnwidth]{hydrate-rim/sectioning_overestimation.pdf}}
+	\caption{Overestimation of the \ac{HLT} depending from the HLT / grain diameter ratio and the integral limit of the function $d$ (Figure \ref{fig:sectioning_effect_b}, blue) }
+	\label{fig:hlt_overestimation}
+\end{figure}
+
 First, the image contrast is logarithmically enhanced using the \textit{scikit-image} \cite{vanderWalt.2014} library.
 For most images, a denoising step is recommended using algorithms like Non Local Means \cite{Buades.2011}.
 The script uses the implementation provided by the \textit{OpenCV} \cite{Bradski.2000} library.

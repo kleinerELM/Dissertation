@@ -1,119 +1,18 @@
-\chapter{Algorithms}
+\section{Algorithms}
+\label{sec:algorithms}
 
-This chapter descripes the algorithms used to process and evaluate image data.
+This chapter describes the algorithms used to process and evaluate image data.
 The code used in this chapter is publicly available and was written for \textit{Python 3.x}.
 
-\section{hydrate rim measurement}
+\subsection{Hydrate rim measurement}
+\label{subsec:hrm}
 
-The hydrate rim measurement is done using \ac{BSE} images of embedded and polished hydrated clinker phases.
-In other words, all measurements are taken on random sections through grains and their hydrate layers.
-This causes an unavoidable sectioning effect as illustrated in Figure \ref{fig:sectioning_effect_a}.
-Equations \ref{eq:sectioning_effect_1} and \ref{eq:sectioning_effect_2} can be used to calculate the \ac{HLT} ($t$) for a spherical particle, depending on the sectioning distance from center point ($x$).
-
-\begin{equation}
-	f(x, r) = \sqrt{2r(x+r) - (x+r)^2}
-	\label{eq:sectioning_effect_1}
-\end{equation}
-\begin{conditions}
-	f	&	measured \ac{HLT}, \\
-	r	&   radius, \\
-	x	&   sectioning distance from center point; $0 \leq x \leq r$.
-\end{conditions}
-
-\begin{equation}
-	t(x) = f(x, r_\text{outer}) - f(x, r_\text{grain})
-	\label{eq:sectioning_effect_2}
-\end{equation}
-\begin{conditions}
-	t				&	measured \ac{HLT}, \\
-	r_\text{outer}	&   radius of the grain + hydrade layer, \\
-	r_\text{grain}	&   grain radius.
-\end{conditions}
-
-\begin{equation}
-	M_\text{HLT} = \frac{\int_{0}^{i} t(x) \,dx}{r_\text{grain}}
-	\label{eq:sectioning_effect_3}
-\end{equation}
-\begin{conditions}
-	M_\text{HLT}	&	mean \ac{HLT} of a grain, \\
-	r_\text{grain}	&   grain radius, \\
-	d				&   $0 < i \leq r_\text{grain}$.
-\end{conditions}
-
-Figure \ref{fig:sectioning_effect_b} (blue curve) indicates, that the \ac{HLT} can be significantly overestimated.
-This becomes more prevalent the closer the cut through a particle is to the particle border.
-% https://www.wolframalpha.com/input?i=integral&assumption=%7B%22F%22%2C+%22Integral%22%2C+%22rangestart%22%7D+-%3E%220%22&assumption=%7B%22C%22%2C+%22integral%22%7D+-%3E+%7B%22Calculator%22%2C+%22dflt%22%7D&assumption=%7B%22F%22%2C+%22Integral%22%2C+%22integrand%22%7D+-%3E%22sqrt%282*1.3*%28x%2B1.3%29+-+%28x%2B1.3%29%5E2%29+-+sqrt%282*1*%28x%2B1%29+-+%28x%2B1%29%5E2%29%22&assumption=%7B%22F%22%2C+%22Integral%22%2C+%22rangeend%22%7D+-%3E%22.9%22
-For example, for a \ac{HLT} of 0.3 (as shown in Figure \ref{fig:sectioning_effect_b}) a mean overestimation of 23.8\% can be expected. %0,3715/0,33
-
-\begin{figure}[htb]
-    \centering
-
-	\begin{subfigure}{0.45\textwidth}
-		\centerline{\includegraphics[width=.9\textwidth]{hydrate-rim/sectioning_effect_3D.pdf}}
-		\caption{Two imaging planes (blue) at different sectioning positions within a sphere, where $a \ll b$.} % add graph?
-		\label{fig:sectioning_effect_a}
-
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}{0.54\textwidth}
-
-		\begin{tikzpicture}
-			\begin{axis}[
-					legend style={at={(0.97,.94)},anchor=north east},
-					xmin=0, xmax=1.4,
-					ymin=0, ymax=1.4,
-					width=0.7\textwidth,
-					height=0.7\textwidth,
-					grid=major,
-					xlabel={\small sectioning distance from center point $x$},
-					ylabel={\small radius, \acs{HLT}},
-					ytick={0,.3,1,1.3},
-					xtick={0,.3,1,1.3},
-					grid style={line width=.1pt, draw=gray!10},
-					legend style={	cells={align=left},
-									at={(1.03,.5)},
-									anchor=west,
-									font=\tiny,
-									row sep=4pt}
-				]
-
-				\addplot[green,  domain=0:1, samples=360] {sqrt(2*1*(x+1) - (x+1)^2)};
-				\addlegendentry{grain radius \\ $f(x, r_\text{grain})$};
-				\addplot[red, domain=0:1.35, samples=1000] {sqrt(2*1.3*(x+1.3) - (x+1.3)^2)};
-				\addlegendentry{outer radius \\ $f(x, r_\text{outer})$};
-				\addplot[blue,   domain=0:1, samples=1000, name path=f] {sqrt(2*1.3*(x+1.3) - (x+1.3)^2) - sqrt(2*1*(x+1) - (x+1)^2)};
-				\addlegendentry{measured \acs{HLT} \\ $t(x)$};
-				\path[name path=axis] (axis cs:0,0) -- (axis cs:1,0);		
-				\addplot [fill=blue, fill opacity=0.2] fill between[of=f and axis, soft clip={domain=0:1}];
-				
-				\node[coordinate, pin={[align=left,pin distance = 5mm]-270:{\tiny $\int_{0}^{r_\text{grain}} t(x) \,dx$}}] at (axis cs:0.4,0.24) {};
-
-			\end{axis}
-		\end{tikzpicture}
-		\caption{Influence of the sectioning distance from center point $x$ on the \acs{HLT} ($t(x)$), calculated using Equation \ref{eq:sectioning_effect_2}.}
-		\label{fig:sectioning_effect_b}
-	\end{subfigure}
-	
-    \caption{Illustration of the sectioning effect of a spherical grain. }
-    \label{fig:sectioning_effect}
-\end{figure}
-
-Figure \ref{fig:hlt_overestimation} illustrates the overestimation of the measured \ac{HLT} depending on the \ac{HLT} / grain radius ratio and $M_\text{HLT}$ (Equation \ref{eq:sectioning_effect_3}).
-It shows, that the smaller the \ac{HLT} and therefore the younger the specimen, the bigger the over estimation.
-The dependence on $M_\text{HLT}$ shows, that especially specimens cut at the border increase the error.
-This also means, that very small particles, which have a higher probability to stem from particle edges, are prone to larger overestimations and should therefore not be considered for further analysis.
-
-\begin{figure}[htb]
-	\centerline{\includegraphics[width=\columnwidth, trim={0 1.7cm 0 1.8cm}, clip]{hydrate-rim/sectioning_overestimation.pdf}}
-	\caption{Overestimation of the \ac{HLT} depending on the HLT / grain diameter ratio and the integral limit $i$ (see Equation \ref{eq:sectioning_effect_2}). The blue line indicates the results for HLT / grain diameter value of 0.3 as shown in Figure \ref{fig:sectioning_effect_b}. }
-	\label{fig:hlt_overestimation}
-\end{figure}
-
-%% actual algorithm description
 First, the image contrast is logarithmically enhanced using the \textit{scikit-image} \cite{vanderWalt.2014} library.
 For most images, a denoising step is recommended using algorithms like Non Local Means \cite{Buades.2011}.
 The script uses the implementation provided by the \textit{OpenCV} \cite{Bradski.2000} library.
 
+%% actual algorithm description
+This algorithm was already published in \cite{Kleiner.2024}.
 As for many image processing tasks, the segmentation is one of the most important steps.
 The \ac{BSE} images have to be segmented into at least three phases: ($i$) pores, ($ii$) hydration products (($a$) \ac{CH}, ($b$) dense inner \ac{CSH} and ($c$) \ac{CSHo}), and ($iii$) unhydrated clinker.
 
@@ -121,7 +20,6 @@ To segment the images, a threshold based segmentation can be used.
 However, raw and preprocessed images have varying contrasts as shown in Figure \ref{fig:hlt_contrast}A and B.
 Therefore, the segmentation usually cannot be carried out using fixed threshold values and the images have to be segmented using manually selected threshold values
 Nevertheless, the hydration products can not be separated using a simple threshold based segmentation without major segmentation errors.
-
 
 \begin{figure}[h]
 	\centerline{\includegraphics[width=\columnwidth]{hydrate-rim/fig1.horizontal.png}}
@@ -140,7 +38,7 @@ Therefore, the software can also be used to process pre-segmented images (e.g. m
 
 After the segmentation, the holes within segmented clinker particles were removed to avoid errors in the following analysis.
 
-Only clinker particles with a grain diameter between 0.3 and \SI{9.0}{\micro\meter} (grain area between 0.07 to \SI{63.6}{\square\micro\meter}) were used to determine the hydrate layer thickness.
+Only clinker particles with a grain diameter between 0.3 and \SI{9.0}{\micro\meter} (grain area between 0.07 to \SI{63.6}{\square\micro\meter}) were used to determine the \ac{HLT}.
 Furthermore, particles with a circularity lower than 0.3 are excluded to avoid extreme sectioning effects.
 For very oval particles, the hydrate fringe could otherwise be greatly overestimated and undercuts could also lead to undesirable results.
 
@@ -165,10 +63,10 @@ If there is no adjacent pore within $r_\text{ROI}$, the measurement was ignored 
 To reduce errors, 3$^\circ$ before and after those areas are ignored as well (Figure \ref{fig:hlt-method}D, marked as darker vertical lines).
 Furthermore, measurements of grains which provided less than 90 valid measurements (\SI{25}{\percent} of 360 possible measurements) are excluded from the statistical analysis. % less than 25% of 360 possible measurements
 
-\begin{figure*}[tb]
+\begin{figure}[tb]
 \centerline{\includegraphics[width=\textwidth]{hydrate-rim/Mechanism.pdf}}
 \caption{Illustration of the processing that is done to measure the \ac{HLT}. In the center of A, B and E is an unhydrated clinker (1) grain within alite hydrated for 7 days. A: raw image; B: segmented image (red: pores, green: hydrates, blue: alite); C: transformation of B into polar coordinates, the clinker grain (blue) is on the left; D: like C, but only with the identified hydrate in green (grey areas were excluded from processing); E: version of D transformed into Cartesian coordinates.\label{fig:hlt-method}}
-\end{figure*}
+\end{figure}
 
 Subsequently, the histogram of the \ac{HLT} distribution is analyzed.
 To safely determine the most frequent \ac{HLT}, a function is fitted to the histogram using Equation \eqref{eqn:fitcurve}.
@@ -183,3 +81,39 @@ To safely determine the most frequent \ac{HLT}, a function is fitted to the hist
 	l				&	\ac{HLT}, \\
 	l_\text{max}	&	most frequent \ac{HLT}.
 \end{conditions}
+
+\subsubsection{hadley grains}
+
+% fluorescence laser scanning confocal microscopyfor real-time imaging of early cement hydration;yio, wong, bunefeld; emabm 2015
+Hadley grains are defined by a gap between the unhydrated grain and the hydrate layer.
+In their later stages, the grain can completely dissolve and empty shells of \ac{CSH} remain.
+This can be seen in Figure \ref{fig:hadley}, where both phenomena are visible, especially around belite.
+
+\begin{figure}[htb]
+	\centerline{\includegraphics[width=\textwidth]{hydrate-rim/hadley_grains.pdf}}
+	\caption{BSE image of a polished section of a \SI{28}{\day} hydrated alite and belite mixture (3:1). Around many belite grains, Hadley grains were formed. Furthermore, empty \ac{HLT} shells can be found. \label{fig:hadley}}
+\end{figure}
+
+% \begin{figure}[htbp]
+% 	\centerline{\includegraphics[width=.49\textwidth]{hydrate-rim/hadley_grains_detail.pdf}}
+% 	\caption{
+% 	\label{fig:hadley2}}
+% \end{figure}
+
+Hadley grains cannot be measured as described above, since the pore space of the Hadley grain would stop the measurement.
+However, with a slight modification of the algorithm, the seam thickness and the Hadley grain gap can be measured.
+To obtain these data, the Hadley grains have to be identified and segmented beforehand.
+TODO
+
+\subsubsection{Particle distance measurements}
+
+The algorithm described in the previous section can also be adapted to measure the particle distance from a 2D image.
+
+The data sources are also an \ac{SEM} image from a polished embedded specimen.
+However, this is not feasible to obtain a true particle distance of a fresh paste (younger than \SI{1}{\hour}), since the particle cohesion is still to weak for a conservative preparation.
+A possible solution is the Cryo-\ac{FIB}-\ac{SEM}-preparation method, even if the prepared area is very small.
+
+Nevertheless, the source image also has to be segmented to 2 phases (pore / water and clinker).
+The difference in the algorithms is the measured distance as shown in Figure \ref{fig:hlt-method}C, where the measurement excludes hydrates and does stop at the neighboring particle instead of pore space.
+
+

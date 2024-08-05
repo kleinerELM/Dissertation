@@ -3,33 +3,100 @@
 
 \section{Results}
 
-The in section \ref{subsec:hrm} presented method was applied to embedded and polished alite and belite specimens of different ages.
+The in section \ref{subsec:algo_hlm} presented method was applied to embedded and polished alite and belite specimens of different ages.
 The datasets differ in the imaged area and slightly in SEM imaging parameters.
 For example, the accelerating voltage used varied from 10 to 15\,kV.
 An overview of the images used is shown in Tables XX and YY.% \ref{tab:c3s}.
 The raw images are publicly available %\cite{Kleiner.2023b}.
 
+Applying the algorithm proposed in section \ref{subsec:algo_hlm} gives the results shown in Figure \ref{fig:results2d_alite} and \ref{fig:results2d_belite} for alite and belite respectively. .
+The diagrams consists of a graph indicating the dependency of grain size to the measured \ac{HLT} (blue-green).
+This plot is accompanied by a frequency plot of the grain size diameter (grey) and a distribution plot of the \ac{HLT} frequency (orange).
+
+As expected, smaller particles are more frequent than larger particles throughout all samples tested.
+Furthermore, especially larger particles become less frequent with increasing specimen age, which results in a coarser data density.
+
+The \ac{HLT} distributions of alite at 7 to \SI{28}{\day} and belite at \SI{28}{\day} specimens show two distinct accumulations in the \ac{HLT} distribution.
+The second, larger accumulation appears at larger \ac{HLT}s, the older the specimen, until it ultimately disappears for really old alite specimens at \SI{84}{\day} and \SI{365}{\day}, where the pore space is mostly consumed by \ac{CSH} and \ac{CH}, which makes the measurement impossible.
+However, the \ac{CSH} growth is then also limited by the neighboring particles and hydrate phases, which would also reduce the meaning of the measurement.
+The first accumulation is most likely an artifact of the segmentation quality as becomes more obvious in Figure \ref{fig:hlt_segmentation_influence}.
+Furthermore, very small grains seem to have no second \ac{HLT} accumulation, while the first is more pronounced, which also reduces with different segmentation methods.
+%Another reason: split, larger particles?
+
 \begin{figure}[htbp]
 	\centerline{\includegraphics[width=\textwidth]{hydrate-rim/HLT_histogram_alit.pdf}}
-	\caption{Normalized distributions of the HLT of hydrated alite (aged 1, 7, 14, 28, 84, and \SI{365}{\day}) depending on the particle diameter.
+	\caption{Normalized distributions of the \ac{HLT} of hydrated alite (aged 1, 7, 14, 28, 84, and \SI{365}{\day}) depending on the particle diameter.
 	The histogram on top illustrates the logarithmic frequency for each diameter bin in the diagram below.
-	The histogram on the right illustrates the frequency of HLT measurements as sum of the main diagram.
+	The histogram on the right illustrates the frequency of \ac{HLT} measurements as sum of the main diagram.
 	The values are thus independent of the frequency of single grain diameters.
-	The yellow markers indicate the confidence interval at a confidence level of where \SI{33.3}{\%} around $l_\text{max}$ (green).
-	\label{fig:results2d}}
+	The yellow markers indicate the confidence interval at a confidence level of \SI{33.3}{\%} around $l_\text{max}$ (green).
+	\label{fig:results2d_alite}}
 \end{figure}
 
 \begin{figure}[htbp]
 	\centerline{\includegraphics[width=\textwidth]{hydrate-rim/HLT_histogram_belit.pdf}}
-	\caption{Normalized distributions of the HLT of hydrated belite (aged 1, 7, 14, and \SI{28}{\day}) depending on the particle diameter.
-	The histogram on top illustrates the logarithmic frequency for each diameter bin in the diagram below.
-	The histogram on the right illustrates the frequency of HLT measurements as sum of the main diagram.
-	The values are thus independent of the frequency of single grain diameters.
-	The yellow markers indicate the confidence interval at a confidence level of where \SI{33.3}{\%} around $l_\text{max}$ (green).
-	\label{fig:results2d}}
+	\caption{Normalized distributions of the \ac{HLT} of hydrated belite (aged 1, 7, 14, and \SI{28}{\day}) depending on the particle diameter.
+	Same diagram type as in Figure \ref{fig:results2d_alite}.
+	\label{fig:results2d_belite}}
 \end{figure}
 
-\begin{figure}[h!]
+\FloatBarrier
+\subsection{Influence of the segmentation method used}
+
+Since the segmentation result is the prerequisite of this method, it can be expected, that it has a large influence on the final result.
+Therefore,a section of one image (\SI{14}{\day} hydrated alite) was segmented by using three different segmentation methods:
+
+\begin{enumerate}
+	\item a manually selected threshold value to distinguish between pores, hydrate phases and the unhydrated clinker,
+	\item a manually trained pixel classification algorithm distinguishing between pores, the unhydrated clinker, \ac{CH}, and
+	\begin{enumerate}
+		\item inner and outer \ac{CSH} (w. \ac{CSHo}),
+		\item a combined inner and outer \ac{CSH} (wo. \ac{CSHo}),
+	\end{enumerate}
+	\item manual segmentation, based on the pixel classification result, ignoring \ac{CSHo}.
+\end{enumerate}
+
+%Additionally, a representative area demonstrating the performed measurements is shown in the \ac{sup} of \cite{Kleiner.2024}, Figure 2.
+Comparing the raw segmentation results (see \ac{sup} of \cite{Kleiner.2024}, Figure 1 and Table \ref{tab:segmentation}), there are obvious differences.
+The threshold segmentation leads to many erroneously identified phases.
+In contrast, the pixel classification gives a very close result to the manual segmentation.
+However, if \ac{CSHo} is taken into account in the pixel classification, the \ac{HLT} distribution and the calculated $l_\text{max}$ are comparable to the threshold-based segmentation, while the data density is significantly reduced (see Table\ref{tab:segmentation} and \cite{Kleiner.2024}, \ac{sup}, Figure 3).
+This data density reduction is caused by a rough segmentation of the \ac{CSHo} and therefore, a significantly decreased pore space.
+Furthermore, a slightly larger 33.3\,\% confidence interval and a significant reduction of the first \ac{HLT} accumulation can be observed, inlcuding the \ac{CSHo}.
+
+Manual segmentation and pixel classification ignoring \ac{CSHo} show nearly identical $l_\text{max}$ values, while restoring the data density (see \cite{Kleiner.2024}, \ac{sup}, Figure 3).
+The difference of the $l_\text{max}$ of the pixel classification results allows to estimate a thickness of \ac{CSHo} of roughly \SI{0.4}{\micro\meter}.
+Nevertheless, segmenting the outer layer presents a non-trivial challenge as it relies on the person performing the segmentation and training the pixel classification.
+In many cases, distinguishing whether \ac{CSHo} or merely an artifact such as a flat edge is being segmented remains unclear.
+
+
+
+% verschieben in Anhang?
+\begin{figure}[htbp]
+	\centerline{\includegraphics[width=\textwidth]{hydrate-rim/histogram_segmentation2.pdf}}
+	\caption{Histograms of the hydration layers of \SI{14}{\day} hydrated alite. Segmentation result by thresholding ($l_\text{max}$ = \SI{1.85}{\micro\meter}), pixel classification with ($l_\text{max}$ = \SI{1.94}{\micro\meter}) and without respecting \ac{CSHo} ($l_\text{max}$ = \SI{1.52}{\micro\meter}) and manual segmentation ($l_\text{max}$ = \SI{1.52}{\micro\meter})
+	Same diagram type as in Figure \ref{fig:results2d_alite}.. \label{fig:hlt_segmentation_influence}}
+\end{figure}
+
+\begin{table}[htb]
+	\centering
+	\caption{Influence of the segmentation method of a cropped dataset with a reduced resolution (age: \SI{14}{\day}; image area: \SI{0.25}{\square\milli\meter}; resolution: \SI{84.3}{\nano\meter} per px). \cite{Kleiner.2024} \label{tab:segmentation}}
+	\begin{tabular}{@{}lrrrr@{}}
+		\toprule
+		segmentation	& threshold		& \multicolumn{2}{c}{pixel classification} & manual\\
+		method & - & w. C-S-H$_\text{o}$ & wo. C-S-H$_\text{o}$ & - \\ \midrule
+		pores in area-\%		& 38.5	& 22.1	& 30.7	& 22.2  \\
+		hydrates in area-\%		& 38.0	& 61.1	& 52.5	& 62.7  \\
+		clinker in area-\%		& 23.9	& 17.4	& 17.4	& 15.4  \\
+		\midrule
+		$l_\text{33\,\%, l}$ in \textmu m	&  1.43 	& 1.43	& 1.18	& 1.18 \\
+		$l_\text{max}$ in \textmu m	&  1.85	& 1.94	&  1.52	& 1.52 \\
+		$l_\text{33\,\%, h}$ in \textmu m	& 2.28 & 2.44	&  1.85	& 1.94 \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\begin{figure}[ht!]
     \centering
 
 	\begin{subfigure}{0.475\textwidth}

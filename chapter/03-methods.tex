@@ -14,7 +14,7 @@ A selection of methods used within this work are listed here:
 	\item \textbf{Cross section (large scale)}. Most mineral specimens have to be embedded in epoxy resin and are then mechanically polished. (Section~\ref{sec:mech_pol}) The polishing result can be improved by \ac{ArBIB}. (Section~\ref{sec:bib_pol_moving})
 	\item \textbf{Cross section (small scale)}. A small rectangular specimen (embedded or resin free) can be polished using an \ac{ArBIB} to polish an area of about \SI{1}{\square\milli\meter}. (Section~\ref{sec:bib_pol_fixed})
 	\item \textbf{\Ac{FIB} cross section}. Cutting and polishing a small surface (up to 40\,$\times$\,\SI{10}{\square\micro\metre}) using \ac{FIB}. (Section~\ref{sec:fib})
-	\item \textbf{Cryo preparation}. To observe water containing specimens (for slurries, pastes or very young specimens), the specimen is frozen within \SIlist{400}{\milli\second} down to about \SIlist{113}{\kelvin} at \SIlist{>\,2000}{\bar} to avoid ice-crystallization. The specimen can then be processed by \ac{FIB} or by sublimation.
+	\item \textbf{Cryo preparation}. To observe water containing specimens (for slurries, pastes or very young specimens), the specimen is frozen within \SIlist{400}{\milli\second} down to about \SIlist{113}{\kelvin} at \SIlist{>\,200}{\mega\pascal} to avoid ice-crystallization. The specimen can then be processed by \ac{FIB} or by sublimation.
 \end{itemize}
 
 A selection of these methods is described in more detail in the following sections.
@@ -44,7 +44,7 @@ Most \ac{ArBIB} devices provide two modes of operation.
 In one of the modes, the mechanically polished specimen is semi-erratically moved under a grazing incidence angle under the ion beam.
 This method can be applied to improve or clean mechanically polished specimens or to remove thin coatings (e.g. carbon or gold) applied for previous measurements.
 In this study, a triple ion beam milling system (EM TIC 3X, Leica) was used (Figure \ref{fig:bib_device}).
-The \ac{ArBIB} polishing is carried out under low pressure (\SIrange{10}{40}{\milli\bar}) conditions in an argon atmosphere.
+The \ac{ArBIB} polishing is carried out under low pressure (\SIrange{1}{4}{\kilo\pascal}) conditions in an argon atmosphere.
 
 \subsection{Argon Broad Ion Beam sectioning (fixed specimen)}
 \label{sec:bib_pol_fixed}
@@ -53,7 +53,7 @@ Another mode requires a smaller pre-cut sample (5\,$\times$\,3\,$\times$\,\SI{10
 The three argon ion beams intersect at a sharp edged tungsten mask forming a horizontal milling sector of approximately of \SI{100}{\degree} (Figure \ref{fig:bib_device}).
 The mask and the specimen surface are arranged in a way that only \SIrange{20}{100}{\micro\meter} of the sample are exposed to the ion beam above the mask (Figure \ref{fig:bib_scheme}).
 
-\begin{figure}[h!]
+\begin{figure}[!ht]
     \centering
 
 	\begin{subfigure}{0.4\textwidth}
@@ -221,7 +221,7 @@ This also means, that very small particles, which have a higher probability to s
 \ac{EDX} is a widely used technology available even on smaller \ac{SEM}-devices.
 It is based on the interaction of the electron beam with the sample surface.
 The electrons in the atoms of the sample are excited by the electron beam and subsequently emit an individual X-ray pattern that enables the source atoms to be identified.
-However, the excitation voltages has to be about twice as high than the excpected X-ray emission lines \acs{Ka} or \acs{Kb} of the expected elements to collect enough signal.
+However, the excitation voltage has to be about twice as high as the X-ray emission lines of the expected elements to collect enough counts to identify and quantify it.% \acs{Ka}  or \acs{Kb} 
 This results in a minimal required electron beam voltage of \SI{12}{\kilo\volt} to measure Fe with a \ac{Ka} of \SI{6.4}{\kilo\electronvolt} \cite{Hudson.2003}.
 
 However, a high powered electron beam can also damage specimens.
@@ -274,7 +274,7 @@ The ion and the electron beam are arranged in an angle of \SI{52}{\degree}, whil
 The \ac{ROI} has to be in the eucentric point.
 This means, if the specimen is tilted, the point does not move in the life image and therefore is in the rotational center.
 
-\begin{figure}[h!]
+\begin{figure}[ht!]
     \centering
 
 	\begin{subfigure}[t]{0.56\textwidth}
@@ -372,7 +372,7 @@ These pores feature much more complex, fractal like geometries.
 There are a lot of methods to measure the \ac{PSD} of a hardened specimen.
 However, each method has different measurement ranges as illustrated in Figure~\ref{fig:pore_sizes}.
 
-\begin{figure}[h!]
+\begin{figure}[!ht]
     \centering
 
 	\includegraphics[width=.7\textwidth]{methods/pore_sizes.pdf}
@@ -470,7 +470,7 @@ For example, water in connected capillary pores freezes until \SI{-20}{\celsius}
 This is also illustrated in Figure~\ref{fig:freeze}.
 If a larger pore (D) is only connected to smaller pore (C) or is isolated, it can only freeze at the same temperature as the smaller sized pore (C), while similar sized pores (B) were already frozen.
 
-\begin{figure}[h!]
+\begin{figure}[!ht]
     \centering
 
 	\includegraphics[width=.5\textwidth]{methods/freeze.pdf}

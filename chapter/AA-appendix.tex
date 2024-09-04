@@ -1,1 +1,28 @@
-\blinddocument
+\chapter{Appendix}
+
+\ifdefined\DRAFT
+{
+\color{red}
+Figures in the appendix section are not visible in draft mode!
+}
+\fi
+
+\section{Hydrate rim measurements}
+
+\begin{figure*}[htb!]
+    \centerline{\includegraphics[width=\textwidth]{hydrate-rim/supplementary/threshold_types.pdf}}
+    \caption{Segmentation results of 14 days hydrated alite. Raw image (A); segmentation result by thresholding (B), pixel classification (C) and manual segmentation (D). Grey: raw data; blue: alite; green: hydrates (C and D only dense C-S-H); red: CH; yellow: outer C-S-H.\label{fig:results_segmentation_methods}}
+\end{figure*}
+
+\begin{figure}[htbp]
+	\centerline{\includegraphics[width=\textwidth]{hydrate-rim/histogram_segmentation2.pdf}}
+	\caption{Histograms of the hydration layers of \SI{14}{\day} hydrated alite. Segmentation result by thresholding ($l_\text{max}$ = \SI{1.85}{\micro\meter}), pixel classification with ($l_\text{max}$ = \SI{1.94}{\micro\meter}) and without respecting \ac{CSHo} ($l_\text{max}$ = \SI{1.52}{\micro\meter}) and manual segmentation ($l_\text{max}$ = \SI{1.52}{\micro\meter})
+	Same diagram type as in Figure \ref{fig:results2d_alite}.. \label{fig:hlt_segmentation_influence}}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centerline{\includegraphics[width=\textwidth]{hydrate-rim/supplementary/mixture_overview.pdf}}
+	\caption{Normalized distributions of the \ac{HLT} of hydrated alite, belite and mixtures (aged 7, 14, and \SI{28}{\day}) depending on the particle diameter.
+	Same diagram type as in Figure \ref{fig:results2d_alite}.
+	\label{fig:results2d_belite}}
+\end{figure}

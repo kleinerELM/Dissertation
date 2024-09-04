@@ -74,8 +74,13 @@
 
 		\printbibliography[title={Bibliography}]  % print bibliography
 
-	%\appendix  % begin appendix
-	%	\input{chapter/AA-appendix}  % include appendix content
+	\appendix  % begin appendix
+		
+		
+		\ifdefined\DRAFT
+		\setkeys{Gin}{draft}
+		\fi
+		\input{chapter/AA-appendix}  % include appendix content
 
 	\selectlanguage{ngerman}
 	\input{additionals/z-declaration}

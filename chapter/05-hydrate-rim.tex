@@ -26,14 +26,14 @@ Therefore,a section of one image (\SI{14}{\day} hydrated alite, \cite{kleiner.20
 \end{enumerate}
 
 %Additionally, a representative area demonstrating the performed measurements is shown in the \ac{sup} of \cite{Kleiner.2024}, Figure 2.
-Comparing the raw segmentation results (see \ac{sup} of \cite{Kleiner.2024}, Figure 1 and Table \ref{tab:segmentation}), there are obvious differences.
+Comparing the raw segmentation results (see \ac{sup} of \cite{Kleiner.2024}, Figure~1 and Table~\ref{tab:segmentation}), there are obvious differences.
 The threshold segmentation leads to many erroneously identified phases.
 In contrast, the pixel classification gives a very close result to the manual segmentation.
-However, if \ac{CSHo} is taken into account in the pixel classification, the \ac{HLT} distribution and the calculated $l_\text{max}$ are comparable to the threshold-based segmentation, while the data density is significantly reduced (see Table\ref{tab:segmentation} and Figure \ref{fig:hlt_segmentation_influence}\cite{Kleiner.2024}, \ac{sup}).
+However, if \ac{CSHo} is taken into account in the pixel classification, the \ac{HLT} distribution and the calculated $l_\text{max}$ are comparable to the threshold-based segmentation, while the data density is significantly reduced (see Table~\ref{tab:segmentation} and Figure~\ref{fig:hlt_segmentation_influence}\cite{Kleiner.2024}, \ac{sup}).
 This data density reduction is caused by a rough segmentation of the \ac{CSHo} and therefore, a significantly decreased pore space.
 Furthermore, a slightly larger 33.3\,\% confidence interval and a significant reduction of the first \ac{HLT} accumulation can be observed, inlcuding the \ac{CSHo}.
 
-Manual segmentation and pixel classification ignoring \ac{CSHo} show nearly identical $l_\text{max}$ values, while restoring the data density (see \cite{Kleiner.2024}, \ac{sup}, Figure 3).
+Manual segmentation and pixel classification ignoring \ac{CSHo} show nearly identical $l_\text{max}$ values, while restoring the data density (see \cite{Kleiner.2024}, \ac{sup}, Figure~3).
 The difference of the $l_\text{max}$ of the pixel classification results allows to estimate a thickness of \ac{CSHo} of roughly \SI{0.4}{\micro\meter}.
 Nevertheless, segmenting the outer layer presents a non-trivial challenge as it relies on the person performing the segmentation and training the pixel classification.
 In many cases, distinguishing whether \ac{CSHo} or merely an artifact such as a flat edge is being segmented remains unclear.
@@ -58,7 +58,7 @@ In many cases, distinguishing whether \ac{CSHo} or merely an artifact such as a 
 
 \subsection{Single phase analysis}
 
-Applying the algorithm proposed in section \ref{subsec:algo_hlm} to individually hydrated phases gives the results shown in Figure \ref{fig:results2d_alite} and \ref{fig:results2d_belite} for alite and belite respectively.
+Applying the algorithm proposed in section \ref{subsec:algo_hlm} to individually hydrated phases gives the results shown in Figure~\ref{fig:results2d_alite} and \ref{fig:results2d_belite} for alite and belite respectively.
 The diagrams consist of a graph indicating frequency of a measured \ac{HLT} in dependency of the grain size (blue-green).
 This plot is accompanied by a frequency plot of the grain size diameter (grey) and a grain-size-agnostic distribution plot of the \ac{HLT} frequency (orange).
 
@@ -68,7 +68,7 @@ Furthermore, especially larger particles become less frequent with increasing sp
 The \ac{HLT} distributions of alite at 7 to \SI{28}{\day} and belite at \SI{28}{\day} specimens show two distinct accumulations in the \ac{HLT} distribution.
 The second, larger accumulation appears at larger \ac{HLT}s, the older the specimen, until it ultimately disappears for really old alite specimens at \SI{84}{\day} and \SI{365}{\day}, where the pore space is mostly consumed by \ac{CSH} and \ac{CH}, which makes the measurement impossible.
 However, the \ac{CSH} growth is then also limited by the neighboring particles and hydrate phases, which would also reduce the meaning of the measurement.
-The first accumulation is most likely an artifact of the segmentation quality as becomes more obvious in Figure \ref{fig:hlt_segmentation_influence}.
+The first accumulation is most likely an artifact of the segmentation quality as becomes more obvious in Figure~\ref{fig:hlt_segmentation_influence}.
 Furthermore, very small grains seem to have no second \ac{HLT} accumulation, while the first is more pronounced, which also reduced with different segmentation methods.
 %Another reason: split, larger particles?
 
@@ -85,11 +85,11 @@ Furthermore, very small grains seem to have no second \ac{HLT} accumulation, whi
 \begin{figure}[htbp]
 	\centerline{\includegraphics[width=\textwidth]{hydrate-rim/HLT_histogram_belit.pdf}}
 	\caption{Normalized distributions of the \ac{HLT} of hydrated belite (aged 1, 7, 14, and \SI{28}{\day}) depending on the particle diameter.
-	Same diagram type as in Figure \ref{fig:results2d_alite}.
+	Same diagram type as in Figure~\ref{fig:results2d_alite}.
 	\label{fig:results2d_belite}}
 \end{figure}
 
-Belite shows a significant slower hydration, which is also visible in the hydrate rim growth (Figure \ref{fig:hydration-rim-results}).
+Belite shows a significant slower hydration, which is also visible in the hydrate rim growth (Figure~\ref{fig:hydration-rim-results}).
 After 28 days, Belite still shows smaller hydration rims than alite after 7 days.
 
 \begin{figure}[ht!]
@@ -119,10 +119,10 @@ Applying the algorithm using simple thresholding to mixtures of alite and belite
 Especially specimens older than 14 or \SI{28}{\day} show two to three distinct \ac{HLT} peaks.
 The first peak can be attributed to the erroneous segmentation and might overlap the actual \ac{HLT} for younger specimens.
 
-The raw images of the mixtures (eg. Figure \ref{fig:hadley}) show, that the \ac{CSH} around belite grows much less/slower, than around alite grains.
+The raw images of the mixtures (eg. Figure~\ref{fig:hadley}) show, that the \ac{CSH} around belite grows much less/slower, than around alite grains.
 This indicates, that the lower \ac{HLT}-peak stems from belite, while the larger one is caused by the \ac{CSH} around alite.
 However for younger specimens, the later two peaks are not well distinguishable.
-Extracting the peak maxima using Equation \ref{eqn:fitcurve} between peak-minima, the results shown in Figure \ref{fig:hyd-rim-mix} can be determined.
+Extracting the peak maxima using Equation~\ref{eqn:fitcurve} between peak-minima, the results shown in Figure~\ref{fig:hyd-rim-mix} can be determined.
 
 \begin{figure}[ht!]
     \centering
@@ -142,21 +142,21 @@ Extracting the peak maxima using Equation \ref{eqn:fitcurve} between peak-minima
     \label{fig:hydration-rim-mixture-results}
 \end{figure}
 
-Based on the belite results younger than \SI{28}{\day} (see Figure \ref{fig:results2d_belite}), the belite-\ac{HLT} should be included in the first noise peak and cannot be measured reliably.
-By only comparing specimens with an age of \SI{28}{\day} whith distinct peaks, a mutual dependence of both phases can be identified.
+Based on the belite results younger than \SI{28}{\day} (see Figure~\ref{fig:results2d_belite}), the belite-\ac{HLT} should be included in the first noise peak and cannot be measured reliably.
+By only comparing specimens with an age of \SI{28}{\day} with distinct peaks, a mutual dependence of both phases can be identified.
 
-In Figure \ref{fig:hyd-rim-mix-28d} it becomes visible, that alite reacts slower with increasing belite content, while belite reacts only slightly faster, if at all.
+In Figure~\ref{fig:hyd-rim-mix-28d} it becomes visible, that alite reacts slower with increasing belite content, while belite reacts only slightly faster, if at all.
 This uncertainty is caused by the following sources of error:
 \begin{itemize}
-	\item Overlap/contact of the \ac{CSH} from alite and belite, 
-	\item and filled Hadley grains whith no contact to the actual hydrate rim around the grain resulting in an overestimation and lower data density for belite.
+	\item Overlap/contact of the \ac{CSH} from alite and belite,
+	\item and filled Hadley-grains witch no contact to the actual hydrate rim around the grain resulting in an overestimation and lower data density for belite.
 \end{itemize}
 
 
 
 \begin{itemize}
 	\item C-S-H structure
-	\item hadley-grain development more pronounced in belite
+	\item Hadley-grain development more pronounced in belite
 	\item gap between rim and clinker in belite
 	\item TODO MIXTURES?
 \end{itemize}

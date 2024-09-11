@@ -25,22 +25,22 @@ Therefore,a section of one image (\SI{14}{\day} hydrated alite, \cite{kleiner.20
 	\item manual segmentation, based on the pixel classification result, ignoring \ac{CSHo}.
 \end{enumerate}
 
-%Additionally, a representative area demonstrating the performed measurements is shown in the \ac{sup} of \cite{Kleiner.2024}, Figure 2.
-Comparing the raw segmentation results (see \ac{sup} of \cite{Kleiner.2024}, Figure~1 and Table~\ref{tab:segmentation}), there are obvious differences.
+%Additionally, a representative area demonstrating the performed measurements is shown in the \ac{sup} of \cite{kleiner.2024}, Figure 2.
+Comparing the raw segmentation results (see \ac{sup} of \cite{kleiner.2024}, Figure~1 and Table~\ref{tab:segmentation}), there are obvious differences.
 The threshold segmentation leads to many erroneously identified phases.
 In contrast, the pixel classification gives a very close result to the manual segmentation.
-However, if \ac{CSHo} is taken into account in the pixel classification, the \ac{HLT} distribution and the calculated $l_\text{max}$ are comparable to the threshold-based segmentation, while the data density is significantly reduced (see Table~\ref{tab:segmentation} and Figure~\ref{fig:hlt_segmentation_influence}\cite{Kleiner.2024}, \ac{sup}).
+However, if \ac{CSHo} is taken into account in the pixel classification, the \ac{HLT} distribution and the calculated $l_\text{max}$ are comparable to the threshold-based segmentation, while the data density is significantly reduced (see Table~\ref{tab:segmentation} and Figure~\ref{fig:hlt_segmentation_influence}\cite{kleiner.2024}, \ac{sup}).
 This data density reduction is caused by a rough segmentation of the \ac{CSHo} and therefore, a significantly decreased pore space.
 Furthermore, a slightly larger 33.3\,\% confidence interval and a significant reduction of the first \ac{HLT} accumulation can be observed, inlcuding the \ac{CSHo}.
 
-Manual segmentation and pixel classification ignoring \ac{CSHo} show nearly identical $l_\text{max}$ values, while restoring the data density (see \cite{Kleiner.2024}, \ac{sup}, Figure~3).
+Manual segmentation and pixel classification ignoring \ac{CSHo} show nearly identical $l_\text{max}$ values, while restoring the data density (see \cite{kleiner.2024}, \ac{sup}, Figure~3).
 The difference of the $l_\text{max}$ of the pixel classification results allows to estimate a thickness of \ac{CSHo} of roughly \SI{0.4}{\micro\meter}.
 Nevertheless, segmenting the outer layer presents a non-trivial challenge as it relies on the person performing the segmentation and training the pixel classification.
 In many cases, distinguishing whether \ac{CSHo} or merely an artifact such as a flat edge is being segmented remains unclear.
 
 \begin{table}[htb]
 	\centering
-	\caption{Influence of the segmentation method of a cropped dataset with a reduced resolution (age: \SI{14}{\day}; image area: \SI{0.25}{\square\milli\meter}; resolution: \SI{84.3}{\nano\meter} per px). \cite{Kleiner.2024} \label{tab:segmentation}}
+	\caption{Influence of the segmentation method of a cropped dataset with a reduced resolution (age: \SI{14}{\day}; image area: \SI{0.25}{\square\milli\meter}; resolution: \SI{84.3}{\nano\meter} per px). \cite{kleiner.2024} \label{tab:segmentation}}
 	\begin{tabular}{@{}lrrrr@{}}
 		\toprule
 		segmentation	& threshold		& \multicolumn{2}{c}{pixel classification} & manual\\
@@ -97,7 +97,7 @@ After 28 days, Belite still shows smaller hydration rims than alite after 7 days
 
 	\begin{subfigure}{0.475\textwidth}
 		\includegraphics[width=\textwidth]{hydrate-rim/alite_result.pdf}
-		\caption{Hydration of alite from 1 to \SI{28}{\day}. \cite{Kleiner.2024} }
+		\caption{Hydration of alite from 1 to \SI{28}{\day}. \cite{kleiner.2024} }
 		\label{fig:hyd-rim-alite}
 	\end{subfigure}
 	\hfill
@@ -129,7 +129,7 @@ Extracting the peak maxima using Equation~\ref{eqn:fitcurve} between peak-minima
 
 	\begin{subfigure}{0.475\textwidth}
 		\includegraphics[width=\textwidth]{hydrate-rim/mixture_result_a.pdf}
-		\caption{Hydration of alite/belite mixtures with different ratios from 7 to \SI{28}{\day}. \cite{Kleiner.2024} }
+		\caption{Hydration of alite/belite mixtures with different ratios from 7 to \SI{28}{\day}. \cite{kleiner.2024} }
 		\label{fig:hyd-rim-mix}
 	\end{subfigure}
 	\hfill

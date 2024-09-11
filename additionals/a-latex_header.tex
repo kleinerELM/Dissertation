@@ -77,12 +77,13 @@
 \usepackage{graphicx}  % include graphics
 
 \usepackage[style = numeric-comp,
-			backend = bibtex,
+			backend=biber,%backend = bibtex,
 			maxbibnames = 99, % arbitrary high value to ensure that all authors are listet in the bibliography
 			maxcitenames = 2, % truncate nameslist for citations
 			giveninits = true, % abbrevation for first name
 			date = year, % controls the basic format of printed date specifications
 			uniquelist = false, % This feature allows ambiguous labelname list --> unique dateformat (e.g. 2020a, 2020b)
+			defernumbers=true,
 			]{biblatex}  % use biblatex for bibliography
 
 \usepackage[range-units=single,  % on default show only a single unit when using /SIrange{}
@@ -91,7 +92,7 @@
 \addto\extrasngerman{\sisetup{locale = DE}}
 \addto\extrasenglish{\sisetup{locale = US}}
 
-
+\usepackage{csquotes}
 \usepackage{enumitem}  % improves enumerate and itemize environment
 
 %\usepackage{ziffer}  % conversion of punctuation in maths mode (switches . and ,) % usage leads to an error with siunitx (missing decimal point)
@@ -234,4 +235,3 @@
 \scalebox{3}{\color{gray}\sffamily\thechapter\autodot \color{black}$\vert$}\enskip}}
 
 \captionsetup{singlelinecheck=false,justification=raggedright}
-

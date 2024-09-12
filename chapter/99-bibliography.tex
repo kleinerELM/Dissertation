@@ -6,11 +6,11 @@
 % Sadly, I found no other way, than to cite every paper of myself to make sure, 
 % that the paper actually appears and the bnumbering is not fully fucked up.
 \nocite{kleiner.2017,kleiner.2020,kleiner.2021,kleiner.2021b,kleiner.2021c,kleiner.2022,kleiner.2022a,kleiner.2024}
-\nocite{naber.2020,jiang.2022,nguyen-tuan.2023,rossler.2023}
+\nocite{naber.2020,jiang.2022,nguyen-tuan.2023,rossler.2023,nguyen-tuan.2024}
 
 
 % print own peer reviewed publications
-\newrefcontext[labelprefix={K},sorting=ynt]
+\newrefcontext[labelprefix={P},sorting=ynt]
 
 \printbibliography[keyword=myPapers,title={List of own peer reviewed publications},heading=subbibnumbered]
 
@@ -19,3 +19,9 @@
 \newrefcontext[labelprefix={C},sorting=ynt]
 
 \printbibliography[keyword=myConferencePapers,title={List of relevant conference publications},heading=subbibnumbered]
+
+
+% print own published raw data
+\newrefcontext[labelprefix={D},sorting=ynt]
+
+\printbibliography[keyword=publishedData,title={List of published data},heading=subbibnumbered]

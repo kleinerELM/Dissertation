@@ -1,5 +1,6 @@
 % !TeX TS-program = xelatex
 \def\DRAFT{} % comment out for the printable document!
+%\def\PRINTABLE{} % uncomment to disable animated figures
 %\def\REVIEW{}
 
 
@@ -59,16 +60,12 @@
 		\ifdefined\REVIEW
 			\linenumbers
 		\fi
-		%Einleitung (SEM/Zement/Bildverarbeitung)
-		%Methodik/Theorie (SEM/Kategorisierung von Zementen?)
-		%Ergebnisse
-		%- Unterkapitel 1,2,3,4...
-		%Zusammenfassung
 
 		\input{chapter/01-introduction}
 		\input{chapter/02-literature}
 		\input{chapter/03-methods}
 		\input{chapter/04-algorithms}
+		\input{chapter/06-correl-micro}
 		\input{chapter/05-hydrate-rim}
 		%\input{chapter/04-results}
 		

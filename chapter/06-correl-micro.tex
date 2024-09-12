@@ -1,0 +1,41 @@
+\chapter{Correlative microscopy}
+
+Correlative microscopy is a method to combine multiple microscopical methods.
+Usually, in the field of biology it is understood as a combination of light/fluorescence and electron microscopy \cite{mironov.2013,loussertfonta.2015}.
+Nontheless, it can be applied to most microscopic techniques, als long as the measurement is done at exactly the same position, ideally within the same device \cite{loussertfonta.2015}.
+However, if the resulting images share enough features to align them to each other, they still can be aligned after the measurement using
+\begin{itemize}
+    \item a fully manual alignment by rotationg and transforming the image,
+    \item semi-manual method by identifying matching point-pairs ($n \leq 4$) between both images,
+    \item automatic methods from the field of computer vision/photogrammetry like \ac{SIFT} \cite{lowe.2004} or machine learning supported algorithms.
+\end{itemize}
+
+Main issues for combination of multi-device measurements:
+\begin{enumerate}
+    \item transformations (rotation around all axis),
+    \item pixel aspect ratio,
+    \item significant resolution differences,
+    \item not enough matching features in both images.
+\end{enumerate}
+
+Advantages are the
+\begin{itemize}
+    \item combination of information of one object/phase, like: 
+    \begin{itemize}
+        \item trace element concenctrations,
+        \item crystallographic information,
+        \item mechanical information,
+        \item ...
+    \end{itemize}
+    \item The resolution differences can improve the segmentation of the lower resoltion method, giving new insights \cite{kleiner.2022b}.
+\end{itemize}
+
+
+\begin{enumerate}
+    \item combination of SEM-BSE + EDX
+    \item combination of SEM-BSE + EDX + LA-ICP-MS
+    \item combination of SEM-BSE + µXRF
+\end{enumerate}
+
+
+\section{Results EDX + LA-ICP-MS}

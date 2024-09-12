@@ -89,7 +89,7 @@ While the \ac{SEM} is widley used to analyze cement based materials, it has its 
 In contrast to an light microscope, it can alter the specimen during the observation significantly.
 For example, early publications define \ac{CSH} as gel.
 In one part, this due to its low crystallinity, which is not detectable using \ac{XRD} but only \ac{TEM}.
-On the other part, the \ac{CSH}-crystals appeared gel like due to preparation artifacts and severe electron beam damage of the water containing phases.
+On the other hand, the \ac{CSH}-crystals appeared gel like due to preparation artifacts and severe electron beam damage of the water containing phases.
 This causes them to melt into a gel-like structure, hence its early name.
 Nowadays, this is less of an issue anymore due to significant progress in the sensitivity of the detectors of electron microscopes.
 However, to obtain enough signal for some detectors (e.g. \ac{EDX} or \ac{EBSD}), intensive electron beam exposure might still be required, which can cause visible damage \cite{rossen.2017}.
@@ -99,8 +99,13 @@ This can cause \ac{CSH}-structures to bent or melt and introduce pores within or
 \begin{figure}[h!]
     \centering
 
-	\includegraphics[width=\textwidth]{methods/ebeam_damage.pdf}
-    \caption{Electron beam damage of a \ac{CSH} needle of \SI{28}{\day} hydrated alite. SE images captured at \SI{350}{\volt} accelerating voltage and \SI{200}{\volt} stage bias. The image set was captured within \SI{124}{\second} during continuous electron beam exposure \cite{kleiner.2021}.} %wrong citation - correct: https://zenodo.org/records/5215574
+	\ifdefined\PRINTABLE
+		\includegraphics[height=0.32\textheight]{methods/ebeam_damage.pdf}
+	\else
+		\animategraphics[palindrome,autoplay,height=0.32\textheight]{3}{methods/ebeam_damage_anim/Animation}{0}{4}
+	\fi
+
+    \caption{Electron beam damage of a \ac{CSH} needle of \SI{28}{\day} hydrated alite. SE images captured at \SI{350}{\volt} accelerating voltage and \SI{200}{\volt} stage bias. The image set was captured within \SI{124}{\second} during continuous electron beam exposure \cite{kleiner.2021c,kleiner.2021d}.} %wrong citation - correct: https://zenodo.org/records/5215574
     \label{fig:ebeam_damage}
 \end{figure}
 
@@ -284,7 +289,12 @@ This means, if the specimen is tilted, the point does not move in the life image
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[t]{0.43\textwidth}
-		\includegraphics[width=\textwidth]{methods/fib_top.jpg}
+		
+		\ifdefined\PRINTABLE
+			\includegraphics[width=\textwidth]{methods/fib_top.jpg}
+		\else
+			\animategraphics[palindrome,autoplay,width=\textwidth]{3}{methods/fib_process_anim/Animation}{00}{10}%controls=on,
+		\fi
 		\caption{Ion image of the tomography side  of a hydrated alite. \cite{kleiner.2021}}
 		\label{fig:fib_top}
 	\end{subfigure}
@@ -366,6 +376,25 @@ The laser ablation was done with a ns-Nd:YAG-laser at the quintupled wavelength 
 A quadrupole \ac{ICP}-\ac{MS} (\textit{NexION 300D} from \textit{Perkin Elmer}) was used for the elemental analysis.
 The carrier gas chosen was helium due to its well-known advantages over other transport gases, such as its higher sensitivity for most \ac{ICP}-\ac{MS} instruments and smaller particle size distributions \cite{gunther.1999}.
 The samples were placed in a two-volume sample cell and purged for at least \SI{10}{\min}.
+
+\ac{LAICPMS} intrinsically results in a damaged surface, since it vaporizes  material.
+Figure~\ref{fig:laicpms-pre-ablation} illustrates this effect on a clincer surface.
+However, this damage can be use for cross-method alignement purposes.
+
+\begin{figure}[h!]
+    \centering
+	
+	\ifdefined\PRINTABLE
+		\includegraphics[height=.35\textheight]{la-icp-ms/pre-ablation.pdf}
+	\else
+		\animategraphics[palindrome,autoplay,height=.35\textheight]{4}{la-icp-ms/pre-ablation-anim/Animation}{00}{11}
+	\fi
+    \caption{\ac{SEM}-image of the pre-ablation and measurement area of a \ac{LAICPMS}-mapping. \cite{kleiner.2021d,kleiner.2021e}}
+    \label{fig:laicpms-pre-ablation}
+\end{figure}
+
+It has to be noted, that specimen surface was pre-ablated using a coarser resolution and a larger area (see Figure~\ref{fig:laicpms-pre-ablation}) to remove surface contaminations.
+However, this has to be taken into account to correctly align the final ablation result to the \ac{SEM}-image.
 
 \FloatBarrier
 \section{Pore size measurement}

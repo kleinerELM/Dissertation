@@ -1,10 +1,12 @@
 \chapter{Bibliography}
+{\small
+
 % print main bibliography without subheading
 \printbibliography[notkeyword=NotInMainList,heading=none]  
 
 
 % Sadly, I found no other way, than to cite every paper of myself to make sure, 
-% that the paper actually appears and the bnumbering is not fully fucked up.
+% that the paper actually appears and the numbering is not fully fucked up.
 \nocite{kleiner.2017,kleiner.2020,kleiner.2021,kleiner.2021b,kleiner.2021c,kleiner.2022,kleiner.2022a,kleiner.2024}
 \nocite{naber.2020,jiang.2022,nguyen-tuan.2023,rossler.2023,nguyen-tuan.2024}
 
@@ -25,3 +27,7 @@
 \newrefcontext[labelprefix={D},sorting=ynt]
 
 \printbibliography[keyword=publishedData,title={List of published data},heading=subbibnumbered]
+}
+
+% in case of non wrapped titles:
+% https://retorque.re/zotero-better-bibtex/installation/preferences/export/#apply-case-protection-to-capitalized-words-by-enclosing-them-in-braces

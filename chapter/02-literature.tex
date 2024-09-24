@@ -1,3 +1,324 @@
 \chapter{Literature}
 
 discuss some literature
+
+\section{Growth of Calcium-Silicate-Hydrate}
+
+Süß \cite{suss.2001} manually measured the development of the length of \ac{CSH}-needles, also called \ac{CSHo}, using \ac{SEM}-\ac{SE}-images until a specimen age of \SI{28}{\day}.
+Stark and Möser \cite{stark.2001, moser.2001,moser.2002} continued this work close to the 3 years mark.
+The experiments were done using \ac{C3S} and $\beta$-\ac{C2S} at different temperatures.
+They measured a minimum and maximum value, of which the mean was calculated.
+However, it was not made clear by the authors, how many measurements were taken for each data point. Therefore, it should be assumed that these data are based on individual measurements.
+The results are plotted in Figures~\ref{fig:suess_CSH_C3S} (\ac{C3S}) and \ref{fig:suess_CSH_C2S} ($\beta$-\ac{C2S}).
+
+\begin{figure}[!htb]
+    \centering
+    \begin{tikzpicture}
+        \begin{groupplot}[
+            group style={group size=2 by 1,
+                    group name=coupeplot,
+                    xticklabels at=edge bottom,
+                    horizontal sep=0pt},
+            legend style={at={(.05,.94)},anchor=north west},
+            ylabel={$l_{\text{CSH}_\text{o}}$ in \si{\nano\meter}},
+            width=0.49\linewidth,
+            height=0.4\linewidth,
+            legend columns = 4,
+            axis x line=box,
+            legend style = {anchor=north, style={column sep=3pt}},
+            grid=both,
+            grid style={line width=.1pt, draw=gray!10},
+        ]
+        \nextgroupplot[
+            xmin=0, xmax=635,
+            ymin=0, ymax=1250,
+            xlabel={time $t$ in \si{\min}},
+            xtick={0,0,130,300,600},
+            ytick={0,250,...,3000},
+            restrict x to domain=0:600,
+            axis y line*=left, 
+        ]
+            \addplot+ [draw=none, no markers, name path=A] table [skip first n=3, x index=0, y index=2, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addplot+ [draw=none, no markers, name path=B] table [skip first n=3, x index=0, y index=4, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addplot [fill=green, fill opacity=0.2] fill between [of=A and B]; 
+            
+            \addplot [color=green, mark=+, dotted] table [skip first n=3, x index=0, y index=3, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            
+
+            \addplot+ [draw=none, no markers, name path=A] table [skip first n=3, x index=0, y index=5, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addplot+ [draw=none, no markers, name path=B] table [skip first n=3, x index=0, y index=7, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addplot [fill=blue, fill opacity=0.2] fill between [of=A and B]; 
+            
+            \addplot [color=blue, mark=x, dotted] table [skip first n=3, x index=0, y index=6, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            
+
+            \addplot+ [draw=none, no markers, name path=A] table [skip first n=3, x index=0, y index=8, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addplot+ [draw=none, no markers, name path=B] table [skip first n=3, x index=0, y index=10, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addplot [fill=red, fill opacity=0.2] fill between [of=A and B]; 
+            
+            \addplot [color=red, mark=star, dotted] table [skip first n=3, x index=0, y index=9, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            
+
+            \addplot+ [draw=none, no markers, name path=A] table [skip first n=3, x index=0, y index=11, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addplot+ [draw=none, no markers, name path=B] table [skip first n=3, x index=0, y index=13, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addplot [fill=orange, fill opacity=0.2] fill between [of=A and B]; 
+            
+            \addplot [color=orange, mark=Mercedes star, dotted] table [skip first n=3, x index=0, y index=12, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+
+        \nextgroupplot[
+            xmin=-1.5, xmax=28,
+            ymin=0, ymax=3000,
+            xlabel={time $t$ in \si{\day}},
+            xtick={1,9,21,28},
+            ytick={0,500,...,3000},
+            restrict x to domain=1:28,
+            axis y line*=right,
+            axis x discontinuity=parallel,
+            legend to name={CommonLegend}
+        ]
+            \pgfplotsset{cycle list shift=+1}
+            \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=1, y index=2, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addplot+ [draw=none, no markers, name path=B,forget plot] table [skip first n=3, x index=1, y index=4, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addplot [fill=green, fill opacity=0.2,forget plot] fill between [of=A and B]; 
+            
+            \addplot [color=green, mark=+, dotted] table [skip first n=3, x index=1, y index=3, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addlegendentry[]{\ac{C3S} \SI{5}{\celsius}}
+            
+
+            \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=1, y index=5, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addplot+ [draw=none, no markers, name path=B,forget plot] table [skip first n=3, x index=1, y index=7, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addplot [fill=blue, fill opacity=0.2,forget plot] fill between [of=A and B]; 
+            
+            \addplot [color=blue, mark=x, dotted] table [skip first n=3, x index=1, y index=6, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addlegendentry[]{\ac{C3S} \SI{20}{\celsius}}
+            
+
+            \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=1, y index=8, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addplot+ [draw=none, no markers, name path=B,forget plot] table [skip first n=3, x index=1, y index=10, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addplot [fill=red, fill opacity=0.2,forget plot] fill between [of=A and B]; 
+            
+            \addplot [color=red, mark=star, dotted] table [skip first n=3, x index=1, y index=9, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addlegendentry[]{\ac{C3S} \SI{60}{\celsius}}
+            
+
+            \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=1, y index=11, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addplot+ [draw=none, no markers, name path=B,forget plot] table [skip first n=3, x index=1, y index=13, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addplot [fill=orange, fill opacity=0.2,forget plot] fill between [of=A and B]; 
+            
+            \addplot [color=orange, mark=Mercedes star, dotted] table [skip first n=3, x index=1, y index=12, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addlegendentry[]{\ac{C3S} \SI{90}{\celsius}}
+        \end{groupplot}
+        \node [above] (L) at (rel axis cs:1.0,1.04) {\ref{CommonLegend}};
+
+    \end{tikzpicture} 
+    \caption{Growth of \ac{CSHo} on \ac{C3S} at different temperatures. Based on data from Süß \cite{suss.2001}.}
+    \label{fig:suess_CSH_C3S}
+\end{figure}
+
+The formation of \ac{CSH} begins eralier with raising temperature.
+This also causes a significant increase of the overall fibre length.
+At the same temperature, \ac{C2S} demonstrates a slower \ac{CSH}-groth. 
+While the \ac{CSH}-growth of \ac{C3S} stagnates after 5 months, Möser indicates that the needle length of \ac{CSH} on \ac{C2S} is still increasing significantly, even until an age of 3 years.
+
+% \begin{figure}[!htb]
+%     \centering
+%     \begin{tikzpicture}
+%         \begin{groupplot}[
+%             group style={group size=1 by 1,
+%                     group name=coupeplot,
+%                     xticklabels at=edge bottom,
+%                     horizontal sep=0pt},
+%             legend style={at={(.05,.94)},anchor=north west},
+%             ylabel={$l_{\text{CSH}_\text{o}}$ in \si{\nano\meter}},
+%             width=0.99\linewidth,
+%             height=0.4\linewidth, 
+%             axis x line=box,
+%             axis y line=box,
+%             legend columns = 4,
+%             legend style = {at={(.5,1.03)},anchor=south, style={column sep=3pt}},
+%         ]            
+
+%         \nextgroupplot[
+%             xmin=-1.5, xmax=1000,
+%             ymin=0, ymax=2900,
+%             grid=both,
+%             xlabel={time $t$ in \si{\day}},
+%             xtick={1,28, 150, 360, 600, 1000},
+%             ytick={0,500,...,3000},
+%             grid style={line width=.1pt, draw=gray!10},
+%             restrict x to domain=1:1000
+%         ]
+%             \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=1, y index=5, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+%             \addplot+ [draw=none, no markers, name path=B,forget plot] table [skip first n=3, x index=1, y index=7, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+%             \addplot [fill=red, fill opacity=0.2,forget plot] fill between [of=A and B]; 
+            
+%             \addplot [color=red, mark=x, dotted] table [skip first n=3, x index=1, y index=6, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+%             \addlegendentry[]{\ac{C3S} \SI{20}{\celsius} \cite{suss.2001,moser.2001,moser.2002}}
+
+
+%             \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=1, y index=14, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+%             \addplot+ [draw=none, no markers, name path=B,forget plot] table [skip first n=3, x index=1, y index=16, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+%             \addplot [fill=green, fill opacity=0.2,forget plot] fill between [of=A and B]; 
+            
+%             \addplot [color=green, mark=x, dotted] table [skip first n=3, x index=1, y index=15, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+%             \addlegendentry[]{$\beta$-\ac{C2S} \SI{20}{\celsius} \cite{suss.2001}}
+
+
+%             \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=0, y index=1, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C2S_moeser.csv};
+%             \addplot+ [draw=none, no markers, name path=B,forget plot] table [skip first n=3, x index=0, y index=3, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C2S_moeser.csv};
+%             \addplot [fill=blue, fill opacity=0.2,forget plot] fill between [of=A and B]; 
+            
+%             \addplot [color=blue, mark=x, dotted] table [skip first n=3, x index=0, y index=2, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C2S_moeser.csv};
+%             \addlegendentry[]{$\beta$-\ac{C2S} \SI{20}{\celsius} \cite{moser.2002}}
+
+%         \end{groupplot}
+
+%     \end{tikzpicture} 
+%     \caption{Growth of \ac{CSHo} on $\beta$-\ac{C2S} at different temperatures. Based on data from Süß \cite{suss.2001} and Möser \cite{moser.2001,moser.2002}.}
+%     \label{fig:suess_CSH_C2S}
+% \end{figure}
+
+
+\begin{figure}[!htb]
+    \centering
+    \begin{tikzpicture}
+        \begin{groupplot}[
+            group style={group size=2 by 1,
+                    group name=coupeplot,
+                    xticklabels at=edge bottom,
+                    horizontal sep=0pt},
+            legend style={at={(.05,.94)},anchor=north west},
+            axis x line=box,
+            ymin=0, ymax=3000,
+            ytick={0,500,...,3000},
+            ylabel={$l_{\text{CSH}_\text{o}}$ in \si{\nano\meter}},
+            xlabel={time $t$ in \si{\day}},
+            width=0.49\linewidth,
+            height=0.4\linewidth,
+            legend columns = 4,
+            legend style = {anchor=north, style={column sep=3pt}},
+            grid=both,
+            grid style={line width=.1pt, draw=gray!10},
+        ]
+        \nextgroupplot[
+            xmin=0, xmax=28,
+            restrict x to domain=0:42,
+            xtick={1,9,21,28},
+            axis y line=box, 
+        ]
+            \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=1, y index=5, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addplot+ [draw=none, no markers, name path=B,forget plot] table [skip first n=3, x index=1, y index=7, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addplot [fill=red, fill opacity=0.2,forget plot] fill between [of=A and B]; 
+            
+            \addplot [color=red, mark=x, dotted] table [skip first n=3, x index=1, y index=6, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+
+
+            \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=1, y index=14, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addplot+ [draw=none, no markers, name path=B,forget plot] table [skip first n=3, x index=1, y index=16, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addplot [fill=green, fill opacity=0.2,forget plot] fill between [of=A and B]; 
+            
+            \addplot [color=green, mark=x, dotted] table [skip first n=3, x index=1, y index=15, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+
+
+            \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=0, y index=1, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C2S_moeser.csv};
+            \addplot+ [draw=none, no markers, name path=B,forget plot] table [skip first n=3, x index=0, y index=3, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C2S_moeser.csv};
+            \addplot [fill=blue, fill opacity=0.2,forget plot] fill between [of=A and B]; 
+            
+            \addplot [color=blue, mark=x, dotted] table [skip first n=3, x index=0, y index=2, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C2S_moeser.csv};
+
+        \nextgroupplot[
+            xmin=28, xmax=1000,
+            restrict x to domain=14:1000,
+            xtick={150, 360, 600, 1000},
+            axis y line=right,
+            legend to name={CommonLegend}
+        ]
+            \pgfplotsset{cycle list shift=+1}
+            \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=1, y index=5, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addplot+ [draw=none, no markers, name path=B,forget plot] table [skip first n=3, x index=1, y index=7, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addplot [fill=red, fill opacity=0.2,forget plot] fill between [of=A and B]; 
+            
+            \addplot [color=red, mark=x, dotted] table [skip first n=3, x index=1, y index=6, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addlegendentry[]{\ac{C3S} \SI{20}{\celsius} \cite{suss.2001,stark.2001,moser.2002}}
+
+
+            \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=1, y index=14, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addplot+ [draw=none, no markers, name path=B,forget plot] table [skip first n=3, x index=1, y index=16, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addplot [fill=green, fill opacity=0.2,forget plot] fill between [of=A and B]; 
+            
+            \addplot [color=green, mark=x, dotted] table [skip first n=3, x index=1, y index=15, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addlegendentry[]{$\beta$-\ac{C2S} \SI{20}{\celsius} \cite{suss.2001}}
+
+
+            \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=0, y index=1, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C2S_moeser.csv};
+            \addplot+ [draw=none, no markers, name path=B,forget plot] table [skip first n=3, x index=0, y index=3, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C2S_moeser.csv};
+            \addplot [fill=blue, fill opacity=0.2,forget plot] fill between [of=A and B]; 
+            
+            \addplot [color=blue, mark=x, dotted] table [skip first n=3, x index=0, y index=2, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C2S_moeser.csv};
+            \addlegendentry[]{$\beta$-\ac{C2S} \SI{20}{\celsius} \cite{moser.2002}}
+
+        \end{groupplot}
+        \node [above] (L) at (rel axis cs:1.0,1.04) {\ref{CommonLegend}};
+
+    \end{tikzpicture} 
+    \caption{Growth of \ac{CSHo} on $\beta$-\ac{C2S} compared to \ac{C3S} at \SI{20}{\celsius}. Based on data from Süß  and Möser \cite{suss.2001,stark.2001,moser.2002}.}
+    \label{fig:suess_CSH_C2S}
+\end{figure}
+
+In his presentations, Möser summarized the results as follows:
+\begin{quote}
+When growing unhindered, the needle-like \ac{CSH} phases can reach a length of approx. \SI{1.4}{\micro\meter}. These applies only for hydration of alite. In pure belite a \ac{CSH}-length of up to \SI{2.5}{\micro\meter} can be measured. \cite{moser.2001}
+\end{quote}
+%Zitat Möser
+%It can be assumed that at the beginning of the acceleration period all C-S-H phases grow in form of fibres. These fibres grow in length during the course of hydration with hardly any changes in thickness. When growing unhindered, the needle-like \ac{CSH} phases can reach a length of approx. 1.4 µm. These applies only for hydration of alite (in pure belite: \ac{CSH}- length up to 2.5 µm). In compact concrete it is to be expected that there is intergrowth between the fibers as well as and interlocking with one another and thus gel pores are formed which have often been described.
+
+Nicoleau \cite{nicoleau.2011} measured the \ac{CSH}-thickness using Cryo-\ac{SEM} on cracked surfaces.
+Bishnoi and Scrivener \cite{bishnoi.2012} criticized this approach due to the subjectivity of the measurement.
+{\color{red}TODO! Werte rausschreiben/ in ein Diagramm eintragen}
+
+Scrivener \cite{scrivener.2004a} describes the sectioning effect, which is an issue for \ac{SEM}-\ac{BSE} images and will be detailed in Subsection~\ref{subsec:sectioning-effect}.
+
+
+
+
+
+
+\section{Correlative microscopy}
+
+Correlative microscopy is a generic term describing the combination of multiple microscopical methods.
+In the field of biology it is understood as a combination of light/fluorescence and electron microscopy \cite{mironov.2013,loussertfonta.2015}.
+Nontheless, it can be applied to most microscopic and tomographic techniques, als long as the measurement is done at exactly the same speciment with sufficient overlap \cite{loussertfonta.2015,daly.2017,mitchell.2021}.
+Ideally it is done within the same device, though this is not essential.
+
+Advantages of the combination of mutliple techniques are
+\begin{itemize}
+    \item the combination of information of one object/phase, like: 
+    \begin{itemize}
+        \item trace element concenctrations,
+        \item crystallographic information,
+        \item mechanical information,
+        \item ...
+    \end{itemize}
+    \item information of a specimen across multiple scales \cite{daly.2017,mitchell.2021,kleiner.2022a},
+    \item The resolution differences can improve the segmentation results of lower resolution methods, enabling new insights \cite{kleiner.2022b}.
+\end{itemize}
+
+If the resulting images share enough features to align them to each other, they still can be aligned after the measurement.
+This can be done using
+\begin{itemize}
+    \item a fully manual alignment by rotationg and transforming the image,
+    \item semi-manual method by identifying matching point-pairs ($n \leq 4$) between both images,
+    \item automatic methods from the field of computer vision/photogrammetry like \ac{SIFT} \cite{lowe.2004} or machine learning supported algorithms.
+\end{itemize}
+
+The alignment is not always trivial.
+The main issues for combination of multi-device measurements are 
+\begin{enumerate}
+    \item distortions,
+    \item pixel aspect ratio,
+    \item significant resolution differences,
+    \item not enough matching features in both images.
+\end{enumerate}
+
+For controlled specimens markes, called fiducaials, can be used, to aligne different data sources to each other.
+However, this is not always possible.

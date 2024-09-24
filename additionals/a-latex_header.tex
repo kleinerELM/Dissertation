@@ -83,7 +83,7 @@
 			giveninits = true, % abbrevation for first name
 			date = year, % controls the basic format of printed date specifications
 			uniquelist = false, % This feature allows ambiguous labelname list --> unique dateformat (e.g. 2020a, 2020b)
-			defernumbers=true,
+			defernumbers=true,sorting=none
 			]{biblatex}  % use biblatex for bibliography
 
 \usepackage[range-units=single,  % on default show only a single unit when using /SIrange{}
@@ -115,25 +115,17 @@
 % condition enviornment for equations to describe the variables
 % https://tex.stackexchange.com/questions/95838/how-to-write-a-perfect-equation-parameters-description
 \usepackage{pgfplots}
-\pgfplotsset{compat = newest}
 \usepgfplotslibrary{fillbetween}
-
+\usepgfplotslibrary{groupplots}
+\pgfplotsset{
+	compat = newest
+}
+\tikzset{every mark/.append style={solid}}
 \usepackage{array} %,tabularx
-
-% \newenvironment{conditions}
-%   {\par\vspace{\abovedisplayskip}\noindent
-%    \begin{tabular}{>{$}l<{$} @{} >{${}}c<{{}$} @{} l}}
-%   {\end{tabular}\par\vspace{\belowdisplayskip}}
-
-% \newenvironment{conditions*}
-%   {\par\vspace{\abovedisplayskip}\noindent
-%    \tabularx{\columnwidth}{>{$}l<{$} @{}>{${}}c<{{}$}@{} >{\raggedright\arraybackslash}X}}
-%   {\endtabularx\par\vspace{\belowdisplayskip}}
 
 
 \newlength{\conditionwd}
-\newenvironment{conditions}[1][where:]
-{%
+\newenvironment{conditions}[1][where:]{%
 	#1\tabularx{\textwidth-\widthof{#1}}[t]{
 	>{$}l<{$} @{${}={}$} X@{}
 	}%

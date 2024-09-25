@@ -37,18 +37,13 @@
 
 \addbibresource{Dissertation.bib}
 
-% shorthands
-%\newcommand{\csh}{C\hbox{-}S\hbox{-}H\xspace}
-%\newcommand{\alite}{{alite}\xspace}
-
-
 \begin{document}
 	\frontmatter  % start front matter section
 		%\input{additionals/a-cover}
 		\input{additionals/b-titlepage}  % include correct title page
 		\input{additionals/e-dedication}
 
-		\pagenumbering{Roman}  % set page numbering to Roman
+		%\pagenumbering{Roman}  % set page numbering to Roman
 
 		\input{additionals/c-acknowledgements}
 
@@ -67,19 +62,18 @@
 		\input{chapter/04-algorithms}
 		\input{chapter/05-hydrate-rim}
 		\input{chapter/06-correl-micro}
-		%\input{chapter/04-results}
+		\input{chapter/07-pores}
 		
 		\input{chapter/99-bibliography}
-		
-	\appendix  % begin appendix
-		
-		
+
+	\appendix  % begin appendix		
 		\ifdefined\DRAFT
 		\setkeys{Gin}{draft}
 		\fi
 		\input{chapter/AA-appendix}  % include appendix content
 
-	\selectlanguage{ngerman}
-	\input{additionals/z-declaration}
+	\backmatter
+		\selectlanguage{ngerman}
+		\input{additionals/z-declaration}
 
 \end{document}

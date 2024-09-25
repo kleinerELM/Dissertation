@@ -47,9 +47,9 @@ The results are plotted in Figures~\ref{fig:suess_CSH_C3S} (\ac{C3S}) and \ref{f
 
             \addplot+ [draw=none, no markers, name path=A] table [skip first n=3, x index=0, y index=5, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
             \addplot+ [draw=none, no markers, name path=B] table [skip first n=3, x index=0, y index=7, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
-            \addplot [fill=blue, fill opacity=0.2] fill between [of=A and B]; 
+            \addplot [fill=cyan, fill opacity=0.2] fill between [of=A and B]; 
             
-            \addplot [color=blue, mark=x, dotted] table [skip first n=3, x index=0, y index=6, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addplot [color=cyan, mark=x, dotted] table [skip first n=3, x index=0, y index=6, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
             
 
             \addplot+ [draw=none, no markers, name path=A] table [skip first n=3, x index=0, y index=8, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
@@ -87,9 +87,9 @@ The results are plotted in Figures~\ref{fig:suess_CSH_C3S} (\ac{C3S}) and \ref{f
 
             \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=1, y index=5, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
             \addplot+ [draw=none, no markers, name path=B,forget plot] table [skip first n=3, x index=1, y index=7, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
-            \addplot [fill=blue, fill opacity=0.2,forget plot] fill between [of=A and B]; 
+            \addplot [fill=cyan, fill opacity=0.2,forget plot] fill between [of=A and B]; 
             
-            \addplot [color=blue, mark=x, dotted] table [skip first n=3, x index=1, y index=6, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addplot [color=cyan, mark=x, dotted] table [skip first n=3, x index=1, y index=6, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
             \addlegendentry[]{\ac{C3S} \SI{20}{\celsius}}
             
 
@@ -166,9 +166,9 @@ While the \ac{CSH}-growth of \ac{C3S} stagnates after 5 months, Möser indicates
 
 %             \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=0, y index=1, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C2S_moeser.csv};
 %             \addplot+ [draw=none, no markers, name path=B,forget plot] table [skip first n=3, x index=0, y index=3, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C2S_moeser.csv};
-%             \addplot [fill=blue, fill opacity=0.2,forget plot] fill between [of=A and B]; 
+%             \addplot [fill=cyan, fill opacity=0.2,forget plot] fill between [of=A and B]; 
             
-%             \addplot [color=blue, mark=x, dotted] table [skip first n=3, x index=0, y index=2, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C2S_moeser.csv};
+%             \addplot [color=cyan, mark=x, dotted] table [skip first n=3, x index=0, y index=2, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C2S_moeser.csv};
 %             \addlegendentry[]{$\beta$-\ac{C2S} \SI{20}{\celsius} \cite{moser.2002}}
 
 %         \end{groupplot}
@@ -222,16 +222,16 @@ While the \ac{CSH}-growth of \ac{C3S} stagnates after 5 months, Möser indicates
 
             \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=0, y index=1, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C2S_moeser.csv};
             \addplot+ [draw=none, no markers, name path=B,forget plot] table [skip first n=3, x index=0, y index=3, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C2S_moeser.csv};
-            \addplot [fill=blue, fill opacity=0.2,forget plot] fill between [of=A and B]; 
+            \addplot [fill=cyan, fill opacity=0.2,forget plot] fill between [of=A and B]; 
             
-            \addplot [color=blue, mark=x, dotted] table [skip first n=3, x index=0, y index=2, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C2S_moeser.csv};
+            \addplot [color=cyan, mark=x, dotted] table [skip first n=3, x index=0, y index=2, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C2S_moeser.csv};
 
         \nextgroupplot[
             xmin=28, xmax=1000,
             restrict x to domain=14:1000,
             xtick={150, 360, 600, 1000},
             axis y line=right,
-            legend to name={CommonLegend}
+            legend to name={CommonLegend2}
         ]
             \pgfplotsset{cycle list shift=+1}
             \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=1, y index=5, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
@@ -252,13 +252,13 @@ While the \ac{CSH}-growth of \ac{C3S} stagnates after 5 months, Möser indicates
 
             \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=0, y index=1, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C2S_moeser.csv};
             \addplot+ [draw=none, no markers, name path=B,forget plot] table [skip first n=3, x index=0, y index=3, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C2S_moeser.csv};
-            \addplot [fill=blue, fill opacity=0.2,forget plot] fill between [of=A and B]; 
+            \addplot [fill=cyan, fill opacity=0.2,forget plot] fill between [of=A and B]; 
             
-            \addplot [color=blue, mark=x, dotted] table [skip first n=3, x index=0, y index=2, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C2S_moeser.csv};
+            \addplot [color=cyan, mark=x, dotted] table [skip first n=3, x index=0, y index=2, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C2S_moeser.csv};
             \addlegendentry[]{$\beta$-\ac{C2S} \SI{20}{\celsius} \cite{moser.2002}}
 
         \end{groupplot}
-        \node [above] (L) at (rel axis cs:1.0,1.04) {\ref{CommonLegend}};
+        \node [above] (L) at (rel axis cs:1.0,1.04) {\ref{CommonLegend2}};
 
     \end{tikzpicture} 
     \caption{Growth of \ac{CSHo} on $\beta$-\ac{C2S} compared to \ac{C3S} at \SI{20}{\celsius}. Based on data from Süß  and Möser \cite{suss.2001,stark.2001,moser.2002}.}
@@ -276,7 +276,7 @@ Nicoleau \cite{nicoleau.2011} measured the \ac{CSH}-thickness using Cryo-\ac{SEM
 Bishnoi and Scrivener \cite{bishnoi.2012} criticized this approach due to the subjectivity of the measurement.
 {\color{red}TODO! Werte rausschreiben/ in ein Diagramm eintragen}
 
-Scrivener \cite{scrivener.2004a} describes the sectioning effect, which is an issue for \ac{SEM}-\ac{BSE} images and will be detailed in Subsection~\ref{subsec:sectioning-effect}.
+Scrivener \cite{scrivener.2004} describes the sectioning effect, which is an issue for \ac{SEM}-\ac{BSE} images and will be detailed in Subsection~\ref{subsec:sectioning-effect}.
 
 
 

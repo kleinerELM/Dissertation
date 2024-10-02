@@ -1,107 +1,66 @@
 \chapter{Literature}
 
-discuss some literature
+Why CSH-Growth is interesting? For simulation! \cite{breugel.1997,nguyen-tuan.2023,nguyen-tuan.2024}
+
+
+{\color{red} discuss some literature}
 
 \section{Growth of Calcium-Silicate-Hydrate}
 
-\textsc{Anderegg} and \textsc{Hubbell} already tried 1929 / 1930 \cite{andregg.1929,andregg.1930} to measure the the hydration layer development of Portland cement at 21$\pm$\SI{3}{\celsius} utilizing the refraction index difference between the \ac{CSH} and the unhydrated clinker.
-However, they used rather coarse material, which also seems to have had an influence on the hydration depth.
-In 1930 they also published datasets for the hydration of \ac{C3S} and \ac{C2S} (see Figure~\ref{fig:anderegg-hubbel}) \cite{andregg.1930}.
-In contrast to the Portland cement experiments, these consisted only out of very few series of experiments with a rather high variance.
+\textsc{Anderegg} and \textsc{Hubbell} already tried 1929 / 1930 \cite{andregg.1929,andregg.1930} to measure the the hydration layer development of \ac{OPC} at 21$\pm$\SI{3}{\celsius} utilizing the refraction index difference between the \ac{CSH} and the unhydrated clinker.
+However, they used rather coarse material.
+According to their experiments, the hydrate rim is depending on the mean particle dimension (measured from 150 particles) as shown in Figure~\ref{fig:anderegg-hubbel-distribution}.
+This dependence becomes more prone for older specimens, since particles with a radius equal or smaller than the hydrate layer are consumed and cannot contribute to a larger hydrate layer.
 
-% \begin{figure}[!htb]
-%     \centering
-%     \begin{tikzpicture}
-%         \begin{axis}[
-%                 legend columns = 4,
-% 				legend style={at={(.5,1.01)},anchor=south, style={column sep=3pt}},
-% 				xmin=0.1, xmax=90,%270,
-% 				ymin=0, ymax=8,
-% 				width=0.95\linewidth,
-% 				height=0.4\linewidth,
-% 				grid=major,
-% 				xlabel={time $t$ in \si{\day}},
-% 				ylabel={hydrate layer thickness in \si{\micro\meter}},
-% 				xtick={0, 1,7,14,28,90,270},%0.125,
-%                 %xticklabels={\SI{15}{\min},1,7,14,28,90,270},
-% 				ytick={0,1,...,10},
-% 				grid style={line width=.1pt, draw=gray!10}
-%             ]
-%             %C3S
-%             \addplot [ mark=x, red, opacity=0.5 ] coordinates {
-%                         (0,0)
-%                         (0.125,1.68)
-%                         (1,2.25)
-%                         %(2,3.02)
-%                         %(3,3.60)
-%                         (7,4.32)
-%                         (28,4.44)
-%                         %(150,6.10)
-%                     };
-%             \addlegendentry[]{\acs*{C3S} \cite{andregg.1930}}
-
-%             %C2S
-%             \addplot [ mark=x, orange, opacity=0.5 ] coordinates {
-%                         (0,0)
-%                         (1,0.28)
-%                         %(2,0.40)
-%                         %(3,0.50)
-%                         (7,0.62)
-%                         (28,0.83)
-%                         (270,3.54)
-%                     };
-%             \addlegendentry[]{\acs*{C2S} \cite{andregg.1930}}
-            
-%             % %C3A
-%             % \addplot [ mark=x, blue, opacity=0.5 ] coordinates {
-%             %             (0,0)
-%             %             (0.01042,2.14)
-%             %             (0.125,4.35)
-%             %             %(1,4.7)
-%             %             %(2,5.2)
-%             %             (3,5.68) %(7,5.70)
-%             %             (165,5.66)
-%             %         };
-%             % \addlegendentry[]{\acs*{C3A} \cite{andregg.1930}}
-
-%             %PC A average
-%             \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=0, col sep=comma,y expr={\thisrowno{12}-\thisrowno{13}}, ] {figures/hydrate-rim/data_andregg/PCA.csv};
-%             \addplot+ [draw=none, no markers, name path=B,forget plot] table [skip first n=3, x index=0, col sep=comma,y expr={\thisrowno{12}+\thisrowno{13}}, ] {figures/hydrate-rim/data_andregg/PCA.csv};
-
-%             \addplot [fill=cyan, fill opacity=0.2,forget plot] fill between [of=A and B]; 
-
-%             \addplot [ mark=x, cyan, opacity=0.5 ] table [skip first n=3, x index=0, y index=12, col sep=comma] {figures/hydrate-rim/data_andregg/PCA.csv};
-
-%             \addlegendentry[]{\acs{OPC} \cite{andregg.1929,andregg.1930}}
+\begin{figure}[!htb]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+				legend style={at={(1.05,.5)},anchor=west},
+                legend cell align={left},
+				xmin=10, xmax=30,%270,
+				ymin=0, ymax=7,
+				width=0.45\linewidth,
+				height=0.45\linewidth,
+				grid=major,
+				xlabel={mean particle dimension in \si{\micro\meter}},
+				ylabel={$l_{\text{CSH}}$ in \si{\micro\meter}},
+				ytick={0,1,...,7},
+				grid style={line width=.1pt, draw=gray!10}
+            ]
 
 
-%             \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=2, x index=0, col sep=comma,y expr={\thisrowno{9}-\thisrowno{10}}, ] {figures/hydrate-rim/data_andregg/PCA+CaSO4.csv};
-%             \addplot+ [draw=none, no markers, name path=B,forget plot] table [skip first n=2, x index=0, col sep=comma,y expr={\thisrowno{9}+\thisrowno{10}}, ] {figures/hydrate-rim/data_andregg/PCA+CaSO4.csv};
+            \addplot+ [ only marks, mark=x, orange ] table [skip first n=1, x index=0, y index=3, col sep=comma] {figures/hydrate-rim/data_andregg/gsd-PCA.csv};
+            \addlegendentry{\SI{7}{\day}, \ac{OPC}};
+            \addplot+ [ only marks, mark=o, orange ] table [skip first n=1, x index=0, y index=3, col sep=comma] {figures/hydrate-rim/data_andregg/gsd-PCA+CaSO4.csv};
+            \addlegendentry{\SI{7}{\day}, \ac{OPC}+\ce{CaSO4}};
 
-%             \addplot [fill=green, fill opacity=0.2,forget plot] fill between [of=A and B];
-%             \addplot [ mark=x, green, opacity=0.5 ] table [skip first n=2, x index=0, y index=9, col sep=comma] {figures/hydrate-rim/data_andregg/PCA+CaSO4.csv};
+            \addplot[orange, domain=0:30, opacity=0.5, samples=2] {0.068516925009012*x + 1.05223737455958};
+            \addlegendentry{\SI{7}{\day}, $R^2=0.11$};
 
-%             \addlegendentry[]{\acs{OPC} + CaSO4 \cite{andregg.1929,andregg.1930}}
+            \addplot+ [ only marks, mark=x, cyan ] table [skip first n=1, x index=0, y index=4, col sep=comma] {figures/hydrate-rim/data_andregg/gsd-PCA.csv};
+            \addlegendentry{\SI{28}{\day}, \ac{OPC}};
+            \addplot+ [ only marks, mark=o, cyan ] table [skip first n=1, x index=0, y index=4, col sep=comma] {figures/hydrate-rim/data_andregg/gsd-PCA+CaSO4.csv};
+            \addlegendentry{\SI{28}{\day}, \ac{OPC}+\ce{CaSO4}};
 
-            
-%             \addplot+ [ 
-%                 draw=none, 
-%                 mark=x, black, opacity=0.5, 
-%                 error bars/.cd,
-%                     y dir=both,y explicit, 
-%             ] coordinates {
-%                         %(0,0) +- (0,0) 
-%                         (1,.933) +- (0,0.083) 
-%                         (2,1.188) +- (0,0.049) 
-%             };
-%             \addlegendentry[]{\acs*{C3S} \cite{nicoleau.2011}}
+            \addplot[cyan, domain=0:30, opacity=0.5, samples=2] {0.196884840055179*x + 0.0780310618817959};
+            \addlegendentry{\SI{28}{\day}, $R^2=0.59$};
 
-%         \end{axis}
-%     \end{tikzpicture}
-%     \caption{Growth of \ac{CSH} on Portland cement and cement phases by \cite{andregg.1929,andregg.1930} and \textsc{Nicoleau} \cite{nicoleau.2011}}
-%     \label{fig:anderegg-hubbel}
-% \end{figure}
+            \addplot+ [ only marks, mark=x, red ] table [skip first n=1, x index=0, y index=5, col sep=comma] {figures/hydrate-rim/data_andregg/gsd-PCA.csv};
+            \addlegendentry{\SI{90}{\day}, \ac{OPC}};
+            \addplot+ [ only marks, mark=o, red ] table [skip first n=1, x index=0, y index=5, col sep=comma] {figures/hydrate-rim/data_andregg/gsd-PCA+CaSO4.csv};
+            \addlegendentry{\SI{90}{\day}, \ac{OPC}+\ce{CaSO4}};
 
+            \addplot[red, domain=0:30, opacity=0.5, samples=2] {0.224971630191457*x + 0.566670110374461};
+            \addlegendentry{\SI{90}{\day}, $R^2=0.82$};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Mean hydration rim of \ac{OPC} from experiments of \textsc{Anderegg} and \textsc{Hubbell} \cite{andregg.1929,andregg.1930} in dependence of the mean particle ``dimension'' of 150 measured grains. The lack or addition of \SI{0.8}{\percent} \ce{CaSO4} in the experiments is marked with x and 0 respectively. }
+    \label{fig:anderegg-hubbel-distribution}
+\end{figure}
+
+In 1930 they also published datasets for the hydration of \ac{C3S} and \ac{C2S} \cite{andregg.1930}.
+In contrast to the \ac{OPC} experiments, these consisted only out of very few series of experiments with a rather high variance (see Figure~\ref{fig:anderegg-hubbel}).
 
 \begin{figure}[!htb]
     \centering
@@ -251,14 +210,14 @@ In contrast to the Portland cement experiments, these consisted only out of very
         \node [above] (L) at (rel axis cs:1.0,1.04) {\ref{CommonLegend3}};
 
     \end{tikzpicture}
-    \caption{Growth of \ac{CSH} on Portland cement and cement phases by textsc{Anderegg} and \textsc{Hubbell} \cite{andregg.1929,andregg.1930} and \textsc{Nicoleau} \cite{nicoleau.2011}}
+    \caption{Growth of \ac{CSH} on \ac{OPC}, \ac{C3S} and \ac{C2S} by \textsc{Anderegg} and \textsc{Hubbell} \cite{andregg.1929,andregg.1930} and \textsc{Nicoleau} \cite{nicoleau.2011}}
     \label{fig:anderegg-hubbel}
 \end{figure}
 
 
-\textsc{Nicoleau} \cite{nicoleau.2011} measured the \ac{CSH}-thickness using Cryo-\ac{SEM} on cracked surfaces of hydrated \ac{C3S} ($w/b=0.5$, $\vartheta=$\SI{20}{\celsius}).
-\textsc{Bishnoi} and \textsc{Scrivener} \cite{bishnoi.2012} criticized this approach due to the subjectivity of the measurement and the occurence of the sectioning effect, which was described in detail by \textsc{Scrivener} \cite{scrivener.2004}.
-This effect is an issue for all 2D images of polished sectiones (e.g. typical \ac{SEM}-\ac{BSE} images) and will be described and discussed in Subsection~\ref{subsec:sectioning-effect}.
+\textsc{Nicoleau} \cite{nicoleau.2011} measured the \ac{CSH}-thickness using Cryo-\ac{SEM} on cracked surfaces of hydrated \ac{C3S} ($w/b=0.5$, $\vartheta=$\SI{20}{\celsius}) (see Figure~\ref{fig:anderegg-hubbel}).
+\textsc{Bishnoi} and \textsc{Scrivener} \cite{bishnoi.2012} criticized this approach due to the rather uncontrolled cracing, the subjectivity of the measurement and the occurence of the sectioning effect, which was described in detail by \textsc{Scrivener} \cite{scrivener.2004}.
+This effect is an issue for all 2D images of polished sections (e.g. typical \ac{SEM}-\ac{BSE} images) and will be described and discussed in Subsection~\ref{subsec:sectioning-effect}.
 
 \textsc{Süß} \cite{suss.2001} manually measured the development of the length of \ac{CSH}-needles, also called \ac{CSHo}, using \ac{SEM}-\ac{SE}-images until a specimen age of \SI{28}{\day}.
 \textsc{Stark} and \textsc{Möser} \cite{stark.2001, moser.2001,moser.2002} continued this work close to the 3 years mark.
@@ -276,7 +235,7 @@ The results are plotted in Figures~\ref{fig:suess_CSH_C3S} (\ac{C3S}) and \ref{f
                     xticklabels at=edge bottom,
                     horizontal sep=0pt},
             legend style={at={(.05,.94)},anchor=north west},
-            ylabel={$l_{\text{CSH}_\text{o}}$ in \si{\nano\meter}},
+            ylabel={$l_{\text{CSH}_\text{o}}$ in \si{\micro\meter}},
             width=0.49\linewidth,
             height=0.4\linewidth,
             legend columns = 4,
@@ -284,15 +243,21 @@ The results are plotted in Figures~\ref{fig:suess_CSH_C3S} (\ac{C3S}) and \ref{f
             legend style = {anchor=north, style={column sep=3pt}},
             grid=both,
             grid style={line width=.1pt, draw=gray!10},
+            y tick label style={
+                /pgf/number format/fixed zerofill,
+                /pgf/number format/precision=1},
         ]
         \nextgroupplot[
             xmin=0, xmax=635,
-            ymin=0, ymax=1250,
+            ymin=0, ymax=1.250,
             xlabel={time $t$ in \si{\min}},
             xtick={0,0,130,300,600},
-            ytick={0,250,...,3000},
+            ytick={0,.250,...,3.000},
             restrict x to domain=0:600,
-            axis y line*=left, 
+            axis y line*=left,
+            y tick label style={
+                /pgf/number format/fixed zerofill,
+                /pgf/number format/precision=2},
         ]
             \addplot+ [draw=none, no markers, name path=A] table [skip first n=3, x index=0, y index=2, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
             \addplot+ [draw=none, no markers, name path=B] table [skip first n=3, x index=0, y index=4, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
@@ -323,10 +288,10 @@ The results are plotted in Figures~\ref{fig:suess_CSH_C3S} (\ac{C3S}) and \ref{f
 
         \nextgroupplot[
             xmin=-1.5, xmax=28,
-            ymin=0, ymax=3000,
+            ymin=0, ymax=3.000,
             xlabel={time $t$ in \si{\day}},
             xtick={1,9,21,28},
-            ytick={0,500,...,3000},
+            ytick={0.5,1,1.500,...,3.000},
             restrict x to domain=1:28,
             axis y line*=right,
             axis x discontinuity=parallel,
@@ -374,7 +339,7 @@ The results are plotted in Figures~\ref{fig:suess_CSH_C3S} (\ac{C3S}) and \ref{f
 
 The formation of \ac{CSH} begins earlier with raising temperature.
 This also causes a significant increase of the overall fibre length.
-At the same temperature, \ac{C2S} demonstrates a slower \ac{CSH}-groth. 
+At the same temperature, \ac{C2S} demonstrates a slower \ac{CSH}-growth. 
 While the \ac{CSH}-growth of \ac{C3S} stagnates after 5 months, \textsc{Möser} indicates that the needle length of \ac{CSH} on \ac{C2S} is still increasing significantly, even until an age of 3 years.
 
 \begin{figure}[!htb]
@@ -387,8 +352,8 @@ While the \ac{CSH}-growth of \ac{C3S} stagnates after 5 months, \textsc{Möser} 
                     horizontal sep=0pt},
             legend style={at={(.05,.94)},anchor=north west},
             axis x line=box,
-            ytick={0,500,...,3000},
-            ylabel={$l_{\text{CSH}_\text{o}}$ in \si{\nano\meter}},
+            ytick={0,1,1.5,...,3},
+            ylabel={$l_{\text{CSH}_\text{o}}$ in \si{\micro\meter}},
             xlabel={time $t$ in \si{\day}},
             width=0.49\linewidth,
             height=0.4\linewidth,
@@ -396,14 +361,20 @@ While the \ac{CSH}-growth of \ac{C3S} stagnates after 5 months, \textsc{Möser} 
             legend style = {anchor=north, style={column sep=3pt}},
             grid=both,
             grid style={line width=.1pt, draw=gray!10},
+            y tick label style={
+                /pgf/number format/fixed zerofill,
+                /pgf/number format/precision=1},
         ]
         \nextgroupplot[
             xmin=0, xmax=28,
-            ymin=0, ymax=1250,
-            ytick={0,250,...,1250},
+            ymin=0, ymax=1.250,
+            ytick={0,.250,...,1.250},
             restrict x to domain=0:42,
             xtick={1,9,21,28},
             axis y line=box, 
+            y tick label style={
+                /pgf/number format/fixed zerofill,
+                /pgf/number format/precision=2},
         ]
             \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=1, y index=5, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
             \addplot+ [draw=none, no markers, name path=B,forget plot] table [skip first n=3, x index=1, y index=7, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
@@ -429,16 +400,17 @@ While the \ac{CSH}-growth of \ac{C3S} stagnates after 5 months, \textsc{Möser} 
             xmin=28, xmax=1000,
             restrict x to domain=14:1000,
             xtick={150, 360, 600, 1000},
-            axis y line=right,
+            ytick={.5,1,1.5,...,2.5},
+            axis y line*=right,
             legend to name={CommonLegend2}
         ]
             \pgfplotsset{cycle list shift=+1}
             \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=1, y index=5, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
             \addplot+ [draw=none, no markers, name path=B,forget plot] table [skip first n=3, x index=1, y index=7, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
-            \addplot [fill=cyan, fill opacity=0.2,forget plot] fill between [of=A and B]; 
+            \addplot [fill=red, fill opacity=0.2,forget plot] fill between [of=A and B]; 
             
-            \addplot [color=cyan, mark=x, dotted] table [skip first n=3, x index=1, y index=6, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
-            \addlegendentry[]{\ac{C3S} \SI{20}{\celsius} \cite{suss.2001,stark.2001,moser.2002}}
+            \addplot [color=red, mark=x, dotted] table [skip first n=3, x index=1, y index=6, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addlegendentry[]{\ac{C3S} \cite{suss.2001,stark.2001,moser.2002}}
 
 
             \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=1, y index=14, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
@@ -446,7 +418,7 @@ While the \ac{CSH}-growth of \ac{C3S} stagnates after 5 months, \textsc{Möser} 
             \addplot [fill=green, fill opacity=0.2,forget plot] fill between [of=A and B]; 
             
             \addplot [color=green, mark=x, dotted] table [skip first n=3, x index=1, y index=15, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
-            \addlegendentry[]{$\beta$-\ac{C2S} \SI{20}{\celsius} \cite{suss.2001}}
+            \addlegendentry[]{$\beta$-\ac{C2S} \cite{suss.2001}}
 
 
             \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=0, y index=1, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C2S_moeser.csv};
@@ -454,7 +426,7 @@ While the \ac{CSH}-growth of \ac{C3S} stagnates after 5 months, \textsc{Möser} 
             \addplot [fill=cyan, fill opacity=0.2,forget plot] fill between [of=A and B]; 
             
             \addplot [color=cyan, mark=x, dotted] table [skip first n=3, x index=0, y index=2, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C2S_moeser.csv};
-            \addlegendentry[]{$\beta$-\ac{C2S} \SI{20}{\celsius} \cite{moser.2002}}
+            \addlegendentry[]{$\beta$-\ac{C2S} \cite{moser.2002}}
 
         \end{groupplot}
         \node [above] (L) at (rel axis cs:1.0,1.04) {\ref{CommonLegend2}};
@@ -466,7 +438,7 @@ While the \ac{CSH}-growth of \ac{C3S} stagnates after 5 months, \textsc{Möser} 
 
 In his presentations, \textsc{Möser} summarized the results as follows:
 \begin{quote}
-When growing unhindered, the needle-like \ac{CSH} phases can reach a length of approx. \SI{1.4}{\micro\meter}. These applies only for hydration of alite. In pure belite a \ac{CSH}-length of up to \SI{2.5}{\micro\meter} can be measured. \cite{moser.2001}
+When growing unhindered, the needle-like \ac{CSH} phases can reach a length of approximately \SI{1.4}{\micro\meter}. This applies only for the hydration of alite. In pure belite, a \ac{CSH}-length of up to \SI{2.5}{\micro\meter} can be measured. \cite{moser.2001}
 \end{quote}
 %Zitat Möser
 %It can be assumed that at the beginning of the acceleration period all C-S-H phases grow in form of fibres. These fibres grow in length during the course of hydration with hardly any changes in thickness. When growing unhindered, the needle-like \ac{CSH} phases can reach a length of approx. 1.4 µm. These applies only for hydration of alite (in pure belite: \ac{CSH}- length up to 2.5 µm). In compact concrete it is to be expected that there is intergrowth between the fibers as well as and interlocking with one another and thus gel pores are formed which have often been described.

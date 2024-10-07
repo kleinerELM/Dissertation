@@ -2,7 +2,7 @@
 
 \section{Background and Motivation}
 
-{\color{red} TODO: reine Ideensammlung}
+%{\color{red} TODO: reine Ideensammlung}
 Portland cement is the most commonly used binder for the production of concrete.
 After adding water to the cement, a reaction called hydration begins.
 The cement reactivity is determined by its composition and particle size.
@@ -10,41 +10,53 @@ During hydration, the cement begins to dissolve and precipitate new crystals tha
 This microstructure determines the properties of the resulting concrete.
 
 In 1929 Andregg and Hubbell introduced their paper as follows:
-\begin{quote}
+\begin{iquote}
 	The lack of knowledge concerning the rate of hydration of cement clinker has hindered a more complete understanding of the complicated setting and hardening reactions that cements undergo. \cite{andregg.1929}
-\end{quote}
-This is still true to a certain extent today.
-A good knowledge of the structural development and therefore, reliable measurement and evaluation methods are still crucial to understand, model \cite{nguyen-tuan.2023,nguyen-tuan.2024} and influence the hydration of cements.
+\end{iquote}
+
+\begin{figure*}[b!]
+    \centering
+
+	\includegraphics[width=\textwidth, trim={0 1cm 0 6cm}, clip]{intro.jpg}
+    \caption{Artistic 3D reconstruction of \ac{CSH}-fibres within a capillary pore, recorded using \ac{SEM}-\ac{FIBnt}. \cite{kleiner.2021c}}
+    \label{fig:intro}
+\end{figure*}
+
+While the knowledge and measurement techniques have significantly improved within the last century, this is still true to a certain extent today.
+Good knowledge of the structural development and therefore, reliable measurement and evaluation methods are crucial to understand, model \cite{nguyen-tuan.2023,nguyen-tuan.2024} and influence the hydration of cements.
 Good measurement and evaluation methods are therefore required.
 
+
 A \ac{SEM} is a powerful tool to image the microstructure of a lot of materials.
-Electron microscopy is widely known for its \ac{SE}-mode, which gives a great idea of the surface profile of the specimen.
-Nevertheless, the data extracted from the resulting images can be greatly improved, if the \ac{BSE}, X-ray or crystallographic signals are recorded.
-Combining these imaging techniques ... is powerful ... bla.
+Electron microscopy is widely known for its \ac{SE}-mode, which gives a great idea of the surface profile of the specimen, or the \ac{BSE}-mode resulting in a chemical contrast.
+Nevertheless, the data extracted from the resulting images can be greatly improved, if also data from \ac{EDX}, \ac{EBSD}, optical microscopy, \ac{mCT} laser ablation or nano indentation are recorded.
+Combining these (imaging) techniques results in significantly more information than the simple sum of the individual method would be able to produce.
 
-
-However, correctly combining the \ac{SEM}-measurements with the output of other devices, like optical microscopy, \ac{mXRF}, laser ablation or nano indentation results in significantly more information than the simple sum of the individual method would be able to produce.
-
-
-This thesis is devoted to improve the characterization the micro-structure of unhydrated and hydrated cement based binders utilizing a set of imaging techniques like \ac{SEM} and \ac{mCT}.
-The goal is to better understand the influence of the composition on the structure of hydration products.
+Therefore, this thesis is devoted to improve the characterization the micro-structure of unhydrated and hydrated cement based binders utilizing a set of imaging techniques like \ac{SEM} and \ac{mCT}.
+The goal is to better understand the influence of the devices and techniques and finding improved ways to combine them to gain better knowledge about clinker and the cement hydration.
+Furthermore, the composition of clinker and the structure of hydration products were the focus of this work.
 
 Modern computer vision methods allow to develope complicated and creative evaluation methods, which were computational much to expensive, just a few years ago.
-Therefore, existing analytical methods are to be improved and further developed to be reproducible and automatable.
+Therefore, existing analytical methods are to be improved and further developed to be reproducible and and fairly easily repeatable.
 
+{\color{red}
+TODO!
+
+Ideas for chapters
 \begin{itemize}
-	\item Introduction
-	\item Literature review
-	\item Methodology
-	\begin{itemize}
-		\item ArBIB, EDX, EBSD, SEM/FIB, LA-ICP-MS,...
-	\end{itemize}
-	\item Results and discussion
-	\item Influence of specimen preparation (ArBIB) and SEM/FIB-imaging on cementitious specimens
-	\item Improved characterization of trace elements by combining EDX and LA-ICP-MS
+	%\item Introduction
+	%\item Literature review
+	%\item Methodology
+	%\begin{itemize}
+	%	\item ArBIB, EDX, EBSD, SEM/FIB, LA-ICP-MS,...
+	%\end{itemize}
+	%\item Results and discussion
+	%\item Influence of specimen preparation (ArBIB) and SEM/FIB-imaging on cementitious specimens
+	%\item Improved characterization of trace elements by combining EDX and LA-ICP-MS
 	\item Dissolution- and hydration rates of clinker phases depending on the crystal orientation (SEM+EBSD+VSI)
 	\item Chemical and structural 3D-analysis of hydrated cementitious materials
-	\item Measuring the hydrate rim thickness development of CSH
-	\item Summary
-	\item Outlook
+	%\item Measuring the hydrate rim thickness development of CSH
+	%5\item Summary
+	%\item Outlook
 \end{itemize}
+}

@@ -305,3 +305,5 @@ TSWLatexianTemp*
 # cannot distribute the university font due to legal reasons.
 # Therefore all ttf fonts will be ignored!
 *.ttf
+figures/intro-anim/anim.psd
+Dissertation.bcf-SAVE-ERROR

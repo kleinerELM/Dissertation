@@ -232,12 +232,14 @@
 
 
 %%%%%% Hyperref Settings
+%\usepackage{hyperxmp} %https://tex.stackexchange.com/questions/3708/hyperref-enquotes-metadata
 \usepackage[hidelinks,  % hide links in pdf document
 			pdftitle    = {\myTitle},
 			pdfsubject  = {\myTypeOfDocumentPDF},
 			pdfauthor   = {\myAuthor},
+			pdfkeywords = {{\myKeywords}}, %this does just not work as I expect
+			pdfproducer = {\myUniversity},
 			breaklinks  = true
-			%pdfproducer = {\myUniversity},
 			]{hyperref}
 
 \renewcommand*{\chapterformat}{%

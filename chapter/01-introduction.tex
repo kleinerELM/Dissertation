@@ -4,21 +4,29 @@
 
 %{\color{red} TODO: reine Ideensammlung}
 Portland cement is the most commonly used binder for the production of concrete.
-After adding water to the cement, a reaction called hydration begins.
+After adding water to the cement, a reaction called ``hydration'' begins.
 The cement reactivity is determined by its composition and particle size.
-During hydration, the cement begins to dissolve and precipitate new crystals that form a new microstructure and ultimately causes hardening of the cement paste.
-This microstructure determines the properties of the resulting concrete.
+During hydration, the cement begins to dissolve and new crystals start to form (see Figure~\ref{fig:intro}).
+This ultimately causes hardening of the cement paste.
+Furthermore, this microstructure determines the properties of the resulting concrete.
 
-In 1929 Andregg and Hubbell introduced their paper as follows:
+In 1929 Anderegg and Hubbell introduced their paper as follows:
 \begin{iquote}
-	The lack of knowledge concerning the rate of hydration of cement clinker has hindered a more complete understanding of the complicated setting and hardening reactions that cements undergo. \cite{andregg.1929}
+	The lack of knowledge concerning the rate of hydration of cement clinker has hindered a more complete understanding of the complicated setting and hardening reactions that cements undergo. \cite{anderegg.1929}
 \end{iquote}
+
 
 \begin{figure*}[b!]
     \centering
 
-	\includegraphics[width=\textwidth, trim={0 1cm 0 6cm}, clip]{intro.jpg}
-    \caption{Artistic 3D reconstruction of \ac{CSH}-fibres within a capillary pore, recorded using \ac{SEM}-\ac{FIBnt}. \cite{kleiner.2021c}}
+	\ifdefined\PRINTABLE
+		\includegraphics[width=\textwidth]{introintro-anim/Animation06.jpg}
+	\else
+		\animategraphics[palindrome,autoplay,width=\textwidth]{6}{intro-anim/Animation}{01}{10}
+	\fi
+	
+	%\includegraphics[width=\textwidth, trim={0 1cm 0 6cm}, clip]{intro.jpg}
+    \caption{Artistic 3D reconstruction of \ac{CSH}-fibres within a capillary pore of \SI{28}{\day} hydrated \ac{C3S}. The dataset was recorded using a \ac{SEM}-\ac{FIBnt}. \cite{kleiner.2021c}}
     \label{fig:intro}
 \end{figure*}
 
@@ -40,9 +48,7 @@ Modern computer vision methods allow to develope complicated and creative evalua
 Therefore, existing analytical methods are to be improved and further developed to be reproducible and and fairly easily repeatable.
 
 {\color{red}
-TODO!
-
-Ideas for chapters
+Chapter ideas
 \begin{itemize}
 	%\item Introduction
 	%\item Literature review

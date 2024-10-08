@@ -1,8 +1,28 @@
 % !TeX TS-program = xelatex
+
+
+% ################################################
+% Definitions
+% ################################################
+
 \def\DRAFT{} % comment out for the printable document!
 %\def\PRINTABLE{} % uncomment to disable animated figures
 %\def\REVIEW{}
 
+\def\myTypeOfDocument{Dissertation}
+\def\myAuthor{Florian Kleiner}  % authors name
+\def\myUniversity{Bauhaus-Universität Weimar}
+\def\myFirstReviewer{Professor Dr.-Ing. Horst-Michael Ludwig}  % name of first reviewer
+\def\mySecondReviewer{Unknown}  % name of second reviewer
+\def\myThirdReviewer{Unknown}   % name of third reviewer
+\def\myExamDate{xx.xx.2025}
+\def\myTitle{2D and 3D characterization of clinker phases and hydrated cementitious binders by a variety of modern imaging techniques}
+\def\myKeywords{SEM EDX {image analysis} cement hydration clinker {specimen preparation}}
+\ifdefined\PRINTABLE
+	\def\mySubtitle{Printversion}
+\else
+	\def\mySubtitle{Digitalversion}
+\fi
 
 \ifdefined\DRAFT
 	\documentclass[	paper=a4, twoside = true, fontsize = 12,  % font size for \normalsize set to 12
@@ -20,19 +40,6 @@
 				]{scrbook}  % document class
 \fi
 
-% ################################################
-% Definitions
-% ################################################
-
-\def\myTypeOfDocument{Dissertation}
-\def\myAuthor{Florian Kleiner}  % authors name
-\def\myUniversity{Bauhaus-Universität Weimar}
-\def\myFirstReviewer{Professor Dr.-Ing. Horst-Michael Ludwig}  % name of first reviewer
-\def\mySecondReviewer{Unknown}  % name of second reviewer
-\def\myThirdReviewer{Unknown}   % name of third reviewer
-\def\myExamDate{xx.xx.2025}
-\def\myTitle{2D and 3D characterization of clinker phases and hydrated cementitious binders by a variety of modern imaging techniques}
-%\def\mySubtitle{(Arbeitstitel)}
 \input{additionals/a-latex_header.tex}  % import packages and design definitions
 
 \addbibresource{Dissertation.bib}

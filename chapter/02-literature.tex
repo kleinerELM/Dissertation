@@ -496,3 +496,51 @@ The main issues for combination of multi-device measurements are
 
 To simplify the realignment, markers (called fiducial), can be used, to align different data sources to each other.
 However, this is not always possible or expensive.
+
+
+\FloatBarrier
+\section{Pore analysis}
+\label{sec:pore_analysis}
+
+On initial thought, the measurement of pores and pore sizes seems to be fairly easy.
+However, while air voids in mortar and concrete are mostly spherical due to the surface tension of the fresh binder, this significantly changes below a scale of tens of micrometers, where the capillary pores begin.
+These pores are filled with pore solution/water during hydration and feature much more complex, fractal-like geometries.
+
+There are a lot of methods to measure the \ac{PSD} of a hardened specimen.
+However, each method has different measurement ranges as illustrated in Figure~\ref{fig:pore_sizes}.
+
+\begin{figure}[!ht]
+    \centering
+
+	\includegraphics[width=.7\textwidth]{methods/pore_sizes.pdf}
+    \caption{Phase and pore sizes compared to the measurement ranges of selected methods. Redrawn and expanded according to a figure by Stark et al. \cite{stark.2000}, based on data from Romberg \cite{romberg.1978}.}
+    \label{fig:pore_sizes}
+\end{figure}
+
+Image based methods like the \ac{SEM} or the \ac{CT} have already been introduced above.
+However, they inherently have either resolution issues, only give a 2-dimensional view or do not give representative results due to a small \ac{ROI}.
+Therefore, more indirect methods based on physical principles can help to obtain more statistically significant results.
+In this thesis, \ac{MIP} and \ac{LTDSC} were used as complementary methods to the image based methods.
+
+{\color{red} There were multiple studies trying to compare different pore analysis methods \cite{naber.2020,georget.2024}.} % more sources!
+
+\subsection{Mercury Intrusion Porosimetry (MIP)}
+\label{fig:mip}
+
+%https://www.epfl.ch/labs/lmc/wp-content/uploads/2019/08/03-Wioletta-Franco-MIP.pdf
+\ac{MIP} is a rather old and well known method to measure the \ac{PSD} of porous materials \cite{romberg.1978}.
+However, \ac{MIP} is also deemed inappropriate by \textsc{Diamond} to measure the \ac{PSD} using of hydrated cement, since it 
+\begin{iquote}
+	systematically misallocates the sizes of almost all of the volume of pores \cite{diamond.2000},
+\end{iquote}
+which is agreed upon by others \cite{chatterji.2001,giesche.2002}.
+Furthermore, it requires dried specimens, leading to a cracked and therefore non-native microstructure \cite{chatterji.2001,wang.2019}.
+\textsc{Wang} et al. \cite{wang.2019} showed the damaged induced by \ac{MIP} using \ac{mCT}.
+They came to the conclusion, that the pore space was increased by approximately \SI{7}{\percent} due to the mercury intrusion.
+The main affected pore size range was around 100-\SI{500}{\micro\meter}.
+Abell et al. \cite{abell.1999} compared \ac{MIP} with the intrusion of \textsc{Wood's} metal instead of mercury.
+While the pore volume was comparable, the usage of \textsc{Wood's} metal indicated that larger pores were present.
+
+Finally, due to the use of hazardous mercury and due to the high cost, it has a reduced relevance today.
+
+Nevertheless, it is still a reliable method to measure open porosity down to a few \si{\nano\meter} or to compare the porosity of similar samples to each other \cite{georget.2024}.

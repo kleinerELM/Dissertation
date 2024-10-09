@@ -402,41 +402,16 @@ However, this has to be taken into account to correctly align the final ablation
 \FloatBarrier
 \section{Pore size measurement}
 
-On initial thought, the measurement of pores seems to be fairly easy.
-However, while air voids in mortar and concrete are mostly spherical due to the surface tension of the fresh binder, this significantly changes below a scale of tens of micrometers, where the capillary pores begin.
-These pores feature much more complex, fractal like geometries.
-
-There are a lot of methods to measure the \ac{PSD} of a hardened specimen.
-However, each method has different measurement ranges as illustrated in Figure~\ref{fig:pore_sizes}.
-
-\begin{figure}[!ht]
-    \centering
-
-	\includegraphics[width=.7\textwidth]{methods/pore_sizes.pdf}
-    \caption{Phase and pore sizes compared to the measurement ranges of selected methods. Redrawn and expanded according to a figure by Stark et al. \cite{stark.2000}, based on data from Romberg \cite{romberg.1978}.} % nach Stark auch Setzer?
-    \label{fig:pore_sizes}
-\end{figure}
-%https://www.epfl.ch/labs/lmc/wp-content/uploads/2019/08/03-Wioletta-Franco-MIP.pdf
-
-Image based methods like the \ac{SEM} or the \ac{mCT} have already been introduced above.
-However, they inherently have either resolution issues, only give a 2-dimensional view or do not give representative results due to a small \ac{ROI}.
-Therefore, more indirect methods based on physical principles can help to obtain more statistically significant results.
-In this thesis, \ac{MIP} and \ac{LTDSC} were used as complementary methods to the image based methods.
+In this chapter, methods used for pore size measurements are discussed.
 
 \FloatBarrier
 \subsection{Mercury Intrusion Porosimetry (MIP)}
-\label{fig:mip}
+\label{sec:method-mip}
 
-\ac{MIP} is a rather old and well known method to measure the \ac{PSD} of porous materials \cite{romberg.1978}.
-However, \ac{MIP} is also deemed inappropriate by Diamond \cite{diamond.2000} to measure the \ac{PSD} using of hydrated cement, since it \enquote{systematically misallocates the sizes of almost all of the volume of pores}, which is agreed upon by others \cite{chatterji.2001,giesche.2002} .
-Furthermore, due to the use of hazardous mercury and therefore high cost, it has a reduced relevance today.
-Nevertheless, it is a reliable method to measure open porosity down to a few \SI{}{\nano\meter}.
 In this thesis, an \textit{Autopore IV 9500} from \textit{Micromeritics GmbH} was used for the \ac{MIP} investigations.
 It requires small pieces of dried specimen of about 5\,$\times$\,5\,$\times$\,\SI{5}{\cubic\micro\meter}.
 It stepwise covers an pressure range of 0.003 to \SI{206}{\mega\pascal}, which roughly translates to 0.002 to \SI{200}{\micro\meter}.
 However, values above {\color{red} ~\SI{20}{\micro\meter} should be ignored, since these are mostly cracks}.% geschätzt aus bettinas arbeit
-
-% 10.3390/ma12142220
 
 \FloatBarrier
 \subsection{Low Temperature - Differential Scanning Calorimetry (LT-DSC)}

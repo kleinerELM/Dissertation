@@ -44,6 +44,7 @@
 	\pdfsuppresswarningpagegroup=1
 \fi
 
+\usepackage{pifont} %https://www.physicsread.com/latex-star-symbol/
 \usepackage{textalpha}  % use greek letters in text directly like α -> package textgreek
 \usepackage{textcomp}  % eg. modified € und § symbols
 \usepackage{csquotes}  % provides advanced facilities for inline and display quotations
@@ -99,6 +100,12 @@
 \usepackage{animate}
 \usepackage{enumitem}  % improves enumerate and itemize environment
 \usepackage[version=4]{mhchem}
+\makeatletter
+	\newcommand\reaction@[1]{\begin{equation}\ce{#1}\end{equation}}
+	\newcommand\reaction@nonumber[1]%
+	{\begin{equation*}\ce{#1}\end{equation*}}
+	\newcommand\reaction{\@ifstar{\reaction@nonumber}{\reaction@}}
+\makeatother
 
 %\usepackage{ziffer}  % conversion of punctuation in maths mode (switches . and ,) % usage leads to an error with siunitx (missing decimal point)
 \usepackage{lineno}  % create line numbering for review process

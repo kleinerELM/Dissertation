@@ -4,7 +4,71 @@
 
 \section{Cement hydration}
 
+The main phases of \ac{OPC} are \ac{C3S}, \ac{C2S}, \ac{C3A} and \ac{C4AF}.
+On contact with water they react as follows \cite{gartner.2002}:
 
+{
+    %\color{red}
+    \reaction{C3S + (3 - $x$ + $n$)H -> C_{x}SH_{n} + (3-$x$)CH }
+    \reaction{C2S + 4.3H -> C_{1.7}SH4 + 0.3CH }
+    \begin{equation}\begin{aligned}
+        \ce{2C3A + 27H  & -> C4AH19 + C2AH8 \\ 
+                        & -> 2C3AH6}
+    \end{aligned}\end{equation}
+    \begin{equation}\begin{aligned}
+        \ce{3C4AF + 60H & -> 2C4(A,F)H19 + 2C2(A,F)H8 + 2(A,F)H3 \\
+                        & -> 2C3(A,F)H6 + 2(A,F)H3 + 24H}
+    \end{aligned}\end{equation}
+}
+
+As shown in these equations, the main hydration products are \ac{CSH}, {CH}
+The hydration process can be subdivided into five periods as indicated in Figure~\ref{fig:opc_dca}.
+
+%CEM I 42,5 R; Lengerich/Dyck.; Z808; 24.01.2023 - E-mail von Sophie vom 24.10.2024
+\begin{figure}[!htb]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+				legend style={at={(1.05,.5)},anchor=west},
+                legend cell align={left},
+				xmin=0, xmax=48,%270,
+				ymin=0, ymax=30,
+				width=.95\linewidth,
+				height=.45\linewidth,
+				grid=major,
+				xlabel={Time in \si{\hour}},
+				ylabel={$dQ/dt$ \si{\joule/\gram}},
+				xtick={0,6,12,24,48},
+				grid style={line width=.1pt, draw=gray!10}
+            ]
+
+			\addplot[mark=none, red, dashed] coordinates {(1.0,30) (1.0,0)};
+			\addplot[mark=none, red, dashed] coordinates {(2.60,30) (2.60,0)}; 
+			\addplot[mark=none, red, dashed] coordinates {(7.77,30) (7.77,0)}; 
+			\addplot[mark=none, red, dashed] coordinates {(24,30) (24,0)};
+
+			\node[right,preaction={fill, white, opacity=0.5}] at (axis cs:-0.1,27)  {$\leftarrow$ 0-I};
+			\node[right] at (axis cs:0.75,22)  {II};
+			\node[right] at (axis cs:3.5,22)  {III};
+			\node[right] at (axis cs:14,22)  {IV};
+			\node[right] at (axis cs:35,22)  {V};
+
+            \addplot[blue] table [skip first n=1, x index=0, y index=1, col sep=comma] {figures/literature/DCA_OPC.csv};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Heat flow calorimetry result of the hydration of a typical \ac{OPC}.}
+    \label{fig:opc_dca}
+\end{figure}
+
+As described in \cite{gartner.2002}, the periods are:
+\begin{itemize}
+    \item [0] Initial fast reaction
+    \item [I] First deceleration period
+    \item [II] Induction phase
+    \item [III] Acceleration phase
+    \item [IV] Second deceleration period
+    \item [V] Final slow reaction
+\end{itemize}
 
 \section{Growth of Calcium-Silicate-Hydrate}
 
@@ -87,10 +151,10 @@ In contrast to the \ac{OPC} experiments, these consisted only out of very few se
             grid style={line width=.1pt, draw=gray!10},
         ]
         \nextgroupplot[
-            xmin=0, xmax=28,
+            xmin=0, xmax=29,
             restrict x to domain=0:42,
             xtick={1,9,21,28},
-            axis y line=box,
+            axis y line*=left,
             legend to name={CommonLegend3}
         ]
 
@@ -151,10 +215,12 @@ In contrast to the \ac{OPC} experiments, these consisted only out of very few se
 
 
         \nextgroupplot[
-            xmin=28, xmax=270,
-            restrict x to domain=14:1000,
+            xmin=0, xmax=270,
+            restrict x to domain=27:1000,
             xtick={28, 90, 165, 270},
-            axis y line=right,
+            %axis y line=right,
+            axis y line*=right,
+            axis x discontinuity=parallel,
         ]
 
             %C3S
@@ -238,17 +304,18 @@ The results are plotted in Figures~\ref{fig:suess_CSH_C3S} (\ac{C3S}) and \ref{f
                     xticklabels at=edge bottom,
                     horizontal sep=0pt},
             legend style={at={(.05,.94)},anchor=north west},
-            ylabel={$l_{\text{CSH}_\text{o}}$ in \si{\micro\meter}},
+            ylabel = {$l_{\text{CSH}_\text{o}}$ in \si{\micro\meter}},
             width=0.49\linewidth,
             height=0.4\linewidth,
             legend columns = 4,
-            axis x line=box,
+            axis x line = box,
             legend style = {anchor=north, style={column sep=3pt}},
             grid=both,
             grid style={line width=.1pt, draw=gray!10},
             y tick label style={
                 /pgf/number format/fixed zerofill,
-                /pgf/number format/precision=1},
+                /pgf/number format/precision=1},,
+            scaled ticks=false, tick label style={/pgf/number format/fixed}
         ]
         \nextgroupplot[
             xmin=0, xmax=635,
@@ -333,7 +400,7 @@ The results are plotted in Figures~\ref{fig:suess_CSH_C3S} (\ac{C3S}) and \ref{f
             \addlegendentry[]{\ac{C3S} \SI{90}{\celsius} \cite{suss.2001}}
 
         \end{groupplot}
-        \node [above] (L) at (rel axis cs:1.0,1.04) {\ref{CommonLegend}};
+        \node [above] (L) at (rel axis cs:1.0,1.05) {\ref{CommonLegend}};
 
     \end{tikzpicture}
     \caption{Growth of \ac{CSHo} on \ac{C3S} at different temperatures. Based on data from \textsc{Hader} \cite{hader.2000} and \textsc{Süß} \cite{suss.2001}.}
@@ -367,14 +434,15 @@ While the \ac{CSH}-growth of \ac{C3S} stagnates after 5 months, \textsc{Möser} 
             y tick label style={
                 /pgf/number format/fixed zerofill,
                 /pgf/number format/precision=1},
+            scaled ticks=false, tick label style={/pgf/number format/fixed}
         ]
         \nextgroupplot[
-            xmin=0, xmax=28,
+            xmin=0, xmax=29,
             ymin=0, ymax=1.250,
             ytick={0,.250,...,1.250},
             restrict x to domain=0:42,
             xtick={1,9,21,28},
-            axis y line=box,
+            axis y line*=left,
             y tick label style={
                 /pgf/number format/fixed zerofill,
                 /pgf/number format/precision=2},
@@ -400,11 +468,12 @@ While the \ac{CSH}-growth of \ac{C3S} stagnates after 5 months, \textsc{Möser} 
             \addplot [color=cyan, mark=x, dotted] table [skip first n=3, x index=0, y index=2, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C2S_moeser.csv};
 
         \nextgroupplot[
-            xmin=28, xmax=1000,
-            restrict x to domain=14:1000,
-            xtick={150, 360, 600, 1000},
+            xmin=-65, xmax=1000,
+            restrict x to domain=28:1000,
+            xtick={28,150, 360, 600, 1000},
             ytick={.5,1,1.5,...,2.5},
             axis y line*=right,
+            axis x discontinuity=parallel,
             legend to name={CommonLegend2}
         ]
             \pgfplotsset{cycle list shift=+1}
@@ -432,7 +501,7 @@ While the \ac{CSH}-growth of \ac{C3S} stagnates after 5 months, \textsc{Möser} 
             \addlegendentry[]{$\beta$-\ac{C2S} \cite{moser.2002}}
 
         \end{groupplot}
-        \node [above] (L) at (rel axis cs:1.0,1.04) {\ref{CommonLegend2}};
+        \node [above] (L) at (rel axis cs:1.0,1.14) {\ref{CommonLegend2}};
 
     \end{tikzpicture}
     \caption{Growth of \ac{CSHo} on $\beta$-\ac{C2S} compared to \ac{C3S} at \SI{20}{\celsius}. Based on data from \textsc{Hader} \cite{hader.2000}, \textsc{Süß} \cite{suss.2001}, \textsc{Stark} and \textsc{Möser} \cite{stark.2001,moser.2002}.}
@@ -671,76 +740,78 @@ The code used to compare both methods is publicly available \cite{kleiner.2024b}
 \subsection{Box grow method} % the method names are not great
 \label{sec:box_growth}
 
-{\color{red}TODO: Total area of the image \SI{0.12}{\square\milli\meter}?}
+
 
 \cite{bosl.1998,kameda.2006}
 
-select a (random) growth point in the center of an image.
+Select a (random) growth point in the center of an image.
 Let a box grow, starting from this point and measure the phase composition within this area.
 To initiate multiple experiments within an image, the growth point has to be selected randomly within a limited window in the center of the image.
-This allows to calculate a standard deviation as shown in Figure~\ref{fig:lit_box_growth_b}.
+This allows to calculate a standard deviation.
+Figure~\ref{fig:lit_box_growth} illustrates the principle of the method using \SI{28}{\day} hydrated alite.
+it was segmented in pores, unhydrated alite, \ac{CH} and \ac{CSH}.
 
 \begin{figure}[H]
     \centering
 
 	\begin{subfigure}[t]{0.48\textwidth}
 		\includegraphics[width=\textwidth]{literature/area growth_illust.png}
-		\caption{A undamaged slice before an \ac{EDX}-measurement.}
+		\caption{Box growth method on a segmented image of hydrated alite.}
         \label{fig:lit_box_growth_a}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[t]{0.48\textwidth}
       \begin{tikzpicture}
 		\pgfplotsset{every axis/.style={
-        xmin=0, xmax=0.003,
+        xmin=0, xmax=1,
 		ymin=0, ymax=100,
 		width=\linewidth,
 		height=\linewidth
 		}}
         \begin{axis}[
-				legend style={at={(.97,.94)},anchor=north east},
-				axis y line*=left,
+				legend style={at={(.98,.98)},anchor=north east, font=\small},
+				%axis y line*=left,
 				grid=major,
 				xlabel={image area in \si{\square\milli\meter}},
 				ylabel={phase amount \si{\percent}},
-				xtick={0,0.001,...,0.003},
+				xtick={0,0.25,...,1},
 				grid style={line width=.1pt, draw=gray!10}
             ]
 
             %Pores
-            \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}, ] {figures/literature/C3S_28d_area_growth2.csv};
-            \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{1}+\thisrowno{2}}, ] {figures/literature/C3S_28d_area_growth2.csv};
+            \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}, ] {figures/literature/C3S_28d_area_growth.csv};
+            \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{1}+\thisrowno{2}}, ] {figures/literature/C3S_28d_area_growth.csv};
 
             \addplot [fill=black, fill opacity=0.2,forget plot] fill between [of=A and B];
 
-            \addplot [ mark=none, black, opacity=0.5 ] table [x index=9, y index=1, col sep=comma] {figures/literature/C3S_28d_area_growth2.csv};
+            \addplot [ mark=none, black, opacity=0.5 ] table [x index=9, y index=1, col sep=comma] {figures/literature/C3S_28d_area_growth.csv};
             \addlegendentry{pores};
 
             %CSH
-            \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{3}-\thisrowno{4}}, ] {figures/literature/C3S_28d_area_growth2.csv};
-            \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{3}+\thisrowno{4}}, ] {figures/literature/C3S_28d_area_growth2.csv};
+            \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{3}-\thisrowno{4}}, ] {figures/literature/C3S_28d_area_growth.csv};
+            \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{3}+\thisrowno{4}}, ] {figures/literature/C3S_28d_area_growth.csv};
 
             \addplot [fill=red, fill opacity=0.2,forget plot] fill between [of=A and B];
 
-            \addplot [ mark=none, red, opacity=0.5 ] table [x index=9, y index=3, col sep=comma] {figures/literature/C3S_28d_area_growth2.csv};
+            \addplot [ mark=none, red, opacity=0.5 ] table [x index=9, y index=3, col sep=comma] {figures/literature/C3S_28d_area_growth.csv};
             \addlegendentry{\ac{CSH}};
 
             %CH
-            \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{5}-\thisrowno{6}}, ] {figures/literature/C3S_28d_area_growth2.csv};
-            \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{5}+\thisrowno{6}}, ] {figures/literature/C3S_28d_area_growth2.csv};
+            \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{5}-\thisrowno{6}}, ] {figures/literature/C3S_28d_area_growth.csv};
+            \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{5}+\thisrowno{6}}, ] {figures/literature/C3S_28d_area_growth.csv};
 
             \addplot [fill=cyan, fill opacity=0.2,forget plot] fill between [of=A and B];
 
-            \addplot [ mark=none, cyan, opacity=0.5 ] table [x index=9, y index=5, col sep=comma] {figures/literature/C3S_28d_area_growth2.csv};
+            \addplot [ mark=none, cyan, opacity=0.5 ] table [x index=9, y index=5, col sep=comma] {figures/literature/C3S_28d_area_growth.csv};
             \addlegendentry{\ac{CH}};
 
             %alite
-            \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{7}-\thisrowno{8}}, ] {figures/literature/C3S_28d_area_growth2.csv};
-            \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{7}+\thisrowno{8}}, ] {figures/literature/C3S_28d_area_growth2.csv};
+            \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{7}-\thisrowno{8}}, ] {figures/literature/C3S_28d_area_growth.csv};
+            \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{7}+\thisrowno{8}}, ] {figures/literature/C3S_28d_area_growth.csv};
 
             \addplot [fill=yellow, fill opacity=0.2,forget plot] fill between [of=A and B];
 
-            \addplot [ mark=none, yellow, opacity=0.5 ] table [x index=9, y index=7, col sep=comma] {figures/literature/C3S_28d_area_growth2.csv};
+            \addplot [ mark=none, yellow, opacity=0.5 ] table [x index=9, y index=7, col sep=comma] {figures/literature/C3S_28d_area_growth.csv};
             \addlegendentry{alite};
         \end{axis}
       \end{tikzpicture}
@@ -766,25 +837,25 @@ The result of this method is a graph as shown in Figure~\ref{fig:lit_box_count_b
 
 	\begin{subfigure}[t]{0.48\textwidth}
 		\includegraphics[width=\textwidth]{literature/box_cnt_illust.png}
-		\caption{A undamaged slice before an \ac{EDX}-measurement.}
+		\caption{Box count method on a segmented image of hydrated alite.}
         \label{fig:lit_box_count_a}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[t]{0.48\textwidth}
       \begin{tikzpicture}
 		\pgfplotsset{every axis/.style={
-        xmin=0, xmax=0.03,
+        xmin=0, xmax=1,
 		ymin=0, ymax=100,
 		width=\linewidth,
 		height=\linewidth
 		}}
         \begin{axis}[
-				legend style={at={(.97,.94)},anchor=north east},
-				axis y line*=left,
+				legend style={at={(.98,.98)},anchor=north east, font=\small},
+				%axis y line*=left,
 				grid=major,
 				xlabel={image area in \si{\square\milli\meter}},
 				ylabel={phase amount \si{\percent}},
-				xtick={0,0.01,...,0.03},
+				xtick={0,.25,...,1},
 				grid style={line width=.1pt, draw=gray!10}
             ]
 

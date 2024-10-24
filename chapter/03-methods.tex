@@ -453,6 +453,81 @@ These crucibles sealed air tight by cold-welding a lid under pressure and measur
     \label{fig:ltdc_regime}
 \end{figure}
 
+\begin{figure}[!htb]
+    \centering
+    \begin{tikzpicture}
+		\pgfplotsset{every axis/.style={xmin=0, xmax=205,
+		ymin=-65, ymax=25,
+		width=0.8\linewidth,
+		height=0.4\linewidth
+		}}
+        \begin{axis}[
+				legend style={at={(.97,.94)},anchor=north east},
+				axis y line*=left,
+				grid=major,
+				xlabel={time $t$ in \si{\min}},
+				ylabel={temperature $\vartheta$ in \si{\celsius}},
+				xtick={0,20,...,200},
+				ytick={-60,-40,...,20},
+				grid style={line width=.1pt, draw=gray!10}
+				%axis lines=middle
+            ]
+			\addplot[mark=none, gray!40] coordinates {(0,0) (205,0)};
+			\addplot [green, dashed,mark=.] coordinates {
+				(0,20) (25,-30) (26,-30) (39,-5) (47,-1) (48,-1) (60,-25) (61,-25) (84,20) (109,-30) (110,-30) (123,-5) (131,-1) (132,-1) (162,-60) (163,-60) (203,20)};
+				\addplot [blue,mark=.] coordinates {
+					(48,-1) (60,-25)};
+				\addplot [red,mark=.] coordinates {
+					(61,-25) (73.8,0) };
+
+				\addplot [blue,mark=.] coordinates {
+					(132,-1) (152,-40)};
+				\addplot [red,mark=.] coordinates {
+					(173,-40) (193,0) };
+
+			\addplot[mark=none, gray] coordinates {(48,30) (48,-70)};
+			\addplot[mark=none, gray] coordinates {(73.8,30) (73.8,-70)};
+			\addplot[mark=none, gray] coordinates {(132,30) (132,-70)};
+			\addplot[mark=none, gray] coordinates {(193,30) (193,-70)};
+
+			%\node[black,right] at (axis cs:8010){\small{$W=0$}};
+			\node[right] at (axis cs:48,10)  {$\rightarrow$ P1};
+			\node[right] at (axis cs:132,10)  {$\rightarrow$ P2};
+			\node[right, blue] at (axis cs:18,-10) {\ding{100}1};
+			\node[right, blue] at (axis cs:102,-10) {\ding{100}2};
+
+        \end{axis}
+		% 3rd ordinate right
+		\begin{axis}[blue,
+			axis y line*=right,
+			axis x line=none,
+			ylabel={pore radius $r_\text{P}$ in \si{\nano\meter}},
+			xtick={0,20,...,150},
+			ytick      ={ -40, -30, -20, -10,  -1},
+			yticklabels={2.19,2.27,3.80,7.04,65.2},
+			ylabel style=black,
+		  ]
+		  \pgfplotsset{every outer y axis line/.style={xshift=1.25cm}, every tick/.style={xshift=1.25cm}, every y tick label/.style={xshift=1.25cm} }
+		  %\addplot [blue, dashed] coordinates {
+			%   (75,0) (95,-40)};
+
+        \end{axis}
+		% 2nd ordinate right
+		\begin{axis}[red,
+			axis y line*=right,
+			axis x line=none,
+			xtick={0,20,...,150},
+			ytick      ={ -40, -30, -20, -10,  -1},
+			yticklabels={1.49,1.76,2.30,3.91,33.0},
+		  ]
+		  %\addplot [red, dashed] coordinates {
+			%(120,-40) (140,0)};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Second temperature regime of for the \ac{LTDSC}-measurement with two measurement zones P1 and P2. {\color{blue}\ding{100}1}, {\color{blue}\ding{100}2} = zones to introduce ice nuclei.}
+    \label{fig:ltdc_regime2}
+\end{figure}
+
 The temperature regime used is shown in Figure~\ref{fig:ltdc_regime}.
 The first \SI{75}{\min} of the program are there to create ice nuclei and therefore to avoid supercooling.
 The measurement itself is done within the last \SI{75}{\min} and the temperature change was set to $\pm$\,\SI{2}{\kelvin\per\min}.

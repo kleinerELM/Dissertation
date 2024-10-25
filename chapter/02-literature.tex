@@ -593,9 +593,9 @@ For example, for a \ac{HLT} of 0.3 (as shown in Figure~\ref{fig:sectioning_effec
 									row sep=4pt}
 				]
 
-				\addplot[green,  domain=0:1, samples=360] {sqrt(2*1*(x+1) - (x+1)^2)};
+				\addplot[yellow,  domain=0:1, samples=360, very thick] {sqrt(2*1*(x+1) - (x+1)^2)};
 				\addlegendentry{grain radius \\ $f(x, r_\text{grain})$};
-				\addplot[red, domain=0:1.35, samples=1000] {sqrt(2*1.3*(x+1.3) - (x+1.3)^2)};
+				\addplot[red, domain=0:1.35, samples=1000, very thick] {sqrt(2*1.3*(x+1.3) - (x+1.3)^2)};
 				\addlegendentry{outer radius \\ $f(x, r_\text{outer})$};
 				\addplot[blue,   domain=0:1, samples=1000, name path=f] {sqrt(2*1.3*(x+1.3) - (x+1.3)^2) - sqrt(2*1*(x+1) - (x+1)^2)};
 				\addlegendentry{measured \acs{HLT} \\ $t(x)$};
@@ -603,6 +603,7 @@ For example, for a \ac{HLT} of 0.3 (as shown in Figure~\ref{fig:sectioning_effec
 				\addplot [fill=blue, fill opacity=0.2] fill between[of=f and axis, soft clip={domain=0:1}];
 
 				\node[coordinate, pin={[align=left,pin distance = 5mm]-270:{\tiny $\int_{0}^{r_\text{grain}} t(x) \,dx$}}] at (axis cs:0.4,0.24) {};
+				%\addplot[yellow,  domain=0:1, samples=360] {sqrt(2*1*(x+1) - (x+1)^2)};
 
 			\end{axis}
 		\end{tikzpicture}
@@ -726,12 +727,20 @@ Nevertheless, it is still a reliable method to measure open porosity down to a f
 \FloatBarrier
 \section{Statistical analysis of the representativeness of an 2D image}
 
-Any statistical analysis of an image bears the question of its representativeness.
+Being sure, that a sample and the resulting measurement is representative can be a rather complicated challenge.
+This is especially true for inhomogeneous materials consisting of multiple phases and wide ranges of particle sizes.
+The problem starts with sampling and sample preparation.
+This process is standardized for for granular or powdery samples for multiple fields (e.g. DIN 52101 \cite{din52101.2013} and DIN EN 932-1 \Cite{dinen932-1.1996}).
+Although this solution is very helpful for analyzing loose particles, for the analysis of a monolithic sample the only option is to analyze the largest possible volume or surface area.
+This raises the question of what the minimum size of the analyzed area must be in order to obtain a statistically meaningful result.
 This is especially true for \ac{SEM}-analysis, since the imaged area is usually only a tiny detail of the whole specimen.
 While the operator of the microscope may try to exclude unusual areas or capture a typical, representative area of the specimen, this is a highly subjective task.
-To reduce this subjectiveness, one may try to obtain a larger area or set of independent images and apply statistical analysis.
+%To reduce this subjectiveness, one may try to obtain a larger area or set of independent images and apply statistical analysis.
 
-In many cases, a particle size or pore size distribution is of interest.
+{\color{red}In many cases, a particle size or pore size distribution is of interest, which allows to evaluate distinct objects of an image \cite{odziomek.2016}.
+However, this is no good solution for interconnected phases or pore spaces. ...}
+
+Often a phase composition is sufficient.
 Therefore, some authors tried to apply a \ac{REA} calculation, to make sure the observed image features are statistically relevant \cite{bosl.1998,kameda.2006,klaver.2012,houben.2014,jiang.2022}.
 In the selected publications two main methods were used for this statistical analysis.
 

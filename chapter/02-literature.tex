@@ -5,14 +5,16 @@
 \section{Cement hydration}
 
 The main phases of \ac{OPC} are \ac{C3S}, \ac{C2S}, \ac{C3A} and \ac{C4AF}.
-On contact with water they react as follows \cite{gartner.2002}:
+On contact with water a reaction called hydration begins.
+The main phases dissolve and new phases like form which ultimately are responsible for the hardening of cement based materials.
+The reactions can be summarized as follows \cite{gartner.2002}:
 
 {
     %\color{red}
     \reaction{C3S + (3 - $x$ + $n$)H -> C_{x}SH_{n} + (3-$x$)CH }
     \reaction{C2S + 4.3H -> C_{1.7}SH4 + 0.3CH }
     \begin{equation}\begin{aligned}
-        \ce{2C3A + 27H  & -> C4AH19 + C2AH8 \\ 
+        \ce{2C3A + 27H  & -> C4AH19 + C2AH8 \\
                         & -> 2C3AH6}
     \end{aligned}\end{equation}
     \begin{equation}\begin{aligned}
@@ -21,7 +23,7 @@ On contact with water they react as follows \cite{gartner.2002}:
     \end{aligned}\end{equation}
 }
 
-As shown in these equations, the main hydration products are \ac{CSH}, {CH}
+As shown in these equations, the main hydration products are \ac{CSH} and \ac{CAH} in varying compositions and \ac{CH}.
 The hydration process can be subdivided into five periods as indicated in Figure~\ref{fig:opc_dca}.
 
 %CEM I 42,5 R; Lengerich/Dyck.; Z808; 24.01.2023 - E-mail von Sophie vom 24.10.2024
@@ -34,7 +36,7 @@ The hydration process can be subdivided into five periods as indicated in Figure
 				xmin=0, xmax=48,%270,
 				ymin=0, ymax=30,
 				width=.95\linewidth,
-				height=.45\linewidth,
+				height=.38\linewidth,
 				grid=major,
 				xlabel={Time in \si{\hour}},
 				ylabel={$dQ/dt$ \si{\joule/\gram}},
@@ -43,8 +45,8 @@ The hydration process can be subdivided into five periods as indicated in Figure
             ]
 
 			\addplot[mark=none, red, dashed] coordinates {(1.0,30) (1.0,0)};
-			\addplot[mark=none, red, dashed] coordinates {(2.60,30) (2.60,0)}; 
-			\addplot[mark=none, red, dashed] coordinates {(7.77,30) (7.77,0)}; 
+			\addplot[mark=none, red, dashed] coordinates {(2.60,30) (2.60,0)};
+			\addplot[mark=none, red, dashed] coordinates {(7.77,30) (7.77,0)};
 			\addplot[mark=none, red, dashed] coordinates {(24,30) (24,0)};
 
 			\node[right,preaction={fill, white, opacity=0.5}] at (axis cs:-0.1,27)  {$\leftarrow$ 0-I};
@@ -61,23 +63,30 @@ The hydration process can be subdivided into five periods as indicated in Figure
 \end{figure}
 
 As described in \cite{gartner.2002}, the periods are:
-\begin{itemize}
+\begin{multicols}{2}
+  \begin{itemize}
     \item [0] Initial fast reaction
     \item [I] First deceleration period
     \item [II] Induction phase
     \item [III] Acceleration phase
     \item [IV] Second deceleration period
     \item [V] Final slow reaction
-\end{itemize}
+  \end{itemize}
+\end{multicols}
+% noch ein paar Quellen damits schön aussieht :D
+The early hydration process is mostly interesting to describe the initial hardening process and rheological behavior.
+However for (electron) microscopical analysis, it is hard to get reliable data in the first few hours.
+% find publications from Christiane/Long with those early hydration products
+The first useful qualitative observations can be made using the \ac{SE}-mode and cracked surfaces \cite{stark.2001,stark.2001a}.
+However, quantitative observations on polished surfaces using for example the \ac{BSE} mode can fist be made after the initial \SI{24}{\hour} mark.
 
 \section{Growth of Calcium-Silicate-Hydrate}
 
-Why CSH-Growth is interesting? For simulation! \cite{breugel.1997,nguyen-tuan.2023,nguyen-tuan.2024}
+This is especially true for the development of \ac{CSH}, which is the decisive phase for the strength of the concrete during the later hydration process.
+The detailed knowledge of the \ac{CSH}-development in volume but also microstructural shape is especially important to simulate its growth \cite{breugel.1997,nguyen-tuan.2023,nguyen-tuan.2024} and also the resulting pore space.
 
-\textsc{Anderegg} and \textsc{Hubbell} already tried 1929 / 1930 \cite{anderegg.1929,anderegg.1930} to measure the the hydration layer development of \ac{OPC} at 21$\pm$\SI{3}{\celsius} utilizing the refraction index difference between the \ac{CSH} and the unhydrated clinker.
-However, they used rather coarse material.
+In 1929 / 1930 \textsc{Anderegg} and \textsc{Hubbell} \cite{anderegg.1929,anderegg.1930} already tried to measure the the hydration layer development of \ac{OPC} at 21$\pm$\SI{3}{\celsius} utilizing the difference of the refraction index between \ac{CSH} and unhydrated clinker.
 According to their experiments, the hydrate rim is depending on the mean particle dimension (measured from 150 particles) as shown in Figure~\ref{fig:anderegg-hubbel-distribution}.
-This dependence becomes more prone for older specimens, since particles with a radius equal or smaller than the hydrate layer are consumed and cannot contribute to a larger hydrate layer.
 
 \begin{figure}[!htb]
     \centering
@@ -87,15 +96,14 @@ This dependence becomes more prone for older specimens, since particles with a r
                 legend cell align={left},
 				xmin=10, xmax=30,%270,
 				ymin=0, ymax=7,
-				width=0.45\linewidth,
-				height=0.45\linewidth,
+				width=0.55\linewidth,
+				height=0.41\linewidth,
 				grid=major,
 				xlabel={mean particle dimension in \si{\micro\meter}},
 				ylabel={$l_{\text{CSH}}$ in \si{\micro\meter}},
 				ytick={0,1,...,7},
 				grid style={line width=.1pt, draw=gray!10}
             ]
-
 
             \addplot+ [ only marks, mark=x, orange ] table [skip first n=1, x index=0, y index=3, col sep=comma] {figures/hydrate-rim/data_andregg/gsd-PCA.csv};
             \addlegendentry{\SI{7}{\day}, \ac{OPC}};
@@ -125,6 +133,9 @@ This dependence becomes more prone for older specimens, since particles with a r
     \caption{Mean hydration rim of \ac{OPC} from experiments of \textsc{Anderegg} and \textsc{Hubbell} \cite{anderegg.1929,anderegg.1930} in dependence of the mean particle ``dimension'' of 150 measured grains. The lack or addition of \SI{0.8}{\percent} \ce{CaSO4} in the experiments is marked with $\times$ and $\circ$ respectively. }
     \label{fig:anderegg-hubbel-distribution}
 \end{figure}
+
+This dependence becomes more prone for older specimens, since particles with a radius equal or smaller than the hydrate layer are consumed and cannot contribute to a larger hydrate layer.
+However, they mainly observed rather coarse particles.
 
 In 1930 they also published datasets for the hydration of \ac{C3S} and \ac{C2S} \cite{anderegg.1930}.
 In contrast to the \ac{OPC} experiments, these consisted only out of very few series of experiments with a rather high variance (see Figure~\ref{fig:anderegg-hubbel}).
@@ -279,7 +290,7 @@ In contrast to the \ac{OPC} experiments, these consisted only out of very few se
         \node [above] (L) at (rel axis cs:1.0,1.04) {\ref{CommonLegend3}};
 
     \end{tikzpicture}
-    \caption{Growth of \ac{CSH} on \ac{OPC}, \ac{C3S} and \ac{C2S} by \textsc{Anderegg} and \textsc{Hubbell} \cite{anderegg.1929,anderegg.1930} and \textsc{Nicoleau} \cite{nicoleau.2011}}
+    \caption{Growth of \ac{CSH} on \ac{OPC}, \ac{C3S} and \ac{C2S} measured by \textsc{Anderegg} and \textsc{Hubbell} \cite{anderegg.1929,anderegg.1930} and \textsc{Nicoleau} \cite{nicoleau.2011}}
     \label{fig:anderegg-hubbel}
 \end{figure}
 
@@ -524,43 +535,6 @@ Many measurements are done using \ac{BSE} images of embedded and polished hydrat
 In other words, all measurements are taken on random sections through grains and their hydrate layers.
 This causes an unavoidable sectioning effect \cite{scrivener.2004} as illustrated in Figure~\ref{fig:sectioning_effect_a}.
 
-Equations~\ref{eq:sectioning_effect_1} and \ref{eq:sectioning_effect_2} can be used to calculate the \ac{HLT} ($t$) for a spherical particle, depending on the sectioning distance from center point ($x$).
-
-\begin{equation}
-	f(x, r) = \sqrt{2r(x+r) - (x+r)^2}
-	\label{eq:sectioning_effect_1}
-\end{equation}
-\begin{conditions}
-	f	&	measured \ac{HLT}, \\
-	r	&   radius, \\
-	x	&   sectioning distance from center point; $0 \leq x \leq r$.
-\end{conditions}
-
-\begin{equation}
-	t(x) = f(x, r_\text{outer}) - f(x, r_\text{grain})
-	\label{eq:sectioning_effect_2}
-\end{equation}
-\begin{conditions}
-	t				&	measured \ac{HLT}, \\
-	r_\text{outer}	&   radius of the grain + hydrate layer, \\
-	r_\text{grain}	&   grain radius.
-\end{conditions}
-
-\begin{equation}
-	M_\text{HLT} = \frac{\int_{0}^{i} t(x) \,dx}{r_\text{grain}}
-	\label{eq:sectioning_effect_3}
-\end{equation}
-\begin{conditions}
-	M_\text{HLT}	&	mean \ac{HLT} of a grain, \\
-	r_\text{grain}	&   grain radius, \\
-	d				&   $0 < i \leq r_\text{grain}$.
-\end{conditions}
-
-Figure~\ref{fig:sectioning_effect_b} (blue curve) indicates, that the \ac{HLT} can be significantly overestimated.
-This becomes more prevalent the closer the cut through a particle is to the particle border.
-% https://www.wolframalpha.com/input?i=integral&assumption=%7B%22F%22%2C+%22Integral%22%2C+%22rangestart%22%7D+-%3E%220%22&assumption=%7B%22C%22%2C+%22integral%22%7D+-%3E+%7B%22Calculator%22%2C+%22dflt%22%7D&assumption=%7B%22F%22%2C+%22Integral%22%2C+%22integrand%22%7D+-%3E%22sqrt%282*1.3*%28x%2B1.3%29+-+%28x%2B1.3%29%5E2%29+-+sqrt%282*1*%28x%2B1%29+-+%28x%2B1%29%5E2%29%22&assumption=%7B%22F%22%2C+%22Integral%22%2C+%22rangeend%22%7D+-%3E%22.9%22
-For example, for a \ac{HLT} of 0.3 (as shown in Figure~\ref{fig:sectioning_effect_b}) a mean overestimation of 23.8\% can be expected. %0,3715/0,33
-
 \begin{figure}[htb]
     \centering
 
@@ -614,6 +588,43 @@ For example, for a \ac{HLT} of 0.3 (as shown in Figure~\ref{fig:sectioning_effec
     \caption{Illustration of the sectioning effect of a spherical grain. }
     \label{fig:sectioning_effect}
 \end{figure}
+
+Equations~\ref{eq:sectioning_effect_1} and \ref{eq:sectioning_effect_2} can be used to calculate the \ac{HLT} ($t$) for a spherical particle, depending on the sectioning distance from center point ($x$).
+
+\begin{equation}
+	f(x, r) = \sqrt{2r(x+r) - (x+r)^2}
+	\label{eq:sectioning_effect_1}
+\end{equation}
+\begin{conditions}
+	f	&	measured \ac{HLT}, \\
+	r	&   radius, \\
+	x	&   sectioning distance from center point; $0 \leq x \leq r$.
+\end{conditions}
+
+\begin{equation}
+	t(x) = f(x, r_\text{outer}) - f(x, r_\text{grain})
+	\label{eq:sectioning_effect_2}
+\end{equation}
+\begin{conditions}
+	t				&	measured \ac{HLT}, \\
+	r_\text{outer}	&   radius of the grain + hydrate layer, \\
+	r_\text{grain}	&   grain radius.
+\end{conditions}
+
+\begin{equation}
+	M_\text{HLT} = \frac{\int_{0}^{i} t(x) \,dx}{r_\text{grain}}
+	\label{eq:sectioning_effect_3}
+\end{equation}
+\begin{conditions}
+	M_\text{HLT}	&	mean \ac{HLT} of a grain, \\
+	r_\text{grain}	&   grain radius, \\
+	d				&   $0 < i \leq r_\text{grain}$.
+\end{conditions}
+
+Figure~\ref{fig:sectioning_effect_b} (blue curve) indicates, that the \ac{HLT} can be significantly overestimated.
+This becomes more prevalent the closer the cut through a particle is to the particle border.
+% https://www.wolframalpha.com/input?i=integral&assumption=%7B%22F%22%2C+%22Integral%22%2C+%22rangestart%22%7D+-%3E%220%22&assumption=%7B%22C%22%2C+%22integral%22%7D+-%3E+%7B%22Calculator%22%2C+%22dflt%22%7D&assumption=%7B%22F%22%2C+%22Integral%22%2C+%22integrand%22%7D+-%3E%22sqrt%282*1.3*%28x%2B1.3%29+-+%28x%2B1.3%29%5E2%29+-+sqrt%282*1*%28x%2B1%29+-+%28x%2B1%29%5E2%29%22&assumption=%7B%22F%22%2C+%22Integral%22%2C+%22rangeend%22%7D+-%3E%22.9%22
+For example, for a \ac{HLT} of 0.3 (as shown in Figure~\ref{fig:sectioning_effect_b}) a mean overestimation of 23.8\% can be expected. %0,3715/0,33
 
 Figure~\ref{fig:hlt_overestimation} illustrates the overestimation of the measured \ac{HLT} depending on the \ac{HLT} / grain radius ratio and $M_\text{HLT}$ (Equation~\ref{eq:sectioning_effect_3}).
 It shows, that the smaller the \ac{HLT} and therefore the younger the specimen, the bigger the over estimation.

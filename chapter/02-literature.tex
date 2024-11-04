@@ -58,7 +58,7 @@ The hydration process can be subdivided into five periods as indicated in Figure
             \addplot[blue] table [skip first n=1, x index=0, y index=1, col sep=comma] {figures/literature/DCA_OPC.csv};
         \end{axis}
     \end{tikzpicture}
-    \caption{Heat flow calorimetry result of the hydration of a typical \ac{OPC}.}
+    \caption{Heat flow calorimetry result of the hydration of an \ac{OPC} and its reaction periods as in \cite{gartner.2002}.}
     \label{fig:opc_dca}
 \end{figure}
 
@@ -73,12 +73,14 @@ As described in \cite{gartner.2002}, the periods are:
     \item [V] Final slow reaction
   \end{itemize}
 \end{multicols}
+
 % noch ein paar Quellen damits schön aussieht :D
-The early hydration process is mostly interesting to describe the initial hardening process and rheological behavior.
-However for (electron) microscopical analysis, it is hard to get reliable data in the first few hours.
+The early hydration process is important to describe the initial hardening process and the rheological behavior of the cement.
+The first useful qualitative observations can be made using the \ac{SE}-mode and cracked surfaces \cite{stark.2001,hader.2000,suss.2001} after a few minutes or up to \SI{10}{\hour}.
+The the \ac{CSH}-needles are up to \SI{300}{\nano\meter} long, while the hydration front is barely visible in the particle \cite{hader.2000}.
+%However, for (electron) microscopical analysis it is hard to get reliable data in the first few hours.
 % find publications from Christiane/Long with those early hydration products
-The first useful qualitative observations can be made using the \ac{SE}-mode and cracked surfaces \cite{stark.2001,stark.2001a}.
-However, quantitative observations on polished surfaces using for example the \ac{BSE} mode can fist be made after the initial \SI{24}{\hour} mark.
+However, reliable quantitative observations on polished surfaces using the \ac{BSE} mode can fist be made after the initial \SI{24}{\hour} mark.
 
 \section{Growth of Calcium-Silicate-Hydrate}
 
@@ -751,50 +753,58 @@ While the operator of the microscope may try to exclude unusual areas or capture
 {\color{red}In many cases, a particle size or pore size distribution is of interest, which allows to evaluate distinct objects of an image \cite{odziomek.2016}.
 However, this is no good solution for interconnected phases or pore spaces. ...}
 
-Often a phase composition is sufficient.
-Therefore, some authors tried to apply a \ac{REA} calculation, to make sure the observed image features are statistically relevant \cite{bosl.1998,kameda.2006,klaver.2012,houben.2014,jiang.2022}.
-In the selected publications two main methods were used for this statistical analysis.
+Often a reliable phase composition measurement is sufficient.
+Therefore, some authors tried to apply a \ac{REA} calculation, to make sure the observed image features are statistically relevant \cite{bosl.1998,kameda.2006,klaver.2012,houben.2014,jiang.2022} .
+In the selected publications two main methods were used for this statistical analysis (see Figure~\ref{fig:lit_box_methods}).
+
+\begin{figure}[H]
+    \centering
+
+	\begin{subfigure}[t]{0.49\textwidth}
+		\includegraphics[width=\textwidth]{literature/area growth_illust.png}
+		\caption{Box grow method.}
+        \label{fig:lit_box_methods_a}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{0.49\textwidth}
+		\includegraphics[width=\textwidth]{literature/box_cnt_illust.png}
+		\caption{Box count method.}
+        \label{fig:lit_box_methods_b}
+	\end{subfigure}
+    \caption{Example of the box grow \cite{bosl.1998,kameda.2006}  and box count method \cite{mouret.2001,hlavacek.2015} applied to an segmented image of \SI{28}{\day} hydrated alite.}
+    \label{fig:lit_box_methods}
+\end{figure}
 
 The code used to compare both methods is publicly available \cite{kleiner.2024b}. %-> https://github.com/kleinerELM/box_count_method
 
 \subsection{Box grow method} % the method names are not great
 \label{sec:box_growth}
 
-
-
-\cite{bosl.1998,kameda.2006}
-
-Select a (random) growth point in the center of an image.
-Let a box grow, starting from this point and measure the phase composition within this area.
+One of the methods was introduced by \textsc{Bosl} et al. \cite{bosl.1998} and also used by \textsc{Kameda} et al. \cite{kameda.2006}.
+It works by selecting a growth point in the center of an image.
+From this point a box will grow stepwise as illustrated in Figure~\ref{fig:lit_box_methods_a}.
+This method will therefore be called \textsc{box grow method} from hereon.
+The phase composition of these growing boxes is constantly measured.
 To initiate multiple experiments within an image, the growth point has to be selected randomly within a limited window in the center of the image.
 This allows to calculate a standard deviation.
-Figure~\ref{fig:lit_box_growth} illustrates the principle of the method using \SI{28}{\day} hydrated alite.
-it was segmented in pores, unhydrated alite, \ac{CH} and \ac{CSH}.
+Figure~\ref{fig:lit_box_growth} shows the result of such an analysis using an image of \SI{28}{\day} hydrated alite.
+This image has to be segmented beforehand into pores, unhydrated alite, \ac{CH} and \ac{CSH}.
+The standard deviation in Figure~\ref{fig:lit_box_growth_b}indicates, the shrinking uncertainty with a larger area analyzed.
+However, $\sigma$ is shrinking unsteadily.
+Since the location of larger phases does not change in the image used, even the randomized starting point cant remove the bias. This can be reduced by using more source images.
 
 \begin{figure}[H]
     \centering
-
-	\begin{subfigure}[t]{0.48\textwidth}
-		\includegraphics[width=\textwidth]{literature/area growth_illust.png}
-		\caption{Box growth method on a segmented image of hydrated alite.}
-        \label{fig:lit_box_growth_a}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[t]{0.48\textwidth}
+    \begin{subfigure}[t]{0.49\linewidth}
       \begin{tikzpicture}
-		\pgfplotsset{every axis/.style={
-        xmin=0, xmax=1,
-		ymin=0, ymax=100,
-		width=\linewidth,
-		height=\linewidth
-		}}
         \begin{axis}[
-				legend style={at={(.98,.98)},anchor=north east, font=\small},
-				%axis y line*=left,
+                xmin=0, xmax=1,
+                ymin=0, ymax=80,
+                width=\linewidth,
+                xlabel={image area in \si{\square\milli\meter}},
+                ylabel={phase amount \si{\percent}},
+                xtick={0,0.25,...,1},
 				grid=major,
-				xlabel={image area in \si{\square\milli\meter}},
-				ylabel={phase amount \si{\percent}},
-				xtick={0,0.25,...,1},
 				grid style={line width=.1pt, draw=gray!10}
             ]
 
@@ -805,7 +815,7 @@ it was segmented in pores, unhydrated alite, \ac{CH} and \ac{CSH}.
             \addplot [fill=black, fill opacity=0.2,forget plot] fill between [of=A and B];
 
             \addplot [ mark=none, black, opacity=0.5 ] table [x index=9, y index=1, col sep=comma] {figures/literature/C3S_28d_area_growth.csv};
-            \addlegendentry{pores};
+            %\addlegendentry{pores};
 
             %CSH
             \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{3}-\thisrowno{4}}, ] {figures/literature/C3S_28d_area_growth.csv};
@@ -814,7 +824,7 @@ it was segmented in pores, unhydrated alite, \ac{CH} and \ac{CSH}.
             \addplot [fill=red, fill opacity=0.2,forget plot] fill between [of=A and B];
 
             \addplot [ mark=none, red, opacity=0.5 ] table [x index=9, y index=3, col sep=comma] {figures/literature/C3S_28d_area_growth.csv};
-            \addlegendentry{\ac{CSH}};
+            %\addlegendentry{\ac{CSH}};
 
             %CH
             \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{5}-\thisrowno{6}}, ] {figures/literature/C3S_28d_area_growth.csv};
@@ -823,7 +833,7 @@ it was segmented in pores, unhydrated alite, \ac{CH} and \ac{CSH}.
             \addplot [fill=cyan, fill opacity=0.2,forget plot] fill between [of=A and B];
 
             \addplot [ mark=none, cyan, opacity=0.5 ] table [x index=9, y index=5, col sep=comma] {figures/literature/C3S_28d_area_growth.csv};
-            \addlegendentry{\ac{CH}};
+            %\addlegendentry{\ac{CH}};
 
             %alite
             \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{7}-\thisrowno{8}}, ] {figures/literature/C3S_28d_area_growth.csv};
@@ -832,50 +842,73 @@ it was segmented in pores, unhydrated alite, \ac{CH} and \ac{CSH}.
             \addplot [fill=yellow, fill opacity=0.2,forget plot] fill between [of=A and B];
 
             \addplot [ mark=none, yellow, opacity=0.5 ] table [x index=9, y index=7, col sep=comma] {figures/literature/C3S_28d_area_growth.csv};
-            \addlegendentry{alite};
+            %\addlegendentry{alite};
         \end{axis}
       \end{tikzpicture}
-      \caption{Phase composition statistics for growing selected image area for 100 random starting points.}
+      \caption{Phase composition.}
+      \label{fig:lit_box_growth_a}
+    \end{subfigure}
+    \hfill%
+    \begin{subfigure}[t]{0.49\linewidth}
+      \begin{tikzpicture}
+		\begin{axis}[%red,
+            xmin=0, xmax=1,
+            ymin=0, ymax=10,
+            width=\linewidth,
+            legend style={at={(.98,.98)},anchor=north east},
+            %axis y line=right,
+            ylabel near ticks, yticklabel pos=right,
+			xlabel={image area in \si{\square\milli\meter}},
+			ylabel={standard deviation $\sigma$ in \si{\percent}},
+            grid=major,
+            grid style={line width=.1pt, draw=gray!10}
+		  ]
+          \addplot[black, smooth, tension=0.2, no markers] table [x index=9, col sep=comma,y index=2] {figures/literature/C3S_28d_area_growth.csv};
+
+          \addplot[red, smooth, tension=0.2, no markers] table [x index=9, col sep=comma,y index=4] {figures/literature/C3S_28d_area_growth.csv};
+
+          \addplot[cyan, smooth, tension=0.2, no markers] table [x index=9, col sep=comma,y index=6] {figures/literature/C3S_28d_area_growth.csv};
+
+          \addplot[yellow, smooth, tension=0.2, no markers] table [x index=9, col sep=comma,y index=8] {figures/literature/C3S_28d_area_growth.csv};
+
+          \addlegendentry{pores};
+          \addlegendentry{\ac{CSH}};
+          \addlegendentry{\ac{CH}};
+          \addlegendentry{alite};
+
+        \end{axis}
+      \end{tikzpicture}
+      \caption{Standard deviation of the phase composition.}
       \label{fig:lit_box_growth_b}
     \end{subfigure}
-    \caption{Example of the box growth method as explained in \cite{bosl.1998,kameda.2006} and applied to an segmented image of \SI{28}{\day} hydrated alite.}
+    \caption{Example of the results of the box grow method as explained in \cite{bosl.1998,kameda.2006} and the respective standard deviations for 100 random starting points.}
     \label{fig:lit_box_growth}
 \end{figure}
 
 
-
 \subsection{Box count method} % the method names are not great
 
-Mouret \cite{mouret.2001} and others \cite{hlavacek.2015} tried to get an indication of the statistical representatively of the phase composition within an image and introduced a method, called \textsc{box count method} from hereon.
-This metod splits an image or multiple images of the same material in smaller sub-tiles (see Figure~\ref{fig:lit_box_count_a}).
-Then, a growing number of tiles is randomly selected from this tile-pool. Of this selection, the phase compostion is then remeasured.
-If this is repeated multiple times for reasonable amount of experiments, the standard deviation indicates, how much area has to be imaged and analyzed to obtain a reasonable area measurement.
-The result of this method is a graph as shown in Figure~\ref{fig:lit_box_count_b}.
+\textsc{Mouret} et al. \cite{mouret.2001} and \textsc{Hlaváček} et al. \cite{hlavacek.2015} tried to get an indication of the statistical representativeness of the phase composition within an image and introduced a method, which is called \textsc{box count method} from hereon.
+This method splits an image or multiple images of the same material in smaller sub-tiles (see Figure~\ref{fig:lit_box_methods_b}).
+Then, a growing number of tiles is randomly selected from this tile-pool.
+Of this selection, the phase composition is then remeasured.
+If this is repeated multiple times, the standard deviation indicates, how much area has to be imaged and analyzed to obtain a reasonable phase composition measurement.
+The result of this method is a graph as shown in Figure~\ref{fig:lit_box_count}.
+The standard deviation $\sigma$ in Figure~\ref{fig:lit_box_count_b}indicates the shrinking uncertainty with a larger area analyzed. Compared to Figure~\ref{fig:lit_box_growth_b}, $\sigma$ is shrinking much more continuously, since there is no location bias.
 
 \begin{figure}[H]
     \centering
-
-	\begin{subfigure}[t]{0.48\textwidth}
-		\includegraphics[width=\textwidth]{literature/box_cnt_illust.png}
-		\caption{Box count method on a segmented image of hydrated alite.}
-        \label{fig:lit_box_count_a}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[t]{0.48\textwidth}
+	\begin{subfigure}[t]{0.49\linewidth}
+        \centering
       \begin{tikzpicture}
-		\pgfplotsset{every axis/.style={
-        xmin=0, xmax=1,
-		ymin=0, ymax=100,
-		width=\linewidth,
-		height=\linewidth
-		}}
         \begin{axis}[
-				legend style={at={(.98,.98)},anchor=north east, font=\small},
-				%axis y line*=left,
-				grid=major,
+                xmin=0, xmax=1,
+                ymin=0, ymax=80,
 				xlabel={image area in \si{\square\milli\meter}},
 				ylabel={phase amount \si{\percent}},
 				xtick={0,.25,...,1},
+                width=\linewidth,
+				grid=major,
 				grid style={line width=.1pt, draw=gray!10}
             ]
 
@@ -886,7 +919,7 @@ The result of this method is a graph as shown in Figure~\ref{fig:lit_box_count_b
             \addplot [fill=black, fill opacity=0.2,forget plot] fill between [of=A and B];
 
             \addplot [ mark=none, black, opacity=0.5 ] table [x index=9, y index=1, col sep=comma] {figures/literature/C3S_28d_box_count.csv};
-            \addlegendentry{pores};
+            %\addlegendentry{pores};
 
             %CSH
             \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{3}-\thisrowno{4}}, ] {figures/literature/C3S_28d_box_count.csv};
@@ -895,7 +928,7 @@ The result of this method is a graph as shown in Figure~\ref{fig:lit_box_count_b
             \addplot [fill=red, fill opacity=0.2,forget plot] fill between [of=A and B];
 
             \addplot [ mark=none, red, opacity=0.5 ] table [x index=9, y index=3, col sep=comma] {figures/literature/C3S_28d_box_count.csv};
-            \addlegendentry{\ac{CSH}};
+            %\addlegendentry{\ac{CSH}};
 
             %CH
             \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{5}-\thisrowno{6}}, ] {figures/literature/C3S_28d_box_count.csv};
@@ -904,7 +937,7 @@ The result of this method is a graph as shown in Figure~\ref{fig:lit_box_count_b
             \addplot [fill=cyan, fill opacity=0.2,forget plot] fill between [of=A and B];
 
             \addplot [ mark=none, cyan, opacity=0.5 ] table [x index=9, y index=5, col sep=comma] {figures/literature/C3S_28d_box_count.csv};
-            \addlegendentry{\ac{CH}};
+            %\addlegendentry{\ac{CH}};
 
             %alite
             \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{7}-\thisrowno{8}}, ] {figures/literature/C3S_28d_box_count.csv};
@@ -913,19 +946,52 @@ The result of this method is a graph as shown in Figure~\ref{fig:lit_box_count_b
             \addplot [fill=yellow, fill opacity=0.2,forget plot] fill between [of=A and B];
 
             \addplot [ mark=none, yellow, opacity=0.5 ] table [x index=9, y index=7, col sep=comma] {figures/literature/C3S_28d_box_count.csv};
-            \addlegendentry{alite};
+            %\addlegendentry{alite};
         \end{axis}
       \end{tikzpicture}
-      \caption{Phase composition statistics for multiple image patches after 100 random patch selections.}
+      \caption{Phase composition statistics.}
+      \label{fig:lit_box_count_a}
+    \end{subfigure}%
+    \hfill%
+	\begin{subfigure}[t]{0.49\linewidth}
+      \centering
+      \begin{tikzpicture}
+		\begin{axis}[
+            width=\linewidth,
+            xmin=0, xmax=1,
+            ymin=0, ymax=10,
+            xlabel={image area in \si{\square\milli\meter}},
+            legend style={at={(.98,.98)},anchor=north east},
+            ylabel={standard deviation $\sigma$ in \si{\percent}},
+            %axis y line*=right,
+            ylabel near ticks, yticklabel pos=right,
+            grid=major,
+            grid style={line width=.1pt, draw=gray!10}
+		  ]
+          \addplot[black, smooth, tension=0.5, no markers] table [x index=9, col sep=comma,y index=2] {figures/literature/C3S_28d_box_count.csv};
+
+          \addplot[red, smooth, tension=0.5, no markers] table [x index=9, col sep=comma,y index=4] {figures/literature/C3S_28d_box_count.csv};
+
+          \addplot[cyan, smooth, tension=0.5, no markers] table [x index=9, col sep=comma,y index=6] {figures/literature/C3S_28d_box_count.csv};
+
+          \addplot[yellow, smooth, tension=0.5, no markers] table [x index=9, col sep=comma,y index=8] {figures/literature/C3S_28d_box_count.csv};
+          \addlegendentry{pores};
+          \addlegendentry{\ac{CSH}};
+          \addlegendentry{\ac{CH}};
+          \addlegendentry{alite};
+
+        \end{axis}
+      \end{tikzpicture}
+      \caption{Standard deviation of the phase composition.}
       \label{fig:lit_box_count_b}
     \end{subfigure}
-    \caption{Example of the box count method as explained in \cite{mouret.2001,hlavacek.2015} and applied to an segmented image of \SI{28}{\day} hydrated alite.}
+    \caption{Example of the results of the box count method as explained in \cite{mouret.2001,hlavacek.2015} and the respective standard deviations after 100 random patch selections.}
     \label{fig:lit_box_count}
 \end{figure}
 
 
-The method fast and works well for area calculations.
-However, it does ignore the influence of larger inhomogeneities, as indicated by the rather large \ac{CH}-areas in the example image.
+The method is fast and works well for area calculations.
+However, it ignores the influence of larger inhomogeneities, as the rather large \ac{CH}-areas in the example image.
 
 
 %covariogram

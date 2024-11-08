@@ -5,25 +5,59 @@
 \section{Cement hydration}
 
 The main phases of \ac{OPC} are \ac{C3S}, \ac{C2S}, \ac{C3A} and \ac{C4AF}.
-On contact with water a reaction called hydration begins.
-The main phases dissolve and new phases like form which ultimately are responsible for the hardening of cement based materials.
-The reactions can be summarized as follows \cite{gartner.2002}:
+On contact with water these phases dissolve and new phases like \ac{CSH}, \ac{CH}, ettringite, syngenite, gypsum and \ac{AFm} form (see Figure~\ref{fig:moeser_phase_dev}) \cite{moser.2001, stark.2003}.
 
+\begin{figure}[!htb]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+				legend style={at={(1.05,.5)},anchor=west},
+                legend cell align={left},
+				xmin=0, xmax=28,
+				ymin=0, ymax=100,
+				width=0.65\linewidth,
+				height=0.4\linewidth,
+				grid=major,
+				grid style={line width=.1pt, draw=gray!10},
+				xlabel={hydration time},
+                xtick={0, 11.26, 19.35, 28},
+                xticklabels={0,\SI{60}{\min},\SI{24}{\hour},\SI{28}{\day}},
+				ylabel={trends in proportional\\phase development},
+                ylabel style={align=center},
+				ytick={}
+            ]
+
+            \addplot+ [ mark=none, red, very thick ] table [x index=4, y index=5, col sep=comma] {figures/literature/phase_dev_moeser.csv};
+            \addlegendentry{\ac{CSH}};
+
+            \addplot+ [ mark=none, blue, very thick ] table [x index=6, y index=7, col sep=comma] {figures/literature/phase_dev_moeser.csv};
+            \addlegendentry{\ac{CH}};
+
+            \addplot+ [ mark=none, green, very thick ] table [x index=2, y index=3, col sep=comma] {figures/literature/phase_dev_moeser.csv};
+            \addlegendentry{ettringite};
+            
+            \addplot+ [ mark=none, orange, very thick ] table [x index=0, y index=1, col sep=comma] {figures/literature/phase_dev_moeser.csv};
+            \addlegendentry{syngenit};
+
+            \addplot+ [ mark=none, grey, very thick ] table [x index=8, y index=9, col sep=comma] {figures/literature/phase_dev_moeser.csv};
+            \addlegendentry{secondary gypsum};
+
+            \addplot+ [ mark=none, yellow, solid, very thick ] table [x index=10, y index=11, col sep=comma] {figures/literature/phase_dev_moeser.csv};
+            \addlegendentry{\ac{AFm}};
+
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Scheme for ordinary Portland cement hydration at room temperature. Redrawn after \textsc{Möser} and \textsc{Stark} \cite{moser.2001, stark.2003}.}
+    \label{fig:moeser_phase_dev}
+\end{figure}
+
+These reaction products are responsible for the hardening of cement based materials.
+The main reaction, forming \ac{CSH} and \ac{CH} can be summarized as follows \cite{gartner.2002}:
 {
-    %\color{red}
     \reaction{C3S + (3 - $x$ + $n$)H -> C_{x}SH_{n} + (3-$x$)CH }
     \reaction{C2S + 4.3H -> C_{1.7}SH4 + 0.3CH }
-    \begin{equation}\begin{aligned}
-        \ce{2C3A + 27H  & -> C4AH19 + C2AH8 \\
-                        & -> 2C3AH6}
-    \end{aligned}\end{equation}
-    \begin{equation}\begin{aligned}
-        \ce{3C4AF + 60H & -> 2C4(A,F)H19 + 2C2(A,F)H8 + 2(A,F)H3 \\
-                        & -> 2C3(A,F)H6 + 2(A,F)H3 + 24H}
-    \end{aligned}\end{equation}
 }
 
-As shown in these equations, the main hydration products are \ac{CSH} and \ac{CAH} in varying compositions and \ac{CH}.
 The hydration process can be subdivided into five periods as indicated in Figure~\ref{fig:opc_dca}.
 
 %CEM I 42,5 R; Lengerich/Dyck.; Z808; 24.01.2023 - E-mail von Sophie vom 24.10.2024
@@ -76,18 +110,19 @@ As described in \cite{gartner.2002}, the periods are:
 
 % noch ein paar Quellen damits schön aussieht :D
 The early hydration process is important to describe the initial hardening process and the rheological behavior of the cement.
-The first useful qualitative observations can be made using the \ac{SE}-mode and cracked surfaces \cite{stark.2001,hader.2000,suss.2001} after a few minutes or up to \SI{10}{\hour}.
+The first useful qualitative observations can be made using the \ac{SE}-mode and fresh fractured surfaces \cite{stark.2001,hader.2000,suss.2001} after a few minutes or up to \SI{10}{\hour}.
 The the \ac{CSH}-needles are up to \SI{300}{\nano\meter} long, while the hydration front is barely visible in the particle \cite{hader.2000}.
-%However, for (electron) microscopical analysis it is hard to get reliable data in the first few hours.
+% However, for (electron) microscopical analysis it is hard to get reliable data in the first few hours.
 % find publications from Christiane/Long with those early hydration products
-However, reliable quantitative observations on polished surfaces using the \ac{BSE} mode can fist be made after the initial \SI{24}{\hour} mark.
+However, reliable quantitative observations on polished surfaces using the \ac{BSE} mode can fist be made after the initial hardening after a few hours.
 
 \section{Growth of Calcium-Silicate-Hydrate}
 
-This is especially true for the development of \ac{CSH}, which is the decisive phase for the strength of the concrete during the later hydration process.
-The detailed knowledge of the \ac{CSH}-development in volume but also microstructural shape is especially important to simulate its growth \cite{breugel.1997,nguyen-tuan.2023,nguyen-tuan.2024} and also the resulting pore space.
+\ac{CSH} is the decisive phase for the strength of the concrete during the later hydration process.
+The detailed knowledge of the \ac{CSH}-development in volume but also microstructural shape is especially important to simulate its growth \cite{breugel.1997,nguyen-tuan.2023,nguyen-tuan.2024} and the resulting pore space.
 
-In 1929 / 1930 \textsc{Anderegg} and \textsc{Hubbell} \cite{anderegg.1929,anderegg.1930} already tried to measure the the hydration layer development of \ac{OPC} at 21$\pm$\SI{3}{\celsius} utilizing the difference of the refraction index between \ac{CSH} and unhydrated clinker.
+In 1929 / 1930 \textsc{Anderegg} and \textsc{Hubbell} \cite{anderegg.1929,anderegg.1930} already tried to measure the hydration layer development of \ac{OPC} at 21$\pm$\SI{3}{\celsius} using optical light microscopy.
+They utilized the difference of the refraction index between \ac{CSH} and unhydrated clinker.
 According to their experiments, the hydrate rim is depending on the mean particle dimension (measured from 150 particles) as shown in Figure~\ref{fig:anderegg-hubbel-distribution}.
 
 \begin{figure}[!htb]
@@ -298,7 +333,7 @@ In contrast to the \ac{OPC} experiments, these consisted only out of very few se
 
 
 \textsc{Nicoleau} \cite{nicoleau.2011} measured the \ac{CSH}-thickness using Cryo-\ac{SEM} on cracked surfaces of hydrated \ac{C3S} ($w/b=0.5$, $\vartheta=$\SI{20}{\celsius}) (see Figure~\ref{fig:anderegg-hubbel}).
-\textsc{Bishnoi} and \textsc{Scrivener} \cite{bishnoi.2012} criticized this approach due to the rather uncontrolled cracing, the subjectivity of the measurement and the occurence of the sectioning effect, which was described in detail by \textsc{Scrivener} \cite{scrivener.2004}.
+\textsc{Bishnoi} and \textsc{Scrivener} \cite{bishnoi.2012} criticized this approach due to the rather uncontrolled cracking, the subjectivity of the measurement and the occurrence of the sectioning effect, which was described in detail by \textsc{Scrivener} \cite{scrivener.2004}.
 This effect is an issue for all 2D images of polished sections (e.g. typical \ac{SEM}-\ac{BSE} images) and will be described and discussed in Subsection~\ref{subsec:sectioning-effect}.
 
 \textsc{Hader} \cite{hader.2000} and \textsc{Süß} \cite{suss.2001} manually measured the development of the length of \ac{CSH}-needles, also called \ac{CSHo}, using \ac{SEM}-\ac{SE}-images until a specimen age of \SI{28}{\day}.
@@ -420,7 +455,7 @@ The results are plotted in Figures~\ref{fig:suess_CSH_C3S} (\ac{C3S}) and \ref{f
     \label{fig:suess_CSH_C3S}
 \end{figure}
 
-The formation of \ac{CSH} begins earlier with raising temperature.
+The formation of \ac{CSH} begins earlier at increasing temperatures.
 This also causes a significant increase of the overall fibre length.
 At the same temperature, \ac{C2S} demonstrates a slower \ac{CSH}-growth.
 While the \ac{CSH}-growth of \ac{C3S} stagnates after 5 months, \textsc{Möser} indicates that the needle length of \ac{CSH} on \ac{C2S} is still increasing significantly, even until an age of 3 years.
@@ -529,6 +564,26 @@ When growing unhindered, the needle-like \ac{CSH} phases can reach a length of a
 %It can be assumed that at the beginning of the acceleration period all C-S-H phases grow in form of fibres. These fibres grow in length during the course of hydration with hardly any changes in thickness. When growing unhindered, the needle-like \ac{CSH} phases can reach a length of approx. 1.4 µm. These applies only for hydration of alite (in pure belite: \ac{CSH}- length up to 2.5 µm). In compact concrete it is to be expected that there is intergrowth between the fibers as well as and interlocking with one another and thus gel pores are formed which have often been described.
 
 
+\subsection{Hadley grains}
+\label{sec:hadley}
+
+Sometimes, in polished sections of hydrated cementitious materials, hollow hydrate rims, sometimes filled with an unhydrated clinker grain can be observed (see Figure~\ref{fig:hadley}).
+These objects are called \textsc{Hadley grains} after \textsc{Hadley} \cite{hadley.2000} who first described this phenomenon.
+\textsc{Yio} et al. \cite{yio.2015a} observed the development of such a grain using confocal microscopy.
+After \SI{28}{\day} they observed ``needle-like hydration products that connect the outer products and the anhydrous core''.
+In the later stages, the grain can completely dissolve and empty shells of \ac{CSH} remain.
+This can be seen in Figure~\ref{fig:hadley}, where both filled and hollow Hadley grains are visible, especially around belite.
+
+\begin{figure}[htb]
+	\centerline{\includegraphics[width=\textwidth]{hydrate-rim/hadley_grains.pdf}}
+	\caption{BSE image of a polished section of a \SI{28}{\day} hydrated alite and belite mixture (3:1). Around many belite grains, Hadley grains were formed. Furthermore, empty \ac{HLT} shells can be found. \label{fig:hadley}}
+\end{figure}
+
+% \begin{figure}[htbp]
+% 	\centerline{\includegraphics[width=.49\textwidth]{hydrate-rim/hadley_grains_detail.pdf}}
+% 	\caption{
+% 	\label{fig:hadley2}}
+% \end{figure}
 
 \section{Sectioning effect}
 \label{subsec:sectioning-effect}
@@ -711,7 +766,7 @@ However, each method has different measurement ranges as illustrated in Figure~\
 Image based methods like the \ac{SEM} or the \ac{CT} have already been introduced above.
 However, they inherently have either resolution issues, only give a 2-dimensional view or do not give representative results due to a small \ac{ROI}.
 Therefore, more indirect methods based on physical principles can help to obtain more statistically significant results.
-In this thesis, \ac{MIP} and \ac{LTDSC} were used as complementary methods to the image based methods.
+For this thesis, \ac{MIP}, \ac{LTDSC}, \ac{HNMR} were used as complementary methods to the image based methods.
 
 {\color{red} There were multiple studies trying to compare different pore analysis methods \cite{naber.2020,georget.2024}.} % more sources!
 
@@ -993,6 +1048,24 @@ The standard deviation $\sigma$ in Figure~\ref{fig:lit_box_count_b}indicates the
 The method is fast and works well for area calculations.
 However, it ignores the influence of larger inhomogeneities, as the rather large \ac{CH}-areas in the example image.
 
+% relativer Fehler von hlavacek übernehmen
 
 %covariogram
 %https://en.wikipedia.org/wiki/Covariance_function
+
+\section{SEM for building material characterisation}
+
+% Übersicht über die Geschichte von REM Analyse... 
+
+\section{Modelling of cement hydration and its reliance on SEM}
+
+% Literatur aus Long übernehmen und Modelle erwähnen
+% was gibts für abbildungsmodi - praktikumsanleitungen - Karen Microstructure analysis
+
+%antrag Literatur klauen
+
+%state of the art Bildanalyse - stutzman, fabien, Holzer, Münch, Herr Ulm/MITv -> Segmentierung/Kanten
+
+
+% Handlungsanweise - wie kann man REM mit Methoden kombinieren um Baustoffe zu beschreiben - welche Techniken gibt es?
+% Einfache Tools, weil sonst machts keener

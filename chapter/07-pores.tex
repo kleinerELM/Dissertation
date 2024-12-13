@@ -69,43 +69,405 @@ These borosilicate glass  products are usually used as filter material. % VYCOR 
 % C:\Users\Florian Kleiner\Nextcloud\Uni\WdB\Paper\2024 LT-DSC-XRD-BSE Alit-Belit Paper\5. REM+EDX\Nanoporöses Glas\2022_02_08 Poröses Glas
 
 
+\FloatBarrier
+\subsubsection{\ac{C2S}}
+
+
+
 \begin{figure}[!htb]
     \centering
+
     \begin{tikzpicture}
         \begin{axis}[
-				legend style={at={(1.05,.5)},anchor=west},
+				legend style={at={(0.05,.8)},anchor=west},
                 legend cell align={left},
-				xmin=10, xmax=30,%270,
-				ymin=0, ymax=7,
-				width=0.55\linewidth,
-				height=0.41\linewidth,
+				xmin=-60, xmax=15,
+				ymin=0, ymax=0.6,
+				width=\linewidth,
+				height=7cm,
 				grid=major,
-				xlabel={mean particle dimension in \si{\micro\meter}},
-				ylabel={$l_{\text{CSH}}$ in \si{\micro\meter}},
-				ytick={0,1,...,7},
-				grid style={line width=.1pt, draw=gray!10}
+				xlabel={Temperature $\vartheta$ in \si{\celsius}},
+				ylabel={$\dot{Q}$ in \si{\watt\per\gram}},
+				grid style={line width=.1pt, draw=gray!10},
+				yticklabel style={
+						/pgf/number format/fixed,
+						/pgf/number format/precision=3
+				},
+				%xticklabels={2.5,5,10,25,50},
+				%xtick={2.5,5,10,25,50},
+				scaled y ticks=false,
+				scaled x ticks=false
             ]
 
-            % \addplot+ [ only marks, mark=x, orange ] table [skip first n=1, x index=0, y index=3, col sep=comma] {figures/hydrate-rim/data_andregg/gsd-PCA.csv};
-            % \addlegendentry{\SI{7}{\day}, \ac{OPC}};
-            % \addplot+ [ only marks, mark=o, orange ] table [skip first n=1, x index=0, y index=3, col sep=comma] {figures/hydrate-rim/data_andregg/gsd-PCA+CaSO4.csv};
-            % \addlegendentry{\SI{7}{\day}, \ac{OPC}+\ce{CaSO4}};
+            \addplot [ no marks, green, dashed] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=0, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_28d-1_melt_segment_8.csv};
+            \addlegendentry{\ac{C2S} Segment 1, raw data};
+
+            \addplot [ no marks, blue, dashed] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=0, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_28d-1_melt_segment_16.csv};
+            \addlegendentry{\ac{C2S} Segment 2, raw data};
 
 
-            % \addplot[red, domain=0:30, opacity=0.5, samples=2] {0.224971630191457*x + 0.566670110374461};
-            % \addlegendentry{\SI{90}{\day}, $R^2=0.82$};
+			\addplot[thick, domain=0:1, color=blue, fill = yellow, fill opacity=0.3, forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=0, y index=2, col sep=comma] {figures/ltdsc/ExpDat_C2S_28d-1_melt_segment_16.csv};
+
+			\addplot[domain=0:1, color=green, fill = red, fill opacity=0.3, forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=0, y index=2, col sep=comma] {figures/ltdsc/ExpDat_C2S_28d-1_melt_segment_8.csv};
+
+
+            \addplot [thick, no marks, green] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=0, y index=2, col sep=comma] {figures/ltdsc/ExpDat_C2S_28d-1_melt_segment_8.csv};
+            \addlegendentry{\ac{C2S} Segment 1, corrected};
+
+            \addplot [thick, no marks, blue] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=0, y index=2, col sep=comma] {figures/ltdsc/ExpDat_C2S_28d-1_melt_segment_16.csv};
+            \addlegendentry{\ac{C2S} Segment 2, corrected};
+
         \end{axis}
-    \end{tikzpicture}
-    \caption{ }
-    \label{fig:ltdsc_result}
+	\end{tikzpicture}
+
+    \caption{\ac{LTDSC} curves for the first and second melting pass of \SI{28}{\day} hydrated \ac{C2S}. The red area correlate to the capillary porosity, while the yellow area correlates to the gel porosity.}
+    \label{fig:ltdsc_result_c2s_melt}
+
 \end{figure}
 
 
+\begin{figure}[!htb]
+    \centering
+
+ 	\begin{subfigure}{\textwidth}
+      \begin{tikzpicture}
+        \begin{semilogxaxis}[
+				legend style={at={(0.95,.7)},anchor=east},
+                legend cell align={left},
+				xmin=1.5, xmax=60,
+				ymin=-.20, ymax=0.07,
+				y dir=reverse,
+				width=\linewidth,
+				height=6cm,
+				grid=major,
+				xlabel={pore radius \si{\nano\meter}},
+				ylabel={DSC in \si{\watt\per\gram}},
+				grid style={line width=.1pt, draw=gray!10},
+				yticklabel style={
+						/pgf/number format/fixed,
+						/pgf/number format/precision=3
+				},
+				xticklabels={2.5,5,10,25,50},
+				xtick={2.5,5,10,25,50},
+				scaled y ticks=false,
+				scaled x ticks=false,
+            ]
+
+            \addplot [ no marks, orange] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_7d-1_freeze_segment_14.csv};
+            \addplot [ no marks, orange,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_7d-2_freeze_segment_14.csv};
+            \addplot [ no marks, orange,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_7d-3_freeze_segment_14.csv};
+            %\addlegendentry{\ac{C2S}, \SI{7}{\day}};
+
+
+            \addplot [ no marks, red] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_14d-1_freeze_segment_14.csv};
+            \addplot [ no marks, red,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_14d-2_freeze_segment_14.csv};
+            \addplot [ no marks, red,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_14d-3_freeze_segment_14.csv};
+            %\addlegendentry{\ac{C2S}, \SI{14}{\day}};
+
+            \addplot [ no marks, green] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_21d-1_freeze_segment_14.csv};
+            \addplot [ no marks, green,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_21d-2_freeze_segment_14.csv};
+            \addplot [ no marks, green,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_21d-3_freeze_segment_14.csv};
+            %\addlegendentry{\ac{C2S}, \SI{21}{\day}};
+
+            \addplot [ no marks, blue] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_28d-1_freeze_segment_14.csv};
+            \addplot [ no marks, blue,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_28d-2_freeze_segment_14.csv};
+            \addplot [ no marks, blue,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_28d-3_freeze_segment_14.csv};
+            %\addlegendentry{\ac{C2S}, \SI{28}{\day}};
+
+			\draw[draw=black] (2.75,-.1) rectangle ++(0.65,-0.13);
+        \end{semilogxaxis}
+	  \end{tikzpicture}
+
+	\end{subfigure}
+	\begin{subfigure}{\textwidth}
+
+	  \begin{tikzpicture}
+		\begin{axis}[
+			legend style={at={(0.97,.7)},anchor=east},
+				legend cell align={left},
+				xmin=1.75, xmax=2.75,
+				ymin=-.1, ymax=-0.03,
+				y dir=reverse,
+				width=\linewidth,
+				height=6cm,
+				grid=major,
+				xlabel={pore radius \si{\nano\meter}},
+				ylabel={DSC in \si{\watt\per\gram}},
+				grid style={line width=.1pt, draw=gray!10},
+				xticklabels={1.75,2.00,2.25,2.50,2.75},
+				xtick={1.75,2.00,2.25,2.50,2.75},
+				yticklabel style={
+						/pgf/number format/fixed,
+						/pgf/number format/precision=3
+				},
+				scaled y ticks=false,
+				scaled x ticks=false,
+			]
+
+			\addplot+[restrict x to domain=1.5:5, no marks, orange] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_7d-1_freeze_segment_14.csv};
+			\addplot+[restrict x to domain=1.5:5, no marks, orange,forget plot] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_7d-2_freeze_segment_14.csv};
+			\addplot+[restrict x to domain=1.5:5,no marks, orange,forget plot] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_7d-3_freeze_segment_14.csv};
+			\addlegendentry{\ac{C2S}, \SI{7}{\day}};
+
+			\addplot+[restrict x to domain=1.5:5, no marks, red] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_14d-1_freeze_segment_14.csv};
+			\addplot+[restrict x to domain=1.5:5, no marks, red,forget plot] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_14d-2_freeze_segment_14.csv};
+			\addplot+[restrict x to domain=1.5:5,no marks, red,forget plot] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_14d-3_freeze_segment_14.csv};
+			\addlegendentry{\ac{C2S}, \SI{14}{\day}};
+
+
+			\addplot+[restrict x to domain=1.5:5, no marks, green] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_21d-1_freeze_segment_14.csv};
+			\addplot+[restrict x to domain=1.5:5, no marks, green,forget plot] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_21d-2_freeze_segment_14.csv};
+			\addplot+[restrict x to domain=1.5:5,no marks, green,forget plot] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_21d-3_freeze_segment_14.csv};
+			\addlegendentry{\ac{C2S}, \SI{21}{\day}};
+
+
+			\addplot+[restrict x to domain=1.5:5, no marks, blue] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_28d-1_freeze_segment_14.csv};
+			\addplot+[restrict x to domain=1.5:5, no marks, blue,forget plot] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_28d-2_freeze_segment_14.csv};
+			\addplot+[restrict x to domain=1.5:5,no marks, blue,forget plot] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_28d-3_freeze_segment_14.csv};
+			\addlegendentry{\ac{C2S}, \SI{28}{\day}};
+		\end{axis}
+	  \end{tikzpicture}
+
+	\end{subfigure}
+    \caption{\ac{LTDSC} curves for the second freezing pass of \ac{C2S} from 7 to \SI{28}{\day} of hydration. Every specimen age was measured on three specimens.}
+    \label{fig:ltdsc_result_c2s_freeze}
+\end{figure}
+
+\begin{figure}[!htb]
+    \centering
+	\begin{tikzpicture}
+		\begin{axis}[
+			width  = \textwidth,
+			height = 8cm,
+			major x tick style = transparent,
+			ybar=2*\pgflinewidth,
+			ymin=0, ymax=0.4,
+			bar width=14pt,
+			ymajorgrids = true,
+			ylabel = {ice mass in \si{\gram\per\gram}},
+			xticklabels={
+				\SI{7}{\day},
+				\SI{14}{\day},
+				\SI{21}{\day},
+				\SI{28}{\day}
+			},
+			xtick = data,
+			scaled y ticks = false,
+			enlarge x limits=0.25,
+			ymin=0,
+			legend cell align=left,
+			legend style={
+					at={(0.98,0.97)},
+					anchor=north east,
+					column sep=1ex
+			},
+			error bars/y dir=both,
+			error bars/y explicit
+		]
+			\addplot[
+				red,fill=red,mark=none,
+				error bars/.cd,
+				error bar style={black},
+			] table [ x expr=\coordindex, y=pores_a_mean, y error=pores_a_std, col sep=comma] {figures/ltdsc/C2S_ice_mass_dev.csv};
+
+			\addplot[
+				green,fill=green,mark=none,
+				error bars/.cd,
+				error bar style={black}
+			] table [ x expr=\coordindex, y=pores_b_mean, y error=pores_b_std, col sep=comma] {figures/ltdsc/C2S_ice_mass_dev.csv};
+
+			\addplot[
+				blue,fill=blue,mark=none,
+				error bars/.cd,
+				error bar style={black},
+			] table [ x expr=\coordindex, y=pores_c_mean, y error=pores_c_std, col sep=comma] {figures/ltdsc/C2S_ice_mass_dev.csv};
+
+			\legend{gel pores, capillary pores, total pores}
+		\end{axis}
+	\end{tikzpicture}
+
+	\caption{ }
+	\label{fig:ltdsc_result_C2S_melt_bar}
+\end{figure}
+
+\FloatBarrier
 
 \subsubsection{\ac{C3S}}
 
-\subsubsection{\ac{C2S}}
+\begin{figure}[!htb]
+    \centering
 
+ 	\begin{subfigure}{\textwidth}
+      \begin{tikzpicture}
+        \begin{semilogxaxis}[
+				legend style={at={(0.95,.7)},anchor=east},
+                legend cell align={left},
+				xmin=1.5, xmax=60,
+				ymin=-.20, ymax=0.07,
+				y dir=reverse,
+				width=\linewidth,
+				height=6cm,
+				grid=major,
+				xlabel={pore radius \si{\nano\meter}},
+				ylabel={DSC in \si{\watt\per\gram}},
+				grid style={line width=.1pt, draw=gray!10},
+				yticklabel style={
+						/pgf/number format/fixed,
+						/pgf/number format/precision=3
+				},
+				xticklabels={2.5,5,10,25,50},
+				xtick={2.5,5,10,25,50},
+				scaled y ticks=false,
+				scaled x ticks=false,
+            ]
+
+            \addplot [ no marks, yellow] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_1d-1_freeze_segment_14.csv};
+            \addplot [ no marks, yellow,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_1d-2_freeze_segment_14.csv};
+            \addplot [ no marks, yellow,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_1d-3_freeze_segment_14.csv};
+
+            \addplot [ no marks, orange] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_7d-1_freeze_segment_14.csv};
+            \addplot [ no marks, orange,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_7d-2_freeze_segment_14.csv};
+            \addplot [ no marks, orange,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_7d-3_freeze_segment_14.csv};
+            %\addlegendentry{\ac{C3S}, \SI{7}{\day}};
+
+
+            \addplot [ no marks, red] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_14d-1_freeze_segment_14.csv};
+            \addplot [ no marks, red,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_14d-2_freeze_segment_14.csv};
+            \addplot [ no marks, red,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_14d-3_freeze_segment_14.csv};
+            %\addlegendentry{\ac{C3S}, \SI{14}{\day}};
+
+            \addplot [ no marks, green] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_21d-1_freeze_segment_14.csv};
+            \addplot [ no marks, green,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_21d-2_freeze_segment_14.csv};
+            \addplot [ no marks, green,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_21d-3_freeze_segment_14.csv};
+            %\addlegendentry{\ac{C3S}, \SI{21}{\day}};
+
+            \addplot [ no marks, blue] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_28d-1_freeze_segment_14.csv};
+            \addplot [ no marks, blue,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_28d-2_freeze_segment_14.csv};
+            \addplot [ no marks, blue,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_28d-3_freeze_segment_14.csv};
+            %\addlegendentry{\ac{C3S}, \SI{28}{\day}};
+
+			\draw[draw=black] (2.75,-.1) rectangle ++(0.65,-0.13);
+        \end{semilogxaxis}
+	  \end{tikzpicture}
+
+	\end{subfigure}
+	\begin{subfigure}{\textwidth}
+
+	  \begin{tikzpicture}
+		\begin{axis}[
+				legend style={at={(0.97,.65)},anchor=east},
+				legend cell align={left},
+				xmin=1.75, xmax=2.75,
+				ymin=-.1, ymax=-0.03,
+				y dir=reverse,
+				width=\linewidth,
+				height=6cm,
+				grid=major,
+				xlabel={pore radius \si{\nano\meter}},
+				ylabel={DSC in \si{\watt\per\gram}},
+				grid style={line width=.1pt, draw=gray!10},
+				xticklabels={1.75,2.00,2.25,2.50,2.75},
+				xtick={1.75,2.00,2.25,2.50,2.75},
+				yticklabel style={
+						/pgf/number format/fixed,
+						/pgf/number format/precision=3
+				},
+				scaled y ticks=false,
+				scaled x ticks=false,
+			]
+
+			\addplot+[restrict x to domain=1.5:5, no marks, yellow] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_1d-1_freeze_segment_14.csv};
+			\addplot+[restrict x to domain=1.5:5, no marks, yellow,forget plot] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_1d-2_freeze_segment_14.csv};
+			\addplot+[restrict x to domain=1.5:5,no marks, yellow,forget plot] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_1d-3_freeze_segment_14.csv};
+			\addlegendentry{\ac{C3S}, \SI{1}{\day}};
+
+			\addplot+[restrict x to domain=1.5:5, no marks, orange] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_7d-1_freeze_segment_14.csv};
+			\addplot+[restrict x to domain=1.5:5, no marks, orange,forget plot] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_7d-2_freeze_segment_14.csv};
+			\addplot+[restrict x to domain=1.5:5,no marks, orange,forget plot] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_7d-3_freeze_segment_14.csv};
+			\addlegendentry{\ac{C3S}, \SI{7}{\day}};
+
+			\addplot+[restrict x to domain=1.5:5, no marks, red] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_14d-1_freeze_segment_14.csv};
+			\addplot+[restrict x to domain=1.5:5, no marks, red,forget plot] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_14d-2_freeze_segment_14.csv};
+			\addplot+[restrict x to domain=1.5:5,no marks, red,forget plot] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_14d-3_freeze_segment_14.csv};
+			\addlegendentry{\ac{C3S}, \SI{14}{\day}};
+
+
+			\addplot+[restrict x to domain=1.5:5, no marks, green] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_21d-1_freeze_segment_14.csv};
+			\addplot+[restrict x to domain=1.5:5, no marks, green,forget plot] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_21d-2_freeze_segment_14.csv};
+			\addplot+[restrict x to domain=1.5:5,no marks, green,forget plot] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_21d-3_freeze_segment_14.csv};
+			\addlegendentry{\ac{C3S}, \SI{21}{\day}};
+
+			\addplot+[restrict x to domain=1.5:5, no marks, blue, solid] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_28d-1_freeze_segment_14.csv};
+			\addplot+[restrict x to domain=1.5:5, no marks, blue, solid,forget plot] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_28d-2_freeze_segment_14.csv};
+			\addplot+[restrict x to domain=1.5:5,no marks, blue, solid,forget plot] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_28d-3_freeze_segment_14.csv};
+			\addlegendentry{\ac{C3S}, \SI{28}{\day}};
+		\end{axis}
+	  \end{tikzpicture}
+
+	\end{subfigure}
+    \caption{ }
+    \label{fig:ltdsc_result_C3S_freeze}
+\end{figure}
+
+
+\begin{figure}[!htb]
+    \centering
+	\begin{tikzpicture}
+		\begin{axis}[
+			width  = \textwidth,
+			height = 8cm,
+			major x tick style = transparent,
+			ybar=2*\pgflinewidth,
+			ymin=0, ymax=0.3,
+			bar width=14pt,
+			ymajorgrids = true,
+			ylabel = {ice mass in \si{\gram\per\gram}},
+			%symbolic x coords={7d,14d,21d,28d},
+			xticklabels={
+				\SI{1}{\day},
+				\SI{7}{\day},
+				\SI{14}{\day},
+				\SI{21}{\day},
+				\SI{28}{\day}
+			},
+			xtick = data,
+			scaled y ticks = false,
+			enlarge x limits=0.25,
+			ymin=0,
+			legend cell align=left,
+			legend style={
+					at={(0.98,0.97)},
+					anchor=north east,
+					column sep=1ex
+			},
+			error bars/y dir=both,
+			error bars/y explicit
+		]
+			\addplot[
+				red,fill=red,mark=none,
+				error bars/.cd,
+				error bar style={black},
+			] table [ x expr=\coordindex, y=pores_a_mean, y error=pores_a_std, col sep=comma] {figures/ltdsc/C3S_ice_mass_dev.csv};
+
+			\addplot[
+				green,fill=green,mark=none,
+				error bars/.cd,
+				error bar style={black}
+			] table [ x expr=\coordindex, y=pores_b_mean, y error=pores_b_std, col sep=comma] {figures/ltdsc/C3S_ice_mass_dev.csv};
+
+			\addplot[
+				blue,fill=blue,mark=none,
+				error bars/.cd,
+				error bar style={black},
+			] table [ x expr=\coordindex, y=pores_c_mean, y error=pores_c_std, col sep=comma] {figures/ltdsc/C3S_ice_mass_dev.csv};
+
+			\legend{gel pores, capillary pores, total pores}
+		\end{axis}
+	\end{tikzpicture}
+
+	\caption{ }
+	\label{fig:ltdsc_result_C3S_melt_bar}
+\end{figure}
 
 \color{black}
 
@@ -407,3 +769,4 @@ These borosilicate glass  products are usually used as filter material. % VYCOR 
 %   ice mass in segment 8 between -16 and 10 °C: 135.5 mg/g
 %   ice mass in segment 16 between -57 and 10 °C: 147.7 mg/g
 %   ice mass difference: 12.22 mg/g
+

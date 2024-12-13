@@ -45,9 +45,16 @@ On contact with water these phases dissolve and new phases like \ac{CSH}, \ac{CH
             \addplot+ [ mark=none, yellow, solid, very thick ] table [x index=10, y index=11, col sep=comma] {figures/literature/phase_dev_moeser.csv};
             \addlegendentry{\ac{AFm}};
 
+            
+			\node[right,green] at (axis cs: 5,23)  {\small $\cong$ \SI{0.5}{\micro\meter}};
+			\node[right,green] at (axis cs:21,43)  {\small $\cong$ \SI{2.5}{\micro\meter}};
+
+			\node[right,red] at (axis cs:12.5,80)  {\small $\cong$ \SI{0.6}{\micro\meter}};
+			\node[right,red] at (axis cs:21,80)  {\small $\cong$ \SI{1.0}{\micro\meter}};
+
         \end{axis}
     \end{tikzpicture}
-    \caption{Scheme for ordinary Portland cement hydration at room temperature. Redrawn after \textsc{Möser} and \textsc{Stark} \cite{moser.2001, stark.2003}.}
+    \caption{Scheme for ordinary Portland cement hydration at room temperature. The colored dimensions indicate the length of the crystal needles of \ac{CSH} and ettringite Redrawn after \textsc{Möser} \cite{moser.2001} and \textsc{Stark} \cite{stark.2003}.}
     \label{fig:moeser_phase_dev}
 \end{figure}
 
@@ -699,8 +706,8 @@ This also means, that very small particles, which have a higher probability to s
 \section{Correlative microscopy}
 
 Correlative microscopy is a generic term describing the combination of multiple microscopical methods.
-In the field of biology it is understood as a combination of light/fluorescence and electron microscopy \cite{mironov.2013,loussertfonta.2015}.
-Nonetheless, it can be applied to most microscopic and tomographic techniques, als long as the measurement is done at exactly the same specimen with sufficient overlap \cite{loussertfonta.2015,daly.2017,mitchell.2021}.
+In the field of biology it is usually understood as a combination of light/fluorescence and electron microscopy \cite{mironov.2013,loussertfonta.2015}.
+Nonetheless, it can be applied to most microscopic and tomographic techniques, als long as the measurement is done at exactly the same specimen with sufficient overlap \cite{loussertfonta.2015,daly.2017,mitchell.2019,mitchell.2021}.
 Ideally it is done within the same device, though this is not essential.
 
 Advantages of the combination of multiple techniques are
@@ -709,10 +716,10 @@ Advantages of the combination of multiple techniques are
     \begin{itemize}
         \item trace element concentrations (see Section~\ref{sec:corr_laicpms} and \cite{kleiner.2022b}),
         \item crystallographic information \cite{rossler.2022},
-        \item mechanical information \cite{chen.2010,li.2025},%was von Feng - noch nicht veröffentlicht!
+        \item mechanical information (hardness) \cite{chen.2010,li.2025}, % was von Feng - noch nicht veröffentlicht!
         \item ...
     \end{itemize}
-    \item information of a specimen across multiple scales \cite{daly.2017,mitchell.2021,kleiner.2022a},
+    \item information of a specimen across multiple scales \cite{daly.2017,mitchell.2019,mitchell.2021,kleiner.2022a},
     \item The resolution differences can improve the segmentation results of lower resolution methods, enabling new insights \cite{kleiner.2022b}.
 \end{itemize}
 
@@ -1056,15 +1063,43 @@ However, it ignores the influence of larger inhomogeneities, as the rather large
 \section{SEM for building material characterisation}
 
 % Übersicht über die Geschichte von REM Analyse... 
+% was gibts für abbildungsmodi - praktikumsanleitungen - Karen Microstructure analysis
+%state of the art Bildanalyse - stutzman, fabien, Holzer, Münch, Herr Ulm/MITv -> Segmentierung/Kanten
 
-\section{Modelling of cement hydration and its reliance on SEM}
+\section{Modelling of cement hydration and its reliance on SEM images}
+
+{
+
+\color{blue}
+%automatisch übersetzt, direkt aus dem ct/fib-sem-antrag
+
+As the demands on building materials increase, so do the requirements for characterising and modelling the underlying material systems.
+%The cross-scale recording of structural characteristics is still an unresolved, yet central task.
+There are advanced approaches to modelling and simulating the strength, shape retention and durability characteristics of concretes \cite{bishnoi.2009, kumar.2017, zhou.2019, ouzia.2019}. Due to the high complexity, multi-scale heterogeneity and temporal changes, this is often only possible in a highly simplified form.
+The simulations and models could be more realistic if the structure of concretes could be better quantified from the nanoscale to the macroscale.
+
+The structure of concretes is simulated in a variety of models at different scales \cite{bishnoi.2009, kumar.2017, zhou.2019, ouzia.2019}.
+Atomistic modelling is used to fundamentally simulate the structural composition \cite{kumar.2017,mishra.2017,kunhimohamed.2020,casar.2023}.
+Other authors model the mesostructure (area between atomistic and microscale) of e.g. C-S-H phases and porosity \cite{ioannidou.2016, yu.2016}.
+Finally, there are modern micromechanical models that attempt to close the transition from meso- to macromodelling \cite{bernard.2003, hlobil.2016, gobel.2018}.
+The basis for realistic modelling is a quantitative experimental characterisation of the corresponding structures \cite{gobel.2018a}. 
+
+In summary, it can be stated that the mesostructure (phase distribution including gel porosity) should be better characterised to better understand the transport of (attacking) media in concrete.
+
+
+%Mit den Anforderungen an die Baustoffe steigen auch die Anforderungen an die Charakterisierung und Modellierung der zugrundeliegenden Stoffsysteme. Die skalenübergreifende Erfassung von Gefügemerkmalen ist dabei eine nach wie vor ungelöste, dennoch aber zentrale Aufgabenstellung. Es bestehen fortgeschrittene Ansätze die Festigkeits-, Formhaltungs- und Dauerhaftigkeitskennwerte von Betonen zu modellieren und zu simulieren \cite{bishnoi.2009, kumar.2017, zhou.2019, ouzia.2019}. Aufgrund der hohen Komplexität, der multiskaligen Heterogenität und der zeitlichen Veränderungen ist dies oftmals nur stark vereinfacht möglich. Die Simulationen und Modelle könnten eine bessere Realitätsnähe aufweisen, wenn die Struktur von Betonen von der Nano- bis zur Makroskala besser quantifizierbar wäre. 
+%Die Struktur von Betonen wird in einer Vielzahl von Modellen auf verschiedenen Skalen simuliert \cite{bishnoi.2009, kumar.2017, zhou.2019, ouzia.2019}. Atomistische Modellierung wird angewandt, um den Strukturaufbau grundlegend zu simulieren \cite{kumar.2017,mishra.2017,kunhimohamed.2020,casar.2023}. Andere Autoren modellieren die Mesostruktur (Bereich zwischen atomistischer und Mikroskala) von z.B. C-S-H Phasen und Porosität \cite{ioannidou.2016, yu.2016}. Schließlich gibt es moderne mikromechanische Modelle, die versuchen, den Übergang von Meso- bis Makromodellierung zu schließen \cite{bernard.2003, hlobil.2016, gobel.2018}. Grundlage für realitätsnahe Modellierung ist eine quantitative experimentelle Charakterisierung der entsprechenden Strukturen \cite{gobel.2018a}. 
+%Zusammenfassend kann festgestellt werden, dass für den Transport von (angreifenden) Medien im Beton die Mesostruktur (Phasenverteilung inklusive Gelporosität) besser charakterisiert werden müsste.
+
+
+
+}
+
 
 % Literatur aus Long übernehmen und Modelle erwähnen
-% was gibts für abbildungsmodi - praktikumsanleitungen - Karen Microstructure analysis
 
 %antrag Literatur klauen
 
-%state of the art Bildanalyse - stutzman, fabien, Holzer, Münch, Herr Ulm/MITv -> Segmentierung/Kanten
 
 
 % Handlungsanweise - wie kann man REM mit Methoden kombinieren um Baustoffe zu beschreiben - welche Techniken gibt es?

@@ -392,70 +392,70 @@ To obtain data about the capillary and gel porosity, the \textit{DSC Polyma 214}
 The specimens were sliced to fit the small aluminum crucibles with a inner volume of approx. \SI{60}{\micro\litre}.
 These crucibles sealed air tight by cold-welding a lid under pressure and measured against an empty reference crucible.
 
-\begin{figure}[!htb]
-    \centering
-    \begin{tikzpicture}
-		\pgfplotsset{every axis/.style={xmin=0, xmax=150,
-		ymin=-65, ymax=25,
-		width=0.8\linewidth,
-		height=0.4\linewidth
-		}}
-        \begin{axis}[
-				legend style={at={(.97,.94)},anchor=north east},
-				axis y line*=left,
-				grid=major,
-				xlabel={time $t$ in \si{\min}},
-				ylabel={temperature $\vartheta$ in \si{\celsius}},
-				xtick={0,20,...,150},
-				ytick={-60,-40,...,20},
-				grid style={line width=.1pt, draw=gray!10}
-				%axis lines=middle
-            ]
-			\addplot[mark=none, gray!40] coordinates {(0,0) (150,0)};
-			\addplot [green, dashed,mark=.] coordinates {
-				(0,20) (20,-20) (22,-20) (40,20) (48,-20) (49,-20) (50,-5) (60,0) (75,0)};
-				\addplot [green, dashed,mark=.] coordinates {
-					(95,-40) (105,-60) (110,-60) (120,-40)};
-				\addplot [green, dashed,mark=.] coordinates {
-					(140,0) (150,20) };
+% \begin{figure}[!htb]
+%     \centering
+%     \begin{tikzpicture}
+% 		\pgfplotsset{every axis/.style={xmin=0, xmax=150,
+% 		ymin=-65, ymax=25,
+% 		width=0.8\linewidth,
+% 		height=0.4\linewidth
+% 		}}
+%         \begin{axis}[
+% 				legend style={at={(.97,.94)},anchor=north east},
+% 				axis y line*=left,
+% 				grid=major,
+% 				xlabel={time $t$ in \si{\min}},
+% 				ylabel={temperature $\vartheta$ in \si{\celsius}},
+% 				xtick={0,20,...,150},
+% 				ytick={-60,-40,...,20},
+% 				grid style={line width=.1pt, draw=gray!10}
+% 				%axis lines=middle
+%             ]
+% 			\addplot[mark=none, gray!40] coordinates {(0,0) (150,0)};
+% 			\addplot [green, dashed,mark=.] coordinates {
+% 				(0,20) (20,-20) (22,-20) (40,20) (48,-20) (49,-20) (50,-5) (60,0) (75,0)};
+% 				\addplot [green, dashed,mark=.] coordinates {
+% 					(95,-40) (105,-60) (110,-60) (120,-40)};
+% 				\addplot [green, dashed,mark=.] coordinates {
+% 					(140,0) (150,20) };
 
-			\addplot[mark=none, gray] coordinates {(75,30) (75,-70)};
+% 			\addplot[mark=none, gray] coordinates {(75,30) (75,-70)};
 
-			%\node[black,right] at (axis cs:8010){\small{$W=0$}};
-			\node[right] at (axis cs:78,10)  {$\rightarrow$ measurement};
-			\node[right] at (axis cs:5,-40) {$\rightarrow$ inducing of ice nuclei};
+% 			%\node[black,right] at (axis cs:8010){\small{$W=0$}};
+% 			\node[right] at (axis cs:78,10)  {$\rightarrow$ measurement};
+% 			\node[right] at (axis cs:5,-40) {$\rightarrow$ inducing of ice nuclei};
 
-        \end{axis}
-		% 3rd ordinate right
-		\begin{axis}[blue,
-			axis y line*=right,
-			axis x line=none,
-			ylabel={pore radius $r_\text{P}$ in \si{\nano\meter}},
-			xtick={0,20,...,150},
-			ytick      ={ -40, -30, -20, -10,  -1},
-			yticklabels={2.19,2.27,3.80,7.04,65.2},
-			ylabel style=black,
-		  ]
-		  \pgfplotsset{every outer y axis line/.style={xshift=1.25cm}, every tick/.style={xshift=1.25cm}, every y tick label/.style={xshift=1.25cm} }
-		  \addplot [blue, dashed] coordinates {
-			   (75,0) (95,-40)};
+%         \end{axis}
+% 		% 3rd ordinate right
+% 		\begin{axis}[blue,
+% 			axis y line*=right,
+% 			axis x line=none,
+% 			ylabel={pore radius $r_\text{P}$ in \si{\nano\meter}},
+% 			xtick={0,20,...,150},
+% 			ytick      ={ -40, -30, -20, -10,  -1},
+% 			yticklabels={2.19,2.27,3.80,7.04,65.2},
+% 			ylabel style=black,
+% 		  ]
+% 		  \pgfplotsset{every outer y axis line/.style={xshift=1.25cm}, every tick/.style={xshift=1.25cm}, every y tick label/.style={xshift=1.25cm} }
+% 		  \addplot [blue, dashed] coordinates {
+% 			   (75,0) (95,-40)};
 
-        \end{axis}
-		% 2nd ordinate right
-		\begin{axis}[red,
-			axis y line*=right,
-			axis x line=none,
-			xtick={0,20,...,150},
-			ytick      ={ -40, -30, -20, -10,  -1},
-			yticklabels={1.49,1.76,2.30,3.91,33.0},
-		  ]
-		  \addplot [red, dashed] coordinates {
-			(120,-40) (140,0)};
-        \end{axis}
-    \end{tikzpicture}
-    \caption{Temperature regime of a \ac{LTDSC}-measurement, based on Sun et al. \cite{sun.2010} and Müller \cite{mueller.2021}. theoretical pore radii after Brun et al. \cite{brun.1977} - Red axis:  on melting (Equation \ref{eq:brun_melt}); blue axis: pore radius on freezing (Equation \ref{eq:brun_freeze}). The top value is the pore radius at \SI{-1}{\celsius}.}
-    \label{fig:ltdc_regime}
-\end{figure}
+%         \end{axis}
+% 		% 2nd ordinate right
+% 		\begin{axis}[red,
+% 			axis y line*=right,
+% 			axis x line=none,
+% 			xtick={0,20,...,150},
+% 			ytick      ={ -40, -30, -20, -10,  -1},
+% 			yticklabels={1.49,1.76,2.30,3.91,33.0},
+% 		  ]
+% 		  \addplot [red, dashed] coordinates {
+% 			(120,-40) (140,0)};
+%         \end{axis}
+%     \end{tikzpicture}
+%     \caption{Temperature regime of a \ac{LTDSC}-measurement, based on Sun et al. \cite{sun.2010} and Müller \cite{mueller.2021}. theoretical pore radii after Brun et al. \cite{brun.1977} - Red axis:  on melting (Equation \ref{eq:brun_melt}); blue axis: pore radius on freezing (Equation \ref{eq:brun_freeze}). The top value is the pore radius at \SI{-1}{\celsius}.}
+%     \label{fig:ltdc_regime}
+% \end{figure}
 
 \begin{figure}[!htb]
     \centering
@@ -495,8 +495,8 @@ These crucibles sealed air tight by cold-welding a lid under pressure and measur
 			\addplot[mark=none, gray] coordinates {(193,30) (193,-70)};
 
 			%\node[black,right] at (axis cs:8010){\small{$W=0$}};
-			\node[right] at (axis cs:48,10)  {$\rightarrow$ P1};
-			\node[right] at (axis cs:132,10)  {$\rightarrow$ P2};
+			\node[right] at (axis cs:56,10)  {P1}; %$\rightarrow$
+			\node[right] at (axis cs:155,10)  {P2}; %$\rightarrow$
 			\node[right, blue] at (axis cs:18,-10) {\ding{100}1};
 			\node[right, blue] at (axis cs:102,-10) {\ding{100}2};
 
@@ -528,10 +528,12 @@ These crucibles sealed air tight by cold-welding a lid under pressure and measur
 			%(120,-40) (140,0)};
         \end{axis}
     \end{tikzpicture}
-    \caption{Second temperature regime of for the \ac{LTDSC}-measurement with two measurement zones P1 and P2. {\color{blue}\ding{100}1}, {\color{blue}\ding{100}2} = zones to introduce ice nuclei.}
-    \label{fig:ltdc_regime2}
+    \caption{
+		Temperature regime of a \ac{LTDSC}-measurement, based on Sun et al. \cite{sun.2010} and Müller \cite{mueller.2021} with two measurement zones P1 and P2. {\color{blue}\ding{100}1}, {\color{blue}\ding{100}2} = zones are intended introduce ice nuclei. Theoretical pore radii are calculated after Brun et al. \cite{brun.1977} - {\color{blue}Red axis}:  on melting (Equation \ref{eq:brun_melt}); blue axis: pore radius on freezing (Equation \ref{eq:brun_freeze}). The {\color{blue}65.2} and {\color{red}\SI{33.0}{\nano\meter}} are the pore radii at \SI{-1}{\celsius}.}
+    \label{fig:ltdc_regime}
 \end{figure}
 
 The temperature regime used is shown in Figure~\ref{fig:ltdc_regime}.
-The first \SI{75}{\min} of the program are there to create ice nuclei and therefore to avoid supercooling.
-The measurement itself is done within the last \SI{75}{\min} and the temperature change was set to $\pm$\,\SI{2}{\kelvin\per\min}.
+The zones indicated with {\color{blue}\ding{100}1} and {\color{blue}\ding{100}2} are intended to create ice nuclei and therefore to avoid supercooling.
+The measurement are done within the zones P1 (down to \SI{-25}{\celsius}) and P2 (down to \SI{-60}{\celsius}) at a cooling and heating rate of $\pm$\,\SI{2}{\kelvin\per\min}.
+These two measurement zones allow to distiguish the ice mass of pores witn radius smaller and larger than $\approx$ \SI{3}{\nano\meter}.

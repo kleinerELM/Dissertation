@@ -8,18 +8,18 @@ If the specimen is mechanically polished (Section~\ref{sec:mech_pol}), there is 
 As detailed in Section~\ref{sec:bib_pol_moving}, mechanically prepared surfaces can be improved using \ac{ArBIB}-polishing.
 However, this still does not allow a close-to-native imaging.
 In contrast, \ac{ArBIB}-sectioning (Section~\ref{sec:bib_pol_fixed}) allows to cut cross sections of \ac{CSH}-needles of hydrated \ac{C3S}, revealing the star-like footprint of these needles (see Figure~\ref{fig:csh-arbib-a}).
-This structure can also be found in cracked surfaces of the same material (Figure~\ref{fig:csh-arbib-b})
+This structure can also be found in cracked surfaces of the same material (Figure~\ref{fig:csh-arbib-b}).
 
 \begin{figure}[htb!]
     \centering
 
-	\begin{subfigure}{0.47\textwidth}
+	\begin{subfigure}{0.48\textwidth}
 		\includegraphics[width=\textwidth]{methods/artistic-csh-anim/C3S_7d_cryoBIB_007.jpg}
 		\caption{\ac{ArBIB} cross section of hydrated alite.}
 		\label{fig:csh-arbib-a}
 	\end{subfigure}
 	\hfill
-	\begin{subfigure}{0.47\textwidth}
+	\begin{subfigure}{0.48\textwidth}
 		\includegraphics[width=\textwidth]{methods/artistic-csh-anim/C3S_Bruchflaeche_101.jpg}
 		\caption{Fractured surface of hydrated alite.}
 		\label{fig:csh-arbib-b}
@@ -32,13 +32,13 @@ This structure can also be found in cracked surfaces of the same material (Figur
 \begin{figure}[htb!]
 	\centering
 
-	\begin{subfigure}{0.47\textwidth}
+	\begin{subfigure}{0.48\textwidth}
 		\includegraphics[width=\textwidth]{methods/artistic-csh-anim/Grundflaeche.pdf}
 		\caption{Footprint of \ac{CSH}-needles from hydrated alite.}
 		\label{fig:csh-arbib-c}
 	\end{subfigure}
 	\hfill
-	\begin{subfigure}{0.47\textwidth}
+	\begin{subfigure}{0.48\textwidth}
 		\ifdefined\PRINTABLE
 			\includegraphics[width=\textwidth]{methods/artistic-csh-anim/still.png}
 		\else
@@ -53,24 +53,144 @@ This structure can also be found in cracked surfaces of the same material (Figur
 \end{figure}
 
 
-\section{Pore analysis using \ac{LTDSC}, \ac{MIP}, \ac{CT} and \ac{SEM}}
+\section{Pore analysis using \acs{LTDSC}, \acs{MIP}, \acs{CT} and \acs{SEM}}
 
-\subsection{\ac{LTDSC}}
+In a macroscopic scale it is possible to compare different pore measurement methods.
+This becomes more and more difficult, the smaller the pores measured.
+Therefore, a standard material was used, to test and compare some methods.
 
-{\color{red} TODO: discuss the problems with the analysis?
+{\color{red} TODO: discuss the problems with the analysis?}
 
-New specimens are planned to measure with the new regime. Compare to the old regime.}
+\subsection{Porous glass standard}
 
-\subsubsection{Porous glass standard}
+As reference  with a defined pore size, porous glass membranes by \textit{Boraglas} with a pore size of 5 and \SI{20}{\nano\meter} were used.
+These borosilicate glass products are made using the \textsc{VYCOR}-process and are usually utilized as filter material. % 
 
-As reference with a defined pore size, porous glass membranes by \textit{Boraglas} with a pore size of 5 and \SI{20}{\nano\meter} were used.
-These borosilicate glass  products are usually used as filter material. % VYCOR glass
+\begin{figure}[htb!]
+    \centering
+
+	\begin{subfigure}{0.48\textwidth}
+		\includegraphics[width=\textwidth]{ltdsc/glass/20nm.pdf}
+		\caption{Pore size \SI{5}{\nano\meter}}
+		\label{fig:ltdsc-vycor-glass-a}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.48\textwidth}
+		\includegraphics[width=\textwidth]{ltdsc/glass/5nm.pdf}
+		\caption{Pore size \SI{20}{\nano\meter}}
+		\label{fig:ltdsc-vycor-glass-b}
+	\end{subfigure}
+
+    \caption{\ac{SEM} images of two \textsc{VYCOR}-glass samples {\color{red} Probenbilder-rodaten vmtl vertauscht.}}
+    \label{fig:ltdsc-vycor-glass}
+\end{figure}
+
+As the\ac{SEM}-images indicate, the pores are interconnected, which is plausible due to its use as a filter material and the manufacturing process used (sintering of glass powder).
+
+The manufacturer provided a certificate for the porosity of the materials based on \ac{MIP} measurements.
+The \SI{5}{\nano\meter} glass sieve has a modal pore diameter of 4.5 and a median diameter of \SI{4.7}{\nano\meter} at a porosity of \SI{54.1}{\percent}.
+For the \SI{20}{\nano\meter} material a modal pore diameter of 22.3 and a median diameter of \SI{19.4}{\nano\meter} at a porosity of \SI{51.3}{\percent} is given.
+A revalidation of the \ac{MIP} results was omitted, due to the high material costs.
+
+
+\subsubsection{\ac{LTDSC}}
+The glass standards were measured using a simplified temperature regimen.
+It also experienced ice crystal-inducing freeze-thaw cycles before the actual measurement.
+For the measurement, the water saturated specimen was then cooled down to \SI{-60}{\degreeCelsius} and heated up to \SI{20}{\degreeCelsius} at a cooling and heating rate of $\pm$\,\SI{2}{\kelvin\per\min}.
+
+
+\begin{figure}[!htb]
+    \centering
+
+ 	\begin{subfigure}{.46\textwidth}
+      \begin{tikzpicture}
+        \begin{semilogxaxis}[
+				legend style={at={(0.95,.7)},anchor=east},
+                legend cell align={left},
+				xmin=1.5, xmax=60,
+				ymin=-.20, ymax=0,
+				y dir=reverse,
+				width=\linewidth,
+				height=6cm,
+				grid=major,
+				xlabel={pore radius \si{\nano\meter}},
+				ylabel={DSC in \si{\watt\per\gram}},
+				grid style={line width=.1pt, draw=gray!10},
+				yticklabel style={
+						/pgf/number format/fixed,
+						/pgf/number format/precision=3
+				},
+				xticklabels={2.5,5,10,25,50},
+				xtick={2.5,5,10,25,50},
+				ytick={0,-0.1,-0.2},
+				scaled y ticks=false,
+				scaled x ticks=false,
+            ]
+  
+			\addplot [ no marks, blue] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/glass/ExpDat_2.1-5nm_freeze_segment_18.csv};
+			\addplot [ no marks, blue,forget plot, dashed] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/glass/ExpDat_2.2-5nm_freeze_segment_18.csv};
+			
+        \end{semilogxaxis}
+	  \end{tikzpicture}
+	  \caption{\SI{5}{\nano\meter} porous \textsc{VYCOR}-glass.}
+
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{.46\textwidth}
+
+		\begin{tikzpicture}
+		  \begin{semilogxaxis}[
+				legend style={at={(0.95,.7)},anchor=east},
+				legend cell align={left},
+				xmin=1.5, xmax=60,
+				ymin=-.20, ymax=0,
+				y dir=reverse,
+				width=\linewidth,
+				height=6cm,
+				grid=major,
+				xlabel={pore radius \si{\nano\meter}},
+				ylabel={DSC in \si{\watt\per\gram}},
+				grid style={line width=.1pt, draw=gray!10},
+				yticklabel style={
+						/pgf/number format/fixed,
+						/pgf/number format/precision=3
+				},
+				xticklabels={2.5,5,10,25,50},
+				xtick={2.5,5,10,25,50},
+				ytick={0,-0.1,-0.2},
+				scaled y ticks=false,
+				scaled x ticks=false,
+			]
+			  \addplot [ no marks, orange,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/glass/ExpDat_1.1-20nm_freeze_segment_18.csv};
+			  \addplot [ no marks, orange,forget plot, dashed] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/glass/ExpDat_1.2-20nm_freeze_segment_18.csv};
+			  
+		  \end{semilogxaxis}
+		\end{tikzpicture}
+		\caption{\SI{20}{\nano\meter} porous \textsc{VYCOR}-glass.}
+  
+	\end{subfigure}
+    \caption{Two nano-porous glass specimens measured two times each using \ac{LTDSC}.}
+    \label{fig:ltdsc_result_glass_freeze}
+\end{figure}
+
+This resulted in the following \ac{LTDSC} measurements.
+
+-  5 nm has two peaks at 4 and 6.5 nm pore radius
+- 20 nm has multiple peaks at 7, 13 and 19 nm pore radius
+
+This shows, that the pore diameter is overestimated by a factor of up to 2 using equation \ref{eq:brun_melt}.
+However, it is obvious, that the pore size correlates with the temperature.
 
 % C:\Users\Florian Kleiner\Nextcloud\Uni\WdB\Paper\2024 LT-DSC-XRD-BSE Alit-Belit Paper\5. REM+EDX\Nanoporöses Glas\2022_02_08 Poröses Glas
 
 
 \FloatBarrier
-\subsubsection{\ac{C2S}}
+\subsection{\acs{LTDSC}}
+
+
+
+\FloatBarrier
+\subsubsection{\acs{C2S}}
 
 
 
@@ -292,7 +412,7 @@ These borosilicate glass  products are usually used as filter material. % VYCOR 
 
 \FloatBarrier
 
-\subsubsection{\ac{C3S}}
+\subsubsection{\acs{C3S}}
 
 \begin{figure}[!htb]
     \centering

@@ -71,13 +71,13 @@ These borosilicate glass products are made using the \textsc{VYCOR}-process and 
 
 	\begin{subfigure}{0.48\textwidth}
 		\includegraphics[width=\textwidth]{ltdsc/glass/20nm.pdf}
-		\caption{Pore size \SI{5}{\nano\meter}}
+		\caption{Pore size \SI{5}{\nano\meter} (diameter)}
 		\label{fig:ltdsc-vycor-glass-a}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}{0.48\textwidth}
 		\includegraphics[width=\textwidth]{ltdsc/glass/5nm.pdf}
-		\caption{Pore size \SI{20}{\nano\meter}}
+		\caption{Pore size \SI{20}{\nano\meter} (diameter)}
 		\label{fig:ltdsc-vycor-glass-b}
 	\end{subfigure}
 
@@ -102,8 +102,25 @@ For the measurement, the water saturated specimen was then cooled down to \SI{-6
 \begin{figure}[!htb]
     \centering
 
- 	\begin{subfigure}{.46\textwidth}
+ 	\begin{subfigure}{.48\textwidth}
       \begin{tikzpicture}
+        \begin{semilogxaxis}[
+				xmin=1.5, xmax=60,
+				ymin=-.20, ymax=0,
+				y dir=reverse,
+				width=\linewidth,
+				height=6cm,
+				grid=none,
+				xlabel={temperature in \si{\degreeCelsius}},
+				xticklabels={-51.2, -25.3, -12.4, -4.6, -2.0},
+				xtick={2.5,5,10,25,50},
+				ytick=\empty,
+				scaled y ticks=false,
+				scaled x ticks=false,,
+				axis x line*=top
+            ]
+			
+        \end{semilogxaxis}
         \begin{semilogxaxis}[
 				legend style={at={(0.95,.7)},anchor=east},
                 legend cell align={left},
@@ -136,9 +153,26 @@ For the measurement, the water saturated specimen was then cooled down to \SI{-6
 
 	\end{subfigure}
 	\hfill
-	\begin{subfigure}{.46\textwidth}
+	\begin{subfigure}{.48\textwidth}
 
 		\begin{tikzpicture}
+			\begin{semilogxaxis}[
+					xmin=1.5, xmax=60,
+					ymin=-.20, ymax=0,
+					y dir=reverse,
+					width=\linewidth,
+					height=6cm,
+					grid=none,
+					xlabel={temperature in \si{\degreeCelsius}},
+					xticklabels={-51.2, -25.3, -12.4, -4.6, -2.0},
+					xtick={2.5,5,10,25,50},
+					ytick=\empty,
+					scaled y ticks=false,
+					scaled x ticks=false,,
+					axis x line*=top,
+				]
+				
+		  \end{semilogxaxis}
 		  \begin{semilogxaxis}[
 				legend style={at={(0.95,.7)},anchor=east},
 				legend cell align={left},
@@ -160,6 +194,7 @@ For the measurement, the water saturated specimen was then cooled down to \SI{-6
 				ytick={0,-0.1,-0.2},
 				scaled y ticks=false,
 				scaled x ticks=false,
+				axis y line=right
 			]
 			  \addplot [ no marks, orange,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/glass/ExpDat_1.1-20nm_freeze_segment_18.csv};
 			  \addplot [ no marks, orange,forget plot, dashed] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/glass/ExpDat_1.2-20nm_freeze_segment_18.csv};
@@ -169,7 +204,7 @@ For the measurement, the water saturated specimen was then cooled down to \SI{-6
 		\caption{\SI{20}{\nano\meter} porous \textsc{VYCOR}-glass.}
   
 	\end{subfigure}
-    \caption{Two nano-porous glass specimens measured two times each using \ac{LTDSC}.}
+    \caption{These curves show the freezing curve of \ac{LTDSC}-measurements of two nano-porous glass types specimens. Each type was measured using two specimens.}
     \label{fig:ltdsc_result_glass_freeze}
 \end{figure}
 
@@ -249,8 +284,25 @@ However, it is obvious, that the pore size correlates with the temperature.
 \begin{figure}[!htb]
     \centering
 
- 	\begin{subfigure}{\textwidth}
+ 	\begin{subfigure}{.48\textwidth}
       \begin{tikzpicture}
+        \begin{semilogxaxis}[
+				xmin=1.5, xmax=60,
+				ymin=-.20, ymax=0,
+				y dir=reverse,
+				width=\linewidth,
+				height=6cm,
+				grid=none,
+				xlabel={temperature in \si{\degreeCelsius}},
+				xticklabels={-51.2, -25.3, -12.4, -4.6, -2.0},
+				xtick={2.5,5,10,25,50},
+				ytick=\empty,
+				scaled y ticks=false,
+				scaled x ticks=false,,
+				axis x line*=top
+            ]
+			
+        \end{semilogxaxis}
         \begin{semilogxaxis}[
 				legend style={at={(0.95,.7)},anchor=east},
                 legend cell align={left},
@@ -299,14 +351,32 @@ However, it is obvious, that the pore size correlates with the temperature.
 	  \end{tikzpicture}
 
 	\end{subfigure}
-	\begin{subfigure}{\textwidth}
+	\hfill
+	\begin{subfigure}{.48\textwidth}
 
 	  \begin{tikzpicture}
+        \begin{axis}[
+			xmin=1.75, xmax=2.75,
+			ymin=-.11, ymax=-0.03,
+			y dir=reverse,
+			width=\linewidth,
+			height=6cm,
+			grid=none,
+			xlabel={temperature in \si{\degreeCelsius}},
+			xticklabels={-73.3, -64.1, -56.9, -51.2, -46.5},
+			xtick={1.75,2.00,2.25,2.50,2.75},
+			ytick=\empty,
+			scaled y ticks=false,
+			scaled x ticks=false,,
+			axis x line*=top
+		]
+		
+		\end{axis}
 		\begin{axis}[
 			legend style={at={(0.97,.7)},anchor=east},
 				legend cell align={left},
 				xmin=1.75, xmax=2.75,
-				ymin=-.1, ymax=-0.03,
+				ymin=-.11, ymax=-0.03,
 				y dir=reverse,
 				width=\linewidth,
 				height=6cm,
@@ -349,7 +419,7 @@ However, it is obvious, that the pore size correlates with the temperature.
 	  \end{tikzpicture}
 
 	\end{subfigure}
-    \caption{\ac{LTDSC} curves for the second freezing pass of \ac{C2S} from 7 to \SI{28}{\day} of hydration. Every specimen age was measured on three specimens.}
+    \caption{\ac{LTDSC} curves for the second freezing pass of \ac{C2S} from 7 to \SI{28}{\day} of hydration. Every specimen age was measured using three specimens. The graph on the right is a zoomed in section of the left graph, showing the data correlating to the gel pores.}
     \label{fig:ltdsc_result_c2s_freeze}
 \end{figure}
 
@@ -406,7 +476,7 @@ However, it is obvious, that the pore size correlates with the temperature.
 		\end{axis}
 	\end{tikzpicture}
 
-	\caption{ }
+    \caption{Ice mass for the two pore types and total pore amount of \ac{C2S} from 7 to \SI{28}{\day} of hydration. The data were calculated from three \ac{LTDSC}-measurements for each value.}
 	\label{fig:ltdsc_result_C2S_melt_bar}
 \end{figure}
 
@@ -417,8 +487,25 @@ However, it is obvious, that the pore size correlates with the temperature.
 \begin{figure}[!htb]
     \centering
 
- 	\begin{subfigure}{\textwidth}
+ 	\begin{subfigure}{.48\textwidth}
       \begin{tikzpicture}
+        \begin{semilogxaxis}[
+				xmin=1.5, xmax=60,
+				ymin=-.20, ymax=0,
+				y dir=reverse,
+				width=\linewidth,
+				height=6cm,
+				grid=none,
+				xlabel={temperature in \si{\degreeCelsius}},
+				xticklabels={-51.2, -25.3, -12.4, -4.6, -2.0},
+				xtick={2.5,5,10,25,50},
+				ytick=\empty,
+				scaled y ticks=false,
+				scaled x ticks=false,
+				axis x line*=top,
+            ]
+			
+        \end{semilogxaxis}
         \begin{semilogxaxis}[
 				legend style={at={(0.95,.7)},anchor=east},
                 legend cell align={left},
@@ -471,14 +558,32 @@ However, it is obvious, that the pore size correlates with the temperature.
 	  \end{tikzpicture}
 
 	\end{subfigure}
-	\begin{subfigure}{\textwidth}
+	\hfill
+	\begin{subfigure}{.48\textwidth}
 
 	  \begin{tikzpicture}
+        \begin{axis}[
+			xmin=1.75, xmax=2.75,
+			ymin=-.11, ymax=-0.03,
+			y dir=reverse,
+			width=\linewidth,
+			height=6cm,
+			grid=none,
+			xlabel={temperature in \si{\degreeCelsius}},
+			xticklabels={-73.3, -64.1, -56.9, -51.2, -46.5},
+			xtick={1.75,2.00,2.25,2.50,2.75},
+			ytick=\empty,
+			scaled y ticks=false,
+			scaled x ticks=false,,
+			axis x line*=top
+		]
+		
+		\end{axis}
 		\begin{axis}[
 				legend style={at={(0.97,.65)},anchor=east},
 				legend cell align={left},
 				xmin=1.75, xmax=2.75,
-				ymin=-.1, ymax=-0.03,
+				ymin=-.11, ymax=-0.03,
 				y dir=reverse,
 				width=\linewidth,
 				height=6cm,
@@ -525,7 +630,7 @@ However, it is obvious, that the pore size correlates with the temperature.
 	  \end{tikzpicture}
 
 	\end{subfigure}
-    \caption{ }
+    \caption{\ac{LTDSC} curves for the second freezing pass of \ac{C3S} from 1 to \SI{28}{\day} of hydration. Every specimen age was measured using three specimens. The graph on the right is a zoomed in section of the left graph, showing the data correlating to the gel pores.}
     \label{fig:ltdsc_result_C3S_freeze}
 \end{figure}
 
@@ -585,308 +690,8 @@ However, it is obvious, that the pore size correlates with the temperature.
 		\end{axis}
 	\end{tikzpicture}
 
-	\caption{ }
+    \caption{Ice mass for the two pore types and total pore amount of \ac{C3S} from 1 to \SI{28}{\day} of hydration. The data were calculated from three \ac{LTDSC}-measurements for each value.}
 	\label{fig:ltdsc_result_C3S_melt_bar}
 \end{figure}
 
-\color{black}
-
-% 27 TXT Dokumente gefunden.
-
-% ExpDat_C2S_14d-1.txt
-%   Found a valid experiment file. Encoding: ISO-8859-1
-%   Loading C2S_14d-1
-%     - loaded measurement C2S_14d-1 from 2024-11-21 07:59:00
-%     - The data contains 5.0 measurements per s
-%   Segment 8 baseline: y = 0.00098506*x + 0.04837453; R-squared value: 0.98600773
-%   Segment 16 baseline: y = 0.00078965*x + 0.03832429; R-squared value: 0.98958852
-%   ice mass in segment 8 between -16 and 10 °C: 240.4 mg/g
-%   ice mass in segment 16 between -57 and 10 °C: 252.6 mg/g
-%   ice mass difference: 12.13 mg/g
-
-% ExpDat_C2S_14d-2.txt
-%   Found a valid experiment file. Encoding: ISO-8859-1
-%   Loading C2S_14d-2
-%     - loaded measurement C2S_14d-2 from 2024-11-21 11:30:00
-%     - The data contains 5.0 measurements per s
-%   Segment 8 baseline: y = 0.00106831*x + 0.04578617; R-squared value: 0.99340009
-%   Segment 16 baseline: y = 0.00082103*x + 0.03598270; R-squared value: 0.98769373
-%   ice mass in segment 8 between -16 and 10 °C: 254.8 mg/g
-%   ice mass in segment 16 between -57 and 10 °C: 265.5 mg/g
-%   ice mass difference: 10.70 mg/g
-
-% ExpDat_C2S_14d-3.txt
-%   Found a valid experiment file. Encoding: ISO-8859-1
-%   Loading C2S_14d-3
-%     - loaded measurement C2S_14d-3 from 2024-11-21 14:53:00
-%     - The data contains 5.0 measurements per s
-%   Segment 8 baseline: y = 0.00093691*x + 0.04431753; R-squared value: 0.99372270
-%   Segment 16 baseline: y = 0.00073402*x + 0.03505496; R-squared value: 0.98982469
-%   ice mass in segment 8 between -16 and 10 °C: 228.9 mg/g
-%   ice mass in segment 16 between -57 and 10 °C: 239.6 mg/g
-%   ice mass difference: 10.78 mg/g
-
-% ExpDat_C2S_21d-1.txt
-%   Found a valid experiment file. Encoding: ISO-8859-1
-%   Loading C2S_21d-1
-%     - loaded measurement C2S_21d-1 from 2024-11-28 07:58:00
-%     - The data contains 5.0 measurements per s
-%   Segment 8 baseline: y = 0.00095203*x + 0.05132402; R-squared value: 0.98321957
-%   Segment 16 baseline: y = 0.00081548*x + 0.03972219; R-squared value: 0.99288287
-%   ice mass in segment 8 between -16 and 10 °C: 229.4 mg/g
-%   ice mass in segment 16 between -57 and 10 °C: 246.8 mg/g
-%   ice mass difference: 17.44 mg/g
-
-% ExpDat_C2S_21d-2.txt
-%   Found a valid experiment file. Encoding: ISO-8859-1
-%   Loading C2S_21d-2
-%     - loaded measurement C2S_21d-2 from 2024-11-28 11:25:00
-%     - The data contains 5.0 measurements per s
-%   Segment 8 baseline: y = 0.00095301*x + 0.04790360; R-squared value: 0.98687251
-%   Segment 16 baseline: y = 0.00079101*x + 0.03716868; R-squared value: 0.99219534
-%   ice mass in segment 8 between -16 and 10 °C: 229.2 mg/g
-%   ice mass in segment 16 between -57 and 10 °C: 245.6 mg/g
-%   ice mass difference: 16.37 mg/g
-
-% ExpDat_C2S_21d-3.txt
-%   Found a valid experiment file. Encoding: ISO-8859-1
-%   Loading C2S_21d-3
-%     - loaded measurement C2S_21d-3 from 2024-11-28 15:02:00
-%     - The data contains 5.0 measurements per s
-%   Segment 8 baseline: y = 0.00089300*x + 0.04845834; R-squared value: 0.98737761
-%   Segment 16 baseline: y = 0.00075085*x + 0.03802258; R-squared value: 0.99235134
-%   ice mass in segment 8 between -16 and 10 °C: 219.6 mg/g
-%   ice mass in segment 16 between -57 and 10 °C: 236.4 mg/g
-%   ice mass difference: 16.83 mg/g
-
-% ExpDat_C2S_28d-1.txt
-%   Found a valid experiment file. Encoding: ISO-8859-1
-%   Loading C2S_28d-1
-%     - loaded measurement C2S_28d-1 from 2024-12-05 08:12:00
-%     - The data contains 5.0 measurements per s
-%   Segment 8 baseline: y = 0.00081726*x + 0.04972811; R-squared value: 0.99158836
-%   Segment 16 baseline: y = 0.00072458*x + 0.03926765; R-squared value: 0.99325346
-%   ice mass in segment 8 between -16 and 10 °C: 209.5 mg/g
-%   ice mass in segment 16 between -57 and 10 °C: 230.0 mg/g
-%   ice mass difference: 20.48 mg/g
-
-% ExpDat_C2S_28d-2.txt
-%   Found a valid experiment file. Encoding: ISO-8859-1
-%   Loading C2S_28d-2
-%     - loaded measurement C2S_28d-2 from 2024-12-05 11:37:00
-%     - The data contains 5.0 measurements per s
-%   Segment 8 baseline: y = 0.00091063*x + 0.04901874; R-squared value: 0.98565138
-%   Segment 16 baseline: y = 0.00077928*x + 0.03811040; R-squared value: 0.99298758
-%   ice mass in segment 8 between -16 and 10 °C: 223.5 mg/g
-%   ice mass in segment 16 between -57 and 10 °C: 243.1 mg/g
-%   ice mass difference: 19.62 mg/g
-
-% ExpDat_C2S_28d-3.txt
-%   Found a valid experiment file. Encoding: ISO-8859-1
-%   Loading C2S_28d-3
-%     - loaded measurement C2S_28d-3 from 2024-12-05 17:22:00
-%     - The data contains 5.0 measurements per s
-%   Segment 8 baseline: y = 0.00085834*x + 0.05001848; R-squared value: 0.98525469
-%   Segment 16 baseline: y = 0.00075402*x + 0.03911349; R-squared value: 0.99343590
-%   ice mass in segment 8 between -16 and 10 °C: 214.9 mg/g
-%   ice mass in segment 16 between -57 and 10 °C: 235.8 mg/g
-%   ice mass difference: 20.94 mg/g
-
-% ExpDat_C2S_7d-1.txt
-%   Found a valid experiment file. Encoding: ISO-8859-1
-%   Loading C2S_7d-1
-%     - loaded measurement C2S_7d-1 from 2024-11-14 08:01:00
-%     - The data contains 5.0 measurements per s
-%   Segment 8 baseline: y = 0.00113995*x + 0.04918803; R-squared value: 0.98927654
-%   Segment 16 baseline: y = 0.00085109*x + 0.03947219; R-squared value: 0.97876789
-%   ice mass in segment 8 between -16 and 10 °C: 278.9 mg/g
-%   ice mass in segment 16 between -57 and 10 °C: 283.5 mg/g
-%   ice mass difference: 4.68 mg/g
-
-% ExpDat_C2S_7d-2.txt
-%   Found a valid experiment file. Encoding: ISO-8859-1
-%   Loading C2S_7d-2
-%     - loaded measurement C2S_7d-2 from 2024-11-14 11:23:00
-%     - The data contains 5.0 measurements per s
-%   Segment 8 baseline: y = 0.00104046*x + 0.04533688; R-squared value: 0.99121439
-%   Segment 16 baseline: y = 0.00077729*x + 0.03633376; R-squared value: 0.98015774
-%   ice mass in segment 8 between -16 and 10 °C: 254.0 mg/g
-%   ice mass in segment 16 between -57 and 10 °C: 259.8 mg/g
-%   ice mass difference: 5.83 mg/g
-
-% ExpDat_C2S_7d-3.txt
-%   Found a valid experiment file. Encoding: ISO-8859-1
-%   Loading C2S_7d-3
-%     - loaded measurement C2S_7d-3 from 2024-11-14 14:49:00
-%     - The data contains 5.0 measurements per s
-%   Segment 8 baseline: y = 0.00116068*x + 0.04429085; R-squared value: 0.99541349
-%   Segment 16 baseline: y = 0.00083978*x + 0.03503779; R-squared value: 0.97220884
-%   ice mass in segment 8 between -16 and 10 °C: 279.4 mg/g
-%   ice mass in segment 16 between -57 and 10 °C: 283.0 mg/g
-%   ice mass difference: 3.57 mg/g
-
-% ExpDat_C3S_14d-1.txt
-%   Found a valid experiment file. Encoding: ISO-8859-1
-%   Loading C3S_14d-1
-%     - loaded measurement C3S_14d-1 from 2024-11-12 07:42:00
-%     - The data contains 5.0 measurements per s
-%   Segment 8 baseline: y = 0.00048799*x + 0.05485738; R-squared value: 0.98936865
-%   Segment 16 baseline: y = 0.00048166*x + 0.04753391; R-squared value: 0.93165393
-%   ice mass in segment 8 between -16 and 10 °C: 108.0 mg/g
-%   ice mass in segment 16 between -57 and 10 °C: 122.0 mg/g
-%   ice mass difference: 13.97 mg/g
-
-% ExpDat_C3S_14d-2.txt
-%   Found a valid experiment file. Encoding: ISO-8859-1
-%   Loading C3S_14d-2
-%     - loaded measurement C3S_14d-2 from 2024-11-12 11:08:00
-%     - The data contains 5.0 measurements per s
-%   Segment 8 baseline: y = 0.00049917*x + 0.05271091; R-squared value: 0.98861197
-%   Segment 16 baseline: y = 0.00048803*x + 0.04522562; R-squared value: 0.94320136
-%   ice mass in segment 8 between -16 and 10 °C: 112.0 mg/g
-%   ice mass in segment 16 between -57 and 10 °C: 126.0 mg/g
-%   ice mass difference: 14.00 mg/g
-
-% ExpDat_C3S_14d-3.txt
-%   Found a valid experiment file. Encoding: ISO-8859-1
-%   Loading C3S_14d-3
-%     - loaded measurement C3S_14d-3 from 2024-11-12 14:32:00
-%     - The data contains 5.0 measurements per s
-%   Segment 8 baseline: y = 0.00045132*x + 0.05237823; R-squared value: 0.99005321
-%   Segment 16 baseline: y = 0.00046126*x + 0.04517430; R-squared value: 0.92448494
-%   ice mass in segment 8 between -16 and 10 °C: 100.6 mg/g
-%   ice mass in segment 16 between -57 and 10 °C: 114.3 mg/g
-%   ice mass difference: 13.72 mg/g
-
-% ExpDat_C3S_1d-1.txt
-%   Found a valid experiment file. Encoding: UTF-16
-%   Loading C3S_1d-1
-%     - loaded measurement C3S_1d-1 from 2024-10-30 07:37:00
-%     - The data contains 5.0 measurements per s
-%   Segment 8 baseline: y = 0.00082760*x + 0.04647564; R-squared value: 0.99209781
-%   Segment 16 baseline: y = 0.00065401*x + 0.03919189; R-squared value: 0.99235270
-%   ice mass in segment 8 between -16 and 10 °C: 191.3 mg/g
-%   ice mass in segment 16 between -57 and 10 °C: 197.3 mg/g
-%   ice mass difference: 5.98 mg/g
-
-% ExpDat_C3S_1d-2.txt
-%   Found a valid experiment file. Encoding: UTF-16
-%   Loading C3S_1d-2
-%     - loaded measurement C3S_1d-2 from 2024-10-30 11:02:00
-%     - The data contains 5.0 measurements per s
-%   Segment 8 baseline: y = 0.00080580*x + 0.04580842; R-squared value: 0.98907986
-%   Segment 16 baseline: y = 0.00063223*x + 0.03879393; R-squared value: 0.99213938
-%   ice mass in segment 8 between -16 and 10 °C: 187.0 mg/g
-%   ice mass in segment 16 between -57 and 10 °C: 193.8 mg/g
-%   ice mass difference: 6.72 mg/g
-
-% ExpDat_C3S_1d-3.txt
-%   Found a valid experiment file. Encoding: UTF-16
-%   Loading C3S_1d-3
-%     - loaded measurement C3S_1d-3 from 2024-10-30 14:30:00
-%     - The data contains 5.0 measurements per s
-%   Segment 8 baseline: y = 0.00085567*x + 0.05028690; R-squared value: 0.99018659
-%   Segment 16 baseline: y = 0.00066649*x + 0.04310988; R-squared value: 0.98444059
-%   ice mass in segment 8 between -16 and 10 °C: 199.2 mg/g
-%   ice mass in segment 16 between -57 and 10 °C: 205.0 mg/g
-%   ice mass difference: 5.79 mg/g
-
-% ExpDat_C3S_21d-1.txt
-%   Found a valid experiment file. Encoding: ISO-8859-1
-%   Loading C3S 21d-1
-%     - loaded measurement C3S 21d-1 from 2024-11-19 08:07:00
-%     - The data contains 5.0 measurements per s
-%   Segment 8 baseline: y = 0.00041353*x + 0.05211303; R-squared value: 0.98767689
-%   Segment 16 baseline: y = 0.00043730*x + 0.04513827; R-squared value: 0.89764334
-%   ice mass in segment 8 between -16 and 10 °C: 96.1 mg/g
-%   ice mass in segment 16 between -57 and 10 °C: 110.3 mg/g
-%   ice mass difference: 14.26 mg/g
-
-% ExpDat_C3S_21d-2.txt
-%   Found a valid experiment file. Encoding: ISO-8859-1
-%   Loading C3S_21d-2
-%     - loaded measurement C3S_21d-2 from 2024-11-19 11:33:00
-%     - The data contains 5.0 measurements per s
-%   Segment 8 baseline: y = 0.00051304*x + 0.05348282; R-squared value: 0.99046623
-%   Segment 16 baseline: y = 0.00050471*x + 0.04571727; R-squared value: 0.92883142
-%   ice mass in segment 8 between -16 and 10 °C: 112.9 mg/g
-%   ice mass in segment 16 between -57 and 10 °C: 128.6 mg/g
-%   ice mass difference: 15.73 mg/g
-
-% ExpDat_C3S_21d-3.txt
-%   Found a valid experiment file. Encoding: ISO-8859-1
-%   Loading C3S_21d-3
-%     - loaded measurement C3S_21d-3 from 2024-11-19 15:26:00
-%     - The data contains 5.0 measurements per s
-%   Segment 8 baseline: y = 0.00051931*x + 0.05202443; R-squared value: 0.99240419
-%   Segment 16 baseline: y = 0.00047221*x + 0.04554083; R-squared value: 0.93961934
-%   ice mass in segment 8 between -16 and 10 °C: 105.5 mg/g
-%   ice mass in segment 16 between -57 and 10 °C: 121.9 mg/g
-%   ice mass difference: 16.33 mg/g
-
-% ExpDat_C3S_28d-1.txt
-%   Found a valid experiment file. Encoding: ISO-8859-1
-%   Loading C3S_28d-1
-%     - loaded measurement C3S_28d-1 from 2024-11-26 08:09:00
-%     - The data contains 5.0 measurements per s
-%   Segment 8 baseline: y = 0.00041412*x + 0.05413295; R-squared value: 0.98985236
-%   Segment 16 baseline: y = 0.00046396*x + 0.04610102; R-squared value: 0.91319742
-%   ice mass in segment 8 between -16 and 10 °C: 95.7 mg/g
-%   ice mass in segment 16 between -57 and 10 °C: 112.4 mg/g
-%   ice mass difference: 16.73 mg/g
-
-% ExpDat_C3S_28d-2.txt
-%   Found a valid experiment file. Encoding: ISO-8859-1
-%   Loading C3S_28d-2
-%     - loaded measurement C3S_28d-2 from 2024-11-26 11:40:00
-%     - The data contains 5.0 measurements per s
-%   Segment 8 baseline: y = 0.00043133*x + 0.05469569; R-squared value: 0.98557262
-%   Segment 16 baseline: y = 0.00046028*x + 0.04702771; R-squared value: 0.92135612
-%   ice mass in segment 8 between -16 and 10 °C: 93.4 mg/g
-%   ice mass in segment 16 between -57 and 10 °C: 111.5 mg/g
-%   ice mass difference: 18.11 mg/g
-
-% ExpDat_C3S_28d-3.txt
-%   Found a valid experiment file. Encoding: ISO-8859-1
-%   Loading C3S_28d-3
-%     - loaded measurement C3S_28d-3 from 2024-11-26 15:58:00
-%     - The data contains 5.0 measurements per s
-%   Segment 8 baseline: y = 0.00048045*x + 0.05461650; R-squared value: 0.98836565
-%   Segment 16 baseline: y = 0.00048475*x + 0.04709666; R-squared value: 0.92160471
-%   ice mass in segment 8 between -16 and 10 °C: 107.6 mg/g
-%   ice mass in segment 16 between -57 and 10 °C: 123.6 mg/g
-%   ice mass difference: 16.04 mg/g
-
-% ExpDat_C3S_7d-1.txt
-%   Found a valid experiment file. Encoding: UTF-16
-%   Loading C3S_7d-1
-%     - loaded measurement C3S_7d-1 from 2024-11-05 07:48:00
-%     - The data contains 5.0 measurements per s
-%   Segment 8 baseline: y = 0.00061038*x + 0.05290598; R-squared value: 0.99012103
-%   Segment 16 baseline: y = 0.00055389*x + 0.04508409; R-squared value: 0.97406251
-%   ice mass in segment 8 between -16 and 10 °C: 138.4 mg/g
-%   ice mass in segment 16 between -57 and 10 °C: 149.9 mg/g
-%   ice mass difference: 11.47 mg/g
-
-% ExpDat_C3S_7d-2.txt
-%   Found a valid experiment file. Encoding: UTF-16
-%   Loading C3S_7d-2
-%     - loaded measurement C3S_7d-2 from 2024-11-05 12:08:00
-%     - The data contains 5.0 measurements per s
-%   Segment 8 baseline: y = 0.00056751*x + 0.05191994; R-squared value: 0.99204460
-%   Segment 16 baseline: y = 0.00052543*x + 0.04440010; R-squared value: 0.95622706
-%   ice mass in segment 8 between -16 and 10 °C: 125.7 mg/g
-%   ice mass in segment 16 between -57 and 10 °C: 136.3 mg/g
-%   ice mass difference: 10.65 mg/g
-
-% ExpDat_C3S_7d-3.txt
-%   Found a valid experiment file. Encoding: UTF-16
-%   Loading C3S_7d-3
-%     - loaded measurement C3S_7d-3 from 2024-11-05 15:37:00
-%     - The data contains 5.0 measurements per s
-%   Segment 8 baseline: y = 0.00061122*x + 0.05086795; R-squared value: 0.99267059
-%   Segment 16 baseline: y = 0.00054366*x + 0.04348102; R-squared value: 0.97129852
-%   ice mass in segment 8 between -16 and 10 °C: 135.5 mg/g
-%   ice mass in segment 16 between -57 and 10 °C: 147.7 mg/g
-%   ice mass difference: 12.22 mg/g
-
+%\color{black}

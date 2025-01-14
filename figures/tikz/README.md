@@ -1,0 +1,1 @@
+This folder contains a cache of figures created within the document. files in this folder can be removed to reprocess all images.

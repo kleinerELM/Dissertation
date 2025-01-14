@@ -307,3 +307,5 @@ TSWLatexianTemp*
 *.ttf
 figures/intro-anim/anim.psd
 Dissertation.bcf-SAVE-ERROR
+figures/tikz/*.pdf
+figures/tikz/*.dep

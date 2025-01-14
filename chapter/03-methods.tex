@@ -536,7 +536,7 @@ These crucibles sealed air tight by cold-welding a lid under pressure and measur
 The temperature regime used is shown in Figure~\ref{fig:ltdc_regime}.
 The zones indicated with {\color{blue}\ding{100}1} and {\color{blue}\ding{100}2} are intended to create ice nuclei and therefore to avoid supercooling.
 The measurement are done within the zones P1 (down to \SI{-25}{\celsius}) and P2 (down to \SI{-60}{\celsius}) at a cooling and heating rate of $\pm$\,\SI{2}{\kelvin\per\min}.
-These two measurement zones allow to distiguish the ice mass of pores witn radius smaller and larger than $\approx$ \SI{3}{\nano\meter}.
+These two measurement zones allow to distinguish the ice mass of pores with radii smaller and larger than $\approx$ \SI{3}{\nano\meter}.
 
 
 
@@ -546,17 +546,20 @@ This allows to process the cumulative ice mass:
 
 \begin{equation}
 	\Delta T = T_\text{melt} - T
+	\label{eq:ltdsc_delta_t}
 \end{equation}
 
 % Randall to process the melting enthalpy
 %\cite{randall}
 \begin{equation}
 	\Delta H_\text{fus} = 334.1 + 2.119 \cdot \Delta T - 0.000783 \cdot \Delta T^2
+	\label{eq:ltdsc_h}
 \end{equation}
 
 %\dot{Q}/m_\text{specimen} = DSC / Wärmestrom pro Probenmasse
 \begin{equation}
 	m_\text{ice} = \int_{\vartheta_\text{min}}^{\vartheta_\text{max}} \dot{Q}_{m_\text{specimen}}(\vartheta) d\vartheta /\text{values per second} \cdot 1000 / \Delta H_\text{fus}
+	\label{eq:ltdsc_ice}
 \end{equation}
 
 %10.14359/51738808

@@ -124,6 +124,15 @@
 \expandafter\patchcmd\csname AC@\AC@prefix{}@acro\endcsname{{#3}}{{\MakeUppercase #3}}{}{}
 \makeatother
 
+% improve compiling speed in draft mode. Review mode however requires freshly set tikz-images.
+\ifdefined\DRAFT
+	\ifdefined\REVIEW
+	\else
+		\usepackage{tikz}
+		\usetikzlibrary{external}
+		\tikzexternalize[prefix=figures/tikz/]
+	\fi
+\fi
 % condition enviornment for equations to describe the variables
 % https://tex.stackexchange.com/questions/95838/how-to-write-a-perfect-equation-parameters-description
 \usepackage{pgfplots}

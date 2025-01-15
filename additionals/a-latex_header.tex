@@ -130,7 +130,13 @@
 	\else
 		\usepackage{tikz}
 		\usetikzlibrary{external}
-		\tikzexternalize[prefix=figures/tikz/]
+		%\usepackage{robust-externalize}
+		%\robExtConfigure{ enable fallback to manual mode,
+		%add to preset={tikz}
+		%}
+		%\robustify\ac % Macht das \ac Kommando für die externe Kompilierung robust
+		%\robustify\SI % Macht auch \SI robust, falls es in den TikZ-Grafiken vorkommt
+		\tikzexternalize[prefix=figures/tikz/] % Speichert die externen TikZ-Grafiken im Ordner figures/tikz/
 	\fi
 \fi
 % condition enviornment for equations to describe the variables
@@ -245,7 +251,6 @@
 % Additional user settings
 % ################################################
 \graphicspath{{figures/}}  % define graphics standard path
-%\input{additionals/acronyms}  % import acronyms
 
 
 %%%%%% Hyperref Settings

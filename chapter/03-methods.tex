@@ -313,7 +313,7 @@ However, values above {\color{red} ~\SI{20}{\micro\meter} should be ignored, sin
 
 Another less common method to indirectly measure the \ac{PSD}, especially in the nano-pore range, is the \ac{LTDSC}.
 Its principle is based on the freezing behavior of pore water, the pore type and pore size.
-Brun et al. \cite{brun.1977} proposed an approximate solution to convert between freezing/melting point of water and the pore radius for cylindrical pores.
+\textsc{Brun} et al. \cite{brun.1977} proposed an approximate solution to convert between freezing/melting point of water and the pore radius for cylindrical pores.
 The equation for freezing is :
 \begin{equation}
 	r_\text{P} = -\frac{64.67}{\Delta T }+0.57;~~~\SI{0}{\kelvin} > \Delta T > \SI{-40}{\kelvin},
@@ -343,7 +343,7 @@ while $\Delta T$ is defined as:
 
 However, $\Delta T$ measurements below \SI{-40}{\celsius} are not covered by these equations.
 
-Brun et al. \cite{brun.1977} considered an adsorbed water film in the pores (thickness of \SI{.8}{\nano\meter}) and also a temperature correction for surface tension and for the melting entropy.
+\textsc{Brun} et al. \cite{brun.1977} considered an adsorbed water film in the pores (thickness of \SI{.8}{\nano\meter}) and also a temperature correction for surface tension and for the melting entropy.
 The relationship resulting from Equations~\ref{eq:brun_freeze} and \ref{eq:brun_melt} are plotted in Figure~\ref{fig:freezing_depression}.
 
 \begin{figure}[!htb]
@@ -369,7 +369,7 @@ The relationship resulting from Equations~\ref{eq:brun_freeze} and \ref{eq:brun_
             \addlegendentry{melting \cite{brun.1977}};
         \end{axis}
     \end{tikzpicture}
-    \caption{Depression of the freezing or melting point as functions of the pore radius. Calculated according to Brun et al. \cite{brun.1977} for water using Equations~\ref{eq:brun_freeze} and \ref{eq:brun_melt}.}
+    \caption{Depression of the freezing or melting point as functions of the pore radius. Calculated according to \textsc{Brun} et al. \cite{brun.1977} for water using Equations~\ref{eq:brun_freeze} and \ref{eq:brun_melt}.}
     \label{fig:freezing_depression}
 \end{figure}
 % TODO Stockhausen??
@@ -453,7 +453,7 @@ These crucibles sealed air tight by cold-welding a lid under pressure and measur
 % 			(120,-40) (140,0)};
 %         \end{axis}
 %     \end{tikzpicture}
-%     \caption{Temperature regime of a \ac{LTDSC}-measurement, based on Sun et al. \cite{sun.2010} and Müller \cite{mueller.2021}. theoretical pore radii after Brun et al. \cite{brun.1977} - Red axis:  on melting (Equation \ref{eq:brun_melt}); blue axis: pore radius on freezing (Equation \ref{eq:brun_freeze}). The top value is the pore radius at \SI{-1}{\celsius}.}
+%     \caption{Temperature regime of a \ac{LTDSC}-measurement, based on Sun et al. \cite{sun.2010} and Müller \cite{mueller.2021}. theoretical pore radii after \textsc{Brun} et al. \cite{brun.1977} - Red axis:  on melting (Equation \ref{eq:brun_melt}); blue axis: pore radius on freezing (Equation \ref{eq:brun_freeze}). The top value is the pore radius at \SI{-1}{\celsius}.}
 %     \label{fig:ltdc_regime}
 % \end{figure}
 
@@ -529,7 +529,7 @@ These crucibles sealed air tight by cold-welding a lid under pressure and measur
         \end{axis}
     \end{tikzpicture}
     \caption{
-		Temperature regime of a \ac{LTDSC}-measurement, based on Sun et al. \cite{sun.2010} and Müller \cite{mueller.2021} with two measurement zones P1 and P2. {\color{blue}\ding{100}1}, {\color{blue}\ding{100}2} = zones are intended introduce ice nuclei. Theoretical pore radii are calculated after Brun et al. \cite{brun.1977} - {\color{blue}Red axis}:  on melting (Equation \ref{eq:brun_melt}); blue axis: pore radius on freezing (Equation \ref{eq:brun_freeze}). The {\color{blue}65.2} and {\color{red}\SI{33.0}{\nano\meter}} are the pore radii at \SI{-1}{\celsius}.}
+		Temperature regime of a \ac{LTDSC}-measurement, based on Sun et al. \cite{sun.2010} and Müller \cite{mueller.2021} with two measurement zones P1 and P2. {\color{blue}\ding{100}1}, {\color{blue}\ding{100}2} = zones are intended introduce ice nuclei. Theoretical pore radii are calculated after \textsc{Brun} et al. \cite{brun.1977} - {\color{blue}Red axis}:  on melting (Equation \ref{eq:brun_melt}); blue axis: pore radius on freezing (Equation \ref{eq:brun_freeze}). The {\color{blue}65.2} and {\color{red}\SI{33.0}{\nano\meter}} are the pore radii at \SI{-1}{\celsius}.}
     \label{fig:ltdc_regime}
 \end{figure}
 
@@ -556,12 +556,20 @@ This allows to process the cumulative ice mass:
 	\label{eq:ltdsc_h}
 \end{equation}
 
+The following equation then allows to calculate the ice mass in the specimen.
 %\dot{Q}/m_\text{specimen} = DSC / Wärmestrom pro Probenmasse
 \begin{equation}
 	m_\text{ice} = \int_{\vartheta_\text{min}}^{\vartheta_\text{max}} \dot{Q}_{m_\text{specimen}}(\vartheta) d\vartheta /\text{values per second} \cdot 1000 / \Delta H_\text{fus}
 	\label{eq:ltdsc_ice}
 \end{equation}
 
-%10.14359/51738808
+The ice mass of the gel pores can be calculated by subtracting the ice mass of the capillary pores (P1-zone) from the "total ice mass" (P2-zone):
+
+\begin{equation}
+	m_\text{ice, gel} = m_\text{ice, P2} - m_\text{ice, P1}
+	\label{eq:ltdsc_ice2}
+\end{equation}
+
+%10.14359/51738808 
 
 %10.1007/s100510170196 %how to LT-DSC :D

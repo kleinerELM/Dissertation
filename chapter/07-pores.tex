@@ -98,7 +98,7 @@ The glass standards were measured using a simplified temperature regimen.
 It also experienced ice crystal-inducing freeze-thaw cycles before the actual measurement.
 For the measurement, the water saturated specimen was then cooled down to \SI{-60}{\degreeCelsius} and heated up to \SI{20}{\degreeCelsius} at a cooling and heating rate of $\pm$\,\SI{2}{\kelvin\per\min}.
 
-This resulted in the following freeze curves as plotted in Figure \ref{fig:ltdsc_result_glass_freeze}.
+This resulted in the following freeze curves as plotted in Figure~\ref{fig:ltdsc_result_glass_freeze}.
 
 \begin{figure}[!htb]
     \centering
@@ -106,6 +106,8 @@ This resulted in the following freeze curves as plotted in Figure \ref{fig:ltdsc
  	\begin{subfigure}{.48\textwidth}
       \begin{tikzpicture}
         \begin{semilogxaxis}[
+				blue,
+				axis line style={black},
 				xmin=1.5, xmax=60,
 				ymin=-.20, ymax=0,
 				y dir=reverse,
@@ -158,6 +160,8 @@ This resulted in the following freeze curves as plotted in Figure \ref{fig:ltdsc
 
 		\begin{tikzpicture}
 			\begin{semilogxaxis}[
+				blue,
+				axis line style={black},
 					xmin=1.5, xmax=60,
 					ymin=-.20, ymax=0,
 					y dir=reverse,
@@ -169,7 +173,7 @@ This resulted in the following freeze curves as plotted in Figure \ref{fig:ltdsc
 					xtick={2.5,5,10,25,50},
 					ytick=\empty,
 					scaled y ticks=false,
-					scaled x ticks=false,,
+					scaled x ticks=false,
 					axis x line*=top,
 				]
 				
@@ -195,7 +199,7 @@ This resulted in the following freeze curves as plotted in Figure \ref{fig:ltdsc
 				ytick={0,-0.1,-0.2},
 				scaled y ticks=false,
 				scaled x ticks=false,
-				axis y line=right
+				yticklabel pos=right,
 			]
 			  \addplot [ no marks, orange,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/glass/ExpDat_1.1-20nm_freeze_segment_18.csv};
 			  \addplot [ no marks, orange,forget plot, dashed] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/glass/ExpDat_1.2-20nm_freeze_segment_18.csv};
@@ -218,6 +222,7 @@ Th glass, specified with a pore diameter of \SI{20}{\nano\meter} showed a heat f
 These results show, that the pore diameter is overestimated by a factor of up to 2 using equation \ref{eq:brun_freeze}.
 Despite this error, the difference in the pore size is still observable.
 
+
 \subsubsection{\ac{SEM} evaluation}
 
 
@@ -236,17 +241,19 @@ Despite this error, the difference in the pore size is still observable.
 \FloatBarrier
 \subsubsection{\acs{LTDSC}}
 
-The \ac{LTDSC} curves of the second freezing pass of \ac{C2S} from 7 to \SI{28}{\day} of hydration are shown in Figure \ref{fig:ltdsc_result_c2s_freeze}.
+The \ac{LTDSC} curves of the second freezing pass of \ac{C2S} from 7 to \SI{28}{\day} of hydration are shown in Figure~\ref{fig:ltdsc_result_c2s_freeze}.
 Three measurements were done for every specimen age.
-The graph on the right is a zoomed in section of the left graph, showing the data correlating to the gel pores (2 to \SI{2.25}{\nano\meter} pore radius according to \ref{eq:brun_freeze}).
+The graph on the right is a zoomed in section of the left graph, showing the data correlating to the gel pores (2.00 to \SI{2.25}{\nano\meter} pore radius according to \ref{eq:brun_freeze}).
 The figure shows that the heat flow signal of the gel pores is increasing with the age of the specimen, which indicates an increase in the gel pore volume with increasing specimen age.
 
 \begin{figure}[!htb]
     \centering
 
- 	\begin{subfigure}{.48\textwidth}
+ 	\begin{subfigure}{.47\textwidth}
       \begin{tikzpicture}
         \begin{semilogxaxis}[
+				blue,
+				axis line style={black},
 				xmin=1.5, xmax=60,
 				ymin=-.20, ymax=0,
 				y dir=reverse,
@@ -312,10 +319,12 @@ The figure shows that the heat flow signal of the gel pores is increasing with t
 
 	\end{subfigure}
 	\hfill
-	\begin{subfigure}{.48\textwidth}
+	\begin{subfigure}{.47\textwidth}
 
 	  \begin{tikzpicture}
         \begin{axis}[
+			blue,
+			axis line style={black},
 			xmin=1.75, xmax=2.75,
 			ymin=-.11, ymax=-0.03,
 			y dir=reverse,
@@ -352,6 +361,7 @@ The figure shows that the heat flow signal of the gel pores is increasing with t
 				},
 				scaled y ticks=false,
 				scaled x ticks=false,
+				yticklabel pos=right,
 			]
 
 			\addplot+[restrict x to domain=1.5:5, no marks, orange] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_7d-1_freeze_segment_14.csv};
@@ -383,9 +393,8 @@ The figure shows that the heat flow signal of the gel pores is increasing with t
     \label{fig:ltdsc_result_c2s_freeze}
 \end{figure}
 
-
-
-To calculate the ice mass of the gel pores, the heat flow signal of the two melting curves was integrated over the measured temperature ranges and subtracted from each other as shown in equations \ref{eq:ltdsc_ice} and \ref{eq:ltdsc_ice2}.
+However, the freezing curve can't be used to calculate the volume of the gel pores.
+In order to calculate the ice mass of the gel pores and thus also their volume, the heat flow signal of the two melting curves (see Figure~\ref{fig:ltdsc_result_c2s_melt}) was integrated over the measured temperature ranges and subtracted from each other as shown in equations \ref{eq:ltdsc_ice} and \ref{eq:ltdsc_ice2}.
 
 \begin{figure}[!htb]
     \centering
@@ -435,9 +444,13 @@ To calculate the ice mass of the gel pores, the heat flow signal of the two melt
 
     \caption{\ac{LTDSC} curves for the first and second melting pass of \SI{28}{\day} hydrated \ac{C2S}. The red area correlate to the capillary porosity, while the yellow area correlates to the gel porosity.}
     \label{fig:ltdsc_result_c2s_melt}
-
 \end{figure}
 
+The raw data are plotted as dashed lines in Figure~\ref{fig:ltdsc_result_c2s_melt}, while the corrected data are plotted as solid lines.
+The areas under the solid curves are marked in red and yellow.
+The red area represents the gel pores, while the yellow area represents the capillary pores.
+
+The ice mass of the gel pores was calculated to be \SI{4.7}{\milli\gram\per\gram} at \SI{7}{\day} up to \SI{20.3}{\milli\gram\per\gram} at \SI{28}{\day} of hydration, while the capillary pores were reduced from 271 to \SI{216}{\milli\gram\per\gram} in the same time.
 
 \begin{figure}[!htb]
     \centering
@@ -448,10 +461,10 @@ To calculate the ice mass of the gel pores, the heat flow signal of the two melt
 			height = 8cm,
 			major x tick style = transparent,
 			ybar=2*\pgflinewidth,
-			ymin=0, ymax=0.4,
+			ymin=0, ymax=400,
 			bar width=14pt,
 			ymajorgrids = true,
-			ylabel = {ice mass in \si{\gram\per\gram}},
+			ylabel = {ice mass in \si{\milli\gram\per\gram}},
 			xticklabels={
 				\SI{7}{\day},
 				\SI{14}{\day},
@@ -468,8 +481,19 @@ To calculate the ice mass of the gel pores, the heat flow signal of the two melt
 					anchor=north east,
 					column sep=1ex
 			},
+			legend columns=-1,
+			scaled y ticks = false,
 			error bars/y dir=both,
-			error bars/y explicit
+			error bars/y explicit,
+			ytick={0,100,200,300,400},
+			visualization depends on={\thisrow{pores_b_std} \as \offset},
+			nodes near coords,
+			node near coords style={
+				shift={(axis direction cs:0,\offset)},
+				rotate=90,
+				anchor=west,
+				/pgf/number format/.cd,fixed zerofill,precision=1,
+			},
 		]
 			\addplot[
 				red,fill=red,mark=none,
@@ -497,6 +521,10 @@ To calculate the ice mass of the gel pores, the heat flow signal of the two melt
 	\label{fig:ltdsc_result_C2S_melt_bar}
 \end{figure}
 
+As already demonstrated in Figure~\ref{fig:hyd-rim-belite}, the hydrate layer increases in size, filling up the capillary pores.
+At the same time, the intergrowth of the needle like structure creates the gel pores.
+
+
 \FloatBarrier
 \subsubsection{\acs{MIP}}
 
@@ -504,63 +532,85 @@ To calculate the ice mass of the gel pores, the heat flow signal of the two melt
 \begin{figure}[!htb]
     \centering
 
-
 	\begin{tikzpicture}
 		\begin{semilogxaxis}[
-				xmin=1, xmax=10000,
-				ymin=-.20, ymax=0,
-				y dir=reverse,
-				width=\linewidth,
-				height=6cm,
-				grid=none,
-				xlabel={temperature in \si{\degreeCelsius}},
-				xticklabels={-51.2, -25.3, -12.4, -4.6, -2.0},
-				xtick={2.5,5,10,25,50},
-				ylabel={DSC in \si{\watt\per\gram}},
-				scaled y ticks=false,
-				scaled x ticks=false,,
-				axis x line*=top,
-			]
+			blue,
+			axis line style={black},
+			legend style={
+				at={(.03,.95)},
+				anchor=north west,
+				text=black,
+			},
+			legend cell align={left},
+			legend columns=-1,
+			xmin=1, xmax=5000,
+			ymin=-.23, ymax=0,
+			y dir=reverse,
+			width=.9\linewidth,
+			height=6cm,
+			grid=major,
+			xlabel={temperature in \si{\degreeCelsius}},
+			xticklabels={-51.2, -25.3, -12.4, -4.6, -2.0},
+			xtick={2.5,5,10,25,50},
+			ylabel={DSC in \si{\watt\per\gram}},
+			scaled y ticks=false,
+			scaled x ticks=false,
+			axis x line*=top,
+			axis y line*=left,
+			ytick={0,-0.05,-0.1,-0.15,-0.2},
+			yticklabel style={
+					/pgf/number format/fixed,
+					/pgf/number format/precision=2,
+					/pgf/number format/fixed zerofill,
+			},
+		]
 
-			\addplot+[no marks, green,forget plot] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_14d-3_freeze_segment_14.csv};
-			\addlegendentry{\ac{C2S}, \SI{14}{\day}};
+			\addplot+[no marks, red, dashed] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_14d-3_freeze_segment_14.csv};
+			\addlegendentry{\SI{14}{\day}};
 
-			\addplot+[no marks, red,forget plot] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_21d-3_freeze_segment_14.csv};
-			\addlegendentry{\ac{C2S}, \SI{21}{\day}};
+			\addplot+[no marks, green, dashed] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_21d-3_freeze_segment_14.csv};
+			\addlegendentry{\SI{21}{\day}};
 
-			\addplot+[no marks, blue] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_28d-1_freeze_segment_14.csv};
-			\addlegendentry{\ac{C2S}, \SI{28}{\day}};
-
+			\addplot+[no marks, blue, dashed] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_28d-1_freeze_segment_14.csv};
+			\addlegendentry{\SI{28}{\day}};
 
 		\end{semilogxaxis}
 		\begin{semilogxaxis}[
-			legend style={at={(0.95,.7)},anchor=east},
-			legend cell align={left},
-			xmin=1, xmax=10000,
-			ymin=0, ymax=1.25,
-			width=\linewidth,
+			legend style={at={(.97,.95)},anchor=north east},
+			legend columns=-1,
+			legend cell align={right},
+			xmin=1, xmax=5000,
+			ymin=0, ymax=1.6,
+			width=.9\linewidth,
 			height=6cm,
-			grid=both,
+			grid=none,
 			xlabel={pore radius \si{\nano\meter}},
 			ylabel={$dV/dlogR$ Pore Volume in \si{\milli\liter\per\gram}},
 			grid style={line width=.1pt, draw=gray!10},
 			yticklabel style={
 					/pgf/number format/fixed,
-					/pgf/number format/precision=3
+					/pgf/number format/precision=1,
+					/pgf/number format/fixed zerofill,
 			},
-			xticklabels={1,5,10,25,50, 100, 1000, 10000},
-			xtick={1,5,10,25,50, 100, 1000, 10000},
+			xticklabels={1,2.5,5,10,25,50, 100, 1000, 10000},
+			xtick={1,2.5,5,10,25,50, 100, 1000, 10000},
 			ytick={},
 			scaled y ticks=false,
 			scaled x ticks=false,
-			axis y line=right
+			axis y line*=right,
+			axis x line*=bottom,
 		]
-			\addplot [ no marks, blue,forget plot] table [skip first n=1, y index=4, x expr={1000*\thisrowno{1}}, col sep=semicolon] {figures/mip/HG C2S 14d.CSV};
-			\addplot [ no marks, orange,forget plot] table [skip first n=1, y index=4, x expr={1000*\thisrowno{1}}, col sep=semicolon] {figures/mip/HG C2S 28d.CSV};
+			\addplot [ no marks, red, forget plot] table [skip first n=1, y index=4, x expr={1000*\thisrowno{1}}, col sep=semicolon] {figures/mip/HG C2S 14d.CSV};
+			\addplot [ no marks, blue, forget plot] table [skip first n=1, y index=4, x expr={1000*\thisrowno{1}}, col sep=semicolon] {figures/mip/HG C2S 28d.CSV};
 			
+			\addplot [ no marks, black, dashed] coordinates {(0.1,0) (.9,0)};
+			\addlegendentry{\acs{LTDSC}};
+			\addplot [ no marks, black, solid] coordinates {(0.1,0) (.9,0)};
+			\addlegendentry{\acs{MIP}};
+
 		\end{semilogxaxis}
 	\end{tikzpicture}
-	\caption{\ac{MIP}-analyis of \ac{C2S} after 14 days of hydration.}
+	\caption{\ac{MIP}-analyis of \ac{C2S} after 14 and \SI{28}{\day} of hydration compared with selected {\color{blue}\ac{LTDSC}-curves}.}
     \label{fig:mip_c2s}
 \end{figure}
 
@@ -571,9 +621,11 @@ To calculate the ice mass of the gel pores, the heat flow signal of the two melt
 \begin{figure}[!htb]
     \centering
 
- 	\begin{subfigure}{.48\textwidth}
+ 	\begin{subfigure}{.47\textwidth}
       \begin{tikzpicture}
         \begin{semilogxaxis}[
+				blue,
+				axis line style={black},
 				xmin=1.5, xmax=60,
 				ymin=-.20, ymax=0,
 				y dir=reverse,
@@ -604,7 +656,8 @@ To calculate the ice mass of the gel pores, the heat flow signal of the two melt
 				grid style={line width=.1pt, draw=gray!10},
 				yticklabel style={
 						/pgf/number format/fixed,
-						/pgf/number format/precision=3
+						/pgf/number format/precision=1,
+						/pgf/number format/fixed zerofill,
 				},
 				xticklabels={2.5,5,10,25,50},
 				xtick={2.5,5,10,25,50},
@@ -643,10 +696,12 @@ To calculate the ice mass of the gel pores, the heat flow signal of the two melt
 
 	\end{subfigure}
 	\hfill
-	\begin{subfigure}{.48\textwidth}
+	\begin{subfigure}{.47\textwidth}
 
 	  \begin{tikzpicture}
         \begin{axis}[
+			blue,
+			axis line style={black},
 			xmin=1.75, xmax=2.75,
 			ymin=-.11, ymax=-0.03,
 			y dir=reverse,
@@ -679,10 +734,12 @@ To calculate the ice mass of the gel pores, the heat flow signal of the two melt
 				xtick={1.75,2.00,2.25,2.50,2.75},
 				yticklabel style={
 						/pgf/number format/fixed,
-						/pgf/number format/precision=3
+						/pgf/number format/precision=2,
+						/pgf/number format/fixed zerofill,
 				},
 				scaled y ticks=false,
 				scaled x ticks=false,
+				yticklabel pos=right,
 			]
 
 			\addplot+[restrict x to domain=1.5:5, no marks, yellow] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_1d-1_freeze_segment_14.csv};
@@ -727,10 +784,10 @@ To calculate the ice mass of the gel pores, the heat flow signal of the two melt
 			height = 8cm,
 			major x tick style = transparent,
 			ybar=2*\pgflinewidth,
-			ymin=0, ymax=0.3,
+			ymin=0, ymax=300,
 			bar width=14pt,
 			ymajorgrids = true,
-			ylabel = {ice mass in \si{\gram\per\gram}},
+			ylabel = {ice mass in \si{\milli\gram\per\gram}},
 			%symbolic x coords={7d,14d,21d,28d},
 			xticklabels={
 				\SI{1}{\day},
@@ -750,7 +807,18 @@ To calculate the ice mass of the gel pores, the heat flow signal of the two melt
 					column sep=1ex
 			},
 			error bars/y dir=both,
-			error bars/y explicit
+			error bars/y explicit,
+			legend columns=-1,
+			scaled y ticks = false,
+			ytick={0,100,200,300,400},
+			visualization depends on={\thisrow{pores_b_std} \as \offset},
+			nodes near coords,
+			node near coords style={
+				shift={(axis direction cs:0,\offset)},
+				rotate=90,
+				anchor=west,
+				/pgf/number format/.cd,fixed zerofill,precision=1,
+			},
 		]
 			\addplot[
 				red,fill=red,mark=none,
@@ -784,67 +852,89 @@ To calculate the ice mass of the gel pores, the heat flow signal of the two melt
 
 \begin{figure}[!htb]
     \centering
-
-
 	\begin{tikzpicture}
 		\begin{semilogxaxis}[
-				xmin=1, xmax=10000,
-				ymin=-.20, ymax=0,
+				blue,
+				axis line style={black},
+				legend style={
+					at={(.03,.95)},
+					anchor=north west,
+					text=black,
+				},
+				legend cell align={left},
+				legend columns=-1,
+				xmin=1, xmax=5000,
+				ymin=-.225, ymax=0,
 				y dir=reverse,
-				width=\linewidth,
+				width=.9\linewidth,
 				height=6cm,
-				grid=none,
+				grid=major,
 				xlabel={temperature in \si{\degreeCelsius}},
 				xticklabels={-51.2, -25.3, -12.4, -4.6, -2.0},
 				xtick={2.5,5,10,25,50},
 				ylabel={DSC in \si{\watt\per\gram}},
 				scaled y ticks=false,
-				scaled x ticks=false,,
+				scaled x ticks=false,
 				axis x line*=top,
+				axis y line*=left,
+				ytick={0,-0.05,-0.1,-0.15,-0.2},
+				yticklabel style={
+						/pgf/number format/fixed,
+						/pgf/number format/precision=2,
+						/pgf/number format/fixed zerofill,
+				},
 			]
 
-			\addplot+[no marks, green,forget plot] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_7d-3_freeze_segment_14.csv};
-			\addlegendentry{\ac{C3S}, \SI{7}{\day}};
+			\addplot+[no marks, orange, dashed] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_7d-3_freeze_segment_14.csv};
+			\addlegendentry{\SI{7}{\day}};
 
-			\addplot+[no marks, green,forget plot] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_14d-3_freeze_segment_14.csv};
-			\addlegendentry{\ac{C3S}, \SI{14}{\day}};
+			\addplot+[no marks, red, dashed] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_14d-3_freeze_segment_14.csv};
+			\addlegendentry{\SI{14}{\day}};
 
-			\addplot+[no marks, red,forget plot] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_21d-3_freeze_segment_14.csv};
-			\addlegendentry{\ac{C3S}, \SI{21}{\day}};
+			\addplot+[no marks, green, dashed] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_21d-3_freeze_segment_14.csv};
+			\addlegendentry{\SI{21}{\day}};
 
-			\addplot+[no marks, blue] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_28d-1_freeze_segment_14.csv};
-			\addlegendentry{\ac{C3S}, \SI{28}{\day}};
+			\addplot+[no marks, blue, dashed] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_28d-1_freeze_segment_14.csv};
+			\addlegendentry{\SI{28}{\day}};
 
 
 		\end{semilogxaxis}
 		\begin{semilogxaxis}[
-			legend style={at={(0.95,.7)},anchor=east},
-			legend cell align={left},
-			xmin=1, xmax=10000,
-			ymin=0, ymax=0.4,
-			width=\linewidth,
+			legend style={at={(.97,.95)},anchor=north east},
+			legend columns=-1,
+			legend cell align={right},
+			xmin=1, xmax=5000,
+			ymin=0, ymax=.45,
+			width=.9\linewidth,
 			height=6cm,
-			grid=both,
+			grid=none,
 			xlabel={pore radius \si{\nano\meter}},
 			ylabel={$dV/dlogR$ Pore Volume in \si{\milli\liter\per\gram}},
 			grid style={line width=.1pt, draw=gray!10},
 			yticklabel style={
 					/pgf/number format/fixed,
-					/pgf/number format/precision=3
+					/pgf/number format/precision=1,
+					/pgf/number format/fixed zerofill,
 			},
-			xticklabels={1,5,10,25,50, 100, 1000, 10000},
-			xtick={1,5,10,25,50, 100, 1000, 10000},
+			xticklabels={1,2.5,5,10,25,50, 100, 1000, 10000},
+			xtick={1,2.5,5,10,25,50, 100, 1000, 10000},
 			ytick={},
 			scaled y ticks=false,
 			scaled x ticks=false,
-			axis y line=right
+			axis y line*=right,
+			axis x line*=bottom,
 		]
-			\addplot [ no marks, blue,forget plot] table [skip first n=1, y index=4, x expr={1000*\thisrowno{1}}, col sep=semicolon] {figures/mip/HG C3S 7d.CSV};
-			\addplot [ no marks, orange,forget plot] table [skip first n=1, y index=4, x expr={1000*\thisrowno{1}}, col sep=semicolon] {figures/mip/HG C3S 28d.CSV};
+			\addplot [ no marks, orange, forget plot] table [skip first n=1, y index=4, x expr={1000*\thisrowno{1}}, col sep=semicolon] {figures/mip/HG C3S 7d.CSV};
+			\addplot [ no marks, blue,forget plot] table [skip first n=1, y index=4, x expr={1000*\thisrowno{1}}, col sep=semicolon] {figures/mip/HG C3S 28d.CSV};
+
+			\addplot [ no marks, black, dashed] coordinates {(0.1,0) (.9,0)};
+			\addlegendentry{\acs{LTDSC}};
+			\addplot [ no marks, black, solid] coordinates {(0.1,0) (.9,0)};
+			\addlegendentry{\acs{MIP}};
 			
 		\end{semilogxaxis}
 	\end{tikzpicture}
-	\caption{\ac{MIP}-analyis of \ac{C3S} after 14 days of hydration.}
+	\caption{\ac{MIP}-analyis of \ac{C3S} after 7 and \SI{28}{\day} of hydration compared with selected {\color{blue}\ac{LTDSC}-curves}.}
     \label{fig:mip_c3s}
 \end{figure}
 %\color{black}

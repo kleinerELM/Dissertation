@@ -128,6 +128,18 @@ However, reliable quantitative observations on polished surfaces using the \ac{B
 \ac{CSH} is the decisive phase for the strength of the concrete during the later hydration process.
 The detailed knowledge of the \ac{CSH}-development in volume but also microstructural shape is especially important to simulate its growth \cite{breugel.1997,nguyen-tuan.2023,nguyen-tuan.2024} and the resulting pore space.
 
+In the literature, \ac{CSH} is usually distinguished in two different types: a high density and a low density variant. 
+Their definition and terms vary between publications and may somtimes not mean exactly the same penomenon:
+
+\begin{itemize}
+    \item inner / outer product \cite{scrivener.1986, richardson.1993} %Richardson, I. G. Cem. Concr. Res. 2000, 22,97-113.
+    \item phenograins and groundmass \cite{diamond.1993} % somehow this seems to be something else - read!
+    \item low density (LD) / high density (HD) \ac{CSH} \cite{jennings.2000} %Jennings.2000, H. M. Cem. Concr. Res. 2000, 30, 101-116.
+    \item low stiffness / high stiffness \ac{CSH} \cite{constantinides.2004} %Constantinides, G. C. Cem. Concr. Res. 2004, 34
+\end{itemize}
+In this document they will be called \ac{CSHi} and \ac{CSHo}.
+% todo illustration of the different types of CSH
+
 In 1929 / 1930 \textsc{Anderegg} and \textsc{Hubbell} \cite{anderegg.1929,anderegg.1930} already tried to measure the hydration layer development of \ac{OPC} at 21$\pm$\SI{3}{\celsius} using optical light microscopy.
 They utilized the difference of the refraction index between \ac{CSH} and unhydrated clinker.
 According to their experiments, the hydrate rim is depending on the mean particle dimension (measured from 150 particles) as shown in Figure~\ref{fig:anderegg-hubbel-distribution}.
@@ -154,7 +166,7 @@ According to their experiments, the hydrate rim is depending on the mean particl
             \addplot+ [ only marks, mark=o, orange ] table [skip first n=1, x index=0, y index=3, col sep=comma] {figures/hydrate-rim/data_andregg/gsd-PCA+CaSO4.csv};
             \addlegendentry{\SI{7}{\day}, \ac{OPC}+\ce{CaSO4}};
 
-            \addplot[orange, domain=0:30, opacity=0.5, samples=2] {0.068516925009012*x + 1.05223737455958};
+            \addplot[orange, domain=14:30, opacity=0.5, samples=2] {0.068516925009012*x + 1.05223737455958};
             \addlegendentry{\SI{7}{\day}, $R^2=0.11$};
 
             \addplot+ [ only marks, mark=x, cyan ] table [skip first n=1, x index=0, y index=4, col sep=comma] {figures/hydrate-rim/data_andregg/gsd-PCA.csv};
@@ -162,7 +174,7 @@ According to their experiments, the hydrate rim is depending on the mean particl
             \addplot+ [ only marks, mark=o, cyan ] table [skip first n=1, x index=0, y index=4, col sep=comma] {figures/hydrate-rim/data_andregg/gsd-PCA+CaSO4.csv};
             \addlegendentry{\SI{28}{\day}, \ac{OPC}+\ce{CaSO4}};
 
-            \addplot[cyan, domain=0:30, opacity=0.5, samples=2] {0.196884840055179*x + 0.0780310618817959};
+            \addplot[cyan, domain=14:30, opacity=0.5, samples=2] {0.196884840055179*x + 0.0780310618817959};
             \addlegendentry{\SI{28}{\day}, $R^2=0.59$};
 
             \addplot+ [ only marks, mark=x, red ] table [skip first n=1, x index=0, y index=5, col sep=comma] {figures/hydrate-rim/data_andregg/gsd-PCA.csv};
@@ -170,7 +182,7 @@ According to their experiments, the hydrate rim is depending on the mean particl
             \addplot+ [ only marks, mark=o, red ] table [skip first n=1, x index=0, y index=5, col sep=comma] {figures/hydrate-rim/data_andregg/gsd-PCA+CaSO4.csv};
             \addlegendentry{\SI{90}{\day}, \ac{OPC}+\ce{CaSO4}};
 
-            \addplot[red, domain=0:30, opacity=0.5, samples=2] {0.224971630191457*x + 0.566670110374461};
+            \addplot[red, domain=14:30, opacity=0.5, samples=2] {0.224971630191457*x + 0.566670110374461};
             \addlegendentry{\SI{90}{\day}, $R^2=0.82$};
         \end{axis}
     \end{tikzpicture}
@@ -183,6 +195,70 @@ However, they mainly observed rather coarse particles.
 
 In 1930 they also published datasets for the hydration of \ac{C3S} and \ac{C2S} \cite{anderegg.1930}.
 In contrast to the \ac{OPC} experiments, these consisted only out of very few series of experiments with a rather high variance (see Figure~\ref{fig:anderegg-hubbel}).
+
+\textsc{Garrault} et al. \cite{garrault.2006} measured the development of the \ac{CSH} concentration of \SI{4}{\gram} \ac{C3S} grains with different median diameters (7, 10, 11, 12.5, \SI{14}{\micro\meter}) for up to one day in a concentrated lime solution.
+They estimated the thickness of \ac{CSHi} (replacing \ac{C3S}) and \ac{CSHo} (on top of the grain) at the time, when the \ac{CSH} precipitation became limited by diffusion (see Figure~\ref{fig:garrault-distribution}) (beginning of the second deceleration period in Figure~\ref{fig:opc_dca}).
+For \SI{7}{\micro\meter} the diffusion was limited was after $\approx$ \SI{600}{\min} (\SI{10}{\hour}), for \SI{14}{\micro\meter} after $\approx$ \SI{700}{\min} (\SI{12}{\hour}).
+The estimation is based on the \ac{CSH}-concentration, the mean diameter and that the particles are spherical.
+\textsc{Garrault} et al. included a measurement of a single \ac{TEM}-image from  of a hydrated \ac{C3S} grain with a diameter of \SI{3}{\micro\meter}.% made by \textsc{Lachowski} and \textsc{Courault} in 1998.
+
+\begin{figure}[!htb]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+				legend style={at={(.97,.97)},anchor=north east},
+                legend cell align={left},
+                legend columns = -1,
+				xmin=0, xmax=20,
+				ymin=0, ymax=0.7,
+				width=0.7\linewidth,
+				height=0.35\linewidth,
+				grid=major,
+				xlabel={mean particle diameter in \si{\micro\meter}},
+				ylabel={$l_{\text{CSH}}$ in \si{\micro\meter}},
+				ytick={0,0.1,...,0.7},
+				grid style={line width=.1pt, draw=gray!10},
+            ]
+
+            \addplot [ mark=+, blue, only marks ] coordinates {
+                        (7,    0.44)
+                        (10,   0.425)
+                        (11,   0.395)
+                        (12.5, 0.383)
+                        (14,   0.356)
+                    };
+            \addlegendentry{\acs{CSH}}
+            \addplot [ mark=x, red, only marks ] coordinates {
+                        (7,    0.305)
+                        (10,   0.292)
+                        (11,   0.27)
+                        (12.5, 0.26)
+                        (14,   0.24)
+                    };
+            \addlegendentry{\acs{CSHi}}
+            \addplot [ mark=x, orange, only marks ] coordinates {
+                        (7,    0.135)
+                        (10,   0.133)
+                        (11,   0.125)
+                        (12.5, 0.123)
+                        (14,   0.116)
+                    };
+            \addlegendentry{\acs{CSHo}}
+
+            \addplot [ mark=diamond, black, only marks ] coordinates {
+                        (3, 0.50)
+                    };
+            \addlegendentry{\acs{TEM}}
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Mean hydration rim of \SI{4}{\gram} \ac{C3S} from an estimation based of experiments by \textsc{Garrault} et al. \cite{garrault.2006} in dependence of the mean particle diameter after roughly 10 to \SI{12}{\hour}. The \ac{CSHo} data ($l_{\text{CSHo}}=l_{\text{CSH}}-l_{\text{CSHi}}$) were calculated for better comparability.}
+    \label{fig:garrault-distribution}
+\end{figure}
+
+The data of \textsc{Garrault} et al. indicate a smaller hydrate seam with increasing mean particle diameters.
+This is contradicting the data of \textsc{Anderegg} and \textsc{Hubbell} \cite{anderegg.1929,anderegg.1930} (see Figure~\ref{fig:anderegg-hubbel-distribution}).
+However, \textsc{Anderegg} and \textsc{Hubbell} began their measurements after 7 days and therefore after the diffusion limited growth of the \ac{CSH}.
+Furthermore, their mean particle diameter was significantly larger (starting from \SI{15.5}{\micro\meter})
 
 \begin{figure}[!htb]
     \centering
@@ -257,7 +333,7 @@ In contrast to the \ac{OPC} experiments, these consisted only out of very few se
             % \addlegendentry[]{\acs{OPC} + CaSO4 \cite{anderegg.1929,anderegg.1930}}
 
             \addplot+ [
-                draw=none,
+                only marks,
                 mark=x, black, opacity=0.5,
                 error bars/.cd,
                     y dir=both,y explicit,
@@ -338,13 +414,12 @@ In contrast to the \ac{OPC} experiments, these consisted only out of very few se
     \label{fig:anderegg-hubbel}
 \end{figure}
 
-
 \textsc{Nicoleau} \cite{nicoleau.2011} measured the \ac{CSH}-thickness using Cryo-\ac{SEM} on cracked surfaces of hydrated \ac{C3S} ($w/b=0.5$, $\vartheta=$\SI{20}{\celsius}) (see Figure~\ref{fig:anderegg-hubbel}).
 \textsc{Bishnoi} and \textsc{Scrivener} \cite{bishnoi.2012} criticized this approach due to the rather uncontrolled cracking, the subjectivity of the measurement and the occurrence of the sectioning effect, which was described in detail by \textsc{Scrivener} \cite{scrivener.2004}.
 This effect is an issue for all 2D images of polished sections (e.g. typical \ac{SEM}-\ac{BSE} images) and will be described and discussed in Subsection~\ref{subsec:sectioning-effect}.
 
-\textsc{Hader} \cite{hader.2000} and \textsc{Süß} \cite{suss.2001} manually measured the development of the length of \ac{CSH}-needles, also called \ac{CSHo}, using \ac{SEM}-\ac{SE}-images until a specimen age of \SI{28}{\day}.
-\textsc{Stark} and \textsc{Möser} \cite{stark.2001, moser.2001,moser.2002} continued this work close to the 3 years mark.
+\textsc{Hader} \cite{hader.2000} and \textsc{Süß} \cite{suss.2001} manually measured the development of the length of \ac{CSH}-needles, (roughly equivalent with \ac{CSHo}), using \ac{SEM}-\ac{SE}-images until a specimen age of \SI{28}{\day}.
+\textsc{Stark} and \textsc{Möser} \cite{stark.2001, moser.2001,moser.2002} continued this work close to the three years mark.
 The experiments were done using \ac{C3S} and $\beta$-\ac{C2S} at different temperatures.
 They measured a minimum and maximum value, of which the mean was calculated.
 However, it was not made clear by the authors, how many measurements were taken for each data point. Therefore, it should be assumed that these data are based on individual measurements.
@@ -1071,10 +1146,46 @@ However, it ignores the influence of larger inhomogeneities, as the rather large
 % was gibts für abbildungsmodi - praktikumsanleitungen - Karen Microstructure analysis
 %state of the art Bildanalyse - stutzman, fabien, Holzer, Münch, Herr Ulm/MITv -> Segmentierung/Kanten
 
+%https://www.researchgate.net/publication/228682013_The_use_of_scanning_electron_microscopy_in_cement_and_concrete_research
+
+\section{Modelling of cement hydration and its reliance on SEM images}
+
+Using a segmented \ac{SEM}-image, the phase composition can be estimated by using the area-\% of alite $A_{\text{C}_3\text{S}}$ and the hydrate phases $A_\text{\text{CSH}}$ and $A_\text{CH}$.
+If the hydrate phases are undistiguishable, they can be summed up:
+
+\begin{equation}
+	\label{eqn:est_hydrate_area}
+	A_\text{hydrate} = A_\text{\text{CSH}} + A_\text{CH} = A_{\text{image}} - A_{\text{C}_3\text{S}} - A_{\text{pores}}
+\end{equation}
+
+Equation \eqref{eqn:est_frac} then allows to estimate the amount of hydrate phase $\sigma_\text{hyd}$ (\ac{CH} + \ac{CSH}) in wt.-\%.
+
+\begin{equation}
+	\label{eqn:est_frac}
+	\sigma_\text{hydrate} = \frac{A_\text{hydrate} \cdot \rho_\text{hydrate}}{A_\text{hydrate} \cdot \rho_\text{hydrate} + A_{\text{C}_3\text{S}} \cdot \rho_{\text{C}_3\text{S}}}
+\end{equation}
+
+The densities required to calculate these values are listed in Table~\ref{tab:densities}.
+
+% why 2.5 : 1.0?
+% \cite{jennings.2000}
+\begin{table}[htb]
+    \centering
+    \caption{Densities of \ac{C3S} \cite{garrault.2006}, \ac{C2S}, \ac{CH} and \ac{CSH} \cite{garrault.2006} different phases in \si{\gram\per\cubic\centi\meter} \cite{jennings.2000,garrault.2006}.\\$^{*}$mixture of \ac{CSH}:\ac{CH} at a volume ratio of 2.5:1}
+    \label{tab:densities}
+    \begin{tabular}{@{}lrrrrr@{}}
+        \toprule
+        \textbf{Phase} & \ac{C3S} & \ac{C2S} & \ac{CH} & \ac{CSH} & hydrate phase$^{*}$\\
+		\midrule
+        \textbf{Density} & 3.14 & & 2.2 & $\approx$ 2.116 &  2.07\\
+		\bottomrule
+    \end{tabular}
+\end{table}
+
+\FloatBarrier
 \section{Modelling of cement hydration and its reliance on SEM images}
 
 {
-
 \color{blue}
 %automatisch übersetzt, direkt aus dem ct/fib-sem-antrag
 

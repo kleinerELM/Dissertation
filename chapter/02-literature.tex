@@ -162,28 +162,43 @@ According to their experiments, the hydrate rim is depending on the mean particl
             ]
 
             \addplot+ [ only marks, mark=x, orange ] table [skip first n=1, x index=0, y index=3, col sep=comma] {figures/hydrate-rim/data_andregg/gsd-PCA.csv};
-            \addlegendentry{\SI{7}{\day}, \ac{OPC}};
-            \addplot+ [ only marks, mark=o, orange ] table [skip first n=1, x index=0, y index=3, col sep=comma] {figures/hydrate-rim/data_andregg/gsd-PCA+CaSO4.csv};
-            \addlegendentry{\SI{7}{\day}, \ac{OPC}+\ce{CaSO4}};
+            \addplot [ draw=none, forget plot ] table [skip first n=1, col sep=comma, x index=0, y={create col/linear regression={y=[index]3}} ] {figures/hydrate-rim/data_andregg/gsd-PCA.csv};
+            \addplot[update limits=false, no markers, orange, domain=15:26, samples=2, forget plot] {\pgfplotstableregressionb + x*\pgfplotstableregressiona};
+            \addlegendentry{\SI{7}{\day}, \acs*{OPC}};
 
-            \addplot[orange, domain=14:30, opacity=0.5, samples=2] {0.068516925009012*x + 1.05223737455958};
-            \addlegendentry{\SI{7}{\day}, $R^2=0.11$};
+            \addplot+ [ only marks, mark=o, orange ] table [skip first n=1, x index=0, y index=3, col sep=comma] {figures/hydrate-rim/data_andregg/gsd-PCA+CaSO4.csv};
+            \addplot [ draw=none, forget plot ] table [skip first n=1, col sep=comma, x index=0, y={create col/linear regression={y=[index]3}} ] {figures/hydrate-rim/data_andregg/gsd-PCA+CaSO4.csv};
+            \addplot[update limits=false, no markers, orange, dashed, domain=16:26, samples=2, forget plot] {\pgfplotstableregressionb + x*\pgfplotstableregressiona};
+            \addlegendentry{\SI{7}{\day}, \acs*{OPC}+\ce{CaSO4}};
+
+            %\addplot[orange, domain=14:30, opacity=0.5, samples=2] {0.068516925009012*x + 1.05223737455958};
+            %\addlegendentry{\SI{7}{\day}, $R^2=0.11$};
 
             \addplot+ [ only marks, mark=x, cyan ] table [skip first n=1, x index=0, y index=4, col sep=comma] {figures/hydrate-rim/data_andregg/gsd-PCA.csv};
-            \addlegendentry{\SI{28}{\day}, \ac{OPC}};
-            \addplot+ [ only marks, mark=o, cyan ] table [skip first n=1, x index=0, y index=4, col sep=comma] {figures/hydrate-rim/data_andregg/gsd-PCA+CaSO4.csv};
-            \addlegendentry{\SI{28}{\day}, \ac{OPC}+\ce{CaSO4}};
+            \addplot [ draw=none, forget plot ] table [skip first n=1, col sep=comma, x index=0, y={create col/linear regression={y=[index]4}} ] {figures/hydrate-rim/data_andregg/gsd-PCA.csv};
+            \addplot[update limits=false, no markers, cyan, domain=15:28, samples=2, forget plot] {\pgfplotstableregressionb + x*\pgfplotstableregressiona};
+            \addlegendentry{\SI{28}{\day}, \acs*{OPC}};
 
-            \addplot[cyan, domain=14:30, opacity=0.5, samples=2] {0.196884840055179*x + 0.0780310618817959};
-            \addlegendentry{\SI{28}{\day}, $R^2=0.59$};
+            \addplot+ [ only marks, mark=o, cyan ] table [skip first n=1, x index=0, y index=4, col sep=comma] {figures/hydrate-rim/data_andregg/gsd-PCA+CaSO4.csv};
+            \addplot [ draw=none, forget plot ] table [skip first n=1, col sep=comma, x index=0, y={create col/linear regression={y=[index]4}} ] {figures/hydrate-rim/data_andregg/gsd-PCA+CaSO4.csv};
+            \addplot[update limits=false, no markers, cyan, dashed, domain=16:26, samples=2, forget plot] {\pgfplotstableregressionb + x*\pgfplotstableregressiona};
+            \addlegendentry{\SI{28}{\day}, \acs*{OPC}+\ce{CaSO4}};
+
+            %\addplot[cyan, domain=14:30, opacity=0.5, samples=2] {0.196884840055179*x + 0.0780310618817959};
+            %\addlegendentry{\SI{28}{\day}, $R^2=0.59$};
 
             \addplot+ [ only marks, mark=x, red ] table [skip first n=1, x index=0, y index=5, col sep=comma] {figures/hydrate-rim/data_andregg/gsd-PCA.csv};
-            \addlegendentry{\SI{90}{\day}, \ac{OPC}};
-            \addplot+ [ only marks, mark=o, red ] table [skip first n=1, x index=0, y index=5, col sep=comma] {figures/hydrate-rim/data_andregg/gsd-PCA+CaSO4.csv};
-            \addlegendentry{\SI{90}{\day}, \ac{OPC}+\ce{CaSO4}};
+            \addplot [ draw=none, forget plot ] table [skip first n=1, col sep=comma, x index=0, y={create col/linear regression={y=[index]5}} ] {figures/hydrate-rim/data_andregg/gsd-PCA.csv};
+            \addplot[update limits=false, no markers, red, domain=15:28, samples=2, forget plot] {\pgfplotstableregressionb + x*\pgfplotstableregressiona};
+            \addlegendentry{\SI{90}{\day}, \acs*{OPC}};
 
-            \addplot[red, domain=14:30, opacity=0.5, samples=2] {0.224971630191457*x + 0.566670110374461};
-            \addlegendentry{\SI{90}{\day}, $R^2=0.82$};
+            \addplot+ [ only marks, mark=o, red ] table [skip first n=1, x index=0, y index=5, col sep=comma] {figures/hydrate-rim/data_andregg/gsd-PCA+CaSO4.csv};
+            \addplot [ draw=none, forget plot ] table [skip first n=1, col sep=comma, x index=0, y={create col/linear regression={y=[index]5}} ] {figures/hydrate-rim/data_andregg/gsd-PCA+CaSO4.csv};
+            \addplot[update limits=false, no markers, red, dashed, domain=16:26, samples=2, forget plot] {\pgfplotstableregressionb + x*\pgfplotstableregressiona};
+            \addlegendentry{\SI{90}{\day}, \acs*{OPC}+\ce{CaSO4}};
+
+            %\addplot[red, domain=14:30, opacity=0.5, samples=2] {0.224971630191457*x + 0.566670110374461};
+            %\addlegendentry{\SI{90}{\day}, $R^2=0.82$};
         \end{axis}
     \end{tikzpicture}
     \caption{Mean hydration rim of \ac{OPC} from experiments of \textsc{Anderegg} and \textsc{Hubbell} \cite{anderegg.1929,anderegg.1930} in dependence of the mean particle ``dimension'' of 150 measured grains. The lack or addition of \SI{0.8}{\percent} \ce{CaSO4} in the experiments is marked with $\times$ and $\circ$ respectively. }
@@ -220,35 +235,24 @@ The estimation is based on the \ac{CSH}-concentration, the mean diameter and tha
 				grid style={line width=.1pt, draw=gray!10},
             ]
 
-            \addplot [ mark=+, blue, only marks ] coordinates {
-                        (7,    0.44)
-                        (10,   0.425)
-                        (11,   0.395)
-                        (12.5, 0.383)
-                        (14,   0.356)
-                    };
-            \addlegendentry{\acs{CSH}}
-            \addplot [ mark=x, red, only marks ] coordinates {
-                        (7,    0.305)
-                        (10,   0.292)
-                        (11,   0.27)
-                        (12.5, 0.26)
-                        (14,   0.24)
-                    };
-            \addlegendentry{\acs{CSHi}}
-            \addplot [ mark=x, orange, only marks ] coordinates {
-                        (7,    0.135)
-                        (10,   0.133)
-                        (11,   0.125)
-                        (12.5, 0.123)
-                        (14,   0.116)
-                    };
-            \addlegendentry{\acs{CSHo}}
+            \addplot [ mark=+, blue, only marks ] table {figures/hydrate-rim/data_garrault/CSH.dat}; 
+            \addplot [ draw=none, forget plot ] table [ y={create col/linear regression={y=Y}} ] {figures/hydrate-rim/data_garrault/CSH.dat};
+            \addplot[update limits=false, no markers, blue, domain={2:16}, forget plot] {\pgfplotstableregressionb + x*\pgfplotstableregressiona};
+            \addlegendentry{\acs*{CSH}};
 
-            \addplot [ mark=diamond, black, only marks ] coordinates {
-                        (3, 0.50)
-                    };
-            \addlegendentry{\acs{TEM}}
+            \addplot [ mark=x, red, only marks ] table {figures/hydrate-rim/data_garrault/CSHi.dat}; 
+            \addplot [ draw=none, forget plot ] table [ y={create col/linear regression={y=Y}} ]  {figures/hydrate-rim/data_garrault/CSHi.dat};
+            \addplot[update limits=false, no markers, red, domain={6:16}, forget plot] {\pgfplotstableregressionb + x*\pgfplotstableregressiona};
+            \addlegendentry{\acs*{CSHi}};
+
+            \addplot [ mark=x, orange, only marks ] table {figures/hydrate-rim/data_garrault/CSHo.dat}; 
+            \addplot [ draw=none, forget plot ] table [ y={create col/linear regression={y=Y}} ]  {figures/hydrate-rim/data_garrault/CSHo.dat};
+            \addplot[update limits=false, no markers, orange, domain={6:16}, forget plot] {\pgfplotstableregressionb + x*\pgfplotstableregressiona};
+            \addlegendentry{\acs*{CSHo}};
+
+            \addplot [ mark=diamond, black, only marks ] coordinates { (3, 0.50) };
+            \addlegendentry{\acs*{TEM}};
+
         \end{axis}
     \end{tikzpicture}
     \caption{Mean hydration rim of \SI{4}{\gram} \ac{C3S} from an estimation based of experiments by \textsc{Garrault} et al. \cite{garrault.2006} in dependence of the mean particle diameter after roughly 10 to \SI{12}{\hour}. The \ac{CSHo} data ($l_{\text{CSHo}}=l_{\text{CSH}}-l_{\text{CSHi}}$) were calculated for better comparability.}

@@ -92,7 +92,11 @@
 			defernumbers=true,sorting=none
 			]{biblatex}  % use biblatex for bibliography
 
-\usepackage[range-units=single,  % on default show only a single unit when using /SIrange{}
+\usepackage[
+	range-units=single,  
+% on default show only a single unit when using /SIrange{}
+	detect-family,
+	%unit-mode=text,
 			]{siunitx}  % helpful to show value-unit-pairs in text
 			
 \addto\extrasngerman{\sisetup{locale = DE}}

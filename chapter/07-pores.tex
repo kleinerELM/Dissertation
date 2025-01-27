@@ -63,12 +63,12 @@ Therefore, a standard material was used, to test and compare some methods.
 
 \subsection{Porous glass standard}
 
-As reference  with a defined pore size, porous glass membranes by \textit{Boraglas} with a pore size of 5 and \SI{20}{\nano\meter} were used.
+As reference  with a defined pore size, porous glass membranes by \textit{Boraglas} with a pore size of \num{5} and \SI{20}{\nano\meter} were used.
 These borosilicate glass products are made using the \textsc{VYCOR}-process and are usually utilized as filter material. % 
 
 The manufacturer provided a certificate for the porosity of the materials based on \ac{MIP} measurements.
-The \SI{5}{\nano\meter} glass sieve has a modal pore diameter of 4.5 and a median diameter of \SI{4.7}{\nano\meter} at a porosity of \SI{54.1}{\percent}.
-For the \SI{20}{\nano\meter} material a modal pore diameter of 22.3 and a median diameter of \SI{19.4}{\nano\meter} at a porosity of \SI{51.3}{\percent} is given.
+The \SI{5}{\nano\meter} glass sieve has a modal pore diameter of \num{4.5} and a median diameter of \SI{4.7}{\nano\meter} at a porosity of \SI{54.1}{\percent}.
+For the \SI{20}{\nano\meter} material a modal pore diameter of \num{22.3} and a median diameter of \SI{19.4}{\nano\meter} at a porosity of \SI{51.3}{\percent} is given.
 A revalidation of the \ac{MIP} results was omitted, due to the high material costs.
 
 
@@ -125,6 +125,8 @@ This resulted in the following freeze curves as plotted in Figure~\ref{fig:ltdsc
 				scaled y ticks=false,
 				scaled x ticks=false,
             ]
+			  \addplot[dotted, thick, samples=2, grey,forget plot] coordinates {(3.19,-.2)(3.19,.2)};
+			  \node[grey, rotate=90, anchor=west] at (axis cs: 2.6,-.06) {\footnotesize <\,\SI{-40}{\degreeCelsius}!};
   
 			\addplot [ no marks, blue] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/glass/ExpDat_2.1-5nm_freeze_segment_18.csv};
 			\addplot [ no marks, blue,forget plot, dashed] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/glass/ExpDat_2.2-5nm_freeze_segment_18.csv};
@@ -180,6 +182,9 @@ This resulted in the following freeze curves as plotted in Figure~\ref{fig:ltdsc
 				scaled x ticks=false,
 				yticklabel pos=right,
 			]
+			  \addplot[dotted, thick, samples=2, grey,forget plot] coordinates {(3.19,-.2)(3.19,0)};
+			  \node[grey, rotate=90, anchor=west] at (axis cs: 2.6,-.06) {\footnotesize <\,\SI{-40}{\degreeCelsius}!};
+
 			  \addplot [ no marks, orange,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/glass/ExpDat_1.1-20nm_freeze_segment_18.csv};
 			  \addplot [ no marks, orange,forget plot, dashed] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/glass/ExpDat_1.2-20nm_freeze_segment_18.csv};
 			  
@@ -188,17 +193,17 @@ This resulted in the following freeze curves as plotted in Figure~\ref{fig:ltdsc
 		\caption{\SI{20}{\nano\meter} porous \textsc{VYCOR}-glass.}
   
 	\end{subfigure}
-    \caption{These curves show the freezing curve of \ac{LTDSC}-measurements of two nano-porous glass types. Each type was measured using two specimens.}
+    \caption{These curves show the freezing curve of \ac{LTDSC}-measurements of two nano-porous glass types. Each type was measured using two specimens. Note that pore sizes below \SI{3.19}{\nano\meter} are undefined as noted in Equation~\ref{eq:brun_freeze}.}
     \label{fig:ltdsc_result_glass_freeze}
 \end{figure}
 
 
 The glass type specified with a pore diameter of \SI{5}{\nano\meter} has two peaks in the heat-flow signal.
-According to the equation of \textsc{Brun} et al., a heat flow signal was measured in the pore radius range of 3 to \SI{8}{\nano\meter} (pore diameter of 6 and \SI{16}{\nano\meter}) with peaks at 4 and \SI{6.5}{\nano\meter} (pore diameter of 8 and \SI{13}{\nano\meter}).
+According to the equation of \textsc{Brun} et al., a heat flow signal was measured in the pore radius range of \num{3} to \SI{8}{\nano\meter} (pore diameter of \num{6} and \SI{16}{\nano\meter}) with peaks at \num{4} and \SI{6.5}{\nano\meter} (pore diameter of \num{8} and \SI{13}{\nano\meter}).
 
-Th glass, specified with a pore diameter of \SI{20}{\nano\meter} showed a heat flow signal between 5 and \SI{12}{\nano\meter} (pore diameter of 10 and \SI{24}{\nano\meter}) and peaks at pore radii of 7 and \SI{10}{\nano\meter} (pore diameter of 14 and \SI{20}{\nano\meter}).
+Th glass, specified with a pore diameter of \SI{20}{\nano\meter} showed a heat flow signal between \num{5} and \SI{12}{\nano\meter} (pore diameter of \num{10} and \SI{24}{\nano\meter}) and peaks at pore radii of \num{7} and \SI{10}{\nano\meter} (pore diameter of \num{14} and \SI{20}{\nano\meter}).
 
-These results show, that the pore diameter is overestimated by a factor of up to 2 using equation \ref{eq:brun_freeze}.
+These results show, that the pore diameter is overestimated by a factor of up to \num{2} using equation \ref{eq:brun_freeze}.
 Despite this error, the difference in the pore size is still observable.
 
 
@@ -240,7 +245,7 @@ As the \ac{SEM}-images indicate (Figure~\ref{fig:ltdsc-vycor-glass}), the pores 
 \FloatBarrier
 \subsubsection{\acs{LTDSC}}
 
-The \ac{LTDSC} curves of the second freezing pass of \ac{C2S} from 7 to \SI{28}{\day} of hydration are shown in Figure~\ref{fig:ltdsc_result_c2s_freeze}.
+The \ac{LTDSC} curves of the second freezing pass of \ac{C2S} from \num{7} to \SI{28}{\day} of hydration are shown in Figure~\ref{fig:ltdsc_result_c2s_freeze}.
 Three measurements were done for every specimen age.
 It was not possible to measure \ac{C2S} after \SI{1}{\day} of hydration, since the material was not hard enough to be handled and transferred into the \ac{LTDSC}-crucible.
 
@@ -296,6 +301,8 @@ It was not possible to measure \ac{C2S} after \SI{1}{\day} of hydration, since t
 				scaled y ticks=false,
 				scaled x ticks=false,
             ]
+			\addplot[dotted, thick, samples=2, grey,forget plot] coordinates {(3.19,-.2)(3.19,.2)};
+			\node[grey, rotate=90, anchor=west] at (axis cs: 2.51,-.11) {\footnotesize <\,\SI{-40}{\degreeCelsius}};
 			
 			% std dev of 7d C2S
             \addplot+ [draw=none, no markers, name path=A,forget plot] table [each nth point=4,filter discard warning=false, unbounded coords=discard, x index=3, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}, ] {figures/ltdsc/C2S_7d_mean_freeze_segment.csv};
@@ -422,15 +429,15 @@ It was not possible to measure \ac{C2S} after \SI{1}{\day} of hydration, since t
         \draw[dashed,grey] (bottom-1) -- (bottom-2);
     \end{tikzpicture}
 
-    \caption{\ac{LTDSC} curves for the second freezing pass of \ac{C2S} from 7 to \SI{28}{\day} of hydration. Every specimen age was measured using three specimens. The graph on the right is a zoomed in section of the left graph, showing the data correlating to the gel pores.}
+    \caption{\ac{LTDSC} curves for the second freezing pass of \ac{C2S} from \num{7} to \SI{28}{\day} of hydration. Every specimen age was measured using three specimens. The graph on the right is a zoomed in section of the left graph, showing the data correlating to the gel pores. Note that pore sizes below \SI{3.19}{\nano\meter} are undefined as noted in Equation~\ref{eq:brun_freeze}.}
     \label{fig:ltdsc_result_c2s_freeze}
 \end{figure}
 
-The graph on the right is a zoomed in section of the left graph, showing the data correlating to the gel pores (2.00 to \SI{2.25}{\nano\meter} pore radius according to \ref{eq:brun_freeze}).
+The graph on the right is a zoomed in section of the left graph, showing the data correlating to the gel pores (\num{2.00} to \SI{2.25}{\nano\meter} pore radius according to \ref{eq:brun_freeze}).
 The figure shows that the heat flow signal of the gel pores is increasing with the age of the specimen, which indicates an increase in the gel pore volume with increasing specimen age.
 
-\ac{C3S} was measured from 1 to \SI{28}{\day} of hydration.
-The \ac{LTDSC} curves from the second freezing pass are plotted in Figure~\ref{fig:ltdsc_result_c3s_freeze}.
+\ac{C3S} was measured from \num{1} to \SI{28}{\day} of hydration.
+The \ac{LTDSC} curves from the second freezing pass are plotted in Figure~\ref{fig:ltdsc_result_C3S_freeze}.
 
 \begin{figure}[!htb]
     \centering
@@ -478,6 +485,8 @@ The \ac{LTDSC} curves from the second freezing pass are plotted in Figure~\ref{f
 				scaled y ticks=false,
 				scaled x ticks=false,
             ]
+			\addplot[dotted, thick, samples=2, grey,forget plot] coordinates {(3.19,-.2)(3.19,.2)};
+			\node[grey, rotate=90, anchor=west] at (axis cs: 2.51,-.11) {\footnotesize <\,\SI{-40}{\degreeCelsius}};
 
 			% std dev of 1d C3S
             \addplot+ [draw=none, no markers, name path=A,forget plot] table [each nth point=4,filter discard warning=false, unbounded coords=discard, x index=3, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}, ] {figures/ltdsc/C3S_1d_mean_freeze_segment.csv};
@@ -621,7 +630,7 @@ The \ac{LTDSC} curves from the second freezing pass are plotted in Figure~\ref{f
         \draw[dashed,grey] (bottom-3) -- (bottom-4);
     \end{tikzpicture}
 
-    \caption{\ac{LTDSC} curves for the second freezing pass of \ac{C3S} from 1 to \SI{28}{\day} of hydration. Every specimen age was measured using three specimens. The graph on the right is a zoomed in section of the left graph, showing the data correlating to the gel pores.}
+    \caption{\ac{LTDSC} curves for the second freezing pass of \ac{C3S} from 1 to \SI{28}{\day} of hydration. Every specimen age was measured using three specimens. The graph on the right is a zoomed in section of the left graph, showing the data correlating to the gel pores. Note that pore sizes below \SI{3.19}{\nano\meter} are undefined as noted in Equation~\ref{eq:brun_freeze}.}
     \label{fig:ltdsc_result_C3S_freeze}
 \end{figure}
 \ifdefined\DRAFT
@@ -875,7 +884,7 @@ At the same time, the growth of \ac{CSH} creates new gel porosity.
 
 Figures~\ref{fig:mip_c2s} and \ref{fig:mip_c3s} show \ac{MIP} results for \ac{C2S} and \ac{C3S} after up to \SI{28}{\day} of hydration in comparison to the second freezing curves of the \ac{LTDSC}-measurements.
 For these diagrams, the freeze curves were base line corrected.
-This was done by calculating the linear regression of the data between -55 to -50 and -27 to \SI{-23}{\degreeCelsius} and subtracting this regression function from the mean data shown in Figures~\ref{fig:ltdsc_result_c2s_melt} and \ref{fig:ltdsc_result_c3s_melt}.
+This was done by calculating the linear regression of the data between \num{-55} to \num{-50} and \num{-27} to \SI{-23}{\degreeCelsius} and subtracting this regression function from the mean data shown in Figure~\ref{fig:ltdsc_result_c2s_melt}.
 
 \begin{figure}[!htb]
     \centering
@@ -912,6 +921,9 @@ This was done by calculating the linear regression of the data between -55 to -5
 					/pgf/number format/fixed zerofill,
 			},
 		]
+
+			\addplot[dotted, thick, samples=2, grey,forget plot] coordinates {(3.19,-.2)(3.19,.2)};
+			\node[grey, rotate=90, anchor=west] at (axis cs: 2.51,-.035) {\footnotesize <\,\SI{-40}{\degreeCelsius}!};
 
 			\addplot [ no marks, orange, forget plot, opacity=0.5] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=3, y index=4, col sep=comma] {figures/ltdsc/C2S_7d_mean_freeze_segment.csv};
 			\addplot [ no marks, red, forget plot, opacity=0.5] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=3, y index=4, col sep=comma] {figures/ltdsc/C2S_14d_mean_freeze_segment.csv};
@@ -978,7 +990,7 @@ This was done by calculating the linear regression of the data between -55 to -5
 
 		\end{semilogxaxis}
 	\end{tikzpicture}
-	\caption{{\color{orange}\ac{MIP}-analyis} of \ac{C2S} after 14 and \SI{28}{\day} of hydration compared with selected {\color{blue}\ac{LTDSC}-curves}.}
+	\caption{{\color{orange}\ac{MIP}-analyis} of \ac{C2S} after 14 and \SI{28}{\day} of hydration compared with selected {\color{blue}\ac{LTDSC}-curves}. Note that pore sizes below \SI{3.19}{\nano\meter} are undefined as noted in Equation~\ref{eq:brun_freeze}.}
     \label{fig:mip_c2s}
 \end{figure}
 
@@ -1016,6 +1028,9 @@ This was done by calculating the linear regression of the data between -55 to -5
 						/pgf/number format/fixed zerofill,
 				},
 			]
+
+			\addplot[dotted, thick, samples=2, grey,forget plot] coordinates {(3.19,-.2)(3.19,.2)};
+			\node[grey, rotate=90, anchor=west] at (axis cs: 2.51,-.020) {\footnotesize <\,\SI{-40}{\degreeCelsius}!};
 
             \addplot [ no marks, yellow, opacity=0.5, forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=3, y index=4, col sep=comma] {figures/ltdsc/C3S_1d_mean_freeze_segment.csv};
             \addplot [ no marks, orange, opacity=0.5, forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=3, y index=4, col sep=comma] {figures/ltdsc/C3S_7d_mean_freeze_segment.csv};
@@ -1084,7 +1099,7 @@ This was done by calculating the linear regression of the data between -55 to -5
 			
 		\end{semilogxaxis}
 	\end{tikzpicture}
-	\caption{{\color{orange}\ac{MIP}-analyis} of \ac{C3S} after 7 and \SI{28}{\day} of hydration compared with selected {\color{blue}\ac{LTDSC}-curves}.}
+	\caption{{\color{orange}\ac{MIP}-analyis} of \ac{C3S} after 7 and \SI{28}{\day} of hydration compared with selected {\color{blue}\ac{LTDSC}-curves}. Note that pore sizes below \SI{3.19}{\nano\meter} are undefined as noted in Equation~\ref{eq:brun_freeze}.}
     \label{fig:mip_c3s}
 \end{figure}
 

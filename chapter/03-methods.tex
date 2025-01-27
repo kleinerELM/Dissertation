@@ -36,7 +36,7 @@ The embedded specimen will then be degassed in two \SI{30}{\min} cycles.
 
 After hardening for \SI{24}{\hour} in an oven at \SI{40}{\celsius}, the specimen can be polished.
 This is done in multiple steps using diamond-oil-slurries.
-The particle sizes of the diamond pastes will be sequentially reduced (15, 9, 3, 1 down to \SI{0.25}{\micro\meter}).
+The particle sizes of the diamond pastes will be sequentially reduced (\num{15}, \num{9}, \num{3}, \num{1} down to \SI{0.25}{\micro\meter}).
 While this polishing method is good enough for many applications like BSE- or EDX-imaging, high-resolution imaging or \ac{EBSD} require even better surface qualities.
 
 \subsection{Argon Broad Ion Beam polishing (moving specimen)}
@@ -198,7 +198,7 @@ This means, if the specimen is tilted, the point does not move in the life image
     \label{fig:fib}
 \end{figure}
 
-The standard method to obtain \ac{FIBnt}-images is to dig trenches around the \ac{ROI} (typically 10\,$\times$\,10\,$\times$\,\SI{10}{\cubic\micro\meter}) as illustrated in Figure~\ref{fig:fib_top}.
+The standard method to obtain \ac{FIBnt}-images is to dig trenches around the \ac{ROI} (typically \num{10}\,$\times$\,\num{10}\,$\times$\,\SI{10}{\cubic\micro\meter}) as illustrated in Figure~\ref{fig:fib_top}.
 Beforehand, the \ac{ROI} is coated with a layer of platinum for protection and a fiducial side is set.
 The fiducial is required to correct for specimen drift during the cutting process.
 After a polishing run and the imaging setup, the cutting process can start.
@@ -209,7 +209,7 @@ After cutting, the slice can be imaged using multiple detectors.
 Depending on the detector type and the geometrical positioning of the detector there might be some imaging limits and the imaging should not be done for every slice.
 For example, the \ac{EDX}-detector requires high voltages for a useful signal, which might damage the specimen, or the specimen has to be rotated to obtain a \ac{EBSD} signal.
 Furthermore, both detectors require a lot of measurement time, which significantly influences the overall measuring duration.
-The recording of a 10\,$\times$\,10\,$\times$\,\SI{10}{\cubic\micro\meter} cube using only a high-resolution BSE detector takes about {\color{red} \SI{24}{\hour}} excluding the preparation.
+The recording of a \num{10}\,$\times$\,\num{10}\,$\times$\,\SI{10}{\cubic\micro\meter} cube using only a high-resolution BSE detector takes about {\color{red} \SI{24}{\hour}} excluding the preparation.
 
 \begin{figure}[H]
     \centering
@@ -268,7 +268,7 @@ A \ac{LAICPMS} consists of a laser to ablate the specimen surface, a microscope 
 This allows to detect minor and trace elements as well as isotopes in a spatially resolved manner.
 Therefore, \ac{LAICPMS} is in wide use as an analytical method to determine the age of geological samples \cite{liu.2013} or for spatially resolved elemental mapping of heavy metals in biological tissue \cite{limbeck.2015}.
 
-The laser ablation was done with a ns-Nd:YAG-laser at the quintupled wavelength of 213\,nm (\textit{ESI NWR 213}).
+The laser ablation was done with a ns-Nd:YAG-laser at the quintupled wavelength of \SI{213}{\nano\meter} (\textit{ESI NWR 213}).
 A quadrupole \ac{ICP}-\ac{MS} (\textit{NexION 300D} from \textit{Perkin Elmer}) was used for the elemental analysis.
 The carrier gas chosen was helium due to its well-known advantages over other transport gases, such as its higher sensitivity for most \ac{ICP}-\ac{MS} instruments and smaller particle size distributions \cite{gunther.1999}.
 The samples were placed in a two-volume sample cell and purged for at least \SI{10}{\min}.
@@ -311,82 +311,6 @@ However, values above {\color{red} ~\SI{20}{\micro\meter} should be ignored, sin
 \subsection{Low Temperature - Differential Scanning Calorimetry (LT-DSC)}
 \label{fig:ltdsc}
 
-Another less common method to indirectly measure the \ac{PSD}, especially in the nano-pore range, is the \ac{LTDSC}.
-Its principle is based on the freezing behavior of pore water, the pore type and pore size.
-\textsc{Brun} et al. \cite{brun.1977} proposed an approximate solution to convert between freezing/melting point of water and the pore radius for cylindrical pores.
-The equation for freezing is :
-\begin{equation}
-	r_\text{P} = -\frac{64.67}{\Delta T }+0.57;~~~\SI{0}{\kelvin} > \Delta T > \SI{-40}{\kelvin},
-	\label{eq:brun_freeze}
-\end{equation}
-\begin{conditions}
-	r_\text{P} & pore radius in \si{\nano\meter}\\
-	\Delta T  &  freezing point depression in \si{\kelvin},
-\end{conditions}
-
-and for melting:
-\begin{equation}
-	r_\text{P} = -\frac{32.33}{\Delta T }+0.68;~~~\SI{0}{\kelvin} > \Delta T > \SI{-40}{\kelvin},
-	\label{eq:brun_melt}
-\end{equation}
-
-while $\Delta T$ is defined as:
-
-\begin{equation}
-	\Delta T = T - T_\text{m}
-	\label{eq:brun_dT}
-\end{equation}
-\begin{conditions}
-	T          &   actual melting point in \si{\kelvin}, \\
-	T_\text{m} &   theoretical freezing point in \si{\kelvin}.
-\end{conditions}
-
-However, $\Delta T$ measurements below \SI{-40}{\celsius} are not covered by these equations.
-
-\textsc{Brun} et al. \cite{brun.1977} considered an adsorbed water film in the pores (thickness of \SI{.8}{\nano\meter}) and also a temperature correction for surface tension and for the melting entropy.
-The relationship resulting from Equations~\ref{eq:brun_freeze} and \ref{eq:brun_melt} are plotted in Figure~\ref{fig:freezing_depression}.
-
-\begin{figure}[!htb]
-    \centering
-    \begin{tikzpicture}
-        \begin{axis}[
-				legend style={at={(0.97,.94)},anchor=north east},
-				xmin=-40, xmax=0,
-				ymin=0, ymax=12,
-				width=0.95\linewidth,
-				height=0.4\linewidth,
-				grid=major,
-				xlabel={freezing point depression $\Delta T$ in \si{\kelvin}},
-				ylabel={pore radius $r_\text{P}$ in \si{\nano\meter}},
-				xtick={0,-10,...,-40},
-				ytick={0,2,...,12},
-				grid style={line width=.1pt, draw=gray!10},
-				x dir=reverse
-            ]
-			\addplot[blue, domain=0:-40, samples=50] {0.57-64.67/x};
-            \addlegendentry{freezing \cite{brun.1977}};
-			\addplot[red, domain=0:-40, samples=50, dashed] {0.68-32.33/x};
-            \addlegendentry{melting \cite{brun.1977}};
-        \end{axis}
-    \end{tikzpicture}
-    \caption{Depression of the freezing or melting point as functions of the pore radius. Calculated according to \textsc{Brun} et al. \cite{brun.1977} for water using Equations~\ref{eq:brun_freeze} and \ref{eq:brun_melt}.}
-    \label{fig:freezing_depression}
-\end{figure}
-% TODO Stockhausen??
-
-This shows that smaller pores lead to lower freezing temperatures of the water inside the pores.
-However, this also depends on the pore type.
-For example, water in connected capillary pores freezes until \SI{-20}{\celsius}, isolated pores between \SIrange{-20}{-35}{\celsius} and gel pores freeze below \SI{-35}{\celsius}.
-This is also illustrated in Figure~\ref{fig:freeze}.
-If a larger pore (D) is only connected to smaller pore (C) or is isolated, it can only freeze at the same temperature as the smaller sized pore (C), while similar sized pores (B) were already frozen.
-
-\begin{figure}[!ht]
-    \centering
-
-	\includegraphics[width=.5\textwidth]{methods/freeze.pdf}
-    \caption{Scheme of the freezing process within a connected pore system. Freezing happens sequentially from A to B, followed by C and D at once. Based on Sun et al. \cite{sun.2010}.}
-    \label{fig:freeze}
-\end{figure}
 
 To obtain data about the capillary and gel porosity, the \textit{DSC Polyma 214} from \textit{Netzsch}, connected to the cooling system \textit{Intercooler IC70} was used.
 The specimens were sliced to fit the small aluminum crucibles with a inner volume of approx. \SI{60}{\micro\litre}.

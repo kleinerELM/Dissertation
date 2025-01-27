@@ -140,7 +140,7 @@ Their definition and terms vary between publications and may somtimes not mean e
 In this document they will be called \ac{CSHi} and \ac{CSHo}.
 % todo illustration of the different types of CSH
 
-In 1929 / 1930 \textsc{Anderegg} and \textsc{Hubbell} \cite{anderegg.1929,anderegg.1930} already tried to measure the hydration layer development of \ac{OPC} at 21$\pm$\SI{3}{\celsius} using optical light microscopy.
+In 1929 / 1930 \textsc{Anderegg} and \textsc{Hubbell} \cite{anderegg.1929,anderegg.1930} already tried to measure the hydration layer development of \ac{OPC} at \num{21}$\pm$\SI{3}{\celsius} using optical light microscopy.
 They utilized the difference of the refraction index between \ac{CSH} and unhydrated clinker.
 According to their experiments, the hydrate rim is depending on the mean particle dimension (measured from 150 particles) as shown in Figure~\ref{fig:anderegg-hubbel-distribution}.
 
@@ -767,7 +767,7 @@ Equations~\ref{eq:sectioning_effect_1} and \ref{eq:sectioning_effect_2} can be u
 Figure~\ref{fig:sectioning_effect_b} (blue curve) indicates, that the \ac{HLT} can be significantly overestimated.
 This becomes more prevalent the closer the cut through a particle is to the particle border.
 % https://www.wolframalpha.com/input?i=integral&assumption=%7B%22F%22%2C+%22Integral%22%2C+%22rangestart%22%7D+-%3E%220%22&assumption=%7B%22C%22%2C+%22integral%22%7D+-%3E+%7B%22Calculator%22%2C+%22dflt%22%7D&assumption=%7B%22F%22%2C+%22Integral%22%2C+%22integrand%22%7D+-%3E%22sqrt%282*1.3*%28x%2B1.3%29+-+%28x%2B1.3%29%5E2%29+-+sqrt%282*1*%28x%2B1%29+-+%28x%2B1%29%5E2%29%22&assumption=%7B%22F%22%2C+%22Integral%22%2C+%22rangeend%22%7D+-%3E%22.9%22
-For example, for a \ac{HLT} of 0.3 (as shown in Figure~\ref{fig:sectioning_effect_b}) a mean overestimation of 23.8\% can be expected. %0,3715/0,33
+For example, for a \ac{HLT} of \num{0.3} (as shown in Figure~\ref{fig:sectioning_effect_b}) a mean overestimation of \SI{23.8}{\percent} can be expected. %0,3715/0,33
 
 Figure~\ref{fig:hlt_overestimation} illustrates the overestimation of the measured \ac{HLT} depending on the \ac{HLT} / grain radius ratio and $M_\text{HLT}$ (Equation~\ref{eq:sectioning_effect_3}).
 It shows, that the smaller the \ac{HLT} and therefore the younger the specimen, the bigger the over estimation.
@@ -890,7 +890,99 @@ The paper also shows me, that the speed of temperature change (2K/min) is too fa
 \subsection{Low Temperature - Differential Scanning Calorimetry (\acs{LTDSC})}
 \label{sec:ltdsc}
 
-\cite{sant.2011,setzer.1994} 
+Another less common method to indirectly measure the \ac{PSD}, especially in the nano-pore range, is the \ac{LTDSC}.
+The method is based on the principle, that the heat capacity of the water-ice phase transition is significantly higher than that of the solid phases.
+Furthermore, the freezing point of water is lowered in small pores due to surface tension {\color{red}and other effects}.
+This leads to a depression of the freezing point, which can be measured using \ac{DSC}.
+
+\textsc{Sant} et al. applied \ac{LTDSC} to measure the \ac{PSD} of hydrated cement pastes \cite{sant.2011}.
+They proposed the connection between pore types and the freezing point depression (ranges in brackets are read from the graphs in \cite{sant.2011}):
+\begin{itemize}
+    \item Connected capillary pores freeze at $\approx$ \SI{-15}{\degreeCelsius} (\num{0} to \SI{-23}{\degreeCelsius})
+    \item Open gel pores and capillary pores at $\approx$ \SI{-27}{\degreeCelsius} (\num{-23} to \SI{-35}{\degreeCelsius})
+    \item Isolated capillary and gel pores at $\approx$ \SI{-43}{\degreeCelsius} (\num{-35} to \SI{-50}{\degreeCelsius})
+\end{itemize}
+In their study only the peak presence at $\approx$ \SI{-15}{\degreeCelsius} was evaluated.
+
+\textsc{Brun} et al. \cite{brun.1977} proposed an approximate solution to convert between freezing/melting point of water and the pore radius for cylindrical pores.
+The equation for freezing is :
+\begin{equation}
+	r_\text{P} = -\frac{64.67}{\Delta T }+0.57;~~~\SI{0}{\kelvin} > \Delta T > \SI{-40}{\kelvin},
+	\label{eq:brun_freeze}
+\end{equation}
+\begin{conditions}
+	r_\text{P} & pore radius in \si{\nano\meter}\\
+	\Delta T  &  freezing point depression in \si{\kelvin},
+\end{conditions}
+
+and for melting:
+\begin{equation}
+	r_\text{P} = -\frac{32.33}{\Delta T }+0.68;~~~\SI{0}{\kelvin} > \Delta T > \SI{-40}{\kelvin}.
+	\label{eq:brun_melt}
+\end{equation}
+
+It has to be noted, that $\Delta T$ measurements below \SI{-40}{\celsius} are not covered by these equations. 
+$\Delta T$ is defined as:
+
+\begin{equation}
+	\Delta T = T - T_\text{m}
+	\label{eq:brun_dT}
+\end{equation}
+\begin{conditions}
+	T          &   actual melting point in \si{\kelvin}, \\
+	T_\text{m} &   theoretical freezing point in \si{\kelvin}.
+\end{conditions}
+
+
+\textsc{Brun} et al. \cite{brun.1977} considered an adsorbed water film in the pores (thickness of \SI{.8}{\nano\meter}) and also a temperature correction for surface tension and for the melting entropy.
+The relationship resulting from Equations~\ref{eq:brun_freeze} and \ref{eq:brun_melt} are plotted in Figure~\ref{fig:freezing_depression}.
+
+
+
+\cite{setzer.1994} 
+
+\begin{figure}[!htb]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+				legend style={at={(0.97,.94)},anchor=north east},
+				xmin=-40, xmax=0,
+				ymin=0, ymax=12,
+				width=0.95\linewidth,
+				height=0.4\linewidth,
+				grid=major,
+				xlabel={freezing point depression $\Delta T$ in \si{\kelvin}},
+				ylabel={pore radius $r_\text{P}$ in \si{\nano\meter}},
+				xtick={0,-10,...,-40},
+				ytick={0,2,...,12},
+				grid style={line width=.1pt, draw=gray!10},
+				x dir=reverse
+            ]
+			\addplot[blue, domain=0:-40, samples=50] {0.57-64.67/x};
+            \addlegendentry{freezing \cite{brun.1977}};
+			\addplot[red, domain=0:-40, samples=50, dashed] {0.68-32.33/x};
+            \addlegendentry{melting \cite{brun.1977}};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Depression of the freezing or melting point as functions of the pore radius. Calculated according to \textsc{Brun} et al. \cite{brun.1977} for water using Equations~\ref{eq:brun_freeze} and \ref{eq:brun_melt}.}
+    \label{fig:freezing_depression}
+\end{figure}
+% TODO Stockhausen??
+
+This shows that smaller pores lead to lower freezing temperatures of the water inside the pores.
+However, this also depends on the pore type.
+For example, water in connected capillary pores freezes until \SI{-20}{\celsius}, isolated pores between \SIrange{-20}{-35}{\celsius} and gel pores freeze below \SI{-35}{\celsius}.
+This is also illustrated in Figure~\ref{fig:freeze}.
+If a larger pore (D) is only connected to smaller pore (C) or is isolated, it can only freeze at the same temperature as the smaller sized pore (C), while similar sized pores (B) were already frozen.
+
+\begin{figure}[!ht]
+    \centering
+
+	\includegraphics[width=.5\textwidth]{methods/freeze.pdf}
+    \caption{Scheme of the freezing process within a connected pore system. Freezing happens sequentially from A to B, followed by C and D at once. Based on Sun et al. \cite{sun.2010}.}
+    \label{fig:freeze}
+\end{figure}
+
 
 \FloatBarrier
 \section{Statistical analysis of the representativeness of an 2D image}
@@ -898,7 +990,7 @@ The paper also shows me, that the speed of temperature change (2K/min) is too fa
 Being sure, that a sample and the resulting measurement is representative can be a rather complicated challenge.
 This is especially true for inhomogeneous materials consisting of multiple phases and wide ranges of particle sizes.
 The problem starts with sampling and sample preparation.
-This process is standardized for for granular or powdery samples for multiple fields (e.g. DIN 52101 \cite{din52101.2013} and DIN EN 932-1 \Cite{dinen932-1.1996}).
+This process is standardized for for granular or powdery samples for multiple fields (e.g. DIN 52101 \cite{din52101.2013} and DIN EN 932-1 \cite{dinen932-1.1996}).
 Although this solution is very helpful for analyzing loose particles, for the analysis of a monolithic sample the only option is to analyze the largest possible volume or surface area.
 This raises the question of what the minimum size of the analyzed area must be in order to obtain a statistically meaningful result.
 This is especially true for \ac{SEM}-analysis, since the imaged area is usually only a tiny detail of the whole specimen.

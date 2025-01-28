@@ -59,20 +59,19 @@ In a macroscopic scale it is possible to compare different pore measurement meth
 This becomes more and more difficult, the smaller the pores measured.
 Therefore, a standard material was used, to test and compare some methods.
 
-{\color{red} TODO: discuss the problems with the analysis?}
-
 \subsection{Porous glass standard}
 
 As reference  with a defined pore size, porous glass membranes by \textit{Boraglas} with a pore size of \num{5} and \SI{20}{\nano\meter} were used.
-These borosilicate glass products are made using the \textsc{VYCOR}-process and are usually utilized as filter material. % 
+These borosilicate glass products are made using the \textsc{VYCOR}-process and are usually utilized as filter material.
+The specimens were provided as \num{10}\,$\times$\,\num{10}\,$\times$\,\SI{1.2}{\milli\meter} plates, which were cut into smaller pieces for the measurements.
 
-The manufacturer provided a certificate for the porosity of the materials based on \ac{MIP} measurements.
+The manufacturer provided a certificate for the porosity of the materials based on \ac{MIP} measurements (Figure~\ref{fig:vycor-mip}).
 The \SI{5}{\nano\meter} glass sieve has a modal pore diameter of \num{4.5} and a median diameter of \SI{4.7}{\nano\meter} at a porosity of \SI{54.1}{\percent}.
 For the \SI{20}{\nano\meter} material a modal pore diameter of \num{22.3} and a median diameter of \SI{19.4}{\nano\meter} at a porosity of \SI{51.3}{\percent} is given.
 A revalidation of the \ac{MIP} results was omitted, due to the high material costs.
 
-
 \subsubsection{\ac{LTDSC}}
+
 The glass standards were measured using a simplified temperature regimen.
 It also experienced ice crystal-inducing freeze-thaw cycles before the actual measurement.
 For the measurement, the water saturated specimen was then cooled down to \SI{-60}{\degreeCelsius} and heated up to \SI{20}{\degreeCelsius} at a cooling and heating rate of $\pm$\,\SI{2}{\kelvin\per\min}.
@@ -302,7 +301,7 @@ It was not possible to measure \ac{C2S} after \SI{1}{\day} of hydration, since t
 				scaled x ticks=false,
             ]
 			\addplot[dotted, thick, samples=2, grey,forget plot] coordinates {(3.19,-.2)(3.19,.2)};
-			\node[grey, rotate=90, anchor=west] at (axis cs: 2.51,-.11) {\footnotesize <\,\SI{-40}{\degreeCelsius}};
+			\node[grey, rotate=90, anchor=west] at (axis cs: 2.51,-.10) {\footnotesize <\,\SI{-40}{\degreeCelsius}};
 			
 			% std dev of 7d C2S
             \addplot+ [draw=none, no markers, name path=A,forget plot] table [each nth point=4,filter discard warning=false, unbounded coords=discard, x index=3, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}, ] {figures/ltdsc/C2S_7d_mean_freeze_segment.csv};
@@ -486,7 +485,7 @@ The \ac{LTDSC} curves from the second freezing pass are plotted in Figure~\ref{f
 				scaled x ticks=false,
             ]
 			\addplot[dotted, thick, samples=2, grey,forget plot] coordinates {(3.19,-.2)(3.19,.2)};
-			\node[grey, rotate=90, anchor=west] at (axis cs: 2.51,-.11) {\footnotesize <\,\SI{-40}{\degreeCelsius}};
+			\node[grey, rotate=90, anchor=west] at (axis cs: 2.51,-.10) {\footnotesize <\,\SI{-40}{\degreeCelsius}};
 
 			% std dev of 1d C3S
             \addplot+ [draw=none, no markers, name path=A,forget plot] table [each nth point=4,filter discard warning=false, unbounded coords=discard, x index=3, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}, ] {figures/ltdsc/C3S_1d_mean_freeze_segment.csv};
@@ -923,7 +922,7 @@ This was done by calculating the linear regression of the data between \num{-55}
 		]
 
 			\addplot[dotted, thick, samples=2, grey,forget plot] coordinates {(3.19,-.2)(3.19,.2)};
-			\node[grey, rotate=90, anchor=west] at (axis cs: 2.51,-.035) {\footnotesize <\,\SI{-40}{\degreeCelsius}!};
+			\node[grey, rotate=90, anchor=west] at (axis cs: 2.50,-.035) {\footnotesize <\,\SI{-40}{\degreeCelsius}!};
 
 			\addplot [ no marks, orange, forget plot, opacity=0.5] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=3, y index=4, col sep=comma] {figures/ltdsc/C2S_7d_mean_freeze_segment.csv};
 			\addplot [ no marks, red, forget plot, opacity=0.5] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=3, y index=4, col sep=comma] {figures/ltdsc/C2S_14d_mean_freeze_segment.csv};
@@ -1030,7 +1029,7 @@ This was done by calculating the linear regression of the data between \num{-55}
 			]
 
 			\addplot[dotted, thick, samples=2, grey,forget plot] coordinates {(3.19,-.2)(3.19,.2)};
-			\node[grey, rotate=90, anchor=west] at (axis cs: 2.51,-.020) {\footnotesize <\,\SI{-40}{\degreeCelsius}!};
+			\node[grey, rotate=90, anchor=west] at (axis cs: 2.50,-.020) {\footnotesize <\,\SI{-40}{\degreeCelsius}!};
 
             \addplot [ no marks, yellow, opacity=0.5, forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=3, y index=4, col sep=comma] {figures/ltdsc/C3S_1d_mean_freeze_segment.csv};
             \addplot [ no marks, orange, opacity=0.5, forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=3, y index=4, col sep=comma] {figures/ltdsc/C3S_7d_mean_freeze_segment.csv};

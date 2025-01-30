@@ -879,9 +879,9 @@ Nevertheless, it is still a reliable method to measure open porosity down to a f
 
 {\color{red}
 %TODO:
-MIP and 1H NMR does not fit well.
+\ac{MIP} and \ac{HNMR} does not fit well.
 \cite{tziotziou.2011}
-1H NMR and LTDSC (here TMP) do fit, however 1H NMR provides more data below 3 nm
+\ac{HNMR} and LTDSC (here TMP) do fit, however \ac{HNMR} provides more data for pores sized below 3 nm.
 \cite{joseph.2024}
 The paper also shows me, that the speed of temperature change (2K/min) is too fast in our experiments, propably leading to a shift of the pore size to smaller values. Their experiments used 0.5K/min
 }
@@ -890,11 +890,15 @@ The paper also shows me, that the speed of temperature change (2K/min) is too fa
 \subsection{Low Temperature - Differential Scanning Calorimetry (\acs{LTDSC})}
 \label{sec:ltdsc}
 
-Another less common method to indirectly measure the \ac{PSD}, especially in the nano-pore range, is the \ac{LTDSC}.
-The method is based on the principle, that the heat capacity of the water-ice phase transition is significantly higher than that of the solid phases.
-Furthermore, the freezing point of water is lowered in small pores due to surface tension {\color{red}and other effects}.
-This leads to a depression of the freezing point, which can be measured using \ac{DSC}.
+Another less common method to indirectly measure the \ac{PSD}, especially in the nano-pore range, is the \ac{LTDSC} \cite{brun.1973,brun.1977}.
+The method is based on the principle, that the freezing point of water is lowered in small pores due to surface tension \cite{brun.1973,brun.1977}.
+Since the heat capacity of the phase transition (liquid-solid) is significantly higher than that of the solid phases, this freezing point depression can be measured using \ac{DSC}.
 
+The measurable pore size range starts at approx. \num{2} \cite{cuperus.1992} or \SI{3.19}{\nano\meter} due to a temperature limit in the thermodynamic description of \SI{-40}{\degreeCelsius} \cite{brun.1977}.
+However, this limit can be extended to lower temperatures and smaller pores when considering the extrapolated curve for the triple point depression in porous materials \cite{kloetstra.1995}.
+For pores larger than \SI{30}{\nano\meter} the temperature shift of the freezing point is too small to be separated from the freezing of free water \cite{cuperus.1992,stocker.2002}.
+
+\ac{LTDSC} requires water-saturated specimens and therefore avoids damage due to drying \cite{gran.1997,galle.2001} often critisized in \ac{MIP} and \ac{SEM} experiments \cite{chatterji.2001,georget.2024}.
 \textsc{Sant} et al. applied \ac{LTDSC} to measure the \ac{PSD} of hydrated cement pastes \cite{sant.2011}.
 They proposed the connection between pore types and the freezing point depression (ranges in brackets are read from the graphs in \cite{sant.2011}):
 \begin{itemize}
@@ -905,7 +909,7 @@ They proposed the connection between pore types and the freezing point depressio
 In their study only the peak presence at $\approx$ \SI{-15}{\degreeCelsius} was evaluated.
 
 \textsc{Brun} et al. \cite{brun.1977} proposed an approximate solution to convert between freezing/melting point of water and the pore radius for cylindrical pores.
-The equation for freezing is :
+The equation for freezing is:
 \begin{equation}
 	r_\text{P} = -\frac{64.67}{\Delta T }+0.57;~~~\SI{0}{\kelvin} > \Delta T > \SI{-40}{\kelvin},
 	\label{eq:brun_freeze}
@@ -921,7 +925,9 @@ and for melting:
 	\label{eq:brun_melt}
 \end{equation}
 
-It has to be noted, that $\Delta T$ measurements below \SI{-40}{\celsius} are not covered by these equations. 
+It has to be noted, that $\Delta T$ measurements below \SI{-40}{\celsius} are not covered by these equations.
+However, \textsc{kloetstra} et al. \cite{kloetstra.1995} proposed that it is possible to extend this lower limit.
+
 $\Delta T$ is defined as:
 
 \begin{equation}
@@ -933,13 +939,8 @@ $\Delta T$ is defined as:
 	T_\text{m} &   theoretical freezing point in \si{\kelvin}.
 \end{conditions}
 
-
 \textsc{Brun} et al. \cite{brun.1977} considered an adsorbed water film in the pores (thickness of \SI{.8}{\nano\meter}) and also a temperature correction for surface tension and for the melting entropy.
 The relationship resulting from Equations~\ref{eq:brun_freeze} and \ref{eq:brun_melt} are plotted in Figure~\ref{fig:freezing_depression}.
-
-
-
-\cite{setzer.1994} 
 
 \begin{figure}[!htb]
     \centering
@@ -947,7 +948,7 @@ The relationship resulting from Equations~\ref{eq:brun_freeze} and \ref{eq:brun_
         \begin{axis}[
 				legend style={at={(0.97,.94)},anchor=north east},
 				xmin=-40, xmax=0,
-				ymin=0, ymax=12,
+				ymin=0, ymax=30,
 				width=0.95\linewidth,
 				height=0.4\linewidth,
 				grid=major,
@@ -971,8 +972,7 @@ The relationship resulting from Equations~\ref{eq:brun_freeze} and \ref{eq:brun_
 
 This shows that smaller pores lead to lower freezing temperatures of the water inside the pores.
 However, this also depends on the pore type.
-For example, water in connected capillary pores freezes until \SI{-20}{\celsius}, isolated pores between \SIrange{-20}{-35}{\celsius} and gel pores freeze below \SI{-35}{\celsius}.
-This is also illustrated in Figure~\ref{fig:freeze}.
+
 If a larger pore (D) is only connected to smaller pore (C) or is isolated, it can only freeze at the same temperature as the smaller sized pore (C), while similar sized pores (B) were already frozen.
 
 \begin{figure}[!ht]
@@ -983,6 +983,17 @@ If a larger pore (D) is only connected to smaller pore (C) or is isolated, it ca
     \label{fig:freeze}
 \end{figure}
 
+{\color{red}
+Furthermore, supercooling can be observed in the literature \cite{setzer.1994,sant.2011}, which renders the evaluation of the larger pore sizes more difficult or impossible.
+The reason for the supercooling is the lack of nucleation points for the ice crystals.
+
+-> Matthias gefragt nach Quelle:
+
+Entwicklung und Präzision eines Prüfverfahrens zum FrostTausalz-Widerstand. Wissenschaftliche Zeitschrift der Hochschule für Architektur und Bauwesen Weimar 
+\cite{setzer.1994}
+
+-> deutliche Unterkühlungseffekte sichtbar. Vermeidung durch vorheriges einfrieren der Probe und Induktion von Kristallisationskeimen Auch bei \cite{sant.2011}
+}
 
 \FloatBarrier
 \section{Statistical analysis of the representativeness of an 2D image}

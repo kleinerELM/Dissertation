@@ -100,7 +100,7 @@ This resulted in the following freeze curves as plotted in Figure~\ref{fig:ltdsc
 				scaled x ticks=false,,
 				axis x line*=top
             ]
-			
+
         \end{semilogxaxis}
         \begin{semilogxaxis}[
 				legend style={at={(0.95,.7)},anchor=east},
@@ -126,10 +126,10 @@ This resulted in the following freeze curves as plotted in Figure~\ref{fig:ltdsc
             ]
 			  \addplot[dotted, thick, samples=2, grey,forget plot] coordinates {(3.19,-.2)(3.19,.2)};
 			  \node[grey, rotate=90, anchor=west] at (axis cs: 2.6,-.06) {\footnotesize <\,\SI{-40}{\degreeCelsius}!};
-  
+
 			\addplot [ no marks, blue] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/glass/ExpDat_2.1-5nm_freeze_segment_18.csv};
 			\addplot [ no marks, blue,forget plot, dashed] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/glass/ExpDat_2.2-5nm_freeze_segment_18.csv};
-			
+
         \end{semilogxaxis}
 	  \end{tikzpicture}
 	  \caption{\SI{5}{\nano\meter} porous \textsc{VYCOR}-glass.}
@@ -156,7 +156,7 @@ This resulted in the following freeze curves as plotted in Figure~\ref{fig:ltdsc
 					scaled x ticks=false,
 					axis x line*=top,
 				]
-				
+
 		  \end{semilogxaxis}
 		  \begin{semilogxaxis}[
 				legend style={at={(0.95,.7)},anchor=east},
@@ -186,11 +186,11 @@ This resulted in the following freeze curves as plotted in Figure~\ref{fig:ltdsc
 
 			  \addplot [ no marks, orange,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/glass/ExpDat_1.1-20nm_freeze_segment_18.csv};
 			  \addplot [ no marks, orange,forget plot, dashed] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/glass/ExpDat_1.2-20nm_freeze_segment_18.csv};
-			  
+
 		  \end{semilogxaxis}
 		\end{tikzpicture}
 		\caption{\SI{20}{\nano\meter} porous \textsc{VYCOR}-glass.}
-  
+
 	\end{subfigure}
     \caption{These curves show the freezing curve of \ac{LTDSC}-measurements of two nano-porous glass types. Each type was measured using two specimens. Note that pore sizes below \SI{3.19}{\nano\meter} are undefined as noted in Equation~\ref{eq:brun_freeze}.}
     \label{fig:ltdsc_result_glass_freeze}
@@ -258,7 +258,7 @@ It was not possible to measure \ac{C2S} after \SI{1}{\day} of hydration, since t
 \begin{figure}[!htb]
     \centering
  	\begin{subfigure}{.47\textwidth}
-	
+
       \begin{tikzpicture}[remember picture]
         \begin{semilogxaxis}[
 				blue,
@@ -277,7 +277,7 @@ It was not possible to measure \ac{C2S} after \SI{1}{\day} of hydration, since t
 				scaled x ticks=false,,
 				axis x line*=top
             ]
-			
+
         \end{semilogxaxis}
         \begin{semilogxaxis}[
 				legend style={at={(0.95,.7)},anchor=east},
@@ -302,7 +302,7 @@ It was not possible to measure \ac{C2S} after \SI{1}{\day} of hydration, since t
             ]
 			\addplot[dotted, thick, samples=2, grey,forget plot] coordinates {(3.19,-.2)(3.19,.2)};
 			\node[grey, rotate=90, anchor=west] at (axis cs: 2.51,-.10) {\footnotesize <\,\SI{-40}{\degreeCelsius}};
-			
+
 			% std dev of 7d C2S
             \addplot+ [draw=none, no markers, name path=A,forget plot] table [each nth point=4,filter discard warning=false, unbounded coords=discard, x index=3, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}, ] {figures/ltdsc/C2S_7d_mean_freeze_segment.csv};
             \addplot+ [draw=none, no markers, name path=B,forget plot] table [each nth point=3,filter discard warning=false, unbounded coords=discard, x index=3, col sep=comma,y expr={\thisrowno{1}+\thisrowno{2}}, ] {figures/ltdsc/C2S_7d_mean_freeze_segment.csv};
@@ -317,7 +317,7 @@ It was not possible to measure \ac{C2S} after \SI{1}{\day} of hydration, since t
             \addplot+ [draw=none, no markers, name path=A,forget plot] table [each nth point=4,filter discard warning=false, unbounded coords=discard, x index=3, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}, ] {figures/ltdsc/C2S_21d_mean_freeze_segment.csv};
             \addplot+ [draw=none, no markers, name path=B,forget plot] table [each nth point=4,filter discard warning=false, unbounded coords=discard, x index=3, col sep=comma,y expr={\thisrowno{1}+\thisrowno{2}}, ] {figures/ltdsc/C2S_21d_mean_freeze_segment.csv};
             \addplot [fill=green, fill opacity=0.2,forget plot] fill between [of=A and B];
-			
+
 			% std dev of 28d C2S
             \addplot+ [draw=none, no markers, name path=A,forget plot] table [each nth point=4,filter discard warning=false, unbounded coords=discard, x index=3, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}, ] {figures/ltdsc/C2S_28d_mean_freeze_segment.csv};
             \addplot+ [draw=none, no markers, name path=B,forget plot] table [each nth point=4,filter discard warning=false, unbounded coords=discard, x index=3, col sep=comma,y expr={\thisrowno{1}+\thisrowno{2}}, ] {figures/ltdsc/C2S_28d_mean_freeze_segment.csv};
@@ -361,7 +361,7 @@ It was not possible to measure \ac{C2S} after \SI{1}{\day} of hydration, since t
 			scaled x ticks=false,,
 			axis x line*=top
 		]
-		
+
 		\end{axis}
 		\begin{axis}[
 			legend style={at={(0.97,.7)},anchor=east},
@@ -399,7 +399,7 @@ It was not possible to measure \ac{C2S} after \SI{1}{\day} of hydration, since t
             \addplot+ [restrict x to domain=1.5:5, draw=none, no markers, name path=A,forget plot] table [each nth point=3,filter discard warning=false, unbounded coords=discard, x index=3, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}, ] {figures/ltdsc/C2S_21d_mean_freeze_segment.csv};
             \addplot+ [restrict x to domain=1.5:5, draw=none, no markers, name path=B,forget plot] table [each nth point=3,filter discard warning=false, unbounded coords=discard, x index=3, col sep=comma,y expr={\thisrowno{1}+\thisrowno{2}}, ] {figures/ltdsc/C2S_21d_mean_freeze_segment.csv};
             \addplot [fill=green, fill opacity=0.2,forget plot] fill between [of=A and B];
-			
+
 			% std dev of 28d C2S
             \addplot+ [restrict x to domain=1.5:5, draw=none, no markers, name path=A,forget plot] table [each nth point=3,filter discard warning=false, unbounded coords=discard, x index=3, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}, ] {figures/ltdsc/C2S_28d_mean_freeze_segment.csv};
             \addplot+ [restrict x to domain=1.5:5, draw=none, no markers, name path=B,forget plot] table [each nth point=3,filter discard warning=false, unbounded coords=discard, x index=3, col sep=comma,y expr={\thisrowno{1}+\thisrowno{2}}, ] {figures/ltdsc/C2S_28d_mean_freeze_segment.csv};
@@ -460,7 +460,7 @@ The \ac{LTDSC} curves from the second freezing pass are plotted in Figure~\ref{f
 				scaled x ticks=false,
 				axis x line*=top,
             ]
-			
+
         \end{semilogxaxis}
         \begin{semilogxaxis}[
 				legend style={at={(0.95,.7)},anchor=east},
@@ -506,7 +506,7 @@ The \ac{LTDSC} curves from the second freezing pass are plotted in Figure~\ref{f
             \addplot+ [draw=none, no markers, name path=A,forget plot] table [each nth point=4,filter discard warning=false, unbounded coords=discard, x index=3, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}, ] {figures/ltdsc/C3S_21d_mean_freeze_segment.csv};
             \addplot+ [draw=none, no markers, name path=B,forget plot] table [each nth point=4,filter discard warning=false, unbounded coords=discard, x index=3, col sep=comma,y expr={\thisrowno{1}+\thisrowno{2}}, ] {figures/ltdsc/C3S_21d_mean_freeze_segment.csv};
             \addplot [fill=green, fill opacity=0.2,forget plot] fill between [of=A and B];
-			
+
 			% std dev of 28d C3S
             \addplot+ [draw=none, no markers, name path=A,forget plot] table [each nth point=4,filter discard warning=false, unbounded coords=discard, x index=3, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}, ] {figures/ltdsc/C3S_28d_mean_freeze_segment.csv};
             \addplot+ [draw=none, no markers, name path=B,forget plot] table [each nth point=4,filter discard warning=false, unbounded coords=discard, x index=3, col sep=comma,y expr={\thisrowno{1}+\thisrowno{2}}, ] {figures/ltdsc/C3S_28d_mean_freeze_segment.csv};
@@ -552,7 +552,7 @@ The \ac{LTDSC} curves from the second freezing pass are plotted in Figure~\ref{f
 			scaled x ticks=false,,
 			axis x line*=top
 		]
-		
+
 		\end{axis}
 		\begin{axis}[
 				legend style={at={(0.97,.65)},anchor=east},
@@ -597,7 +597,7 @@ The \ac{LTDSC} curves from the second freezing pass are plotted in Figure~\ref{f
             \addplot+ [restrict x to domain=1.5:5, draw=none, no markers, name path=A,forget plot] table [each nth point=3,filter discard warning=false, unbounded coords=discard, x index=3, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}, ] {figures/ltdsc/C3S_21d_mean_freeze_segment.csv};
             \addplot+ [restrict x to domain=1.5:5, draw=none, no markers, name path=B,forget plot] table [each nth point=3,filter discard warning=false, unbounded coords=discard, x index=3, col sep=comma,y expr={\thisrowno{1}+\thisrowno{2}}, ] {figures/ltdsc/C3S_21d_mean_freeze_segment.csv};
             \addplot [fill=green, fill opacity=0.2,forget plot] fill between [of=A and B];
-			
+
 			% std dev of 28d C3S
             \addplot+ [restrict x to domain=1.5:5, draw=none, no markers, name path=A,forget plot] table [each nth point=3,filter discard warning=false, unbounded coords=discard, x index=3, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}, ] {figures/ltdsc/C3S_28d_mean_freeze_segment.csv};
             \addplot+ [restrict x to domain=1.5:5, draw=none, no markers, name path=B,forget plot] table [each nth point=3,filter discard warning=false, unbounded coords=discard, x index=3, col sep=comma,y expr={\thisrowno{1}+\thisrowno{2}}, ] {figures/ltdsc/C3S_28d_mean_freeze_segment.csv};
@@ -648,8 +648,8 @@ However, the freezing curve can't be used to calculate the volume of the gel por
 In order to calculate the ice mass of the gel pores and thus also their volume, the heat flow signal of the two melting curves of every experiment was integrated over the measured temperature ranges and subtracted from each other as shown in equations \ref{eq:ltdsc_ice} and \ref{eq:ltdsc_ice2}.
 In order to do that, a base line correction was applied to the raw data.
 Figure~\ref{fig:ltdsc_result_c2s_melt} illustrates this process for the results of \SI{28}{\day} hydrated \ac{C2S}.
-{\color{red}The detailed procedure is published on github \url{https://github.com/kleinerELM/Kalorimeterauswertung}
-}
+%{\color{red}The detailed procedure is published on github \cite{kleiner.2025} %\url{https://github.com/kleinerELM/Kalorimeterauswertung}
+%}
 
 The raw data are plotted as dashed lines, while the corrected data are plotted as solid lines.
 The areas under the solid curves are marked in red and yellow.
@@ -861,7 +861,7 @@ Furthermore, a significant slow down of gel pore development and reduction in ca
 	  \label{fig:ltdsc_result_C3S_melt_bar}
 
 	\end{subfigure}
-	
+
     \caption{Ice mass for the two pore types and total pore amount of \ac{C3S} and \ac{C3S} from 1 to \SI{28}{\day} of hydration. The data were calculated from three \ac{LTDSC}-measurements for each value.}
 	\label{fig:ltdsc_result_melt_bar}
 \end{figure}
@@ -975,7 +975,7 @@ This was done by calculating the linear regression of the data between \num{-55}
 		]
 			\addplot [ no marks, red, forget plot, dotted] table [skip first n=1, y index=4, x expr={1000*\thisrowno{1}}, col sep=semicolon] {figures/mip/HG C2S 14d.CSV};
 			\addplot [ no marks, blue, forget plot, dotted] table [skip first n=1, y index=4, x expr={1000*\thisrowno{1}}, col sep=semicolon] {figures/mip/HG C2S 28d.CSV};
-			
+
 
 			%the domain restriction is somewhat weird. It should be 10:10000, but that does not work. 1:10000 at least gave the correct result.
 			\addplot [ thick, no marks, red, forget plot, restrict x to domain=1:10000] table [skip first n=1, y index=4, x expr={1000*\thisrowno{1}}, col sep=semicolon] {figures/mip/HG C2S 14d.CSV};
@@ -1095,7 +1095,7 @@ This was done by calculating the linear regression of the data between \num{-55}
 			\addlegendentry{\acs{LTDSC}};
 			\addplot [ thick, no marks, black, solid] coordinates {(0.1,0) (.9,0)};
 			\addlegendentry{\acs{MIP}};
-			
+
 		\end{semilogxaxis}
 	\end{tikzpicture}
 	\caption{{\color{orange}\ac{MIP}-analyis} of \ac{C3S} after 7 and \SI{28}{\day} of hydration compared with selected {\color{blue}\ac{LTDSC}-curves}. Note that pore sizes below \SI{3.19}{\nano\meter} are undefined as noted in Equation~\ref{eq:brun_freeze}.}

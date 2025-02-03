@@ -35,7 +35,7 @@ On contact with water these phases dissolve and new phases like \ac{CSH}, \ac{CH
 
             \addplot+ [ mark=none, green, very thick ] table [x index=2, y index=3, col sep=comma] {figures/literature/phase_dev_moeser.csv};
             \addlegendentry{ettringite};
-            
+
             \addplot+ [ mark=none, orange, very thick ] table [x index=0, y index=1, col sep=comma] {figures/literature/phase_dev_moeser.csv};
             \addlegendentry{syngenit};
 
@@ -45,7 +45,7 @@ On contact with water these phases dissolve and new phases like \ac{CSH}, \ac{CH
             \addplot+ [ mark=none, yellow, solid, very thick ] table [x index=10, y index=11, col sep=comma] {figures/literature/phase_dev_moeser.csv};
             \addlegendentry{\ac{AFm}};
 
-            
+
 			\node[right,green] at (axis cs: 5,23)  {\small $\cong$ \SI{0.5}{\micro\meter}};
 			\node[right,green] at (axis cs:21,43)  {\small $\cong$ \SI{2.5}{\micro\meter}};
 
@@ -128,7 +128,7 @@ However, reliable quantitative observations on polished surfaces using the \ac{B
 \ac{CSH} is the decisive phase for the strength of the concrete during the later hydration process.
 The detailed knowledge of the \ac{CSH}-development in volume but also microstructural shape is especially important to simulate its growth \cite{breugel.1997,nguyen-tuan.2023,nguyen-tuan.2024} and the resulting pore space.
 
-In the literature, \ac{CSH} is usually distinguished in two different types: a high density and a low density variant. 
+In the literature, \ac{CSH} is usually distinguished in two different types: a high density and a low density variant.
 Their definition and terms vary between publications and may somtimes not mean exactly the same penomenon:
 
 \begin{itemize}
@@ -235,17 +235,17 @@ The estimation is based on the \ac{CSH}-concentration, the mean diameter and tha
 				grid style={line width=.1pt, draw=gray!10},
             ]
 
-            \addplot [ mark=+, blue, only marks ] table {figures/hydrate-rim/data_garrault/CSH.dat}; 
+            \addplot [ mark=+, blue, only marks ] table {figures/hydrate-rim/data_garrault/CSH.dat};
             \addplot [ draw=none, forget plot ] table [ y={create col/linear regression={y=Y}} ] {figures/hydrate-rim/data_garrault/CSH.dat};
             \addplot[update limits=false, no markers, blue, domain={2:16}, forget plot] {\pgfplotstableregressionb + x*\pgfplotstableregressiona};
             \addlegendentry{\acs*{CSH}};
 
-            \addplot [ mark=x, red, only marks ] table {figures/hydrate-rim/data_garrault/CSHi.dat}; 
+            \addplot [ mark=x, red, only marks ] table {figures/hydrate-rim/data_garrault/CSHi.dat};
             \addplot [ draw=none, forget plot ] table [ y={create col/linear regression={y=Y}} ]  {figures/hydrate-rim/data_garrault/CSHi.dat};
             \addplot[update limits=false, no markers, red, domain={6:16}, forget plot] {\pgfplotstableregressionb + x*\pgfplotstableregressiona};
             \addlegendentry{\acs*{CSHi}};
 
-            \addplot [ mark=x, orange, only marks ] table {figures/hydrate-rim/data_garrault/CSHo.dat}; 
+            \addplot [ mark=x, orange, only marks ] table {figures/hydrate-rim/data_garrault/CSHo.dat};
             \addplot [ draw=none, forget plot ] table [ y={create col/linear regression={y=Y}} ]  {figures/hydrate-rim/data_garrault/CSHo.dat};
             \addplot[update limits=false, no markers, orange, domain={6:16}, forget plot] {\pgfplotstableregressionb + x*\pgfplotstableregressiona};
             \addlegendentry{\acs*{CSHo}};
@@ -890,7 +890,7 @@ The paper also shows me, that the speed of temperature change (2K/min) is too fa
 \subsection{Low Temperature - Differential Scanning Calorimetry (\acs{LTDSC})}
 \label{sec:ltdsc}
 
-Another less common method to indirectly measure the \ac{PSD}, especially in the nano-pore range, is the \ac{LTDSC} \cite{brun.1973,brun.1977}.
+Another less common method to indirectly measure the \ac{PSD}, especially in the nano-pore range, is the \ac{LTDSC} \cite{brun.1973,brun.1977}, often also called \textit{thermoporometry} (e.g. \cite{joseph.2024}).
 The method is based on the principle, that the freezing point of water is lowered in small pores due to surface tension \cite{brun.1973,brun.1977}.
 Since the heat capacity of the phase transition (liquid-solid) is significantly higher than that of the solid phases, this freezing point depression can be measured using \ac{DSC}.
 
@@ -908,7 +908,7 @@ They proposed the connection between pore types and the freezing point depressio
 \end{itemize}
 In their study only the peak presence at $\approx$ \SI{-15}{\degreeCelsius} was evaluated.
 
-\textsc{Brun} et al. \cite{brun.1977} proposed an approximate solution to convert between freezing/melting point of water and the pore radius for cylindrical pores.
+\textsc{Brun} et al. \cite{brun.1977} proposed an approximate solution based on a \textsc{Gibbs-Thompson} relationship to convert between freezing/melting point of water and the pore radius for cylindrical pores.
 The equation for freezing is:
 \begin{equation}
 	r_\text{P} = -\frac{64.67}{\Delta T }+0.57;~~~\SI{0}{\kelvin} > \Delta T > \SI{-40}{\kelvin},
@@ -924,6 +924,7 @@ and for melting:
 	r_\text{P} = -\frac{32.33}{\Delta T }+0.68;~~~\SI{0}{\kelvin} > \Delta T > \SI{-40}{\kelvin}.
 	\label{eq:brun_melt}
 \end{equation}
+% in Joseph.2024 stammt die + 0.68 aus "-0.12 + \delta" wobei \delta = the non-freezable layer of water in nm. With respect to the value of δ, both 1.2 nm [52,53] and 0.8 nm [51,54]
 
 It has to be noted, that $\Delta T$ measurements below \SI{-40}{\celsius} are not covered by these equations.
 However, \textsc{kloetstra} et al. \cite{kloetstra.1995} proposed that it is possible to extend this lower limit.
@@ -945,25 +946,26 @@ The relationship resulting from Equations~\ref{eq:brun_freeze} and \ref{eq:brun_
 \begin{figure}[!htb]
     \centering
     \begin{tikzpicture}
-        \begin{axis}[
-				legend style={at={(0.97,.94)},anchor=north east},
+        \begin{semilogyaxis}[
+				legend style={at={(0.03,.94)},anchor=north west},
 				xmin=-40, xmax=0,
-				ymin=0, ymax=30,
+				ymin=1, ymax=30,
 				width=0.95\linewidth,
 				height=0.4\linewidth,
 				grid=major,
-				xlabel={freezing point depression $\Delta T$ in \si{\kelvin}},
+				xlabel={freezing poicnt depression $\Delta T$ in \si{\kelvin}},
 				ylabel={pore radius $r_\text{P}$ in \si{\nano\meter}},
 				xtick={0,-10,...,-40},
-				ytick={0,2,...,12},
+				ytick     ={1,2.5,5,10,30},
+				yticklabels={1,2.5,5,10,30},
 				grid style={line width=.1pt, draw=gray!10},
-				x dir=reverse
+				%x dir=reverse
             ]
 			\addplot[blue, domain=0:-40, samples=50] {0.57-64.67/x};
             \addlegendentry{freezing \cite{brun.1977}};
 			\addplot[red, domain=0:-40, samples=50, dashed] {0.68-32.33/x};
             \addlegendentry{melting \cite{brun.1977}};
-        \end{axis}
+        \end{semilogyaxis}
     \end{tikzpicture}
     \caption{Depression of the freezing or melting point as functions of the pore radius. Calculated according to \textsc{Brun} et al. \cite{brun.1977} for water using Equations~\ref{eq:brun_freeze} and \ref{eq:brun_melt}.}
     \label{fig:freezing_depression}
@@ -983,17 +985,46 @@ If a larger pore (D) is only connected to smaller pore (C) or is isolated, it ca
     \label{fig:freeze}
 \end{figure}
 
-{\color{red}
-Furthermore, supercooling can be observed in the literature \cite{setzer.1994,sant.2011}, which renders the evaluation of the larger pore sizes more difficult or impossible.
+Furthermore, supercooling effects can be observed in the literature \cite{setzer.1994,sant.2011}, which renders the evaluation of the larger pore sizes more difficult or impossible.
+They are indicated by a shift of the main freezing peak to temperatures below \SI{-10}{\degreeCelsius}.
 The reason for the supercooling is the lack of nucleation points for the ice crystals.
+Therefore, in more recent publications a pre-cooling step was done to induce nucleation crystals \cite{nguyen.2021,mueller.2021,joseph.2024}.
 
--> Matthias gefragt nach Quelle:
 
-Entwicklung und Präzision eines Prüfverfahrens zum FrostTausalz-Widerstand. Wissenschaftliche Zeitschrift der Hochschule für Architektur und Bauwesen Weimar 
-\cite{setzer.1994}
+The melting curve allows to process the cumulative ice mass:
 
--> deutliche Unterkühlungseffekte sichtbar. Vermeidung durch vorheriges einfrieren der Probe und Induktion von Kristallisationskeimen Auch bei \cite{sant.2011}
-}
+% \begin{equation}
+% 	\Delta T = T_\text{melt} - T
+% 	\label{eq:ltdsc_delta_t}
+% \end{equation}
+
+% Randall to process the melting enthalpy
+%\cite{randall} https://reader.library.cornell.edu/docviewer/digital?id=chla2944761_2176#page/19/mode/1up
+% \Delta H^{0}_{m} =  \SI{334.1}{\joule\per\gram}
+There is an enthalpy change of fusion of ice in \si{\joule\per\gram} at different temperatures, which can be approximated by the following equation by \textsc{Chen} \cite{chen.1988} and \textsc{ishikiriyama} et al. \cite{ishikiriyama.1995} based on data from \textsc{randall} \cite{randall.1930}:
+\begin{equation}
+	\Delta H_\text{fus}(\Delta T) = 334.1 + 2.119 \cdot \Delta T - 0.000783 \cdot \Delta T^2
+	\label{eq:ltdsc_h}
+\end{equation}
+
+After a baseline correction and integration of the peak, the mass of the frozen water within the respective measuring zone can be calculated using the following equation:
+%\dot{Q}/m_\text{specimen} = DSC / Wärmestrom pro Probenmasse
+\begin{equation}
+	m_\text{ice} = \int_{\vartheta_\text{min}}^{\vartheta_\text{max}} \dot{Q}_{m_\text{specimen}}(\vartheta) d\vartheta  / \Delta H_\text{fus}
+	\label{eq:ltdsc_ice}
+\end{equation} %  / \text{values per second} \cdot 1000
+
+The ice mass of the gel pores can then be calculated by subtracting the ice mass of the capillary pores (P1-zone) from the total ice mass (P2-zone):
+
+\begin{equation}
+	m_\text{ice, gel} = m_\text{ice, P2} - m_\text{ice, P1}
+	\label{eq:ltdsc_ice2}
+\end{equation}
+
+%10.14359/51738808 \cite{Ghantous.2023} Examining Effect of Printing Directionality on Freezingand-Thawing Response of Three-Dimensional-Printed Cement Paste
+
+%10.1007/s100510170196 %how to LT-DSC :D \cite{Neffati.2001} - LTDSC on porous glass -> details about the freezing speed
+
 
 \FloatBarrier
 \section{Statistical analysis of the representativeness of an 2D image}
@@ -1258,7 +1289,7 @@ However, it ignores the influence of larger inhomogeneities, as the rather large
 
 \section{SEM for building material characterisation}
 
-% Übersicht über die Geschichte von REM Analyse... 
+% Übersicht über die Geschichte von REM Analyse...
 % was gibts für abbildungsmodi - praktikumsanleitungen - Karen Microstructure analysis
 %state of the art Bildanalyse - stutzman, fabien, Holzer, Münch, Herr Ulm/MITv -> Segmentierung/Kanten
 
@@ -1314,13 +1345,13 @@ The structure of concretes is simulated in a variety of models at different scal
 Atomistic modelling is used to fundamentally simulate the structural composition \cite{kumar.2017,mishra.2017,kunhimohamed.2020,casar.2023}.
 Other authors model the mesostructure (area between atomistic and microscale) of e.g. C-S-H phases and porosity \cite{ioannidou.2016, yu.2016}.
 Finally, there are modern micromechanical models that attempt to close the transition from meso- to macromodelling \cite{bernard.2003, hlobil.2016, gobel.2018}.
-The basis for realistic modelling is a quantitative experimental characterisation of the corresponding structures \cite{gobel.2018a}. 
+The basis for realistic modelling is a quantitative experimental characterisation of the corresponding structures \cite{gobel.2018a}.
 
 In summary, it can be stated that the mesostructure (phase distribution including gel porosity) should be better characterised to better understand the transport of (attacking) media in concrete.
 
 
-%Mit den Anforderungen an die Baustoffe steigen auch die Anforderungen an die Charakterisierung und Modellierung der zugrundeliegenden Stoffsysteme. Die skalenübergreifende Erfassung von Gefügemerkmalen ist dabei eine nach wie vor ungelöste, dennoch aber zentrale Aufgabenstellung. Es bestehen fortgeschrittene Ansätze die Festigkeits-, Formhaltungs- und Dauerhaftigkeitskennwerte von Betonen zu modellieren und zu simulieren \cite{bishnoi.2009, kumar.2017, zhou.2019, ouzia.2019}. Aufgrund der hohen Komplexität, der multiskaligen Heterogenität und der zeitlichen Veränderungen ist dies oftmals nur stark vereinfacht möglich. Die Simulationen und Modelle könnten eine bessere Realitätsnähe aufweisen, wenn die Struktur von Betonen von der Nano- bis zur Makroskala besser quantifizierbar wäre. 
-%Die Struktur von Betonen wird in einer Vielzahl von Modellen auf verschiedenen Skalen simuliert \cite{bishnoi.2009, kumar.2017, zhou.2019, ouzia.2019}. Atomistische Modellierung wird angewandt, um den Strukturaufbau grundlegend zu simulieren \cite{kumar.2017,mishra.2017,kunhimohamed.2020,casar.2023}. Andere Autoren modellieren die Mesostruktur (Bereich zwischen atomistischer und Mikroskala) von z.B. C-S-H Phasen und Porosität \cite{ioannidou.2016, yu.2016}. Schließlich gibt es moderne mikromechanische Modelle, die versuchen, den Übergang von Meso- bis Makromodellierung zu schließen \cite{bernard.2003, hlobil.2016, gobel.2018}. Grundlage für realitätsnahe Modellierung ist eine quantitative experimentelle Charakterisierung der entsprechenden Strukturen \cite{gobel.2018a}. 
+%Mit den Anforderungen an die Baustoffe steigen auch die Anforderungen an die Charakterisierung und Modellierung der zugrundeliegenden Stoffsysteme. Die skalenübergreifende Erfassung von Gefügemerkmalen ist dabei eine nach wie vor ungelöste, dennoch aber zentrale Aufgabenstellung. Es bestehen fortgeschrittene Ansätze die Festigkeits-, Formhaltungs- und Dauerhaftigkeitskennwerte von Betonen zu modellieren und zu simulieren \cite{bishnoi.2009, kumar.2017, zhou.2019, ouzia.2019}. Aufgrund der hohen Komplexität, der multiskaligen Heterogenität und der zeitlichen Veränderungen ist dies oftmals nur stark vereinfacht möglich. Die Simulationen und Modelle könnten eine bessere Realitätsnähe aufweisen, wenn die Struktur von Betonen von der Nano- bis zur Makroskala besser quantifizierbar wäre.
+%Die Struktur von Betonen wird in einer Vielzahl von Modellen auf verschiedenen Skalen simuliert \cite{bishnoi.2009, kumar.2017, zhou.2019, ouzia.2019}. Atomistische Modellierung wird angewandt, um den Strukturaufbau grundlegend zu simulieren \cite{kumar.2017,mishra.2017,kunhimohamed.2020,casar.2023}. Andere Autoren modellieren die Mesostruktur (Bereich zwischen atomistischer und Mikroskala) von z.B. C-S-H Phasen und Porosität \cite{ioannidou.2016, yu.2016}. Schließlich gibt es moderne mikromechanische Modelle, die versuchen, den Übergang von Meso- bis Makromodellierung zu schließen \cite{bernard.2003, hlobil.2016, gobel.2018}. Grundlage für realitätsnahe Modellierung ist eine quantitative experimentelle Charakterisierung der entsprechenden Strukturen \cite{gobel.2018a}.
 %Zusammenfassend kann festgestellt werden, dass für den Transport von (angreifenden) Medien im Beton die Mesostruktur (Phasenverteilung inklusive Gelporosität) besser charakterisiert werden müsste.
 
 

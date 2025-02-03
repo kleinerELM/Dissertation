@@ -6,7 +6,7 @@
 
 \subsection{\acs{C2S} and \acs{C3S} clinker}
 
-Commercially available alite (MIII polymorph, Vustah, Czech Republic) and belite (Vustah, Czech Republic) were utilized. 
+Commercially available alite (MIII polymorph, Vustah, Czech Republic) and belite (Vustah, Czech Republic) were utilized.
 The chemical composition (Table~\ref{tab:xrf}) was determined by \ac{mXRF}, and the phase purity was confirmed at \num{99.4}\,±\,\SI{0.4}{\wtpercent} (alite) using \ac{XRD} analysis.
 
 \begin{table}[h]
@@ -353,7 +353,7 @@ However, values above {\color{red} ~\SI{20}{\micro\meter} should be ignored, sin
 
 
 To obtain data about the capillary and gel porosity, the \textit{DSC Polyma 214} from \textit{Netzsch}, connected to the cooling system \textit{Intercooler IC70} was used.
-The specimens were sliced to fit the small aluminum crucibles with a inner volume of approx. \SI{60}{\micro\litre}.
+The specimens were sliced to fit the small aluminum crucibles with a inner volume of $\approx$ \SI{60}{\micro\litre}.
 These crucibles sealed air tight by cold-welding a lid under pressure and measured against an empty reference crucible.
 
 % \begin{figure}[!htb]
@@ -503,37 +503,7 @@ The measurement are done within the zones P1 (down to \SI{-25}{\celsius}) and P2
 These two measurement zones allow to distinguish the ice mass of pores with radii smaller and larger than $\approx$ \SI{3}{\nano\meter}.
 
 
-
-
+{\color{red}
 The script automatically processes a baseline, which is then to be subtracted from the raw data.
-This allows to process the cumulative ice mass:
-
-\begin{equation}
-	\Delta T = T_\text{melt} - T
-	\label{eq:ltdsc_delta_t}
-\end{equation}
-
-% Randall to process the melting enthalpy
-%\cite{randall}
-\begin{equation}
-	\Delta H_\text{fus} = 334.1 + 2.119 \cdot \Delta T - 0.000783 \cdot \Delta T^2
-	\label{eq:ltdsc_h}
-\end{equation}
-
-The following equation then allows to calculate the ice mass in the specimen.
-%\dot{Q}/m_\text{specimen} = DSC / Wärmestrom pro Probenmasse
-\begin{equation}
-	m_\text{ice} = \int_{\vartheta_\text{min}}^{\vartheta_\text{max}} \dot{Q}_{m_\text{specimen}}(\vartheta) d\vartheta /\text{values per second} \cdot 1000 / \Delta H_\text{fus}
-	\label{eq:ltdsc_ice}
-\end{equation}
-
-The ice mass of the gel pores can be calculated by subtracting the ice mass of the capillary pores (P1-zone) from the "total ice mass" (P2-zone):
-
-\begin{equation}
-	m_\text{ice, gel} = m_\text{ice, P2} - m_\text{ice, P1}
-	\label{eq:ltdsc_ice2}
-\end{equation}
-
-%10.14359/51738808 
-
-%10.1007/s100510170196 %how to LT-DSC :D
+The detailed procedure is
+published on github \cite{kleiner.2025}.} %\url{https://github.com/kleinerELM/Kalorimeterauswertung}s

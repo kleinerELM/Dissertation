@@ -1,8 +1,12 @@
 \chapter{Literature}
 
-
+% imageing overview paper \cite{qoku.2023}
 
 \section{Cement hydration}
+
+% cement hydration through time \cite{john.2023} -> das Paper sollte unbedingt noch eingearbeitet werden.
+% TEM images of early C3S grain hydration from \cite{yan.2023}
+% TEM images of CSH \cite{richardson.2004}
 
 The main phases of \ac{OPC} are \ac{C3S}, \ac{C2S}, \ac{C3A} and \ac{C4AF}.
 On contact with water these phases dissolve and new phases like \ac{CSH}, \ac{CH}, ettringite, syngenite, gypsum and \ac{AFm} form (see Figure~\ref{fig:moeser_phase_dev}) \cite{moser.2001, stark.2003}.
@@ -54,7 +58,7 @@ On contact with water these phases dissolve and new phases like \ac{CSH}, \ac{CH
 
         \end{axis}
     \end{tikzpicture}
-    \caption{Scheme for ordinary Portland cement hydration at room temperature. The colored dimensions indicate the length of the crystal needles of \ac{CSH} and ettringite Redrawn after \textsc{Möser} \cite{moser.2001} and \textsc{Stark} \cite{stark.2003}.}
+    \caption{Scheme for ordinary Portland cement hydration at room temperature. The colored dimensions indicate the length of the crystal needles of \ac{CSH} and ettringite Redrawn after \textcite{moser.2001} and \textcite{stark.2003}.}
     \label{fig:moeser_phase_dev}
 \end{figure}
 
@@ -211,11 +215,11 @@ However, they mainly observed rather coarse particles.
 In 1930 they also published datasets for the hydration of \ac{C3S} and \ac{C2S} \cite{anderegg.1930}.
 In contrast to the \ac{OPC} experiments, these consisted only out of very few series of experiments with a rather high variance (see Figure~\ref{fig:anderegg-hubbel}).
 
-\textsc{Garrault} et al. \cite{garrault.2006} measured the development of the \ac{CSH} concentration of \SI{4}{\gram} \ac{C3S} grains with different median diameters (7, 10, 11, 12.5, \SI{14}{\micro\meter}) for up to one day in a concentrated lime solution.
+\textcite{garrault.2006} measured the development of the \ac{CSH} concentration of \SI{4}{\gram} \ac{C3S} grains with different median diameters (7, 10, 11, 12.5, \SI{14}{\micro\meter}) for up to one day in a concentrated lime solution.
 They estimated the thickness of \ac{CSHi} (replacing \ac{C3S}) and \ac{CSHo} (on top of the grain) at the time, when the \ac{CSH} precipitation became limited by diffusion (see Figure~\ref{fig:garrault-distribution}) (beginning of the second deceleration period in Figure~\ref{fig:opc_dca}).
 For \SI{7}{\micro\meter} the diffusion was limited was after $\approx$ \SI{600}{\min} (\SI{10}{\hour}), for \SI{14}{\micro\meter} after $\approx$ \SI{700}{\min} (\SI{12}{\hour}).
 The estimation is based on the \ac{CSH}-concentration, the mean diameter and that the particles are spherical.
-\textsc{Garrault} et al. included a measurement of a single \ac{TEM}-image from  of a hydrated \ac{C3S} grain with a diameter of \SI{3}{\micro\meter}.% made by \textsc{Lachowski} and \textsc{Courault} in 1998.
+\textcite{garrault.2006} included a measurement of a single \ac{TEM}-image from  of a hydrated \ac{C3S} grain with a diameter of \SI{3}{\micro\meter}.% made by \textsc{Lachowski} and \textsc{Courault} in 1998.
 
 \begin{figure}[!htb]
     \centering
@@ -255,11 +259,11 @@ The estimation is based on the \ac{CSH}-concentration, the mean diameter and tha
 
         \end{axis}
     \end{tikzpicture}
-    \caption{Mean hydration rim of \SI{4}{\gram} \ac{C3S} from an estimation based of experiments by \textsc{Garrault} et al. \cite{garrault.2006} in dependence of the mean particle diameter after roughly 10 to \SI{12}{\hour}. The \ac{CSHo} data ($l_{\text{CSHo}}=l_{\text{CSH}}-l_{\text{CSHi}}$) were calculated for better comparability.}
+    \caption{Mean hydration rim of \SI{4}{\gram} \ac{C3S} from an estimation based of experiments by \textcite{garrault.2006} in dependence of the mean particle diameter after roughly 10 to \SI{12}{\hour}. The \ac{CSHo} data ($l_{\text{CSHo}}=l_{\text{CSH}}-l_{\text{CSHi}}$) were calculated for better comparability.}
     \label{fig:garrault-distribution}
 \end{figure}
 
-The data of \textsc{Garrault} et al. indicate a smaller hydrate seam with increasing mean particle diameters.
+The data of \textcite{garrault.2006} indicate a smaller hydrate seam with increasing mean particle diameters.
 This is contradicting the data of \textsc{Anderegg} and \textsc{Hubbell} \cite{anderegg.1929,anderegg.1930} (see Figure~\ref{fig:anderegg-hubbel-distribution}).
 However, \textsc{Anderegg} and \textsc{Hubbell} began their measurements after 7 days and therefore after the diffusion limited growth of the \ac{CSH}.
 Furthermore, their mean particle diameter was significantly larger (starting from \SI{15.5}{\micro\meter})
@@ -414,16 +418,16 @@ Furthermore, their mean particle diameter was significantly larger (starting fro
         \node [above] (L) at (rel axis cs:1.0,1.04) {\ref{CommonLegend3}};
 
     \end{tikzpicture}
-    \caption{Growth of \ac{CSH} on \ac{OPC}, \ac{C3S} and \ac{C2S} measured by \textsc{Anderegg} and \textsc{Hubbell} \cite{anderegg.1929,anderegg.1930} and \textsc{Nicoleau} \cite{nicoleau.2011}}
+    \caption{Growth of \ac{CSH} on \ac{OPC}, \ac{C3S} and \ac{C2S} measured by \textsc{Anderegg} and \textsc{Hubbell} \cite{anderegg.1929,anderegg.1930} and \textcite{nicoleau.2011}}
     \label{fig:anderegg-hubbel}
 \end{figure}
 
-\textsc{Nicoleau} \cite{nicoleau.2011} measured the \ac{CSH}-thickness using Cryo-\ac{SEM} on cracked surfaces of hydrated \ac{C3S} ($w/b=0.5$, $\vartheta=$\SI{20}{\celsius}) (see Figure~\ref{fig:anderegg-hubbel}).
-\textsc{Bishnoi} and \textsc{Scrivener} \cite{bishnoi.2012} criticized this approach due to the rather uncontrolled cracking, the subjectivity of the measurement and the occurrence of the sectioning effect, which was described in detail by \textsc{Scrivener} \cite{scrivener.2004}.
+\textcite{nicoleau.2011} measured the \ac{CSH}-thickness using Cryo-\ac{SEM} on cracked surfaces of hydrated \ac{C3S} ($w/b=0.5$, $\vartheta=$\SI{20}{\celsius}) (see Figure~\ref{fig:anderegg-hubbel}).
+\textcite{bishnoi.2012} criticized this approach due to the rather uncontrolled cracking, the subjectivity of the measurement and the occurrence of the sectioning effect, which was described in detail by \textcite{scrivener.2004}.
 This effect is an issue for all 2D images of polished sections (e.g. typical \ac{SEM}-\ac{BSE} images) and will be described and discussed in Subsection~\ref{subsec:sectioning-effect}.
 
-\textsc{Hader} \cite{hader.2000} and \textsc{Süß} \cite{suss.2001} manually measured the development of the length of \ac{CSH}-needles, (roughly equivalent with \ac{CSHo}), using \ac{SEM}-\ac{SE}-images until a specimen age of \SI{28}{\day}.
-\textsc{Stark} and \textsc{Möser} \cite{stark.2001, moser.2001,moser.2002} continued this work close to the three years mark.
+\textcite{hader.2000} and \textcite{suss.2001} manually measured the development of the length of \ac{CSH}-needles, (roughly equivalent with \ac{CSHo}), using \ac{SEM}-\ac{SE}-images until a specimen age of \SI{28}{\day}.
+\textsc{Stark} and \textsc{Möser} et al. \cite{stark.2001,moser.2001,moser.2002} continued this work close to the three years mark.
 The experiments were done using \ac{C3S} and $\beta$-\ac{C2S} at different temperatures.
 They measured a minimum and maximum value, of which the mean was calculated.
 However, it was not made clear by the authors, how many measurements were taken for each data point. Therefore, it should be assumed that these data are based on individual measurements.
@@ -537,14 +541,14 @@ The results are plotted in Figures~\ref{fig:suess_CSH_C3S} (\ac{C3S}) and \ref{f
         \node [above] (L) at (rel axis cs:1.0,1.05) {\ref{CommonLegend}};
 
     \end{tikzpicture}
-    \caption{Growth of \ac{CSHo} on \ac{C3S} at different temperatures. Based on data from \textsc{Hader} \cite{hader.2000} and \textsc{Süß} \cite{suss.2001}.}
+    \caption{Growth of \ac{CSHo} on \ac{C3S} at different temperatures. Based on data from \textcite{hader.2000} and \textcite{suss.2001}.}
     \label{fig:suess_CSH_C3S}
 \end{figure}
 
 The formation of \ac{CSH} begins earlier at increasing temperatures.
 This also causes a significant increase of the overall fibre length.
 At the same temperature, \ac{C2S} demonstrates a slower \ac{CSH}-growth.
-While the \ac{CSH}-growth of \ac{C3S} stagnates after 5 months, \textsc{Möser} indicates that the needle length of \ac{CSH} on \ac{C2S} is still increasing significantly, even until an age of 3 years.
+While the \ac{CSH}-growth of \ac{C3S} stagnates after 5 months, \textcite{moser.2002} indicates that the needle length of \ac{CSH} on \ac{C2S} is still increasing significantly, even until an age of 3 years.
 
 \begin{figure}[!htb]
     \centering
@@ -638,7 +642,7 @@ While the \ac{CSH}-growth of \ac{C3S} stagnates after 5 months, \textsc{Möser} 
         \node [above] (L) at (rel axis cs:1.0,1.14) {\ref{CommonLegend2}};
 
     \end{tikzpicture}
-    \caption{Growth of \ac{CSHo} on $\beta$-\ac{C2S} compared to \ac{C3S} at \SI{20}{\celsius}. Based on data from \textsc{Hader} \cite{hader.2000}, \textsc{Süß} \cite{suss.2001}, \textsc{Stark} and \textsc{Möser} \cite{stark.2001,moser.2002}.}
+    \caption{Growth of \ac{CSHo} on $\beta$-\ac{C2S} compared to \ac{C3S} at \SI{20}{\celsius}. Based on data from \textcite{hader.2000}, \textcite{suss.2001}, \textsc{Stark} and \textsc{Möser} et al. \cite{stark.2001,moser.2002}.}
     \label{fig:suess_CSH_C2S}
 \end{figure}
 
@@ -654,8 +658,8 @@ When growing unhindered, the needle-like \ac{CSH} phases can reach a length of a
 \label{sec:hadley}
 
 Sometimes, in polished sections of hydrated cementitious materials, hollow hydrate rims, sometimes filled with an unhydrated clinker grain can be observed (see Figure~\ref{fig:hadley}).
-These objects are called \textsc{Hadley grains} after \textsc{Hadley} \cite{hadley.2000} who first described this phenomenon.
-\textsc{Yio} et al. \cite{yio.2015a} observed the development of such a grain using confocal microscopy.
+These objects are called \textsc{Hadley grains} after \textsc{Hadley} who first described this phenomenon \cite{hadley.2000}.
+\textcite{yio.2015a} observed the development of such a grain using confocal microscopy.
 After \SI{28}{\day} they observed ``needle-like hydration products that connect the outer products and the anhydrous core''.
 In the later stages, the grain can completely dissolve and empty shells of \ac{CSH} remain.
 This can be seen in Figure~\ref{fig:hadley}, where both filled and hollow Hadley grains are visible, especially around belite.
@@ -810,7 +814,7 @@ However, if the resulting images share enough features, they still can be aligne
 This can be done using
 \begin{itemize}
     \item a fully manual alignment by rotating and transforming the images,
-    \item semi-manual method by identifying matching point-pairs ($n \leq 4$) between both images \cite{},
+    \item {\color{red} semi-manual method by identifying at least 4 matching point-pairs between both images \cite{},}
     \item automatic methods from the field of computer vision/photogrammetry like \ac{SIFT} \cite{lowe.2004} or machine learning supported algorithms.
 \end{itemize}
 
@@ -829,10 +833,13 @@ The main issues for combination of multi-device measurements are
 To simplify the realignment, markers (called fiducial), can be used, to align different data sources to each other.
 However, this is not always possible or expensive.
 
+% \cite{miliszkiewicz.2015} Current approaches to calibration of LA-ICP-MS analysis
 
 \FloatBarrier
 \section{Pore analysis}
 \label{sec:pore_analysis}
+
+% pore analysis paper \cite{yio.2019,levitz.2007,muench.2008,desbois.2016...}
 
 On initial thought, the measurement of pores and pore sizes seems to be fairly easy.
 However, while air voids in mortar and concrete are mostly spherical due to the surface tension of the fresh binder, this significantly changes below a scale of tens of micrometers, where the capillary pores begin.
@@ -845,7 +852,7 @@ However, each method has different measurement ranges as illustrated in Figure~\
     \centering
 
 	\includegraphics[width=.7\textwidth]{methods/pore_sizes.pdf}
-    \caption{Phase and pore sizes compared to the measurement ranges of selected methods. Redrawn and expanded according to a figure by Stark et al. \cite{stark.2000}, based on data from Romberg \cite{romberg.1978}.}
+    \caption{Phase and pore sizes compared to the measurement ranges of selected methods. Redrawn and expanded according to a figure by \textcite{stark.2000}, based on data from \textcite{romberg.1978}.}
     \label{fig:pore_sizes}
 \end{figure}
 
@@ -858,7 +865,7 @@ For this thesis, \ac{MIP}, \ac{LTDSC}, \ac{HNMR} were used as complementary meth
 
 \subsection{Mercury Intrusion Porosimetry (\acs{MIP})}
 \label{sec:mip}
-
+% \cite{munch.2008} FIB vs MIP!!! (11.9 x10.7 x5.6 µm)
 %https://www.epfl.ch/labs/lmc/wp-content/uploads/2019/08/03-Wioletta-Franco-MIP.pdf
 \ac{MIP} is a rather old and well known method to measure the \ac{PSD} of porous materials \cite{romberg.1978}.
 However, \ac{MIP} is also deemed inappropriate by \textsc{Diamond} to measure the \ac{PSD} using of hydrated cement, since it
@@ -867,10 +874,10 @@ However, \ac{MIP} is also deemed inappropriate by \textsc{Diamond} to measure th
 \end{iquote}
 which is agreed upon by others \cite{chatterji.2001,giesche.2002}.
 Furthermore, it requires dried specimens, leading to a cracked and therefore non-native microstructure \cite{chatterji.2001,wang.2019}.
-\textsc{Wang} et al. \cite{wang.2019} showed the damaged induced by \ac{MIP} using \ac{mCT}.
+\textcite{wang.2019} showed the damaged induced by \ac{MIP} using \ac{mCT}.
 They came to the conclusion, that the pore space was increased by approximately \SI{7}{\percent} due to the mercury intrusion.
 The main affected pore size range was around 100-\SI{500}{\micro\meter}.
-Abell et al. \cite{abell.1999} compared \ac{MIP} with the intrusion of \textsc{Wood's} metal instead of mercury.
+\textcite{abell.1999} compared \ac{MIP} with the intrusion of \textsc{Wood's} metal instead of mercury.
 While the pore volume was comparable, the usage of \textsc{Wood's} metal indicated that larger pores were present.
 
 Finally, due to the use of hazardous mercury and due to the high cost, it has a reduced relevance today.
@@ -884,6 +891,8 @@ Nevertheless, it is still a reliable method to measure open porosity down to a f
 \ac{HNMR} and LTDSC (here TMP) do fit, however \ac{HNMR} provides more data for pores sized below 3 nm.
 \cite{joseph.2024}
 The paper also shows me, that the speed of temperature change (2K/min) is too fast in our experiments, propably leading to a shift of the pore size to smaller values. Their experiments used 0.5K/min
+
+early look and critique on MIP: \cite{juntgen.1966}
 }
 
 \FloatBarrier
@@ -899,8 +908,8 @@ However, this limit can be extended to lower temperatures and smaller pores when
 For pores larger than \SI{30}{\nano\meter} the temperature shift of the freezing point is too small to be separated from the freezing of free water \cite{cuperus.1992,stocker.2002}.
 
 \ac{LTDSC} requires water-saturated specimens and therefore avoids damage due to drying \cite{gran.1997,galle.2001} often critisized in \ac{MIP} and \ac{SEM} experiments \cite{chatterji.2001,georget.2024}.
-\textsc{Sant} et al. applied \ac{LTDSC} to measure the \ac{PSD} of hydrated cement pastes \cite{sant.2011}.
-They proposed the connection between pore types and the freezing point depression (ranges in brackets are read from the graphs in \cite{sant.2011}):
+\textcite{sant.2011} applied \ac{LTDSC} to measure the \ac{PSD} of hydrated cement pastes.
+They proposed the connection between pore types and the freezing point depression (ranges in brackets are extracted from graphs in \cite{sant.2011}):
 \begin{itemize}
     \item Connected capillary pores freeze at $\approx$ \SI{-15}{\degreeCelsius} (\num{0} to \SI{-23}{\degreeCelsius})
     \item Open gel pores and capillary pores at $\approx$ \SI{-27}{\degreeCelsius} (\num{-23} to \SI{-35}{\degreeCelsius})
@@ -908,7 +917,7 @@ They proposed the connection between pore types and the freezing point depressio
 \end{itemize}
 In their study only the peak presence at $\approx$ \SI{-15}{\degreeCelsius} was evaluated.
 
-\textsc{Brun} et al. \cite{brun.1977} proposed an approximate solution based on a \textsc{Gibbs-Thompson} relationship to convert between freezing/melting point of water and the pore radius for cylindrical pores.
+\textcite{brun.1977} proposed an approximate solution based on a \textsc{Gibbs-Thompson} relationship to convert between freezing/melting point of water and the pore radius for cylindrical pores.
 The equation for freezing is:
 \begin{equation}
 	r_\text{P} = -\frac{64.67}{\Delta T }+0.57;~~~\SI{0}{\kelvin} > \Delta T > \SI{-40}{\kelvin},
@@ -927,7 +936,7 @@ and for melting:
 % in Joseph.2024 stammt die + 0.68 aus "-0.12 + \delta" wobei \delta = the non-freezable layer of water in nm. With respect to the value of δ, both 1.2 nm [52,53] and 0.8 nm [51,54]
 
 It has to be noted, that $\Delta T$ measurements below \SI{-40}{\celsius} are not covered by these equations.
-However, \textsc{kloetstra} et al. \cite{kloetstra.1995} proposed that it is possible to extend this lower limit.
+However, \textcite{kloetstra.1995} proposed that it is possible to extend this lower limit.
 
 $\Delta T$ is defined as:
 
@@ -940,7 +949,7 @@ $\Delta T$ is defined as:
 	T_\text{m} &   theoretical freezing point in \si{\kelvin}.
 \end{conditions}
 
-\textsc{Brun} et al. \cite{brun.1977} considered an adsorbed water film in the pores (thickness of \SI{.8}{\nano\meter}) and also a temperature correction for surface tension and for the melting entropy.
+\textcite{brun.1977} considered an adsorbed water film in the pores (thickness of \SI{.8}{\nano\meter}) and also a temperature correction for surface tension and for the melting entropy.
 The relationship resulting from Equations~\ref{eq:brun_freeze} and \ref{eq:brun_melt} are plotted in Figure~\ref{fig:freezing_depression}.
 
 \begin{figure}[!htb]
@@ -981,7 +990,7 @@ If a larger pore (D) is only connected to smaller pore (C) or is isolated, it ca
     \centering
 
 	\includegraphics[width=.5\textwidth]{methods/freeze.pdf}
-    \caption{Scheme of the freezing process within a connected pore system. Freezing happens sequentially from A to B, followed by C and D at once. Based on Sun et al. \cite{sun.2010}.}
+    \caption{Scheme of the freezing process within a connected pore system. Freezing happens sequentially from A to B, followed by C and D at once. Based on \textcite{sun.2010}.}
     \label{fig:freeze}
 \end{figure}
 
@@ -1001,7 +1010,7 @@ The melting curve allows to process the cumulative ice mass:
 % Randall to process the melting enthalpy
 %\cite{randall} https://reader.library.cornell.edu/docviewer/digital?id=chla2944761_2176#page/19/mode/1up
 % \Delta H^{0}_{m} =  \SI{334.1}{\joule\per\gram}
-There is an enthalpy change of fusion of ice in \si{\joule\per\gram} at different temperatures, which can be approximated by the following equation by \textsc{Chen} \cite{chen.1988} and \textsc{ishikiriyama} et al. \cite{ishikiriyama.1995} based on data from \textsc{randall} \cite{randall.1930}:
+There is an enthalpy change of fusion of ice in \si{\joule\per\gram} at different temperatures, which can be approximated by the following equation by \textcite{chen.1988} and \textcite{ishikiriyama.1995} based on data from \textcite{randall.1930}:
 \begin{equation}
 	\Delta H_\text{fus}(\Delta T) = 334.1 + 2.119 \cdot \Delta T - 0.000783 \cdot \Delta T^2
 	\label{eq:ltdsc_h}
@@ -1025,6 +1034,7 @@ The ice mass of the gel pores can then be calculated by subtracting the ice mass
 
 %10.1007/s100510170196 %how to LT-DSC :D \cite{Neffati.2001} - LTDSC on porous glass -> details about the freezing speed
 
+% \cite{wu.2015} . The heat flow curves of melting were almost not affected after one cycle of measurement. The results indicate that the pressure generated during freezing and melting has little impact on the pore structure of the powder MCM-41 samples. As for the studied cylinder paste samples, frost damage potentially takes place and it changes the pore connectivity characteristics while it has limited effect on changing the interior size distribution of the meso-pores.
 
 \FloatBarrier
 \section{Statistical analysis of the representativeness of an 2D image}
@@ -1069,7 +1079,7 @@ The code used to compare both methods is publicly available \cite{kleiner.2024b}
 \subsection{Box grow method} % the method names are not great
 \label{sec:box_growth}
 
-One of the methods was introduced by \textsc{Bosl} et al. \cite{bosl.1998} and also used by \textsc{Kameda} et al. \cite{kameda.2006}.
+One of the methods was introduced by \textcite{bosl.1998} and also used by \textcite{kameda.2006}.
 It works by selecting a growth point in the center of an image.
 From this point a box will grow stepwise as illustrated in Figure~\ref{fig:lit_box_methods_a}.
 This method will therefore be called \textsc{box grow method} from hereon.
@@ -1177,7 +1187,7 @@ Since the location of larger phases does not change in the image used, even the 
 
 \subsection{Box count method} % the method names are not great
 
-\textsc{Mouret} et al. \cite{mouret.2001} and \textsc{Hlaváček} et al. \cite{hlavacek.2015} tried to get an indication of the statistical representativeness of the phase composition within an image and introduced a method, which is called \textsc{box count method} from hereon.
+\textcite{mouret.2001} and \textcite{hlavacek.2015} tried to get an indication of the statistical representativeness of the phase composition within an image and introduced a method, which is called \textsc{box count method} from hereon.
 This method splits an image or multiple images of the same material in smaller sub-tiles (see Figure~\ref{fig:lit_box_methods_b}).
 Then, a growing number of tiles is randomly selected from this tile-pool.
 Of this selection, the phase composition is then remeasured.
@@ -1295,9 +1305,19 @@ However, it ignores the influence of larger inhomogeneities, as the rather large
 
 %https://www.researchgate.net/publication/228682013_The_use_of_scanning_electron_microscopy_in_cement_and_concrete_research
 
-\section{Modelling of cement hydration and its reliance on SEM images}
+\subsection{FIB serial sectioning}
 
-Using a segmented \ac{SEM}-image, the phase composition can be estimated by using the area-\% of alite $A_{\text{C}_3\text{S}}$ and the hydrate phases $A_\text{\text{CSH}}$ and $A_\text{CH}$.
+%plasma fib: \cite{dong.2022} (larger volume than Ga-FIB)
+% FIB-SEM of OPC: \cite{jiang.2023}
+% \cite{song.2019}
+% \cite{holzer.2006a} very early study of a very large volume (46*32*25μm) @voxel size of 74nm - good quality
+% \cite{mac.2021} very good paper describing the processing of FIB datasets + BIB-tomography
+% \cite{munch.2008} FIB vs MIP!!! (11.9 x10.7 x5.6 µm)
+% shitty dataset \cite{yang.2021}
+
+\subsection{Calculating the phase composition based on 2D-SEM images}
+
+Using a segmented \ac{SEM}-image, the phase composition can be estimated by using the area-\% of alite $A_{\text{C}_3\text{S}}$ and the hydrate phases $A_\text{\text{CSH}}$ and $A_\text{CH}$ \cite{kleiner.2024a}.
 If the hydrate phases are undistiguishable, they can be summed up:
 
 \begin{equation}
@@ -1315,7 +1335,6 @@ Equation \eqref{eqn:est_frac} then allows to estimate the amount of hydrate phas
 The densities required to calculate these values are listed in Table~\ref{tab:densities}.
 
 % why 2.5 : 1.0?
-% \cite{jennings.2000}
 \begin{table}[htb]
     \centering
     \caption{Densities of \ac{C3S} \cite{garrault.2006}, \ac{C2S}, \ac{CH} and \ac{CSH} \cite{garrault.2006} different phases in \si{\gram\per\cubic\centi\meter} \cite{jennings.2000,garrault.2006}.\\$^{*}$mixture of \ac{CSH}:\ac{CH} at a volume ratio of 2.5:1}
@@ -1329,39 +1348,74 @@ The densities required to calculate these values are listed in Table~\ref{tab:de
     \end{tabular}
 \end{table}
 
+
 \FloatBarrier
 \section{Modelling of cement hydration and its reliance on SEM images}
 
-{
-\color{blue}
-%automatisch übersetzt, direkt aus dem ct/fib-sem-antrag
-
+% aus dem ct/fib-sem-antrag
 As the demands on building materials increase, so do the requirements for characterising and modelling the underlying material systems.
-%The cross-scale recording of structural characteristics is still an unresolved, yet central task.
-There are advanced approaches to modelling and simulating the strength, shape retention and durability characteristics of concretes \cite{bishnoi.2009, kumar.2017, zhou.2019, ouzia.2019}. Due to the high complexity, multi-scale heterogeneity and temporal changes, this is often only possible in a highly simplified form.
-The simulations and models could be more realistic if the structure of concretes could be better quantified from the nanoscale to the macroscale.
+There are advanced approaches to modelling and simulating the strength, shape retention and durability characteristics of concretes \cite{bishnoi.2009, kumar.2017, zhou.2019, ouzia.2019}.
+Due to the high complexity, multi-scale heterogeneity and temporal changes, this is often only possible in a highly simplified form and in a very limited scale.
 
-The structure of concretes is simulated in a variety of models at different scales \cite{bishnoi.2009, kumar.2017, zhou.2019, ouzia.2019}.
+The microstructure of concretes is simulated in a variety of models at different scales \cite{bishnoi.2009, kumar.2017, zhou.2019, ouzia.2019}.
+The mesostructure (between atomistic and microscale) of e.g. \ac{CSH} phases and the porosity was also modeled \cite{ioannidou.2016, yu.2016}.
 Atomistic modelling is used to fundamentally simulate the structural composition \cite{kumar.2017,mishra.2017,kunhimohamed.2020,casar.2023}.
-Other authors model the mesostructure (area between atomistic and microscale) of e.g. C-S-H phases and porosity \cite{ioannidou.2016, yu.2016}.
 Finally, there are modern micromechanical models that attempt to close the transition from meso- to macromodelling \cite{bernard.2003, hlobil.2016, gobel.2018}.
-The basis for realistic modelling is a quantitative experimental characterisation of the corresponding structures \cite{gobel.2018a}.
 
-In summary, it can be stated that the mesostructure (phase distribution including gel porosity) should be better characterised to better understand the transport of (attacking) media in concrete.
+The hydration of cement over time in 3D using the sheet growth model using a level set based method \cite{nguyen-tuan.2019,nguyen-tuan.2023} (see Figure~\ref{fig:sheet_growth}).
 
+% from a talk of long from the ICCC 2019, slide 14/18 but not in the paper
+\begin{figure*}[htb]
+    \centering
 
-%Mit den Anforderungen an die Baustoffe steigen auch die Anforderungen an die Charakterisierung und Modellierung der zugrundeliegenden Stoffsysteme. Die skalenübergreifende Erfassung von Gefügemerkmalen ist dabei eine nach wie vor ungelöste, dennoch aber zentrale Aufgabenstellung. Es bestehen fortgeschrittene Ansätze die Festigkeits-, Formhaltungs- und Dauerhaftigkeitskennwerte von Betonen zu modellieren und zu simulieren \cite{bishnoi.2009, kumar.2017, zhou.2019, ouzia.2019}. Aufgrund der hohen Komplexität, der multiskaligen Heterogenität und der zeitlichen Veränderungen ist dies oftmals nur stark vereinfacht möglich. Die Simulationen und Modelle könnten eine bessere Realitätsnähe aufweisen, wenn die Struktur von Betonen von der Nano- bis zur Makroskala besser quantifizierbar wäre.
-%Die Struktur von Betonen wird in einer Vielzahl von Modellen auf verschiedenen Skalen simuliert \cite{bishnoi.2009, kumar.2017, zhou.2019, ouzia.2019}. Atomistische Modellierung wird angewandt, um den Strukturaufbau grundlegend zu simulieren \cite{kumar.2017,mishra.2017,kunhimohamed.2020,casar.2023}. Andere Autoren modellieren die Mesostruktur (Bereich zwischen atomistischer und Mikroskala) von z.B. C-S-H Phasen und Porosität \cite{ioannidou.2016, yu.2016}. Schließlich gibt es moderne mikromechanische Modelle, die versuchen, den Übergang von Meso- bis Makromodellierung zu schließen \cite{bernard.2003, hlobil.2016, gobel.2018}. Grundlage für realitätsnahe Modellierung ist eine quantitative experimentelle Charakterisierung der entsprechenden Strukturen \cite{gobel.2018a}.
-%Zusammenfassend kann festgestellt werden, dass für den Transport von (angreifenden) Medien im Beton die Mesostruktur (Phasenverteilung inklusive Gelporosität) besser charakterisiert werden müsste.
+    \ifdefined\PRINTABLE
+        \begin{subfigure}[t]{0.49\linewidth}
+                \includegraphics[width=\textwidth]{literature/sheet_grow_anim/sg01.jpg}
+        \end{subfigure}%
+        \hfill%
+        \begin{subfigure}[t]{0.49\linewidth}
+            \includegraphics[width=\textwidth]{literature/sheet_grow_anim/sg04.jpg}
+        \end{subfigure}
+    \else
+        \animategraphics[palindrome,autoplay,width=.49\linewidth]{3}{literature/sheet_grow_anim/sg}{01}{04}
+    \fi
 
+    \caption{
+        Visualisation of the growth of \ac{CSH} in a representative domain of \num{.5}\,$\times$\,\num{.5}\,$\times$\,\SI{.5}{\micro\meter} between \SI{15}{\minute} and \SI{4}{\hour} , based on the sheet gowth model \cite{nguyen-tuan.2019,nguyen-tuan.2023}.% in the second paper 300x300x2200nm is used due to some restrictions.
+    }
+    \label{fig:sheet_growth}
+\end{figure*}
 
+For larger domains, \textcite{nguyen-tuan.2024} utilized the sheet growth model allowing to simulate the growth of low and high density \ac{CSH} in 2D based on a segmented image of polished alite after \SI{1}{\day} of hydration (see Figure~\ref{fig:level_set}).
 
-}
+\begin{figure*}[htb]
+    \centering
 
+    \begin{subfigure}[t]{0.32\linewidth}
+        \includegraphics[width=\textwidth]{literature/level_set_anim/ls01.jpg}
+    \end{subfigure}%
+    \hfill%
+    \begin{subfigure}[t]{0.32\linewidth}
+        \ifdefined\PRINTABLE
+            \includegraphics[width=\textwidth]{literature/level_set_anim/ls04.jpg}
+        \else
+            \animategraphics[palindrome,autoplay,width=\textwidth]{6}{literature/level_set_anim/ls}{01}{09}
+        \fi
+    \end{subfigure}%
+    \hfill%
+    \begin{subfigure}[t]{0.32\linewidth}
+        \includegraphics[width=\textwidth]{literature/level_set_anim/ls07.jpg}
+    \end{subfigure}
 
+    \caption{Visualisation of the growth of \ac{CSH} (blue) in the low and high density variant on top of \ac{C3S} (yellow) by \textcite{nguyen-tuan.2024}, based on the level set method.}
+    \label{fig:level_set}
+\end{figure*}
+
+However, the basis for all realistic modelling is a quantitative experimental characterisation of the corresponding structures \cite{gobel.2018a}.
+
+% simulationspaper der hydratation \cite{hlobil.2022}
 % Literatur aus Long übernehmen und Modelle erwähnen
 
-%antrag Literatur klauen
 
 
 

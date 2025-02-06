@@ -124,8 +124,8 @@ This resulted in the following freeze curves as plotted in Figure~\ref{fig:ltdsc
 				scaled y ticks=false,
 				scaled x ticks=false,
             ]
-			  \addplot[dotted, thick, samples=2, grey,forget plot] coordinates {(3.19,-.2)(3.19,.2)};
-			  \node[grey, rotate=90, anchor=west] at (axis cs: 2.6,-.06) {\footnotesize <\,\SI{-40}{\degreeCelsius}!};
+			  \addplot[dotted, thick, samples=2, darkgrey,forget plot] coordinates {(3.19,-.2)(3.19,.2)};
+			  \node[darkgrey, rotate=90, anchor=west] at (axis cs: 2.6,-.06) {\scriptsize <\,\SI{-40}{\degreeCelsius}!};
 
 			\addplot [ no marks, blue] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/glass/ExpDat_2.1-5nm_freeze_segment_18.csv};
 			\addplot [ no marks, blue,forget plot, dashed] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/glass/ExpDat_2.2-5nm_freeze_segment_18.csv};
@@ -181,8 +181,8 @@ This resulted in the following freeze curves as plotted in Figure~\ref{fig:ltdsc
 				scaled x ticks=false,
 				yticklabel pos=right,
 			]
-			  \addplot[dotted, thick, samples=2, grey,forget plot] coordinates {(3.19,-.2)(3.19,0)};
-			  \node[grey, rotate=90, anchor=west] at (axis cs: 2.6,-.06) {\footnotesize <\,\SI{-40}{\degreeCelsius}!};
+			  \addplot[dotted, thick, samples=2, darkgrey,forget plot] coordinates {(3.19,-.2)(3.19,0)};
+			  \node[darkgrey, rotate=90, anchor=west] at (axis cs: 2.6,-.06) {\scriptsize <\,\SI{-40}{\degreeCelsius}!};
 
 			  \addplot [ no marks, orange,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/glass/ExpDat_1.1-20nm_freeze_segment_18.csv};
 			  \addplot [ no marks, orange,forget plot, dashed] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/glass/ExpDat_1.2-20nm_freeze_segment_18.csv};
@@ -300,8 +300,8 @@ It was not possible to measure \ac{C2S} after \SI{1}{\day} of hydration, since t
 				scaled y ticks=false,
 				scaled x ticks=false,
             ]
-			\addplot[dotted, thick, samples=2, grey,forget plot] coordinates {(3.19,-.2)(3.19,.2)};
-			\node[grey, rotate=90, anchor=west] at (axis cs: 2.51,-.10) {\footnotesize <\,\SI{-40}{\degreeCelsius}};
+			\addplot[dotted, thick, samples=2, darkgrey,forget plot] coordinates {(3.19,-.2)(3.19,.2)};
+			\node[darkgrey, rotate=90, anchor=west] at (axis cs: 2.51,-.10) {\scriptsize <\,\SI{-40}{\degreeCelsius}};
 
 			% std dev of 7d C2S
             \addplot+ [draw=none, no markers, name path=A,forget plot] table [each nth point=4,filter discard warning=false, unbounded coords=discard, x index=3, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}, ] {figures/ltdsc/C2S_7d_mean_freeze_segment.csv};
@@ -484,8 +484,8 @@ The \ac{LTDSC} curves from the second freezing pass are plotted in Figure~\ref{f
 				scaled y ticks=false,
 				scaled x ticks=false,
             ]
-			\addplot[dotted, thick, samples=2, grey,forget plot] coordinates {(3.19,-.2)(3.19,.2)};
-			\node[grey, rotate=90, anchor=west] at (axis cs: 2.51,-.10) {\footnotesize <\,\SI{-40}{\degreeCelsius}};
+			\addplot[dotted, thick, samples=2, darkgrey,forget plot] coordinates {(3.19,-.2)(3.19,.2)};
+			\node[darkgrey, rotate=90, anchor=west] at (axis cs: 2.51,-.10) {\scriptsize <\,\SI{-40}{\degreeCelsius}};
 
 			% std dev of 1d C3S
             \addplot+ [draw=none, no markers, name path=A,forget plot] table [each nth point=4,filter discard warning=false, unbounded coords=discard, x index=3, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}, ] {figures/ltdsc/C3S_1d_mean_freeze_segment.csv};
@@ -921,8 +921,8 @@ This was done by calculating the linear regression of the data between \num{-55}
 			},
 		]
 
-			\addplot[dotted, thick, samples=2, grey,forget plot] coordinates {(3.19,-.2)(3.19,.2)};
-			\node[grey, rotate=90, anchor=west] at (axis cs: 2.50,-.035) {\footnotesize <\,\SI{-40}{\degreeCelsius}!};
+			\addplot[dotted, thick, samples=2, darkgrey,forget plot] coordinates {(3.19,-.2)(3.19,.2)};
+			\node[darkgrey, rotate=90, anchor=west] at (axis cs: 2.50,-.035) {\scriptsize <\,\SI{-40}{\degreeCelsius}!};
 
 			\addplot [ no marks, orange, forget plot, opacity=0.5] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=3, y index=4, col sep=comma] {figures/ltdsc/C2S_7d_mean_freeze_segment.csv};
 			\addplot [ no marks, red, forget plot, opacity=0.5] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=3, y index=4, col sep=comma] {figures/ltdsc/C2S_14d_mean_freeze_segment.csv};
@@ -1028,8 +1028,8 @@ This was done by calculating the linear regression of the data between \num{-55}
 				},
 			]
 
-			\addplot[dotted, thick, samples=2, grey,forget plot] coordinates {(3.19,-.2)(3.19,.2)};
-			\node[grey, rotate=90, anchor=west] at (axis cs: 2.50,-.020) {\footnotesize <\,\SI{-40}{\degreeCelsius}!};
+			\addplot[dotted, thick, samples=2, darkgrey,forget plot] coordinates {(3.19,-.2)(3.19,.2)};
+			\node[darkgrey, rotate=90, anchor=west] at (axis cs: 2.50,-.020) {\scriptsize <\,\SI{-40}{\degreeCelsius}!};
 
             \addplot [ no marks, yellow, opacity=0.5, forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=3, y index=4, col sep=comma] {figures/ltdsc/C3S_1d_mean_freeze_segment.csv};
             \addplot [ no marks, orange, opacity=0.5, forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=3, y index=4, col sep=comma] {figures/ltdsc/C3S_7d_mean_freeze_segment.csv};

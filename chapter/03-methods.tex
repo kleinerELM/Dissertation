@@ -107,7 +107,7 @@ The mask and the specimen surface are arranged in a way that only \SIrange{20}{1
 	\hfill
 	\begin{subfigure}{0.58\textwidth}
 		\includegraphics[width=\textwidth]{methods/bib_scheme.pdf}
-		\caption{Principle of \ac{ArBIB} sectioning of a stationary specimen using a tungsten blade, side view. Image based on \cite{kleiner.2021c}}
+		\caption{Principle of \ac{ArBIB} sectioning of a stationary specimen using a tungsten blade, side view. Image based on \cite{kleiner.2021a}}
 		\label{fig:bib_scheme}
 	\end{subfigure}
     \caption{Illustration of the \ac{ArBIB} sectioning principle for a stationary specimen.}
@@ -147,12 +147,12 @@ This can cause \ac{CSH}-structures to bent or melt and introduce pores within or
     \centering
 
 	\ifdefined\PRINTABLE
-		\includegraphics[height=0.32\textheight]{methods/ebeam_damage.pdf}
+		\includegraphics[height=0.33\textheight]{methods/ebeam_damage.pdf}
 	\else
-		\animategraphics[palindrome,autoplay,height=0.32\textheight]{3}{methods/ebeam_damage_anim/Animation}{0}{4}
+		\animategraphics[palindrome,autoplay,height=0.33\textheight]{3}{methods/ebeam_damage_anim/Animation}{0}{4}
 	\fi
 
-    \caption{Electron beam damage of a \ac{CSH} needle of \SI{28}{\day} hydrated alite. SE images captured at \SI{350}{\volt} accelerating voltage and \SI{200}{\volt} stage bias. The image set was captured within \SI{124}{\second} during continuous electron beam exposure \cite{kleiner.2021c,kleiner.2021d}.} %wrong citation - correct: https://zenodo.org/records/5215574
+    \caption{Electron beam damage of a \ac{CSH} needle of \SI{28}{\day} hydrated alite. SE images captured at \SI{350}{\volt} accelerating voltage and \SI{200}{\volt} stage bias. The image set was captured within \SI{124}{\second} during continuous electron beam exposure \cite{kleiner.2021a,kleiner.2021f}.}
     \label{fig:ebeam_damage}
 \end{figure}
 
@@ -168,8 +168,8 @@ However, the excitation voltage has to be about twice as high as the X-ray emiss
 This results in a minimal required electron beam voltage of \SI{12}{\kilo\volt} to measure Fe with a \ac{Ka} of \SI{6.4}{\kilo\electronvolt} \cite{hudson.2003}.
 
 However, a high powered electron beam can also damage specimens.
-For example, \ac{CSH} phases and portlandite may be dehydrated after a prolonged \ac{EDX}-measurement.
-This may result in a geometrical deformation as shown in Figure~\ref{fig:ebeam_damage} or may also introduce pores with a diameter of several \SI{}{\nano\meter} as demonstrated in Figure~\ref{fig:edx_damage_a} and \ref{fig:edx_damage_b} which are slices of a \ac{FIB}-stack before and after an \ac{EDX}-measurement.
+For example, \ac{CSH} phases and \ac{CH} may be dehydrated after a prolonged \ac{EDX}-measurement.
+This may result in a geometrical deformation as shown in Figure~\ref{fig:ebeam_damage} or may also introduce pores with a diameter of several \si{\nano\meter} as demonstrated in Figure~\ref{fig:edx_damage_a} and \ref{fig:edx_damage_b} which are slices of a \ac{FIB}-stack before and after an \ac{EDX}-measurement.
 
 \begin{figure}[H]
     \centering
@@ -233,7 +233,7 @@ This means, if the specimen is tilted, the point does not move in the life image
 		\else
 			\animategraphics[palindrome,autoplay,width=\textwidth]{3}{methods/fib_process_anim/Animation}{00}{10}%controls=on,
 		\fi
-		\caption{Ion image of the tomography side  of a hydrated alite. \cite{kleiner.2021}}
+		\caption{Ion image of the tomography side  of a hydrated alite. \cite{kleiner.2021c}}
 		\label{fig:fib_top}
 	\end{subfigure}
     \caption{Illustration of the \ac{FIBnt} process. The circle and line on the top right of (b) is a fiducial for constant positioning.}
@@ -244,7 +244,7 @@ The standard method to obtain \ac{FIBnt}-images is to dig trenches around the \a
 Beforehand, the \ac{ROI} is coated with a layer of platinum for protection and a fiducial side is set.
 The fiducial is required to correct for specimen drift during the cutting process.
 After a polishing run and the imaging setup, the cutting process can start.
-The ion cutting is done at \SI{30}{\kilo\volt} and \SI{0.11}{\nano\ampere}. % check ampere setting for cutting
+The ion cutting is done at \SI{30}{\kilo\volt} and \SI{0.11}{\nano\ampere}. % TODO check ampere setting for cutting
 Each slice can be cut down to a thickness of \SI{10}{\nano\meter}.
 After cutting, the slice can be imaged using multiple detectors.
 
@@ -297,11 +297,13 @@ Finally, the cube is transferred and then welded to a finger of the comb as show
     \centering
 
 	\includegraphics[width=\textwidth]{methods/fib_liftout.jpg}
-    \caption{\SI{20}{\micro\meter} wide specimen (A). On the left is the needle welded to the specimen (B). They are navigated and welded to the copper comb (C). The platinum vapor source (D) used for welding is visible on the right. \cite{kleiner.2021}}
+    \caption{\SI{20}{\micro\meter} wide specimen (A). On the left is the needle welded to the specimen (B). They are navigated and welded to the copper comb (C). The platinum vapor source (D) used for welding is visible on the right. \cite{kleiner.2021c}}
     \label{fig:fib_liftout}
 \end{figure}
 
 The so prepared cube can now be serial cut as normally with significantly reduced shadowing and charging effects.
+
+A detailed video of the \ac{FIBnt}-process was created and published \cite{kleiner.2025a}.
 
 \FloatBarrier
 \section{Laser Ablation - Inductively Coupled Plasma - Mass Spectrometry (LA-ICP-MS)}

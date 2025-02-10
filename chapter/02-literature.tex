@@ -121,8 +121,8 @@ As described in \cite{gartner.2002}, the periods are:
 
 % noch ein paar Quellen damits schön aussieht :D
 The early hydration process is important to describe the initial hardening process and the rheological behavior of the cement.
-The first useful qualitative observations can be made using the \ac{SE}-mode and fresh fractured surfaces \cite{stark.2001,hader.2000,suss.2001} after a few minutes or up to \SI{10}{\hour}.
-The the \ac{CSH}-needles are up to \SI{300}{\nano\meter} long, while the hydration front is barely visible in the particle \cite{hader.2000}.
+The first useful qualitative observations can be made using the \ac{SE}-mode and fresh fractured surfaces \cite{stark.2001,voland.2000,suss.2001} after a few minutes or up to \SI{10}{\hour}.
+The the \ac{CSH}-needles are up to \SI{300}{\nano\meter} long, while the hydration front is barely visible in the particle \cite{voland.2000}.
 % However, for (electron) microscopical analysis it is hard to get reliable data in the first few hours.
 % find publications from Christiane/Long with those early hydration products
 However, reliable quantitative observations on polished surfaces using the \ac{BSE} mode can fist be made after the initial hardening after a few hours.
@@ -268,6 +268,13 @@ This is contradicting the data of \textsc{Anderegg} and \textsc{Hubbell} \cite{a
 However, \textsc{Anderegg} and \textsc{Hubbell} began their measurements after 7 days and therefore after the diffusion limited growth of the \ac{CSH}.
 Furthermore, their mean particle diameter was significantly larger (starting from \SI{15.5}{\micro\meter})
 
+\ifdefined\DRAFT
+	\ifdefined\REVIEW
+	\else
+		\tikzexternaldisable
+	\fi
+\fi
+
 \begin{figure}[!htb]
     \centering
     \begin{tikzpicture}
@@ -330,7 +337,7 @@ Furthermore, their mean particle diameter was significantly larger (starting fro
             \addplot [fill=cyan, fill opacity=0.2,forget plot] fill between [of=A and B];
 
             \addplot [ mark=x, cyan, opacity=0.5 ] table [skip first n=2, x index=0, y index=12, col sep=comma] {figures/hydrate-rim/data_andregg/PCA.csv};
-            \addlegendentry[]{\acs{OPC} \cite{anderegg.1929,anderegg.1930}}
+            \addlegendentry[]{\acs*{OPC} \cite{anderegg.1929,anderegg.1930}}
 
 
             % \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=2, x index=0, col sep=comma,y expr={\thisrowno{9}-\thisrowno{10}}, ] {figures/hydrate-rim/data_andregg/PCA+CaSO4.csv};
@@ -412,8 +419,6 @@ Furthermore, their mean particle diameter was significantly larger (starting fro
             % \addplot [fill=green, fill opacity=0.2,forget plot] fill between [of=A and B];
             % \addplot [ mark=x, green, opacity=0.5 ] table [skip first n=2, x index=0, y index=9, col sep=comma] {figures/hydrate-rim/data_andregg/PCA+CaSO4.csv};
 
-
-
         \end{groupplot}
         \node [above] (L) at (rel axis cs:1.0,1.04) {\ref{CommonLegend3}};
 
@@ -426,7 +431,7 @@ Furthermore, their mean particle diameter was significantly larger (starting fro
 \textcite{bishnoi.2012} criticized this approach due to the rather uncontrolled cracking, the subjectivity of the measurement and the occurrence of the sectioning effect, which was described in detail by \textcite{scrivener.2004}.
 This effect is an issue for all 2D images of polished sections (e.g. typical \ac{SEM}-\ac{BSE} images) and will be described and discussed in Subsection~\ref{subsec:sectioning-effect}.
 
-\textcite{hader.2000} and \textcite{suss.2001} manually measured the development of the length of \ac{CSH}-needles, (roughly equivalent with \ac{CSHo}), using \ac{SEM}-\ac{SE}-images until a specimen age of \SI{28}{\day}.
+\textcite{voland.2000} and \textcite{suss.2001} manually measured the development of the length of \ac{CSH}-needles, (roughly equivalent with \ac{CSHo}), using \ac{SEM}-\ac{SE}-images until a specimen age of \SI{28}{\day}.
 \textsc{Stark} and \textsc{Möser} et al. \cite{stark.2001,moser.2001,moser.2002} continued this work close to the three years mark.
 The experiments were done using \ac{C3S} and $\beta$-\ac{C2S} at different temperatures.
 They measured a minimum and maximum value, of which the mean was calculated.
@@ -519,7 +524,7 @@ The results are plotted in Figures~\ref{fig:suess_CSH_C3S} (\ac{C3S}) and \ref{f
             \addplot [fill=cyan, fill opacity=0.2,forget plot] fill between [of=A and B];
 
             \addplot [color=cyan, mark=x, dotted] table [skip first n=3, x index=1, y index=6, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
-            \addlegendentry[]{\ac{C3S} \SI{20}{\celsius} \cite{hader.2000}}
+            \addlegendentry[]{\ac{C3S} \SI{20}{\celsius} \cite{voland.2000}}
 
 
             \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=1, y index=8, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
@@ -541,9 +546,19 @@ The results are plotted in Figures~\ref{fig:suess_CSH_C3S} (\ac{C3S}) and \ref{f
         \node [above] (L) at (rel axis cs:1.0,1.05) {\ref{CommonLegend}};
 
     \end{tikzpicture}
-    \caption{Growth of \ac{CSHo} on \ac{C3S} at different temperatures. Based on data from \textcite{hader.2000} and \textcite{suss.2001}.}
+    \caption{Growth of \ac{CSHo} on \ac{C3S} at different temperatures. Based on data from \textcite{voland.2000} and \textcite{suss.2001}.}
     \label{fig:suess_CSH_C3S}
 \end{figure}
+
+\ifdefined\DRAFT
+	\ifdefined\REVIEW
+	\else
+		\tikzexternalenable
+	\fi
+\fi
+
+% TODO: include data from \cite{shirani.2023}?
+% - 450 - 550 nm shell thickness of csh after 19h (i do not really get why there exist these two numbers? Durchschnitt insgesamt vs hadley grain-shell?)
 
 The formation of \ac{CSH} begins earlier at increasing temperatures.
 This also causes a significant increase of the overall fibre length.
@@ -620,7 +635,7 @@ While the \ac{CSH}-growth of \ac{C3S} stagnates after 5 months, \textcite{moser.
             \addplot [fill=red, fill opacity=0.2,forget plot] fill between [of=A and B];
 
             \addplot [color=red, mark=x, dotted] table [skip first n=3, x index=1, y index=6, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
-            \addlegendentry[]{\ac{C3S} \cite{hader.2000,suss.2001,stark.2001,moser.2002}}
+            \addlegendentry[]{\ac{C3S} \cite{voland.2000,suss.2001,stark.2001,moser.2002}}
 
 
             \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=1, y index=14, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
@@ -628,7 +643,7 @@ While the \ac{CSH}-growth of \ac{C3S} stagnates after 5 months, \textcite{moser.
             \addplot [fill=green, fill opacity=0.2,forget plot] fill between [of=A and B];
 
             \addplot [color=green, mark=x, dotted] table [skip first n=3, x index=1, y index=15, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
-            \addlegendentry[]{$\beta$-\ac{C2S} \cite{hader.2000,suss.2001}}
+            \addlegendentry[]{$\beta$-\ac{C2S} \cite{voland.2000,suss.2001}}
 
 
             \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=0, y index=1, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C2S_moeser.csv};
@@ -642,7 +657,7 @@ While the \ac{CSH}-growth of \ac{C3S} stagnates after 5 months, \textcite{moser.
         \node [above] (L) at (rel axis cs:1.0,1.14) {\ref{CommonLegend2}};
 
     \end{tikzpicture}
-    \caption{Growth of \ac{CSHo} on $\beta$-\ac{C2S} compared to \ac{C3S} at \SI{20}{\celsius}. Based on data from \textcite{hader.2000}, \textcite{suss.2001}, \textsc{Stark} and \textsc{Möser} et al. \cite{stark.2001,moser.2002}.}
+    \caption{Growth of \ac{CSHo} on $\beta$-\ac{C2S} compared to \ac{C3S} at \SI{20}{\celsius}. Based on data from \textcite{voland.2000}, \textcite{suss.2001}, \textsc{Stark} and \textsc{Möser} et al. \cite{stark.2001,moser.2002}.}
     \label{fig:suess_CSH_C2S}
 \end{figure}
 
@@ -657,8 +672,15 @@ When growing unhindered, the needle-like \ac{CSH} phases can reach a length of a
 \subsection{Hadley grains}
 \label{sec:hadley}
 
+
 Sometimes, in polished sections of hydrated cementitious materials, hollow hydrate rims, sometimes filled with an unhydrated clinker grain can be observed (see Figure~\ref{fig:hadley}).
-These objects are called \textsc{Hadley grains} after \textsc{Hadley} who first described this phenomenon \cite{hadley.2000}.
+These objects are called \textsc{Hadley grains} after \textcite{hadley.1972} who first described this phenomenon \cite{hadley.2000} in detail.
+\cite{kjellsen.1997} described the formation of hollow shells depending on the \ac{wb}-ratio and silica fume content.
+They saw a increasing porisity attributed to \textsc{Hadley grains} with an increasing \ac{wb}-ratio especially for young specimens.
+\ac{PTCT} enabled \textcite{shirani.2023} to analyze the early development of hadley grains around \ac{C3S} grains.
+They identified a gap of \SI{450}{\nano\meter} between \ac{CSH} and the unhdydrated \ac{C3S}.
+This \ac{CSH} had a very low density compared to more matured material.
+
 \textcite{yio.2015a} observed the development of such a grain using confocal microscopy.
 After \SI{28}{\day} they observed ``needle-like hydration products that connect the outer products and the anhydrous core''.
 In the later stages, the grain can completely dissolve and empty shells of \ac{CSH} remain.
@@ -668,6 +690,7 @@ This can be seen in Figure~\ref{fig:hadley}, where both filled and hollow Hadley
 	\centerline{\includegraphics[width=\textwidth]{hydrate-rim/hadley_grains.pdf}}
 	\caption{BSE image of a polished section of a \SI{28}{\day} hydrated alite and belite mixture (3:1). Around many belite grains, Hadley grains were formed. Furthermore, empty \ac{HLT} shells can be found. \label{fig:hadley}}
 \end{figure}
+
 
 % \begin{figure}[htbp]
 % 	\centerline{\includegraphics[width=.49\textwidth]{hydrate-rim/hadley_grains_detail.pdf}}
@@ -795,7 +818,7 @@ Ideally it is done within the same device, though this is not essential.
 
 Advantages of the combination of multiple techniques are
 \begin{itemize}
-    \item the combination of information of one object/phase, like:
+    \item the combination of different information of one object/phase, like:
     \begin{itemize}
         \item trace element concentrations (see Section~\ref{sec:corr_laicpms} and \cite{kleiner.2022b}),
         \item crystallographic information \cite{rossler.2022},
@@ -806,6 +829,7 @@ Advantages of the combination of multiple techniques are
     \item The resolution differences can improve the segmentation results of lower resolution methods, enabling new insights \cite{kleiner.2022b}.
 \end{itemize}
 
+For example, the combination of \ac{SEM}-\ac{BSE}, \ac{EDX} and \ac{EBSD} allows to identify phases chemically and distiguish phase borders even between chemically identical phases, but with a different crystal structure or differing crystal orientations.
 
 \subsection{Image alignment}
 
@@ -1315,6 +1339,13 @@ However, it ignores the influence of larger inhomogeneities, as the rather large
 % \cite{munch.2008} FIB vs MIP!!! (11.9 x10.7 x5.6 µm)
 % shitty dataset \cite{yang.2021}
 
+\cite{holzer.2006, munch.2006} analyzed particular systems using \ac{FIB} serial sectioning and established a segmentation workflow proposing to analyse cryo stabilized cement suspensions which they published shortly after \textcite{holzer.2007}.
+
+\textcite{holzer.2006a} used \ac{FIBnt} very early to cut a large volume (typically \num{46}\,$\times$\,\num{32}\,$\times$\,\SI{25}{\cubic\micro\meter}) of a cement paste sample with a resolution of \SI{74}{\nano\meter}.
+
+
+% \cite{Lavrov.2019} - ct of cement paste - ~ 20µm ITZ
+
 \subsection{Calculating the phase composition based on 2D-SEM images}
 
 Using a segmented \ac{SEM}-image, the phase composition can be estimated by using the area-\% of alite $A_{\text{C}_3\text{S}}$ and the hydrate phases $A_\text{\text{CSH}}$ and $A_\text{CH}$ \cite{kleiner.2024a}.
@@ -1325,7 +1356,7 @@ If the hydrate phases are undistiguishable, they can be summed up:
 	A_\text{hydrate} = A_\text{\text{CSH}} + A_\text{CH} = A_{\text{image}} - A_{\text{C}_3\text{S}} - A_{\text{pores}}
 \end{equation}
 
-Equation \eqref{eqn:est_frac} then allows to estimate the amount of hydrate phase $\sigma_\text{hyd}$ (\ac{CH} + \ac{CSH}) in wt.-\%.
+Equation \eqref{eqn:est_frac} then allows to estimate the amount of hydrate phase $\sigma_\text{hyd}$ (\ac{CH} + \ac{CSH}) in \si{wtpercent}.
 
 \begin{equation}
 	\label{eqn:est_frac}
@@ -1415,8 +1446,6 @@ However, the basis for all realistic modelling is a quantitative experimental ch
 
 % simulationspaper der hydratation \cite{hlobil.2022}
 % Literatur aus Long übernehmen und Modelle erwähnen
-
-
 
 
 % Handlungsanweise - wie kann man REM mit Methoden kombinieren um Baustoffe zu beschreiben - welche Techniken gibt es?

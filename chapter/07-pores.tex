@@ -248,7 +248,6 @@ The \ac{LTDSC} curves of the second freezing pass of \ac{C2S} from \num{7} to \S
 Three measurements were done for every specimen age.
 It was not possible to measure \ac{C2S} after \SI{1}{\day} of hydration, since the material was not hard enough to be handled and transferred into the \ac{LTDSC}-crucible.
 
-
 \ifdefined\DRAFT
 	\ifdefined\REVIEW
 	\else
@@ -706,8 +705,57 @@ The red area represents the gel pore volume, while the yellow area represents th
 \end{figure}
 
 The melting curve shows two distinctive peaks, one at \SI{0}{\degreeCelsius} and one at \SI{2}{\degreeCelsius}.
-This indicates, that the heating rate of \SI{2}{\kelvin\per\minute} was higher than the inertia of the melting process, as the ice should melt at or before \SI{0}{\degreeCelsius}.
-However, this should not affect the calculation of the ice mass.
+This indicates, that the heating rate of \SI{2}{\kelvin\per\minute} was higher than the inertia of the melting process, as the ice should melt at or before \SI{0}{\degreeCelsius}, but is delayed due to the fast temperature change (\SI{2}{\kelvin\per\minute}).
+
+If the heating rate is slower (e.g. \SI{0.5}{\kelvin\per\minute}), the ice would melt at \SI{0}{\degreeCelsius} causing a smaller but broader peak.
+The calculated ice mass should not be influenced by the heating rate.
+However, since the baseline correction is significantly influenced by the way, this baseline is determined, significant differences in the ice mass can occure.
+Using the automatic baseline correction from \cite{kleiner.2025} results in a ice mass difference of \num{136.5} (slow heating rate) to \SI{139.1}{\milli\gram\per\gram} (fast heating rate).
+In contrast, a more static method as used by {\color{red} \textsc{Unbehau} \cite{}} gives a difference \num{150.0} (slow heating rate) to \SI{141.7}{\milli\gram\per\gram} (fast heating rate).
+
+\begin{figure}[!htb]
+    \centering
+
+    \begin{tikzpicture}
+        \begin{axis}[
+				legend style={at={(0.05,.8)},anchor=west},
+                legend cell align={left},
+				xmin=-47, xmax=10,
+				ymin=-0.01, ymax=0.2,
+				width=\linewidth,
+				height=7cm,
+				grid=major,
+				xlabel={Temperature $\vartheta$ in \si{\celsius}},
+				ylabel={$\dot{Q}$ in \si{\watt\per\gram}},
+				grid style={line width=.1pt, draw=gray!10},
+				yticklabel style={
+						/pgf/number format/fixed,
+						/pgf/number format/precision=3
+				},
+				%xticklabels={2.5,5,10,25,50},
+				%xtick={2.5,5,10,25,50},
+				scaled y ticks=false,
+				scaled x ticks=false
+            ]
+
+			\addplot[samples=2, darkgrey,forget plot] coordinates {(15,0)(-60,0)};
+			\addplot[samples=2, darkgrey,forget plot] coordinates {(0,-.01)(0,.2)};
+
+            \addplot [thick, no marks, blue] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=0, y index=2, col sep=comma] {figures/ltdsc/ExpDat_M28n2-28d_melt_segment_9.csv};
+            \addlegendentry{\SI{0.5}{\kelvin\per\minute}};
+
+            \addplot [thick, no marks, red] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=0, y index=2, col sep=comma] {figures/ltdsc/ExpDat_M28n2-28d_melt_segment_18.csv};
+            \addlegendentry{\SI{2}{\kelvin\per\minute}};
+
+        \end{axis}
+	\end{tikzpicture}
+
+    \caption{\ac{LTDSC} curves for a slow (\SI{0.5}{\kelvin\per\minute}) and fast (\SI{2}{\kelvin\per\minute}) heating curve from \SI{-50} to \SI{15}{\degreeCelsius} of \SI{28}{\day} hydrated CEM IV (\ac{wb} = \num{0.5}).}
+    \label{fig:ltdsc_result_heating_rate}
+\end{figure}
+
+However, due to the extended measuring time caused by the four times slower heat rates, it would not have been possible to obtain three measurements for every hydration time within a single work day.
+In favor of repeatability it has been decided to use a faster heating rate of \SI{2}{\kelvin\per\minute}.
 
 As shown in Figure~\ref{fig:ltdsc_result_C2S_melt_bar}, for \ac{C2S} the ice mass of the gel pores was calculated to be \SI{4.7}{\milli\gram\per\gram} at \SI{7}{\day} up to \SI{20.3}{\milli\gram\per\gram} after \SI{28}{\day} of hydration, while the capillary pores were reduced from 271 to \SI{216}{\milli\gram\per\gram} in the same time.
 In contrast, \ac{C3S} initially had a higher gel pore ice mass, while ending up with a lower ice mass after \SI{28}{\day} of hydration (Figure~\ref{fig:ltdsc_result_C3S_melt_bar}).

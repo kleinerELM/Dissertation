@@ -292,7 +292,8 @@ It was not possible to measure \ac{C2S} after \SI{1}{\day} of hydration, since t
 				grid style={line width=.1pt, draw=gray!10},
 				yticklabel style={
 						/pgf/number format/fixed,
-						/pgf/number format/precision=3
+						/pgf/number format/fixed zerofill,
+						/pgf/number format/precision=1
 				},
 				xticklabels={2.5,5,10,25,50},
 				xtick={2.5,5,10,25,50},
@@ -378,7 +379,8 @@ It was not possible to measure \ac{C2S} after \SI{1}{\day} of hydration, since t
 				xtick={1.75,2.00,2.25,2.50,2.75},
 				yticklabel style={
 						/pgf/number format/fixed,
-						/pgf/number format/precision=3
+						/pgf/number format/precision=2,
+						/pgf/number format/fixed zerofill,
 				},
 				scaled y ticks=false,
 				scaled x ticks=false,
@@ -659,7 +661,7 @@ The red area represents the gel pore volume, while the yellow area represents th
 
     \begin{tikzpicture}
         \begin{axis}[
-				legend style={at={(0.05,.8)},anchor=west},
+				legend style={at={(0.05,.95)},anchor=north west},
                 legend cell align={left},
 				xmin=-60, xmax=15,
 				ymin=0, ymax=0.6,
@@ -671,10 +673,9 @@ The red area represents the gel pore volume, while the yellow area represents th
 				grid style={line width=.1pt, draw=gray!10},
 				yticklabel style={
 						/pgf/number format/fixed,
-						/pgf/number format/precision=3
+						/pgf/number format/fixed zerofill,
+						/pgf/number format/precision=1
 				},
-				%xticklabels={2.5,5,10,25,50},
-				%xtick={2.5,5,10,25,50},
 				scaled y ticks=false,
 				scaled x ticks=false
             ]
@@ -707,20 +708,20 @@ The red area represents the gel pore volume, while the yellow area represents th
 The melting curve shows two distinctive peaks, one at \SI{0}{\degreeCelsius} and one at \SI{2}{\degreeCelsius}.
 This indicates, that the heating rate of \SI{2}{\kelvin\per\minute} was higher than the inertia of the melting process, as the ice should melt at or before \SI{0}{\degreeCelsius}, but is delayed due to the fast temperature change (\SI{2}{\kelvin\per\minute}).
 
-If the heating rate is slower (e.g. \SI{0.5}{\kelvin\per\minute}), the ice would melt at \SI{0}{\degreeCelsius} causing a smaller but broader peak.
-The calculated ice mass should not be influenced by the heating rate.
-However, since the baseline correction is significantly influenced by the way, this baseline is determined, significant differences in the ice mass can occure.
-Using the automatic baseline correction from \cite{kleiner.2025} results in a ice mass difference of \num{136.5} (slow heating rate) to \SI{139.1}{\milli\gram\per\gram} (fast heating rate).
-In contrast, a more static method as used by {\color{red} \textsc{Unbehau} \cite{}} gives a difference \num{150.0} (slow heating rate) to \SI{141.7}{\milli\gram\per\gram} (fast heating rate).
+Therefore, an experiment comparing a slower heating rate (\SI{0.5}{\kelvin\per\minute}) was carried out (Figure~\ref{fig:ltdsc_result_heating_rate_a}).
+This results in a shift of the melting peak in the direction of \SI{0}{\degreeCelsius} and a seemingly smaller heat output.
+However, difference in peak height is caused by a change in the measuring interval.
+To mitigate this effect, the dashed curve indicates the heat flow $\dot{Q}$ of the \SI{0.5}{\kelvin\per\minute} heat rate, corrected for the interval difference . %TODO ist das legitim?
 
 \begin{figure}[!htb]
     \centering
-
-    \begin{tikzpicture}
+	
+	\begin{subfigure}{.49\textwidth}
+      \begin{tikzpicture}
         \begin{axis}[
-				legend style={at={(0.05,.8)},anchor=west},
+			legend style={at={(0.05,.95)},anchor=north west,font=\footnotesize},
                 legend cell align={left},
-				xmin=-47, xmax=10,
+				xmin=-50, xmax=10,
 				ymin=-0.01, ymax=0.2,
 				width=\linewidth,
 				height=7cm,
@@ -730,10 +731,9 @@ In contrast, a more static method as used by {\color{red} \textsc{Unbehau} \cite
 				grid style={line width=.1pt, draw=gray!10},
 				yticklabel style={
 						/pgf/number format/fixed,
-						/pgf/number format/precision=3
+						/pgf/number format/fixed zerofill,
+						/pgf/number format/precision=2
 				},
-				%xticklabels={2.5,5,10,25,50},
-				%xtick={2.5,5,10,25,50},
 				scaled y ticks=false,
 				scaled x ticks=false
             ]
@@ -743,16 +743,128 @@ In contrast, a more static method as used by {\color{red} \textsc{Unbehau} \cite
 
             \addplot [thick, no marks, blue] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=0, y index=2, col sep=comma] {figures/ltdsc/ExpDat_M28n2-28d_melt_segment_9.csv};
             \addlegendentry{\SI{0.5}{\kelvin\per\minute}};
+			
+			\addplot [dashed, no marks, blue] table [each nth point=4, filter discard warning=false, unbounded coords=discard, x index=0, y expr=\thisrowno{2}*4, col sep=comma] {figures/ltdsc/ExpDat_M28n2-28d_melt_segment_9.csv};
+			\addlegendentry{$4\times$\SI{0.5}{\kelvin\per\minute}};
+
 
             \addplot [thick, no marks, red] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=0, y index=2, col sep=comma] {figures/ltdsc/ExpDat_M28n2-28d_melt_segment_18.csv};
-            \addlegendentry{\SI{2}{\kelvin\per\minute}};
-
+            \addlegendentry{\SI{2.0}{\kelvin\per\minute}};
         \end{axis}
-	\end{tikzpicture}
+	  \end{tikzpicture}
+	  \label{fig:ltdsc_result_heating_rate_a}
+	  \caption{Melting heat flow}
 
-    \caption{\ac{LTDSC} curves for a slow (\SI{0.5}{\kelvin\per\minute}) and fast (\SI{2}{\kelvin\per\minute}) heating curve from \SI{-50} to \SI{15}{\degreeCelsius} of \SI{28}{\day} hydrated CEM IV (\ac{wb} = \num{0.5}).}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{.49\textwidth}
+	
+	  \begin{tikzpicture}[
+		precise pin/.style args={#1:#2}{
+			pin={[
+				inner sep=0pt,
+				label={[
+					append after command={
+						node [
+							inner sep=0pt,
+							at=(\tikzlastnode.#1),
+							anchor=#1+180
+						] {#2}
+					}
+				]center:{}}
+			]#1:{}}
+		}
+	  ]
+		\begin{axis}[
+				legend style={at={(0.05,.95)},anchor=north west,font=\footnotesize},
+				legend cell align={left},
+				xmin=-50, xmax=10,
+				ymin=-.01, ymax=0.17,
+				width=\linewidth,
+				height=7cm,
+				grid=major,
+				xlabel={Temperature $\vartheta$ in \si{\celsius}},
+				ylabel={cumulative ice mass in \si{\gram\per\gram}},
+				grid style={line width=.1pt, draw=gray!10},
+				yticklabel style={
+						/pgf/number format/fixed,
+						/pgf/number format/fixed zerofill,
+						/pgf/number format/precision=2
+				},
+				scaled y ticks=false,
+				scaled x ticks=false,
+				yticklabel pos=right,
+			]
+			\addplot[samples=2, darkgrey,forget plot] coordinates {(15,0)(-60,0)};
+
+            \addplot [thick, no marks, blue] table [each nth point=10, filter discard warning=false, unbounded coords=discard,x index=0, y index=2, col sep=comma] {figures/ltdsc/ExpDat_M28n2-28d_ice_man_9.csv};
+            \addlegendentry{M: \SI{0.5}{\kelvin\per\minute}};
+
+            \addplot [thick, no marks, red] table [each nth point=10, filter discard warning=false, unbounded coords=discard,x index=0, y index=2, col sep=comma] {figures/ltdsc/ExpDat_M28n2-28d_ice_man_18.csv};
+            \addlegendentry{M. \SI{2.0}{\kelvin\per\minute}};
+
+            \addplot [no marks, cyan] table [each nth point=10, filter discard warning=false, unbounded coords=discard,x index=0, y index=2, col sep=comma] {figures/ltdsc/ExpDat_M28n2-28d_ice_9.csv};
+            \addlegendentry{A: \SI{0.5}{\kelvin\per\minute}};
+
+            \addplot [no marks, orange] table [each nth point=10, filter discard warning=false, unbounded coords=discard,x index=0, y index=2, col sep=comma] {figures/ltdsc/ExpDat_M28n2-28d_ice_18.csv};
+            \addlegendentry{A: \SI{2.0}{\kelvin\per\minute}};
+
+			
+			\draw[draw=black, densely dotted] (-47,0.005) rectangle (-27,-.001);
+			\coordinate (pt) at (axis cs:-30.9,0.045);
+
+		\end{axis}
+		% https://tex.stackexchange.com/questions/42585/plot-within-a-plot-zoom-into-a-plot-so-that-the-magnified-part-is-framed-by-axi
+		% https://tex.stackexchange.com/questions/49632/tikz-node-pin-angle-in-2d-plot
+		\node[] at (pt) {%
+		\begin{tikzpicture}[every pin/.style={fill=white}]
+			\begin{axis}[
+					font=\tiny,
+					xmin=-47, xmax=-27,
+					ymin=-.001, ymax=0.005,
+					grid=major,
+					grid style={line width=.1pt, draw=gray!10},
+					yticklabel style={
+							/pgf/number format/fixed,
+							/pgf/number format/fixed zerofill,
+							/pgf/number format/precision=3
+					},
+					scaled y ticks=false,
+					scaled x ticks=false,
+					yticklabel pos=right,
+					width=.52\linewidth,
+					height=3.4cm,
+					xtick={-44,-37,-30}, 
+					ytick={0,0.003},
+				]
+				\addplot[samples=2, darkgrey,forget plot] coordinates {(15,0)(-60,0)};
+	
+				\addplot [restrict x to domain=-47:-27,thick, no marks, blue] table [each nth point=5, filter discard warning=false, unbounded coords=discard,x index=0, y index=2, col sep=comma] {figures/ltdsc/ExpDat_M28n2-28d_ice_man_9.csv};
+	
+				\addplot [restrict x to domain=-47:-27,thick, no marks, red] table [each nth point=5, filter discard warning=false, unbounded coords=discard,x index=0, y index=2, col sep=comma] {figures/ltdsc/ExpDat_M28n2-28d_ice_man_18.csv};
+	
+				\addplot [restrict x to domain=-47:-27,no marks, cyan] table [each nth point=5, filter discard warning=false, unbounded coords=discard,x index=0, y index=2, col sep=comma] {figures/ltdsc/ExpDat_M28n2-28d_ice_9.csv};
+	
+				\addplot [restrict x to domain=-47:-27,no marks, orange] table [each nth point=5, filter discard warning=false, unbounded coords=discard,x index=0, y index=2, col sep=comma] {figures/ltdsc/ExpDat_M28n2-28d_ice_18.csv};
+	
+			\end{axis}
+		\end{tikzpicture}
+	};
+	  \end{tikzpicture}
+	  \label{fig:ltdsc_result_heating_rate_b}
+	  \caption{Cumulative ice mass}
+	\end{subfigure}
+
+    \caption{\ac{LTDSC} curves and the cumulative ice mass for a slow (\SI{0.5}{\kelvin\per\minute}) and fast (\SI{2}{\kelvin\per\minute}) heating curves from \SI{-50} to \SI{15}{\degreeCelsius} of \SI{28}{\day} hydrated CEM IV (\ac{wb} = \num{0.5}). A: automatic baseline correction, M: manual baseline correction}
     \label{fig:ltdsc_result_heating_rate}
 \end{figure}
+
+The calculated ice mass should not be influenced by the heating rate.
+However, the calculation of the ice mass is influenced by the way, this baseline is determined.
+Using the automatic baseline correction from \cite{kleiner.2025} results in an ice mass difference of \num{140.5} (slow heating rate) to \SI{139.9}{\milli\gram\per\gram} (fast heating rate).
+In contrast, a more manual approach as used by {\color{red} \textsc{Unbehau} \cite{}} gives \num{151.9} (slow heating rate) and \SI{142.1}{\milli\gram\per\gram} (fast heating rate) respectively.
+Comparing the quality of both methods, the manual approach seems to give better results, while the evaluation more subjective. %Todo unterscheide der Methoden erklären
+% 
 
 However, due to the extended measuring time caused by the four times slower heat rates, it would not have been possible to obtain three measurements for every hydration time within a single work day.
 In favor of repeatability it has been decided to use a faster heating rate of \SI{2}{\kelvin\per\minute}.

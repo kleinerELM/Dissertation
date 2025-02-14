@@ -31,22 +31,22 @@ On contact with water these phases dissolve and new phases like \ac{CSH}, \ac{CH
 				ytick={}
             ]
 
-            \addplot+ [ mark=none, red, very thick ] table [x index=4, y index=5, col sep=comma] {figures/literature/phase_dev_moeser.csv};
+            \addplot+ [ mark=none, red, very thick ] table [x index=4, y index=5, col sep=comma, filter discard warning=false] {figures/literature/phase_dev_moeser.csv};
             \addlegendentry{\ac{CSH}};
 
-            \addplot+ [ mark=none, blue, very thick ] table [x index=6, y index=7, col sep=comma] {figures/literature/phase_dev_moeser.csv};
+            \addplot+ [ mark=none, blue, very thick ] table [x index=6, y index=7, col sep=comma, filter discard warning=false] {figures/literature/phase_dev_moeser.csv};
             \addlegendentry{\ac{CH}};
 
-            \addplot+ [ mark=none, green, very thick ] table [x index=2, y index=3, col sep=comma] {figures/literature/phase_dev_moeser.csv};
+            \addplot+ [ mark=none, green, very thick ] table [x index=2, y index=3, col sep=comma, filter discard warning=false] {figures/literature/phase_dev_moeser.csv};
             \addlegendentry{ettringite};
 
-            \addplot+ [ mark=none, orange, very thick ] table [x index=0, y index=1, col sep=comma] {figures/literature/phase_dev_moeser.csv};
+            \addplot+ [ mark=none, orange, very thick ] table [x index=0, y index=1, col sep=comma, filter discard warning=false] {figures/literature/phase_dev_moeser.csv};
             \addlegendentry{syngenit};
 
-            \addplot+ [ mark=none, grey, very thick ] table [x index=8, y index=9, col sep=comma] {figures/literature/phase_dev_moeser.csv};
+            \addplot+ [ mark=none, grey, very thick ] table [x index=8, y index=9, col sep=comma, filter discard warning=false] {figures/literature/phase_dev_moeser.csv};
             \addlegendentry{secondary gypsum};
 
-            \addplot+ [ mark=none, yellow, solid, very thick ] table [x index=10, y index=11, col sep=comma] {figures/literature/phase_dev_moeser.csv};
+            \addplot+ [ mark=none, yellow, solid, very thick ] table [x index=10, y index=11, col sep=comma, filter discard warning=false] {figures/literature/phase_dev_moeser.csv};
             \addlegendentry{\ac{AFm}};
 
 
@@ -165,39 +165,39 @@ According to their experiments, the hydrate rim is depending on the mean particl
 				grid style={line width=.1pt, draw=gray!10}
             ]
 
-            \addplot+ [ only marks, mark=x, orange ] table [skip first n=1, x index=0, y index=3, col sep=comma] {figures/hydrate-rim/data_andregg/gsd-PCA.csv};
-            \addplot [ draw=none, forget plot ] table [skip first n=1, col sep=comma, x index=0, y={create col/linear regression={y=[index]3}} ] {figures/hydrate-rim/data_andregg/gsd-PCA.csv};
+            \addplot+ [ only marks, mark=x, orange ] table [skip first n=1, x index=0, y index=3, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_andregg/gsd-PCA.csv};
+            \addplot [ draw=none, forget plot ] table [skip first n=1, col sep=comma, x index=0, y={create col/linear regression={y=[index]3}}, filter discard warning=false ] {figures/hydrate-rim/data_andregg/gsd-PCA.csv};
             \addplot[update limits=false, no markers, orange, domain=15:26, samples=2, forget plot] {\pgfplotstableregressionb + x*\pgfplotstableregressiona};
             \addlegendentry{\SI{7}{\day}, \acs*{OPC}};
 
-            \addplot+ [ only marks, mark=o, orange ] table [skip first n=1, x index=0, y index=3, col sep=comma] {figures/hydrate-rim/data_andregg/gsd-PCA+CaSO4.csv};
-            \addplot [ draw=none, forget plot ] table [skip first n=1, col sep=comma, x index=0, y={create col/linear regression={y=[index]3}} ] {figures/hydrate-rim/data_andregg/gsd-PCA+CaSO4.csv};
+            \addplot+ [ only marks, mark=o, orange ] table [skip first n=1, x index=0, y index=3, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_andregg/gsd-PCA+CaSO4.csv};
+            \addplot [ draw=none, forget plot ] table [skip first n=1, col sep=comma, x index=0, y={create col/linear regression={y=[index]3}}, filter discard warning=false ] {figures/hydrate-rim/data_andregg/gsd-PCA+CaSO4.csv};
             \addplot[update limits=false, no markers, orange, dashed, domain=16:26, samples=2, forget plot] {\pgfplotstableregressionb + x*\pgfplotstableregressiona};
             \addlegendentry{\SI{7}{\day}, \acs*{OPC}+\ce{CaSO4}};
 
             %\addplot[orange, domain=14:30, opacity=0.5, samples=2] {0.068516925009012*x + 1.05223737455958};
             %\addlegendentry{\SI{7}{\day}, $R^2=0.11$};
 
-            \addplot+ [ only marks, mark=x, cyan ] table [skip first n=1, x index=0, y index=4, col sep=comma] {figures/hydrate-rim/data_andregg/gsd-PCA.csv};
-            \addplot [ draw=none, forget plot ] table [skip first n=1, col sep=comma, x index=0, y={create col/linear regression={y=[index]4}} ] {figures/hydrate-rim/data_andregg/gsd-PCA.csv};
+            \addplot+ [ only marks, mark=x, cyan ] table [skip first n=1, x index=0, y index=4, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_andregg/gsd-PCA.csv};
+            \addplot [ draw=none, forget plot ] table [skip first n=1, col sep=comma, x index=0, y={create col/linear regression={y=[index]4}}, filter discard warning=false ] {figures/hydrate-rim/data_andregg/gsd-PCA.csv};
             \addplot[update limits=false, no markers, cyan, domain=15:28, samples=2, forget plot] {\pgfplotstableregressionb + x*\pgfplotstableregressiona};
             \addlegendentry{\SI{28}{\day}, \acs*{OPC}};
 
-            \addplot+ [ only marks, mark=o, cyan ] table [skip first n=1, x index=0, y index=4, col sep=comma] {figures/hydrate-rim/data_andregg/gsd-PCA+CaSO4.csv};
-            \addplot [ draw=none, forget plot ] table [skip first n=1, col sep=comma, x index=0, y={create col/linear regression={y=[index]4}} ] {figures/hydrate-rim/data_andregg/gsd-PCA+CaSO4.csv};
+            \addplot+ [ only marks, mark=o, cyan ] table [skip first n=1, x index=0, y index=4, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_andregg/gsd-PCA+CaSO4.csv};
+            \addplot [ draw=none, forget plot ] table [skip first n=1, col sep=comma, x index=0, y={create col/linear regression={y=[index]4}}, filter discard warning=false ] {figures/hydrate-rim/data_andregg/gsd-PCA+CaSO4.csv};
             \addplot[update limits=false, no markers, cyan, dashed, domain=16:26, samples=2, forget plot] {\pgfplotstableregressionb + x*\pgfplotstableregressiona};
             \addlegendentry{\SI{28}{\day}, \acs*{OPC}+\ce{CaSO4}};
 
             %\addplot[cyan, domain=14:30, opacity=0.5, samples=2] {0.196884840055179*x + 0.0780310618817959};
             %\addlegendentry{\SI{28}{\day}, $R^2=0.59$};
 
-            \addplot+ [ only marks, mark=x, red ] table [skip first n=1, x index=0, y index=5, col sep=comma] {figures/hydrate-rim/data_andregg/gsd-PCA.csv};
-            \addplot [ draw=none, forget plot ] table [skip first n=1, col sep=comma, x index=0, y={create col/linear regression={y=[index]5}} ] {figures/hydrate-rim/data_andregg/gsd-PCA.csv};
+            \addplot+ [ only marks, mark=x, red ] table [skip first n=1, x index=0, y index=5, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_andregg/gsd-PCA.csv};
+            \addplot [ draw=none, forget plot ] table [skip first n=1, col sep=comma, x index=0, y={create col/linear regression={y=[index]5}}, filter discard warning=false ] {figures/hydrate-rim/data_andregg/gsd-PCA.csv};
             \addplot[update limits=false, no markers, red, domain=15:28, samples=2, forget plot] {\pgfplotstableregressionb + x*\pgfplotstableregressiona};
             \addlegendentry{\SI{90}{\day}, \acs*{OPC}};
 
-            \addplot+ [ only marks, mark=o, red ] table [skip first n=1, x index=0, y index=5, col sep=comma] {figures/hydrate-rim/data_andregg/gsd-PCA+CaSO4.csv};
-            \addplot [ draw=none, forget plot ] table [skip first n=1, col sep=comma, x index=0, y={create col/linear regression={y=[index]5}} ] {figures/hydrate-rim/data_andregg/gsd-PCA+CaSO4.csv};
+            \addplot+ [ only marks, mark=o, red ] table [skip first n=1, x index=0, y index=5, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_andregg/gsd-PCA+CaSO4.csv};
+            \addplot [ draw=none, forget plot ] table [skip first n=1, col sep=comma, x index=0, y={create col/linear regression={y=[index]5}}, filter discard warning=false ] {figures/hydrate-rim/data_andregg/gsd-PCA+CaSO4.csv};
             \addplot[update limits=false, no markers, red, dashed, domain=16:26, samples=2, forget plot] {\pgfplotstableregressionb + x*\pgfplotstableregressiona};
             \addlegendentry{\SI{90}{\day}, \acs*{OPC}+\ce{CaSO4}};
 
@@ -331,12 +331,12 @@ Furthermore, their mean particle diameter was significantly larger (starting fro
             \addlegendentry[]{\acs*{C2S} \cite{anderegg.1930}}
 
             %PC A average
-            \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=2, x index=0, col sep=comma,y expr={\thisrowno{12}-\thisrowno{13}}, ] {figures/hydrate-rim/data_andregg/PCA.csv};
-            \addplot+ [draw=none, no markers, name path=B,forget plot] table [skip first n=2, x index=0, col sep=comma,y expr={\thisrowno{12}+\thisrowno{13}}, ] {figures/hydrate-rim/data_andregg/PCA.csv};
+            \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=2, x index=0, col sep=comma,y expr={\thisrowno{12}-\thisrowno{13}}, filter discard warning=false ] {figures/hydrate-rim/data_andregg/PCA.csv};
+            \addplot+ [draw=none, no markers, name path=B,forget plot] table [skip first n=2, x index=0, col sep=comma,y expr={\thisrowno{12}+\thisrowno{13}}, filter discard warning=false ] {figures/hydrate-rim/data_andregg/PCA.csv};
 
             \addplot [fill=cyan, fill opacity=0.2,forget plot] fill between [of=A and B];
 
-            \addplot [ mark=x, cyan, opacity=0.5 ] table [skip first n=2, x index=0, y index=12, col sep=comma] {figures/hydrate-rim/data_andregg/PCA.csv};
+            \addplot [ mark=x, cyan, opacity=0.5 ] table [skip first n=2, x index=0, y index=12, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_andregg/PCA.csv};
             \addlegendentry[]{\acs*{OPC} \cite{anderegg.1929,anderegg.1930}}
 
 
@@ -405,12 +405,12 @@ Furthermore, their mean particle diameter was significantly larger (starting fro
             % \addlegendentry[]{\acs*{C3A} \cite{anderegg.1930}}
 
             %PC A average
-            \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=0, col sep=comma,y expr={\thisrowno{12}-\thisrowno{13}}, ] {figures/hydrate-rim/data_andregg/PCA.csv};
-            \addplot+ [draw=none, no markers, name path=B,forget plot] table [skip first n=3, x index=0, col sep=comma,y expr={\thisrowno{12}+\thisrowno{13}}, ] {figures/hydrate-rim/data_andregg/PCA.csv};
+            \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=0, col sep=comma,y expr={\thisrowno{12}-\thisrowno{13}}, filter discard warning=false ] {figures/hydrate-rim/data_andregg/PCA.csv};
+            \addplot+ [draw=none, no markers, name path=B,forget plot] table [skip first n=3, x index=0, col sep=comma,y expr={\thisrowno{12}+\thisrowno{13}}, filter discard warning=false ] {figures/hydrate-rim/data_andregg/PCA.csv};
 
             \addplot [fill=cyan, fill opacity=0.2,forget plot] fill between [of=A and B];
 
-            \addplot [ mark=x, cyan, opacity=0.5 ] table [skip first n=3, x index=0, y index=12, col sep=comma] {figures/hydrate-rim/data_andregg/PCA.csv};
+            \addplot [ mark=x, cyan, opacity=0.5 ] table [skip first n=3, x index=0, y index=12, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_andregg/PCA.csv};
 
 
             % \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=2, x index=0, col sep=comma,y expr={\thisrowno{9}-\thisrowno{10}}, ] {figures/hydrate-rim/data_andregg/PCA+CaSO4.csv};
@@ -472,32 +472,32 @@ The results are plotted in Figures~\ref{fig:suess_CSH_C3S} (\ac{C3S}) and \ref{f
                 /pgf/number format/fixed zerofill,
                 /pgf/number format/precision=2},
         ]
-            \addplot+ [draw=none, no markers, name path=A] table [skip first n=3, x index=0, y index=2, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
-            \addplot+ [draw=none, no markers, name path=B] table [skip first n=3, x index=0, y index=4, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addplot+ [draw=none, no markers, name path=A] table [skip first n=3, x index=0, y index=2, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addplot+ [draw=none, no markers, name path=B] table [skip first n=3, x index=0, y index=4, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
             \addplot [fill=green, fill opacity=0.2] fill between [of=A and B];
 
-            \addplot [color=green, mark=+, dotted] table [skip first n=3, x index=0, y index=3, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addplot [color=green, mark=+, dotted] table [skip first n=3, x index=0, y index=3, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
 
 
-            \addplot+ [draw=none, no markers, name path=A] table [skip first n=3, x index=0, y index=5, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
-            \addplot+ [draw=none, no markers, name path=B] table [skip first n=3, x index=0, y index=7, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addplot+ [draw=none, no markers, name path=A] table [skip first n=3, x index=0, y index=5, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addplot+ [draw=none, no markers, name path=B] table [skip first n=3, x index=0, y index=7, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
             \addplot [fill=cyan, fill opacity=0.2] fill between [of=A and B];
 
-            \addplot [color=cyan, mark=x, dotted] table [skip first n=3, x index=0, y index=6, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addplot [color=cyan, mark=x, dotted] table [skip first n=3, x index=0, y index=6, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
 
 
-            \addplot+ [draw=none, no markers, name path=A] table [skip first n=3, x index=0, y index=8, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
-            \addplot+ [draw=none, no markers, name path=B] table [skip first n=3, x index=0, y index=10, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addplot+ [draw=none, no markers, name path=A] table [skip first n=3, x index=0, y index=8, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addplot+ [draw=none, no markers, name path=B] table [skip first n=3, x index=0, y index=10, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
             \addplot [fill=red, fill opacity=0.2] fill between [of=A and B];
 
-            \addplot [color=red, mark=star, dotted] table [skip first n=3, x index=0, y index=9, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addplot [color=red, mark=star, dotted] table [skip first n=3, x index=0, y index=9, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
 
 
-            \addplot+ [draw=none, no markers, name path=A] table [skip first n=3, x index=0, y index=11, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
-            \addplot+ [draw=none, no markers, name path=B] table [skip first n=3, x index=0, y index=13, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addplot+ [draw=none, no markers, name path=A] table [skip first n=3, x index=0, y index=11, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addplot+ [draw=none, no markers, name path=B] table [skip first n=3, x index=0, y index=13, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
             \addplot [fill=orange, fill opacity=0.2] fill between [of=A and B];
 
-            \addplot [color=orange, mark=Mercedes star, dotted] table [skip first n=3, x index=0, y index=12, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addplot [color=orange, mark=Mercedes star, dotted] table [skip first n=3, x index=0, y index=12, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
 
         \nextgroupplot[
             xmin=-1.5, xmax=28,
@@ -511,35 +511,35 @@ The results are plotted in Figures~\ref{fig:suess_CSH_C3S} (\ac{C3S}) and \ref{f
             legend to name={CommonLegend}
         ]
             \pgfplotsset{cycle list shift=+1}
-            \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=1, y index=2, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
-            \addplot+ [draw=none, no markers, name path=B,forget plot] table [skip first n=3, x index=1, y index=4, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=1, y index=2, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addplot+ [draw=none, no markers, name path=B,forget plot] table [skip first n=3, x index=1, y index=4, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
             \addplot [fill=green, fill opacity=0.2,forget plot] fill between [of=A and B];
 
-            \addplot [color=green, mark=+, dotted] table [skip first n=3, x index=1, y index=3, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addplot [color=green, mark=+, dotted] table [skip first n=3, x index=1, y index=3, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
             \addlegendentry[]{\ac{C3S} \SI{5}{\celsius} \cite{suss.2001}}
 
 
-            \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=1, y index=5, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
-            \addplot+ [draw=none, no markers, name path=B,forget plot] table [skip first n=3, x index=1, y index=7, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=1, y index=5, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addplot+ [draw=none, no markers, name path=B,forget plot] table [skip first n=3, x index=1, y index=7, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
             \addplot [fill=cyan, fill opacity=0.2,forget plot] fill between [of=A and B];
 
-            \addplot [color=cyan, mark=x, dotted] table [skip first n=3, x index=1, y index=6, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addplot [color=cyan, mark=x, dotted] table [skip first n=3, x index=1, y index=6, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
             \addlegendentry[]{\ac{C3S} \SI{20}{\celsius} \cite{voland.2000}}
 
 
-            \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=1, y index=8, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
-            \addplot+ [draw=none, no markers, name path=B,forget plot] table [skip first n=3, x index=1, y index=10, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=1, y index=8, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addplot+ [draw=none, no markers, name path=B,forget plot] table [skip first n=3, x index=1, y index=10, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
             \addplot [fill=red, fill opacity=0.2,forget plot] fill between [of=A and B];
 
-            \addplot [color=red, mark=star, dotted] table [skip first n=3, x index=1, y index=9, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addplot [color=red, mark=star, dotted] table [skip first n=3, x index=1, y index=9, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
             \addlegendentry[]{\ac{C3S} \SI{60}{\celsius} \cite{suss.2001}}
 
 
-            \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=1, y index=11, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
-            \addplot+ [draw=none, no markers, name path=B,forget plot] table [skip first n=3, x index=1, y index=13, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=1, y index=11, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addplot+ [draw=none, no markers, name path=B,forget plot] table [skip first n=3, x index=1, y index=13, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
             \addplot [fill=orange, fill opacity=0.2,forget plot] fill between [of=A and B];
 
-            \addplot [color=orange, mark=Mercedes star, dotted] table [skip first n=3, x index=1, y index=12, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addplot [color=orange, mark=Mercedes star, dotted] table [skip first n=3, x index=1, y index=12, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
             \addlegendentry[]{\ac{C3S} \SI{90}{\celsius} \cite{suss.2001}}
 
         \end{groupplot}
@@ -600,25 +600,25 @@ While the \ac{CSH}-growth of \ac{C3S} stagnates after 5 months, \textcite{moser.
                 /pgf/number format/fixed zerofill,
                 /pgf/number format/precision=2},
         ]
-            \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=1, y index=5, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
-            \addplot+ [draw=none, no markers, name path=B,forget plot] table [skip first n=3, x index=1, y index=7, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=1, y index=5, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addplot+ [draw=none, no markers, name path=B,forget plot] table [skip first n=3, x index=1, y index=7, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
             \addplot [fill=red, fill opacity=0.2,forget plot] fill between [of=A and B];
 
             \addplot [color=red, mark=x, dotted] table [skip first n=3, x index=1, y index=6, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
 
 
-            \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=1, y index=14, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
-            \addplot+ [draw=none, no markers, name path=B,forget plot] table [skip first n=3, x index=1, y index=16, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=1, y index=14, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addplot+ [draw=none, no markers, name path=B,forget plot] table [skip first n=3, x index=1, y index=16, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
             \addplot [fill=green, fill opacity=0.2,forget plot] fill between [of=A and B];
 
-            \addplot [color=green, mark=x, dotted] table [skip first n=3, x index=1, y index=15, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addplot [color=green, mark=x, dotted] table [skip first n=3, x index=1, y index=15, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
 
 
-            \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=0, y index=1, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C2S_moeser.csv};
-            \addplot+ [draw=none, no markers, name path=B,forget plot] table [skip first n=3, x index=0, y index=3, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C2S_moeser.csv};
+            \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=0, y index=1, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C2S_moeser.csv};
+            \addplot+ [draw=none, no markers, name path=B,forget plot] table [skip first n=3, x index=0, y index=3, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C2S_moeser.csv};
             \addplot [fill=cyan, fill opacity=0.2,forget plot] fill between [of=A and B];
 
-            \addplot [color=cyan, mark=x, dotted] table [skip first n=3, x index=0, y index=2, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C2S_moeser.csv};
+            \addplot [color=cyan, mark=x, dotted] table [skip first n=3, x index=0, y index=2, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C2S_moeser.csv};
 
         \nextgroupplot[
             xmin=-65, xmax=1000,
@@ -630,27 +630,27 @@ While the \ac{CSH}-growth of \ac{C3S} stagnates after 5 months, \textcite{moser.
             legend to name={CommonLegend2}
         ]
             \pgfplotsset{cycle list shift=+1}
-            \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=1, y index=5, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
-            \addplot+ [draw=none, no markers, name path=B,forget plot] table [skip first n=3, x index=1, y index=7, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=1, y index=5, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addplot+ [draw=none, no markers, name path=B,forget plot] table [skip first n=3, x index=1, y index=7, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
             \addplot [fill=red, fill opacity=0.2,forget plot] fill between [of=A and B];
 
-            \addplot [color=red, mark=x, dotted] table [skip first n=3, x index=1, y index=6, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addplot [color=red, mark=x, dotted] table [skip first n=3, x index=1, y index=6, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
             \addlegendentry[]{\ac{C3S} \cite{voland.2000,suss.2001,stark.2001,moser.2002}}
 
 
-            \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=1, y index=14, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
-            \addplot+ [draw=none, no markers, name path=B,forget plot] table [skip first n=3, x index=1, y index=16, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=1, y index=14, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addplot+ [draw=none, no markers, name path=B,forget plot] table [skip first n=3, x index=1, y index=16, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
             \addplot [fill=green, fill opacity=0.2,forget plot] fill between [of=A and B];
 
-            \addplot [color=green, mark=x, dotted] table [skip first n=3, x index=1, y index=15, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addplot [color=green, mark=x, dotted] table [skip first n=3, x index=1, y index=15, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
             \addlegendentry[]{$\beta$-\ac{C2S} \cite{voland.2000,suss.2001}}
 
 
-            \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=0, y index=1, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C2S_moeser.csv};
-            \addplot+ [draw=none, no markers, name path=B,forget plot] table [skip first n=3, x index=0, y index=3, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C2S_moeser.csv};
+            \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=0, y index=1, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C2S_moeser.csv};
+            \addplot+ [draw=none, no markers, name path=B,forget plot] table [skip first n=3, x index=0, y index=3, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C2S_moeser.csv};
             \addplot [fill=cyan, fill opacity=0.2,forget plot] fill between [of=A and B];
 
-            \addplot [color=cyan, mark=x, dotted] table [skip first n=3, x index=0, y index=2, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C2S_moeser.csv};
+            \addplot [color=cyan, mark=x, dotted] table [skip first n=3, x index=0, y index=2, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C2S_moeser.csv};
             \addlegendentry[]{$\beta$-\ac{C2S} \cite{moser.2002}}
 
         \end{groupplot}
@@ -1141,30 +1141,30 @@ Since the location of larger phases does not change in the image used, even the 
             %\addlegendentry{pores};
 
             %CSH
-            \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{3}-\thisrowno{4}}, ] {figures/literature/C3S_28d_area_growth.csv};
-            \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{3}+\thisrowno{4}}, ] {figures/literature/C3S_28d_area_growth.csv};
+            \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{3}-\thisrowno{4}}, filter discard warning=false ] {figures/literature/C3S_28d_area_growth.csv};
+            \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{3}+\thisrowno{4}}, filter discard warning=false ] {figures/literature/C3S_28d_area_growth.csv};
 
             \addplot [fill=red, fill opacity=0.2,forget plot] fill between [of=A and B];
 
-            \addplot [ mark=none, red, opacity=0.5 ] table [x index=9, y index=3, col sep=comma] {figures/literature/C3S_28d_area_growth.csv};
+            \addplot [ mark=none, red, opacity=0.5 ] table [x index=9, y index=3, col sep=comma, filter discard warning=false] {figures/literature/C3S_28d_area_growth.csv};
             %\addlegendentry{\ac{CSH}};
 
             %CH
-            \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{5}-\thisrowno{6}}, ] {figures/literature/C3S_28d_area_growth.csv};
-            \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{5}+\thisrowno{6}}, ] {figures/literature/C3S_28d_area_growth.csv};
+            \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{5}-\thisrowno{6}}, filter discard warning=false ] {figures/literature/C3S_28d_area_growth.csv};
+            \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{5}+\thisrowno{6}}, filter discard warning=false ] {figures/literature/C3S_28d_area_growth.csv};
 
             \addplot [fill=cyan, fill opacity=0.2,forget plot] fill between [of=A and B];
 
-            \addplot [ mark=none, cyan, opacity=0.5 ] table [x index=9, y index=5, col sep=comma] {figures/literature/C3S_28d_area_growth.csv};
+            \addplot [ mark=none, cyan, opacity=0.5 ] table [x index=9, y index=5, col sep=comma, filter discard warning=false] {figures/literature/C3S_28d_area_growth.csv};
             %\addlegendentry{\ac{CH}};
 
             %alite
-            \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{7}-\thisrowno{8}}, ] {figures/literature/C3S_28d_area_growth.csv};
-            \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{7}+\thisrowno{8}}, ] {figures/literature/C3S_28d_area_growth.csv};
+            \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{7}-\thisrowno{8}}, filter discard warning=false ] {figures/literature/C3S_28d_area_growth.csv};
+            \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{7}+\thisrowno{8}}, filter discard warning=false ] {figures/literature/C3S_28d_area_growth.csv};
 
             \addplot [fill=yellow, fill opacity=0.2,forget plot] fill between [of=A and B];
 
-            \addplot [ mark=none, yellow, opacity=0.5 ] table [x index=9, y index=7, col sep=comma] {figures/literature/C3S_28d_area_growth.csv};
+            \addplot [ mark=none, yellow, opacity=0.5 ] table [x index=9, y index=7, col sep=comma, filter discard warning=false] {figures/literature/C3S_28d_area_growth.csv};
             %\addlegendentry{alite};
         \end{axis}
       \end{tikzpicture}
@@ -1186,13 +1186,13 @@ Since the location of larger phases does not change in the image used, even the 
             grid=major,
             grid style={line width=.1pt, draw=gray!10}
 		  ]
-          \addplot[black, smooth, tension=0.2, no markers] table [x index=9, col sep=comma,y index=2] {figures/literature/C3S_28d_area_growth.csv};
+          \addplot[black, smooth, tension=0.2, no markers] table [x index=9, col sep=comma,y index=2, filter discard warning=false] {figures/literature/C3S_28d_area_growth.csv};
 
-          \addplot[red, smooth, tension=0.2, no markers] table [x index=9, col sep=comma,y index=4] {figures/literature/C3S_28d_area_growth.csv};
+          \addplot[red, smooth, tension=0.2, no markers] table [x index=9, col sep=comma,y index=4, filter discard warning=false] {figures/literature/C3S_28d_area_growth.csv};
 
-          \addplot[cyan, smooth, tension=0.2, no markers] table [x index=9, col sep=comma,y index=6] {figures/literature/C3S_28d_area_growth.csv};
+          \addplot[cyan, smooth, tension=0.2, no markers] table [x index=9, col sep=comma,y index=6, filter discard warning=false] {figures/literature/C3S_28d_area_growth.csv};
 
-          \addplot[yellow, smooth, tension=0.2, no markers] table [x index=9, col sep=comma,y index=8] {figures/literature/C3S_28d_area_growth.csv};
+          \addplot[yellow, smooth, tension=0.2, no markers] table [x index=9, col sep=comma,y index=8, filter discard warning=false] {figures/literature/C3S_28d_area_growth.csv};
 
           \addlegendentry{pores};
           \addlegendentry{\ac{CSH}};

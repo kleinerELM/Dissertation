@@ -7,10 +7,9 @@
 \color{red}
 Figures in the appendix section are not visible in draft mode!
 }
-	\ifdefined\REVIEW
-	\else
-		\tikzexternaldisable
-	\fi
+\fi
+\ifdefined\EXTERNALIZE
+	\tikzexternaldisable
 \fi
 
 \section{Hydrate rim measurements}
@@ -23,7 +22,7 @@ Figures in the appendix section are not visible in draft mode!
 \begin{figure}[htbp]
 	\centerline{\includegraphics[width=\textwidth]{hydrate-rim/histogram_segmentation2.pdf}}
 	\caption{Histograms of the hydration layers of \SI{14}{\day} hydrated alite. Segmentation result by thresholding ($l_\text{max}$ = \SI{1.85}{\micro\meter}), pixel classification with ($l_\text{max}$ = \SI{1.94}{\micro\meter}) and without respecting \ac{CSHo} ($l_\text{max}$ = \SI{1.52}{\micro\meter}) and manual segmentation ($l_\text{max}$ = \SI{1.52}{\micro\meter})
-	Same diagram type as in Figure~\ref{fig:results2d_alite}. \label{fig:hlt_segmentation_influence}}
+	Same diagram type as in Figure~\ref{fig:results2d_alite}. }
 \end{figure}
 
 \begin{figure}[htbp]
@@ -49,7 +48,7 @@ Figures in the appendix section are not visible in draft mode!
 		\includegraphics[width=\textwidth]{mip/vycor_glass_20.png}
 		\caption{\SI{20}{\nano\meter} porous \textsc{VYCOR}-glass.}
 		\label{fig:vycor-mip-20}
-	\end{subfigure}
+	\end{subfigure}\label{fig:hlt_segmentation_influence}
 
     \caption{\ac{PSD} of the \textsc{VYCOR}-glass measured using \ac{MIP} according to the test certificate of the manufacturer; University of Leipzig; ICT, February 2020.}
     \label{fig:vycor-mip}
@@ -59,7 +58,7 @@ Figures in the appendix section are not visible in draft mode!
 \begin{figure}[!htb]
     \centering
  	\begin{subfigure}{.47\textwidth}
-	
+
       \begin{tikzpicture}[remember picture]
         \begin{semilogxaxis}[
 				blue,
@@ -78,10 +77,10 @@ Figures in the appendix section are not visible in draft mode!
 				scaled x ticks=false,,
 				axis x line*=top
             ]
-			
+
         \end{semilogxaxis}
         \begin{semilogxaxis}[
-				legend style={at={(0.95,.7)},anchor=east},
+				legend style={at={(0.97,.97)},anchor=north east},
                 legend cell align={left},
 				xmin=1.5, xmax=60,
 				ymin=-.20, ymax=0.07,
@@ -102,10 +101,10 @@ Figures in the appendix section are not visible in draft mode!
 				scaled y ticks=false,
 				scaled x ticks=false,
             ]
-			
+
 
 			\addplot[dotted, thick, samples=2, darkgrey,forget plot] coordinates {(3.19,-.2)(3.19,.2)};
-			\node[darkgrey, rotate=90, anchor=west] at (axis cs: 2.50,-.10) {\scriptsize <\,\SI{-40}{\degreeCelsius}!};
+			\node[darkgrey, rotate=90, anchor=west] at (axis cs: 2.50,-.105) {\scriptsize <\,\SI{-40}{\degreeCelsius}!};
 
 			\ifdefined\DRAFT
 			\else
@@ -129,8 +128,9 @@ Figures in the appendix section are not visible in draft mode!
             \addplot [ no marks, blue,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_28d-3_freeze_segment_14.csv};
             %\addlegendentry{\ac{C2S}, \SI{28}{\day}};
 			\fi
-			\draw[draw=black] (2.75,-.1) rectangle ++(0.65,-0.13);
-			\node[draw=none] (top-1) at (axis cs:2.75,-.1) {};
+
+			\draw[draw=black, densely dotted] (2.75,-.11) rectangle (1.75,-0.03);
+			\node[draw=none] (top-1) at (axis cs:2.75,-.11) {};
 			\node[draw=none] (bottom-1) at (axis cs:2.75,-.03) {};
         \end{semilogxaxis}
 	  \end{tikzpicture}
@@ -157,7 +157,7 @@ Figures in the appendix section are not visible in draft mode!
 			scaled x ticks=false,,
 			axis x line*=top
 		]
-		
+
 		\end{axis}
 		\begin{axis}[
 			legend style={at={(0.97,.7)},anchor=east},
@@ -245,10 +245,10 @@ Figures in the appendix section are not visible in draft mode!
 				scaled x ticks=false,
 				axis x line*=top,
             ]
-			
+
         \end{semilogxaxis}
         \begin{semilogxaxis}[
-				legend style={at={(0.95,.7)},anchor=east},
+				legend style={at={(0.97,.97)},anchor=north east},
                 legend cell align={left},
 				xmin=1.5, xmax=60,
 				ymin=-.20, ymax=0.07,
@@ -272,7 +272,7 @@ Figures in the appendix section are not visible in draft mode!
 
 
 			\addplot[dotted, thick, samples=2, darkgrey,forget plot] coordinates {(3.19,-.2)(3.19,.2)};
-			\node[darkgrey, rotate=90, anchor=west] at (axis cs: 2.50,-.10) {\scriptsize <\,\SI{-40}{\degreeCelsius}!};
+			\node[darkgrey, rotate=90, anchor=west] at (axis cs: 2.50,-.105) {\scriptsize <\,\SI{-40}{\degreeCelsius}!};
 
 			\ifdefined\DRAFT
 			\else
@@ -301,8 +301,8 @@ Figures in the appendix section are not visible in draft mode!
             %\addlegendentry{\ac{C3S}, \SI{28}{\day}};
 			\fi
 
-			\draw[draw=black] (2.75,-.1) rectangle ++(0.65,-0.13);
-			\node[draw=none] (top-3) at (axis cs:2.75,-.1) {};
+			\draw[draw=black, densely dotted] (2.75,-.11) rectangle (1.75,-0.03);
+			\node[draw=none] (top-3) at (axis cs:2.75,-.11) {};
 			\node[draw=none] (bottom-3) at (axis cs:2.75,-.03) {};
         \end{semilogxaxis}
 	  \end{tikzpicture}
@@ -329,10 +329,10 @@ Figures in the appendix section are not visible in draft mode!
 			scaled x ticks=false,,
 			axis x line*=top
 		]
-		
+
 		\end{axis}
 		\begin{axis}[
-				legend style={at={(0.97,.65)},anchor=east},
+				legend style={at={(0.97,.97)},anchor=north east},
 				legend cell align={left},
 				xmin=1.75, xmax=2.75,
 				ymin=-.11, ymax=-0.03,
@@ -400,9 +400,6 @@ Figures in the appendix section are not visible in draft mode!
 
 
 
-\ifdefined\DRAFT
-	\ifdefined\REVIEW
-	\else
-		\tikzexternalenable
-	\fi
+\ifdefined\EXTERNALIZE
+	\tikzexternalenable
 \fi

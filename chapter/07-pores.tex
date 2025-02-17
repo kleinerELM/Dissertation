@@ -248,11 +248,8 @@ The \ac{LTDSC} curves of the second freezing pass of \ac{C2S} from \num{7} to \S
 Three measurements were done for every specimen age.
 It was not possible to measure \ac{C2S} after \SI{1}{\day} of hydration, since the material was not hard enough to be handled and transferred into the \ac{LTDSC}-crucible.
 
-\ifdefined\DRAFT
-	\ifdefined\REVIEW
-	\else
-		\tikzexternaldisable
-	\fi
+\ifdefined\EXTERNALIZE
+	\tikzexternaldisable
 \fi
 \begin{figure}[!htb]
     \centering
@@ -301,7 +298,7 @@ It was not possible to measure \ac{C2S} after \SI{1}{\day} of hydration, since t
 				scaled x ticks=false,
             ]
 			\addplot[dotted, thick, samples=2, darkgrey,forget plot] coordinates {(3.19,-.2)(3.19,.2)};
-			\node[darkgrey, rotate=90, anchor=west] at (axis cs: 2.51,-.10) {\scriptsize <\,\SI{-40}{\degreeCelsius}};
+			\node[darkgrey, rotate=90, anchor=west] at (axis cs: 2.51,-.105) {\scriptsize <\,\SI{-40}{\degreeCelsius}};
 
 			% std dev of 7d C2S
             \addplot+ [draw=none, no markers, name path=A,forget plot] table [each nth point=4,filter discard warning=false, unbounded coords=discard, x index=3, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}, ] {figures/ltdsc/C2S_7d_mean_freeze_segment.csv};
@@ -333,8 +330,8 @@ It was not possible to measure \ac{C2S} after \SI{1}{\day} of hydration, since t
             \addplot [ no marks, blue] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=3, y index=1, col sep=comma] {figures/ltdsc/C2S_28d_mean_freeze_segment.csv};
             %\addlegendentry{\ac{C2S}, \SI{28}{\day}};
 
-			\draw[draw=black] (2.75,-.1) rectangle ++(0.65,-0.13);
-			\node[draw=none] (top-1) at (axis cs:2.75,-.1) {};
+			\draw[draw=black, densely dotted] (2.75,-.11) rectangle (1.75,-0.03);
+			\node[draw=none] (top-1) at (axis cs:2.75,-.11) {};
 			\node[draw=none] (bottom-1) at (axis cs:2.75,-.03) {};
         \end{semilogxaxis}
 	  \end{tikzpicture}
@@ -364,7 +361,7 @@ It was not possible to measure \ac{C2S} after \SI{1}{\day} of hydration, since t
 
 		\end{axis}
 		\begin{axis}[
-			legend style={at={(0.97,.7)},anchor=east},
+				legend style={at={(0.97,.97)},anchor=north east},
 				legend cell align={left},
 				xmin=1.75, xmax=2.75,
 				ymin=-.11, ymax=-0.03,
@@ -486,7 +483,7 @@ The \ac{LTDSC} curves from the second freezing pass are plotted in Figure~\ref{f
 				scaled x ticks=false,
             ]
 			\addplot[dotted, thick, samples=2, darkgrey,forget plot] coordinates {(3.19,-.2)(3.19,.2)};
-			\node[darkgrey, rotate=90, anchor=west] at (axis cs: 2.51,-.10) {\scriptsize <\,\SI{-40}{\degreeCelsius}};
+			\node[darkgrey, rotate=90, anchor=west] at (axis cs: 2.51,-.105) {\scriptsize <\,\SI{-40}{\degreeCelsius}};
 
 			% std dev of 1d C3S
             \addplot+ [draw=none, no markers, name path=A,forget plot] table [each nth point=4,filter discard warning=false, unbounded coords=discard, x index=3, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}, ] {figures/ltdsc/C3S_1d_mean_freeze_segment.csv};
@@ -525,8 +522,8 @@ The \ac{LTDSC} curves from the second freezing pass are plotted in Figure~\ref{f
             \addplot [ no marks, blue] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=3, y index=1, col sep=comma] {figures/ltdsc/C3S_28d_mean_freeze_segment.csv};
             %\addlegendentry{\ac{C3S}, \SI{28}{\day}};
 
-			\draw[draw=black] (2.75,-.1) rectangle ++(0.65,-0.13);
-			\node[draw=none] (top-3) at (axis cs:2.75,-.1) {};
+			\draw[draw=black, densely dotted] (2.75,-.11) rectangle (1.75,-0.03);
+			\node[draw=none] (top-3) at (axis cs:2.75,-.11) {};
 			\node[draw=none] (bottom-3) at (axis cs:2.75,-.03) {};
         \end{semilogxaxis}
 	  \end{tikzpicture}
@@ -556,7 +553,7 @@ The \ac{LTDSC} curves from the second freezing pass are plotted in Figure~\ref{f
 
 		\end{axis}
 		\begin{axis}[
-				legend style={at={(0.97,.65)},anchor=east},
+				legend style={at={(0.97,.97)},anchor=north east},
 				legend cell align={left},
 				xmin=1.75, xmax=2.75,
 				ymin=-.11, ymax=-0.03,
@@ -633,11 +630,8 @@ The \ac{LTDSC} curves from the second freezing pass are plotted in Figure~\ref{f
     \caption{\ac{LTDSC} curves for the second freezing pass of \ac{C3S} from 1 to \SI{28}{\day} of hydration. Every specimen age was measured using three specimens. The graph on the right is a zoomed in section of the left graph, showing the data correlating to the gel pores. Note that pore sizes below \SI{3.19}{\nano\meter} are undefined as noted in Equation~\ref{eq:brun_freeze}.}
     \label{fig:ltdsc_result_C3S_freeze}
 \end{figure}
-\ifdefined\DRAFT
-	\ifdefined\REVIEW
-	\else
-		\tikzexternalenable
-	\fi
+\ifdefined\EXTERNALIZE
+	\tikzexternalenable
 \fi
 
 On first glance, the \ac{C3S} results look similar to the \ac{C2S} results.
@@ -715,7 +709,6 @@ To mitigate this effect, the dashed curve indicates the heat flow $\dot{Q}$ of t
 
 \begin{figure}[!htb]
     \centering
-	
 	\begin{subfigure}{.49\textwidth}
       \begin{tikzpicture}
         \begin{axis}[
@@ -743,7 +736,7 @@ To mitigate this effect, the dashed curve indicates the heat flow $\dot{Q}$ of t
 
             \addplot [thick, no marks, blue] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=0, y index=2, col sep=comma] {figures/ltdsc/ExpDat_M28n2-28d_melt_segment_9.csv};
             \addlegendentry{\SI{0.5}{\kelvin\per\minute}};
-			
+
 			\addplot [dashed, no marks, blue] table [each nth point=4, filter discard warning=false, unbounded coords=discard, x index=0, y expr=\thisrowno{2}*4, col sep=comma] {figures/ltdsc/ExpDat_M28n2-28d_melt_segment_9.csv};
 			\addlegendentry{$4\times$\SI{0.5}{\kelvin\per\minute}};
 
@@ -752,13 +745,13 @@ To mitigate this effect, the dashed curve indicates the heat flow $\dot{Q}$ of t
             \addlegendentry{\SI{2.0}{\kelvin\per\minute}};
         \end{axis}
 	  \end{tikzpicture}
-	  \label{fig:ltdsc_result_heating_rate_a}
 	  \caption{Melting heat flow}
+	  \label{fig:ltdsc_result_heating_rate_a}
 
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}{.49\textwidth}
-	
+
 	  \begin{tikzpicture}[
 		precise pin/.style args={#1:#2}{
 			pin={[
@@ -809,7 +802,7 @@ To mitigate this effect, the dashed curve indicates the heat flow $\dot{Q}$ of t
             \addplot [no marks, orange] table [each nth point=10, filter discard warning=false, unbounded coords=discard,x index=0, y index=2, col sep=comma] {figures/ltdsc/ExpDat_M28n2-28d_ice_18.csv};
             \addlegendentry{A: \SI{2.0}{\kelvin\per\minute}};
 
-			
+
 			\draw[draw=black, densely dotted] (-47,0.005) rectangle (-27,-.001);
 			\coordinate (pt) at (axis cs:-30.9,0.045);
 
@@ -834,25 +827,26 @@ To mitigate this effect, the dashed curve indicates the heat flow $\dot{Q}$ of t
 					yticklabel pos=right,
 					width=.52\linewidth,
 					height=3.4cm,
-					xtick={-44,-37,-30}, 
+					xtick={-44,-37,-30},
 					ytick={0,0.003},
 				]
 				\addplot[samples=2, darkgrey,forget plot] coordinates {(15,0)(-60,0)};
-	
+
 				\addplot [restrict x to domain=-47:-27,thick, no marks, blue] table [each nth point=5, filter discard warning=false, unbounded coords=discard,x index=0, y index=2, col sep=comma] {figures/ltdsc/ExpDat_M28n2-28d_ice_man_9.csv};
-	
+
 				\addplot [restrict x to domain=-47:-27,thick, no marks, red] table [each nth point=5, filter discard warning=false, unbounded coords=discard,x index=0, y index=2, col sep=comma] {figures/ltdsc/ExpDat_M28n2-28d_ice_man_18.csv};
-	
+
 				\addplot [restrict x to domain=-47:-27,no marks, cyan] table [each nth point=5, filter discard warning=false, unbounded coords=discard,x index=0, y index=2, col sep=comma] {figures/ltdsc/ExpDat_M28n2-28d_ice_9.csv};
-	
+
 				\addplot [restrict x to domain=-47:-27,no marks, orange] table [each nth point=5, filter discard warning=false, unbounded coords=discard,x index=0, y index=2, col sep=comma] {figures/ltdsc/ExpDat_M28n2-28d_ice_18.csv};
-	
+
 			\end{axis}
 		\end{tikzpicture}
 	};
 	  \end{tikzpicture}
-	  \label{fig:ltdsc_result_heating_rate_b}
 	  \caption{Cumulative ice mass}
+	  \label{fig:ltdsc_result_heating_rate_b}
+
 	\end{subfigure}
 
     \caption{\ac{LTDSC} curves and the cumulative ice mass for a slow (\SI{0.5}{\kelvin\per\minute}) and fast (\SI{2}{\kelvin\per\minute}) heating curves from \SI{-50} to \SI{15}{\degreeCelsius} of \SI{28}{\day} hydrated CEM IV (\ac{wb} = \num{0.5}). A: automatic baseline correction, M: manual baseline correction}
@@ -861,20 +855,17 @@ To mitigate this effect, the dashed curve indicates the heat flow $\dot{Q}$ of t
 
 The calculated ice mass should not be influenced by the heating rate.
 However, the calculation of the ice mass is influenced by the way, this baseline is determined.
-Using the automatic baseline correction from \cite{kleiner.2025} results in an ice mass difference of \num{140.5} (slow heating rate) to \SI{139.9}{\milli\gram\per\gram} (fast heating rate).
-In contrast, a more manual approach as used by {\color{red} \textsc{Unbehau} \cite{}} gives \num{151.9} (slow heating rate) and \SI{142.1}{\milli\gram\per\gram} (fast heating rate) respectively.
-Comparing the quality of both methods, the manual approach seems to give better results, while the evaluation more subjective. %Todo unterscheide der Methoden erklären
-% 
+Using an automatic baseline correction from \cite{kleiner.2025} results in an ice mass difference of \num{140.5} (slow heating rate) to \SI{139.9}{\milli\gram\per\gram} (fast heating rate).
+In contrast, a more manual approach as used by {\color{red} \textsc{Unbehau} \cite{}} gives a higher ice mass of \num{151.9} (slow heating rate) and \SI{142.1}{\milli\gram\per\gram} (fast heating rate) respectively.
+The cumulative ice mass calculated using both methods is shown in Figure~\ref{fig:ltdsc_result_heating_rate_b}.
+As can be seen in the zoomed in section, the manual approach gives more plausible curves, starting at roughly \SI{-47}{\degreeCelsius}, while the automatic approach seems to loose ice mass until \num{-38} ore \SI{-34}{\degreeCelsius}.
+This is caused by the intersection point of the base line corrected raw data with the x-axis.
+However, since the temperature ranges to process the baseline correction are selected subjectively, the manual approach may differ depending on the person processing the data.
 
-However, due to the extended measuring time caused by the four times slower heat rates, it would not have been possible to obtain three measurements for every hydration time within a single work day.
-In favor of repeatability it has been decided to use a faster heating rate of \SI{2}{\kelvin\per\minute}.
+While the slower heating rate causes improved results, it would not have been possible to obtain three measurements for every hydration time within a single work day.
+Since the specimens are still wet and still hydrating, the measurements had to be carried out in a timely manner.
+Therefore, it has been decided to use a faster heating rate of \SI{2}{\kelvin\per\minute} and the automatic approach, which should cause a comparable error within the same measurement regime.
 
-As shown in Figure~\ref{fig:ltdsc_result_C2S_melt_bar}, for \ac{C2S} the ice mass of the gel pores was calculated to be \SI{4.7}{\milli\gram\per\gram} at \SI{7}{\day} up to \SI{20.3}{\milli\gram\per\gram} after \SI{28}{\day} of hydration, while the capillary pores were reduced from 271 to \SI{216}{\milli\gram\per\gram} in the same time.
-In contrast, \ac{C3S} initially had a higher gel pore ice mass, while ending up with a lower ice mass after \SI{28}{\day} of hydration (Figure~\ref{fig:ltdsc_result_C3S_melt_bar}).
-The gel pore ice mass was increasing more slowly from from \SI{6.2}{\milli\gram\per\gram} at \SI{1}{\day} to \SI{17.0}{\milli\gram\per\gram} after \SI{28}{\day} of hydration.
-In comparison to \ac{C2S}, less than half of the ice mass corresponding to capillary pores was detected in \ac{C3S} is after \SI{7}{\day} of hydration.
-The capillary pore space was reduced from \SI{193}{\milli\gram\per\gram} (\SI{1}{\day}) to \SI{99}{\milli\gram\per\gram} (\SI{28}{\day}).
-Furthermore, a significant slow down of gel pore development and reduction in capillary pores can be seen in \ac{C3S} after \SI{14}{\day} of hydration.
 
 
 \begin{figure}[!htb]
@@ -1025,6 +1016,13 @@ Furthermore, a significant slow down of gel pore development and reduction in ca
     \caption{Ice mass for the two pore types and total pore amount of \ac{C3S} and \ac{C3S} from 1 to \SI{28}{\day} of hydration. The data were calculated from three \ac{LTDSC}-measurements for each value.}
 	\label{fig:ltdsc_result_melt_bar}
 \end{figure}
+
+As shown in Figure~\ref{fig:ltdsc_result_C2S_melt_bar}, for \ac{C2S} the ice mass of the gel pores was calculated to be \SI{4.7}{\milli\gram\per\gram} at \SI{7}{\day} up to \SI{20.3}{\milli\gram\per\gram} after \SI{28}{\day} of hydration, while the capillary pores were reduced from 271 to \SI{216}{\milli\gram\per\gram} in the same time.
+In contrast, \ac{C3S} initially had a higher gel pore ice mass, while ending up with a lower ice mass after \SI{28}{\day} of hydration (Figure~\ref{fig:ltdsc_result_C3S_melt_bar}).
+The gel pore ice mass was increasing more slowly from from \SI{6.2}{\milli\gram\per\gram} at \SI{1}{\day} to \SI{17.0}{\milli\gram\per\gram} after \SI{28}{\day} of hydration.
+In comparison to \ac{C2S}, less than half of the ice mass corresponding to capillary pores was detected in \ac{C3S} is after \SI{7}{\day} of hydration.
+The capillary pore space was reduced from \SI{193}{\milli\gram\per\gram} (\SI{1}{\day}) to \SI{99}{\milli\gram\per\gram} (\SI{28}{\day}).
+Furthermore, a significant slow down of gel pore development and reduction in capillary pores can be seen in \ac{C3S} after \SI{14}{\day} of hydration.
 
 As expected from the freezing curves, the overall ice mass and the ice mass correlated to the gel pores is lower for \ac{C3S} compared to \ac{C2S}.
 Both materials indicate a steady increase in the gel pore and a reduction of capillary ice mass over time.

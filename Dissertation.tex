@@ -5,7 +5,8 @@
 % Definitions
 % ################################################
 
-%\def\DRAFT{} % comment out for the printable document!
+\def\DRAFT{} % comment out for the printable document!
+%\def\EXTERNALIZE{}
 %\def\PRINTABLE{} % uncomment to disable animated figures
 %\def\REVIEW{}
 
@@ -46,13 +47,20 @@
 
 \begin{document}
 	\frontmatter  % start front matter section
-		%\input{additionals/a-cover}
+		\ifdefined\DRAFT
+		\else
+			\input{additionals/a-cover}
+		\fi
+
 		\input{additionals/b-titlepage}  % include correct title page
-		\input{additionals/e-dedication}
+
+		\ifdefined\DRAFT
+		\else
+			\input{additionals/e-dedication}
+			\input{additionals/c-acknowledgements}
+		\fi
 
 		%\pagenumbering{Roman}  % set page numbering to Roman
-
-		\input{additionals/c-acknowledgements}
 
 		\selectlanguage{english}
 		\tableofcontents  % print table of contents
@@ -72,10 +80,10 @@
 		\input{chapter/07-pores}
 
 		\input{chapter/90-summary}
-		
+
 		\input{chapter/99-bibliography}
 
-	\appendix  % begin appendix		
+	\appendix  % begin appendix
 		\ifdefined\DRAFT
 		\setkeys{Gin}{draft}
 		\fi
@@ -83,6 +91,9 @@
 
 	\backmatter
 		\selectlanguage{ngerman}
-		\input{additionals/z-declaration}
+		\ifdefined\DRAFT
+		\else
+			\input{additionals/z-declaration}
+		\fi
 
 \end{document}

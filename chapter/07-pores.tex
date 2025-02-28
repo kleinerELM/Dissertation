@@ -705,7 +705,7 @@ This indicates, that the heating rate of \SI{2}{\kelvin\per\minute} was higher t
 Therefore, an experiment comparing a slower heating rate (\SI{0.5}{\kelvin\per\minute}) was carried out (Figure~\ref{fig:ltdsc_result_heating_rate_a}).
 This results in a shift of the melting peak in the direction of \SI{0}{\degreeCelsius} and a seemingly smaller heat output.
 However, difference in peak height is caused by a change in the measuring interval.
-To mitigate this effect, the dashed curve indicates the heat flow $\dot{Q}$ of the \SI{0.5}{\kelvin\per\minute} heat rate, corrected for the interval difference . %TODO ist das legitim?
+To mitigate this, the dashed curve indicates the heat flow $\dot{Q}$ of the \SI{0.5}{\kelvin\per\minute} heat rate, corrected for the interval difference . %TODO ist das legitim?
 
 \begin{figure}[!htb]
     \centering
@@ -753,31 +753,31 @@ To mitigate this effect, the dashed curve indicates the heat flow $\dot{Q}$ of t
 	\begin{subfigure}{.49\textwidth}
 
 	  \begin{tikzpicture}[
-		precise pin/.style args={#1:#2}{
-			pin={[
-				inner sep=0pt,
-				label={[
-					append after command={
-						node [
-							inner sep=0pt,
-							at=(\tikzlastnode.#1),
-							anchor=#1+180
-						] {#2}
-					}
-				]center:{}}
-			]#1:{}}
-		}
+		% precise pin/.style args={#1:#2}{
+		% 	pin={[
+		% 		inner sep=0pt,
+		% 		label={[
+		% 			append after command={
+		% 				node [
+		% 					inner sep=0pt,
+		% 					at=(\tikzlastnode.#1),
+		% 					anchor=#1+180
+		% 				] {#2}
+		% 			}
+		% 		]center:{}}
+		% 	]#1:{}}
+		% }
 	  ]
 		\begin{axis}[
 				legend style={at={(0.05,.95)},anchor=north west,font=\footnotesize},
 				legend cell align={left},
 				xmin=-50, xmax=10,
-				ymin=-.01, ymax=0.17,
+				ymin=-.01, ymax=0.18,
 				width=\linewidth,
 				height=7cm,
 				grid=major,
 				xlabel={Temperature $\vartheta$ in \si{\celsius}},
-				ylabel={cumulative ice mass in \si{\gram\per\gram}},
+				ylabel={cumulative ice volume in \si{\milli\liter\per\gram}},
 				grid style={line width=.1pt, draw=gray!10},
 				yticklabel style={
 						/pgf/number format/fixed,
@@ -790,83 +790,82 @@ To mitigate this effect, the dashed curve indicates the heat flow $\dot{Q}$ of t
 			]
 			\addplot[samples=2, darkgrey,forget plot] coordinates {(15,0)(-60,0)};
 
-            \addplot [thick, no marks, blue] table [each nth point=10, filter discard warning=false, unbounded coords=discard,x index=0, y index=2, col sep=comma] {figures/ltdsc/ExpDat_M28n2-28d_ice_man_9.csv};
-            \addlegendentry{M: \SI{0.5}{\kelvin\per\minute}};
+            % \addplot [thick, no marks, blue] table [each nth point=10, filter discard warning=false, unbounded coords=discard,x index=0, y index=2, col sep=comma] {figures/ltdsc/ExpDat_M28n2-28d_ice_man_9.csv};
+            % \addlegendentry{M: \SI{0.5}{\kelvin\per\minute}};
 
-            \addplot [thick, no marks, red] table [each nth point=10, filter discard warning=false, unbounded coords=discard,x index=0, y index=2, col sep=comma] {figures/ltdsc/ExpDat_M28n2-28d_ice_man_18.csv};
-            \addlegendentry{M. \SI{2.0}{\kelvin\per\minute}};
+            % \addplot [thick, no marks, red] table [each nth point=10, filter discard warning=false, unbounded coords=discard,x index=0, y index=2, col sep=comma] {figures/ltdsc/ExpDat_M28n2-28d_ice_man_18.csv};
+            % \addlegendentry{M. \SI{2.0}{\kelvin\per\minute}};
 
-            \addplot [no marks, cyan] table [each nth point=10, filter discard warning=false, unbounded coords=discard,x index=0, y index=2, col sep=comma] {figures/ltdsc/ExpDat_M28n2-28d_ice_9.csv};
-            \addlegendentry{A: \SI{0.5}{\kelvin\per\minute}};
+            \addplot [no marks, cyan] table [each nth point=10, filter discard warning=false, unbounded coords=discard,x index=0, y index=4, col sep=comma] {figures/ltdsc/ExpDat_M28n2-28d_ice_9.csv};
+            \addlegendentry{\SI{0.5}{\kelvin\per\minute}};
 
-            \addplot [no marks, orange] table [each nth point=10, filter discard warning=false, unbounded coords=discard,x index=0, y index=2, col sep=comma] {figures/ltdsc/ExpDat_M28n2-28d_ice_18.csv};
-            \addlegendentry{A: \SI{2.0}{\kelvin\per\minute}};
+            \addplot [no marks, orange] table [each nth point=10, filter discard warning=false, unbounded coords=discard,x index=0, y index=4, col sep=comma] {figures/ltdsc/ExpDat_M28n2-28d_ice_18.csv};
+            \addlegendentry{\SI{2.0}{\kelvin\per\minute}};
 
 
-			\draw[draw=black, densely dotted] (-47,0.005) rectangle (-27,-.001);
-			\coordinate (pt) at (axis cs:-30.9,0.045);
+			% \draw[draw=black, densely dotted] (-49,0.0015) rectangle (-37,-.0005);
+			% \coordinate (pt) at (axis cs:-30.9,0.06);
 
 		\end{axis}
 		% https://tex.stackexchange.com/questions/42585/plot-within-a-plot-zoom-into-a-plot-so-that-the-magnified-part-is-framed-by-axi
 		% https://tex.stackexchange.com/questions/49632/tikz-node-pin-angle-in-2d-plot
-		\node[] at (pt) {%
-		\begin{tikzpicture}[every pin/.style={fill=white}]
-			\begin{axis}[
-					font=\tiny,
-					xmin=-47, xmax=-27,
-					ymin=-.001, ymax=0.005,
-					grid=major,
-					grid style={line width=.1pt, draw=gray!10},
-					yticklabel style={
-							/pgf/number format/fixed,
-							/pgf/number format/fixed zerofill,
-							/pgf/number format/precision=3
-					},
-					scaled y ticks=false,
-					scaled x ticks=false,
-					yticklabel pos=right,
-					width=.52\linewidth,
-					height=3.4cm,
-					xtick={-44,-37,-30},
-					ytick={0,0.003},
-				]
-				\addplot[samples=2, darkgrey,forget plot] coordinates {(15,0)(-60,0)};
+	% 	\node[] at (pt) {%
+	% 	\begin{tikzpicture}[every pin/.style={fill=white}]
+	% 		\begin{axis}[
+	% 				font=\tiny,
+	% 				xmin=-49, xmax=-37,
+	% 				ymin=-.0005, ymax=0.0015,
+	% 				grid=major,
+	% 				grid style={line width=.1pt, draw=gray!10},
+	% 				yticklabel style={
+	% 						/pgf/number format/fixed,
+	% 						/pgf/number format/fixed zerofill,
+	% 						/pgf/number format/precision=3
+	% 				},
+	% 				scaled y ticks=false,
+	% 				scaled x ticks=false,
+	% 				yticklabel pos=right,
+	% 				width=.52\linewidth,
+	% 				height=3.4cm,
+	% 				xtick={-48,-43,-38},
+	% 				ytick={0,0.0005},
+	% 			]
+	% 			\addplot[samples=2, darkgrey,forget plot] coordinates {(15,0)(-60,0)};
 
-				\addplot [restrict x to domain=-47:-27,thick, no marks, blue] table [each nth point=5, filter discard warning=false, unbounded coords=discard,x index=0, y index=2, col sep=comma] {figures/ltdsc/ExpDat_M28n2-28d_ice_man_9.csv};
+	% 			% \addplot [restrict x to domain=-47:-27,thick, no marks, blue] table [each nth point=5, filter discard warning=false, unbounded coords=discard,x index=0, y index=2, col sep=comma] {figures/ltdsc/ExpDat_M28n2-28d_ice_man_9.csv};
 
-				\addplot [restrict x to domain=-47:-27,thick, no marks, red] table [each nth point=5, filter discard warning=false, unbounded coords=discard,x index=0, y index=2, col sep=comma] {figures/ltdsc/ExpDat_M28n2-28d_ice_man_18.csv};
+	% 			% \addplot [restrict x to domain=-47:-27,thick, no marks, red] table [each nth point=5, filter discard warning=false, unbounded coords=discard,x index=0, y index=2, col sep=comma] {figures/ltdsc/ExpDat_M28n2-28d_ice_man_18.csv};
 
-				\addplot [restrict x to domain=-47:-27,no marks, cyan] table [each nth point=5, filter discard warning=false, unbounded coords=discard,x index=0, y index=2, col sep=comma] {figures/ltdsc/ExpDat_M28n2-28d_ice_9.csv};
+	% 			\addplot [restrict x to domain=-47:-27,no marks, cyan] table [each nth point=5, filter discard warning=false, unbounded coords=discard,x index=0, y index=2, col sep=comma] {figures/ltdsc/ExpDat_M28n2-28d_ice_9.csv};
 
-				\addplot [restrict x to domain=-47:-27,no marks, orange] table [each nth point=5, filter discard warning=false, unbounded coords=discard,x index=0, y index=2, col sep=comma] {figures/ltdsc/ExpDat_M28n2-28d_ice_18.csv};
+	% 			\addplot [restrict x to domain=-47:-27,no marks, orange] table [each nth point=5, filter discard warning=false, unbounded coords=discard,x index=0, y index=2, col sep=comma] {figures/ltdsc/ExpDat_M28n2-28d_ice_18.csv};
 
-			\end{axis}
-		\end{tikzpicture}
-	};
+	% 		\end{axis}
+	% 	\end{tikzpicture}
+	% };
 	  \end{tikzpicture}
-	  \caption{Cumulative ice mass}
+	  \caption{Cumulative ice volume}
 	  \label{fig:ltdsc_result_heating_rate_b}
 
 	\end{subfigure}
 
-    \caption{\ac{LTDSC} curves and the cumulative ice mass for a slow (\SI{0.5}{\kelvin\per\minute}) and fast (\SI{2}{\kelvin\per\minute}) heating curves from \SI{-50} to \SI{15}{\degreeCelsius} of \SI{28}{\day} hydrated CEM IV (\ac{wb} = \num{0.5}). A: automatic baseline correction, M: manual baseline correction}
+    \caption{\ac{LTDSC} curves and the cumulative ice volume for a slow (\SI{0.5}{\kelvin\per\minute}) and fast (\SI{2}{\kelvin\per\minute}) heating curves from \SI{-50} to \SI{15}{\degreeCelsius} of \SI{28}{\day} hydrated CEM IV (\ac{wb} = \num{0.5}).}
     \label{fig:ltdsc_result_heating_rate}
 \end{figure}
 
 The calculated ice mass should not be influenced by the heating rate.
-However, the calculation of the ice mass is influenced by the way, this baseline is determined.
-Using an automatic baseline correction from \cite{kleiner.2025} results in an ice mass difference of \num{140.5} (slow heating rate) to \SI{139.9}{\milli\gram\per\gram} (fast heating rate).
-In contrast, a more manual approach as used by {\color{red} \textsc{Unbehau} \cite{}} gives a higher ice mass of \num{151.9} (slow heating rate) and \SI{142.1}{\milli\gram\per\gram} (fast heating rate) respectively.
-The cumulative ice mass calculated using both methods is shown in Figure~\ref{fig:ltdsc_result_heating_rate_b}.
-As can be seen in the zoomed in section, the manual approach gives more plausible curves, starting at roughly \SI{-47}{\degreeCelsius}, while the automatic approach seems to loose ice mass until \num{-38} ore \SI{-34}{\degreeCelsius}.
-This is caused by the intersection point of the base line corrected raw data with the x-axis.
-However, since the temperature ranges to process the baseline correction are selected subjectively, the manual approach may differ depending on the person processing the data.
+The simplified approach as used in \cite{mueller.2021,unbehau.2025} gives an ice volume of \num{168.2} (\SI{0.5}{\kelvin\per\minute}) and \SI{154.8}{\micro\liter\per\gram} (\SI{2}{\kelvin\per\minute}) respectively.
+However, the calculation of the ice mass is influenced by the way, this baseline of the heat flow $Q_\text{B}$ is determined.
+Since the temperature ranges to process the baseline correction are selected subjectively, the manual approach may differ depending on the person processing the data.
+Therefore, the temperature ranges were held constant for all further calculations.
+
+% The cumulative ice mass calculated using both methods is shown in Figure~\ref{fig:ltdsc_result_heating_rate_b}.
+% As can be seen in the zoomed in section, the manual approach gives more plausible curves, starting at roughly \SI{-47}{\degreeCelsius}, while the automatic approach seems to loose ice mass until \num{-38} ore \SI{-34}{\degreeCelsius}.
+% This is caused by the intersection point of the base line corrected raw data with the x-axis.
 
 While the slower heating rate causes improved results, it would not have been possible to obtain three measurements for every hydration time within a single work day.
 Since the specimens are still wet and still hydrating, the measurements had to be carried out in a timely manner.
-Therefore, it has been decided to use a faster heating rate of \SI{2}{\kelvin\per\minute} and the automatic approach, which should cause a comparable error within the same measurement regime.
-
-
+Therefore, it has been decided to use a faster heating rate of \SI{2}{\kelvin\per\minute}.% and the automatic approach, which should cause a comparable error within the same measurement regime.
 
 \begin{figure}[!htb]
     \centering
@@ -878,10 +877,10 @@ Therefore, it has been decided to use a faster heating rate of \SI{2}{\kelvin\pe
 			height = 8cm,
 			major x tick style = transparent,
 			ybar=2*\pgflinewidth,
-			ymin=0, ymax=350,
+			ymin=0, ymax=370,
 			bar width=12pt,
 			ymajorgrids = true,
-			ylabel = {ice mass in \si{\milli\gram\per\gram}},
+			ylabel = {ice mass in \si{\micro\liter\per\gram}},
 			xticklabels={
 				\SI{7}{\day},
 				\SI{14}{\day},
@@ -916,25 +915,25 @@ Therefore, it has been decided to use a faster heating rate of \SI{2}{\kelvin\pe
 				orange,fill=orange,mark=none,
 				error bars/.cd,
 				error bar style={black},
-			] table [ x expr=\coordindex, y=pores_a_mean, y error=pores_a_std, col sep=comma] {figures/ltdsc/C2S_ice_mass_dev.csv};
+			] table [ x expr=\coordindex, y=pores_a_mean, y error=pores_a_std, col sep=comma] {figures/ltdsc/C2S_ice_vol_dev.csv};
 
 			\addplot[
 				cyan,fill=cyan,mark=none,
 				error bars/.cd,
 				error bar style={black}
-			] table [ x expr=\coordindex, y=pores_b_mean, y error=pores_b_std, col sep=comma] {figures/ltdsc/C2S_ice_mass_dev.csv};
+			] table [ x expr=\coordindex, y=pores_b_mean, y error=pores_b_std, col sep=comma] {figures/ltdsc/C2S_ice_vol_dev.csv};
 
 			% \addplot[
 			% 	blue,fill=blue,mark=none,
 			% 	error bars/.cd,
 			% 	error bar style={black},
-			% ] table [ x expr=\coordindex, y=pores_c_mean, y error=pores_c_std, col sep=comma] {figures/ltdsc/C2S_ice_mass_dev.csv};
+			% ] table [ x expr=\coordindex, y=pores_c_mean, y error=pores_c_std, col sep=comma] {figures/ltdsc/C2S_ice_vol_dev.csv};
 
 			% \legend{gel pores, capillary pores, total pores}
 		\end{axis}
 	  \end{tikzpicture}
 
-      \caption{Ice mass of \ac{C2S}}
+      \caption{Ice volume of \ac{C2S}}
  	  \label{fig:ltdsc_result_C2S_melt_bar}
 	\end{subfigure}
 	\hfill
@@ -951,10 +950,10 @@ Therefore, it has been decided to use a faster heating rate of \SI{2}{\kelvin\pe
 			height = 8cm,
 			major x tick style = transparent,
 			ybar=2*\pgflinewidth,
-			ymin=0, ymax=350,
+			ymin=0, ymax=370,
 			bar width=12pt,
 			ymajorgrids = true,
-			ylabel = {ice mass in \si{\milli\gram\per\gram}},
+			ylabel = {ice mass in \si{\micro\liter\per\gram}},
 			xticklabels={
 				\SI{1}{\day},
 				\SI{7}{\day},
@@ -991,37 +990,41 @@ Therefore, it has been decided to use a faster heating rate of \SI{2}{\kelvin\pe
 				orange,fill=orange,mark=none,
 				error bars/.cd,
 				error bar style={black},
-			] table [ x expr=\coordindex, y=pores_a_mean, y error=pores_a_std, col sep=comma] {figures/ltdsc/C3S_ice_mass_dev.csv};
+			] table [ x expr=\coordindex, y=pores_a_mean, y error=pores_a_std, col sep=comma] {figures/ltdsc/C3S_ice_vol_dev.csv};
 
 			\addplot[
 				cyan,fill=cyan,mark=none,
 				error bars/.cd,
 				error bar style={black}
-			] table [ x expr=\coordindex, y=pores_b_mean, y error=pores_b_std, col sep=comma] {figures/ltdsc/C3S_ice_mass_dev.csv};
+			] table [ x expr=\coordindex, y=pores_b_mean, y error=pores_b_std, col sep=comma] {figures/ltdsc/C3S_ice_vol_dev.csv};
 
 			% \addplot[
 			% 	blue,fill=blue,mark=none,
 			% 	error bars/.cd,
 			% 	error bar style={black},
-			% ] table [ x expr=\coordindex, y=pores_c_mean, y error=pores_c_std, col sep=comma] {figures/ltdsc/C3S_ice_mass_dev.csv};
+			% ] table [ x expr=\coordindex, y=pores_c_mean, y error=pores_c_std, col sep=comma] {figures/ltdsc/C3S_ice_vol_dev.csv};
 
 			\legend{gel pores, capillary pores}%, total pores}
 		\end{axis}
 	  \end{tikzpicture}
-	  \caption{Ice mass of \ac{C3S}}
+	  \caption{Ice volume of \ac{C3S}}
 	  \label{fig:ltdsc_result_C3S_melt_bar}
 
 	\end{subfigure}
 
-    \caption{Ice mass for the two pore types and total pore amount of \ac{C3S} and \ac{C3S} from 1 to \SI{28}{\day} of hydration. The data were calculated from three \ac{LTDSC}-measurements for each value.}
+    \caption{
+		Ice volume for the two pore types and total pore amount of \ac{C3S} and \ac{C3S} from 1 to \SI{28}{\day} of hydration.
+		The data were calculated from three \ac{LTDSC}-measurements for each value.
+		The baseline correction was done using temperature range from a lower range of \num{-21.5} to \SI{-20.5}{\degreeCelsius} (capillary pores) and \num{-57} to \SI{-56}{\degreeCelsius} (gel pores) and \num{9} to \SI{10}{\degreeCelsius} in the upper range.
+	}
 	\label{fig:ltdsc_result_melt_bar}
 \end{figure}
 
-As shown in Figure~\ref{fig:ltdsc_result_C2S_melt_bar}, for \ac{C2S} the ice mass of the gel pores was calculated to be \SI{4.7}{\milli\gram\per\gram} at \SI{7}{\day} up to \SI{20.3}{\milli\gram\per\gram} after \SI{28}{\day} of hydration, while the capillary pores were reduced from 271 to \SI{216}{\milli\gram\per\gram} in the same time.
+As shown in Figure~\ref{fig:ltdsc_result_C2S_melt_bar}, for \ac{C2S} the ice mass of the gel pores was calculated to be \SI{1.2}{\micro\liter\per\gram} at \SI{7}{\day} up to \SI{18.3}{\micro\liter\per\gram} after \SI{28}{\day} of hydration, while the capillary pores were reduced from \num{290} to \SI{233}{\micro\liter\per\gram} in the same time.
 In contrast, \ac{C3S} initially had a higher gel pore ice mass, while ending up with a lower ice mass after \SI{28}{\day} of hydration (Figure~\ref{fig:ltdsc_result_C3S_melt_bar}).
-The gel pore ice mass was increasing more slowly from from \SI{6.2}{\milli\gram\per\gram} at \SI{1}{\day} to \SI{17.0}{\milli\gram\per\gram} after \SI{28}{\day} of hydration.
+The gel pore ice mass was increasing more slowly from from \SI{6.6}{\micro\liter\per\gram} at \SI{1}{\day} to \SI{30.3}{\micro\liter\per\gram} after \SI{28}{\day} of hydration.
 In comparison to \ac{C2S}, less than half of the ice mass corresponding to capillary pores was detected in \ac{C3S} is after \SI{7}{\day} of hydration.
-The capillary pore space was reduced from \SI{193}{\milli\gram\per\gram} (\SI{1}{\day}) to \SI{99}{\milli\gram\per\gram} (\SI{28}{\day}).
+The capillary pore space was reduced from \SI{208}{\micro\liter\per\gram} (\SI{1}{\day}) to \SI{109}{\micro\liter\per\gram} (\SI{28}{\day}).
 Furthermore, a significant slow down of gel pore development and reduction in capillary pores can be seen in \ac{C3S} after \SI{14}{\day} of hydration.
 
 As expected from the freezing curves, the overall ice mass and the ice mass correlated to the gel pores is lower for \ac{C3S} compared to \ac{C2S}.

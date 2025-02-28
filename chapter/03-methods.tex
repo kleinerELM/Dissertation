@@ -505,7 +505,6 @@ The zones indicated with {\color{blue}\ding{100}1} and {\color{blue}\ding{100}2}
 The measurement are done within the zones P1 (down to \SI{-25}{\celsius}) and P2 (down to \SI{-60}{\celsius}) at a cooling and heating rate of $\pm$\,\SI{2}{\kelvin\per\min}, which is the fastest usable heating rate according to \textcite{neffati.2001}.
 These two measurement zones allow to distinguish the ice mass of pores with radii smaller and larger than $\approx$ \SI{3}{\nano\meter}.
 
-
 The melting curve allows to process the cumulative ice mass.
 Do to this, \textcite{chen.1988} and \textcite{ishikiriyama.1995} proposed the following.
 
@@ -524,23 +523,63 @@ Therefore, at first this enthalpy has to be approximated for every $\Delta T$ us
 	\label{eq:ltdsc_h}
 \end{equation}
 
-Then the heat flow data $\dot{Q}_{m}(\vartheta)$ from the melting section has to be prepared by caclulating a baseline, which then has to be subtracted from the raw data.
+Then the heat flow data $\dot{Q}_{m}(\vartheta)$ caused by the phase transition has to be prepared by subtracting a baseline $Q_\text{B}(\vartheta)$ from the raw  data $Q_\text{raw}(\vartheta)$.
+\begin{equation}
+	{Q}_{m}(\vartheta) = Q_\text{raw}(\vartheta) -Q_\text{B}(\vartheta)
+	\label{eq:ltdsc_ice}
+\end{equation}
+
+{\color{red}
+The heat flow of the baseline is caused by the heat capacity of the whole specimen (binder + water/ice).
+The heat capacity of the whole sample $mC_{p}$ is a combination of the heat capacities of the solid body ($C_{p\text{S}}$), the pore liquid ($C_{p\text{L}}$) and the ice crystals ($C_{p\text{I}}$) phase.
+\begin{equation}
+	mC_{p} = m_\text{S}C_{p} + m_\text{L}C_{p\text{L}} + m_\text{C}C_{p\text{I}}
+	\label{eq:mass_heat_capacity}
+\end{equation}
+
+equation~30 and 31 from \textcite{sun.2010}:
+\begin{equation}
+	Q_\text{B}(\vartheta) = mC_{p} \cdot \frac{d\vartheta}{dt}
+	\label{eq:ltdsc_baseline}
+\end{equation}
+
+
+In contrast, \textcite{wu.2014} and \textcite{johannesson.2010} used a dry reference sample to mitigate the heat capacity of the concrete binder.
 The baseline is calculated by a linear regression of the data points before and after the freezing peak as in {\color{red} \textsc{Unbehau} \cite{}}.
 However, this is a fairly subjective method, since the temperature (or time) ranges have to be chosen manually.
 
-{\color{red}
-A automatic method was introduced to processes a baseline.
-\begin{itemize}
-	\item The heat flow signal is denoised by calculating the mean value within a \SI{30}{\second} window of the dataset.
-	\item For each value, the discrete difference to the previous value is calculated.
-	\item The resulting signal is then denoised a second time as described in the first step.
-	\item These steps increase the signal-to-noise ratio and allow to select the background and the signal.
-	\item Raw values which fall between \num{-1} and \SI{4}{\nano\watt\per\milli\gram} after this processing, will then be used to calculate a linear regression which will then be used as baseline.
-\end{itemize}
-The detailed procedure ispublished in the function 
-\texttt{auto\textunderscore select\textunderscore baseline\(\)} within the \texttt{ltdsc\textunderscore measurement}-class \cite{kleiner.2025}.
-} %\url{https://github.com/kleinerELM/Kalorimeterauswertung}
-% TODO: bild?
+
+The calculation of the ice mass is influenced by the way, this baseline of the heat flow $Q_\text{B}$ is determined.
+- \textcite{sun.2010} and \textcite{mueller.2021} used a linear regression of the heat flow data before and after the freezing peak.
+- 'J' baseline correction - \textcite{johannesson.2010} (large samples, slow heat rate (0.08K/min))
+- 'C' baseline correction - \textcite{wu.2014} based on heat capacities of ice and water based on \cite{sun.2010}
+
+- linear regression of manually selected temperatures used by {\color{red} \textcite{mueller.2021} and \textcite{unbehau.2025}}
+- \textcite{mueller.2021} analyzed only a small temperature change from \SI{-20}{\celsius} to \SI{+20}{\celsius} and therefore considered this method as sufficiently accurate.
+In both cases, the initial data were ignored, since they were .
+
+ice density from \textcite{mueller.2021} calculated from data in \cite{eisenberg.2005}:
+
+\begin{equation}
+	\rho_\text{ice} = 0.9167 - \num{2.053e-4} \cdot \vartheta - \num{1.357e-6} \cdot \vartheta^2
+	\label{eq:ice_density}
+\end{equation}
+}
+
+
+% {\color{red}
+% A automatic method was introduced to processes a baseline.
+% \begin{itemize}
+% 	\item The heat flow signal is denoised by calculating the mean value within a \SI{30}{\second} window of the dataset.
+% 	\item For each value, the discrete difference to the previous value is calculated.
+% 	\item The resulting signal is then denoised a second time as described in the first step.
+% 	\item These steps increase the signal-to-noise ratio and allow to select the background and the signal.
+% 	\item Raw values which fall between \num{-1} and \SI{4}{\nano\watt\per\milli\gram} after this processing, will then be used to calculate a linear regression which will then be used as baseline.
+% \end{itemize}
+% The detailed procedure ispublished in the function 
+% \texttt{auto\textunderscore select\textunderscore baseline} within the \texttt{ltdsc\textunderscore measurement}-class \cite{kleiner.2025}.
+% } %\url{https://github.com/kleinerELM/Kalorimeterauswertung}
+% % TODO: bild?
 
 After the baseline correction, the total ice mass can be calculated by integrating the heat flow curve over the melting peak.
 %\dot{Q}/m_\text{specimen} = DSC / Wärmestrom pro Probenmasse

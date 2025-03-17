@@ -142,5 +142,9 @@
 		"Hadley",
 		"poroimetry",
 		"unhydrated"
+	],
+	"latex-workshop.latex.build.forceRecipeUsage": false,
+	"github.copilot.chat.codeGeneration.instructions": [
+
 	]
 }

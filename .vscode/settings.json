@@ -138,9 +138,11 @@
 		"alite",
 		"belite",
 		"cementitious",
+		"ettringite",
 		"eucentric",
 		"Hadley",
 		"poroimetry",
+		"tobermorite",
 		"unhydrated"
 	],
 	"latex-workshop.latex.build.forceRecipeUsage": false,

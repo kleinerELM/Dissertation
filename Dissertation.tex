@@ -1,11 +1,10 @@
 % !TEX program = xelatex
 
-
 % ################################################
 % Definitions
 % ################################################
 
-\def\DRAFT{} % comment out for the printable document!
+%\def\DRAFT{} % comment out for the printable document!
 %\def\EXTERNALIZE{}
 %\def\PRINTABLE{} % uncomment to disable animated figures
 %\def\REVIEW{}
@@ -71,9 +70,15 @@
 			\linenumbers
 		\fi
 
-		%\input{chapter/01-introduction}
-		\input{chapter/02-literature}
-		%\input{chapter/03-methods}
+		\input{chapter/01-introduction}
+		
+		\chapter{Literature}
+			\input{chapter/02-lit-cem-hyd}
+			\input{chapter/02-lit-SEM}
+			\input{chapter/02-lit-porosity}
+			\input{chapter/02-lit-modelling}
+
+		\input{chapter/03-methods}
 		%\input{chapter/04-algorithms}
 		%\input{chapter/05-hydrate-rim}
 		%\input{chapter/06-correl-micro}

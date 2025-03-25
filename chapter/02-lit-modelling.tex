@@ -1,0 +1,76 @@
+\FloatBarrier
+\section{Modelling of cement hydration and its reliance on SEM images}
+
+% aus dem ct/fib-sem-antrag
+As the demands on building materials increase, so do the requirements for characterising and modelling the underlying material systems.
+There are advanced approaches to modelling and simulating the strength, shape retention and durability characteristics of concretes \cite{bishnoi.2009, kumar.2017, zhou.2019, ouzia.2019}.
+Due to the high complexity, multi-scale heterogeneity and temporal changes, this is often only possible in a highly simplified form and in a very limited scale.
+
+The microstructure of concretes is simulated in a variety of models at different scales \cite{bishnoi.2009, kumar.2017, zhou.2019, ouzia.2019}.
+The mesostructure (between atomistic and microscale) of e.g. \ac{CSH} phases and the porosity was also modeled \cite{ioannidou.2016, yu.2016}.
+Atomistic modelling is used to fundamentally simulate the structural composition \cite{kumar.2017,mishra.2017,kunhimohamed.2020,casar.2023}.
+Finally, there are modern micromechanical models that attempt to close the transition from meso- to macromodelling \cite{bernard.2003, hlobil.2016, gobel.2018}.
+
+The hydration of cement over time in 3D using the sheet growth model using a level set based method \cite{nguyen-tuan.2019,nguyen-tuan.2023} (see Figure~\ref{fig:sheet_growth}).
+
+% from a talk of long from the ICCC 2019, slide 14/18 but not in the paper
+\begin{figure*}[htb]
+    \centering
+
+    \ifdefined\PRINTABLE
+        \begin{subfigure}[t]{0.49\linewidth}
+                \includegraphics[width=\textwidth]{literature/sheet_grow_anim/sg01.jpg}
+        \end{subfigure}%
+        \hfill%
+        \begin{subfigure}[t]{0.49\linewidth}
+            \includegraphics[width=\textwidth]{literature/sheet_grow_anim/sg04.jpg}
+        \end{subfigure}
+    \else
+        \animategraphics[palindrome,autoplay,width=.49\linewidth]{3}{literature/sheet_grow_anim/sg}{01}{04}
+    \fi
+
+    \caption{
+        Visualisation of the growth of \ac{CSH} in a representative domain of \num{.5}\,$\times$\,\num{.5}\,$\times$\,\SI{.5}{\micro\meter\cubed} between \SI{15}{\minute} and \SI{4}{\hour} , based on the sheet gowth model \cite{nguyen-tuan.2019,nguyen-tuan.2023}.% in the second paper 300x300x2200nm is used due to some restrictions.
+    }
+    \label{fig:sheet_growth}
+\end{figure*}
+
+For larger domains, \textcite{nguyen-tuan.2024} utilized the sheet growth model allowing to simulate the growth of low and high density \ac{CSH} in 2D based on a segmented image of polished alite after \SI{1}{\day} of hydration (see Figure~\ref{fig:level_set}).
+
+\begin{figure*}[htb]
+    \centering
+
+    \begin{subfigure}[t]{0.32\linewidth}
+        \includegraphics[width=\textwidth]{literature/level_set_anim/ls01.jpg}
+    \end{subfigure}%
+    \hfill%
+    \begin{subfigure}[t]{0.32\linewidth}
+        \ifdefined\PRINTABLE
+            \includegraphics[width=\textwidth]{literature/level_set_anim/ls04.jpg}
+        \else
+            \animategraphics[palindrome,autoplay,width=\textwidth]{6}{literature/level_set_anim/ls}{01}{09}
+        \fi
+    \end{subfigure}%
+    \hfill%
+    \begin{subfigure}[t]{0.32\linewidth}
+        \includegraphics[width=\textwidth]{literature/level_set_anim/ls07.jpg}
+    \end{subfigure}
+
+    \caption{Visualisation of the growth of \ac{CSH} (blue) in the low and high density variant on top of \ac{C3S} (yellow) by \textcite{nguyen-tuan.2024}, based on the level set method.}
+    \label{fig:level_set}
+\end{figure*}
+
+However, the basis for all realistic modelling is a quantitative experimental characterisation of the corresponding structures \cite{gobel.2018a}.
+
+{\color{red} % erstmal nur so dahin gequatscht
+\textcite{hlobil.2022} crated a model called \textsc{CEMHYD3D} which was compared to volumetric \ac{mCT} data of differently aged cement.
+Models like those (\cite{hlobil.2022, nguyen-tuan.2024}) allow to simulate the development of the phase composition over time which can be validated using various measurements.
+3D-based simualtions inherently have a better chance to closely image(abbilden) the reality, while 2D-simulations, as image sections are always missing a lot of information of the grain.
+However, they are much faster and allow to simulate larger areas reflectling a more representative are, whis is very important due to the inhomogeneity of cement (see Section~\ref{sec:2D-representativeness})
+% simulationspaper der hydratation \cite{hlobil.2022}
+% CEMHYD3D -> Fig 3 anteile der phasen vgl mit Messungen
+% Literatur aus Long übernehmen und Modelle erwähnen
+}
+
+% Handlungsanweise - wie kann man REM mit Methoden kombinieren um Baustoffe zu beschreiben - welche Techniken gibt es?
+% Einfache Tools, weil sonst machts keener

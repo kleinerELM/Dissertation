@@ -111,8 +111,8 @@ This resulted in the following freeze curves as plotted in Figure~\ref{fig:ltdsc
 				width=\linewidth,
 				height=6cm,
 				grid=major,
-				xlabel={pore radius \si{\nano\meter}},
-				ylabel={DSC in \si{\watt\per\gram}},
+				xlabel={pore radius $r_\text{P}$ \si{\nano\meter}},
+				ylabel={heat flow $\dot{Q}$ in \si{\watt\per\gram}},
 				grid style={line width=.1pt, draw=gray!10},
 				yticklabel style={
 						/pgf/number format/fixed,
@@ -167,8 +167,8 @@ This resulted in the following freeze curves as plotted in Figure~\ref{fig:ltdsc
 				width=\linewidth,
 				height=6cm,
 				grid=major,
-				xlabel={pore radius \si{\nano\meter}},
-				ylabel={DSC in \si{\watt\per\gram}},
+				xlabel={pore radius $r_\text{P}$ \si{\nano\meter}},
+				ylabel={heat flow $\dot{Q}$ in \si{\watt\per\gram}},
 				grid style={line width=.1pt, draw=gray!10},
 				yticklabel style={
 						/pgf/number format/fixed,
@@ -284,8 +284,8 @@ It was not possible to measure \ac{C2S} after \SI{1}{\day} of hydration, since t
 				width=\linewidth,
 				height=6cm,
 				grid=major,
-				xlabel={pore radius \si{\nano\meter}},
-				ylabel={DSC in \si{\watt\per\gram}},
+				xlabel={pore radius $r_\text{P}$ \si{\nano\meter}},
+				ylabel={heat flow $\dot{Q}$ in \si{\watt\per\gram}},
 				grid style={line width=.1pt, draw=gray!10},
 				yticklabel style={
 						/pgf/number format/fixed,
@@ -369,8 +369,8 @@ It was not possible to measure \ac{C2S} after \SI{1}{\day} of hydration, since t
 				width=\linewidth,
 				height=6cm,
 				grid=major,
-				xlabel={pore radius \si{\nano\meter}},
-				ylabel={DSC in \si{\watt\per\gram}},
+				xlabel={pore radius $r_\text{P}$ \si{\nano\meter}},
+				ylabel={heat flow $\dot{Q}$ in \si{\watt\per\gram}},
 				grid style={line width=.1pt, draw=gray!10},
 				xticklabels={1.75,2.00,2.25,2.50,2.75},
 				xtick={1.75,2.00,2.25,2.50,2.75},
@@ -469,8 +469,8 @@ The \ac{LTDSC} curves from the second freezing pass are plotted in Figure~\ref{f
 				width=\linewidth,
 				height=6cm,
 				grid=major,
-				xlabel={pore radius \si{\nano\meter}},
-				ylabel={DSC in \si{\watt\per\gram}},
+				xlabel={pore radius $r_\text{P}$ \si{\nano\meter}},
+				ylabel={heat flow $\dot{Q}$ in \si{\watt\per\gram}},
 				grid style={line width=.1pt, draw=gray!10},
 				yticklabel style={
 						/pgf/number format/fixed,
@@ -561,8 +561,8 @@ The \ac{LTDSC} curves from the second freezing pass are plotted in Figure~\ref{f
 				width=\linewidth,
 				height=6cm,
 				grid=major,
-				xlabel={pore radius \si{\nano\meter}},
-				ylabel={DSC in \si{\watt\per\gram}},
+				xlabel={pore radius $r_\text{P}$ \si{\nano\meter}},
+				ylabel={heat flow $\dot{Q}$ in \si{\watt\per\gram}},
 				grid style={line width=.1pt, draw=gray!10},
 				xticklabels={1.75,2.00,2.25,2.50,2.75},
 				xtick={1.75,2.00,2.25,2.50,2.75},
@@ -662,8 +662,8 @@ The red area represents the gel pore volume, while the yellow area represents th
 				width=\linewidth,
 				height=7cm,
 				grid=major,
-				xlabel={Temperature $\vartheta$ in \si{\celsius}},
-				ylabel={$\dot{Q}$ in \si{\watt\per\gram}},
+				xlabel={temperature $\vartheta$ in \si{\celsius}},
+				ylabel={heat flow $\dot{Q}$ in \si{\watt\per\gram}},
 				grid style={line width=.1pt, draw=gray!10},
 				yticklabel style={
 						/pgf/number format/fixed,
@@ -719,8 +719,8 @@ To mitigate this, the dashed curve indicates the heat flow $\dot{Q}$ of the \SI{
 				width=\linewidth,
 				height=7cm,
 				grid=major,
-				xlabel={Temperature $\vartheta$ in \si{\celsius}},
-				ylabel={$\dot{Q}$ in \si{\watt\per\gram}},
+				xlabel={temperature $\vartheta$ in \si{\celsius}},
+				ylabel={heat flow $\dot{Q}$ in \si{\watt\per\gram}},
 				grid style={line width=.1pt, draw=gray!10},
 				yticklabel style={
 						/pgf/number format/fixed,
@@ -738,7 +738,7 @@ To mitigate this, the dashed curve indicates the heat flow $\dot{Q}$ of the \SI{
             \addlegendentry{\SI{0.5}{\kelvin\per\minute}};
 
 			\addplot [dashed, no marks, blue] table [each nth point=4, filter discard warning=false, unbounded coords=discard, x index=0, y expr=\thisrowno{2}*4, col sep=comma] {figures/ltdsc/ExpDat_M28n2-28d_melt_segment_9.csv};
-			\addlegendentry{$4\times$\SI{0.5}{\kelvin\per\minute}};
+			\addlegendentry{\SI{0.5}{\kelvin\per\minute}$\times4$};
 
 
             \addplot [thick, no marks, red] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=0, y index=2, col sep=comma] {figures/ltdsc/ExpDat_M28n2-28d_melt_segment_18.csv};
@@ -776,7 +776,7 @@ To mitigate this, the dashed curve indicates the heat flow $\dot{Q}$ of the \SI{
 				width=\linewidth,
 				height=7cm,
 				grid=major,
-				xlabel={Temperature $\vartheta$ in \si{\celsius}},
+				xlabel={temperature $\vartheta$ in \si{\celsius}},
 				ylabel={cumulative ice volume in \si{\milli\liter\per\gram}},
 				grid style={line width=.1pt, draw=gray!10},
 				yticklabel style={
@@ -1068,7 +1068,7 @@ This was done by calculating the linear regression of the data between \num{-55}
 			xlabel={temperature in \si{\degreeCelsius}},
 			xticklabels={-51.2, -25.3, -12.4, -4.6, -2.0},
 			xtick={2.5,5,10,25,50},
-			ylabel={DSC in \si{\watt\per\gram}},
+			ylabel={heat flow $\dot{Q}$ in \si{\watt\per\gram}},
 			scaled y ticks=false,
 			scaled x ticks=false,
 			axis x line*=top,
@@ -1115,9 +1115,9 @@ This was done by calculating the linear regression of the data between \num{-55}
 			width=.85\linewidth,
 			height=6cm,
 			grid=none,
-			xlabel={pore radius \si{\nano\meter}},
+			xlabel={pore radius $r_\text{P}$ \si{\nano\meter}},
 			ylabel style={align=center},
-			ylabel={$dV/dlogR$\\Pore Volume in \si{\milli\liter\per\gram}},
+			ylabel={$dV/dlogR$\\pore volume in \si{\milli\liter\per\gram}},
 			grid style={line width=.1pt, draw=gray!10},
 			yticklabel style={
 					/pgf/number format/fixed,
@@ -1175,7 +1175,7 @@ This was done by calculating the linear regression of the data between \num{-55}
 				xlabel={temperature in \si{\degreeCelsius}},
 				xticklabels={-51.2, -25.3, -12.4, -4.6, -2.0},
 				xtick={2.5,5,10,25,50},
-				ylabel={DSC in \si{\watt\per\gram}},
+				ylabel={heat flow $\dot{Q}$ in \si{\watt\per\gram}},
 				scaled y ticks=false,
 				scaled x ticks=false,
 				axis x line*=top,
@@ -1225,9 +1225,9 @@ This was done by calculating the linear regression of the data between \num{-55}
 			width=.85\linewidth,
 			height=6cm,
 			grid=none,
-			xlabel={pore radius \si{\nano\meter}},
+			xlabel={pore radius $r_\text{P}$ \si{\nano\meter}},
 			ylabel style={align=center},
-			ylabel={$dV/dlogR$\\Pore Volume in \si{\milli\liter\per\gram}},
+			ylabel={$dV/dlogR$\\pore volume in \si{\milli\liter\per\gram}},
 			grid style={line width=.1pt, draw=gray!10},
 			yticklabel style={
 					/pgf/number format/fixed,

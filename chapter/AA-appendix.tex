@@ -146,8 +146,8 @@ Figures in the appendix section are not visible in draft mode!
 				width=\linewidth,
 				height=7cm,
 				grid=major,
-				xlabel={pore radius \si{\nano\meter}},
-				ylabel={DSC in \si{\watt\per\gram}},
+				xlabel={pore radius $r_\text{P}$ \si{\nano\meter}},
+				ylabel={heat flow $\dot{Q}$ in \si{\watt\per\gram}},
 				grid style={line width=.1pt, draw=gray!10},
 				yticklabel style={
 					/pgf/number format/fixed,
@@ -227,8 +227,8 @@ Figures in the appendix section are not visible in draft mode!
 				width=\linewidth,
 				height=7cm,
 				grid=major,
-				xlabel={pore radius \si{\nano\meter}},
-				ylabel={DSC in \si{\watt\per\gram}},
+				xlabel={pore radius $r_\text{P}$ \si{\nano\meter}},
+				ylabel={heat flow $\dot{Q}$ in \si{\watt\per\gram}},
 				grid style={line width=.1pt, draw=gray!10},
 				xticklabels={1.75,2.00,2.25,2.50,2.75},
 				xtick={1.75,2.00,2.25,2.50,2.75},
@@ -244,26 +244,26 @@ Figures in the appendix section are not visible in draft mode!
 
 			\ifdefined\DRAFT
 			\else
-			\addplot+[restrict x to domain=1.5:5, no marks, orange] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_7d-1_freeze_segment_14.csv};
-			\addplot+[restrict x to domain=1.5:5, no marks, orange,forget plot] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_7d-2_freeze_segment_14.csv};
-			\addplot+[restrict x to domain=1.5:5,no marks, orange,forget plot] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_7d-3_freeze_segment_14.csv};
+			\addplot+[restrict x to domain=1.5:5, no marks, orange] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_7d-1_freeze_segment_14.csv};
+			\addplot+[restrict x to domain=1.5:5, no marks, orange,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_7d-2_freeze_segment_14.csv};
+			\addplot+[restrict x to domain=1.5:5,no marks, orange,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_7d-3_freeze_segment_14.csv};
 			\addlegendentry{\SI{7}{\day}};
 
-			\addplot+[restrict x to domain=1.5:5, no marks, red] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_14d-1_freeze_segment_14.csv};
-			\addplot+[restrict x to domain=1.5:5, no marks, red,forget plot] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_14d-2_freeze_segment_14.csv};
-			\addplot+[restrict x to domain=1.5:5,no marks, red,forget plot] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_14d-3_freeze_segment_14.csv};
+			\addplot+[restrict x to domain=1.5:5, no marks, red] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_14d-1_freeze_segment_14.csv};
+			\addplot+[restrict x to domain=1.5:5, no marks, red,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_14d-2_freeze_segment_14.csv};
+			\addplot+[restrict x to domain=1.5:5,no marks, red,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_14d-3_freeze_segment_14.csv};
 			\addlegendentry{\SI{14}{\day}};
 
 
-			\addplot+[restrict x to domain=1.5:5, no marks, green] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_21d-1_freeze_segment_14.csv};
-			\addplot+[restrict x to domain=1.5:5, no marks, green,forget plot] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_21d-2_freeze_segment_14.csv};
-			\addplot+[restrict x to domain=1.5:5,no marks, green,forget plot] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_21d-3_freeze_segment_14.csv};
+			\addplot+[restrict x to domain=1.5:5, no marks, green] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_21d-1_freeze_segment_14.csv};
+			\addplot+[restrict x to domain=1.5:5, no marks, green,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_21d-2_freeze_segment_14.csv};
+			\addplot+[restrict x to domain=1.5:5,no marks, green,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_21d-3_freeze_segment_14.csv};
 			\addlegendentry{\SI{21}{\day}};
 
 
-			\addplot+[restrict x to domain=1.5:5, no marks, blue] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_28d-1_freeze_segment_14.csv};
-			\addplot+[restrict x to domain=1.5:5, no marks, blue,forget plot] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_28d-2_freeze_segment_14.csv};
-			\addplot+[restrict x to domain=1.5:5,no marks, blue,forget plot] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_28d-3_freeze_segment_14.csv};
+			\addplot+[restrict x to domain=1.5:5, no marks, blue] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_28d-1_freeze_segment_14.csv};
+			\addplot+[restrict x to domain=1.5:5, no marks, blue,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_28d-2_freeze_segment_14.csv};
+			\addplot+[restrict x to domain=1.5:5,no marks, blue,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_28d-3_freeze_segment_14.csv};
 			\addlegendentry{\SI{28}{\day}};
 			\fi
 			\node[draw=none] (top-2) at (axis cs:1.75,-.11) {};
@@ -317,8 +317,8 @@ Figures in the appendix section are not visible in draft mode!
 				width=\linewidth,
 				height=7cm,
 				grid=major,
-				xlabel={pore radius \si{\nano\meter}},
-				ylabel={DSC in \si{\watt\per\gram}},
+				xlabel={pore radius $r_\text{P}$ \si{\nano\meter}},
+				ylabel={heat flow $\dot{Q}$ in \si{\watt\per\gram}},
 				grid style={line width=.1pt, draw=gray!10},
 				yticklabel style={
 						/pgf/number format/fixed,
@@ -402,8 +402,8 @@ Figures in the appendix section are not visible in draft mode!
 				width=\linewidth,
 				height=7cm,
 				grid=major,
-				xlabel={pore radius \si{\nano\meter}},
-				ylabel={DSC in \si{\watt\per\gram}},
+				xlabel={pore radius $r_\text{P}$ \si{\nano\meter}},
+				ylabel={heat flow $\dot{Q}$ in \si{\watt\per\gram}},
 				grid style={line width=.1pt, draw=gray!10},
 				xticklabels={1.75,2.00,2.25,2.50,2.75},
 				xtick={1.75,2.00,2.25,2.50,2.75},
@@ -419,29 +419,29 @@ Figures in the appendix section are not visible in draft mode!
 
 			\ifdefined\DRAFT
 			\else
-			\addplot+[restrict x to domain=1.5:5, no marks, yellow] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_1d-1_freeze_segment_14.csv};
-			\addplot+[restrict x to domain=1.5:5, no marks, yellow,forget plot] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_1d-2_freeze_segment_14.csv};
-			\addplot+[restrict x to domain=1.5:5,no marks, yellow,forget plot] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_1d-3_freeze_segment_14.csv};
+			\addplot+[restrict x to domain=1.5:5, no marks, yellow] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_1d-1_freeze_segment_14.csv};
+			\addplot+[restrict x to domain=1.5:5, no marks, yellow,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_1d-2_freeze_segment_14.csv};
+			\addplot+[restrict x to domain=1.5:5,no marks, yellow,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_1d-3_freeze_segment_14.csv};
 			\addlegendentry{\SI{1}{\day}};
 
-			\addplot+[restrict x to domain=1.5:5, no marks, orange] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_7d-1_freeze_segment_14.csv};
-			\addplot+[restrict x to domain=1.5:5, no marks, orange,forget plot] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_7d-2_freeze_segment_14.csv};
-			\addplot+[restrict x to domain=1.5:5,no marks, orange,forget plot] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_7d-3_freeze_segment_14.csv};
+			\addplot+[restrict x to domain=1.5:5, no marks, orange] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_7d-1_freeze_segment_14.csv};
+			\addplot+[restrict x to domain=1.5:5, no marks, orange,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_7d-2_freeze_segment_14.csv};
+			\addplot+[restrict x to domain=1.5:5,no marks, orange,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_7d-3_freeze_segment_14.csv};
 			\addlegendentry{\SI{7}{\day}};
 
-			\addplot+[restrict x to domain=1.5:5, no marks, red] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_14d-1_freeze_segment_14.csv};
-			\addplot+[restrict x to domain=1.5:5, no marks, red,forget plot] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_14d-2_freeze_segment_14.csv};
-			\addplot+[restrict x to domain=1.5:5,no marks, red,forget plot] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_14d-3_freeze_segment_14.csv};
+			\addplot+[restrict x to domain=1.5:5, no marks, red] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_14d-1_freeze_segment_14.csv};
+			\addplot+[restrict x to domain=1.5:5, no marks, red,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_14d-2_freeze_segment_14.csv};
+			\addplot+[restrict x to domain=1.5:5,no marks, red,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_14d-3_freeze_segment_14.csv};
 			\addlegendentry{\SI{14}{\day}};
 
-			\addplot+[restrict x to domain=1.5:5, no marks, green] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_21d-1_freeze_segment_14.csv};
-			\addplot+[restrict x to domain=1.5:5, no marks, green,forget plot] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_21d-2_freeze_segment_14.csv};
-			\addplot+[restrict x to domain=1.5:5,no marks, green,forget plot] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_21d-3_freeze_segment_14.csv};
+			\addplot+[restrict x to domain=1.5:5, no marks, green] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_21d-1_freeze_segment_14.csv};
+			\addplot+[restrict x to domain=1.5:5, no marks, green,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_21d-2_freeze_segment_14.csv};
+			\addplot+[restrict x to domain=1.5:5,no marks, green,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_21d-3_freeze_segment_14.csv};
 			\addlegendentry{\SI{21}{\day}};
 
-			\addplot+[restrict x to domain=1.5:5, no marks, blue, solid] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_28d-1_freeze_segment_14.csv};
-			\addplot+[restrict x to domain=1.5:5, no marks, blue, solid,forget plot] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_28d-2_freeze_segment_14.csv};
-			\addplot+[restrict x to domain=1.5:5,no marks, blue, solid,forget plot] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_28d-3_freeze_segment_14.csv};
+			\addplot+[restrict x to domain=1.5:5, no marks, blue, solid] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_28d-1_freeze_segment_14.csv};
+			\addplot+[restrict x to domain=1.5:5, no marks, blue, solid,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_28d-2_freeze_segment_14.csv};
+			\addplot+[restrict x to domain=1.5:5,no marks, blue, solid,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_28d-3_freeze_segment_14.csv};
 			\addlegendentry{\SI{28}{\day}};
 			\fi
 

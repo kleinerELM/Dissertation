@@ -1,0 +1,50 @@
+\FloatBarrier
+\section{Correlative microscopy}
+
+Correlative microscopy is a generic term describing the combination of multiple microscopical methods.
+In the field of biology it is usually understood as a combination of light/fluorescence and electron microscopy \cite{mironov.2013,loussertfonta.2015}.
+Nonetheless, it can be applied to most microscopic and tomographic techniques, als long as the measurement is done at exactly the same specimen with sufficient overlap \cite{loussertfonta.2015,daly.2017,mitchell.2019,mitchell.2021}.
+Ideally it is done within the same device, though this is not essential.
+
+Advantages of the combination of multiple techniques are
+\begin{itemize}
+    \item the combination of different information of one object/phase, like:
+    \begin{itemize}
+        \item trace element concentrations (see Section~\ref{sec:corr_laicpms} and \cite{kleiner.2022b}),
+        \item crystallographic information \cite{rossler.2022},
+        \item mechanical information (hardness) \cite{chen.2010,li.2025}, % was von Feng - noch nicht veröffentlicht!
+        \item ...
+    \end{itemize}
+    \item information of a specimen across multiple scales \cite{daly.2017,mitchell.2019,mitchell.2021,kleiner.2022a},
+    \item The resolution differences can improve the segmentation results of lower resolution methods, enabling new insights \cite{kleiner.2022b}.
+\end{itemize}
+
+For example, the combination of \ac{SEM}-\ac{BSE}, \ac{EDX} and \ac{EBSD} allows to identify phases chemically and distiguish phase borders even between chemically identical phases, but with a different crystal structure or differing crystal orientations.
+
+\subsection{Image alignment}
+
+Especially, if the images stem from different devices with vastly different modes, the image alignment is the most challenging part.
+However, if the resulting images share enough features, they still can be aligned.
+This can be done using
+\begin{itemize}
+    \item a fully manual alignment by rotating and transforming the images,
+    \item {\color{red} semi-manual method by identifying at least 4 matching point-pairs between both images \cite{},}
+    \item automatic methods from the field of computer vision/photogrammetry like \ac{SIFT} \cite{lowe.2004} or machine learning supported algorithms.
+\end{itemize}
+
+Usually, for few or single datasets this is done manually.
+However, this can become tedious time-consuming and in many cases it is not very exact.
+
+The main issues for combination of multi-device measurements are
+\begin{enumerate}
+    \item distortions,
+    \item pixel aspect ratio,
+    \item significant resolution differences,
+    \item not enough matching features in both images,
+    \item and re-identifying the measurement positions in the first place.
+\end{enumerate}
+
+To simplify the realignment, markers (called fiducial), can be used, to align different data sources to each other.
+However, this is not always possible or expensive.
+
+% \cite{miliszkiewicz.2015} Current approaches to calibration of LA-ICP-MS analysis

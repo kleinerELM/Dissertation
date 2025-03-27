@@ -134,12 +134,12 @@ While this ion source allows for another way of imaging, it also enables to cut 
 While the \ac{SEM} is widley used to analyze cement based materials, it has its pitfalls.
 In contrast to an light microscope, it can alter the specimen during the observation significantly.
 For example, early publications define \ac{CSH} as gel.
-In one part, this due to its low crystallinity, which is not detectable using \ac{XRD} but only \ac{TEM}.
-On the other hand, the \ac{CSH}-crystals appeared gel like due to preparation artifacts and severe electron beam damage of the water containing phases.
-This causes them to melt into a gel-like structure, hence its early name.
+In one part, this due to its low crystallinity, which is hardly detectable using \ac{XRD} but only \ac{TEM} \cite{melzer.1989, rossler.2006}.
+On the other hand, the \ac{CSH}-crystals appeared gel like due to preparation artifacts and severe electron beam damage of the water containing phases \cite{richardson.1993,rossler.2006}.
+%This causes them to melt into a gel-like structure, hence its early name.
 Nowadays, this is less of an issue anymore due to significant progress in the sensitivity of the detectors of electron microscopes.
 However, to obtain enough signal for some detectors (e.g. \ac{EDX} or \ac{EBSD}), intensive electron beam exposure might still be required, which can cause visible damage \cite{rossler.2006, rossen.2017}.
-\textsc{Rößler} et.al. \cite{rossler.2006} were able to show, that approx. \SI{8e2}{\elementarycharge\per\square\angstrom}  at \SI{-172}{\degreeCelsius} allow to retrieve electron diffraction patterns and artefact-free imaging \ac{CSH}, while \SI{6.2e3}{\elementarycharge\per\square\angstrom} at room temperature induce significant beam damage to the delicate crystals.
+\textcite{rossler.2006} were able to show, that approx. \SI{8e2}{\elementarycharge\per\square\angstrom}  at \SI{-172}{\degreeCelsius} allow to retrieve electron diffraction patterns and artefact-free imaging \ac{CSH}, while \SI{6.2e3}{\elementarycharge\per\square\angstrom} at room temperature induce significant beam damage to the delicate crystals.
 Also, at very high magnifications, the energy dose is very high even at low voltages and currents.
 This can cause \ac{CSH}-structures to bent or melt and introduce pores within originally compact phases (Figure~\ref{fig:ebeam_damage}).
 
@@ -420,7 +420,7 @@ These crucibles sealed air tight by cold-welding a lid under pressure and measur
 % 			(120,-40) (140,0)};
 %         \end{axis}
 %     \end{tikzpicture}
-%     \caption{Temperature regime of a \ac{LTDSC}-measurement, based on Sun et al. \cite{sun.2010} and Müller \cite{mueller.2021}. theoretical pore radii after \textsc{Brun} et al. \cite{brun.1977} - Red axis:  on melting (Equation \ref{eq:brun_melt}); blue axis: pore radius on freezing (Equation \ref{eq:brun_freeze}). The top value is the pore radius at \SI{-1}{\celsius}.}
+%     \caption{Temperature regime of a \ac{LTDSC}-measurement, based on \textcite{sun.2010} and Müller \cite{mueller.2021}. theoretical pore radii after \textcite{brun.1977} - Red axis:  on melting (Equation \ref{eq:brun_melt}); blue axis: pore radius on freezing (Equation \ref{eq:brun_freeze}). The top value is the pore radius at \SI{-1}{\celsius}.}
 %     \label{fig:ltdc_regime}
 % \end{figure}
 
@@ -496,7 +496,7 @@ These crucibles sealed air tight by cold-welding a lid under pressure and measur
         \end{axis}
     \end{tikzpicture}
     \caption{
-		Temperature regime of a \ac{LTDSC}-measurement, based on Sun et al. \cite{sun.2010} and Müller \cite{mueller.2021} with two measurement zones P1 and P2. {\color{blue}\ding{100}1}, {\color{blue}\ding{100}2} = zones are intended introduce ice nuclei. Theoretical pore radii are calculated after \textsc{Brun} et al. \cite{brun.1977} - {\color{blue}Red axis}:  on melting (Equation \ref{eq:brun_melt}); blue axis: pore radius on freezing (Equation \ref{eq:brun_freeze}). The {\color{blue}65.2} and {\color{red}\SI{33.0}{\nano\meter}} are the pore radii at \SI{-1}{\celsius}.}
+		Temperature regime of a \ac{LTDSC}-measurement, based on \textcite{sun.2010} and \textcite{mueller.2021} with two measurement zones P1 and P2. {\color{blue}\ding{100}1}, {\color{blue}\ding{100}2} = zones are intended introduce ice nuclei. Theoretical pore radii are calculated after \textcite{brun.1977} - {\color{blue}Red axis}:  on melting (Equation \ref{eq:brun_melt}); blue axis: pore radius on freezing (Equation \ref{eq:brun_freeze}). The {\color{blue}65.2} and {\color{red}\SI{33.0}{\nano\meter}} are the pore radii at \SI{-1}{\celsius}.}
     \label{fig:ltdc_regime}
 \end{figure}
 
@@ -545,18 +545,20 @@ equation~30 and 31 from \textcite{sun.2010}:
 
 
 In contrast, \textcite{wu.2014} and \textcite{johannesson.2010} used a dry reference sample to mitigate the heat capacity of the concrete binder.
-The baseline is calculated by a linear regression of the data points before and after the freezing peak as in {\color{red} \textsc{Unbehau} \cite{}}.
+%The baseline is calculated by a linear regression of the data points before and after the freezing peak as in {\color{red} \textsc{Unbehau} \cite{unbehau.2025}}.
 However, this is a fairly subjective method, since the temperature (or time) ranges have to be chosen manually.
 
 
 The calculation of the ice mass is influenced by the way, this baseline of the heat flow $Q_\text{B}$ is determined.
-- \textcite{sun.2010} and \textcite{mueller.2021} used a linear regression of the heat flow data before and after the freezing peak.
-- 'J' baseline correction - \textcite{johannesson.2010} (large samples, slow heat rate (0.08K/min))
-- 'C' baseline correction - \textcite{wu.2014} based on heat capacities of ice and water based on \cite{sun.2010}
-
-- linear regression of manually selected temperatures used by {\color{red} \textcite{mueller.2021} and \textcite{unbehau.2025}}
-- \textcite{mueller.2021} analyzed only a small temperature change from \SI{-20}{\celsius} to \SI{+20}{\celsius} and therefore considered this method as sufficiently accurate.
-In both cases, the initial data were ignored, since they were .
+\begin{itemize}
+	\item \textcite{sun.2010}, \textcite{mueller.2021} and \textcite{unbehau.2025} used a linear regression of the heat flow data utilizing manually selected temperature ranges before and after the freezing peak.
+	\begin{itemize}
+		\item \textcite{mueller.2021} analyzed only a small temperature change from \SI{-20}{\celsius} to \SI{+20}{\celsius} and therefore considered this method as sufficiently accurate.
+		In both cases, the initial data were ignored, since they were .
+	\end{itemize}
+	\item 'J' baseline correction - \textcite{johannesson.2010} (large samples, slow heat rate (\SI{0.08}{\kelvin\per\minute}))
+	\item 'C' baseline correction - \textcite{wu.2014} based on heat capacities of ice and water based on \cite{sun.2010}
+\end{itemize}
 
 ice density from \textcite{mueller.2021} calculated from data in \cite{eisenberg.2005}:
 

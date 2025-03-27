@@ -136,17 +136,30 @@
 	],
 	"cSpell.words": [
 		"alite",
+		"Anderegg",
 		"belite",
+		"Boraglas",
 		"cementitious",
+		"Courault",
+		"crystallinity",
+		"epitaxal",
 		"ettringite",
 		"eucentric",
 		"Hadley",
+		"Hubbell",
+		"Lachowski",
+		"Perkin",
 		"poroimetry",
+		"redepositioning",
 		"tobermorite",
-		"unhydrated"
+		"unhydrated",
+		"Vustah",
+		"VYCOR",
+		"Xerogel"
 	],
 	"latex-workshop.latex.build.forceRecipeUsage": false,
 	"github.copilot.chat.codeGeneration.instructions": [
 
-	]
+	],
+	"latex-workshop.intellisense.citation.backend": "biblatex"
 }

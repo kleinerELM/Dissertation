@@ -198,7 +198,7 @@ This resulted in the following freeze curves as plotted in Figure~\ref{fig:ltdsc
 
 
 The glass type specified with a pore diameter of \SI{5}{\nano\meter} has two peaks in the heat-flow signal.
-According to the equation of \textsc{Brun} et al., a heat flow signal was measured in the pore radius range of \num{3} to \SI{8}{\nano\meter} (pore diameter of \num{6} and \SI{16}{\nano\meter}) with peaks at \num{4} and \SI{6.5}{\nano\meter} (pore diameter of \num{8} and \SI{13}{\nano\meter}).
+According to the equation of \textcite{brun.1977}, a heat flow signal was measured in the pore radius range of \num{3} to \SI{8}{\nano\meter} (pore diameter of \num{6} and \SI{16}{\nano\meter}) with peaks at \num{4} and \SI{6.5}{\nano\meter} (pore diameter of \num{8} and \SI{13}{\nano\meter}).
 
 Th glass, specified with a pore diameter of \SI{20}{\nano\meter} showed a heat flow signal between \num{5} and \SI{12}{\nano\meter} (pore diameter of \num{10} and \SI{24}{\nano\meter}) and peaks at pore radii of \num{7} and \SI{10}{\nano\meter} (pore diameter of \num{14} and \SI{20}{\nano\meter}).
 
@@ -487,12 +487,12 @@ The \ac{LTDSC} curves from the second freezing pass are plotted in Figure~\ref{f
 
 			% std dev of 1d C3S
             \addplot+ [draw=none, no markers, name path=A,forget plot] table [each nth point=4,filter discard warning=false, unbounded coords=discard, x index=3, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}, ] {figures/ltdsc/C3S_1d_mean_freeze_segment.csv};
-            \addplot+ [draw=none, no markers, name path=B,forget plot] table [each nth point=3,filter discard warning=false, unbounded coords=discard, x index=3, col sep=comma,y expr={\thisrowno{1}+\thisrowno{2}}, ] {figures/ltdsc/C3S_1d_mean_freeze_segment.csv};
+            \addplot+ [draw=none, no markers, name path=B,forget plot] table [each nth point=4,filter discard warning=false, unbounded coords=discard, x index=3, col sep=comma,y expr={\thisrowno{1}+\thisrowno{2}}, ] {figures/ltdsc/C3S_1d_mean_freeze_segment.csv};
             \addplot [fill=yellow, fill opacity=0.2,forget plot] fill between [of=A and B];
 
 			% std dev of 7d C3S
             \addplot+ [draw=none, no markers, name path=A,forget plot] table [each nth point=4,filter discard warning=false, unbounded coords=discard, x index=3, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}, ] {figures/ltdsc/C3S_7d_mean_freeze_segment.csv};
-            \addplot+ [draw=none, no markers, name path=B,forget plot] table [each nth point=3,filter discard warning=false, unbounded coords=discard, x index=3, col sep=comma,y expr={\thisrowno{1}+\thisrowno{2}}, ] {figures/ltdsc/C3S_7d_mean_freeze_segment.csv};
+            \addplot+ [draw=none, no markers, name path=B,forget plot] table [each nth point=4,filter discard warning=false, unbounded coords=discard, x index=3, col sep=comma,y expr={\thisrowno{1}+\thisrowno{2}}, ] {figures/ltdsc/C3S_7d_mean_freeze_segment.csv};
             \addplot [fill=orange, fill opacity=0.2,forget plot] fill between [of=A and B];
 
 			% std dev of 14d C3S
@@ -577,44 +577,44 @@ The \ac{LTDSC} curves from the second freezing pass are plotted in Figure~\ref{f
 			]
 
 			% std dev of 1d C3S
-            \addplot+ [restrict x to domain=1.5:5, draw=none, no markers, name path=A,forget plot] table [each nth point=3,filter discard warning=false, unbounded coords=discard, x index=3, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}, ] {figures/ltdsc/C3S_1d_mean_freeze_segment.csv};
-            \addplot+ [restrict x to domain=1.5:5, draw=none, no markers, name path=B,forget plot] table [each nth point=3,filter discard warning=false, unbounded coords=discard, x index=3, col sep=comma,y expr={\thisrowno{1}+\thisrowno{2}}, ] {figures/ltdsc/C3S_1d_mean_freeze_segment.csv};
+            \addplot+ [restrict x to domain=1.5:5, draw=none, no markers, name path=A,forget plot] table [each nth point=4,filter discard warning=false, unbounded coords=discard, x index=3, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}, ] {figures/ltdsc/C3S_1d_mean_freeze_segment.csv};
+            \addplot+ [restrict x to domain=1.5:5, draw=none, no markers, name path=B,forget plot] table [each nth point=4,filter discard warning=false, unbounded coords=discard, x index=3, col sep=comma,y expr={\thisrowno{1}+\thisrowno{2}}, ] {figures/ltdsc/C3S_1d_mean_freeze_segment.csv};
             \addplot [fill=yellow, fill opacity=0.2,forget plot] fill between [of=A and B];
 
 			% std dev of 7d C3S
-            \addplot+ [restrict x to domain=1.5:5, draw=none, no markers, name path=A,forget plot] table [each nth point=3,filter discard warning=false, unbounded coords=discard, x index=3, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}, ] {figures/ltdsc/C3S_7d_mean_freeze_segment.csv};
-            \addplot+ [restrict x to domain=1.5:5, draw=none, no markers, name path=B,forget plot] table [each nth point=3,filter discard warning=false, unbounded coords=discard, x index=3, col sep=comma,y expr={\thisrowno{1}+\thisrowno{2}}, ] {figures/ltdsc/C3S_7d_mean_freeze_segment.csv};
+            \addplot+ [restrict x to domain=1.5:5, draw=none, no markers, name path=A,forget plot] table [each nth point=4,filter discard warning=false, unbounded coords=discard, x index=3, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}, ] {figures/ltdsc/C3S_7d_mean_freeze_segment.csv};
+            \addplot+ [restrict x to domain=1.5:5, draw=none, no markers, name path=B,forget plot] table [each nth point=4,filter discard warning=false, unbounded coords=discard, x index=3, col sep=comma,y expr={\thisrowno{1}+\thisrowno{2}}, ] {figures/ltdsc/C3S_7d_mean_freeze_segment.csv};
             \addplot [fill=orange, fill opacity=0.2,forget plot] fill between [of=A and B];
 
 			% std dev of 14d C3S
-            \addplot+ [restrict x to domain=1.5:5, draw=none, no markers, name path=A,forget plot] table [each nth point=3,filter discard warning=false, unbounded coords=discard, x index=3, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}, ] {figures/ltdsc/C3S_14d_mean_freeze_segment.csv};
-            \addplot+ [restrict x to domain=1.5:5, draw=none, no markers, name path=B,forget plot] table [each nth point=3,filter discard warning=false, unbounded coords=discard, x index=3, col sep=comma,y expr={\thisrowno{1}+\thisrowno{2}}, ] {figures/ltdsc/C3S_14d_mean_freeze_segment.csv};
+            \addplot+ [restrict x to domain=1.5:5, draw=none, no markers, name path=A,forget plot] table [each nth point=4,filter discard warning=false, unbounded coords=discard, x index=3, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}, ] {figures/ltdsc/C3S_14d_mean_freeze_segment.csv};
+            \addplot+ [restrict x to domain=1.5:5, draw=none, no markers, name path=B,forget plot] table [each nth point=4,filter discard warning=false, unbounded coords=discard, x index=3, col sep=comma,y expr={\thisrowno{1}+\thisrowno{2}}, ] {figures/ltdsc/C3S_14d_mean_freeze_segment.csv};
             \addplot [fill=red, fill opacity=0.2,forget plot] fill between [of=A and B];
 
 			% std dev of 21d C3S
-            \addplot+ [restrict x to domain=1.5:5, draw=none, no markers, name path=A,forget plot] table [each nth point=3,filter discard warning=false, unbounded coords=discard, x index=3, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}, ] {figures/ltdsc/C3S_21d_mean_freeze_segment.csv};
-            \addplot+ [restrict x to domain=1.5:5, draw=none, no markers, name path=B,forget plot] table [each nth point=3,filter discard warning=false, unbounded coords=discard, x index=3, col sep=comma,y expr={\thisrowno{1}+\thisrowno{2}}, ] {figures/ltdsc/C3S_21d_mean_freeze_segment.csv};
+            \addplot+ [restrict x to domain=1.5:5, draw=none, no markers, name path=A,forget plot] table [each nth point=4,filter discard warning=false, unbounded coords=discard, x index=3, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}, ] {figures/ltdsc/C3S_21d_mean_freeze_segment.csv};
+            \addplot+ [restrict x to domain=1.5:5, draw=none, no markers, name path=B,forget plot] table [each nth point=4,filter discard warning=false, unbounded coords=discard, x index=3, col sep=comma,y expr={\thisrowno{1}+\thisrowno{2}}, ] {figures/ltdsc/C3S_21d_mean_freeze_segment.csv};
             \addplot [fill=green, fill opacity=0.2,forget plot] fill between [of=A and B];
 
 			% std dev of 28d C3S
-            \addplot+ [restrict x to domain=1.5:5, draw=none, no markers, name path=A,forget plot] table [each nth point=3,filter discard warning=false, unbounded coords=discard, x index=3, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}, ] {figures/ltdsc/C3S_28d_mean_freeze_segment.csv};
-            \addplot+ [restrict x to domain=1.5:5, draw=none, no markers, name path=B,forget plot] table [each nth point=3,filter discard warning=false, unbounded coords=discard, x index=3, col sep=comma,y expr={\thisrowno{1}+\thisrowno{2}}, ] {figures/ltdsc/C3S_28d_mean_freeze_segment.csv};
+            \addplot+ [restrict x to domain=1.5:5, draw=none, no markers, name path=A,forget plot] table [each nth point=4,filter discard warning=false, unbounded coords=discard, x index=3, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}, ] {figures/ltdsc/C3S_28d_mean_freeze_segment.csv};
+            \addplot+ [restrict x to domain=1.5:5, draw=none, no markers, name path=B,forget plot] table [each nth point=4,filter discard warning=false, unbounded coords=discard, x index=3, col sep=comma,y expr={\thisrowno{1}+\thisrowno{2}}, ] {figures/ltdsc/C3S_28d_mean_freeze_segment.csv};
             \addplot [fill=blue, fill opacity=0.2,forget plot] fill between [of=A and B];
 
 			% mean values of the 1d C3S
-			\addplot+[restrict x to domain=1.5:5, no marks, orange] table [each nth point=3, filter discard warning=false, unbounded coords=discard, x index=3, y index=1, col sep=comma] {figures/ltdsc/C3S_1d_mean_freeze_segment.csv};
+			\addplot+[restrict x to domain=1.5:5, no marks, orange] table [each nth point=4, filter discard warning=false, unbounded coords=discard, x index=3, y index=1, col sep=comma] {figures/ltdsc/C3S_1d_mean_freeze_segment.csv};
 			\addlegendentry{\SI{1}{\day}};
 			% mean values of the 7d C3S
-			\addplot+[restrict x to domain=1.5:5, no marks, orange] table [each nth point=3, filter discard warning=false, unbounded coords=discard, x index=3, y index=1, col sep=comma] {figures/ltdsc/C3S_7d_mean_freeze_segment.csv};
+			\addplot+[restrict x to domain=1.5:5, no marks, orange] table [each nth point=4, filter discard warning=false, unbounded coords=discard, x index=3, y index=1, col sep=comma] {figures/ltdsc/C3S_7d_mean_freeze_segment.csv};
 			\addlegendentry{\SI{7}{\day}};
 			% mean values of the 14d C3S
-			\addplot+[restrict x to domain=1.5:5, no marks, red] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=3, y index=1, col sep=comma] {figures/ltdsc/C3S_14d_mean_freeze_segment.csv};
+			\addplot+[restrict x to domain=1.5:5, no marks, red] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=3, y index=1, col sep=comma] {figures/ltdsc/C3S_14d_mean_freeze_segment.csv};
 			\addlegendentry{\SI{14}{\day}};
 			% mean values of the 21d C3S
-			\addplot+[restrict x to domain=1.5:5, no marks, green] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=3, y index=1, col sep=comma] {figures/ltdsc/C3S_21d_mean_freeze_segment.csv};
+			\addplot+[restrict x to domain=1.5:5, no marks, green] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=3, y index=1, col sep=comma] {figures/ltdsc/C3S_21d_mean_freeze_segment.csv};
 			\addlegendentry{\SI{21}{\day}};
 			% mean values of the 28d C3S
-			\addplot+[restrict x to domain=1.5:5, no marks, blue] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=3, y index=1, col sep=comma] {figures/ltdsc/C3S_28d_mean_freeze_segment.csv};
+			\addplot+[restrict x to domain=1.5:5, no marks, blue] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=3, y index=1, col sep=comma] {figures/ltdsc/C3S_28d_mean_freeze_segment.csv};
 			\addlegendentry{\SI{28}{\day}};
 
 			\node[draw=none] (top-4) at (axis cs:1.75,-.11) {};

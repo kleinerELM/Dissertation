@@ -22,6 +22,7 @@
 \ifxetex
 
 	\usepackage{fontspec}
+	\usepackage{lmodern}
 	\IfFileExists{./font/LinotypeSyntaxCom-Regular.ttf}{
 		\setsansfont{LinotypeSyntaxCom}[
 			Path=./font/,
@@ -37,6 +38,17 @@
 	\usepackage{polyglossia}
 	\setmainlanguage{english}
 	\setotherlanguages{german}
+	%% the following would allow for the use of the ß character in the document, however it changes the font
+
+	%% install https://github.com/alerque/libertinus/releases
+	\newcommand{\mysc}[1]{%
+		\begingroup
+			\def\temp{}%
+			\StrSubstitute{#1}{ß}{\fontspec{Libertinus Serif}ẞ}[\temp]%
+			\textsc{\temp}%
+		\endgroup
+	}
+
 \else
 	\usepackage[main=english,ngerman]{babel}
 	\usepackage[T1]{fontenc}  % changed font encoding to west-european letters
@@ -89,11 +101,16 @@
 			giveninits = true, % abbrevation for first name
 			date = year, % controls the basic format of printed date specifications
 			uniquelist = false, % This feature allows ambiguous labelname list --> unique dateformat (e.g. 2020a, 2020b)
-			defernumbers=true,sorting=none
+			defernumbers=true,
+			sorting=none
 			]{biblatex}  % use biblatex for bibliography
 
-\renewcommand*{\mkbibnamefamily}[1]{\textsc{#1}}
-
+% make family names in small caps
+\ifxetex
+	\renewcommand*{\mkbibnamefamily}[1]{\mysc{#1}}
+\else
+	\renewcommand*{\mkbibnamefamily}[1]{\textsc{#1}}
+\fi
 
 \usepackage[
 	range-units=single,
@@ -107,6 +124,10 @@
 
 \addto\extrasngerman{\sisetup{locale = DE}}
 \addto\extrasenglish{\sisetup{locale = US}}
+
+\NewDocumentCommand{\mathnormalsymbol}{m}{\text{$\mathnormal{#1}$}}
+\DeclareSIUnit{\elementarycharge}{\mathnormalsymbol{e}}
+\DeclareSIUnit{\angstrom}{Å}
 \DeclareSIUnit{\wtpercent}{wt.\hbox{-}\%}
 
 \usepackage{animate}
@@ -280,7 +301,16 @@
 
 \captionsetup{singlelinecheck=false,justification=raggedright}
 
-%\usepackage{hyphenat}
+\usepackage{hyphenat}
 %\newcommand{\buw}{Bau-haus\-Uni-ver-si-tät}
 %\hyphenation{\buw}
+
+\DeclareSourcemap{
+  \maps[datatype = bibtex]{
+    \map{
+     \step[fieldsource = journaltitle, match = \regexp{-}, replace = \regexp{\{\\hyp\{\}\}}]
+    }
+  }
+}
+
 \usepackage[shortcuts]{extdash}

@@ -105,6 +105,55 @@
 			sorting=none
 			]{biblatex}  % use biblatex for bibliography
 
+% Treiber für den Eintragstyp "video"
+\DeclareBibliographyDriver{video}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \ifboolexpr{ test {\ifnameundef{editor}} and test {\ifnameundef{author}} }
+    {}
+    {\printnames{editor}%
+     \setunit{\labelnamepunct}\newblock}%
+  % Titel (eventuell mit Untertitel)
+  \printfield[title]{title}%
+  \iffieldundef{subtitle}
+    {}
+    {\setunit{\subtitlepunct}\printfield{subtitle}}%
+  \newunit\newblock
+  % Erscheinungsjahr
+  \printfield{year}%
+  \newunit\newblock
+  % Weitere Felder, z.B. Ort, Verlag oder Notiz (anpassen, falls benötigt)
+  \printfield{location}%
+  \newunit\newblock
+  \printfield{publisher}%
+  \newunit\newblock
+  % URL hinzufügen
+  \printfield{url}%
+  \usebibmacro{finentry}%
+}
+
+% Treiber für den Eintragstyp "standard"
+\DeclareBibliographyDriver{standard}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \printfield[number]{number}%
+  \newunit\newblock
+  % Titel (mit möglichem Untertitel)
+  \printfield[title]{title}%
+  \iffieldundef{subtitle}
+    {}
+    {\setunit{\subtitlepunct}\printfield{subtitle}}%
+  \newunit\newblock
+  \printfield{year}%
+  \newunit\newblock
+  \printfield{publisher}%
+  \newunit\newblock
+  \printfield{location}%
+  \newunit\newblock
+  \usebibmacro{finentry}%
+}
+
+
 % make family names in small caps
 \ifxetex
 	\renewcommand*{\mkbibnamefamily}[1]{\mysc{#1}}

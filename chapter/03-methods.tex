@@ -120,6 +120,7 @@ The mask and the specimen surface are arranged in a way that only \SIrange{20}{1
 \section{SEM / Focussed Ion Beam}
 \label{sec:sem}
 
+% SEM detectors overview see \cite{fylak.2011}
 
 Modern \ac{SEM}-devices can be equipped with a wide range of detectors, stages and tools.
 The most common detectors are \ac{SE} and \ac{BSE} detectors of various types (e.g. \ac{ETD} or \ac{TLD}).
@@ -578,7 +579,7 @@ ice density from \textcite{mueller.2021} calculated from data in \cite{eisenberg
 % 	\item These steps increase the signal-to-noise ratio and allow to select the background and the signal.
 % 	\item Raw values which fall between \num{-1} and \SI{4}{\nano\watt\per\milli\gram} after this processing, will then be used to calculate a linear regression which will then be used as baseline.
 % \end{itemize}
-% The detailed procedure ispublished in the function 
+% The detailed procedure ispublished in the function
 % \texttt{auto\textunderscore select\textunderscore baseline} within the \texttt{ltdsc\textunderscore measurement}-class \cite{kleiner.2025}.
 % } %\url{https://github.com/kleinerELM/Kalorimeterauswertung}
 % % TODO: bild?
@@ -588,7 +589,7 @@ After the baseline correction, the total ice mass can be calculated by integrati
 \begin{equation}
 	m_\text{ice} = \int_{\vartheta_\text{min}}^{\vartheta_\text{max}} \dot{Q}_{m}(\vartheta) d\vartheta  / \Delta H_\text{fus}
 	\label{eq:ltdsc_ice}
-\end{equation} 
+\end{equation}
 
 The ice mass of the gel pores can then be estimated by subtracting the ice mass of the capillary pores (P1-zone) from the total ice mass (P2-zone):
 

@@ -1,0 +1,436 @@
+
+\FloatBarrier
+\subsection{Sectioning effect}
+\label{subsec:sectioning-effect}
+
+Many measurements are done using \ac{BSE} images of embedded and polished hydrated clinker phases.
+In other words, all measurements are taken on random sections through grains and their hydrate layers.
+This causes an unavoidable sectioning effect \cite{scrivener.2004} as illustrated in Figure~\ref{fig:sectioning_effect_a}.
+
+\begin{figure}[htb]
+    \centering
+
+	\begin{subfigure}{0.45\textwidth}
+		\centerline{\includegraphics[width=.9\textwidth]{hydrate-rim/sectioning_effect_3D.pdf}}
+		\caption{Two imaging planes (blue) at different sectioning positions within a sphere, where $a \ll b$.} % add graph?
+		\label{fig:sectioning_effect_a}
+
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.54\textwidth}
+
+		\begin{tikzpicture}
+			\begin{axis}[
+					legend style={at={(0.97,.94)},anchor=north east},
+					xmin=0, xmax=1.4,
+					ymin=0, ymax=1.4,
+					width=0.7\textwidth,
+					height=0.7\textwidth,
+					grid=major,
+					xlabel={\small sectioning distance from center point $x$},
+					ylabel={\small radius, \acs{HLT}},
+					ytick={0,.3,1,1.3},
+					xtick={0,.3,1,1.3},
+					grid style={line width=.1pt, draw=gray!10},
+					legend style={	cells={align=left},
+									at={(1.03,.5)},
+									anchor=west,
+									font=\tiny,
+									row sep=4pt},
+                    yticklabel style={
+                            /pgf/number format/fixed,
+                            /pgf/number format/precision=1,
+                            /pgf/number format/fixed zerofill,
+                    },
+                    xticklabel style={
+                            /pgf/number format/fixed,
+                            /pgf/number format/precision=1,
+                            /pgf/number format/fixed zerofill,
+                    },
+				]
+
+				\addplot[yellow,  domain=0:1, samples=360, very thick] {sqrt(2*1*(x+1) - (x+1)^2)};
+				\addlegendentry{grain radius \\ $f(x, r_\text{grain})$};
+				\addplot[red, domain=0:1.35, samples=1000, very thick] {sqrt(2*1.3*(x+1.3) - (x+1.3)^2)};
+				\addlegendentry{outer radius \\ $f(x, r_\text{outer})$};
+				\addplot[blue,   domain=0:1, samples=1000, name path=f] {sqrt(2*1.3*(x+1.3) - (x+1.3)^2) - sqrt(2*1*(x+1) - (x+1)^2)};
+				\addlegendentry{measured \acs{HLT} \\ $t(x)$};
+				\path[name path=axis] (axis cs:0,0) -- (axis cs:1,0);
+				\addplot [fill=blue, fill opacity=0.2] fill between[of=f and axis, soft clip={domain=0:1}];
+
+				\node[coordinate, pin={[align=left,pin distance = 5mm]-270:{\tiny $\int_{0}^{r_\text{grain}} t(x) \,dx$}}] at (axis cs:0.4,0.24) {};
+				%\addplot[yellow,  domain=0:1, samples=360] {sqrt(2*1*(x+1) - (x+1)^2)};
+
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Influence of the sectioning distance from center point $x$ on the \acs{HLT} ($t(x)$), calculated using Equation \ref{eq:sectioning_effect_2}.}
+		\label{fig:sectioning_effect_b}
+	\end{subfigure}
+
+    \caption{Illustration of the sectioning effect of a spherical grain. }
+    \label{fig:sectioning_effect}
+\end{figure}
+
+Equations~\ref{eq:sectioning_effect_1} and \ref{eq:sectioning_effect_2} can be used to calculate the \ac{HLT} ($t$) for a spherical particle, depending on the sectioning distance from center point ($x$).
+
+\begin{equation}
+	f(x, r) = \sqrt{2r(x+r) - (x+r)^2}
+	\label{eq:sectioning_effect_1}
+\end{equation}
+\begin{conditions}
+	f	&	measured \ac{HLT}, \\
+	r	&   radius, \\
+	x	&   sectioning distance from center point; $0 \leq x \leq r$.
+\end{conditions}
+
+\begin{equation}
+	t(x) = f(x, r_\text{outer}) - f(x, r_\text{grain})
+	\label{eq:sectioning_effect_2}
+\end{equation}
+\begin{conditions}
+	t				&	measured \ac{HLT}, \\
+	r_\text{outer}	&   radius of the grain + hydrate layer, \\
+	r_\text{grain}	&   grain radius.
+\end{conditions}
+
+\begin{equation}
+	M_\text{HLT} = \frac{\int_{0}^{i} t(x) \,dx}{r_\text{grain}}
+	\label{eq:sectioning_effect_3}
+\end{equation}
+\begin{conditions}
+	M_\text{HLT}	&	mean \ac{HLT} of a grain, \\
+	r_\text{grain}	&   grain radius, \\
+	d				&   $0 < i \leq r_\text{grain}$.
+\end{conditions}
+
+Figure~\ref{fig:sectioning_effect_b} (blue curve) indicates, that the \ac{HLT} can be significantly overestimated.
+This becomes more prevalent the closer the cut through a particle is to the particle border.
+% https://www.wolframalpha.com/input?i=integral&assumption=%7B%22F%22%2C+%22Integral%22%2C+%22rangestart%22%7D+-%3E%220%22&assumption=%7B%22C%22%2C+%22integral%22%7D+-%3E+%7B%22Calculator%22%2C+%22dflt%22%7D&assumption=%7B%22F%22%2C+%22Integral%22%2C+%22integrand%22%7D+-%3E%22sqrt%282*1.3*%28x%2B1.3%29+-+%28x%2B1.3%29%5E2%29+-+sqrt%282*1*%28x%2B1%29+-+%28x%2B1%29%5E2%29%22&assumption=%7B%22F%22%2C+%22Integral%22%2C+%22rangeend%22%7D+-%3E%22.9%22
+For example, for a \ac{HLT} of \num{0.3} (as shown in Figure~\ref{fig:sectioning_effect_b}) a mean overestimation of \SI{23.8}{\percent} can be expected. %0,3715/0,33
+
+Figure~\ref{fig:hlt_overestimation} illustrates the overestimation of the measured \ac{HLT} depending on the \ac{HLT} / grain radius ratio and $M_\text{HLT}$ (Equation~\ref{eq:sectioning_effect_3}).
+It shows, that the smaller the \ac{HLT} and therefore the younger the specimen, the bigger the over estimation.
+The dependence on $M_\text{HLT}$ shows, that especially specimens cut at or near the border increase the error.
+This also means, that very small particles, which have a higher probability to stem from particle edges, are prone to larger overestimations and should therefore not be considered for further analysis.
+
+\begin{figure}[htb]
+	\centerline{\includegraphics[width=\columnwidth, trim={0 1.7cm 0 1.8cm}, clip]{hydrate-rim/sectioning_overestimation.pdf}}
+	\caption{Overestimation of the \ac{HLT} depending on the HLT / grain diameter ratio and the integral limit $i$ (see Equation~\ref{eq:sectioning_effect_2}). The blue line indicates the results for HLT / grain diameter value of 0.3 as shown in Figure~\ref{fig:sectioning_effect_b}. }
+	\label{fig:hlt_overestimation}
+\end{figure}
+
+%\subsection{FIB serial sectioning}
+
+\subsection{Calculating the phase composition based on 2D-SEM images}
+
+Using a segmented \ac{SEM}-image, the phase composition can be estimated by using the area-\% of alite $A_{\text{C}_3\text{S}}$ and the hydrate phases $A_\text{\text{CSH}}$ and $A_\text{CH}$ \cite{kleiner.2024a}.
+If the hydrate phases are undistinguishable, they can be summed up:
+
+\begin{equation}
+	\label{eqn:est_hydrate_area}
+	A_\text{hydrate} = A_\text{\text{CSH}} + A_\text{CH} = A_{\text{image}} - A_{\text{C}_3\text{S}} - A_{\text{pores}}
+\end{equation}
+
+Equation \eqref{eqn:est_frac} then allows to estimate the amount of hydrate phase $\sigma_\text{hyd}$ (\ac{CH} + \ac{CSH}) in \si{wtpercent}.
+
+\begin{equation}
+	\label{eqn:est_frac}
+	\sigma_\text{hydrate} = \frac{A_\text{hydrate} \cdot \rho_\text{hydrate}}{A_\text{hydrate} \cdot \rho_\text{hydrate} + A_{\text{C}_3\text{S}} \cdot \rho_{\text{C}_3\text{S}}}
+\end{equation}
+
+The densities required to calculate these values are listed in Table~\ref{tab:densities}.
+
+% why 2.5 : 1.0?
+\begin{table}[htb]
+    \centering
+    \caption{Densities of \ac{C3S} \cite{garrault.2006}, \ac{C2S}, \ac{CH} and \ac{CSH} \cite{garrault.2006} different phases in \si{\gram\per\cubic\centi\meter} \cite{jennings.2000,garrault.2006}.\\$^{*}$mixture of \ac{CSH}:\ac{CH} at a volume ratio of 2.5:1}
+    \label{tab:densities}
+    \begin{tabular}{@{}lrrrrr@{}}
+        \toprule
+        \textbf{Phase} & \ac{C3S} & \ac{C2S} & \ac{CH} & \ac{CSH} & hydrate phase$^{*}$\\
+		\midrule
+        \textbf{Density} & 3.14 & & 2.2 & $\approx$ 2.116 &  2.07\\
+		\bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{Statistical analysis of the representativeness of an 2D image}
+\label{sec:2D-representativeness}
+
+Being sure, that a sample and the resulting measurement is representative can be a rather complicated challenge.
+This is especially true for inhomogeneous materials consisting of multiple phases and wide ranges of particle sizes.
+The problem starts with sampling and sample preparation.
+This process is standardized for for granular or powdery samples for multiple fields (e.g. DIN 52101 \cite{din52101.2013} and DIN EN 932-1 \cite{dinen932-1.1996}).
+Although this solution is very helpful for analyzing loose particles, for the analysis of a monolithic sample the only option is to analyze the largest possible volume or surface area.
+This raises the question of what the minimum size of the analyzed area must be in order to obtain a statistically meaningful result.
+This is especially true for \ac{SEM}-analysis, since the imaged area is usually only a tiny detail of the whole specimen.
+While the operator of the microscope may try to exclude unusual areas or capture a typical, representative area of the specimen, this is a highly subjective task.
+%To reduce this subjectiveness, one may try to obtain a larger area or set of independent images and apply statistical analysis.
+
+{\color{red}In many cases, a particle size or pore size distribution is of interest, which allows to evaluate distinct objects of an image \cite{odziomek.2016}.
+However, this is no good solution for interconnected phases or pore spaces. ...}
+
+Often a reliable phase composition measurement is sufficient.
+Therefore, some authors tried to apply a \ac{REA} calculation, to make sure the observed image features are statistically relevant \cite{bosl.1998,kameda.2006,klaver.2012,houben.2014,jiang.2022} .
+In the selected publications two main methods were used for this statistical analysis (see Figure~\ref{fig:lit_box_methods}).
+
+\begin{figure}[H]
+    \centering
+
+	\begin{subfigure}[t]{0.49\textwidth}
+		\includegraphics[width=\textwidth]{literature/area growth_illust.png}
+		\caption{Box grow method.}
+        \label{fig:lit_box_methods_a}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{0.49\textwidth}
+		\includegraphics[width=\textwidth]{literature/box_cnt_illust.png}
+		\caption{Box count method.}
+        \label{fig:lit_box_methods_b}
+	\end{subfigure}
+    \caption{Example of the box grow \cite{bosl.1998,kameda.2006}  and box count method \cite{mouret.2001,hlavacek.2015} applied to an segmented image of \SI{28}{\day} hydrated alite.}
+    \label{fig:lit_box_methods}
+\end{figure}
+
+The code used to compare both methods is publicly available \cite{kleiner.2024b}. %-> https://github.com/kleinerELM/box_count_method
+
+\subsubsection{Box grow method} % the method names are not great
+\label{sec:box_growth}
+
+One of the methods was introduced by \textcite{bosl.1998} and also used by \textcite{kameda.2006}.
+It works by selecting a growth point in the center of an image.
+From this point a box will grow stepwise as illustrated in Figure~\ref{fig:lit_box_methods_a}.
+This method will therefore be called \textsc{box grow method} from hereon.
+The phase composition of these growing boxes is constantly measured.
+To initiate multiple experiments within an image, the growth point has to be selected randomly within a limited window in the center of the image.
+This allows to calculate a standard deviation.
+Figure~\ref{fig:lit_box_growth} shows the result of such an analysis using an image of \SI{28}{\day} hydrated alite.
+This image has to be segmented beforehand into pores, unhydrated alite, \ac{CH} and \ac{CSH}.
+The standard deviation in Figure~\ref{fig:lit_box_growth_b}indicates, the shrinking uncertainty with a larger area analyzed.
+However, $\sigma$ is shrinking unsteadily.
+Since the location of larger phases does not change in the image used, even the randomized starting point cant remove the bias. This can be reduced by using more source images.
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[t]{0.49\linewidth}
+      \begin{tikzpicture}
+        \begin{axis}[
+                xmin=0, xmax=1,
+                ymin=0, ymax=80,
+                width=\linewidth,
+                xlabel={image area in \si{\square\milli\meter}},
+                ylabel={phase amount \si{\percent}},
+                xtick={0,0.25,...,1},
+				grid=major,
+				grid style={line width=.1pt, draw=gray!10},
+                xticklabel style={
+                        /pgf/number format/fixed,
+                        /pgf/number format/precision=2,
+                        /pgf/number format/fixed zerofill,
+                },
+            ]
+
+            %Pores
+            \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}, ] {figures/literature/C3S_28d_area_growth.csv};
+            \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{1}+\thisrowno{2}}, ] {figures/literature/C3S_28d_area_growth.csv};
+
+            \addplot [fill=black, fill opacity=0.2,forget plot] fill between [of=A and B];
+
+            \addplot [ mark=none, black, opacity=0.5 ] table [x index=9, y index=1, col sep=comma] {figures/literature/C3S_28d_area_growth.csv};
+            %\addlegendentry{pores};
+
+            %CSH
+            \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{3}-\thisrowno{4}}, filter discard warning=false ] {figures/literature/C3S_28d_area_growth.csv};
+            \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{3}+\thisrowno{4}}, filter discard warning=false ] {figures/literature/C3S_28d_area_growth.csv};
+
+            \addplot [fill=red, fill opacity=0.2,forget plot] fill between [of=A and B];
+
+            \addplot [ mark=none, red, opacity=0.5 ] table [x index=9, y index=3, col sep=comma, filter discard warning=false] {figures/literature/C3S_28d_area_growth.csv};
+            %\addlegendentry{\ac{CSH}};
+
+            %CH
+            \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{5}-\thisrowno{6}}, filter discard warning=false ] {figures/literature/C3S_28d_area_growth.csv};
+            \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{5}+\thisrowno{6}}, filter discard warning=false ] {figures/literature/C3S_28d_area_growth.csv};
+
+            \addplot [fill=cyan, fill opacity=0.2,forget plot] fill between [of=A and B];
+
+            \addplot [ mark=none, cyan, opacity=0.5 ] table [x index=9, y index=5, col sep=comma, filter discard warning=false] {figures/literature/C3S_28d_area_growth.csv};
+            %\addlegendentry{\ac{CH}};
+
+            %alite
+            \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{7}-\thisrowno{8}}, filter discard warning=false ] {figures/literature/C3S_28d_area_growth.csv};
+            \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{7}+\thisrowno{8}}, filter discard warning=false ] {figures/literature/C3S_28d_area_growth.csv};
+
+            \addplot [fill=yellow, fill opacity=0.2,forget plot] fill between [of=A and B];
+
+            \addplot [ mark=none, yellow, opacity=0.5 ] table [x index=9, y index=7, col sep=comma, filter discard warning=false] {figures/literature/C3S_28d_area_growth.csv};
+            %\addlegendentry{alite};
+        \end{axis}
+      \end{tikzpicture}
+      \caption{Phase composition.}
+      \label{fig:lit_box_growth_a}
+    \end{subfigure}
+    \hfill%
+    \begin{subfigure}[t]{0.49\linewidth}
+      \begin{tikzpicture}
+		\begin{axis}[%red,
+            xmin=0, xmax=1,
+            ymin=0, ymax=10,
+            width=\linewidth,
+            legend style={at={(.98,.98)},anchor=north east},
+            %axis y line=right,
+            ylabel near ticks, yticklabel pos=right,
+			xlabel={image area in \si{\square\milli\meter}},
+			ylabel={standard deviation $\sigma$ in \si{\percent}},
+            grid=major,
+            grid style={line width=.1pt, draw=gray!10},
+            xticklabel style={
+                    /pgf/number format/fixed,
+                    /pgf/number format/precision=2,
+                    /pgf/number format/fixed zerofill,
+            },
+		  ]
+          \addplot[black, smooth, tension=0.2, no markers] table [x index=9, col sep=comma,y index=2, filter discard warning=false] {figures/literature/C3S_28d_area_growth.csv};
+
+          \addplot[red, smooth, tension=0.2, no markers] table [x index=9, col sep=comma,y index=4, filter discard warning=false] {figures/literature/C3S_28d_area_growth.csv};
+
+          \addplot[cyan, smooth, tension=0.2, no markers] table [x index=9, col sep=comma,y index=6, filter discard warning=false] {figures/literature/C3S_28d_area_growth.csv};
+
+          \addplot[yellow, smooth, tension=0.2, no markers] table [x index=9, col sep=comma,y index=8, filter discard warning=false] {figures/literature/C3S_28d_area_growth.csv};
+
+          \addlegendentry{pores};
+          \addlegendentry{\ac{CSH}};
+          \addlegendentry{\ac{CH}};
+          \addlegendentry{alite};
+
+        \end{axis}
+      \end{tikzpicture}
+      \caption{Standard deviation of the phase composition.}
+      \label{fig:lit_box_growth_b}
+    \end{subfigure}
+    \caption{Example of the results of the box grow method as explained in \cite{bosl.1998,kameda.2006} and the respective standard deviations for 100 random starting points.}
+    \label{fig:lit_box_growth}
+\end{figure}
+
+
+\subsubsection{Box count method} % the method names are not great
+
+\textcite{mouret.2001} and \textcite{hlavacek.2015} tried to get an indication of the statistical representativeness of the phase composition within an image and introduced a method, which is called \textsc{box count method} from hereon.
+This method splits an image or multiple images of the same material in smaller sub-tiles (see Figure~\ref{fig:lit_box_methods_b}).
+Then, a growing number of tiles is randomly selected from this tile-pool.
+Of this selection, the phase composition is then remeasured.
+If this is repeated multiple times, the standard deviation indicates, how much area has to be imaged and analyzed to obtain a reasonable phase composition measurement.
+The result of this method is a graph as shown in Figure~\ref{fig:lit_box_count}.
+The standard deviation $\sigma$ in Figure~\ref{fig:lit_box_count_b}indicates the shrinking uncertainty with a larger area analyzed. Compared to Figure~\ref{fig:lit_box_growth_b}, $\sigma$ is shrinking much more continuously, since there is no location bias.
+
+\begin{figure}[H]
+    \centering
+	\begin{subfigure}[t]{0.49\linewidth}
+        \centering
+      \begin{tikzpicture}
+        \begin{axis}[
+                xmin=0, xmax=1,
+                ymin=0, ymax=80,
+				xlabel={image area in \si{\square\milli\meter}},
+				ylabel={phase amount \si{\percent}},
+				xtick={0,.25,...,1},
+                width=\linewidth,
+				grid=major,
+				grid style={line width=.1pt, draw=gray!10},
+                xticklabel style={
+                        /pgf/number format/fixed,
+                        /pgf/number format/precision=2,
+                        /pgf/number format/fixed zerofill,
+                },
+            ]
+
+            %Pores
+            \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}, ] {figures/literature/C3S_28d_box_count.csv};
+            \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{1}+\thisrowno{2}}, ] {figures/literature/C3S_28d_box_count.csv};
+
+            \addplot [fill=black, fill opacity=0.2,forget plot] fill between [of=A and B];
+
+            \addplot [ mark=none, black, opacity=0.5 ] table [x index=9, y index=1, col sep=comma] {figures/literature/C3S_28d_box_count.csv};
+            %\addlegendentry{pores};
+
+            %CSH
+            \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{3}-\thisrowno{4}}, ] {figures/literature/C3S_28d_box_count.csv};
+            \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{3}+\thisrowno{4}}, ] {figures/literature/C3S_28d_box_count.csv};
+
+            \addplot [fill=red, fill opacity=0.2,forget plot] fill between [of=A and B];
+
+            \addplot [ mark=none, red, opacity=0.5 ] table [x index=9, y index=3, col sep=comma] {figures/literature/C3S_28d_box_count.csv};
+            %\addlegendentry{\ac{CSH}};
+
+            %CH
+            \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{5}-\thisrowno{6}}, ] {figures/literature/C3S_28d_box_count.csv};
+            \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{5}+\thisrowno{6}}, ] {figures/literature/C3S_28d_box_count.csv};
+
+            \addplot [fill=cyan, fill opacity=0.2,forget plot] fill between [of=A and B];
+
+            \addplot [ mark=none, cyan, opacity=0.5 ] table [x index=9, y index=5, col sep=comma] {figures/literature/C3S_28d_box_count.csv};
+            %\addlegendentry{\ac{CH}};
+
+            %alite
+            \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{7}-\thisrowno{8}}, ] {figures/literature/C3S_28d_box_count.csv};
+            \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{7}+\thisrowno{8}}, ] {figures/literature/C3S_28d_box_count.csv};
+
+            \addplot [fill=yellow, fill opacity=0.2,forget plot] fill between [of=A and B];
+
+            \addplot [ mark=none, yellow, opacity=0.5 ] table [x index=9, y index=7, col sep=comma] {figures/literature/C3S_28d_box_count.csv};
+            %\addlegendentry{alite};
+        \end{axis}
+      \end{tikzpicture}
+      \caption{Phase composition statistics.}
+      \label{fig:lit_box_count_a}
+    \end{subfigure}%
+    \hfill%
+	\begin{subfigure}[t]{0.49\linewidth}
+      \centering
+      \begin{tikzpicture}
+		\begin{axis}[
+            width=\linewidth,
+            xmin=0, xmax=1,
+            ymin=0, ymax=10,
+            xlabel={image area in \si{\square\milli\meter}},
+            legend style={at={(.98,.98)},anchor=north east},
+            ylabel={standard deviation $\sigma$ in \si{\percent}},
+            %axis y line*=right,
+            ylabel near ticks, yticklabel pos=right,
+            grid=major,
+            grid style={line width=.1pt, draw=gray!10},
+            xticklabel style={
+                    /pgf/number format/fixed,
+                    /pgf/number format/precision=2,
+                    /pgf/number format/fixed zerofill,
+            },
+		  ]
+          \addplot[black, smooth, tension=0.5, no markers] table [x index=9, col sep=comma,y index=2] {figures/literature/C3S_28d_box_count.csv};
+
+          \addplot[red, smooth, tension=0.5, no markers] table [x index=9, col sep=comma,y index=4] {figures/literature/C3S_28d_box_count.csv};
+
+          \addplot[cyan, smooth, tension=0.5, no markers] table [x index=9, col sep=comma,y index=6] {figures/literature/C3S_28d_box_count.csv};
+
+          \addplot[yellow, smooth, tension=0.5, no markers] table [x index=9, col sep=comma,y index=8] {figures/literature/C3S_28d_box_count.csv};
+          \addlegendentry{pores};
+          \addlegendentry{\ac{CSH}};
+          \addlegendentry{\ac{CH}};
+          \addlegendentry{alite};
+
+        \end{axis}
+      \end{tikzpicture}
+      \caption{Standard deviation of the phase composition.}
+      \label{fig:lit_box_count_b}
+    \end{subfigure}
+    \caption{Example of the results of the box count method as explained in \cite{mouret.2001,hlavacek.2015} and the respective standard deviations after 100 random patch selections.}
+    \label{fig:lit_box_count}
+\end{figure}
+
+
+The method is fast and works well for area calculations.
+However, it ignores the influence of larger inhomogeneities, as the rather large \ac{CH}-areas in the example image.
+
+% relativer Fehler von hlavacek übernehmen
+
+%covariogram
+%https://en.wikipedia.org/wiki/Covariance_function

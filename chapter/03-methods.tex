@@ -126,7 +126,10 @@ Modern \ac{SEM}-devices can be equipped with a wide range of detectors, stages a
 The most common detectors are \ac{SE} and \ac{BSE} detectors of various types (e.g. \ac{ETD} or \ac{TLD}).
 Most modern SEMs easily allow to image large areas using these detectors in a high resolution by acquiring multiple images and stitching them afterwards.
 
+
 For chemical analysis, \ac{EDX} detectors can provide point and area mappings (see Section~\ref{sec:edx}).
+
+
 A less common detector type, the \ac{EBSD}, allows to obtain crystallographic information of a clean specimen surface (see Section~\ref{sec:ebsd}).
 
 Besides these classical detectors, modern SEMs can also be combined with a \ac{FIB}.
@@ -141,20 +144,44 @@ In contrast to an light microscope, it can alter the specimen during the observa
 Nowadays, this is less of an issue due to significant progress in the sensitivity of the detectors of electron microscopes.
 However, to obtain enough signal for some detectors (e.g. \ac{EDX} or \ac{EBSD}), intensive electron beam exposure might still be required, which can cause visible damage \cite{rossler.2006, rossen.2017}.
 
+
+\subsection{\acs*{SE} detector}
+\label{sec:se}
+
+\ac{SE} detectors primarily capture low-energy secondary electrons (< \SI{50}{\electronvolt}) which are inelastically scattered and emitted from the very near-surface region (less than \SI{50}{\nano\meter}) of the sample \cite{fylak.2011}.
+Therefore, their detection is highly sensitive to the surface topography of the sample.
+Edges, and surfaces tilted towards the detector emit more electrons than surfaces facing away from the detector.
+In lens detectors like \ac{TLD} are a type of of a \ac{SE} detector allowing for resolutions in the nanometer scale.
+
+\subsection{\acs*{BSE} detector}
+\label{sec:bse}
+
+\ac{BSE} detectors collect high-energy electrons from the primary beam that have been elastically scattered back out of the sample after interacting with atomic nuclei.
+Heavier elements (with a higher atomic number $Z$) scatter electrons more strongly and appearing brighter in the BSE image.
+In a polished cross-section of hardened cement paste, BSE imaging allows differentiation of phases: unhydrated clinker particles (higher average $Z$) appear bright hydrates (intermediate $Z$) appears as a grey phase and porosity (e.g. filled with epoxy) appears darkest (black).
+
+
+
+
 \FloatBarrier
 
-\subsection{Energy-Dispersive X-ray spectroscopy (EDX)}
+\subsection{Energy-Dispersive X-ray spectroscopy (\acs*{EDX})}
 \label{sec:edx}
 
 \ac{EDX} is a widely used technology available even on smaller \ac{SEM}-devices.
 It is based on the interaction of the electron beam with the sample surface.
-The electrons in the atoms of the sample are excited by the electron beam and subsequently emit an individual X-ray pattern that enables the source atoms to be identified.
-However, the excitation voltage has to be about twice as high as the X-ray emission lines of the expected elements to collect enough counts to identify and quantify it.% \acs{Ka}  or \acs{Kb}
-This results in a minimal required electron beam voltage of \SI{12}{\kilo\volt} to measure Fe with a \ac{Ka} of \SI{6.4}{\kilo\electronvolt} \cite{hudson.2003}.
+When the high-energy beam electrons strike the sample, they can knock out inner-shell electrons from the sample atoms.
+These outer-shell electrons will fall back to their original energy level, releasing characteristic X-rays whose energies are unique fingerprints of specific elements.
+An EDX detector measures the energy and intensity (number) of these emitted X-rays.
+This allows for qualitative identification and semi-quantitative or quantitative analysis. 
+Point analyses or elemental maps can show the spatial distribution of these elements and thus the associated phases.
 
-However, a high powered electron beam can also damage specimens.
+However, the excitation voltage has to be about twice as high as the X-ray emission lines of the expected elements to collect enough counts to identify and quantify it.% \acs{Ka}  or \acs{Kb}
+This results in a minimal required electron beam voltage of \SI{12}{\kilo\volt} to measure e.g. Fe with a \ac{Ka} of \SI{6.4}{\kilo\electronvolt} \cite{hudson.2003}.
+
+However, a high powered electron beam can also damage specimens as shown in Figure~\ref{fig:ebeam_damage}.
 For example, \ac{CSH} phases and \ac{CH} may be dehydrated after a prolonged \ac{EDX}-measurement.
-This may result in a geometrical deformation as shown in Figure~\ref{fig:ebeam_damage} or may also introduce pores with a diameter of several \si{\nano\meter} as demonstrated in Figure~\ref{fig:edx_damage_a} and \ref{fig:edx_damage_b} which are slices of a \ac{FIB}-stack before and after an \ac{EDX}-measurement.
+This may result in a geometrical deformation or may also introduce pores with a diameter of several \si{\nano\meter} as demonstrated in Figure~\ref{fig:edx_damage_a} and \ref{fig:edx_damage_b} which are slices of a \ac{FIB}-stack before and after an \ac{EDX}-measurement.
 
 \begin{figure}[H]
     \centering
@@ -174,14 +201,20 @@ This may result in a geometrical deformation as shown in Figure~\ref{fig:ebeam_d
     \label{fig:edx_damage}
 \end{figure}
 
-- data overlap due to volume analysis - some mentioned in \cite{rossen.2017}
+The lateral resolution of the \ac{EDX} analysis is limited by the electron beam voltage used.
+The higher the voltage, the larger the interaction volume and the larger the area from which X-rays are emitted \cite{rossen.2017}.
+
 
 \FloatBarrier
 
 \subsection{Electron Backscatter Diffraction (EBSD)}
 \label{sec:ebsd}
 
-% depends on the future success with 3D FIB
+\ac{EBSD} is a technique used in the \ac{SEM} to determine the crystallographic structure and orientation of crystalline materials in the sample.
+The electron beam interacts with a highly tilted crystalline sample, and some electrons are diffracted according to \textsc{Bragg}'s Law by the crystal lattice planes.
+These diffracted electrons form patterns (\textsc{Kikuchi} patterns) on a phosphor screen, which are captured by a camera.
+By indexing these patterns, the \ac{EBSD} system can identify the crystal phase (e.g., distinguish between \ac{C3S} and \ac{C2S}) and determine the precise crystallographic orientation at that point on the sample.
+Scanning across the sample generates maps of phase distribution, crystal orientation, grain boundaries, and texture. 
 
 \FloatBarrier
 \subsection{Serial sectioning using Focussed Ion Beam (FIB)}

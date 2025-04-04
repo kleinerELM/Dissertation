@@ -261,7 +261,6 @@
 \ohead{\sffamily\headmark}  % Inside show caption of chapter (left) / section (right); [\sffamily\leftmark] on plain pages allways chapter (leftmark)
 
 % Define footer
-%\ifoot*{\sffamily Dissertation \myAuthor}  % Show authors name
 \ofoot*{\sffamily\pagemark}  % Show page number
 
 \ifdefined\DRAFT
@@ -269,9 +268,10 @@
 				scale=5,
 				fontsize=12pt, % DO NOT REMOVE, else the package will generate an errors
 				]{draftwatermark}
-
+	\usepackage{datetime}
 	\def\myTypeOfDocumentPDF{\myTypeOfDocument\ (Entwurfsversion)}
-	\ifoot*{\selectlanguage{ngerman}\color{gray} (Entwurf vom \today)}%\myDateFormat
+	%define footer watermark for draft version
+	\ifoot*{\selectlanguage{ngerman}\color{gray} (Entwurf vom \today, \currenttime Uhr)}
 \else
 	\def\myTypeOfDocumentPDF{\myTypeOfDocument}
 \fi

@@ -1,6 +1,6 @@
 
 \FloatBarrier
-\section{SEM for building material characterisation}
+\section{\acl*{SEM} (\acs*{SEM}) for building material characterisation}
 % imaging overview paper \cite{qoku.2023}
 The fist electron microscope was a \ac{TEM}, constructed by \textsc{Ernst Ruska} and \textsc{Max Knoll} in 1931 \cite{knoll.1932} which is based on the transmission of electrons trough the specimen.
 It was first applied in 1939 by \textcite{rapczewski.1939} to image hydration products of \ac{C3S}.
@@ -44,7 +44,7 @@ They allow to observe the chemical composition, the crystallographic orientation
 
 
 
-\subsection{\acs*{SE} detector}
+\subsection{\acl*{SE} (\acs*{SE}) detector}
 \label{sec:se}
 
 \ac{SE} detectors primarily capture low-energy secondary electrons (<\,\SI{50}{\electronvolt}) which are inelastically scattered and emitted from the very near-surface region (less than \SI{50}{\nano\meter}) of the sample \cite{fylak.2011}.
@@ -52,7 +52,7 @@ Therefore, their detection is highly sensitive to the surface topography of the 
 Edges, and surfaces tilted towards the detector emit more electrons than surfaces facing away from the detector.
 In lens detectors like \ac{TLD} are a type of of a \ac{SE} detector allowing for resolutions in the nanometer scale.
 
-\subsection{\acs*{BSE} detector}
+\subsection{\acl*{BSE} (\acs*{BSE}) detector}
 \label{sec:bse}
 
 \ac{BSE} detectors collect high-energy electrons from the primary beam that have been elastically scattered back out of the sample after interacting with atomic nuclei.
@@ -113,7 +113,7 @@ In a polished cross-section of hardened cement paste, \ac{BSE} imaging allows th
 
 \FloatBarrier
 
-\subsection{Energy-Dispersive X-ray spectroscopy (\acs*{EDX})}
+\subsection{\acl*{EDX} (\acs*{EDX})}
 \label{sec:edx}
 
 \ac{EDX} is a widely used technology available even on smaller \ac{SEM}-devices.
@@ -157,7 +157,7 @@ Furthermore, a larger interaction volume will cause subsurface information being
 
 \FloatBarrier
 
-\subsection{Electron Backscatter Diffraction (EBSD)}
+\subsection{\acl*{EBSD} (\acs*{EBSD})}
 \label{sec:ebsd}
 
 \ac{EBSD} is a technique used in the \ac{SEM} to determine the crystallographic structure and orientation of crystalline materials in the sample.
@@ -173,7 +173,7 @@ Often it is used simultaneous with \ac{EDX} to provide a comprehensive analysis 
 %TODO ein paar quellen
 
 \FloatBarrier
-\subsection{Serial sectioning using Focussed Ion Beam (\acs*{FIB})}
+\subsection{\acl*{FIB} (\acs*{FIB})}
 \label{sec:fib}
 
 The \ac{FIB} allows to manipulate specimens.
@@ -195,95 +195,3 @@ They also established a segmentation workflow proposing to analyse cryo-stabiliz
 \textcite{holzer.2006a} used \ac{FIBnt} very early to cut a large volume (typically \num{46}\,$\times$\,\num{32}\,$\times$\,\SI{25}{\cubic\micro\meter}) of a cement paste sample with a resolution of \SI{74}{\nano\meter}.
 
 -cryoSEM+nT? -> \cite{desbois.2008}
-
-The ion and the electron beam are arranged in an angle of \SI{52}{\degree}, while the ion beam hits the specimen in an angle of \SI{90}{\degree} as shown in Figure~\ref{fig:fib_scheme}.
-The \ac{ROI} has to be in the eucentric point (point of rotation/intersection point of the electron and ion beam).
-This means, if the specimen is tilted, the point does not move in the life image and therefore is in the rotational center.
-
-\begin{figure}[ht!]
-    \centering
-
-	\begin{subfigure}[t]{0.56\textwidth}
-		\includegraphics[width=\textwidth]{methods/fib_scheme.pdf}
-		\caption{Principle of \ac{FIB}-nT sectioning within the bulk material.}
-		\label{fig:fib_scheme}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[t]{0.43\textwidth}
-
-		\ifdefined\PRINTABLE
-			\includegraphics[width=\textwidth]{methods/fib_top.jpg}
-		\else
-			\animategraphics[palindrome,autoplay,width=\textwidth]{3}{methods/fib_process_anim/Animation}{00}{10}%controls=on,
-		\fi
-		\caption{Ion image of the tomography side  of a hydrated alite. \cite{kleiner.2021c}}
-		\label{fig:fib_top}
-	\end{subfigure}
-    \caption{Illustration of the \ac{FIBnt} process. The circle and line on the top right of (b) is a fiducial for constant positioning.}
-    \label{fig:fib}
-\end{figure}
-
-The standard method to obtain \ac{FIBnt}-images is to dig trenches around the \ac{ROI} (typically \num{10}\,$\times$\,\num{10}\,$\times$\,\SI{10}{\cubic\micro\meter}) as illustrated in Figure~\ref{fig:fib_top}.
-Beforehand, the \ac{ROI} is coated with a layer of platinum for protection and a fiducial side is set.
-The fiducial is required to correct for specimen drift during the cutting process.
-After a polishing run and the imaging setup, the cutting process can start.
-The ion cutting is done at \SI{30}{\kilo\volt} and \SI{0.11}{\nano\ampere}. % TODO check ampere setting for cutting
-Each slice can be cut down to a thickness of \SI{10}{\nano\meter}.
-After cutting, the slice can be imaged using multiple detectors.
-
-Depending on the detector type and the geometrical positioning of the detector there might be some imaging limits and the imaging should not be done for every slice.
-For example, the \ac{EDX}-detector requires high voltages for a useful signal, which might damage the specimen, or the specimen has to be rotated to obtain a \ac{EBSD} signal.
-Furthermore, both detectors require a lot of measurement time, which significantly influences the overall measuring duration.
-The recording of a \num{10}\,$\times$\,\num{10}\,$\times$\,\SI{10}{\cubic\micro\meter} cube using only a high-resolution BSE detector takes about {\color{red} \SI{24}{\hour}} excluding the preparation.
-
-\begin{figure}[H]
-    \centering
-
-	\begin{subfigure}[t]{0.32\textwidth}
-		\includegraphics[width=\textwidth]{methods/fib_artifacts_b.pdf}
-		\caption{Redeposition in front of the \ac{ROI} and slight vertical shadowing.}
-		\label{fig:fib_artifacts_b}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[t]{0.32\textwidth}
-		\includegraphics[width=\textwidth]{methods/fib_artifacts_c.pdf}
-		\caption{Charging effects in form of drift artifacts and redepositioning.}
-		\label{fig:fib_artifacts_c}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[t]{0.32\textwidth}
-		\includegraphics[width=\textwidth]{methods/fib_artifacts_a.pdf}
-		\caption{Curtaining and charging effects.}
-		\label{fig:fib_artifacts_a}
-	\end{subfigure}
-    \caption{Imaging issues of hydrated and embedded \ac{C3S} specimens during the \ac{FIBnt}-process within the bulk material.}
-    \label{fig:fib_artifacts}
-\end{figure}
-
-The cutting process can introduce some typical artifacts like curtaining or vertical shadowing.
-Curtaining is caused by the cutting process causing vertical line artifacts in the direction of the ion beam (Figure~\ref{fig:fib_artifacts_a}).
-These artifacts may be reduced in post processing using a directional \ac{FFT} based filter \cite{fitschen.2017,schankula.2018}.
-The shadowing effect is caused by a loss of signal of the back-scattered electrons due to the trench geometry (Figure~\ref{fig:fib_artifacts_b}).
-This well known effect can be fairly easily corrected in post processing {\color{red} \cite{fager.2020}}. %are there more publications?
-
-However, there are more severe uncorrectable artifacts.
-Since cementitious material is not conductive and the trenches are not coated throughout, charging effects can negatively influence the image quality (e.g. Figure~\ref{fig:fib_artifacts_c} and \ref{fig:fib_artifacts_a}) or cause uncorrectable image drift during the process.
-The re-deposition of the removed material usually happens within the trenches, which does not cause any problems.
-However, it may also appear on small structures in front of the \ac{ROI} or even on the specimen surface after longer imaging periods as shown in Figure~\ref{fig:fib_artifacts_b} and \ref{fig:fib_artifacts_c}.
-
-To avoid or at least reduce these issues, the \ac{ROI} can be completely cut free and a lift-out process, similar to the preparation process of \ac{TEM}-samples {\color{red} \cite{giannuzzi.2005}}, can be done. %there has to be a source from 1997 or earlier describing the lift-out process...
-To do this, a needle is inserted and welded to the \ac{ROI}-cube using the platinum coating process.
-Afterwards, the cube is complete cut loose from the bulk material, and a copper comb is inserted to the SEM.
-Finally, the cube is transferred and then welded to a finger of the comb as shown in Figure~\ref{fig:fib_liftout}.
-
-\begin{figure}[h!]
-    \centering
-
-	\includegraphics[width=\textwidth]{methods/fib_liftout.jpg}
-    \caption{\SI{20}{\micro\meter} wide specimen (A). On the left is the needle welded to the specimen (B). They are navigated and welded to the copper comb (C). The platinum vapor source (D) used for welding is visible on the right. \cite{kleiner.2021c}}
-    \label{fig:fib_liftout}
-\end{figure}
-
-The so prepared cube can now be serial cut as normally with significantly reduced shadowing and charging effects.
-
-A detailed video of the \ac{FIBnt}-process was created and published \cite{kleiner.2025a}.

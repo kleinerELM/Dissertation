@@ -56,11 +56,60 @@ In lens detectors like \ac{TLD} are a type of of a \ac{SE} detector allowing for
 \label{sec:bse}
 
 \ac{BSE} detectors collect high-energy electrons from the primary beam that have been elastically scattered back out of the sample after interacting with atomic nuclei.
-Heavier elements (with a higher atomic number $Z$) scatter electrons more strongly and appearing brighter in the BSE image.
-In a polished cross-section of hardened cement paste, BSE imaging allows differentiation of phases: unhydrated clinker particles (higher average $Z$) appear bright hydrates (intermediate $Z$) appears as a grey phase and porosity (e.g. filled with epoxy) appears darkest (black).
+Heavier elements (with a higher atomic number $Z$) scatter electrons more strongly and appear brighter in the \ac{BSE} image.
+The higher the voltage and the lower the material density, the larger the interaction volume and depth (see Figure~\ref{fig:penetration_depth}).
 
+\begin{figure}[!htb]
+    \centering
+    
+	\begin{subfigure}[t]{0.49\textwidth}
+		\includegraphics[width=\textwidth]{literature/pen_depth/pen_depth.pdf}
+		\caption{\textsc{Monte-Carlo}-simulation of the interaction volume of a \SI{10}{\kilo\volt} electron beam in \ac{C3S}. Modelled using \cite{drouin.2016}.}
+		\label{fig:pen_depth_a}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{0.49\textwidth}
+		
+        \begin{tikzpicture}
+            \begin{semilogyaxis}[
+                log ticks with fixed point,
+                legend style={
+                    at={(1,1)},
+                    anchor=north east,font=\footnotesize
+                },
+                xmin=0, xmax=12,
+                ymin=0.008, ymax=4,
+                width=\linewidth,
+                height=0.69\linewidth,
+                grid=major,
+                xlabel={accelerating voltage in \si{\kilo\volt}},
+                ylabel={depth in \si{\micro\meter}},
+                xtick={0,2,...,12},
+                ytick={0,0.01,0.1,1,4},
+                y dir=reverse,
+                grid style={line width=.1pt, draw=gray!10},
+				yticklabel pos=right,
+                ]
+                \addplot[thick,color=orange, mark=star] table[x=Voltage,y=C3S,col sep=semicolon] {figures/literature/pen_depth.csv};
+                \addlegendentry{\ac{C3S}};
+                \addplot[thick,color=red, mark=x] table[x=Voltage,y=CSH,col sep=semicolon] {figures/literature/pen_depth.csv};
+                \addlegendentry{\ac{CSH}};
+                \addplot[thick,color=blue, mark=+]  table[x=Voltage,y=CH,col sep=semicolon] {figures/literature/pen_depth.csv};
+                \addlegendentry{\ac{CH}};
+                \addplot[thick,color=grey, mark=10-pointed star]  table[x=Voltage,y=Epoxy,col sep=semicolon] {figures/literature/pen_depth.csv};
+                \addlegendentry{epoxy resin};
+            \end{semilogyaxis}
+        \end{tikzpicture}
+		\caption{Penetration depths in different materials. Modelled using \cite{joy.2004}.}
+		\label{fig:pen_depth_b}
+        
+	\end{subfigure}
+   
+    \caption{Visualization of the penetration depth of the electron beam using \textsc{Monte-Carlo}-simulations. The interaction volume increases with increasing voltage and decreasing material density.}
+    \label{fig:penetration_depth}
+\end{figure}
 
-
+In a polished cross-section of hardened cement paste, \ac{BSE} imaging allows therfore the differentiation of phases: unhydrated clinker particles (higher average $Z$) appear bright, hydrates (intermediate $Z$) appears as a grey phase, and porosity (e.g. filled with epoxy resin) appears darkest (black).
 
 \FloatBarrier
 
@@ -70,17 +119,17 @@ In a polished cross-section of hardened cement paste, BSE imaging allows differe
 \ac{EDX} is a widely used technology available even on smaller \ac{SEM}-devices.
 It is based on the interaction of the electron beam with the sample surface.
 When the high-energy beam electrons strike the sample, they can knock out inner-shell electrons from the sample atoms.
-These outer-shell electrons will fall back to their original energy level, releasing characteristic X-rays whose energies are unique fingerprints of specific elements.
-An EDX detector measures the energy and intensity (number) of these emitted X-rays.
+The outer-shell electrons will fall back to the energy level of the knocked out electrons, releasing the energy difference as X-rays.
+The energies of these X-ray are unique fingerprints of specific elements.
+An \ac{EDX} detector measures the energy and intensity (counts) of the emitted X-rays.
 This allows for qualitative identification and semi-quantitative or quantitative analysis. 
 Point analyses or elemental maps can show the spatial distribution of these elements and thus the associated phases.
 
-However, the excitation voltage has to be about twice as high as the X-ray emission lines of the expected elements to collect enough counts to identify and quantify it.% \acs{Ka}  or \acs{Kb}
-This results in a minimal required electron beam voltage of \SI{12}{\kilo\volt} to measure e.g. Fe with a \ac{Ka} of \SI{6.4}{\kilo\electronvolt} \cite{hudson.2003}.
+The excitation voltage has to be about twice as high as the expected X-ray energies of the elements of interest to collect enough counts to be able identify and quantify the elements.% \acs{Ka}  or \acs{Kb}
+This results in a minimal required electron beam voltage of \SI{12}{\kilo\volt} to measure e.g. \ce{Fe} with a \ac{Ka} of \SI{6.4}{\kilo\electronvolt} \cite{hudson.2003}.
 
-However, a high powered electron beam can also damage specimens as shown in Figure~\ref{fig:ebeam_damage}.
-For example, \ac{CSH} phases and \ac{CH} may be dehydrated after a prolonged \ac{EDX}-measurement.
-This may result in a geometrical deformation or may also introduce pores with a diameter of several \si{\nano\meter} as demonstrated in Figure~\ref{fig:edx_damage_a} and \ref{fig:edx_damage_b} which are slices of a \ac{FIB}-stack before and after an \ac{EDX}-measurement.
+However, \ac{CSH} phases and \ac{CH} may be dehydrated after a prolonged \ac{EDX}-measurement using a high powered electron beam.
+This may result in a geometrical deformation (see Figure~\ref{fig:ebeam_damage}) or may also introduce pores with a diameter of several \si{\nano\meter} as demonstrated in Figure~\ref{fig:edx_damage_a} and \ref{fig:edx_damage_b} which are slices of a \ac{FIB}-stack before and after an \ac{EDX}-measurement.
 
 \begin{figure}[H]
     \centering
@@ -101,42 +150,10 @@ This may result in a geometrical deformation or may also introduce pores with a 
 \end{figure}
 
 The lateral resolution of the \ac{EDX} analysis is limited by the electron beam voltage used.
-The higher the voltage, the larger the interaction volume (see Figure~\ref{fig:penetration_depth}) and the larger the area from which X-rays are emitted \cite{rossen.2017}.
+Similar to the \ac{BSE}, the higher the voltage, the larger the interaction volume and depth (see Figure~\ref{fig:penetration_depth}), and therefore the larger the area from which X-rays are emitted \cite{rossen.2017}.
 Depending on the beam voltage required, the interaction volume and therefore the resolution can be below \SI{1}{\micro\meter}.
 Furthermore, a larger interaction volume will cause subsurface information being included in the measured spectra.
 
-\begin{figure}[!htb]
-    \centering
-    \begin{tikzpicture}
-        \begin{semilogyaxis}[
-        	log ticks with fixed point,
-            legend style={at={(1,1)},anchor=north east},
-            xmin=0, xmax=12,
-            ymin=0.008, ymax=4,
-            width=0.49\linewidth,
-            height=0.4\linewidth,
-            grid=major,
-            xlabel={accelerating voltage in \si{\kilo\volt}},
-            ylabel={interaction volume in \si{\micro\meter}},
-            xtick={0,2,...,12},
-            ytick={0,0.01,0.1,1,4},
-            y dir=reverse,
-            grid style={line width=.1pt, draw=gray!10},
-            ]
-            \addplot[thick,color=orange, mark=star] table[x=Voltage,y=C3S,col sep=semicolon] {figures/literature/pen_depth.csv};
-            \addlegendentry{\ac{C3S}};
-            \addplot[thick,color=red, mark=x] table[x=Voltage,y=CSH,col sep=semicolon] {figures/literature/pen_depth.csv};
-            \addlegendentry{\ac{CSH}};
-            \addplot[thick,color=blue, mark=+]  table[x=Voltage,y=CH,col sep=semicolon] {figures/literature/pen_depth.csv};
-            \addlegendentry{\ac{CH}};
-            \addplot[thick,color=grey, mark=10-pointed star]  table[x=Voltage,y=Epoxy,col sep=semicolon] {figures/literature/pen_depth.csv};
-            \addlegendentry{Epoxy-resin};
-        \end{semilogyaxis}
-    \end{tikzpicture}
-   
-    \caption{Calculated penetration depths in different materials, modelled using the \textsc{Electron Flight Simulator} \cite{joy.2004}}
-    \label{fig:penetration_depth}
-\end{figure}
 
 \FloatBarrier
 
@@ -146,8 +163,13 @@ Furthermore, a larger interaction volume will cause subsurface information being
 \ac{EBSD} is a technique used in the \ac{SEM} to determine the crystallographic structure and orientation of crystalline materials in the sample.
 The electron beam interacts with a highly tilted crystalline sample, and some electrons are diffracted according to \textsc{Bragg}'s Law by the crystal lattice planes.
 These diffracted electrons form patterns (\textcite{kikuchi.1928} patterns) on a phosphor screen, which are captured by a camera.
-By indexing these patterns, \ac{EBSD} can be used to identify the crystal phase (e.g., distinguish between \ac{C3S} and \ac{C2S}) and determine the precise crystallographic orientation at that point on the sample.
+By indexing these patterns, \ac{EBSD} can be used to identify the crystal (e.g., distinguish between \ac{C3S} and \ac{C2S}) as pioneered in 1954 by \textcite{alam.1954}.
+This allows to determine the precise crystallographic orientation at that point on the sample.
 Scanning across the sample generates maps of phase distribution, crystal orientation, grain boundaries, and texture.
+
+The term \ac{EBSD} was introduced in 1973 by \textcite{venables.1973}.
+The first commercial \ac{EBSD} system was introduced in 1984 by \textsc{Moon} and \textsc{Harris} based on the work of \textsc{Dingley} \cite{wright.2000} and has since become a standard tool in materials science.
+Often it is used simultaneous with \ac{EDX} to provide a comprehensive analysis of the sample \cite{wright.2000}.
 %TODO ein paar quellen
 
 \FloatBarrier

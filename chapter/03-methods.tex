@@ -11,19 +11,19 @@ The chemical composition (Table~\ref{tab:xrf}) was determined by \ac{mXRF}, and 
 
 \begin{table}[h]
 	\centering
-	\caption{Chemical composition of the utilized alite obtained by \ac{mXRF}. \label{tab:xrf}}
+	\caption{Chemical composition of the utilized alite obtained by \ac{mXRF} in \si{\wtpercent}. \label{tab:xrf}}
 	\begin{tabular}{@{}lr@{}}
 		\toprule
-		Oxides  & Alite in \si{\wtpercent}   \\
+		Oxides  		& Alite \\
 		\midrule
-		SiO$_2$		& 26.34 \\
-		TiO$_2$		& 0.031 \\
-		Al$_2$O$_3$	& 0.238 \\
-		Fe$_2$O$_3$	& 0.094 \\
-		Mn$_2$O$_3$	& 0.006 \\
-		MgO			& 1.700 \\
-		CaO			& 70.79 \\
-		Na$_2$O		& 0.083 \\
+		\ce{SiO2}		& \tablenum{26.3} \\
+		\ce{TiO2}		& \tablenum{0.031} \\
+		\ce{Al2O3}		& \tablenum{0.238} \\
+		\ce{Fe2O3}		& \tablenum{0.094} \\
+		\ce{Mn2O3}		& \tablenum{0.006} \\
+		\ce{MgO}		& \tablenum{1.700} \\
+		\ce{CaO}		& \tablenum{70.8} \\
+		\ce{Na2O}		& \tablenum{0.083} \\
 		\bottomrule
 	\end{tabular}
 \end{table}
@@ -33,9 +33,25 @@ The clinker pastes were prepared with a \ac{wb}-ratio of \num{0.5} and stored in
 %The measurements were carried out using a \textsc{Bruker D8 DaVinci} diffractometer (MA, USA).
 %After the required age, the hydration of the prisms was stopped by immersion in isopropanol and subsequent drying at 60$^\circ$C.
 
+\subsection{Cements and Clinker}
+\label{sec:clinker}
+
+{\color{red}
+For some \ac{CT} and \ac{FIBnt} experiments, a \ac{OPC} (808-1) was used to produce a mortar.
+% hier Rezeptur einfügen
+
+\ac{LC3} with a composition of \SI{52.0}{\wtpercent} CEM I, \SI{30.0}{\wtpercent} calcined clay, \SI{15.6}{\wtpercent} limestone and \SI{5.0}{\wtpercent} set regulator was used the cryo-\ac{FIB} experiments.
+More details on the \ac{LC3} used can be found in \cite{pott.2023}.
+The \ac{LC3} was mixed with water (\ac{wb}=0.5) and a part of the paste was sonicated with \ac{PUS}.
+For this, a ultrasound processor and generator \textit{UIP1000hd} connected to a \textit{Booster B2-2.2} amplifier and a \textit{BS2d34} sonotrode at a maximum amplitude of \SI{42.4}{\micro\meter} was used.
+
+For the \ac{LAICPMS} experiments, an \ac{OPC} (CEM I type) clinker granule from an industrial process was used.
+The composition can be found in Table~\ref{tab:laicpms-clinker}.
+}
+
 \subsection{Porous glass standard}
 
-As reference  with a defined pore size, porous glass membranes by \textit{Boraglas} with a pore size of \num{5} and \SI{20}{\nano\meter} were used.
+As reference  with a defined pore size, porous glass membranes by \textsc{Boraglas} with a pore size of \num{5} and \SI{20}{\nano\meter} were used.
 These borosilicate glass products are made using the \textsc{VYCOR}-process and are usually utilized as filter material.
 The specimens were provided as \num{10}\,$\times$\,\num{10}\,$\times$\,\SI{1.2}{\milli\meter} plates, which were cut into smaller pieces for the measurements.
 
@@ -44,18 +60,47 @@ The \SI{5}{\nano\meter} glass sieve has a modal pore diameter of \num{4.5} and a
 For the \SI{20}{\nano\meter} material a modal pore diameter of \num{22.3} and a median diameter of \SI{19.4}{\nano\meter} at a porosity of \SI{51.3}{\percent} is given.
 A revalidation of the \ac{MIP} results was omitted, due to the high material costs.
 
+\FloatBarrier
+\section{Scanning Electron Microscopy (\acs*{SEM})}
+\label{sec:sem}
+
+In this thesis, mainly a \textit{thermoFischer Scientific Helios G4 UX} was used for the \ac{SEM} and \ac{FIB} measurements.
+It is equipped with additional detectors by \textit{Oxford Instruments}: two combinable \ac{EDX} detectors (\textit{XMax$^\text{N}$ 80} with a polymer window and the windowless \textit{Ultim Extreme}) and the \ac{EBSD} detector \textit{C-Swift}.
+Some of the \ac{SEM}-imaging was done utilizing a \textit{Nova NanoSEM 230} by \textit{FEI}.
+
+% These \ac{SEM}-devices can be equipped with a wide range of detectors, stages and tools allowing a wide range of applications.
+% The most common detectors are \ac{SE} and \ac{BSE} detectors of various types (e.g. \ac{ETD} or \ac{TLD}).
+% Most modern SEMs easily allow to image large areas using these detectors in a high resolution by acquiring multiple images and stitching them afterwards.
+
+% For chemical analysis, \ac{EDX} detectors can provide point and area mappings (see Section~\ref{sec:edx}). A less common detector type, the \ac{EBSD}, allows to obtain crystallographic information of a clean specimen surface (see Section~\ref{sec:ebsd}).
+
+
+% While the \ac{SEM} is widley used to analyze cement based materials, it has its pitfalls.
+% In contrast to an light microscope, it can alter the specimen during the observation significantly.
+% %For example, early publications define \ac{CSH} as gel.
+% %In one part, this due to its low crystallinity, which is hardly detectable using \ac{XRD} but only \ac{TEM} \cite{melzer.1989, rossler.2006}.
+% %On the other hand, the \ac{CSH}-crystals appeared gel like due to preparation artifacts and severe electron beam damage of the water containing phases \cite{richardson.1993,rossler.2006}.
+% %This causes them to melt into a gel-like structure, hence its early name.
+% Nowadays, this is less of an issue due to significant progress in the sensitivity of the detectors of electron microscopes.
+% However, to obtain enough signal for some detectors (e.g. \ac{EDX} or \ac{EBSD}), intensive electron beam exposure might still be required, which can cause visible damage \cite{rossler.2006, rossen.2017}.
+
 \section{The preparation process for SEM imaging}
 
 To obtain high-quality images using a \ac{SEM}, a lot of preparation methods are possible depending on the specimen type.
-A selection of methods used within this work are listed here:
+In most cases, except for cryo-preparation, the specimen has first to be immersed in isopropanol to stop the hydration process.
+Subsequently, the specimen has to be dried below \SI{60}{\degreeCelsius} to avoid damage to the water containing phases.
+
+A selection of the preparation methods used within this work are listed here:
 
 \begin{itemize}
-	\item \textbf{Scatter sample}. This means sprinkling powdery material over an adhesive carbon pad, followed by the removal of loose material by using compressed air. This method is fairly dangerous for the \ac{SEM} if not done properly.
+	\item \textbf{Scatter sample}. This means sprinkling powdery material over an adhesive carbon pad, followed by the removal of loose material by using compressed air.
+	This preparation method can fairly dangerous for the \ac{SEM} if not done properly. 
+	Loose particles can damage detectors or the high-vacuum pumps during venting or due to charging.
 	\item \textbf{Fractured surface}. Crack the specimen, lean it with compressed air and observe the freshly prepared surface.
-	\item \textbf{Cross section (large scale)}. Most mineral specimens have to be embedded in epoxy resin before they are mechanically polished. (Section~\ref{sec:mech_pol}) The polishing result can then be improved by applying \ac{ArBIB}. (Section~\ref{sec:bib_pol_moving})
+	\item \textbf{Cross section (large scale)}. Most mineral specimens have to be embedded in epoxy resin before they are mechanically polished. (Section~\ref{sec:mech_pol}) The polishing result can then be improved by applying \ac{ArBIB} polishing. (Section~\ref{sec:bib_pol_moving})
 	\item \textbf{Cross section (small scale)}. A small rectangular specimen (embedded or resin free) can be polished using an \ac{ArBIB} to polish an area of about \SI{1}{\square\milli\meter}. (Section~\ref{sec:bib_pol_fixed})
 	\item \textbf{\Ac{FIB} cross section}. Cutting and polishing a small surface (up to 40\,$\times$\,\SI{10}{\square\micro\metre}) using \ac{FIB}. (Section~\ref{sec:fib})
-	\item \textbf{Cryo preparation}. To observe water containing specimens (slurries, pastes or very young specimens), the specimen is frozen within \SI{400}{\milli\second} down to about \SI{113}{\kelvin} at \SI{>\,200}{\mega\pascal} to avoid ice-crystallization. The specimen can then be processed by \ac{FIB} or by sublimation.
+	\item \textbf{Cryo-preparation}. To observe water containing specimens (slurries, pastes or very young specimens), the specimen is frozen within \SI{400}{\milli\second} down to about \SI{113}{\kelvin} at \SI{>\,200}{\mega\pascal} to avoid ice-crystal formation. (Section~\ref{sec:cryofibnt}).
 \end{itemize}
 
 A selection of these methods is described in more detail in the following sections.
@@ -116,36 +161,16 @@ The mask and the specimen surface are arranged in a way that only \SIrange{20}{1
 
 % bad paper about ArBIB \cite{sammer.2024}
 
-\FloatBarrier
-\section{Scanning Electron Microscopy (\acs*{SEM})}
-\label{sec:sem}
-
-In this thesis, mainly a \textit{thermoFischer Scientific Helios G4 UX} was used for the \ac{SEM} and \ac{FIB} measurements.
-Some of the \ac{SEM} imaging was done utilizing a \textit{Nova NanoSEM 230} by \textit{FEI}.
-
-These \ac{SEM}-devices can be equipped with a wide range of detectors, stages and tools allowing a wide range of applications.
-The most common detectors are \ac{SE} and \ac{BSE} detectors of various types (e.g. \ac{ETD} or \ac{TLD}).
-Most modern SEMs easily allow to image large areas using these detectors in a high resolution by acquiring multiple images and stitching them afterwards.
-
-For chemical analysis, \ac{EDX} detectors can provide point and area mappings (see Section~\ref{sec:edx}). A less common detector type, the \ac{EBSD}, allows to obtain crystallographic information of a clean specimen surface (see Section~\ref{sec:ebsd}).
-
-Besides these classical detectors, modern SEMs can also be combined with a \ac{FIB}.
-To apply this method, the cementitious specimen was embedded in resin to avoid imaging the pore background or loose moving material within larger pores.
-Resin filled pores have advantages for later pore segmentation.
-The specimen should be a polished section to find a suitable \ac{ROI} using the \ac{BSE} detector.
-
-While the \ac{SEM} is widley used to analyze cement based materials, it has its pitfalls.
-In contrast to an light microscope, it can alter the specimen during the observation significantly.
-%For example, early publications define \ac{CSH} as gel.
-%In one part, this due to its low crystallinity, which is hardly detectable using \ac{XRD} but only \ac{TEM} \cite{melzer.1989, rossler.2006}.
-%On the other hand, the \ac{CSH}-crystals appeared gel like due to preparation artifacts and severe electron beam damage of the water containing phases \cite{richardson.1993,rossler.2006}.
-%This causes them to melt into a gel-like structure, hence its early name.
-Nowadays, this is less of an issue due to significant progress in the sensitivity of the detectors of electron microscopes.
-However, to obtain enough signal for some detectors (e.g. \ac{EDX} or \ac{EBSD}), intensive electron beam exposure might still be required, which can cause visible damage \cite{rossler.2006, rossen.2017}.
 
 
 \section{Focussed Ion Beam - nano Tomography (\acs{FIBnt})}	
 \label{sec:fib}
+
+Besides the classical detectors, modern \ac{SEM}s can also be combined with a \ac{FIB}.
+To apply this method, the cementitious specimen was embedded in resin to avoid imaging the pore background or loose moving material within larger pores.
+Resin filled pores have advantages for later pore segmentation.
+The specimen should be a polished section to find a suitable \ac{ROI} using the \ac{BSE} detector.
+
 The ion and the electron beam are arranged in an angle of \SI{52}{\degree}, while the ion beam hits the specimen in an angle of \SI{90}{\degree} as shown in Figure~\ref{fig:fib_scheme}.
 The \ac{ROI} has to be in the eucentric point (point of rotation/intersection point of the electron and ion beam).
 This means, if the specimen is tilted, the point does not move in the life image and therefore is in the rotational center.
@@ -181,10 +206,12 @@ The ion cutting is done at \SI{30}{\kilo\volt} and \SI{0.11}{\nano\ampere}. % TO
 Each slice can be cut down to a thickness of \SI{10}{\nano\meter}.
 After cutting, the slice can be imaged using multiple detectors.
 
-Depending on the detector type and the geometrical positioning of the detector there might be some imaging limits and the imaging should not be done for every slice.
-For example, the \ac{EDX}-detector requires high voltages for a useful signal, which might damage the specimen, or the specimen has to be rotated to obtain a \ac{EBSD} signal.
-Furthermore, both detectors require a lot of measurement time, which significantly influences the overall measuring duration.
-The recording of a \num{10}\,$\times$\,\num{10}\,$\times$\,\SI{10}{\cubic\micro\meter} cube using only a high-resolution BSE detector takes about {\color{red} \SI{24}{\hour}} excluding the preparation.
+Depending on the detector type and the geometrical positioning of the detectors there might be some imaging limits.
+Often it is not necessary or advisable to use detectors like \ac{EDX} or \ac{EBSD} for every slice.
+The \ac{EDX}-detector requires higher accelerating voltages for a useful signal, which might damage the specimen.
+To obtain \ac{EBSD} data, the specimen has to be rotated to face the detector, which causes a significant increase of the measurement time.
+The recording of a \num{10}\,$\times$\,\num{10}\,$\times$\,\SI{10}{\cubic\micro\meter} cube using only a high-resolution BSE detector takes about \SIrange{12}{24}{\hour} excluding the preparation.
+Combined with \ac{EDX} imaging, the time can increase to multiple days for a single cube.
 
 \begin{figure}[H]
     \centering
@@ -234,15 +261,18 @@ Finally, the cube is transferred and then welded to a finger of the comb as show
     \label{fig:fib_liftout}
 \end{figure}
 
-The so prepared cube can now be serial cut as normally with significantly reduced shadowing and charging effects.
+The so prepared and separated cube can now be serial cut as illustrated in Figure~\ref{fig:fib_scheme} with significantly reduced shadowing and charging effects.
 
-A detailed video of the \ac{FIBnt}-process was created and published \cite{kleiner.2025a}.
+A detailed video of the \ac{FIBnt}-process, the required parameters, and potential sources of errors for cement-based materials was created and published \cite{kleiner.2025a}.
 
 \section{Cryo-\acs*{FIB}}
 \label{sec:cryofibnt}
 
 Cryo-\acs*{FIBnt} is a method to obtain high-resolution images of water containing specimens.
+This method is mainly used in the biological field, but can also be applied to cementitious materials like slurries, pastes or very young specimens.
+Therefore, the specimen is frozen within \SI{400}{\milli\second} down to about \SI{113}{\kelvin} at \SI{>\,200}{\mega\pascal} to avoid ice-crystal formation.
 
+The specimen can then be processed by \ac{FIB} or by sublimation (Section~\ref{sec:cryofibnt}).
 
 
 
@@ -281,7 +311,7 @@ However, this has to be taken into account to correctly align the final ablation
 \FloatBarrier
 \section{Pore size measurement}
 
-In this chapter, methods used for pore size measurements are discussed.
+In this section, methods used for pore size measurements are discussed.
 
 \FloatBarrier
 \subsection{Mercury Intrusion Porosimetry (MIP)}

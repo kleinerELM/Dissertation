@@ -655,7 +655,11 @@ The results are plotted in Figures~\ref{fig:suess_CSH_C3S} (\ac{C3S}) and \ref{f
 The formation of \ac{CSH} begins earlier at increasing temperatures.
 This also causes a significant increase of the overall fibre length.
 At the same temperature, \ac{C2S} demonstrates a slower \ac{CSH}-growth.
-While the \ac{CSH}-growth of \ac{C3S} stagnates after 5 months, \textcite{moser.2002} indicates that the needle length of \ac{CSH} on \ac{C2S} is still increasing significantly, even until an age of 3 years.
+The \ac{CSH}-growth of \ac{C3S} (\ac{wb}=\num{0.5}) stagnates after 5 months according to \textcite{voland.2000}, \textcite{suss.2001}, \textsc{Stark} and \textsc{Möser} et al. \cite{stark.2001,moser.2002}.
+\textcite{bazzoni.2014} observed this stagnation alread after a day, depending on the \ac{wb}-ratio.
+A higher \ac{wb}-ratio (\num{0.8} compared to \num{0.4}) lead to longer \ac{CSH}-needles.
+
+In contrast, \textcite{moser.2002} indicates that the needle length of \ac{CSH} on \ac{C2S} (\ac{wb}=\num{0.5}) is still increasing significantly, even until an age of 3 years.
 
 \begin{figure}[!htb]
     \centering
@@ -672,7 +676,7 @@ While the \ac{CSH}-growth of \ac{C3S} stagnates after 5 months, \textcite{moser.
             xlabel={time $t$ in \si{\day}},
             width=0.5\linewidth,
             height=0.4\linewidth,
-            legend columns = 4,
+            legend columns = 3,
             legend style = {anchor=north, style={column sep=3pt}},
             grid=both,
             grid style={line width=.1pt, draw=gray!10},
@@ -712,8 +716,34 @@ While the \ac{CSH}-growth of \ac{C3S} stagnates after 5 months, \textcite{moser.
 
             \addplot [color=cyan, mark=x, dotted] table [skip first n=3, x index=0, y index=2, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C2S_moeser.csv};
 
+            % \cite{bazzoni.2014}
+            \addplot+ [ mark=x, grey, dotted,
+                error bars/.cd,
+                    y dir=both,
+                    y explicit
+            ] table [x=x, y=y, y error=err] {
+                x     y       err
+                0.08  0.010   0.0100
+                0.45  0.265   0.0245
+                1     0.310   0.0380
+                7     0.311   0.0250
+            };
+
+            \addplot+ [ mark=x, black, dotted,
+                error bars/.cd,
+                    y dir=both,
+                    y explicit
+            ] table [x=x, y=y, y error=err] {
+                x     y       err
+                0.08  0.050   0.0250
+                0.45  0.363   0.0555
+                1     0.385   0.0575
+                7     0.400   0.0500
+            };
+
         \nextgroupplot[
             xmin=-65, xmax=1000,
+            ymin=0.4, ymax=2.75,
             restrict x to domain=28:1000,
             xtick={28,150, 360, 600, 1000},
             ytick={.5,1,1.5,...,2.5},
@@ -745,11 +775,19 @@ While the \ac{CSH}-growth of \ac{C3S} stagnates after 5 months, \textcite{moser.
             \addplot [color=cyan, mark=x, dotted] table [skip first n=3, x index=0, y index=2, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C2S_moeser.csv};
             \addlegendentry[]{$\beta$-\ac{C2S} \cite{moser.2002}}
 
+            % TODO: the legend entries are not visible!!
+            % Fake plots for styled legend entries
+            \addplot+ [color=grey, mark=x, dotted] coordinates {(28,-.1)};
+            \addlegendentry[]{\ac{C3S}, \ac{wb}=\num{0.8} \cite{bazzoni.2014}}
+
+            \addplot+ [color=black, mark=x, dotted] coordinates {(28,-.1)};
+            \addlegendentry[]{\ac{C3S}, \ac{wb}=\num{0.4} \cite{bazzoni.2014}}
+
         \end{groupplot}
         \node [above] (L) at (rel axis cs:1.0,1.14) {\ref{CommonLegend2}};
 
     \end{tikzpicture}
-    \caption{Growth of \ac{CSHo} on $\beta$-\ac{C2S} compared to \ac{C3S} at \SI{20}{\celsius}. Based on data from \textcite{voland.2000}, \textcite{suss.2001}, \textsc{Stark} and \textsc{Möser} et al. \cite{stark.2001,moser.2002}.}
+    \caption{Growth of \ac{CSHo} on $\beta$-\ac{C2S} (\ac{wb}=\num{0.5}) compared to \ac{C3S} (\ac{wb}=\num{0.5}) at \SI{20}{\celsius}. Based on data from \textcite{voland.2000}, \textcite{suss.2001}, \textsc{Stark} and \textsc{Möser} et al. \cite{stark.2001,moser.2002} and compared to \ac{C3S}-data from \textcite{bazzoni.2014}.}
     \label{fig:suess_CSH_C2S}
 \end{figure}
 

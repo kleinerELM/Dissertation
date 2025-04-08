@@ -12,6 +12,43 @@ Figures in the appendix section are not visible in draft mode!
 	\tikzexternaldisable
 \fi
 
+\section{\acl*{LAICPMS}}
+
+\begin{table}[htb]
+	\caption{
+		Chemical composition of the clinker used for \ac{LAICPMS} experiments, measured by \ac{ICP}-\ac{OES} (\textsc{Perkin Elmer} \textit{Avio 500}) and \ac{ICP}-\ac{MS} after digestion.
+		All results are presented in \si{\wtpercent} oxides. \label{tab:icpoes}
+	}
+	\begin{tabular}{lcc}
+		\toprule
+		Chemical component         & \ac{ICP}-\ac{OES} & \ac{ICP}-\ac{MS} \\
+		\midrule
+		Loss of ignition (\SI{1000}{\degreeCelsius}) & \tablenum{0.70}    & -      \\
+		\ce{CaO}                         & \tablenum{64.81}   & -      \\
+		\ce{SiO2}                     & \tablenum{22.44}   & -      \\
+		\ce{Al2O3}                    & \tablenum{4.67}    & -      \\
+		\ce{Fe2O3}                    & \tablenum{2.59}    & -      \\
+		\ce{MgO}                         & \tablenum{1.36}    & -      \\
+		\ce{K2O}                      & \tablenum{1.26}    & -      \\
+		\ce{SO3}                      & \tablenum{1.01}    & -      \\
+		\ce{Na2O}                     & \tablenum{0.41}    & -      \\
+		\ce{TiO2}                     & \tablenum{0.24}    & \tablenum{0.1431} \\
+		\ce{SrO}                         & \tablenum{0.15}    & \tablenum{0.1254} \\
+		\ce{P2O5}                  & \tablenum{0.15}    & -      \\
+		\ce{ZnO}                         & \tablenum{0.04}    & -      \\
+		\ce{MnO}                         & \tablenum{0.04}    & \tablenum{0.0275} \\
+		\ce{V2O5}                  & \tablenum{0.01}    & \tablenum{0.0053} \\
+		\ce{ZnO}                         & \tablenum{0.04}    & \tablenum{0.0294} \\
+		\ce{Cr2O3}                 & \tablenum{0.01}    & \tablenum{0.0067} \\
+		\ce{BaO}                         & \tablenum{0.02}    & \tablenum{0.0185} \\
+		\ce{CuO}                         & -       & \tablenum{0.0107} \\ 
+		\midrule
+		Total                       & \tablenum{99.88}   & -   \\
+		\bottomrule 
+	\end{tabular}
+\end{table}
+
+\FloatBarrier
 \section{Hydrate rim measurements}
 
 \begin{figure*}[htb!]
@@ -463,6 +500,21 @@ Figures in the appendix section are not visible in draft mode!
     \label{fig:ltdsc_result_C3S_freeze_raw}
 \end{figure}
 
+\begin{table}[!htb]
+	\centering
+	\caption{Metadata of the \ac{SEM}-images used for the particle distance measurements. $A_\text{unusable}$ is the area of the image containing other phases or artifacts. $A_\text{water}$ and $A_\text{solids}$ are the areas of the water and solid phases, respectively.}
+	\begin{tabular}{lccccc}
+		\toprule
+			Image & Scaling & $A_\text{usable}$ & $A_\text{water}$ & $A_\text{solids}$ & $A_\text{unusable}$ \\ 
+			& \si{\nano\meter\per\px} & \si{\micro\meter\squared} & \si{\percent} & \si{\percent} & \si{\percent} \\ 
+			\midrule
+			Figure~\ref{fig:cryo-fib}, \ac{C3S}   & \tablenum{26.9789}           & \tablenum{10683.3}                  & \tablenum{36.3}            & \tablenum{48.8}             & \tablenum{14.9}                \\ 
+			Figure~\ref{fig:cryo-fib-lc3a}, \ac{LC3} & \tablenum{19.2712}          & \tablenum{1095.9}                   & \tablenum{46.0}            & \tablenum{54.0}             & \tablenum{0.0}                \\ 
+			Figure~\ref{fig:cryo-fib-lc3b}, \ac{LC3}+\ac{PUS}     & \tablenum{9.6355}           & \tablenum{1049.9}                   & \tablenum{43.9}            & \tablenum{56.1}             & \tablenum{0.0}                \\ 
+			\bottomrule
+	\end{tabular}
+	\label{tab:part_dist_metadata}
+\end{table}
 
 \ifdefined\EXTERNALIZE
 	\tikzexternalenable

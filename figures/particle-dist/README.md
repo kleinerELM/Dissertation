@@ -1,4 +1,4 @@
-Image metadata within this folder:
+# Image metadata within this folder
 
 | image | scaling (nm/px) | area (usable) (µm²)  | area (water) (%)  | area (solid) (%)  |  area (unusable) (%) |
 | - | - | - | - | - | - |

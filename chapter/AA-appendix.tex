@@ -14,7 +14,9 @@ Figures in the appendix section are not visible in draft mode!
 
 \section{\acl*{LAICPMS}}
 
-\begin{table}[htb]
+\begin{table}[H]
+	\centering
+	\label{tab:laicpms-clinker}
 	\caption{
 		Chemical composition of the clinker used for \ac{LAICPMS} experiments, measured by \ac{ICP}-\ac{OES} (\textsc{Perkin Elmer} \textit{Avio 500}) and \ac{ICP}-\ac{MS} after digestion.
 		All results are presented in \si{\wtpercent} oxides. \label{tab:icpoes}
@@ -70,6 +72,7 @@ Figures in the appendix section are not visible in draft mode!
 \end{figure}
 
 
+\FloatBarrier
 \section{Pore size distribution}
 
 \begin{figure}[htb!]
@@ -500,7 +503,65 @@ Figures in the appendix section are not visible in draft mode!
     \label{fig:ltdsc_result_C3S_freeze_raw}
 \end{figure}
 
-\begin{table}[!htb]
+\ifdefined\EXTERNALIZE
+	\tikzexternalenable
+\fi
+
+\FloatBarrier
+\section{Particle distance measurements}
+
+\begin{figure}[H]
+    \centering
+	
+	\includegraphics[width=.7\textwidth]{particle-dist/cryo_site.pdf}
+
+    \caption{Overview over the \ac{FIBnt} site of the pressure-frozen \ac{C3S} paste. A: \ce{Pt} deposition, B: \ce{C3S} paste, C: brass crucible.}
+    \label{fig:cryo_site}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+	\begin{tikzpicture}
+		\begin{axis}[
+			xmin=0, xmax=350,
+			ymin=-160, ymax=20,
+			ytick={-150, -100, -50, 0,20},
+			width=\linewidth,
+			height=.25\textheight,
+			xlabel={time in \si{\second}},
+			ylabel={temperature in \si{\degreeCelsius}},
+			grid=both,
+			grid style={line width=.1pt, draw=gray!10}
+		  ]
+
+		  \addplot[blue, mark=none] table [x expr=\thisrow{time}/1000,y=temp, col sep=comma,each nth point=2, filter discard warning=false, unbounded coords=discard,] {figures/particle-dist/freezing_curve_C3S.csv};
+
+		\end{axis}
+		\begin{axis}[
+			axis y line*=right,
+			axis x line=none,
+			ymin=0, ymax=2500,
+			ylabel={pressure in \si{\bar}},
+			ytick={0, 500, ..., 2500},
+			yticklabel style={/pgf/number format/fixed},
+			width=\linewidth,
+			height=.25\textheight,
+			grid=none
+		]   
+			\addplot[blue, mark=none] coordinates {(0,20)};
+			\addlegendentry{temperature};
+			
+			\addplot[orange, mark=none] table [x expr=\thisrow{time}/1000, y=pressure, col sep=comma, each nth point=2, filter discard warning=false, unbounded coords=discard] {figures/particle-dist/freezing_curve_C3S.csv};
+			\addlegendentry{pressure};
+		\end{axis}
+	\end{tikzpicture}
+	  
+    \caption{\ac{PSD} of a \ac{LC3}, comparing the Feret diameters from the image analysis of Figures~\ref{fig:cryo-fib-lc3a} and \ref{fig:cryo-fib-lc3b}.}
+    \label{fig:psd_cryo_LC3}
+\end{figure}
+
+\begin{table}[H]
 	\centering
 	\caption{Metadata of the \ac{SEM}-images used for the particle distance measurements. $A_\text{unusable}$ is the area of the image containing other phases or artifacts. $A_\text{water}$ and $A_\text{solids}$ are the areas of the water and solid phases, respectively.}
 	\begin{tabular}{lccccc}
@@ -516,6 +577,78 @@ Figures in the appendix section are not visible in draft mode!
 	\label{tab:part_dist_metadata}
 \end{table}
 
-\ifdefined\EXTERNALIZE
-	\tikzexternalenable
-\fi
+
+
+\begin{figure}[H]
+    \centering
+
+	\begin{tikzpicture}
+		\begin{semilogxaxis}[%red,
+            xmin=0.04, xmax=100,
+            ymin=0, ymax=1,
+            width=\linewidth,
+            height=.25\textheight,
+            legend style={at={(.5,1.03)},anchor=south, style={column sep=3pt}},
+            legend columns = 3,
+			xticklabels={0.04,0.1,1,10,100},
+			xtick={.04,.1,1,10,100},
+			extra x ticks={0.05,0.06,...,0.09,0.2,0.3,...,0.9,2,3,...,9,20,30,...,90},
+			extra x tick labels={},
+			ymajorticks=false,
+			xlabel={particle diameter \si{\micro\meter}},
+			ylabel={normed intensity},
+            grid=both,
+            grid style={line width=.1pt, draw=gray!10}
+		  ]
+		  
+          \addplot[red, mark=x] table [x=diameter,y=diff_normed, col sep=comma] {figures/particle-dist/psd_lasergran_C3S_lt20mum.csv};
+		  \addlegendentry{Laser diffraction analysis};
+
+          \addplot[blue, mark=x] table [x=diameter,y=diff_normed, col sep=comma] {figures/particle-dist/psd_cryo_C3S_lt20mum.csv};
+		  \addlegendentry{Feret diameter};
+
+        \end{semilogxaxis}
+	\end{tikzpicture}
+	  
+    \caption{\ac{PSD} of a \ac{C3S} powder (sieved to <\,\SI{20}{\micro\meter}), measured using laser diffraction analysis compared to the Feret diameter from the image analysis of Figure~\ref{fig:cryo-fib}.}
+    \label{fig:psd_cryo_C3S_lt20mum}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+
+	\begin{tikzpicture}
+		\begin{semilogxaxis}[%red,
+            xmin=0.04, xmax=100,
+            ymin=0, ymax=1,
+            width=\linewidth,
+            height=.25\textheight,
+            legend style={at={(.5,1.03)},anchor=south, style={column sep=3pt}},
+            legend columns = 2,
+			xticklabels={0.04,0.1,1,10,100},
+			xtick={.04,.1,1,10,100},
+			extra x ticks={0.05,0.06,...,0.09,0.2,0.3,...,0.9,2,3,...,9,20,30,...,90},
+			extra x tick labels={},
+			ymajorticks=false,
+			xlabel={particle diameter \si{\micro\meter}},
+			ylabel={normed intensity},
+            grid=both,
+            grid style={line width=.1pt, draw=gray!10}
+		  ]
+		  
+          %\addplot[red, mark=x] table [x=diameter,y=normed_i_noPUS, col sep=comma] {figures/particle-dist/LC3/LC3_cryo_feret.csv};
+		  %\addlegendentry{Feret diameter, \ac{LC3} no \ac{PUS}};
+		  
+          \addplot[blue, mark=x] table [x=diameter,y=normed_i_noPUS, col sep=comma] {figures/particle-dist/LC3/LC3_cryo_feret.csv};
+		  \addlegendentry{Feret diameter, \ac{LC3} no \ac{PUS}};
+
+          \addplot[blue, dashed, mark=x] table [x=diameter,y=normed_i_PUS, col sep=comma] {figures/particle-dist/LC3/LC3_cryo_feret.csv};
+		  \addlegendentry{Feret diameter, \ac{LC3} \ac{PUS}};
+
+        \end{semilogxaxis}
+	\end{tikzpicture}
+	  
+    \caption{\ac{PSD} of a \ac{LC3}, comparing the Feret diameters from the image analysis of Figures~\ref{fig:cryo-fib-lc3a} and \ref{fig:cryo-fib-lc3b}.}
+    \label{fig:psd_cryo_LC3}
+\end{figure}

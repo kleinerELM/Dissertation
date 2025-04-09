@@ -524,41 +524,49 @@ Figures in the appendix section are not visible in draft mode!
     \centering
 	\begin{tikzpicture}
 		\begin{axis}[
-			xmin=0, xmax=350,
-			ymin=-160, ymax=20,
-			ytick={-150, -100, -50, 0,20},
-			width=\linewidth,
+			xmin=0, xmax=60,
+			ymin=-160, ymax=25,
+			axis y line*=left,
+			ytick={-150, -100, -50, 0,25},
+			width=.83\linewidth,
 			height=.25\textheight,
 			xlabel={time in \si{\second}},
 			ylabel={temperature in \si{\degreeCelsius}},
-			grid=both,
+			grid=none,
 			grid style={line width=.1pt, draw=gray!10}
 		  ]
 
-		  \addplot[blue, mark=none] table [x expr=\thisrow{time}/1000,y=temp, col sep=comma,each nth point=2, filter discard warning=false, unbounded coords=discard,] {figures/particle-dist/freezing_curve_C3S.csv};
+		  \addplot[blue, mark=none,restrict x to domain=0:60] table [x expr=\thisrow{time}/1000,y=temp, col sep=comma, filter discard warning=false, unbounded coords=discard,] {figures/particle-dist/freezing_curve_C3S.csv};
 
 		\end{axis}
 		\begin{axis}[
+			legend style={at={(0.97,.5)},anchor=east},
+			legend cell align={left},
+			xmin=0, xmax=60,
 			axis y line*=right,
 			axis x line=none,
-			ymin=0, ymax=2500,
-			ylabel={pressure in \si{\bar}},
-			ytick={0, 500, ..., 2500},
-			yticklabel style={/pgf/number format/fixed},
-			width=\linewidth,
+			ymin=0, ymax=0.25,
+			ylabel={pressure in \si{\giga\pascal}},
+			ytick={0, 0.05, ..., 0.25},
+			yticklabel style={
+					/pgf/number format/fixed,
+					/pgf/number format/precision=2,
+					/pgf/number format/fixed zerofill,
+			},
+			width=.83\linewidth,
 			height=.25\textheight,
-			grid=none
+			grid=none,
 		]   
 			\addplot[blue, mark=none] coordinates {(0,20)};
 			\addlegendentry{temperature};
-			
-			\addplot[orange, mark=none] table [x expr=\thisrow{time}/1000, y=pressure, col sep=comma, each nth point=2, filter discard warning=false, unbounded coords=discard] {figures/particle-dist/freezing_curve_C3S.csv};
+
+			\addplot[orange, mark=none,restrict x to domain=0:60] table [x expr=\thisrow{time}/1000, y expr=\thisrow{pressure}/10000, col sep=comma,  filter discard warning=false, unbounded coords=discard] {figures/particle-dist/freezing_curve_C3S.csv};
 			\addlegendentry{pressure};
 		\end{axis}
 	\end{tikzpicture}
 	  
-    \caption{\ac{PSD} of a \ac{LC3}, comparing the Feret diameters from the image analysis of Figures~\ref{fig:cryo-fib-lc3a} and \ref{fig:cryo-fib-lc3b}.}
-    \label{fig:psd_cryo_LC3}
+    \caption{High-pressure freezing curve from the freezing process of the \ac{C3S} paste.}
+    \label{fig:cryo-fib-freeze-curve}
 \end{figure}
 
 \begin{table}[H]

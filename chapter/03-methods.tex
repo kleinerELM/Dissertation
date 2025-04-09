@@ -66,6 +66,8 @@ A revalidation of the \ac{MIP} results was omitted, due to the high material cos
 
 In this thesis, mainly a \textit{thermoFischer Scientific Helios G4 UX} was used for the \ac{SEM} and \ac{FIB} measurements.
 It is equipped with additional detectors by \textit{Oxford Instruments}: two combinable \ac{EDX} detectors (\textit{XMax$^\text{N}$ 80} with a polymer window and the windowless \textit{Ultim Extreme}) and the \ac{EBSD} detector \textit{C-Swift}.
+For cryo-preparation, the microscope is equipped with a cooling stage and vacuum cryo transfer system \textit{EM VCT500} from \textsc{Leica}.
+
 Some of the \ac{SEM}-imaging was done utilizing a \textit{Nova NanoSEM 230} by \textit{FEI}.
 
 % These \ac{SEM}-devices can be equipped with a wide range of detectors, stages and tools allowing a wide range of applications.
@@ -131,7 +133,7 @@ While this polishing method is good enough for many applications like BSE- or ED
 Most \ac{ArBIB} devices provide two modes of operation.
 In one of the modes, the mechanically polished specimen is semi-erratically moved under a grazing incidence angle under the ion beam.
 This method can be applied to improve or clean mechanically polished specimens or to remove thin coatings (e.g. carbon or gold) applied for previous measurements.
-In this study, a triple ion beam milling system (EM TIC 3X, Leica) was used (Figure~\ref{fig:bib_device}).
+In this study, a triple ion beam milling system (\textit{EM TIC 3X}, \textsc{Leica}) was used (Figure~\ref{fig:bib_device}).
 The \ac{ArBIB} polishing is carried out under low pressure (\SIrange{1}{4}{\kilo\pascal}) conditions in an argon atmosphere.
 
 \subsection{Argon Broad Ion Beam sectioning (fixed specimen)}
@@ -160,7 +162,6 @@ The mask and the specimen surface are arranged in a way that only \SIrange{20}{1
 \end{figure}
 
 % bad paper about ArBIB \cite{sammer.2024}
-
 
 
 \section{Focussed Ion Beam - nano Tomography (\acs{FIBnt})}	
@@ -265,16 +266,25 @@ The so prepared and separated cube can now be serial cut as illustrated in Figur
 
 A detailed video of the \ac{FIBnt}-process, the required parameters, and potential sources of errors for cement-based materials was created and published \cite{kleiner.2025a}.
 
-\section{Cryo-\acs*{FIB}}
+\section{Cryo-preparation for \acs*{SEM} and \acs*{FIB}}
 \label{sec:cryofibnt}
 
-Cryo-\acs*{FIBnt} is a method to obtain high-resolution images of water containing specimens.
-This method is mainly used in the biological field, but can also be applied to cementitious materials like slurries, pastes or very young specimens.
-Therefore, the specimen is frozen within \SI{400}{\milli\second} down to about \SI{113}{\kelvin} at \SI{>\,200}{\mega\pascal} to avoid ice-crystal formation.
+Cryo-preparation for \acs*{SEM} and \acs*{FIB} is a method to obtain close-to-nature high-resolution images of water containing specimens (e.g. slurries, pastes or very young specimens \cite{holzer.2007}).
+In this process, the specimen is frozen within a very short time down to about \SI{113}{\kelvin} at \SI{>\,0.2}{\giga\pascal} to avoid ice-crystal formation.
+For our experiments a cryo-preparation system from \textsc{Leica} including a \textit{EM HPM100} high-pressure freezer and a \textit{EM MED020} high vacuum preparation system was used.
 
-The specimen can then be processed by \ac{FIB} or by sublimation (Section~\ref{sec:cryofibnt}).
+A small droplet of the specimen is placed within a sandwich of two brass crucibles (see Figure~\ref{fig:cryo-prep}).
+The crucibles are then frozen under high pressure and transferred to a high vacuum preparation system and cracked open.
+Then, the specimen is transferred in the \ac{SEM}.
+To avoid charging effects, the specimen can be coated with a layer of platinum using the \ac{FIB}-coating process.
 
+\begin{figure}[h!]
+    \centering
 
+	\includegraphics[width=\textwidth]{methods/cryo-prep.pdf}
+    \caption{Illustration of cryo-preparation. The specimen is placed between two brass crucibles  and frozen under high pressure (A). The specimen is split (B). Within the \ac{SEM} the specimen can be coated with \ce{Pt} (C).}
+    \label{fig:cryo-prep}
+\end{figure}
 
 \FloatBarrier
 \section{Laser Ablation - Inductively Coupled Plasma - Mass Spectrometry (LA-ICP-MS)}
@@ -283,7 +293,7 @@ A \ac{LAICPMS} consists of a laser to ablate the specimen surface, a microscope 
 This allows to detect minor and trace elements as well as isotopes in a spatially resolved manner.
 Therefore, \ac{LAICPMS} is in wide use as an analytical method to determine the age of geological samples \cite{liu.2013} or for spatially resolved elemental mapping of heavy metals in biological tissue \cite{limbeck.2015}.
 
-The laser ablation was done with a ns-Nd:YAG-laser at the quintupled wavelength of \SI{213}{\nano\meter} (\textit{ESI NWR 213}).
+The laser ablation was done with a \si{\nano\second}-\ac{Nd}:YAG-laser at the quintupled wavelength of \SI{213}{\nano\meter} (\textit{ESI NWR 213}).
 A quadrupole \ac{ICP}-\ac{MS} (\textit{NexION 300D} from \textit{Perkin Elmer}) was used for the elemental analysis.
 The carrier gas chosen was helium due to its well-known advantages over other transport gases, such as its higher sensitivity for most \ac{ICP}-\ac{MS} instruments and smaller particle size distributions \cite{gunther.1999}.
 The samples were placed in a two-volume sample cell and purged for at least \SI{10}{\min}.

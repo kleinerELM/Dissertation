@@ -649,14 +649,32 @@ Figures in the appendix section are not visible in draft mode!
 		  %\addlegendentry{Feret diameter, \ac{LC3} no \ac{PUS}};
 		  
           \addplot[blue, mark=x] table [x=diameter,y=normed_i_noPUS, col sep=comma] {figures/particle-dist/LC3/LC3_cryo_feret.csv};
-		  \addlegendentry{Feret diameter, \ac{LC3} no \ac{PUS}};
+		  \addlegendentry{Feret diameter, \ac{LC3}};
 
           \addplot[blue, dashed, mark=x] table [x=diameter,y=normed_i_PUS, col sep=comma] {figures/particle-dist/LC3/LC3_cryo_feret.csv};
-		  \addlegendentry{Feret diameter, \ac{LC3} \ac{PUS}};
+		  \addlegendentry{Feret diameter, \ac{LC3} + \ac{PUS}};
 
         \end{semilogxaxis}
 	\end{tikzpicture}
 	  
     \caption{\ac{PSD} of a \ac{LC3}, comparing the Feret diameters from the image analysis of Figures~\ref{fig:cryo-fib-lc3a} and \ref{fig:cryo-fib-lc3b}.}
     \label{fig:psd_cryo_LC3}
+\end{figure}
+
+\begin{figure}[htb!]
+    \centering
+	
+	% area: \SI{1095.9}{\micro\meter\squared}}
+	\begin{subfigure}{0.495\textwidth}
+		\includegraphics[width=\textwidth]{particle-dist/LC3/noPUS/histogram.pdf}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.495\textwidth}
+		\includegraphics[width=\textwidth]{particle-dist/LC3/PUS/histogram.pdf}
+	\end{subfigure}
+
+    \caption{
+		Particle distance measurement of \SI{20}{\min} old \ac{LC3} paste without (left) and with (right) the application of \ac{PUS}. The mean distance between particles decreased from \SI{0.33(0.17)}{\micro\meter} and \SI{0.24(0.15)}{\micro\meter}.
+	} 
+    \label{fig:cryo-fib-lc3-results}
 \end{figure}

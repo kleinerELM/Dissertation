@@ -1351,20 +1351,36 @@ The images themselves, also give the impression that the \ac{PUS} has a signific
     \label{fig:cryo-fib-lc3b}
 \end{figure}
 
-\begin{figure}[htb!]
-    \centering
-	
-	% area: \SI{1095.9}{\micro\meter\squared}}
-	\begin{subfigure}{0.495\textwidth}
-		\includegraphics[width=\textwidth]{particle-dist/LC3/noPUS/histogram.pdf}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}{0.495\textwidth}
-		\includegraphics[width=\textwidth]{particle-dist/LC3/PUS/histogram.pdf}
-	\end{subfigure}
 
-    \caption{
-		Particle distance measurement of 20 minutes old \ac{LC3} paste without (left) and with (right) the application of \ac{PUS}. The mean distance between particles decreased from \SI{0.33(0.17)}{\micro\meter} and \SI{0.24(0.15)}{\micro\meter}.
-	} 
-    \label{fig:cryo-fib-lc3a}
+\begin{figure}[H]
+    \centering
+
+	\begin{tikzpicture}
+		\begin{axis}[%red,
+			xmin=0, xmax=3,
+							ymin=0, ymax=1,
+							width=\linewidth,
+							height=.25\textheight,
+							legend style={at={(.99,.98)},anchor=north east, style={column sep=3pt}},
+							legend columns = 2,
+							ymajorticks=false,
+							xlabel={particle distance \si{\micro\meter}},
+							ylabel={normed intensity},
+							grid=both,
+							grid style={line width=.1pt, draw=gray!10}
+						  ]
+						  
+						  \addplot[blue, mark=none] table [x=X_center,y=S, col sep=comma] {figures/particle-dist/LC3/LC3.csv};
+						  \addlegendentry{ \ac{LC3} };
+
+						  \addplot[red, mark=none] table [x=X_center,y=S, col sep=comma] {figures/particle-dist/LC3/LC3+PUS.csv};
+						  \addlegendentry{ \ac{LC3}+\ac{PUS}};
+						
+						  \draw[->, thick, black] (axis cs:1.2,0.4) -- ++(-0.1,-0.1) 
+						  node[anchor=south west, font=\footnotesize, xshift=10pt] {\begin{tabular}{@{}l@{}}larger distances for larger particles \\ in untreated specimen\end{tabular}};
+        \end{axis}
+	\end{tikzpicture}
+	  
+    \caption{Particle distance distribution of \SI{20}{\min} old \ac{LC3} paste without (left) and with (right) the application of \ac{PUS}. The mean distance between particles decreased from \SI{0.33(0.17)}{\micro\meter} and \SI{0.24(0.15)}{\micro\meter}}
+    \label{fig:cryo-fib-lc3-results_2}
 \end{figure}

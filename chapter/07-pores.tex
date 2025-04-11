@@ -7,48 +7,53 @@ If the specimen is mechanically polished (Section~\ref{sec:mech_pol}), there is 
 
 As detailed in Section~\ref{sec:bib_pol_moving}, mechanically prepared surfaces can be improved using \ac{ArBIB}-polishing.
 However, this still does not allow a close-to-native imaging.
-In contrast, \ac{ArBIB}-sectioning (Section~\ref{sec:bib_pol_fixed}) allows to cut cross sections of \ac{CSH}-needles of hydrated \ac{C3S}, revealing the star-like footprint of these needles (see Figure~\ref{fig:csh-arbib-a}).
-This structure can also be found in cracked surfaces of the same material (Figure~\ref{fig:csh-arbib-b}).
+In contrast, \ac{ArBIB}-sectioning (Section~\ref{sec:bib_pol_fixed}) allows to cut cross-sections of \ac{CSH}-needles of hydrated \ac{C3S} (see Figure~\ref{fig:csh-arbib-a} and \ref{fig:csh-arbib-b}).
+These images reveal the porosity within \ac{CSHi} and the porosity caused by the interpenetrating network of \ac{CSH}-fibres.
+Furthermore, the \ac{SEM}-images show the cross-section of \ac{CSH}-needles, which are star-shaped (Figure~\ref{fig:csh-arbib-b}).
 
 \begin{figure}[htb!]
     \centering
 
-	\begin{subfigure}{0.48\textwidth}
-		\includegraphics[width=\textwidth]{methods/artistic-csh-anim/C3S_7d_cryoBIB_007.jpg}
-		\caption{\ac{ArBIB} cross section of hydrated alite.}
+	\begin{subfigure}{0.49\textwidth}
+		%\includegraphics[width=\textwidth]{methods/artistic-csh-anim/C3S_7d_cryoBIB_007.jpg}
+		\includegraphics[width=\textwidth]{methods/artistic-csh-anim/CSH-cross-section1.pdf}
+		\caption{Not embedded specimen.}
 		\label{fig:csh-arbib-a}
 	\end{subfigure}
 	\hfill
-	\begin{subfigure}{0.48\textwidth}
-		\includegraphics[width=\textwidth]{methods/artistic-csh-anim/C3S_Bruchflaeche_101.jpg}
-		\caption{Fractured surface of hydrated alite.}
+	\begin{subfigure}{0.49\textwidth}
+		\includegraphics[width=\textwidth]{methods/artistic-csh-anim/CSH-cross-section2.pdf}
+		\caption{Epoxy resin embedded specimen.}
 		\label{fig:csh-arbib-b}
 	\end{subfigure}
 
-    \caption{\ac{SEM}-images revealing the {\color{red}shape} of the \ac{CSH}-needles.}
+    \caption{\ac{SEM}-images of \ac{ArBIB} cross-sections of \SI{7}{\day} hydrated \ac{C3S}.revealing the cross-section of \ac{CSH}-needles, resembling a star like shape (blue).}
     \label{fig:csh-arbib-SEM}
 \end{figure}
+
+This structure can also be found in cracked surfaces of the same material (Figure~\ref{fig:csh-arbib-c}).
+This allows to create a 3D reconstruction of a hydrated \ac{C3S} grain covered in \ac{CSH}-fibres (Figure~\ref{fig:csh-arbib-d}).
 
 \begin{figure}[htb!]
 	\centering
 
-	\begin{subfigure}{0.48\textwidth}
-		\includegraphics[width=\textwidth]{methods/artistic-csh-anim/Grundflaeche.pdf}
-		\caption{Footprint of \ac{CSH}-needles from hydrated alite.}
-		\label{fig:csh-arbib-c}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}{0.48\textwidth}
+	 \begin{subfigure}{0.49\textwidth}
+		\includegraphics[width=\textwidth]{methods/artistic-csh-anim/CSH-cross-section.pdf}
+	 	\caption{Fractured surface of \SI{28}{\day} hydrated \ac{C3S}.}
+	 	\label{fig:csh-arbib-c}
+	 \end{subfigure}
+	 \hfill
+	 \begin{subfigure}{0.49\textwidth}
 		\ifdefined\PRINTABLE
 			\includegraphics[width=\textwidth]{methods/artistic-csh-anim/still.png}
 		\else
 			\animategraphics[palindrome,autoplay,width=\textwidth]{12}{methods/artistic-csh-anim/Test00}{01}{30}
 		\fi
-		\caption{Artistic 3D reconstruction of \ac{CSH}.}
+		\caption{Artistic 3D reconstruction of \ac{CSHo}.}
 		\label{fig:csh-arbib-d}
-	\end{subfigure}
+	 \end{subfigure}
 
-    \caption{Artistic 3D reconstruction of \ac{CSH}-fibres covering a \ac{C3S}-particle based on a \ac{ArBIB} cross section of hydrated alite. \cite{rossler.2023}}
+    \caption{Fractured surface showing the stems of \ac{CSH}-needles and an artistic 3D reconstruction of \ac{CSH}-fibres covering a \ac{C3S}-particle based on a \ac{ArBIB} cross section of hydrated alite. \cite{rossler.2023}}
     \label{fig:csh-arbib-ART}
 \end{figure}
 
@@ -213,13 +218,13 @@ As the \ac{SEM}-images indicate (Figure~\ref{fig:ltdsc-vycor-glass}), the pores 
 \begin{figure}[htb!]
     \centering
 
-	\begin{subfigure}{0.48\textwidth}
+	\begin{subfigure}{0.49\textwidth}
 		\includegraphics[width=\textwidth]{ltdsc/glass/20nm.pdf}
 		\caption{Pore size \SI{5}{\nano\meter} (diameter)}
 		\label{fig:ltdsc-vycor-glass-a}
 	\end{subfigure}
 	\hfill
-	\begin{subfigure}{0.48\textwidth}
+	\begin{subfigure}{0.49\textwidth}
 		\includegraphics[width=\textwidth]{ltdsc/glass/5nm.pdf}
 		\caption{Pore size \SI{20}{\nano\meter} (diameter)}
 		\label{fig:ltdsc-vycor-glass-b}
@@ -1297,18 +1302,19 @@ A fresh \ac{FIB}-cut was done to obtain a clean surface to acquire the \ac{SEM}-
 \end{figure}
 
 A comparison of the \ac{PSD} measured using laser diffraction and the image based analysis can be found in Figure~\ref{fig:psd_cryo_C3S_lt20mum}.
-As expected from the small and therefore not representative image area and sectioning effects (see Section~\ref{subsec:sectioning-effect}), the \ac{PSD} of the \ac{FIB}-\ac{SEM} image is shifted to smaller diameters.
-
-The method used in Chapter~\ref{chap:hydrate-rim} can also be applied to measure the distance between cement particles of a fresh cement paste.
- in a \ac{FIB}-\ac{SEM} image.
-
+As expected from the small and therefore not representative image area and sectioning effects (see Section~\ref{subsec:sectioning-effect}), the \ac{PSD} of the \ac{FIB}-\ac{SEM} image is shifted to smaller particle sizes.
+To evaluate the distance between the particles within Figure~\ref{fig:cryo-fib}, the image evaluation method used in Chapter~\ref{chap:hydrate-rim} was adapted.
+Instead of measuring the distance between the particles and the hydrate rim, the distance to the next particles was measured.
 
 \begin{figure}[htb!]
     \centering
 	
-	\includegraphics[width=.65\textwidth]{particle-dist/dis_histogram.pdf}
+	\includegraphics[width=.7\textwidth]{particle-dist/dis_histogram.pdf}
 
-    \caption{\ac{FIB}-section of fresh \ac{C3S}-paste, \ac{wb}=0.5, \SI{2}{\hour}.  The mean distance between particles was calculated as \SI{0.73(0.43)}{\micro\meter}.}
+    \caption{
+		Particle distance to particle diameter distribution of \SI{20}{\min} old \ac{C3S} paste (\ac{wb}=0.5). 
+		%The mean distance between particles was calculated as \SI{0.73(0.43)}{\micro\meter} within a confidence interval of \SI{33.3}{\percent}.
+	}
     \label{fig:cryo-fib-results}
 \end{figure}
 
@@ -1316,6 +1322,7 @@ The method used in Chapter~\ref{chap:hydrate-rim} can also be applied to measure
 % \Uni\WdB\Cryo-LC3-PUS\Segmentierung LC3+PUS\
 Another application of the method was used to measure the distance between particles of \ac{LC3} with and without the application of \ac{PUS}.
 While the measurement of the particle size distribution based on the segmented image was already done \cite{rossler.2023,rossler.2023a} (see Figure~\ref{fig:psd_cryo_LC3}), the distance between the particles was not measured until now.
+The images have a similar size (untreated: \SI{1095.9}{\micro\meter\squared}, \ac{PUS}: \SI{1049.9}{\micro\meter\squared}) and were taken from the same sample.
 As the \ac{PSD} in Figure~\ref{fig:psd_cryo_LC3} shows, the \ac{PUS} seems to disperse the particles as expected.
 The images themselves, also give the impression that the \ac{PUS} has a significant effect on the particle distance due to the more homogenous particle distribution within the area.
 
@@ -1351,12 +1358,36 @@ The images themselves, also give the impression that the \ac{PUS} has a signific
     \label{fig:cryo-fib-lc3b}
 \end{figure}
 
+The images have a very low evaluable particle count (untreated: \num{633}, \ac{PUS}: \num{436}), which is due to the small area of the \ac{FIB}-\ac{SEM} images.
+This also included particles that would usually considered to be too close to the image border.
+The low particle count is reflected in the low data density of the histograms in Figure~\ref{fig:cryo-fib-lc3-results}.
+
+\begin{figure}[htb!]
+    \centering
+	
+	\begin{subfigure}{0.495\textwidth}
+		\includegraphics[width=\textwidth]{particle-dist/LC3/noPUS/histogram_border.pdf}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.495\textwidth}
+		\includegraphics[width=\textwidth]{particle-dist/LC3/PUS/histogram_border.pdf}
+	\end{subfigure}
+
+    \caption{
+		Particle distance to particle diameter distribution of \SI{20}{\min} old \ac{LC3} paste without (left) and with (right) the application of \ac{PUS}. The mean distance between particles decreased from \SI{0.31(0.16)}{\micro\meter} and \SI{0.27(0.14)}{\micro\meter}, which is insignificant. The yellow histograms are directly compared in Figure~\ref{fig:cryo-fib-lc3-results_2}
+	} 
+    \label{fig:cryo-fib-lc3-results}
+\end{figure}
+
+As can be seen better in Figure~\ref{fig:cryo-fib-lc3-results_2}, especially the less narrow particle distribution in the untreated specimen is visible in the data of the untreated specimen.
+This becomes especially clear by the higher amount of larger particle distances above \SI{1}{\micro\meter}.
+This fits to the subjective appearance of the particle distribution.
 
 \begin{figure}[H]
     \centering
 
 	\begin{tikzpicture}
-		\begin{axis}[%red,
+		\begin{axis}[ybar, bar width=.0193,
 			xmin=0, xmax=3,
 							ymin=0, ymax=1,
 							width=\linewidth,
@@ -1370,17 +1401,20 @@ The images themselves, also give the impression that the \ac{PUS} has a signific
 							grid style={line width=.1pt, draw=gray!10}
 						  ]
 						  
-						  \addplot[blue, mark=none] table [x=X_center,y=S, col sep=comma] {figures/particle-dist/LC3/LC3.csv};
+						  \addplot[fill=blue, draw=none, mark=none, opacity=0.5, draw opacity=0] table [x=X_center,y=S, col sep=comma] {figures/particle-dist/LC3/LC3_border.csv};
 						  \addlegendentry{ \ac{LC3} };
 
-						  \addplot[red, mark=none] table [x=X_center,y=S, col sep=comma] {figures/particle-dist/LC3/LC3+PUS.csv};
+						  \addplot[fill=red, draw=none, mark=none, opacity=0.5, draw opacity=0] table [x=X_center,y=S, col sep=comma] {figures/particle-dist/LC3/LC3+PUS_border.csv};
 						  \addlegendentry{ \ac{LC3}+\ac{PUS}};
 						
 						  \draw[->, thick, black] (axis cs:1.2,0.4) -- ++(-0.1,-0.1) 
-						  node[anchor=south west, font=\footnotesize, xshift=10pt] {\begin{tabular}{@{}l@{}}larger distances for larger particles \\ in untreated specimen\end{tabular}};
+						  node[anchor=south west, font=\footnotesize, xshift=10pt] {\begin{tabular}{@{}l@{}}more larger particle distances \\ in the untreated specimen\end{tabular}};
         \end{axis}
 	\end{tikzpicture}
 	  
-    \caption{Particle distance distribution of \SI{20}{\min} old \ac{LC3} paste without (left) and with (right) the application of \ac{PUS}. The mean distance between particles decreased from \SI{0.33(0.17)}{\micro\meter} and \SI{0.24(0.15)}{\micro\meter}}
+    \caption{Particle distance distribution of \SI{20}{\min} old \ac{LC3} paste without (left) and with (right) the application of \ac{PUS}. The mean distance between particles decreased from \SI{0.33(0.17)}{\micro\meter} and \SI{0.24(0.15)}{\micro\meter}.}
     \label{fig:cryo-fib-lc3-results_2}
 \end{figure}
+
+These data illustrate, that the \ac{PUS} is able to disperse the particles of the \ac{LC3} more homogenously.
+However, the image data acquired by cryo-\ac{FIBnt} is not very significant due to its small imaged area and therefore limited representativeness.

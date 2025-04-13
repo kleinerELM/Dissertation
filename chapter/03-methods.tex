@@ -50,6 +50,7 @@ The composition can be found in Table~\ref{tab:laicpms-clinker}.
 }
 
 \subsection{Porous glass standard}
+\label{sec:boraglas}
 
 As reference  with a defined pore size, porous glass membranes by \textsc{Boraglas} with a pore size of \num{5} and \SI{20}{\nano\meter} were used.
 These borosilicate glass products are made using the \textsc{VYCOR}-process and are usually utilized as filter material.
@@ -77,7 +78,7 @@ Some of the \ac{SEM}-imaging was done utilizing a \textit{Nova NanoSEM 230} by \
 % For chemical analysis, \ac{EDX} detectors can provide point and area mappings (see Section~\ref{sec:edx}). A less common detector type, the \ac{EBSD}, allows to obtain crystallographic information of a clean specimen surface (see Section~\ref{sec:ebsd}).
 
 
-% While the \ac{SEM} is widley used to analyze cement based materials, it has its pitfalls.
+% While the \ac{SEM} is widely used to analyze cement based materials, it has its pitfalls.
 % In contrast to an light microscope, it can alter the specimen during the observation significantly.
 % %For example, early publications define \ac{CSH} as gel.
 % %In one part, this due to its low crystallinity, which is hardly detectable using \ac{XRD} but only \ac{TEM} \cite{melzer.1989, rossler.2006}.
@@ -96,7 +97,7 @@ A selection of the preparation methods used within this work are listed here:
 
 \begin{itemize}
 	\item \textbf{Scatter sample}. This means sprinkling powdery material over an adhesive carbon pad, followed by the removal of loose material by using compressed air.
-	This preparation method can fairly dangerous for the \ac{SEM} if not done properly. 
+	This preparation method can fairly dangerous for the \ac{SEM} if not done properly.
 	Loose particles can damage detectors or the high-vacuum pumps during venting or due to charging.
 	\item \textbf{Fractured surface}. Crack the specimen, lean it with compressed air and observe the freshly prepared surface.
 	\item \textbf{Cross section (large scale)}. Most mineral specimens have to be embedded in epoxy resin before they are mechanically polished. (Section~\ref{sec:mech_pol}) The polishing result can then be improved by applying \ac{ArBIB} polishing. (Section~\ref{sec:bib_pol_moving})
@@ -127,7 +128,10 @@ This is done in multiple steps using diamond-oil-slurries.
 The particle sizes of the diamond pastes will be sequentially reduced (\num{15}, \num{9}, \num{3}, \num{1} down to \SI{0.25}{\micro\meter}).
 While this polishing method is good enough for many applications like BSE- or EDX-imaging, high-resolution imaging or \ac{EBSD} require even better surface qualities.
 
-\subsection{Argon Broad Ion Beam polishing (moving specimen)}
+
+\subsection{\Acl*{ArBIB} polishing}
+
+\subsection{\acs*{ArBIB} (moving specimen)}
 \label{sec:bib_pol_moving}
 
 Most \ac{ArBIB} devices provide two modes of operation.
@@ -136,7 +140,7 @@ This method can be applied to improve or clean mechanically polished specimens o
 In this study, a triple ion beam milling system (\textit{EM TIC 3X}, \textsc{Leica}) was used (Figure~\ref{fig:bib_device}).
 The \ac{ArBIB} polishing is carried out under low pressure (\SIrange{1}{4}{\kilo\pascal}) conditions in an argon atmosphere.
 
-\subsection{Argon Broad Ion Beam sectioning (fixed specimen)}
+\subsection{\acs*{ArBIB} (fixed specimen)}
 \label{sec:bib_pol_fixed}
 
 Another mode requires a smaller pre-cut sample (5\,$\times$\,3\,$\times$\,\SI{10}{\cubic\milli\meter}) in a fixed sample holder.
@@ -161,10 +165,28 @@ The mask and the specimen surface are arranged in a way that only \SIrange{20}{1
     \label{fig:bib}
 \end{figure}
 
+This process causes some artifacts, which affect the evaluation of the resulting images.
+
+As indicated in Figure~\ref{fig:bib_scheme} as `irradiation area', the ion beam can induce heat in the surface of the specimen during milling and polishing.
+Therefore, the ion beam device used, allows to cool the specimen below {\color{red} \SI{-140}{\celsius}} using liquid nitrogen to avoid the eating above a critical temperature (\SI{60}{\celsius} for \ac{CSH} \cite{he.2018})
+
+{\color{orange}
+
+To determine the influence of the ion beam during the regular milling process on hydrated cement specimens, it was compared with a milling process while cooling the specimen (see section~\ref{}). %Kapitelplatz finden
+%The comparison was made using hydrated alite, hydrated \ac{OPC} and \ac{LC3}.
+}
+
+Due to the hardness difference of phases, the ion beam can induce an artifact called curtaining effect.
+These stripes are in the direction of the ion beams, as harder phases or pores cause `shadows' of material behind these materials.
+These artifacts can be significantly reduced by applying a \ac{FFT}.
+This removes the stripes in one direction.
+However, this filter can also soften the image.
+This is especially the case if the artifact is present in more than one direction in the image \cite{kleiner.2021a}.
+
 % bad paper about ArBIB \cite{sammer.2024}
 
 
-\section{Focussed Ion Beam - nano Tomography (\acs{FIBnt})}	
+\section{Focussed Ion Beam - nano Tomography (\acs{FIBnt})}
 \label{sec:fib}
 
 Besides the classical detectors, modern \ac{SEM}s can also be combined with a \ac{FIB}.
@@ -257,8 +279,8 @@ Finally, the cube is transferred and then welded to a finger of the comb as show
 \begin{figure}[h!]
     \centering
 
-	\includegraphics[width=\textwidth]{methods/fib_liftout.jpg}
-    \caption{\SI{20}{\micro\meter} wide specimen (A). On the left is the needle welded to the specimen (B). They are navigated and welded to the copper comb (C). The platinum vapor source (D) used for welding is visible on the right. \cite{kleiner.2021c}}
+	\includegraphics[width=\textwidth]{methods/fib_liftout/image095_colored.pdf}
+    \caption{\SI{20}{\micro\meter} wide specimen ({\color{green}A}). On the left is the needle welded to the specimen ({\color{blue}B}). They are navigated and welded to the copper comb ({\color{red}C}). The platinum vapor source ({\color{orange}D}) used for welding is visible on the right. \cite{kleiner.2021c}}
     \label{fig:fib_liftout}
 \end{figure}
 

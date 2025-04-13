@@ -2,46 +2,12 @@
 
 
 
-\section{Effect of \ac{ArBIB} on the microstructure of hydrated cementitious specimens}
+\section{Effect of \acs*{ArBIB} on the microstructure of hydrated cementitious specimens}
 
 The \ac{ArBIB} process enables to produce very clean surfaces of specimens.% as shown in Section~\ref{sec:bib_pol_fixed}.
 However, it causes some artifacts, which affect the evaluation of the resulting images.
 Therefore, this chapter takes a closer look at the artifacts caused by \ac{ArBIB}.
 
-Hydrate phases can easily be damaged by high temperatures.
-This especially known for phases like ettringite, which can be dehydrated significantly below \SI{100}{\celsius}, depending on the water vapour pressure \cite{zhou.2001} (Figure~\ref{fig:ettringite_dehydration}).
-
-\begin{figure}[!htb]
-    \centering
-    \begin{tikzpicture}
-        \begin{axis}[
-				legend style={at={(0.6,.94)},anchor=north east},
-				xmin=40, xmax=120,
-				ymin=0, ymax=1600,
-				width=0.95\linewidth,
-				height=0.4\linewidth,
-				grid=major,
-				xlabel={freezing point depression $\vartheta$ in \si{\kelvin}},
-				ylabel style={align=center},
-				ylabel={water vapour pressure $P_{\text{H}_2\text{O}}$\\in \si{\mmHg}},
-				xtick={0,10,...,140},
-				ytick={0,200,...,1600},
-				grid style={line width=.1pt, draw=gray!10},
-            ]
-			\addplot [only marks, blue, mark=o] coordinates {
-				(45,6) (70,35) (80,75) (95,250) (100,400) (120,1500)};
-			\addlegendentry{ettringite dehydration \cite{zhou.2001}};
-			\addplot[red, domain=0:140, samples=50, dashed] {exp(- 1.61 + 0.075*x)};
-            \addlegendentry{$ln(P_{\text{H}_2\text{O}}) = - 1.61 + 0.075\vartheta$ \cite{zhou.2001}};
-        \end{axis}
-    \end{tikzpicture}
-    \caption{Dehydration temperature of ettringite depending on the water vapour pressure \cite{zhou.2001}.}
-    \label{fig:ettringite_dehydration}
-\end{figure}
-
-But also C-S-H can already be damaged by the electron beam as shown in Figures~\ref{fig:ebeam_damage} and \ref{fig:edx_damage}.
-This is also confirmed by other studies, where C-S-H shows a constant change in water content depending on the temperature \cite{sanna.2014}.
-\textcite{he.2018} showed, that it starts to dehydrate above \SI{60}{\celsius} .
 
 As indicated in Figure~\ref{fig:bib_scheme}, the ion beam can induce heat in the surface of the specimen during milling and polishing.
 To determine the influence of the ion beam during the regular milling process on the actual structure of the hydration products, it hs to be compared with a milling process while cooling the specimen.

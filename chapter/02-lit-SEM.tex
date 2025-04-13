@@ -61,7 +61,7 @@ The higher the voltage and the lower the material density, the larger the intera
 
 \begin{figure}[!htb]
     \centering
-    
+
 	\begin{subfigure}[t]{0.49\textwidth}
 		\includegraphics[width=\textwidth]{literature/pen_depth/pen_depth.pdf}
 		\caption{\textsc{Monte-Carlo}-simulation of the interaction volume of a \SI{10}{\kilo\volt} electron beam in \ac{C3S}. Modelled using \cite{drouin.2016}.}
@@ -69,7 +69,7 @@ The higher the voltage and the lower the material density, the larger the intera
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[t]{0.49\textwidth}
-		
+
         \begin{tikzpicture}
             \begin{semilogyaxis}[
                 log ticks with fixed point,
@@ -102,9 +102,9 @@ The higher the voltage and the lower the material density, the larger the intera
         \end{tikzpicture}
 		\caption{Penetration depths in different materials. Modelled using \cite{joy.2004}.}
 		\label{fig:pen_depth_b}
-        
+
 	\end{subfigure}
-   
+
     \caption{Visualization of the penetration depth of the electron beam using \textsc{Monte-Carlo}-simulations. The interaction volume increases with increasing voltage and decreasing material density.}
     \label{fig:penetration_depth}
 \end{figure}
@@ -122,14 +122,50 @@ When the high-energy beam electrons strike the sample, they can knock out inner-
 The outer-shell electrons will fall back to the energy level of the knocked out electrons, releasing the energy difference as X-rays.
 The energies of these X-ray are unique fingerprints of specific elements.
 An \ac{EDX} detector measures the energy and intensity (counts) of the emitted X-rays.
-This allows for qualitative identification and semi-quantitative or quantitative analysis. 
+This allows for qualitative identification and semi-quantitative or quantitative analysis.
 Point analyses or elemental maps can show the spatial distribution of these elements and thus the associated phases.
 
 The excitation voltage has to be about twice as high as the expected X-ray energies of the elements of interest to collect enough counts to be able identify and quantify the elements.% \acs{Ka}  or \acs{Kb}
 This results in a minimal required electron beam voltage of \SI{12}{\kilo\volt} to measure e.g. \ce{Fe} with a \ac{Ka} of \SI{6.4}{\kilo\electronvolt} \cite{hudson.2003}.
 
-However, \ac{CSH} phases and \ac{CH} may be dehydrated after a prolonged \ac{EDX}-measurement using a high powered electron beam.
-This may result in a geometrical deformation (see Figure~\ref{fig:ebeam_damage}) or may also introduce pores with a diameter of several \si{\nano\meter} as demonstrated in Figure~\ref{fig:edx_damage_a} and \ref{fig:edx_damage_b} which are slices of a \ac{FIBnt}-stack before and after an \ac{EDX}-measurement.
+
+
+
+Hydrate phases can easily be damaged by high temperatures or after a prolonged \ac{EDX}-measurement using a high powered electron beam.
+This especially known for phases like ettringite, \ac{CSH} phases and \ac{CH}.
+For example, ettringite can be dehydrated below \SI{100}{\celsius}, depending on the water vapour pressure (Figure~\ref{fig:ettringite_dehydration}).
+
+\begin{figure}[!htb]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+				legend style={at={(0.026,.96)},anchor=north west},
+				xmin=40, xmax=120,
+				ymin=0, ymax=1600,
+				width=0.95\linewidth,
+				height=0.4\linewidth,
+				grid=major,
+				xlabel={dehydration temperature $\vartheta$ in \si{\celsius}},
+				ylabel style={align=center},
+				ylabel={water vapour pressure $P_{\text{H}_2\text{O}}$\\in \si{\mmHg}},
+				xtick={0,10,...,140},
+				ytick={0,400,...,1600},
+				grid style={line width=.1pt, draw=gray!10},
+            ]
+			\addplot [only marks, blue, mark=o] coordinates {
+				(45,6) (70,35) (80,75) (95,250) (100,400) (120,1500)};
+			\addlegendentry{ettringite dehydration \cite{zhou.2001}};
+			\addplot[red, domain=0:140, samples=50, dashed] {exp(- 1.61 + 0.075*x)};
+            \addlegendentry{$ln(P_{\text{H}_2\text{O}}) = - 1.61 + 0.075\vartheta$ \cite{zhou.2001}};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Dehydration temperature of ettringite depending on the water vapour pressure \cite{zhou.2001}.}
+    \label{fig:ettringite_dehydration}
+\end{figure}
+
+The water content of \ac{CSH} changes depending on the temperature \textcite{sanna.2014}.
+\textcite{he.2018} showed, that it starts to dehydrate above \SI{60}{\celsius}.
+Dehydration damage may result in a geometrical deformation (see Figure~\ref{fig:ebeam_damage}) or may also introduce pores with a diameter of several \si{\nano\meter} as demonstrated in Figure~\ref{fig:edx_damage_a} and \ref{fig:edx_damage_b} which are slices of a \ac{FIBnt}-stack before and after an \ac{EDX}-measurement.
 
 
 \begin{figure}[H]
@@ -166,7 +202,7 @@ Furthermore, a larger interaction volume will cause subsurface information being
 
 \ac{EBSD} is a technique used in the \ac{SEM} to determine the crystallographic structure and orientation of crystalline materials in the sample.
 The electron beam interacts with a highly tilted crystalline sample, and some electrons are diffracted according to \textsc{Bragg}'s Law by the crystal lattice planes.
-These diffracted electrons form patterns (\textcite{kikuchi.1928} patterns) on a phosphor screen, which are captured by a camera.
+These diffracted electrons form \textcite{kikuchi.1928} patterns on a phosphor screen, which are captured by a camera.
 By indexing these patterns, \ac{EBSD} can be used to identify the crystal (e.g., distinguish between \ac{C3S} and \ac{C2S}) as pioneered in 1954 by \textcite{alam.1954}.
 This allows to determine the precise crystallographic orientation at that point on the sample.
 Scanning across the sample generates maps of phase distribution, crystal orientation, grain boundaries, and texture.
@@ -187,7 +223,7 @@ This enables the targeted removal of material or to deposit coatings (e.g. \ce{P
 In 1974/75 the \ac{FIB} technique was introduced by \textcite{levi-setti.1974} and \textcite{orloff.1975} for microprobing applications.
 \ac{FIB} systems are broadly available since the 1990s \cite{volkert.2007}.
 While it is also possible to obtain an image of the specimen surface with a resolution of $\approx$\SI{5}{\nano\meter} \cite{orloff.1996}, the main application is the preparation of samples for \ac{SEM} and \ac{TEM} due to the abrading effect of the ions.
-For example, \textcite{sakalli.2017} used a \ac{FIB} to prepare a \ac{TEM} lamella of hydrated \ac{C3S} and analysed it using \ac{EDX}. % The hydrate seems to be damaged
+For example, \textcite{sakalli.2017} used a \ac{FIB} to prepare a \ac{TEM} lamella of hydrated \ac{C3S} and analyzed it using \ac{EDX}. % The hydrate seems to be damaged
 While the first \ac{FIB}s were single beam devices, today combined \ac{FIB}-\ac{SEM} devices are the norm.
 
 These capabilities, allow to capture three-dimensional datasets using one or a combination of the detectors available (e.g. \ac{BSE}, \ac{EDX}, \ac{EBSD}).
@@ -195,7 +231,7 @@ In contrast to X-ray computer tomography, this method is intrinsically destructi
 \cite{holzer.2006, munch.2006} analyzed particular systems using \ac{FIB} serial sectioning.
 This technique allows to obtain a digital 3D volume of the specimen.
 \textcite{holzer.2006a} used \ac{FIBnt} very early to cut a large volume (\num{46}\,$\times$\,\num{32}\,$\times$\,\SI{25}{\cubic\micro\meter}) of a cement paste sample with a resolution of \SI{74}{\nano\meter}.
-They also established a segmentation workflow proposing to analyse cryo-stabilized cement suspensions which they published shortly after \textcite{holzer.2007}.% the raw data is not available...
+They also established a segmentation workflow proposing to analyze cryo-stabilized cement suspensions which they published shortly after \textcite{holzer.2007}.% the raw data is not available...
 Cryo-preparation for \acs*{SEM} and \acs*{FIBnt} is a method to obtain close-to-nature high-resolution images of water containing specimens \cite{desbois.2008}.
 It works by rapidly freezing the specimen in liquid nitrogen within a high-pressure freezer, which prevents the formation of ice crystals and preserves the original structure of the sample \cite{holzer.2007,muller.2021}.
 This method is often used in the biological field to obtain 3D datasets of cells or tissues \cite{muller.2021}.

@@ -543,27 +543,26 @@ The results are plotted in Figures~\ref{fig:suess_CSH_C3S} (\ac{C3S}) and \ref{f
                     group name=coupeplot,
                     xticklabels at=edge bottom,
                     horizontal sep=0pt},
-            legend style={at={(.05,.94)},anchor=north west},
             ylabel = {$l_{\text{CSH}_\text{o}}$ in \si{\micro\meter}},
             width=0.5\linewidth,
             height=0.4\linewidth,
-            legend columns = 4,
+            legend columns = 3,
             axis x line = box,
-            legend style = {anchor=north, style={column sep=3pt}},
+            legend style = {style={column sep=4pt}, cells={align=left}},
             grid=both,
-            grid style={line width=.1pt, draw=gray!10},
+            grid style={line width=.1pt, draw=gray!10, anchor=south},
             y tick label style={
                 /pgf/number format/fixed zerofill,
                 /pgf/number format/precision=1},,
             scaled ticks=false, tick label style={/pgf/number format/fixed}
         ]
         \nextgroupplot[
-            xmin=0, xmax=635,
+            xmin=0, xmax=700,
             ymin=0, ymax=1.250,
             xlabel={time $t$ in \si{\min}},
             xtick={0,0,130,300,600},
             ytick={0,.250,...,3.000},
-            restrict x to domain=0:600,
+            restrict x to domain=0:700,
             axis y line*=left,
             y tick label style={
                 /pgf/number format/fixed zerofill,
@@ -596,6 +595,17 @@ The results are plotted in Figures~\ref{fig:suess_CSH_C3S} (\ac{C3S}) and \ref{f
 
             \addplot [color=orange, mark=Mercedes star, dotted] table [skip first n=3, x index=0, y index=12, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
 
+
+            \addplot+ [ mark=|, black, dotted,
+                error bars/.cd,
+                    y dir=both,
+                    y explicit
+            ] table [x=x, y=y, y error=err] {
+                x     y       err
+                120  0.050   0.0250
+                660  0.363   0.0555
+            };
+
         \nextgroupplot[
             xmin=-1.5, xmax=28,
             ymin=0, ymax=3.000,
@@ -613,7 +623,7 @@ The results are plotted in Figures~\ref{fig:suess_CSH_C3S} (\ac{C3S}) and \ref{f
             \addplot [fill=green, fill opacity=0.2,forget plot] fill between [of=A and B];
 
             \addplot [color=green, mark=+, dotted] table [skip first n=3, x index=1, y index=3, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
-            \addlegendentry[]{\ac{C3S} \SI{5}{\celsius} \cite{suss.2001}}
+            \addlegendentry[]{\acs*{C3S} \SI{5}{\celsius} \cite{suss.2001}}
 
 
             \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=1, y index=5, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
@@ -621,7 +631,7 @@ The results are plotted in Figures~\ref{fig:suess_CSH_C3S} (\ac{C3S}) and \ref{f
             \addplot [fill=cyan, fill opacity=0.2,forget plot] fill between [of=A and B];
 
             \addplot [color=cyan, mark=x, dotted] table [skip first n=3, x index=1, y index=6, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
-            \addlegendentry[]{\ac{C3S} \SI{20}{\celsius} \cite{voland.2000}}
+            \addlegendentry[]{\acs*{C3S} \SI{20}{\celsius} \cite{voland.2000}}
 
 
             \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=1, y index=8, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
@@ -629,7 +639,7 @@ The results are plotted in Figures~\ref{fig:suess_CSH_C3S} (\ac{C3S}) and \ref{f
             \addplot [fill=red, fill opacity=0.2,forget plot] fill between [of=A and B];
 
             \addplot [color=red, mark=star, dotted] table [skip first n=3, x index=1, y index=9, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
-            \addlegendentry[]{\ac{C3S} \SI{60}{\celsius} \cite{suss.2001}}
+            \addlegendentry[]{\acs*{C3S} \SI{60}{\celsius} \cite{suss.2001}}
 
 
             \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=1, y index=11, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
@@ -637,8 +647,20 @@ The results are plotted in Figures~\ref{fig:suess_CSH_C3S} (\ac{C3S}) and \ref{f
             \addplot [fill=orange, fill opacity=0.2,forget plot] fill between [of=A and B];
 
             \addplot [color=orange, mark=Mercedes star, dotted] table [skip first n=3, x index=1, y index=12, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
-            \addlegendentry[]{\ac{C3S} \SI{90}{\celsius} \cite{suss.2001}}
+            \addlegendentry[]{\acs*{C3S} \SI{90}{\celsius} \cite{suss.2001}}
 
+            % \cite{bazzoni.2014}
+            \addplot+ [ mark=|, black, dotted,
+                error bars/.cd,
+                    y dir=both,
+                    y explicit
+            ] table [x=x, y=y, y error=err] {
+                x     y       err
+                1     0.385   0.0575
+                7     0.400   0.0500
+            };
+            \addlegendentry[]{\acs*{C3S}, \SI{20}{\celsius}, \acs*{wb}=\num{0.4} \cite{bazzoni.2014}}
+            
         \end{groupplot}
         \node [above] (L) at (rel axis cs:1.0,1.05) {\ref{CommonLegend}};
 
@@ -671,7 +693,6 @@ In contrast, \textcite{moser.2002} indicates that the needle length of \ac{CSH} 
                     group name=coupeplot,
                     xticklabels at=edge bottom,
                     horizontal sep=0pt},
-            legend style={at={(.05,.94)},anchor=north west},
             axis x line=box,
             ytick={0,1,1.5,...,3},
             ylabel={$l_{\text{CSH}_\text{o}}$ in \si{\micro\meter}},
@@ -679,7 +700,7 @@ In contrast, \textcite{moser.2002} indicates that the needle length of \ac{CSH} 
             width=0.5\linewidth,
             height=0.4\linewidth,
             legend columns = 3,
-            legend style = {anchor=north, style={column sep=3pt}},
+            legend style = {style={column sep=4pt}, cells={align=left}, anchor=south},
             grid=both,
             grid style={line width=.1pt, draw=gray!10},
             y tick label style={
@@ -709,17 +730,17 @@ In contrast, \textcite{moser.2002} indicates that the needle length of \ac{CSH} 
             \addplot+ [draw=none, no markers, name path=B,forget plot] table [skip first n=3, x index=1, y index=16, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
             \addplot [fill=green, fill opacity=0.2,forget plot] fill between [of=A and B];
 
-            \addplot [color=green, mark=x, dotted] table [skip first n=3, x index=1, y index=15, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addplot [color=green, mark=+, dotted] table [skip first n=3, x index=1, y index=15, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
 
 
             \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=0, y index=1, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C2S_moeser.csv};
             \addplot+ [draw=none, no markers, name path=B,forget plot] table [skip first n=3, x index=0, y index=3, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C2S_moeser.csv};
             \addplot [fill=cyan, fill opacity=0.2,forget plot] fill between [of=A and B];
 
-            \addplot [color=cyan, mark=x, dotted] table [skip first n=3, x index=0, y index=2, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C2S_moeser.csv};
+            \addplot [color=cyan, mark=star, dotted] table [skip first n=3, x index=0, y index=2, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C2S_moeser.csv};
 
             % \cite{bazzoni.2014}
-            \addplot+ [ mark=x, grey, dotted,
+            \addplot+ [ mark=Mercedes star, grey, dotted,
                 error bars/.cd,
                     y dir=both,
                     y explicit
@@ -731,7 +752,7 @@ In contrast, \textcite{moser.2002} indicates that the needle length of \ac{CSH} 
                 7     0.311   0.0250
             };
 
-            \addplot+ [ mark=x, black, dotted,
+            \addplot+ [ mark=|, black, dotted,
                 error bars/.cd,
                     y dir=both,
                     y explicit
@@ -759,34 +780,34 @@ In contrast, \textcite{moser.2002} indicates that the needle length of \ac{CSH} 
             \addplot [fill=red, fill opacity=0.2,forget plot] fill between [of=A and B];
 
             \addplot [color=red, mark=x, dotted] table [skip first n=3, x index=1, y index=6, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
-            \addlegendentry[]{\ac{C3S} \cite{voland.2000,suss.2001,stark.2001,moser.2002}}
+            \addlegendentry[]{\acs*{C3S} \cite{voland.2000,suss.2001,stark.2001,moser.2002}}
 
 
             \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=1, y index=14, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
             \addplot+ [draw=none, no markers, name path=B,forget plot] table [skip first n=3, x index=1, y index=16, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
             \addplot [fill=green, fill opacity=0.2,forget plot] fill between [of=A and B];
 
-            \addplot [color=green, mark=x, dotted] table [skip first n=3, x index=1, y index=15, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
-            \addlegendentry[]{$\beta$-\ac{C2S} \cite{voland.2000,suss.2001}}
+            \addplot [color=green, mark=+, dotted] table [skip first n=3, x index=1, y index=15, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
+            \addlegendentry[]{$\beta$-\acs*{C2S} \cite{voland.2000,suss.2001}}
 
 
             \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=0, y index=1, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C2S_moeser.csv};
             \addplot+ [draw=none, no markers, name path=B,forget plot] table [skip first n=3, x index=0, y index=3, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C2S_moeser.csv};
             \addplot [fill=cyan, fill opacity=0.2,forget plot] fill between [of=A and B];
 
-            \addplot [color=cyan, mark=x, dotted] table [skip first n=3, x index=0, y index=2, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C2S_moeser.csv};
-            \addlegendentry[]{$\beta$-\ac{C2S} \cite{moser.2002}}
+            \addplot [color=cyan, mark=star, dotted] table [skip first n=3, x index=0, y index=2, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C2S_moeser.csv};
+            \addlegendentry[]{$\beta$-\acs*{C2S} \cite{moser.2002}}
 
             % TODO: the legend entries are not visible!!
             % Fake plots for styled legend entries
-            \addplot+ [color=grey, mark=x, dotted] coordinates {(28,-.1)};
-            \addlegendentry[]{\ac{C3S}, \ac{wb}=\num{0.8} \cite{bazzoni.2014}}
+            \addplot+ [color=grey, mark=Mercedes star, dotted] coordinates {(28,-.1)};
+            \addlegendentry[]{\acs*{C3S}, \acs*{wb}=\num{0.8} \cite{bazzoni.2014}}
 
-            \addplot+ [color=black, mark=x, dotted] coordinates {(28,-.1)};
-            \addlegendentry[]{\ac{C3S}, \ac{wb}=\num{0.4} \cite{bazzoni.2014}}
+            \addplot+ [color=black, mark=|, dotted] coordinates {(28,-.1)};
+            \addlegendentry[]{\acs*{C3S}, \acs*{wb}=\num{0.4} \cite{bazzoni.2014}}
 
         \end{groupplot}
-        \node [above] (L) at (rel axis cs:1.0,1.14) {\ref{CommonLegend2}};
+        \node [above] (L) at (rel axis cs:1.0,0.80) {\ref{CommonLegend2}};
 
     \end{tikzpicture}
     \caption{Growth of \ac{CSHo} on $\beta$-\ac{C2S} (\ac{wb}=\num{0.5}) compared to \ac{C3S} (\ac{wb}=\num{0.5}) at \SI{20}{\celsius}. Based on data from \textcite{voland.2000}, \textcite{suss.2001}, \textsc{Stark} and \textsc{Möser} et al. \cite{stark.2001,moser.2002} and compared to \ac{C3S}-data from \textcite{bazzoni.2014}.}

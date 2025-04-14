@@ -7,8 +7,158 @@ This becomes more and more difficult, the smaller the pores.
 Therefore, a standard material was used, to test and compare some methods.
 
 \section{Porous glass standard}
-Two porous glass standards (see Section~\ref{sec:boraglas}) were evaluated using \ac{LTDSC}, \textsc{SEM} and \ac{HNMR}.
+Two porous glass standards (see Section~\ref{sec:boraglas}) were evaluated using \ac{SEM}, \ac{LTDSC}, and \ac{HNMR}.
 
+
+\subsection{\acs*{SEM}}
+
+To obtain \ac{SEM} images, the glass was fractured and even surfaces were imaged without any coating.
+As the \ac{SEM}-images indicate (Figure~\ref{fig:ltdsc-vycor-glass}), the pores are interconnected, which is plausible due to its intended use as a filter material and the \textsc{VYCOR} manufacturing process used (sintering of glass powder).
+
+\begin{figure}[htb!]
+    \centering
+
+	\begin{subfigure}{0.49\textwidth}
+		\includegraphics[width=\textwidth]{ltdsc/glass/20nm.pdf}
+		\caption{Pore size \SI{5}{\nano\meter} (diameter)}
+		\label{fig:ltdsc-vycor-glass-a}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.49\textwidth}
+		\includegraphics[width=\textwidth]{ltdsc/glass/5nm.pdf}
+		\caption{Pore size \SI{20}{\nano\meter} (diameter)}
+		\label{fig:ltdsc-vycor-glass-b}
+	\end{subfigure}
+
+    \caption{\ac{SEM} images of two \textsc{VYCOR}-glass samples.} % {\color{red} Probenbilder-rodaten vmtl vertauscht.}
+    \label{fig:ltdsc-vycor-glass}
+\end{figure}
+% C:\Users\Florian Kleiner\Nextcloud\Uni\WdB\Paper\2024 LT-DSC-XRD-BSE Alit-Belit Paper\5. REM+EDX\Nanoporöses Glas\2022_02_08 Poröses Glas
+
+The pores can be segmented using a thresholding method and the pore size distribution can be calculated. %  (see Section~\ref{sec:segmentation})
+However, areas with obvious damages due to the fracture process were excluded from the analysis.
+The results are shown in Figure~\ref{fig:vicor-SEM}.
+
+\begin{figure}[!htb]
+    \centering
+
+ 	\begin{subfigure}{.495\textwidth}
+	  \centering
+
+      \begin{tikzpicture}
+        \begin{semilogxaxis}[
+				legend style={at={(0.95,.7)},anchor=east},
+                legend cell align={left},
+				xmin=.64, xmax=160,
+				ymin=0, ymax=1.1,
+				width=1.1\linewidth,
+				height=6cm,
+				grid=major,
+				xlabel={pore radius $r_\text{P}$ \si{\nano\meter}},
+				ylabel={normed frequency},
+				grid style={line width=.1pt, draw=gray!10},
+				yticklabel style={
+						/pgf/number format/fixed,
+						/pgf/number format/precision=3
+				},
+				xticklabels={1, 2.5,5,10,25,50,100},
+				xtick={1, 2.5,5,10,25,50,100},
+				ymajorticks=false,
+				scaled y ticks=false,
+				scaled x ticks=false,
+            ]
+
+			\addplot+ [ no marks, blue ] table [x=x, y=y_norm] {
+				x      y       y_norm
+				2.5    0       0
+				5      536     0.2902
+				10     1847    1
+				20     1502    0.8134
+				40     51      0.0276
+				80     0       0
+			};
+
+			\addplot+ [ no marks, blue, dashed ] table [x=x, y=y_norm] {
+				x      y       y_norm
+				0.64   0       0
+				1.25   3       0.0045
+				2.5    132     0.1959
+				5      110     0.1633
+				10     442     0.6567
+				20     674     1
+				40     90      0.1336
+				80     1       0.0015
+				160    0       0
+			};
+
+        \end{semilogxaxis}
+	  \end{tikzpicture}
+	  \caption{\SI{5}{\nano\meter} porous \textsc{VYCOR}-glass.}
+
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{.495\textwidth}
+		\centering
+
+		\begin{tikzpicture}
+		  \begin{semilogxaxis}[
+				legend style={at={(0.95,.7)},anchor=east},
+				legend cell align={left},
+				xmin=.64, xmax=160,
+				ymin=0, ymax=1.1,
+				width=1.1\linewidth,
+				height=6cm,
+				grid=major,
+				xlabel={pore radius $r_\text{P}$ \si{\nano\meter}},
+				ylabel={normed frequency},
+				grid style={line width=.1pt, draw=gray!10},
+				yticklabel style={
+						/pgf/number format/fixed,
+						/pgf/number format/precision=3
+				},
+				xticklabels={1, 2.5,5,10,25,50,100},
+				xtick={1, 2.5,5,10,25,50,100},
+				ymajorticks=false,
+				scaled y ticks=false,
+				scaled x ticks=false,
+				yticklabel pos=right,
+			]
+			\addplot+ [ no marks, orange ] table [x=x, y=y_norm] {
+				x      y       y_norm
+				1.25   0       0
+				2.5    35      0.0429
+				5      116     0.1422
+				10     349     0.4272
+				20     816     1
+				40     136     0.1667
+				80     0       0
+			};
+
+			\addplot+ [ no marks, orange, dashed ] table [x=x, y=y_norm] {
+				x      y       y_norm
+				1.25   0       0
+				2.5    1       0.0004
+				5      314     0.1180
+				10     1244    0.4675
+				20     2661    1
+				40     336     0.1263
+				80     0       0
+			};
+
+		  \end{semilogxaxis}
+		\end{tikzpicture}
+		\caption{\SI{20}{\nano\meter} porous \textsc{VYCOR}-glass.}
+
+	\end{subfigure}
+    \caption{Pore size distribution of two \textsc{VYCOR}-glass samples. The pore size was determined using two segmented \ac{SEM} image for each glass type.}
+    \label{fig:vicor-SEM}
+\end{figure}
+% das sollte eigentlich im Histogram style sein
+% TODO: prüfe, ob tatsächlich Porenradien gemessen wurden!
+
+{\color{red} % Die abweichungen besionden bei der 5nm Probe sind sehr hoch.
+The measured pore radii are off by a factor of \num{4} and more (\SI{5}{\nano\meter}) and \num{2} (\SI{20}{\nano\meter}) compared to the \ac{MIP} measurements provided by the manufacturer (Figure~\ref{fig:vycor-mip}).
+}
 \subsection{\acs*{LTDSC}}
 
 The glass standards were measured using a simplified temperature regimen.
@@ -137,37 +287,14 @@ This resulted in the following freeze curves as plotted in Figure~\ref{fig:ltdsc
 
 
 The glass type specified with a pore diameter of \SI{5}{\nano\meter} has two peaks in the heat-flow signal.
-According to the equation of \textcite{brun.1977}, a heat flow signal was measured in the pore radius range of \num{3} to \SI{8}{\nano\meter} (pore diameter of \num{6} and \SI{16}{\nano\meter}) with peaks at \num{4} and \SI{6.5}{\nano\meter} (pore diameter of \num{8} and \SI{13}{\nano\meter}).
+According to Equation~\ref{eq:brun_freeze} \cite{brun.1977}, a heat flow signal was measured in the pore radius range of \num{3} to \SI{8}{\nano\meter} (pore diameter of \num{6} and \SI{16}{\nano\meter}) with peaks at \num{4} and \SI{6.5}{\nano\meter} (pore diameter of \num{8} and \SI{13}{\nano\meter}).
 
-Th glass, specified with a pore diameter of \SI{20}{\nano\meter} showed a heat flow signal between \num{5} and \SI{12}{\nano\meter} (pore diameter of \num{10} and \SI{24}{\nano\meter}) and peaks at pore radii of \num{7} and \SI{10}{\nano\meter} (pore diameter of \num{14} and \SI{20}{\nano\meter}).
+A heat flow signal was observed for the glass with a specified pore diameter of \SI{20}{\nano\meter} between \num{5} and \SI{12}{\nano\meter} (pore diameter of \num{10} and \SI{24}{\nano\meter}), with peaks at pore radii of \num{7} and \SI{10}{\nano\meter} (pore diameter of \num{14} and \SI{20}{\nano\meter}).
 
-These results show, that the pore diameter is overestimated by a factor of up to \num{2} using equation \ref{eq:brun_freeze}.
-Despite this error, the difference in the pore size is still observable.
-
-
-\subsection{\acs*{SEM}}
-
-As the \ac{SEM}-images indicate (Figure~\ref{fig:ltdsc-vycor-glass}), the pores are interconnected, which is plausible due to its use as a filter material and the manufacturing process used (sintering of glass powder).
-
-\begin{figure}[htb!]
-    \centering
-
-	\begin{subfigure}{0.49\textwidth}
-		\includegraphics[width=\textwidth]{ltdsc/glass/20nm.pdf}
-		\caption{Pore size \SI{5}{\nano\meter} (diameter)}
-		\label{fig:ltdsc-vycor-glass-a}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}{0.49\textwidth}
-		\includegraphics[width=\textwidth]{ltdsc/glass/5nm.pdf}
-		\caption{Pore size \SI{20}{\nano\meter} (diameter)}
-		\label{fig:ltdsc-vycor-glass-b}
-	\end{subfigure}
-
-    \caption{\ac{SEM} images of two \textsc{VYCOR}-glass samples {\color{red} Probenbilder-rodaten vmtl vertauscht.}}
-    \label{fig:ltdsc-vycor-glass}
-\end{figure}
-% C:\Users\Florian Kleiner\Nextcloud\Uni\WdB\Paper\2024 LT-DSC-XRD-BSE Alit-Belit Paper\5. REM+EDX\Nanoporöses Glas\2022_02_08 Poröses Glas
+These results show, that the pore diameter is overestimated by a factor of up to \num{2} for the \SI{5}{\nano\meter} glass compared to the \ac{MIP} results (see Figure~\ref{fig:vycor-mip}), while the \SI{20}{\nano\meter} glass shows a good fit for its main peak.
+Despite this deviation, the difference in the pore size is still observable.
+Compared to the \ac{SEM} results (see Figure~\ref{fig:vicor-SEM}), the \ac{LTDSC} results fit better to the \ac{MIP} results.
+Similar to the \ac{SEM} data, the \SI{5}{\nano\meter} glass also exhibited a shift towards larger pore sizes compared to the \ac{MIP} results.
 
 
 \subsection{\acs*{HNMR}}
@@ -178,12 +305,22 @@ As the \ac{SEM}-images indicate (Figure~\ref{fig:ltdsc-vycor-glass}), the pores 
 \FloatBarrier
 \section{Porosity of hydrated \acs*{C2S} and \acs*{C3S}}
 
-%To obtain a usable pore analysis, a good specimen preparation is important.
-%If the specimen is mechanically polished (Section~\ref{sec:mech_pol}), there is a danger of smearing the material in the pores or introducing scratches hindering a good segmentation.
+In contrast to porous glass, the generation of fracture surfaces in hydrated \ac{C2S} and \ac{C3S} is not sufficient for a pore analysis using \ac{SEM}-\ac{BSE} images.
+Therefore, a good specimen preparation is important  to obtain a usable pore analysis.
 
+\subsection{\acs*{ArBIB}-preparation}
+
+If the specimen is mechanically polished (Section~\ref{sec:mech_pol}), there is a danger of smearing the material in the pores or introducing scratches hindering a pore segmentation.
 As detailed in Section~\ref{sec:bib_pol_moving}, mechanically prepared surfaces of hydrated cements can be improved using \ac{ArBIB}-polishing.
 However, this still does not allow a close-to-native imaging.
-In contrast, \ac{ArBIB}-sectioning (Section~\ref{sec:bib_pol_fixed}) allows to cut cross-sections of \ac{CSH}-needles of hydrated \ac{C3S} (see Figure~\ref{fig:csh-arbib-a} and \ref{fig:csh-arbib-b}).
+In contrast, \ac{ArBIB}-sectioning allows to cut cross-sections (see Section~\ref{sec:bib_pol_fixed}) of \ac{CSH}-needles of hydrated \ac{C3S} (see Figure~\ref{fig:csh-arbib-a} and \ref{fig:csh-arbib-b}).
+
+As mentioned in Figure~\ref{fig:bib_scheme}, \ac{ArBIB}-sectioning can heat the freshly cut specimen surface.
+To determine the influence of the ion beam during the regular milling process on hydrated cement specimens, it was compared with a milling process while cooling the specimen.
+
+
+\subsection{\acs*{SEM}}
+
 These images reveal the porosity within \ac{CSHi} and the porosity caused by the interpenetrating network of \ac{CSH}-fibres.
 Furthermore, the \ac{SEM}-images show the cross-section of \ac{CSH}-needles, which are star-shaped (Figure~\ref{fig:csh-arbib-b}).
 However, this can mainly be observed at the stem of the needle as foils radiate from the center of the needle, resembling plank roots (buttress roots) of shallowly rooting trees found in tropical forests. % baumhinweis drin lassen ?
@@ -230,7 +367,7 @@ This allows to create a 3D reconstruction of a hydrated \ac{C3S} grain covered i
 		\label{fig:csh-arbib-d}
 	 \end{subfigure}
 
-    \caption{Fractured surface showing the stems of \ac{CSH}-needles and an artistic 3D reconstruction of \ac{CSH}-fibres covering a \ac{C3S}-particle based on a \ac{ArBIB} cross section of hydrated alite. \cite{rossler.2023}}
+    \caption{Fractured surface showing the stems of \ac{CSH}-needles and an artistic three-dimensional reconstruction of \ac{CSH}-fibres covering a \ac{C3S}-particle based on a \ac{ArBIB} cross section of hydrated alite. \cite{rossler.2023}}
     \label{fig:csh-arbib-ART}
 \end{figure}
 

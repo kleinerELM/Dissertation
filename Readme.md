@@ -18,3 +18,6 @@ Um den Draftmodus zu verlassen sollte die zweite Zeile in `./Dissertation.tex` a
 Das deaktiviert auch die Verwendung von tikzexternalize. Dadurch funktioniert auch die Verwendung von Acronymen in tikz-Diagrammen.
 
 Alle Designdefinitionen sind in `./additionals/a-latex_header.tex` eingepflegt.
+
+CC-BY 4.0, Florian Kleiner, 2025, 
+https://creativecommons.org/licenses/by/4.0/

@@ -19,21 +19,33 @@ As the \ac{SEM}-images indicate (Figure~\ref{fig:ltdsc-vycor-glass}), the pores 
     \centering
 
 	\begin{subfigure}{0.49\textwidth}
-		\includegraphics[width=\textwidth]{ltdsc/glass/20nm.pdf}
-		\caption{Pore size \SI{5}{\nano\meter} (diameter)}
+		\includegraphics[width=\textwidth]{ltdsc/glass/segmentation/5nm.pdf}
+		\caption{Raw, pore size \SI{5}{\nano\meter} (diameter)}
 		\label{fig:ltdsc-vycor-glass-a}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}{0.49\textwidth}
-		\includegraphics[width=\textwidth]{ltdsc/glass/5nm.pdf}
-		\caption{Pore size \SI{20}{\nano\meter} (diameter)}
-		\label{fig:ltdsc-vycor-glass-b}
+		\includegraphics[width=\textwidth]{ltdsc/glass/segmentation/20nm.pdf}
+		\caption{Raw, pore size \SI{20}{\nano\meter} (diameter)}
 	\end{subfigure}
 
-    \caption{\ac{SEM} images of two \textsc{VYCOR}-glass samples.} % {\color{red} Probenbilder-rodaten vmtl vertauscht.}
+	\begin{subfigure}{0.49\textwidth}
+		\includegraphics[width=\textwidth]{ltdsc/glass/segmentation/5nm_s.pdf}
+		\caption{Segmented, pore size \SI{5}{\nano\meter} (diameter)}
+		\label{fig:ltdsc-vycor-glass-b}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.49\textwidth}
+		\includegraphics[width=\textwidth]{ltdsc/glass/segmentation/20nm_s.pdf}
+		\caption{Segmented, pore size \SI{20}{\nano\meter} (diameter)}
+	\end{subfigure}
+
+    \caption{\ac{SEM} images of two \textsc{VYCOR}-glass samples and their segmentation result.} % {\color{red} Probenbilder-rodaten vmtl vertauscht.}
     \label{fig:ltdsc-vycor-glass}
 \end{figure}
 % C:\Users\Florian Kleiner\Nextcloud\Uni\WdB\Paper\2024 LT-DSC-XRD-BSE Alit-Belit Paper\5. REM+EDX\Nanoporöses Glas\2022_02_08 Poröses Glas
+
+
 
 The pores can be segmented using a thresholding method and the pore size distribution can be calculated. %  (see Section~\ref{sec:segmentation})
 However, areas with obvious damages due to the fracture process were excluded from the analysis.

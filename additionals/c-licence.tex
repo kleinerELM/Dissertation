@@ -1,0 +1,22 @@
+\thispagestyle{empty}
+
+\vspace*{4cm} %required to avoid the image from the next page to appear on the current page
+
+\insert\footins{% taken from amsart.cls
+  \normalfont\footnotesize
+  \interlinepenalty\interfootnotelinepenalty
+  \splittopskip\footnotesep \splitmaxdepth \dp\strutbox
+  \floatingpenalty10000 \hsize\columnwidth
+
+    \selectlanguage{english}
+    This thesis is available as printable version and as digital version containing animations.
+    These animations are playable using the desktop version of \textsc{Adobe Reader} or \textsc{Okular}.
+
+    \doclicenseLongText \doclicenseIcon
+
+    The raw data of the thesis is available on \textsc{GitHub} under:
+
+    \qrcode[height=1.5cm]{https://github.com/kleinerELM/Dissertaton}\hspace*{.5cm}\url{https://github.com/kleinerELM/Dissertaton} 
+    \par}
+\newpage
+\FloatBarrier

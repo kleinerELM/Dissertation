@@ -577,9 +577,9 @@ Figures in the appendix section are not visible in draft mode!
 			Image & Scaling & $A_\text{usable}$ & $A_\text{water}$ & $A_\text{solids}$ & $A_\text{unusable}$ \\ 
 			& \si{\nano\meter\per\px} & \si{\micro\meter\squared} & \si{\percent} & \si{\percent} & \si{\percent} \\ 
 			\midrule
-			Figure~\ref{fig:cryo-fib}, \ac{C3S}   & \tablenum{26.9789}           & \tablenum{10683.3}                  & \tablenum{36.3}            & \tablenum{48.8}             & \tablenum{14.9}                \\ 
-			Figure~\ref{fig:cryo-fib-lc3a}, \ac{LC3} & \tablenum{19.2712}          & \tablenum{1095.9}                   & \tablenum{46.0}            & \tablenum{54.0}             & \tablenum{0.0}                \\ 
-			Figure~\ref{fig:cryo-fib-lc3b}, \ac{LC3}+\ac{PUS}     & \tablenum{9.6355}           & \tablenum{1049.9}                   & \tablenum{43.9}            & \tablenum{56.1}             & \tablenum{0.0}                \\ 
+			Figure~\ref{fig:cryo-fib}, \acs{C3S}   & \tablenum{26.9789}           & \tablenum{10683.3}                  & \tablenum{36.3}            & \tablenum{48.8}             & \tablenum{14.9}                \\ 
+			Figure~\ref{fig:cryo-fib-lc3a}, \acs{LC3} & \tablenum{19.2712}          & \tablenum{1095.9}                   & \tablenum{46.0}            & \tablenum{54.0}             & \tablenum{0.0}                \\ 
+			Figure~\ref{fig:cryo-fib-lc3b}, \acs{LC3}+\acs{PUS}     & \tablenum{9.6355}           & \tablenum{1049.9}                   & \tablenum{43.9}            & \tablenum{56.1}             & \tablenum{0.0}                \\ 
 			\bottomrule
 	\end{tabular}
 	\label{tab:part_dist_metadata}
@@ -646,13 +646,13 @@ Figures in the appendix section are not visible in draft mode!
 		  ]
 		  
           %\addplot[red, mark=x] table [x=diameter,y=normed_i_noPUS, col sep=comma] {figures/particle-dist/LC3/LC3_cryo_feret.csv};
-		  %\addlegendentry{Feret diameter, \ac{LC3} no \ac{PUS}};
+		  %\addlegendentry{Feret diameter, \acs{LC3} no \acs{PUS}};
 		  
           \addplot[blue, mark=x] table [x=diameter,y=normed_i_noPUS, col sep=comma] {figures/particle-dist/LC3/LC3_cryo_feret.csv};
-		  \addlegendentry{Feret diameter, \ac{LC3}};
+		  \addlegendentry{Feret diameter, \acs{LC3}};
 
           \addplot[blue, dashed, mark=x] table [x=diameter,y=normed_i_PUS, col sep=comma] {figures/particle-dist/LC3/LC3_cryo_feret.csv};
-		  \addlegendentry{Feret diameter, \ac{LC3} + \ac{PUS}};
+		  \addlegendentry{Feret diameter, \acs{LC3} + \acs{PUS}};
 
         \end{semilogxaxis}
 	\end{tikzpicture}

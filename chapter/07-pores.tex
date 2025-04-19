@@ -40,7 +40,7 @@ As the \ac{SEM}-images indicate (Figure~\ref{fig:ltdsc-vycor-glass}), the pores 
 		\caption{Segmented, pore size \SI{20}{\nano\meter} (diameter)}
 	\end{subfigure}
 
-    \caption{\ac{SEM} images of two \textsc{VYCOR}-glass samples and their segmentation result.} % {\color{red} Probenbilder-rodaten vmtl vertauscht.}
+    \caption{\ac{SEM} images of two \textsc{VYCOR}-glass samples and their segmentation result.} % Probenbilder-rodaten vmtl vertauscht.
     \label{fig:ltdsc-vycor-glass}
 \end{figure}
 % C:\Users\Florian Kleiner\Nextcloud\Uni\WdB\Paper\2024 LT-DSC-XRD-BSE Alit-Belit Paper\5. REM+EDX\Nanoporöses Glas\2022_02_08 Poröses Glas
@@ -168,9 +168,10 @@ The results are shown in Figure~\ref{fig:vicor-SEM}.
 % das sollte eigentlich im Histogram style sein
 % TODO: prüfe, ob tatsächlich Porenradien gemessen wurden!
 
-{\color{red} % Die abweichungen besionden bei der 5nm Probe sind sehr hoch.
+{\color{red} % Die abweichungen besonders bei der 5nm Probe sind sehr hoch.
 The measured pore radii are off by a factor of \num{4} and more (\SI{5}{\nano\meter}) and \num{2} (\SI{20}{\nano\meter}) compared to the \ac{MIP} measurements provided by the manufacturer (Figure~\ref{fig:vycor-mip}).
 }
+
 \subsection{\acs*{LTDSC}}
 
 The glass standards were measured using a simplified temperature regimen.
@@ -291,13 +292,13 @@ For the measurement, the water saturated specimen was then cooled down to \SI{-6
 		\caption{\SI{20}{\nano\meter} porous \textsc{VYCOR}-glass.}
 
 	\end{subfigure}
-    \caption{These curves show the freezing curve of \ac{LTDSC}-measurements of two nano-porous glass types. Each type was measured using two specimens. Note that pore sizes below \SI{3.19}{\nano\meter} are undefined as noted in Equation~\eqref{eq:brun_freeze}.}
+    \caption{These curves show the freezing curve of \ac{LTDSC}-measurements of two nano-porous glass types. Each type was measured using two specimens. Note that pore sizes below \SI{3.19}{\nano\meter} are undefined as noted in Equation~\ref{eq:brun_freeze}.}
     \label{fig:ltdsc_result_glass_freeze}
 \end{figure}
 
 This resulted in the following freeze curves as plotted in Figure~\ref{fig:ltdsc_result_glass_freeze}.
 The glass type specified with a pore diameter of \SI{5}{\nano\meter} has two peaks in the heat-flow signal.
-According to Equation~\eqref{eq:brun_freeze} \cite{brun.1977}, a heat flow signal was measured in the pore radius range of \num{3} to \SI{8}{\nano\meter} (pore diameter of \num{6} and \SI{16}{\nano\meter}) with peaks at \num{4} and \SI{6.5}{\nano\meter} (pore diameter of \num{8} and \SI{13}{\nano\meter}).
+According to Equation~\ref{eq:brun_freeze} \cite{brun.1977}, a heat flow signal was measured in the pore radius range of \num{3} to \SI{8}{\nano\meter} (pore diameter of \num{6} and \SI{16}{\nano\meter}) with peaks at \num{4} and \SI{6.5}{\nano\meter} (pore diameter of \num{8} and \SI{13}{\nano\meter}).
 
 A heat flow signal was observed for the glass with a specified pore diameter of \SI{20}{\nano\meter} between \num{5} and \SI{12}{\nano\meter} (pore diameter of \num{10} and \SI{24}{\nano\meter}), with peaks at pore radii of \num{7} and \SI{10}{\nano\meter} (pore diameter of \num{14} and \SI{20}{\nano\meter}).
 
@@ -567,7 +568,7 @@ It was not possible to measure \ac{C2S} after \SI{1}{\day} of hydration, since t
         \draw[dashed,grey] (bottom-1) -- (bottom-2);
     \end{tikzpicture}
 
-    \caption{\ac{LTDSC} curves for the second freezing pass of \ac{C2S} from \num{7} to \SI{28}{\day} of hydration. Every specimen age was measured using three specimens. The graph on the right is a zoomed in section of the left graph, showing the data correlating to the gel pores. Note that pore sizes below \SI{3.19}{\nano\meter} are undefined as noted in Equation~\eqref{eq:brun_freeze}.}
+    \caption{\ac{LTDSC} curves for the second freezing pass of \ac{C2S} from \num{7} to \SI{28}{\day} of hydration. Every specimen age was measured using three specimens. The graph on the right is a zoomed in section of the left graph, showing the data correlating to the gel pores. Note that pore sizes below \SI{3.19}{\nano\meter} are undefined as noted in Equation~\ref{eq:brun_freeze}.}
     \label{fig:ltdsc_result_c2s_freeze}
 \end{figure}
 
@@ -768,7 +769,7 @@ The \ac{LTDSC} curves from the second freezing pass are plotted in Figure~\ref{f
         \draw[dashed,grey] (bottom-3) -- (bottom-4);
     \end{tikzpicture}
 
-    \caption{\ac{LTDSC} curves for the second freezing pass of \ac{C3S} from 1 to \SI{28}{\day} of hydration. Every specimen age was measured using three specimens. The graph on the right is a zoomed in section of the left graph, showing the data correlating to the gel pores. Note that pore sizes below \SI{3.19}{\nano\meter} are undefined as noted in Equation~\eqref{eq:brun_freeze}.}
+    \caption{\ac{LTDSC} curves for the second freezing pass of \ac{C3S} from 1 to \SI{28}{\day} of hydration. Every specimen age was measured using three specimens. The graph on the right is a zoomed in section of the left graph, showing the data correlating to the gel pores. Note that pore sizes below \SI{3.19}{\nano\meter} are undefined as noted in Equation~\ref{eq:brun_freeze}.}
     \label{fig:ltdsc_result_C3S_freeze}
 \end{figure}
 \ifdefined\EXTERNALIZE
@@ -781,7 +782,7 @@ This indicates a lower gel pore volume for \ac{C3S} compared to \ac{C2S}.
 Furthermore, the peaks are slightly shifted to smaller pore radii indicating smaller gel pores.
 
 However, the freezing curve can't be used to calculate the volume of the gel pores.
-In order to calculate the ice mass of the gel pores and thus also their volume, the heat flow signal of the two melting curves of every experiment was integrated over the measured temperature ranges and subtracted from each other as shown in Equations~\eqref{eq:ltdsc_ice} and \ref{eq:ltdsc_ice2}.
+In order to calculate the ice mass of the gel pores and thus also their volume, the heat flow signal of the two melting curves of every experiment was integrated over the measured temperature ranges and subtracted from each other as shown in Equations~\ref{eq:ltdsc_ice} and \ref{eq:ltdsc_ice2}.
 In order to do that, a base line correction was applied to the raw data.
 Figure~\ref{fig:ltdsc_result_c2s_melt} illustrates this process for the results of \SI{28}{\day} hydrated \ac{C2S}.
 %{\color{red}The detailed procedure is published on github \cite{kleiner.2025} %\url{https://github.com/kleinerELM/Kalorimeterauswertung}
@@ -1176,7 +1177,7 @@ These observations fit well to the microstructural development visible in \ac{SE
 	\color{red}
 	\item difficult to calculate the pore volume fraction (in contrast to the pore volume per mass)
 	\item volume fraction of hydrate phase and unhydrated phase not fully known
-	\item can be assumed using Area fraction from SEM images as described in \ref{kleiner.2024a} and {\color{red}Equation~\eqref{}}.
+	\item can be assumed using Area fraction from SEM images as described in \ref{kleiner.2024a} and Equation~\ref{eq:}.
 \end{itemize}
 
 \FloatBarrier

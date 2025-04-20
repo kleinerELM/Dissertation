@@ -163,8 +163,8 @@ Being sure, that a sample and the resulting measurement is representative can be
 This is especially true for inhomogeneous materials consisting of multiple phases and wide ranges of particle sizes.
 The problem starts with sampling and sample preparation.
 This process is standardized for for granular or powdery samples for multiple fields (e.g. DIN 52101 \cite{din52101.2013} and DIN EN 932-1 \cite{dinen932-1.1996}).
-Although this solution is very helpful for analyzing loose particles, for the analysis of a monolithic sample the only option is to analyze the largest possible volume or surface area.
-This raises the question of what the minimum size of the analyzed area must be in order to obtain a statistically meaningful result.
+Although this solution is very helpful for analysing loose particles, for the analysis of a monolithic sample the only option is to analyze the largest possible volume or surface area.
+This raises the question of what the minimum size of the analysed area must be in order to obtain a statistically meaningful result.
 This is especially true for \ac{SEM}-analysis, since the imaged area is usually only a tiny detail of the whole specimen.
 While the operator of the microscope may try to exclude unusual areas or capture a typical, representative area of the specimen, this is a highly subjective task.
 %To reduce this subjectiveness, one may try to obtain a larger area or set of independent images and apply statistical analysis.
@@ -205,13 +205,13 @@ The code used to compare both methods is publicly available \cite{kleiner.2024b}
 One of the methods was introduced by \textcite{bosl.1998} and also used by \textcite{kameda.2006}.
 It works by selecting a growth point in the center of an image.
 From this point a box will grow stepwise as illustrated in Figure~\ref{fig:lit_box_methods_a}.
-This method will therefore be called \textsc{box grow method} from hereon.
+This method will therefore be called \textsc{box grow method} from heron.
 The phase composition of these growing boxes is constantly measured.
 To initiate multiple experiments within an image, the growth point has to be selected randomly within a limited window in the center of the image.
 This allows to calculate a standard deviation.
 Figure~\ref{fig:lit_box_growth} shows the result of such an analysis using an image of \SI{28}{\day} hydrated alite.
 This image has to be segmented beforehand into pores, unhydrated alite, \ac{CH} and \ac{CSH}.
-The standard deviation in Figure~\ref{fig:lit_box_growth_b}indicates, the shrinking uncertainty with a larger area analyzed.
+The standard deviation in Figure~\ref{fig:lit_box_growth_b}indicates, the shrinking uncertainty with a larger area analysed.
 However, $\sigma$ is shrinking unsteadily.
 Since the location of larger phases does not change in the image used, even the randomized starting point cant remove the bias. This can be reduced by using more source images.
 
@@ -320,13 +320,14 @@ Since the location of larger phases does not change in the image used, even the 
 
 \subsubsection{Box count method} % the method names are not great
 
-\textcite{mouret.2001} and \textcite{hlavacek.2015} tried to get an indication of the statistical representativeness of the phase composition within an image and introduced a method, which is called \textsc{box count method} from hereon.
+\textcite{mouret.2001} and \textcite{hlavacek.2015} tried to get an indication of the statistical representativeness of the phase composition within an image and introduced a method, which is called \textsc{box count method} from heron.
 This method splits an image or multiple images of the same material in smaller sub-tiles (see Figure~\ref{fig:lit_box_methods_b}).
 Then, a growing number of tiles is randomly selected from this tile-pool.
 Of this selection, the phase composition is then remeasured.
-If this is repeated multiple times, the standard deviation indicates, how much area has to be imaged and analyzed to obtain a reasonable phase composition measurement.
+If this is repeated multiple times, the standard deviation indicates, how much area has to be imaged and analysed to obtain a reasonable phase composition measurement.
 The result of this method is a graph as shown in Figure~\ref{fig:lit_box_count}.
-The standard deviation $\sigma$ in Figure~\ref{fig:lit_box_count_b} indicates the shrinking uncertainty with a larger area analyzed. Compared to Figure~\ref{fig:lit_box_growth_b}, $\sigma$ is shrinking much more continuously, since there is no location bias.
+The standard deviation $\sigma$ in Figure~\ref{fig:lit_box_count_b} indicates the shrinking uncertainty with a larger area analysed.
+Compared to Figure~\ref{fig:lit_box_growth_b}, $\sigma$ is shrinking much more continuously, since there is no location bias.
 
 \begin{figure}[H]
     \centering

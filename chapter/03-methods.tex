@@ -40,7 +40,7 @@ The clinker pastes were prepared with a \ac{wb}-ratio of \num{0.5} and stored in
 For some \ac{CT} and \ac{FIBnt} experiments, a \ac{OPC} (808-1) was used to produce a mortar.
 % hier Rezeptur einfügen
 
-\ac{LC3} with a composition of \SI{52.0}{\wtpercent} CEM I, \SI{30.0}{\wtpercent} calcined clay, \SI{15.6}{\wtpercent} limestone and \SI{5.0}{\wtpercent} set regulator was used the cryo-\ac{FIB} experiments.
+\ac{LC3} with a composition of \SI{52.0}{\wtpercent} CEM I, \SI{30.0}{\wtpercent} calcined clay, \SI{15.6}{\wtpercent} limestone and \SI{5.0}{\wtpercent} set regulator was used in the cryo-\ac{FIB} experiments {\color{red}(see Section~\ref{})}.
 More details on the \ac{LC3} used can be found in \cite{pott.2023}.
 The \ac{LC3} was mixed with water (\ac{wb}=0.5) and a part of the paste was sonicated with \ac{PUS}.
 For this, a ultrasound processor and generator \textit{UIP1000hd} connected to a \textit{Booster B2-2.2} amplifier and a \textit{BS2d34} sonotrode at a maximum amplitude of \SI{42.4}{\micro\meter} was used.
@@ -165,9 +165,10 @@ Therefore, the ion beam device used, allows to cool the specimen below {\color{r
 %The comparison was made using hydrated alite, hydrated \ac{OPC} and \ac{LC3}.
 %}
 
-Due to the hardness difference of phases, the ion beam can induce an artifact called curtaining effect.
-These stripes are in the direction of the ion beams, as harder phases or pores cause `shadows' of material behind these materials.
-These artifacts can be significantly reduced by applying a \ac{FFT}.
+Due to variations in hardness among the phases within a material, the ion beam can also induce the `curtaining effect' in the context of \ac{SEM}-\ac{FIB} \cite{cantoni.2014} an artifact called the `curtaining effect'
+These stripes align with the direction of the ion beams, as harder phases or pores create `shadows' of material in their wake.
+While they can be reduced in the \ac{SEM}-\ac{FIB} process using coatings \cite{cantoni.2014}, this is not possible in the \ac{ArBIB} process.
+These artifacts can be significantly reduced by applying a \ac{FFT} \cite{kleiner.2021a} as also demonstrated for images from a \ac{SEM}-\ac{FIB} process \cite{fitschen.2017,schankula.2018}.
 This removes the stripes in one direction.
 However, this filter can also soften the image.
 This is especially the case if the artifact is present in more than one direction in the image \cite{kleiner.2021a}.
@@ -249,11 +250,12 @@ Combined with \ac{EDX} imaging, the time can increase to multiple days for a sin
     \label{fig:fib_artifacts}
 \end{figure}
 
-The cutting process can introduce some typical artifacts like curtaining or vertical shadowing.
-Curtaining is caused by the cutting process causing vertical line artifacts in the direction of the ion beam (Figure~\ref{fig:fib_artifacts_a}).
-These artifacts may be reduced in post processing using a directional \ac{FFT} based filter \cite{fitschen.2017,schankula.2018}.
-The shadowing effect is caused by a loss of signal of the back-scattered electrons due to the trench geometry (Figure~\ref{fig:fib_artifacts_b}).
-This well known effect can be fairly easily corrected in post processing {\color{red} \cite{fager.2020}}. %are there more publications?
+As described in Section~\ref{sec:bib_pol_fixed}, the cutting process can introduce curtaining.
+It is caused by the cutting process causing vertical line artifacts in the direction of the ion beam (Figure~\ref{fig:fib_artifacts_a}).
+As in images from the stationary \ac{ArBIB} process, these lines can be reduced in post processing using a directional \ac{FFT} based filter \cite{fitschen.2017,schankula.2018}.
+
+Vertical shadowing is another typical artifact caused by a loss of signal of the back-scattered electrons due to the trench geometry (see Figure~\ref{fig:fib_artifacts_b}).
+This well known effect can be corrected in post processing {\color{red} \cite{fager.2020}}, if the phase contrast is good enough. %are there more publications?
 
 However, there are more severe uncorrectable artifacts.
 Since cementitious material is not conductive and the trenches are not coated throughout, charging effects can negatively influence the image quality (e.g. Figure~\ref{fig:fib_artifacts_c} and \ref{fig:fib_artifacts_a}) or cause uncorrectable image drift during the process.
@@ -280,7 +282,7 @@ A detailed video of the \ac{FIBnt}-process, the required parameters, and potenti
 \section{Cryo-preparation for \acs*{SEM} and \acs*{FIB}}
 \label{sec:cryofibnt}
 
-Cryo-preparation for \acs*{SEM} and \acs*{FIB} is a method to obtain close-to-nature high-resolution images of water containing specimens (e.g. slurries, pastes or very young specimens \cite{holzer.2007}).
+Cryo-preparation for \acs*{SEM} and \acs*{FIB} is a method to obtain close-to-nature high-resolution images of water containing specimens (e.g. slurries, pastes or very young specimens \cite{holzer.2007, zingg.2008a}).
 In this process, the specimen is frozen within a very short time down to about \SI{113}{\kelvin} at \SI{>\,0.2}{\giga\pascal} to avoid ice-crystal formation.
 For our experiments a cryo-preparation system from \textsc{Leica} including a \textit{EM HPM100} high-pressure freezer and a \textit{EM MED020} high vacuum preparation system was used.
 
@@ -537,7 +539,7 @@ Equation~30 and 31 from \textcite{sun.2010}:
 
 
 In contrast, \textcite{wu.2014} and \textcite{johannesson.2010} used a dry reference sample to mitigate the heat capacity of the concrete binder.
-%The baseline is calculated by a linear regression of the data points before and after the freezing peak as in {\color{red} \textsc{Unbehau} \cite{unbehau.2025}}.
+%The baseline is calculated by a linear regression of the data points before and after the freezing peak as in {\color{red}\textcite{unbehau.2025}}.
 However, this is a fairly subjective method, since the temperature (or time) ranges have to be chosen manually.
 
 
@@ -545,7 +547,7 @@ The calculation of the ice mass is influenced by the way, this baseline of the h
 \begin{itemize}
 	\item \textcite{sun.2010}, \textcite{mueller.2021} and \textcite{unbehau.2025} used a linear regression of the heat flow data utilizing manually selected temperature ranges before and after the freezing peak.
 	\begin{itemize}
-		\item \textcite{mueller.2021} analyzed only a small temperature change from \SI{-20}{\celsius} to \SI{+20}{\celsius} and therefore considered this method as sufficiently accurate.
+		\item \textcite{mueller.2021} analysed only a small temperature change from \SI{-20}{\celsius} to \SI{+20}{\celsius} and therefore considered this method as sufficiently accurate.
 		In both cases, the initial data were ignored, since they were .
 	\end{itemize}
 	\item 'J' baseline correction - \textcite{johannesson.2010} (large samples, slow heat rate (\SI{0.08}{\kelvin\per\minute}))
@@ -570,7 +572,7 @@ ice density from \textcite{mueller.2021} calculated from data in \cite{eisenberg
 % 	\item These steps increase the signal-to-noise ratio and allow to select the background and the signal.
 % 	\item Raw values which fall between \num{-1} and \SI{4}{\nano\watt\per\milli\gram} after this processing, will then be used to calculate a linear regression which will then be used as baseline.
 % \end{itemize}
-% The detailed procedure ispublished in the function
+% The detailed procedure is published in the function
 % \texttt{auto\textunderscore select\textunderscore baseline} within the \texttt{ltdsc\textunderscore measurement}-class \cite{kleiner.2025}.
 % } %\url{https://github.com/kleinerELM/Kalorimeterauswertung}
 % % TODO: bild?

@@ -1283,7 +1283,7 @@ This was done by calculating the linear regression of the data between \num{-55}
 			\addplot [ thick, no marks, red, forget plot, restrict x to domain=1:10000] table [skip first n=1, y index=4, x expr={1000*\thisrowno{1}}, col sep=semicolon] {figures/mip/HG C2S 14d.CSV};
 			\addplot [ thick, no marks, blue, forget plot, restrict x to domain=1:10000] table [skip first n=1, y index=4, x expr={1000*\thisrowno{1}}, col sep=semicolon] {figures/mip/HG C2S 28d.CSV};
 
-			% distiguish the experiments in the legend
+			% distinguish the experiments in the legend
 			\addplot [ no marks, black, opacity=0.5] coordinates {(0.1,0) (.9,0)};
 			\addlegendentry{\acs*{LTDSC}};
 			\addplot [ thick, no marks, black, solid] coordinates {(0.1,0) (.9,0)};
@@ -1291,7 +1291,7 @@ This was done by calculating the linear regression of the data between \num{-55}
 
 		\end{semilogxaxis}
 	\end{tikzpicture}
-	\caption{{\color{orange}\ac{MIP}-analyis} of \ac{C2S} after 14 and \SI{28}{\day} of hydration compared with selected {\color{blue}\ac{LTDSC}-curves}. Note that pore sizes below \SI{3.19}{\nano\meter} are undefined as noted in Equation~\ref{eq:brun_freeze}.}
+	\caption{{\color{orange}\ac{MIP}-analysis} of \ac{C2S} after 14 and \SI{28}{\day} of hydration compared with selected {\color{blue}\ac{LTDSC}-curves}. Note that pore sizes below \SI{3.19}{\nano\meter} are undefined as noted in Equation~\ref{eq:brun_freeze}.}
     \label{fig:mip_c2s}
 \end{figure}
 
@@ -1392,7 +1392,7 @@ This was done by calculating the linear regression of the data between \num{-55}
 			\addplot [ thick, no marks, orange, forget plot, restrict x to domain=1:10000] table [skip first n=1, y index=4, x expr={1000*\thisrowno{1}}, col sep=semicolon] {figures/mip/HG C3S 7d.CSV};
 			\addplot [ thick, no marks, blue,forget plot, restrict x to domain=1:10000] table [skip first n=1, y index=4, x expr={1000*\thisrowno{1}}, col sep=semicolon] {figures/mip/HG C3S 28d.CSV};
 
-			% distiguish the experiments in the legend
+			% distinguish the experiments in the legend
 			\addplot [ no marks, black, opacity=0.5] coordinates {(0.1,0) (.9,0)};
 			\addlegendentry{\acs{LTDSC}};
 			\addplot [ thick, no marks, black, solid] coordinates {(0.1,0) (.9,0)};
@@ -1400,7 +1400,10 @@ This was done by calculating the linear regression of the data between \num{-55}
 
 		\end{semilogxaxis}
 	\end{tikzpicture}
-	\caption{{\color{orange}\ac{MIP}-analyis} of \ac{C3S} after 7 and \SI{28}{\day} of hydration compared with selected {\color{blue}\ac{LTDSC}-curves}. Note that pore sizes below \SI{3.19}{\nano\meter} are undefined as noted in Equation~\ref{eq:brun_freeze}.}
+	\caption{
+		{\color{orange}\ac{MIP}-analysis} of \ac{C3S} after 7 and \SI{28}{\day} of hydration compared with selected {\color{blue}\ac{LTDSC}-curves}.
+		Note that pore sizes below \SI{3.19}{\nano\meter} are undefined as noted in Equation~\ref{eq:brun_freeze}.
+	}
     \label{fig:mip_c3s}
 \end{figure}
 
@@ -1434,7 +1437,10 @@ A fresh \ac{FIB}-cut was done to obtain a clean surface to acquire the \ac{SEM}-
 		\includegraphics[width=\textwidth]{particle-dist/segmented.png}
 	\end{subfigure}
 
-    \caption{\ac{FIB}-section of fresh \ac{C3S}-paste, \ac{wb}=0.5, \SI{2}{\hour}. Denoised \ac{BSE}-image (left) and segmented image (right, red: \ac{C3S}, blue: \ce{Pt}, black: water).}
+    \caption{
+		\ac{FIB}-section of fresh \ac{C3S}-paste, \ac{wb}=0.5, \SI{2}{\hour}.
+		Denoised \ac{BSE}-image (left) and segmented image (right, red: \ac{C3S}, blue: \ce{Pt}, black: water).
+	}
     \label{fig:cryo-fib}
 \end{figure}
 
@@ -1555,3 +1561,5 @@ This fits to the subjective appearance of the particle distribution.
 
 These data illustrate, that the \ac{PUS} is able to disperse the particles of the \ac{LC3} more homogeneously.
 However, the image data acquired by cryo-\ac{FIBnt} is not very significant due to its small imaged area and therefore limited representativeness.
+
+% TODO: add Fig 5 and 7 from zingg.2008a to the analysis - they should be good enough for an measurement

@@ -43,10 +43,10 @@ Figures in the appendix section are not visible in draft mode!
 		\ce{ZnO}                         & \tablenum{0.04}    & \tablenum{0.0294} \\
 		\ce{Cr2O3}                 & \tablenum{0.01}    & \tablenum{0.0067} \\
 		\ce{BaO}                         & \tablenum{0.02}    & \tablenum{0.0185} \\
-		\ce{CuO}                         & -       & \tablenum{0.0107} \\ 
+		\ce{CuO}                         & -       & \tablenum{0.0107} \\
 		\midrule
 		Total                       & \tablenum{99.88}   & -   \\
-		\bottomrule 
+		\bottomrule
 	\end{tabular}
 \end{table}
 
@@ -512,7 +512,7 @@ Figures in the appendix section are not visible in draft mode!
 
 \begin{figure}[H]
     \centering
-	
+
 	\includegraphics[width=.7\textwidth]{particle-dist/cryo_site.pdf}
 
     \caption{Overview over the \ac{FIBnt} site of the pressure-frozen \ac{C3S} paste. A: \ce{Pt} deposition, B: \ce{C3S} paste, C: brass crucible.}
@@ -556,7 +556,7 @@ Figures in the appendix section are not visible in draft mode!
 			width=.83\linewidth,
 			height=.25\textheight,
 			grid=none,
-		]   
+		]
 			\addplot[blue, mark=none] coordinates {(0,20)};
 			\addlegendentry{temperature};
 
@@ -564,7 +564,7 @@ Figures in the appendix section are not visible in draft mode!
 			\addlegendentry{pressure};
 		\end{axis}
 	\end{tikzpicture}
-	  
+
     \caption{High-pressure freezing curve from the freezing process of the \ac{C3S} paste.}
     \label{fig:cryo-fib-freeze-curve}
 \end{figure}
@@ -574,12 +574,12 @@ Figures in the appendix section are not visible in draft mode!
 	\caption{Metadata of the \ac{SEM}-images used for the particle distance measurements. $A_\text{unusable}$ is the area of the image containing other phases or artifacts. $A_\text{water}$ and $A_\text{solids}$ are the areas of the water and solid phases, respectively.}
 	\begin{tabular}{lccccc}
 		\toprule
-			Image & Scaling & $A_\text{usable}$ & $A_\text{water}$ & $A_\text{solids}$ & $A_\text{unusable}$ \\ 
-			& \si{\nano\meter\per\px} & \si{\micro\meter\squared} & \si{\percent} & \si{\percent} & \si{\percent} \\ 
+			Image & Scaling & $A_\text{usable}$ & $A_\text{water}$ & $A_\text{solids}$ & $A_\text{unusable}$ \\
+			& \si{\nano\meter\per\px} & \si{\micro\meter\squared} & \si{\percent} & \si{\percent} & \si{\percent} \\
 			\midrule
-			Figure~\ref{fig:cryo-fib}, \acs{C3S}   & \tablenum{26.9789}           & \tablenum{10683.3}                  & \tablenum{36.3}            & \tablenum{48.8}             & \tablenum{14.9}                \\ 
-			Figure~\ref{fig:cryo-fib-lc3a}, \acs{LC3} & \tablenum{19.2712}          & \tablenum{1095.9}                   & \tablenum{46.0}            & \tablenum{54.0}             & \tablenum{0.0}                \\ 
-			Figure~\ref{fig:cryo-fib-lc3b}, \acs{LC3}+\acs{PUS}     & \tablenum{9.6355}           & \tablenum{1049.9}                   & \tablenum{43.9}            & \tablenum{56.1}             & \tablenum{0.0}                \\ 
+			Figure~\ref{fig:cryo-fib}, \acs{C3S}   & \tablenum{26.9789}           & \tablenum{10683.3}                  & \tablenum{36.3}            & \tablenum{48.8}             & \tablenum{14.9}                \\
+			Figure~\ref{fig:cryo-fib-lc3a}, \acs{LC3} & \tablenum{19.2712}          & \tablenum{1095.9}                   & \tablenum{46.0}            & \tablenum{54.0}             & \tablenum{0.0}                \\
+			Figure~\ref{fig:cryo-fib-lc3b}, \acs{LC3}+\acs{PUS}     & \tablenum{9.6355}           & \tablenum{1049.9}                   & \tablenum{43.9}            & \tablenum{56.1}             & \tablenum{0.0}                \\
 			\bottomrule
 	\end{tabular}
 	\label{tab:part_dist_metadata}
@@ -608,7 +608,7 @@ Figures in the appendix section are not visible in draft mode!
             grid=both,
             grid style={line width=.1pt, draw=gray!10}
 		  ]
-		  
+
           \addplot[red, mark=x] table [x=diameter,y=diff_normed, col sep=comma] {figures/particle-dist/psd_lasergran_C3S_lt20mum.csv};
 		  \addlegendentry{Laser diffraction analysis};
 
@@ -617,8 +617,8 @@ Figures in the appendix section are not visible in draft mode!
 
         \end{semilogxaxis}
 	\end{tikzpicture}
-	  
-    \caption{\ac{PSD} of a \ac{C3S} powder (sieved to <\,\SI{20}{\micro\meter}), measured using laser diffraction analysis compared to the Feret diameter from the image analysis of Figure~\ref{fig:cryo-fib}.}
+
+    \caption{\ac{PSD} of a \ac{C3S} powder (sieved to <\,\SI{20}{\micro\meter}), measured using laser diffraction analysis compared to the \textsc{Feret} diameter from the image analysis of Figure~\ref{fig:cryo-fib}.}
     \label{fig:psd_cryo_C3S_lt20mum}
 \end{figure}
 
@@ -644,10 +644,10 @@ Figures in the appendix section are not visible in draft mode!
             grid=both,
             grid style={line width=.1pt, draw=gray!10}
 		  ]
-		  
+
           %\addplot[red, mark=x] table [x=diameter,y=normed_i_noPUS, col sep=comma] {figures/particle-dist/LC3/LC3_cryo_feret.csv};
 		  %\addlegendentry{Feret diameter, \acs{LC3} no \acs{PUS}};
-		  
+
           \addplot[blue, mark=x] table [x=diameter,y=normed_i_noPUS, col sep=comma] {figures/particle-dist/LC3/LC3_cryo_feret.csv};
 		  \addlegendentry{Feret diameter, \acs{LC3}};
 
@@ -656,14 +656,14 @@ Figures in the appendix section are not visible in draft mode!
 
         \end{semilogxaxis}
 	\end{tikzpicture}
-	  
-    \caption{\ac{PSD} of a \ac{LC3}, comparing the Feret diameters from the image analysis of Figures~\ref{fig:cryo-fib-lc3a} and \ref{fig:cryo-fib-lc3b}.}
+
+    \caption{\ac{PSD} of a \ac{LC3}, comparing the \textsc{Feret} diameters from the image analysis of Figures~\ref{fig:cryo-fib-lc3a} and \ref{fig:cryo-fib-lc3b}.}
     \label{fig:psd_cryo_LC3}
 \end{figure}
 
 % \begin{figure}[htb!]
 %     \centering
-	
+
 % 	% area: \SI{1095.9}{\micro\meter\squared}}
 % 	\begin{subfigure}{0.495\textwidth}
 % 		\includegraphics[width=\textwidth]{particle-dist/LC3/noPUS/histogram_border.pdf}
@@ -675,6 +675,6 @@ Figures in the appendix section are not visible in draft mode!
 
 %     \caption{
 % 		Particle distance measurement of \SI{20}{\min} old \ac{LC3} paste without (left) and with (right) the application of \ac{PUS}. The mean distance between particles decreased from \SI{0.33(0.17)}{\micro\meter} and \SI{0.24(0.15)}{\micro\meter}.
-% 	} 
+% 	}
 %     \label{fig:cryo-fib-lc3-results}
 % \end{figure}

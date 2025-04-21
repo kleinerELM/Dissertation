@@ -200,7 +200,11 @@
 \usepackage{xspace}
 \usepackage{epigraph}
 \setlength\epigraphwidth{.6\textwidth}
+
+% package for acronyms
 \usepackage[printonlyused]{acronym} % nohyperlinks
+\renewcommand*{\aclabelfont}[1]{\textbf{\boldmath\acsfont{#1}}} % bold math acronyms in list
+
 \usepackage{float}
 \usepackage{etoolbox}
 \makeatletter

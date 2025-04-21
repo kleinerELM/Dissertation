@@ -298,7 +298,7 @@ For the measurement, the water saturated specimen was then cooled down to \SI{-6
 
 This resulted in the following freeze curves as plotted in Figure~\ref{fig:ltdsc_result_glass_freeze}.
 The glass type specified with a pore diameter of \SI{5}{\nano\meter} has two peaks in the heat-flow signal.
-According to Equation~\ref{eq:brun_freeze} \cite{brun.1977}, a heat flow signal was measured in the pore radius range of \num{3} to \SI{8}{\nano\meter} (pore diameter of \num{6} and \SI{16}{\nano\meter}) with peaks at \num{4} and \SI{6.5}{\nano\meter} (pore diameter of \num{8} and \SI{13}{\nano\meter}).
+According to Equation~\ref{eq:brun_freeze} \cite{brun.1977}, a heat flow signal was measured in the pore radius range of \SIrange{3}{8}{\nano\meter} (pore diameter of \num{6} and \SI{16}{\nano\meter}) with peaks at \num{4} and \SI{6.5}{\nano\meter} (pore diameter of \num{8} and \SI{13}{\nano\meter}).
 
 A heat flow signal was observed for the glass with a specified pore diameter of \SI{20}{\nano\meter} between \num{5} and \SI{12}{\nano\meter} (pore diameter of \num{10} and \SI{24}{\nano\meter}), with peaks at pore radii of \num{7} and \SI{10}{\nano\meter} (pore diameter of \num{14} and \SI{20}{\nano\meter}).
 
@@ -386,7 +386,7 @@ This allows to create a 3D reconstruction of a hydrated \ac{C3S} grain covered i
 \FloatBarrier
 \subsection{\acs{LTDSC}}
 
-The \ac{LTDSC} curves of the second freezing pass of \ac{C2S} from \num{7} to \SI{28}{\day} of hydration are shown in Figure~\ref{fig:ltdsc_result_c2s_freeze}.
+The \ac{LTDSC} curves of the second freezing pass of \ac{C2S} from \SIrange{1}{28}{\day} of hydration are shown in Figure~\ref{fig:ltdsc_result_c2s_freeze}.
 Three measurements were done for every specimen age.
 It was not possible to measure \ac{C2S} after \SI{1}{\day} of hydration, since the material was not hard enough to be handled and transferred into the \ac{LTDSC}-crucible.
 
@@ -568,7 +568,12 @@ It was not possible to measure \ac{C2S} after \SI{1}{\day} of hydration, since t
         \draw[dashed,grey] (bottom-1) -- (bottom-2);
     \end{tikzpicture}
 
-    \caption{\ac{LTDSC} curves for the second freezing pass of \ac{C2S} from \num{7} to \SI{28}{\day} of hydration. Every specimen age was measured using three specimens. The graph on the right is a zoomed in section of the left graph, showing the data correlating to the gel pores. Note that pore sizes below \SI{3.19}{\nano\meter} are undefined as noted in Equation~\ref{eq:brun_freeze}.}
+    \caption{
+		\ac{LTDSC} curves for the second freezing pass of \ac{C2S} from \SIrange{7}{28}{\day} of hydration.
+		Every specimen age was measured using three specimens.
+		The graph on the right is a zoomed in section of the left graph, showing the data correlating to the gel pores.
+		Note that pore sizes below \SI{3.19}{\nano\meter} are undefined as noted in Equation~\ref{eq:brun_freeze}.
+	}
     \label{fig:ltdsc_result_c2s_freeze}
 \end{figure}
 
@@ -769,7 +774,11 @@ The \ac{LTDSC} curves from the second freezing pass are plotted in Figure~\ref{f
         \draw[dashed,grey] (bottom-3) -- (bottom-4);
     \end{tikzpicture}
 
-    \caption{\ac{LTDSC} curves for the second freezing pass of \ac{C3S} from 1 to \SI{28}{\day} of hydration. Every specimen age was measured using three specimens. The graph on the right is a zoomed in section of the left graph, showing the data correlating to the gel pores. Note that pore sizes below \SI{3.19}{\nano\meter} are undefined as noted in Equation~\ref{eq:brun_freeze}.}
+    \caption{
+		\ac{LTDSC} curves for the second freezing pass of \ac{C3S} from \SIrange{1}{28}{\day} of hydration. Every specimen age was measured using three specimens.
+		The graph on the right is a zoomed in section of the left graph, showing the data correlating to the gel pores.
+		Note that pore sizes below \SI{3.19}{\nano\meter} are undefined as noted in Equation~\ref{eq:brun_freeze}.
+	}
     \label{fig:ltdsc_result_C3S_freeze}
 \end{figure}
 \ifdefined\EXTERNALIZE
@@ -991,7 +1000,7 @@ To mitigate this, the dashed curve indicates the heat flow $\dot{Q}$ of the \SI{
 
 	\end{subfigure}
 
-    \caption{\ac{LTDSC} curves and the cumulative ice volume for a slow (\SI{0.5}{\kelvin\per\minute}) and fast (\SI{2}{\kelvin\per\minute}) heating curves from \SI{-50} to \SI{15}{\degreeCelsius} of \SI{28}{\day} hydrated CEM IV (\ac{wb} = \num{0.5}).}
+    \caption{\ac{LTDSC} curves and the cumulative ice volume for a slow (\SI{0.5}{\kelvin\per\minute}) and fast (\SI{2}{\kelvin\per\minute}) heating curves from \SIrange{-50}{15}{\degreeCelsius} of \SI{28}{\day} hydrated CEM IV (\ac{wb} = \num{0.5}).}
     \label{fig:ltdsc_result_heating_rate}
 \end{figure}
 
@@ -1154,7 +1163,7 @@ Therefore, it has been decided to use a faster heating rate of \SI{2}{\kelvin\pe
     \caption{
 		Ice volume for the two pore types and total pore amount of \ac{C3S} and \ac{C3S} from 1 to \SI{28}{\day} of hydration.
 		The data were calculated from three \ac{LTDSC}-measurements for each value.
-		The baseline correction was done using temperature range from a lower range of \num{-21.5} to \SI{-20.5}{\degreeCelsius} (capillary pores) and \num{-57} to \SI{-56}{\degreeCelsius} (gel pores) and \num{9} to \SI{10}{\degreeCelsius} in the upper range.
+		The baseline correction was done using temperature range from a lower range of \SIrange{-21.5}{-20.5}{\degreeCelsius} (capillary pores) and \SIrange{-57}{-56}{\degreeCelsius} (gel pores) and \SIrange{9}{10}{\degreeCelsius} in the upper range.
 	}
 	\label{fig:ltdsc_result_melt_bar}
 \end{figure}
@@ -1185,7 +1194,7 @@ These observations fit well to the microstructural development visible in \ac{SE
 
 Figures~\ref{fig:mip_c2s} and \ref{fig:mip_c3s} show \ac{MIP} results for \ac{C2S} and \ac{C3S} after up to \SI{28}{\day} of hydration in comparison to the second freezing curves of the \ac{LTDSC}-measurements.
 For these diagrams, the freeze curves were base line corrected.
-This was done by calculating the linear regression of the data between \num{-55} to \num{-50} and \num{-27} to \SI{-23}{\degreeCelsius} and subtracting this regression function from the mean data shown in Figure~\ref{fig:ltdsc_result_c2s_melt}.
+This was done by calculating the linear regression of the data between \numrange{-55}{-50} and \SIrange{-27}{-23}{\degreeCelsius} and subtracting this regression function from the mean data shown in Figure~\ref{fig:ltdsc_result_c2s_melt}.
 
 \begin{figure}[!htb]
     \centering
@@ -1291,7 +1300,7 @@ This was done by calculating the linear regression of the data between \num{-55}
 
 		\end{semilogxaxis}
 	\end{tikzpicture}
-	\caption{{\color{orange}\ac{MIP}-analysis} of \ac{C2S} after 14 and \SI{28}{\day} of hydration compared with selected {\color{blue}\ac{LTDSC}-curves}. Note that pore sizes below \SI{3.19}{\nano\meter} are undefined as noted in Equation~\ref{eq:brun_freeze}.}
+	\caption{{\color{orange}\ac{MIP}-analysis} of \ac{C2S} after \num{14} and \SI{28}{\day} of hydration compared with selected {\color{blue}\ac{LTDSC}-curves}. Note that pore sizes below \SI{3.19}{\nano\meter} are undefined as noted in Equation~\ref{eq:brun_freeze}.}
     \label{fig:mip_c2s}
 \end{figure}
 
@@ -1401,7 +1410,7 @@ This was done by calculating the linear regression of the data between \num{-55}
 		\end{semilogxaxis}
 	\end{tikzpicture}
 	\caption{
-		{\color{orange}\ac{MIP}-analysis} of \ac{C3S} after 7 and \SI{28}{\day} of hydration compared with selected {\color{blue}\ac{LTDSC}-curves}.
+		{\color{orange}\ac{MIP}-analysis} of \ac{C3S} after \num{7} and \SI{28}{\day} of hydration compared with selected {\color{blue}\ac{LTDSC}-curves}.
 		Note that pore sizes below \SI{3.19}{\nano\meter} are undefined as noted in Equation~\ref{eq:brun_freeze}.
 	}
     \label{fig:mip_c3s}
@@ -1438,7 +1447,7 @@ A fresh \ac{FIB}-cut was done to obtain a clean surface to acquire the \ac{SEM}-
 	\end{subfigure}
 
     \caption{
-		\ac{FIB}-section of fresh \ac{C3S}-paste, \ac{wb}=0.5, \SI{2}{\hour}.
+		\ac{FIB}-section of fresh \ac{C3S}-paste, \ac{wb}=\num{0.5}, \SI{2}{\hour}.
 		Denoised \ac{BSE}-image (left) and segmented image (right, red: \ac{C3S}, blue: \ce{Pt}, black: water).
 	}
     \label{fig:cryo-fib}
@@ -1455,7 +1464,7 @@ Instead of measuring the distance between the particles and the hydrate rim, the
 	\includegraphics[width=.7\textwidth]{particle-dist/dis_histogram.pdf}
 
     \caption{
-		Particle distance to particle diameter distribution of \SI{20}{\min} old \ac{C3S} paste (\ac{wb}=0.5).
+		Particle distance to particle diameter distribution of \SI{20}{\min} old \ac{C3S} paste (\ac{wb}=\num{0.5}).
 		%The mean distance between particles was calculated as \SI{0.73(0.43)}{\micro\meter} within a confidence interval of \SI{33.3}{\percent}.
 	}
     \label{fig:cryo-fib-results}
@@ -1481,7 +1490,7 @@ The images themselves, also give the impression that the \ac{PUS} has a signific
 		\includegraphics[width=\textwidth]{particle-dist/LC3/noPUS/segmented.png}
 	\end{subfigure}
 
-    \caption{\ac{FIB}-sections of fresh \ac{LC3}-paste, reference, \ac{wb}=0.5, \SI{20}{\min}. Denoised \ac{BSE}-image (left) and segmented image (right, white: \ac{LC3}, black: water)}
+    \caption{\ac{FIB}-sections of fresh \ac{LC3}-paste, reference, \ac{wb}=\num{0.5}, \SI{20}{\min}. Denoised \ac{BSE}-image (left) and segmented image (right, white: \ac{LC3}, black: water)}
     \label{fig:cryo-fib-lc3a}
 \end{figure}
 
@@ -1497,7 +1506,7 @@ The images themselves, also give the impression that the \ac{PUS} has a signific
 		\includegraphics[width=\textwidth]{particle-dist/LC3/PUS/segmented.png}
 	\end{subfigure}
 
-    \caption{\ac{FIB}-sections of fresh \ac{LC3}-paste, \ac{PUS}, \ac{wb}=0.5, \SI{20}{\min}. Denoised \ac{BSE}-image (left) and segmented image (right, white: \ac{LC3}, black: water)}
+    \caption{\ac{FIB}-sections of fresh \ac{LC3}-paste, \ac{PUS}, \ac{wb}=\num{0.5}, \SI{20}{\min}. Denoised \ac{BSE}-image (left) and segmented image (right, white: \ac{LC3}, black: water)}
     \label{fig:cryo-fib-lc3b}
 \end{figure}
 

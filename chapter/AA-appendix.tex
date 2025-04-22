@@ -569,23 +569,6 @@ Figures in the appendix section are not visible in draft mode!
     \label{fig:cryo-fib-freeze-curve}
 \end{figure}
 
-\begin{table}[H]
-	\centering
-	\caption{Metadata of the \ac{SEM}-images used for the particle distance measurements. $A_\text{unusable}$ is the area of the image containing other phases or artifacts. $A_\text{water}$ and $A_\text{solids}$ are the areas of the water and solid phases, respectively.}
-	\begin{tabular}{lccccc}
-		\toprule
-			Image & Scaling & $A_\text{usable}$ & $A_\text{water}$ & $A_\text{solids}$ & $A_\text{unusable}$ \\
-			& \si{\nano\meter\per\px} & \si{\micro\meter\squared} & \si{\percent} & \si{\percent} & \si{\percent} \\
-			\midrule
-			Figure~\ref{fig:cryo-fib}, \acs{C3S}   & \tablenum{26.9789}           & \tablenum{10683.3}                  & \tablenum{36.3}            & \tablenum{48.8}             & \tablenum{14.9}                \\
-			Figure~\ref{fig:cryo-fib-lc3a}, \acs{LC3} & \tablenum{19.2712}          & \tablenum{1095.9}                   & \tablenum{46.0}            & \tablenum{54.0}             & \tablenum{0.0}                \\
-			Figure~\ref{fig:cryo-fib-lc3b}, \acs{LC3}+\acs{PUS}     & \tablenum{9.6355}           & \tablenum{1049.9}                   & \tablenum{43.9}            & \tablenum{56.1}             & \tablenum{0.0}                \\
-			\bottomrule
-	\end{tabular}
-	\label{tab:part_dist_metadata}
-\end{table}
-
-
 
 \begin{figure}[H]
     \centering
@@ -661,6 +644,24 @@ Figures in the appendix section are not visible in draft mode!
     \label{fig:psd_cryo_LC3}
 \end{figure}
 
+\begin{table}[H]
+	\centering
+	\caption{Metadata of the \ac{SEM}-images used for the particle distance measurements. $A_\text{unusable}$ is the area of the image containing other phases or artifacts, which were manually excluded. $A_\text{sol}$ and $A_\text{solids}$ are the areas of the solution and solid phases, respectively.}
+	\begin{tabular}{lcccccc}
+		\toprule
+		Figure & Scaling & $A_\text{usable}$ & $A_\text{sol}$ & $A_\text{solids}$ & $A_\text{unusable}$ & $n_\text{particle count}$ \\
+			& \si{\nano\meter\per\px} & \si{\micro\meter\squared} & \si{\percent} & \si{\percent} & \si{\percent} & \\
+			\midrule
+			\ref{fig:cryo-fib}, \acs{C3S}   & \tablenum{26.9789}           & \tablenum{10683.3}                  & \tablenum{36.3}            & \tablenum{48.8}             & \tablenum{14.9}                & \tablenum{1500} \\
+			\ref{fig:cryo-fib-lc3a}, \acs{LC3} & \tablenum{19.2712}          & \tablenum{1095.9}                   & \tablenum{46.0}            & \tablenum{54.0}             & -                & \tablenum{723} \\
+			\ref{fig:cryo-fib-lc3b}, \acs{LC3}+\acs{PUS}     & \tablenum{9.6355}           & \tablenum{1049.9}                   & \tablenum{43.9}            & \tablenum{56.1}             & -                & \tablenum{888} \\
+			5 in \cite{zingg.2008a}, no \acs{PCE}     & \tablenum{30.0303}           & \tablenum{314.8}                   & \tablenum{62.1}            & \tablenum{37.9}             & -                & \tablenum{266} \\
+			7 in \cite{zingg.2008a}, with \acs{PCE}     & \tablenum{30.0303}           & \tablenum{314.9}                   & \tablenum{52.3}            & \tablenum{47.7}             & -                & \tablenum{737} \\
+			\bottomrule
+	\end{tabular}
+	\label{tab:part_dist_metadata}
+\end{table}
+
 % \begin{figure}[htb!]
 %     \centering
 
@@ -678,3 +679,41 @@ Figures in the appendix section are not visible in draft mode!
 % 	}
 %     \label{fig:cryo-fib-lc3-results}
 % \end{figure}
+
+
+\begin{figure}[htb!]
+    \centering
+
+	\begin{subfigure}{0.48\textwidth}
+		\includegraphics[width=\textwidth]{particle-dist/zing.2008a/f5_processed-particles.pdf}
+		\caption{\ac{OPC} without \ac{PCE}}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.48\textwidth}
+		\includegraphics[width=\textwidth]{particle-dist/zing.2008a/f7_processed-particles.pdf}
+		\caption{\ac{OPC} with \ac{PCE}}
+	\end{subfigure}
+
+    \caption{
+		Particle distance measurement of cryo-\ac{FIB} sections of the fine fraction of an \ac{OPC} (\ac{wb}=\num{0.5}) with and without \acs{PCE} from Figures~\num{5} (left) and \num{7} (right) by \textcite{zingg.2008a}.
+		White: unprocessed clinker particles; yellow: clinker particles used for the analysis, red: included measurements, black: unprocessed pore space.
+	}
+    \label{fig:cryo-fib-zingg-results}
+\end{figure}
+
+\begin{figure}[htb!]
+    \centering
+
+	\begin{subfigure}{0.495\textwidth}
+		\includegraphics[width=\textwidth]{particle-dist/zing.2008a/f5_histogram.pdf}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.495\textwidth}
+		\includegraphics[width=\textwidth]{particle-dist/zing.2008a/f7_histogram.pdf}
+	\end{subfigure}
+
+    \caption{
+		Particle distance measurement of cryo-\ac{FIB} sections of the fine fraction of an \ac{OPC} (\ac{wb}=\num{0.5}) with and without \acs{PCE} from Figures~\num{5} (left) and \num{7} (right) by \textcite{zingg.2008a}.
+	}
+    \label{fig:cryo-fib-zingg-results2}
+\end{figure}

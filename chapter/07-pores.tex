@@ -1024,7 +1024,7 @@ Therefore, it has been decided to use a faster heating rate of \SI{2}{\kelvin\pe
 \begin{figure}[!htb]
     \centering
 	%\tikzsetnextfilename{ltdsc_result_C2S_melt_bar} % Gibt den Dateinamen der externen Grafik vor
-	\begin{subfigure}{.49\textwidth}
+	\begin{subfigure}[t]{.49\textwidth}
 	  \begin{tikzpicture}
 		\begin{axis}[
 			width  = \textwidth,
@@ -1091,7 +1091,7 @@ Therefore, it has been decided to use a faster heating rate of \SI{2}{\kelvin\pe
  	  \label{fig:ltdsc_result_C2S_melt_bar}
 	\end{subfigure}
 	\hfill
-	\begin{subfigure}{.49\textwidth}
+	\begin{subfigure}[t]{.49\textwidth}
 	  \begin{tikzpicture}
 		\begin{axis}[
 			width  = \textwidth,
@@ -1110,7 +1110,6 @@ Therefore, it has been decided to use a faster heating rate of \SI{2}{\kelvin\pe
 				\SI{28}{\day}
 			},
 			xtick = data,
-			scaled y ticks = false,
 			enlarge x limits=0.15,
 			ymin=0,
 			legend cell align=left,
@@ -1487,10 +1486,13 @@ The images themselves, also give the impression that the \ac{PUS} has a signific
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}{0.49\textwidth}
-		\includegraphics[width=\textwidth]{particle-dist/LC3/noPUS/segmented.png}
+		\includegraphics[width=\textwidth]{particle-dist/LC3/noPUS/segmented.pdf}
 	\end{subfigure}
 
-    \caption{\ac{FIB}-sections of fresh \ac{LC3}-paste, reference, \ac{wb}=\num{0.5}, \SI{20}{\min}. Denoised \ac{BSE}-image (left) and segmented image (right, white: \ac{LC3}, black: water)}
+    \caption{
+		\ac{FIB}-sections of fresh \ac{LC3}-paste, reference, \ac{wb}=\num{0.5}, \SI{20}{\min}.
+		Denoised \ac{BSE}-image (left) and segmented image (right, white: unprocessed \ac{LC3}, yellow: \ac{LC3} particles used for the analysis, red: included measurements, black: unprocessed pore space).
+	}
     \label{fig:cryo-fib-lc3a}
 \end{figure}
 
@@ -1503,15 +1505,20 @@ The images themselves, also give the impression that the \ac{PUS} has a signific
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}{0.49\textwidth}
-		\includegraphics[width=\textwidth]{particle-dist/LC3/PUS/segmented.png}
+		\includegraphics[width=\textwidth]{particle-dist/LC3/PUS/segmented.pdf}
 	\end{subfigure}
 
-    \caption{\ac{FIB}-sections of fresh \ac{LC3}-paste, \ac{PUS}, \ac{wb}=\num{0.5}, \SI{20}{\min}. Denoised \ac{BSE}-image (left) and segmented image (right, white: \ac{LC3}, black: water)}
+    \caption{
+		\ac{FIB}-sections of fresh \ac{LC3}-paste, \ac{PUS}, \ac{wb}=\num{0.5}, \SI{20}{\min}.
+		Denoised \ac{BSE}-image (left) and segmented image (right, white: unprocessed \ac{LC3}, yellow: \ac{LC3} particles used for the analysis, red: included measurements, black: unprocessed pore space).
+	}
     \label{fig:cryo-fib-lc3b}
 \end{figure}
 
 The images have a very low evaluable particle count (untreated: \num{633}, \ac{PUS}: \num{436}), which is due to the small area of the \ac{FIB}-\ac{SEM} images.
 This also included particles that would usually considered to be too close to the image border.
+However, some particles were excluded from the analysis due to their unfavorable particle shape.
+This particularly affects the \ac{PUS}-treated sample as can be seen in Figure~\ref{fig:cryo-fib-lc3a} and \ref{fig:cryo-fib-lc3b}.
 The low particle count is reflected in the low data density of the histograms in Figure~\ref{fig:cryo-fib-lc3-results}.
 
 \begin{figure}[htb!]
@@ -1526,49 +1533,110 @@ The low particle count is reflected in the low data density of the histograms in
 	\end{subfigure}
 
     \caption{
-		Particle distance to particle diameter distribution of \SI{20}{\min} old \ac{LC3} paste without (left) and with (right) the application of \ac{PUS}. The mean distance between particles decreased from \SI{0.31(0.16)}{\micro\meter} and \SI{0.27(0.14)}{\micro\meter}, which is insignificant. The yellow histograms are directly compared in Figure~\ref{fig:cryo-fib-lc3-results_2}
+		Particle distance to particle diameter distribution of \SI{20}{\min} old \ac{LC3} paste without (left) and with (right) the application of \ac{PUS}. The mean distance between particles decreased from \SI{0.31(0.16)}{\micro\meter} and \SI{0.27(0.14)}{\micro\meter}, which is insignificant. The yellow histograms are directly compared in Figure~\ref{fig:cryo-fib-results_2a}
 	}
     \label{fig:cryo-fib-lc3-results}
 \end{figure}
 
-As can be seen better in Figure~\ref{fig:cryo-fib-lc3-results_2}, especially the less narrow particle distribution in the untreated specimen is visible in the data of the untreated specimen.
+As can be seen better in Figure~\ref{fig:cryo-fib-results_2a}, especially the less narrow particle distribution in the untreated specimen is visible in the data of the untreated specimen.
 This becomes especially clear by the higher amount of larger particle distances above \SI{1}{\micro\meter}.
 This fits to the subjective appearance of the particle distribution.
 
 \begin{figure}[H]
     \centering
 
-	\begin{tikzpicture}
-		\begin{axis}[ybar, bar width=.0193,
-			xmin=0, xmax=3,
-							ymin=0, ymax=1,
-							width=\linewidth,
-							height=.25\textheight,
-							legend style={at={(.99,.98)},anchor=north east, style={column sep=3pt}},
-							legend columns = 2,
-							ymajorticks=false,
-							xlabel={particle distance \si{\micro\meter}},
-							ylabel={normed intensity},
-							grid=both,
-							grid style={line width=.1pt, draw=gray!10}
-						  ]
+	\begin{subfigure}[t]{0.495\textwidth}
+		\begin{tikzpicture}
+			\begin{axis}[
+				width  = 1.1\textwidth,
+				height = .3\textheight,
+				ybar,
+				bar width=.0193, % pixel width of the raw image
+				xmin=0, xmax=3,
+				ymin=0, ymax=1,
+				legend style={at={(.99,.98)},anchor=north east, style={column sep=3pt}},
+				legend columns = 1,
+				ymajorticks=false,
+				xlabel={particle distance \si{\micro\meter}},
+				ylabel={normed intensity},
+				grid=both,
+				grid style={line width=.1pt, draw=gray!10},
+				legend cell align={left},
+			]
 
-						  \addplot[fill=blue, draw=none, mark=none, opacity=0.5, draw opacity=0] table [x=X_center,y=S, col sep=comma] {figures/particle-dist/LC3/LC3_border.csv};
-						  \addlegendentry{ \ac{LC3} };
+				\addplot[fill=blue, draw=none, mark=none, opacity=0.5, draw opacity=0] table [x=X_center,y=S, col sep=comma] {figures/particle-dist/LC3/LC3_border.csv};
+				\addlegendentry{ \ac{LC3} };
 
-						  \addplot[fill=red, draw=none, mark=none, opacity=0.5, draw opacity=0] table [x=X_center,y=S, col sep=comma] {figures/particle-dist/LC3/LC3+PUS_border.csv};
-						  \addlegendentry{ \ac{LC3}+\ac{PUS}};
+				\addplot[fill=red, draw=none, mark=none, opacity=0.5, draw opacity=0] table [x=X_center,y=S, col sep=comma] {figures/particle-dist/LC3/LC3+PUS_border.csv};
+				\addlegendentry{ \ac{LC3}+\ac{PUS}};
 
-						  \draw[->, thick, black] (axis cs:1.2,0.4) -- ++(-0.1,-0.1)
-						  node[anchor=south west, font=\footnotesize, xshift=10pt] {\begin{tabular}{@{}l@{}}more larger particle distances \\ in the untreated specimen\end{tabular}};
-        \end{axis}
-	\end{tikzpicture}
+				\draw[->, thick, black] (axis cs:1.2,0.4) -- ++(-0.1,-0.1)
+				node[anchor=south west, font=\footnotesize, yshift=10pt] {\begin{tabular}{@{}l@{}}higher distances \\ are more prevalent \\ in untreated specimen
+				\end{tabular}};
+			\end{axis}
+		\end{tikzpicture}
+		\caption{\SI{20}{\min} old \ac{LC3} paste without (blue) and with (red) the application of \ac{PUS}.} %  The mean distance between particles decreased from \SI{0.33(0.17)}{\micro\meter} and \SI{0.24(0.15)}{\micro\meter}.
+		\label{fig:cryo-fib-results_2a}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{0.495\textwidth}
+		\begin{tikzpicture}
+			\begin{axis}[
+				width  = 1.1\textwidth,
+				height = .3\textheight,
+				ybar,
+				bar width=.030304, % pixel width of the raw image
+				xmin=0, xmax=3,
+				ymin=0, ymax=1,
+				legend style={at={(.99,.98)},anchor=north east, style={column sep=3pt}},
+				legend columns = 1,
+				ymajorticks=false,
+				xlabel={particle distance \si{\micro\meter}},
+				ylabel={normed intensity},
+				grid=both,
+				grid style={line width=.1pt, draw=gray!10},
+				yticklabel pos=right,
+				legend cell align={left},
+			]
 
-    \caption{Particle distance distribution of \SI{20}{\min} old \ac{LC3} paste without (left) and with (right) the application of \ac{PUS}. The mean distance between particles decreased from \SI{0.33(0.17)}{\micro\meter} and \SI{0.24(0.15)}{\micro\meter}.}
-    \label{fig:cryo-fib-lc3-results_2}
+				\addplot[fill=cyan, draw=none, mark=none, opacity=0.5, draw opacity=0] table [x=X_center,y=S, col sep=comma] {figures/particle-dist/zing.2008a/f5_histogram.csv};
+				\addlegendentry{ \acs*{OPC}, no \acs*{PCE}};
+
+				\addplot[fill=darkred, draw=none, mark=none, opacity=0.5, draw opacity=0] table [x=X_center,y=S, col sep=comma] {figures/particle-dist/zing.2008a/f7_histogram.csv};
+				\addlegendentry{ \acs*{OPC}, \acs*{PCE}};
+
+				\draw[->, thick, black] (axis cs:1.2,0.48) -- ++(-0.1,-0.1)
+				node[anchor=south west, font=\footnotesize, yshift=10pt] {\begin{tabular}{@{}l@{}}higher distances \\ are more prevalent \\ in untreated specimen\end{tabular}};
+			\end{axis}
+			\label{fig:cryo-fib-results_2b}
+		\end{tikzpicture}
+		\caption{Fresh \ac{OPC} paste without (cyan) and with (dark red) the addition of \acs*{PCE}.
+		Source images from \cite{zingg.2008a}.}
+	\end{subfigure}
+
+    \caption{
+		Particle distance distributions of \acs*{LC3} and \acs*{OPC} paste comparing the influence of \acs*{PUS} and \acs*{PCE} respectively.
+		Both methods shift the particle distance distribution to smaller distances, which means they have a dispersing effect.}
+    \label{fig:cryo-fib-results_2}
 \end{figure}
 
 These data illustrate, that the \ac{PUS} is able to disperse the particles of the \ac{LC3} more homogeneously.
 However, the image data acquired by cryo-\ac{FIBnt} is not very significant due to its small imaged area and therefore limited representativeness.
 
-% TODO: add Fig 5 and 7 from zingg.2008a to the analysis - they should be good enough for an measurement
+Due to the expensive experiments, two figures published by \textcite{zingg.2008a} (Figures~\num{5} and \num{7}) were also used to test the method.
+They used cryo-\ac{FIB}-\ac{SEM} to image the influence of \ac{PCE} on the fine fraction of \ac{OPC} in fresh cement pastes (\ac{wb}=\num{0.5}).
+The resulting images show a distinct difference in the particle distribution.
+The images were processed similar to the \ac{LC3} specimens.
+
+The particle distance distributions for the \ac{OPC}+\ac{PCE} experiments from \textcite{zingg.2008a} are shown in Figure~\ref{fig:cryo-fib-results_2b} and show a more significant difference in the particle distribution.
+The untreated \ac{OPC} shows more large particle distances than the specimen mixed with \ac{PCE}.
+The segmentation results can be found in Figure~\ref{fig:cryo-fib-zingg-results} and the particle distance to particle diameter distributions in Figure~\ref{fig:cryo-fib-zingg-results2}.
+
+The results of both test series show that \ac{PUS} and \ac{PCE} have as expected a dispersing effect on the particles in fresh cement pastes, which can be visualized and evaluated objectively by means of cryo-\ac{FIB}-\ac{SEM}. % SRC
+
+
+% image preparation for images from \cite{zingg.2008a}:
+% -> manual background removal (shadowing)
+% -> denoising (despecle) using ImageJ
+% -> segmentation using ImageJ (thresholding+watershed)
+% -> application of the particle distance measurement method from Chapter~\ref{chap:hydrate-rim} (see Section~\ref{sec:cryo_fib_sem}) to the segmented image

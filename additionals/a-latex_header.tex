@@ -119,15 +119,12 @@
     {}
     {\setunit{\subtitlepunct}\printfield{subtitle}}%
   \newunit\newblock
-  % Erscheinungsjahr
   \printfield{year}%
   \newunit\newblock
-  % Weitere Felder, z.B. Ort, Verlag oder Notiz (anpassen, falls benötigt)
   \printfield{location}%
   \newunit\newblock
   \printfield{publisher}%
   \newunit\newblock
-  % URL hinzufügen
   \printfield{url}%
   \usebibmacro{finentry}%
 }
@@ -138,7 +135,6 @@
   \usebibmacro{begentry}%
   \printfield[number]{number}%
   \newunit\newblock
-  % Titel (mit möglichem Untertitel)
   \printfield[title]{title}%
   \iffieldundef{subtitle}
     {}
@@ -153,6 +149,24 @@
   \usebibmacro{finentry}%
 }
 \renewcommand{\bibfont}{\footnotesize} % set font size of bibliography to footnotesize
+
+\usepackage{hyphenat}
+%\newcommand{\buw}{Bau-haus\-Uni-ver-si-tät}
+%\hyphenation{\buw}
+
+% replace - with hyphen in journal title to avoid line break issues
+\DeclareSourcemap{
+  \maps[datatype = bibtex]{
+    \map{
+     \step[fieldsource = journaltitle, match = \regexp{-}, replace = \regexp{\{\\hyp\{\}\}}]
+    }
+  }
+}
+
+% https://tex.stackexchange.com/questions/134191/line-breaks-of-long-urls-in-biblatex-bibliography
+\setcounter{biburllcpenalty}{7000}
+\setcounter{biburlucpenalty}{8000}
+
 
 % make family names in small caps
 \ifxetex
@@ -364,17 +378,6 @@
 ]{doclicense}
 \usepackage{qrcode}
 
-\usepackage{hyphenat}
-%\newcommand{\buw}{Bau-haus\-Uni-ver-si-tät}
-%\hyphenation{\buw}
-\hyphenation{Ka-lo-ri-meter-aus-wer-tung}
 
-\DeclareSourcemap{
-  \maps[datatype = bibtex]{
-    \map{
-     \step[fieldsource = journaltitle, match = \regexp{-}, replace = \regexp{\{\\hyp\{\}\}}]
-    }
-  }
-}
 
 \usepackage[shortcuts]{extdash}

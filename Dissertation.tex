@@ -60,8 +60,6 @@
 			\input{additionals/c-acknowledgements}
 		\fi
 
-		%\pagenumbering{Roman}  % set page numbering to Roman
-
 		\selectlanguage{english}
 		\tableofcontents  % print table of contents
 		\input{additionals/d-symbols}  % include list of symbols
@@ -73,28 +71,28 @@
 
 		\input{chapter/01-introduction}
 
-		\chapter{Literature}
-			\input{chapter/02-lit-SEM}
-			\input{chapter/02-lit-cem-hyd}
-			\input{chapter/02-lit-porosity}
-			\input{chapter/02-lit-image-processing}
-			\input{chapter/02-lit-modelling}
+		 \chapter{Literature}
+		 	\input{chapter/02-lit-SEM}
+		 	\input{chapter/02-lit-cem-hyd}
+		 	\input{chapter/02-lit-porosity}
+		 	\input{chapter/02-lit-image-processing}
+		 	\input{chapter/02-lit-modelling}
 
 		\input{chapter/03-methods}
-		%\input{chapter/04-algorithms}
-		%\input{chapter/05-hydrate-rim}
-		%\input{chapter/06-correl-micro}
+		\input{chapter/04-algorithms}
+		% \input{chapter/05-hydrate-rim}
+		% \input{chapter/06-correl-micro}
 		\input{chapter/07-pores}
 
-		%\input{chapter/90-summary}
+		\input{chapter/90-summary}
 
 		\input{chapter/99-bibliography}
 
 	\appendix  % begin appendix
 		\ifdefined\DRAFT
-		\setkeys{Gin}{draft}
+			\setkeys{Gin}{draft}
 		\fi
-		\input{chapter/AA-appendix}  % include appendix content
+		% \input{chapter/AA-appendix}  % include appendix content
 
 	\backmatter
 		\selectlanguage{ngerman}

@@ -290,12 +290,13 @@
 				fontsize=12pt, % DO NOT REMOVE, else the package will generate an errors
 				]{draftwatermark}
 	\usepackage{datetime}
-	\def\myTypeOfDocumentPDF{\myTypeOfDocument\ (Entwurfsversion)}
+	\def\myTypeOfDocumentPDF{\myTypeOfDocument\ (draft version)}
 	%define footer watermark for draft version
-	\ifoot*{\selectlanguage{ngerman}\color{gray} (Entwurf vom \today, \currenttime Uhr)}
+	\ifoot*{\selectlanguage{ngerman}\color{gray} (Draft from \today, \currenttime)}
 \else
 	\def\myTypeOfDocumentPDF{\myTypeOfDocument}
 \fi
+\date{\today}
 
 % Set line spacing to 1.15
 \setstretch{1.15}
@@ -357,11 +358,11 @@
 %%%%%% Hyperref Settings
 %\usepackage{hyperxmp} %https://tex.stackexchange.com/questions/3708/hyperref-enquotes-metadata
 \usepackage[hidelinks,  % hide links in pdf document
-			pdftitle    = {\myTitle},
+			pdfusetitle,
 			pdfsubject  = {\myTypeOfDocumentPDF},
-			pdfauthor   = {\myAuthor},
 			pdfkeywords = {{\myKeywords}}, %this does just not work as I expect
-			pdfproducer = {\myUniversity},
+			pdfproducer = {{\myUniversity}},
+			%pdfcreator  = {}, %software used
 			breaklinks  = true
 			]{hyperref}
 

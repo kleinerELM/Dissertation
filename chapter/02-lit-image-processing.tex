@@ -191,7 +191,7 @@ In the selected publications two main methods were used for this statistical ana
         \label{fig:lit_box_methods_b}
 	\end{subfigure}
     \caption{
-        Example of the box grow \cite{bosl.1998,kameda.2006} and box count method \cite{mouret.2001,hlavacek.2015} applied to an segmented image of \SI{28}{\day} hydrated alite.
+        Example of the box grow and \acs{BC} method applied to an segmented image of \SI{28}{\day} hydrated alite.
         Red: \ac{CSH}, yellow: alite, cyan: \ac{CH}, black: pores.
     }
     \label{fig:lit_box_methods}
@@ -199,128 +199,9 @@ In the selected publications two main methods were used for this statistical ana
 
 The code used to compare both methods is publicly available \cite{kleiner.2024b}. %-> https://github.com/kleinerELM/box_count_method
 
-\subsubsection{Box grow method} % the method names are not great
-\label{sec:box_growth}
+\subsubsection{\acl*{BC} method} % the method names are not great
 
-One of the methods was introduced by \textcite{bosl.1998} and also used by \textcite{kameda.2006}.
-It works by selecting a growth point in the center of an image.
-From this point a box will grow stepwise as illustrated in Figure~\ref{fig:lit_box_methods_a}.
-This method will therefore be called \textsc{box grow method} from heron.
-The phase composition of these growing boxes is constantly measured.
-To initiate multiple experiments within an image, the growth point has to be selected randomly within a limited window in the center of the image.
-This allows to calculate a standard deviation.
-Figure~\ref{fig:lit_box_growth} shows the result of such an analysis using an image of \SI{28}{\day} hydrated alite.
-This image has to be segmented beforehand into pores, unhydrated alite, \ac{CH} and \ac{CSH}.
-The standard deviation in Figure~\ref{fig:lit_box_growth_b}indicates, the shrinking uncertainty with a larger area analysed.
-However, $\sigma$ is shrinking unsteadily.
-Since the location of larger phases does not change in the image used, even the randomized starting point cant remove the bias. This can be reduced by using more source images.
-
-\begin{figure}[H]
-    \centering
-    \begin{subfigure}[t]{0.49\linewidth}
-      \begin{tikzpicture}
-        \begin{axis}[
-                xmin=0, xmax=1,
-                ymin=0, ymax=80,
-                width=\linewidth,
-                xlabel={image area in \si{\square\milli\meter}},
-                ylabel={phase amount \si{\percent}},
-                xtick={0,0.25,...,1},
-				grid=major,
-				grid style={line width=.1pt, draw=gray!10},
-                xticklabel style={
-                        /pgf/number format/fixed,
-                        /pgf/number format/precision=2,
-                        /pgf/number format/fixed zerofill,
-                },
-            ]
-
-            %Pores
-            \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}, ] {figures/literature/C3S_28d_area_growth.csv};
-            \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{1}+\thisrowno{2}}, ] {figures/literature/C3S_28d_area_growth.csv};
-
-            \addplot [fill=black, fill opacity=0.2,forget plot] fill between [of=A and B];
-
-            \addplot [ mark=none, black, opacity=0.5 ] table [x index=9, y index=1, col sep=comma] {figures/literature/C3S_28d_area_growth.csv};
-            %\addlegendentry{pores};
-
-            %CSH
-            \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{3}-\thisrowno{4}}, filter discard warning=false ] {figures/literature/C3S_28d_area_growth.csv};
-            \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{3}+\thisrowno{4}}, filter discard warning=false ] {figures/literature/C3S_28d_area_growth.csv};
-
-            \addplot [fill=red, fill opacity=0.2,forget plot] fill between [of=A and B];
-
-            \addplot [ mark=none, red, opacity=0.5 ] table [x index=9, y index=3, col sep=comma, filter discard warning=false] {figures/literature/C3S_28d_area_growth.csv};
-            %\addlegendentry{\ac{CSH}};
-
-            %CH
-            \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{5}-\thisrowno{6}}, filter discard warning=false ] {figures/literature/C3S_28d_area_growth.csv};
-            \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{5}+\thisrowno{6}}, filter discard warning=false ] {figures/literature/C3S_28d_area_growth.csv};
-
-            \addplot [fill=cyan, fill opacity=0.2,forget plot] fill between [of=A and B];
-
-            \addplot [ mark=none, cyan, opacity=0.5 ] table [x index=9, y index=5, col sep=comma, filter discard warning=false] {figures/literature/C3S_28d_area_growth.csv};
-            %\addlegendentry{\ac{CH}};
-
-            %alite
-            \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{7}-\thisrowno{8}}, filter discard warning=false ] {figures/literature/C3S_28d_area_growth.csv};
-            \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{7}+\thisrowno{8}}, filter discard warning=false ] {figures/literature/C3S_28d_area_growth.csv};
-
-            \addplot [fill=yellow, fill opacity=0.2,forget plot] fill between [of=A and B];
-
-            \addplot [ mark=none, yellow, opacity=0.5 ] table [x index=9, y index=7, col sep=comma, filter discard warning=false] {figures/literature/C3S_28d_area_growth.csv};
-            %\addlegendentry{alite};
-        \end{axis}
-      \end{tikzpicture}
-      \caption{Phase composition.}
-      \label{fig:lit_box_growth_a}
-    \end{subfigure}
-    \hfill%
-    \begin{subfigure}[t]{0.49\linewidth}
-      \begin{tikzpicture}
-		\begin{axis}[%red,
-            xmin=0, xmax=1,
-            ymin=0, ymax=10,
-            width=\linewidth,
-            legend style={at={(.98,.98)},anchor=north east},
-            %axis y line=right,
-            ylabel near ticks, yticklabel pos=right,
-			xlabel={image area in \si{\square\milli\meter}},
-			ylabel={standard deviation $\sigma$ in \si{\percent}},
-            grid=major,
-            grid style={line width=.1pt, draw=gray!10},
-            xticklabel style={
-                    /pgf/number format/fixed,
-                    /pgf/number format/precision=2,
-                    /pgf/number format/fixed zerofill,
-            },
-		  ]
-          \addplot[black, smooth, tension=0.2, no markers] table [x index=9, col sep=comma,y index=2, filter discard warning=false] {figures/literature/C3S_28d_area_growth.csv};
-
-          \addplot[red, smooth, tension=0.2, no markers] table [x index=9, col sep=comma,y index=4, filter discard warning=false] {figures/literature/C3S_28d_area_growth.csv};
-
-          \addplot[cyan, smooth, tension=0.2, no markers] table [x index=9, col sep=comma,y index=6, filter discard warning=false] {figures/literature/C3S_28d_area_growth.csv};
-
-          \addplot[yellow, smooth, tension=0.2, no markers] table [x index=9, col sep=comma,y index=8, filter discard warning=false] {figures/literature/C3S_28d_area_growth.csv};
-
-          \addlegendentry{pores};
-          \addlegendentry{\ac{CSH}};
-          \addlegendentry{\ac{CH}};
-          \addlegendentry{alite};
-
-        \end{axis}
-      \end{tikzpicture}
-      \caption{Standard deviation of the phase composition.}
-      \label{fig:lit_box_growth_b}
-    \end{subfigure}
-    \caption{Example of the results of the box grow method as explained in \cite{bosl.1998,kameda.2006} and the respective standard deviations for 100 random starting points.}
-    \label{fig:lit_box_growth}
-\end{figure}
-
-
-\subsubsection{Box count method} % the method names are not great
-
-\textcite{mouret.2001} and \textcite{hlavacek.2015} tried to get an indication of the statistical representativeness of the phase composition within an image and introduced a method, which is called \textsc{box count method} from heron.
+The \ac{BC} method is an often used technique to get an indication of the statistical representativeness of the phase composition within an image \cite{mouret.2001, hlavacek.2015, cosenza.2019}.
 This method splits an image or multiple images of the same material in smaller sub-tiles (see Figure~\ref{fig:lit_box_methods_b}).
 Then, a growing number of tiles is randomly selected from this tile-pool.
 Of this selection, the phase composition is then remeasured.
@@ -435,12 +316,135 @@ Compared to Figure~\ref{fig:lit_box_growth_b}, $\sigma$ is shrinking much more c
 The method is fast and works well for area calculations.
 However, it ignores the influence of larger inhomogeneities, as the rather large \ac{CH}-areas in the example image.
 
+\subsubsection{Box grow method} % the method names are not great
+\label{sec:box_growth}
+
+an alteration of the \ac{BC} method was used by \textcite{kameda.2006} and others \cite{klaver.2012, }.
+It which works by randomly selecting a growth point in the center of an image and gradually increasing the box size around this point
+From this point a box will grow stepwise as illustrated in Figure~\ref{fig:lit_box_methods_a}.
+This method will therefore be called \textsc{box grow method} from heron.
+The phase composition of these growing boxes is constantly measured.
+To initiate multiple experiments within an image, the growth point has to be selected randomly within a limited window in the center of the image.
+This allows to calculate a standard deviation.
+Figure~\ref{fig:lit_box_growth} shows the result of such an analysis using an image of \SI{28}{\day} hydrated alite.
+This image has to be segmented beforehand into pores, unhydrated alite, \ac{CH} and \ac{CSH}.
+The standard deviation in Figure~\ref{fig:lit_box_growth_b}indicates, the shrinking uncertainty with a larger area analysed.
+However, $\sigma$ is shrinking unsteadily.
+Since the location of larger phases does not change in the image used, even the randomized starting point cant remove the bias.
+This can be reduced by using more source images.
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[t]{0.49\linewidth}
+      \begin{tikzpicture}
+        \begin{axis}[
+                xmin=0, xmax=1,
+                ymin=0, ymax=80,
+                width=\linewidth,
+                xlabel={image area in \si{\square\milli\meter}},
+                ylabel={phase amount \si{\percent}},
+                xtick={0,0.25,...,1},
+				grid=major,
+				grid style={line width=.1pt, draw=gray!10},
+                xticklabel style={
+                        /pgf/number format/fixed,
+                        /pgf/number format/precision=2,
+                        /pgf/number format/fixed zerofill,
+                },
+            ]
+
+            %Pores
+            \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}, ] {figures/literature/C3S_28d_area_growth.csv};
+            \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{1}+\thisrowno{2}}, ] {figures/literature/C3S_28d_area_growth.csv};
+
+            \addplot [fill=black, fill opacity=0.2,forget plot] fill between [of=A and B];
+
+            \addplot [ mark=none, black, opacity=0.5 ] table [x index=9, y index=1, col sep=comma] {figures/literature/C3S_28d_area_growth.csv};
+            %\addlegendentry{pores};
+
+            %CSH
+            \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{3}-\thisrowno{4}}, filter discard warning=false ] {figures/literature/C3S_28d_area_growth.csv};
+            \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{3}+\thisrowno{4}}, filter discard warning=false ] {figures/literature/C3S_28d_area_growth.csv};
+
+            \addplot [fill=red, fill opacity=0.2,forget plot] fill between [of=A and B];
+
+            \addplot [ mark=none, red, opacity=0.5 ] table [x index=9, y index=3, col sep=comma, filter discard warning=false] {figures/literature/C3S_28d_area_growth.csv};
+            %\addlegendentry{\ac{CSH}};
+
+            %CH
+            \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{5}-\thisrowno{6}}, filter discard warning=false ] {figures/literature/C3S_28d_area_growth.csv};
+            \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{5}+\thisrowno{6}}, filter discard warning=false ] {figures/literature/C3S_28d_area_growth.csv};
+
+            \addplot [fill=cyan, fill opacity=0.2,forget plot] fill between [of=A and B];
+
+            \addplot [ mark=none, cyan, opacity=0.5 ] table [x index=9, y index=5, col sep=comma, filter discard warning=false] {figures/literature/C3S_28d_area_growth.csv};
+            %\addlegendentry{\ac{CH}};
+
+            %alite
+            \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{7}-\thisrowno{8}}, filter discard warning=false ] {figures/literature/C3S_28d_area_growth.csv};
+            \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{7}+\thisrowno{8}}, filter discard warning=false ] {figures/literature/C3S_28d_area_growth.csv};
+
+            \addplot [fill=yellow, fill opacity=0.2,forget plot] fill between [of=A and B];
+
+            \addplot [ mark=none, yellow, opacity=0.5 ] table [x index=9, y index=7, col sep=comma, filter discard warning=false] {figures/literature/C3S_28d_area_growth.csv};
+            %\addlegendentry{alite};
+        \end{axis}
+      \end{tikzpicture}
+      \caption{Phase composition.}
+      \label{fig:lit_box_growth_a}
+    \end{subfigure}
+    \hfill%
+    \begin{subfigure}[t]{0.49\linewidth}
+      \begin{tikzpicture}
+		\begin{axis}[%red,
+            xmin=0, xmax=1,
+            ymin=0, ymax=10,
+            width=\linewidth,
+            legend style={at={(.98,.98)},anchor=north east},
+            %axis y line=right,
+            ylabel near ticks, yticklabel pos=right,
+			xlabel={image area in \si{\square\milli\meter}},
+			ylabel={standard deviation $\sigma$ in \si{\percent}},
+            grid=major,
+            grid style={line width=.1pt, draw=gray!10},
+            xticklabel style={
+                    /pgf/number format/fixed,
+                    /pgf/number format/precision=2,
+                    /pgf/number format/fixed zerofill,
+            },
+		  ]
+          \addplot[black, smooth, tension=0.2, no markers] table [x index=9, col sep=comma,y index=2, filter discard warning=false] {figures/literature/C3S_28d_area_growth.csv};
+
+          \addplot[red, smooth, tension=0.2, no markers] table [x index=9, col sep=comma,y index=4, filter discard warning=false] {figures/literature/C3S_28d_area_growth.csv};
+
+          \addplot[cyan, smooth, tension=0.2, no markers] table [x index=9, col sep=comma,y index=6, filter discard warning=false] {figures/literature/C3S_28d_area_growth.csv};
+
+          \addplot[yellow, smooth, tension=0.2, no markers] table [x index=9, col sep=comma,y index=8, filter discard warning=false] {figures/literature/C3S_28d_area_growth.csv};
+
+          \addlegendentry{pores};
+          \addlegendentry{\ac{CSH}};
+          \addlegendentry{\ac{CH}};
+          \addlegendentry{alite};
+
+        \end{axis}
+      \end{tikzpicture}
+      \caption{Standard deviation of the phase composition.}
+      \label{fig:lit_box_growth_b}
+    \end{subfigure}
+    \caption{Example of the results of the box grow method as explained in \cite{bosl.1998,kameda.2006} and the respective standard deviations for 100 random starting points.}
+    \label{fig:lit_box_growth}
+\end{figure}
+
+\textcite{kameda.2006} pointed out, that the data fluctuation of the measured porosity and permeability using this method becomes negligible, when the cube size exceeds four grain radii.
+
 % relativer Fehler von hlavacek übernehmen
 
 % \cite{cosenza.2019} -> describes REA, box counting method, the statistical method (term from zhang.2000, here called box grow method)
 % \cite{yeong.1998} -> two points correlation function, implemented in Python in: https://github.com/pourion/simulated_annealing/commit/f018edd5e0580d1621826cd3e1afb8f5283a61fa
 % variogram (concenza.2019) https://scikit-gstat.readthedocs.io/en/latest/userguide/variogram.html
 
+% lydzba.2014 Microstructure measures and the minimum size of a representative volume element: 2D numerical study
+% fauchille.2018
 
 %covariogram
 %https://en.wikipedia.org/wiki/Covariance_function

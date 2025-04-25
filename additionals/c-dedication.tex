@@ -2,7 +2,11 @@
 
 \vspace*{4\baselineskip}
 \begin{center}
-\includegraphics[height=11cm]{figures/Titlepage.pdf}
+    \ifdefined\PRINTABLE
+        \includegraphics[height=11cm]{titlepage/Titlepage5.pdf}
+    \else
+        \animategraphics[poster=last,autoplay,height=11cm]{3}{titlepage/Titlepage}{0}{5}
+    \fi
 \end{center}
 
 \vspace*{\stretch{1}}

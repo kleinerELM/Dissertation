@@ -146,7 +146,11 @@ The mask and the specimen surface are arranged in a way that only \SIrange{20}{1
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}{0.58\textwidth}
-		\includegraphics[width=\textwidth]{methods/bib_scheme.pdf}
+		\ifdefined\PRINTABLE
+			\includegraphics[height=\textheight]{methods/bib_scheme/bib_scheme6.pdf}
+		\else
+			\animategraphics[loop,poster=last,autoplay,width=\textwidth]{3}{methods/bib_scheme/bib_scheme}{1}{6}
+		\fi
 		\caption{Principle of \ac{ArBIB} sectioning of a stationary specimen using a tungsten blade, side view. Image based on \cite{kleiner.2021a}}
 		\label{fig:bib_scheme}
 	\end{subfigure}

@@ -41,13 +41,19 @@ The `ink-bottle' effect (see Figure~\ref{fig:mip-bottle-neck}) is often mentione
 \begin{figure}[!ht]
     \centering
 
-	\includegraphics[width=.95\textwidth]{mip/bottle-neck.pdf}
+    \ifdefined\PRINTABLE
+		\includegraphics[width=.95\textwidth]{mip/bottle-neck_6.pdf}
+    \else
+        \animategraphics[autoplay,poster=6,width=.959\linewidth]{1}{mip/bottle-neck_}{0}{6}
+    \fi
+
+	
     \caption{
 		Illustration of the ink-bottle effect (not to scale).
 		Sample: grey; \ce{Hg}: colored by pressure (a) or {\color{blue}blue} (c).
 		During the intrusion (a), the pores will be filled from {\color{green}$d_1$} to {\color{orange}$d_3$}, while the small pore diameter {\color{red}$d_4$} (bottle-neck) is blocking the access to the larger pore with the diameter {\color{red}$d_5$}.
 		Therefore, the pore volume $V_5$ is measured together with $V_4$ at pressure $p_4$ (c).
-		After the depressurisation, mercury will remain trapped within the pores (c, blue), causing a hysteresis curve (b).
+		After the depressurisation, mercury will remain trapped within the pores (c, {\color{blue}blue}), causing a hysteresis curve (b).
 	}
     \label{fig:mip-bottle-neck}
 \end{figure}
@@ -178,7 +184,12 @@ If a larger pore (D) is only connected to smaller pore (C) or is isolated, it ca
 \begin{figure}[!ht]
     \centering
 
-	\includegraphics[width=.5\textwidth]{ltdsc/ltdsc_freezing.pdf}
+	\ifdefined\PRINTABLE
+		\includegraphics[width=.5\textwidth]{ltdsc/ltdsc_freezing3.pdf}
+	\else
+		\animategraphics[loop,poster=last,autoplay,width=.5\textwidth]{1}{ltdsc/ltdsc_freezing}{0}{3}
+	\fi
+
     \caption{Scheme of the freezing process within a connected pore system. Freezing happens sequentially from $d_1$ to $d_2$, followed by $d_3$ and $d_4$ at once. Based on \textcite{sun.2010}.}
     \label{fig:freeze}
 \end{figure}

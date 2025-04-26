@@ -28,15 +28,22 @@ For this thesis, \ac{MIP}, \ac{LTDSC}, \ac{HNMR} were used as complementary meth
 
 % Comparison of pore categories between different authors, from \cite{breugel.1997}, page 77
 
-\subsection{Mercury Intrusion Porosimetry (\acs*{MIP})}
+\subsection{\Acl*{MIP} (\acs*{MIP})}
 \label{sec:mip}
 % \cite{munch.2008} FIB vs MIP!!! (11.9 x10.7 x5.6 µm)
 %https://www.epfl.ch/labs/lmc/wp-content/uploads/2019/08/03-Wioletta-Franco-MIP.pdf
-\ac{MIP} is a rather old and well known method to measure the \ac{PSD} of porous materials \cite{romberg.1978}.
+\ac{MIP} is a rather old and well known method, which is used to characterize the \ac{PSD} of a solid material between \SI{3.5}{\nano\meter} to \SI{500}{\micro\meter} by applying pressure to force mercury into the pores \cite{giesche.2002}. % \cite{romberg.1978}
+However, the pore size range is a a constant point of discussion in the literature and depends on the type of material to be measured. % cite?
+Mercury is used due to its non-wetting properties and the high surface tension \cite{giesche.2002}. % of \SI{4850}{\newton\per\meter} 
+The fundamental principle is governed by the \textsc{Washburn} equation, which relates the applied pressure required to force mercury into a cylindrical pore to the pore's radius, the surface tension of mercury, and the contact angle between mercury and the sample material.
+Smaller pores require significantly higher pressures for mercury intrusion.
+By precisely measuring the volume of mercury intruded into the sample at each pressure increment, a detailed pore size distribution can be obtained.
+
+In 2024, \textcite{georget.2024} still deemed \ac{MIP} as a reliable method, since it delivers similar volume of capillary porosity (defined as \SI{>\,5}{\nano\meter}) compared to \ac{HNMR}.
 According to \textcite{muller.2014} the \ac{MIP} technique allows to adequately quantify the capillary porosity of hydrated cement as long as it is dried properly using the solvent exchange method.
-However, it is unreliable to extract the porosity of \ac{CSH} as it overestimates the porosity up to a factor of \num{3} to \num{4} \cite{muller.2014}.
-\ac{MIP} is also deemed inappropriate by \textcite{diamond.2000} to measure the \ac{PSD} using of hydrated cement, since it `\textit{systematically misallocates the sizes of almost all of the volume of pores}' which is agreed upon by others \cite{chatterji.2001,giesche.2002}.
-The `ink-bottle' effect (see Figure~\ref{fig:mip-bottle-neck}) is often mentioned as reason for the misallocation.
+However, it was seen to be unreliable to extract the porosity of \ac{CSH} as it overestimates the porosity up to a factor of \num{3} to \num{4} \cite{muller.2014}.
+\ac{MIP} is also considered inappropriate by \textcite{diamond.2000} to measure the \ac{PSD} of hydrated cement, since it `\textit{systematically misallocates the sizes of almost all of the volume of pores}' which is agreed upon by others \cite{chatterji.2001,giesche.2002}.
+The `ink-bottle' effect (see Figure~\ref{fig:mip-bottle-neck}) is often mentioned as reason for this misallocation.
 
 \begin{figure}[!ht]
     \centering
@@ -46,7 +53,6 @@ The `ink-bottle' effect (see Figure~\ref{fig:mip-bottle-neck}) is often mentione
     \else
         \animategraphics[autoplay,poster=6,width=.959\linewidth]{1}{mip/bottle-neck_}{0}{6}
     \fi
-
 	
     \caption{
 		Illustration of the ink-bottle effect (not to scale).
@@ -58,7 +64,7 @@ The `ink-bottle' effect (see Figure~\ref{fig:mip-bottle-neck}) is often mentione
     \label{fig:mip-bottle-neck}
 \end{figure}
 
-\textcite{wang.2019} showed the damaged induced by \ac{MIP} using \ac{mCT}.
+\textcite{wang.2019} showed the damage induced by \ac{MIP} using \ac{mCT}.
 They came to the conclusion, that the pore space was increased by approximately \SI{7}{\percent} due to the mercury intrusion.
 The main affected pore size range was around 100-\SI{500}{\micro\meter}.
 Furthermore, \ac{MIP} requires dried specimens, leading to a cracked and therefore non-native microstructure \cite{chatterji.2001,wang.2019}.
@@ -81,12 +87,9 @@ Despite its flaws, \ac{MIP} is useful to measure the porosity of similar samples
 	\item \textcite{qian.2018} looked at the influence of metal intrusion using another alloy with an even lower melting point than \textsc{Wood}'s metal and analysed its distribution in the pore space using \ac{SEM} and \ac{mCT}
 \end{itemize}
 }
-%TODO:
-%bottle neck effect beschreiben? porengrößenbereich erwähnen.. da geht nochwas
 
-In contrast, \textcite{georget.2024} still see \ac{MIP} as a reliable method to measure open porosity down to a few \si{\nano\meter}.
 
-However, the technique is criticised since a long time \cite{juntgen.1966}
+%However, the technique is criticised since a long time \cite{juntgen.1966}
 
 
 

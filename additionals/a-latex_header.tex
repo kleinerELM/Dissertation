@@ -76,6 +76,7 @@
 			format=hang,  % Captionlabels with multiple lines are hanging
 			font={footnotesize, sf},  % changing font for caption label and
 			%text
+			singlelinecheck=false,
 			justification=justified,
 			labelfont=bf  % changing font only for caption text
 			]{caption}  % additional options for captions and required for subcaption package
@@ -250,6 +251,8 @@
 }
 \tikzset{every mark/.append style={solid}}
 \usetikzlibrary{spy,backgrounds}
+
+\usepackage[export]{adjustbox} % to crop images in figures
 \usepackage{array} %,tabularx
 
 
@@ -280,7 +283,7 @@
 \clearpairofpagestyles  % clear existing header and footer
 % without *: only on regular pages
 % with *: also on plain pages (like chapter beginning)
-\ohead{\sffamily\headmark}  % Inside show caption of chapter (left) / section (right); [\sffamily\leftmark] on plain pages allways chapter (leftmark)
+\ohead{\sffamily\headmark}  % Inside show caption of chapter (left) / section (right); [\sffamily\leftmark] on plain pages always chapter (leftmark)
 
 % Define footer
 \ofoot*{\sffamily\pagemark}  % Show page number
@@ -311,7 +314,7 @@
 \widowpenalty = 10000 \displaywidowpenalty = 10000
 
 % Defaults for figure environments
-\setkeys{Gin}{keepaspectratio=true}  % allways keep aspact ratio of figures
+\setkeys{Gin}{keepaspectratio=true}  % always keep aspect ratio of figures
 
 % Define enumerate end itemize environment defaults
 \setlist{nosep, itemsep=0.3ex}  % set margin of enumerate and itemize environment
@@ -338,7 +341,7 @@
 % Table enhancements
 % ########################
 
-% Adding new columntypes with option of width specification and vertical centering
+% Adding new column types with option of width specification and vertical centering
 % Example: \begin{tabular}{L{4.0cm}C{3cm}}
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash}m{#1}} % flush left with  width specification
 \newcolumntype{R}[1]{>{\raggedleft\arraybackslash}m{#1}} % flush right with  width specification
@@ -371,7 +374,6 @@
 \mbox{\chapappifchapterprefix{\nobreakspace}%
 \scalebox{3}{\color{gray}\sffamily\thechapter\autodot \color{black}$\vert$}\enskip}}
 
-\captionsetup{singlelinecheck=false,justification=raggedright}
 
 \usepackage[
     type={CC},

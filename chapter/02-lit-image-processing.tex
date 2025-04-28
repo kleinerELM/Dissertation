@@ -192,7 +192,7 @@ In the selected publications two main methods were used for this statistical ana
 	\end{subfigure}
     \caption{
         Example of the box grow and \acs{BC} method applied to an segmented image of \SI{28}{\day} hydrated alite.
-        Red: \ac{CSH}, yellow: alite, cyan: \ac{CH}, black: pores.
+        Red: {\color{red}\ac{CSH}}, yellow: {\color{orange}\ac{C3S}}, cyan: {\color{cyan}\ac{CH}}, black: pores.
     }
     \label{fig:lit_box_methods}
 \end{figure}
@@ -262,9 +262,9 @@ Compared to Figure~\ref{fig:lit_box_growth_b}, $\sigma$ is shrinking much more c
             \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{7}-\thisrowno{8}}, ] {figures/literature/C3S_28d_box_count.csv};
             \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{7}+\thisrowno{8}}, ] {figures/literature/C3S_28d_box_count.csv};
 
-            \addplot [fill=yellow, fill opacity=0.2,forget plot] fill between [of=A and B];
+            \addplot [fill=orange, fill opacity=0.2,forget plot] fill between [of=A and B];
 
-            \addplot [ mark=none, yellow, opacity=0.5 ] table [x index=9, y index=7, col sep=comma] {figures/literature/C3S_28d_box_count.csv};
+            \addplot [ mark=none, orange, opacity=0.5 ] table [x index=9, y index=7, col sep=comma] {figures/literature/C3S_28d_box_count.csv};
             %\addlegendentry{alite};
         \end{axis}
       \end{tikzpicture}
@@ -298,7 +298,7 @@ Compared to Figure~\ref{fig:lit_box_growth_b}, $\sigma$ is shrinking much more c
 
           \addplot[cyan, smooth, tension=0.5, no markers] table [x index=9, col sep=comma,y index=6] {figures/literature/C3S_28d_box_count.csv};
 
-          \addplot[yellow, smooth, tension=0.5, no markers] table [x index=9, col sep=comma,y index=8] {figures/literature/C3S_28d_box_count.csv};
+          \addplot[orange, smooth, tension=0.5, no markers] table [x index=9, col sep=comma,y index=8] {figures/literature/C3S_28d_box_count.csv};
           \addlegendentry{pores};
           \addlegendentry{\ac{CSH}};
           \addlegendentry{\ac{CH}};
@@ -384,9 +384,9 @@ This can be reduced by using more source images.
             \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{7}-\thisrowno{8}}, filter discard warning=false ] {figures/literature/C3S_28d_area_growth.csv};
             \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{7}+\thisrowno{8}}, filter discard warning=false ] {figures/literature/C3S_28d_area_growth.csv};
 
-            \addplot [fill=yellow, fill opacity=0.2,forget plot] fill between [of=A and B];
+            \addplot [fill=orange, fill opacity=0.2,forget plot] fill between [of=A and B];
 
-            \addplot [ mark=none, yellow, opacity=0.5 ] table [x index=9, y index=7, col sep=comma, filter discard warning=false] {figures/literature/C3S_28d_area_growth.csv};
+            \addplot [ mark=none, orange, opacity=0.5 ] table [x index=9, y index=7, col sep=comma, filter discard warning=false] {figures/literature/C3S_28d_area_growth.csv};
             %\addlegendentry{alite};
         \end{axis}
       \end{tikzpicture}
@@ -419,7 +419,7 @@ This can be reduced by using more source images.
 
           \addplot[cyan, smooth, tension=0.2, no markers] table [x index=9, col sep=comma,y index=6, filter discard warning=false] {figures/literature/C3S_28d_area_growth.csv};
 
-          \addplot[yellow, smooth, tension=0.2, no markers] table [x index=9, col sep=comma,y index=8, filter discard warning=false] {figures/literature/C3S_28d_area_growth.csv};
+          \addplot[orange, smooth, tension=0.2, no markers] table [x index=9, col sep=comma,y index=8, filter discard warning=false] {figures/literature/C3S_28d_area_growth.csv};
 
           \addlegendentry{pores};
           \addlegendentry{\ac{CSH}};

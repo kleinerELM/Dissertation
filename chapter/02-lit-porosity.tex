@@ -182,7 +182,7 @@ The relationship resulting from Equations~\ref{eq:brun_freeze} and \ref{eq:brun_
 This shows that smaller pores lead to lower freezing temperatures of the water inside the pores.
 However, this also depends on the pore type.
 
-If a larger pore (D) is only connected to smaller pore (C) or is isolated, it can only freeze at the same temperature as the smaller sized pore (C), while similar sized pores (B) were already frozen.
+If a larger pore ($d_4$) is only connected to smaller pores ($d_3$) or is isolated, it can only freeze at the same temperature as the smaller sized pore ($d_3$), while similar sized pores ($d_2$) were already frozen.
 
 \begin{figure}[!ht]
     \centering
@@ -227,18 +227,21 @@ Furthermore, the \ac{HNMR} can be used to measure the porosity of a material.
 
 \subsubsection{\ce{^{1}H} Nuclear Magnetic Resonance (\acs{NMR})}
 
-\ac{HNMR} can be used to evaluate the porosity of cementitious materials with no or very little Iron contents (e.g. pure phases or white cement) \cite{gran.1997,muller.2014,naber.2020}.
-It is based on the magnetic resonance of the \ce{1^H} nucleus.
-This allows to measure hydrated cement at room temperature without the need of drying or freezing, which would change its microstructure.
-\ac{NMR} works by aligning the spin by applying a magnetic field.
-If this field is turned off, which causes the aligned spins to rearrange while releasing the energy stored by aligning the spins, which is called "relaxation".
-The duration of this energy release can be measured as
+\ac{HNMR} can be used to evaluate the porosity of cementitious materials at room temperature without the need of drying or freezing, which would change its microstructure \cite{gran.1997,muller.2014,naber.2020}.
+It is based on the magnetic resonance of the \ce{^1H} nuclei, primarily found in water molecules.
+The method involves placing a water saturated sample in a strong magnetic field and perturbing the hydrogen nuclei with pulses.
+The subsequent relaxation of these nuclei back to their equilibrium state generates a measurable signal.
+The key principle is that the \ac{NMR} relaxation time (particularly the transverse relaxation time, $T2$​) of water molecules confined within pores is significantly affected by their interaction with the pore surfaces. % hier muss ich mich nochmal einlesen
+However, this method is not suitable for materials with a significant content of paramagnetic species (like iron oxides) \cite{barrie.2000}. 
+These species alter the relaxation rate of the water, thereby interfering with the measurement \cite{muller.2014}.
+since they will change the relaxation rate of the \ce{^1H} nuclei in water and therefore interfere with the measurement \cite{muller.2014}.
 
-\ac{HNMR} is especially useful to get an insight into the interlayer volume of the \ac{CSH} phases.
+\ac{NMR} allows to analyse the porosity of a specimen in a wide range including porosity below \SI{2}{\nano\meter} \cite{barrie.2000}. 
+Therefore, it is especially useful to get an insight into the interlayer volume of the \ac{CSH} phases \cite{naber.2020}.
 %W. P. Halperin, J.-Y. Jehng, Y.-Q. Song, Application of spin-spin relaxation to measurement of surface area and pore size distributions in a hydrating cement paste, Magnetic  Resonance Imaging 12 (2) (1994) 169–173.#
 
 {\color{red}
-\ac{HNMR} and LTDSC (here TMP) do fit, however \ac{HNMR} provides more data for pores sized below \SI{3}{\nano\meter} \cite{joseph.2024}.
+Results from \ac{HNMR} and \ac{LTDSC} (here TMP) do fit, however \ac{HNMR} provides more data for pores sized below \SI{3}{\nano\meter} \cite{joseph.2024}.
 %The paper also shows me, that the speed of temperature change (2K/min) is too fast in our experiments, probably leading to a shift of the pore size to smaller values. Their experiments used 0.5K/min
 
 }

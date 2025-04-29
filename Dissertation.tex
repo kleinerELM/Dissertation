@@ -4,7 +4,8 @@
 % Definitions
 % ################################################
 
-%\def\DRAFT{} % comment out for the printable document!
+\def\DRAFT{} % comment out for the printable document!
+%\def\DRAFTSIMPLIFY{} % comment out for the printable document!
 %\def\EXTERNALIZE{}
 %\def\PRINTABLE{} % uncomment to disable animated figures
 %\def\REVIEW{}
@@ -48,12 +49,17 @@
 	\frontmatter  % start front matter section
 		\ifdefined\DRAFT
 		\else
-			\input{additionals/a-cover}
+			% the cover page is only included in the final digital version
+			\ifdefined\PRINTABLE
+			\else
+				\input{additionals/a-cover}
+			\fi
+			
 		\fi
 
 		\input{additionals/b-titlepage}  % include correct title page
 
-		\ifdefined\DRAFT
+		\ifdefined\DRAFTSIMPLIFY
 		\else
 			\input{additionals/c-licence}
 			\input{additionals/c-dedication}
@@ -89,7 +95,7 @@
 		\input{chapter/99-bibliography}
 
 	\appendix  % begin appendix
-		\ifdefined\DRAFT
+		\ifdefined\DRAFTSIMPLIFY
 			\setkeys{Gin}{draft}
 		\fi
 		\input{chapter/AA-appendix}  % include appendix content

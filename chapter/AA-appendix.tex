@@ -2,7 +2,7 @@
 
 \pagenumbering{Roman}  % set page numbering to Roman
 
-\ifdefined\DRAFT
+\ifdefined\DRAFTSIMPLIFY
 {
 \color{red}
 Figures in the appendix section are not visible in draft mode!
@@ -165,8 +165,8 @@ In this section, basic material characterisation data is presented, which are no
 		\ac{C3S}		& \tablenum{68.6} & \ac{C4AF}		& \tablenum{7.0} \\
 		$\beta$-\ac{C2S}& \tablenum{12.8} & Calcite			& \tablenum{3.86} \\
 		{\color{darkgrey}\ac{C3A}, cub.}	& {\color{darkgrey}\tablenum{2.4}}  & \ce{CaO}		& \tablenum{2.0} \\
-		{\color{darkgrey}\color{darkgrey}\ac{C3A}, ort.}	& {\color{darkgrey}\tablenum{6.1}}  & Arcanite		& \tablenum{1.0} \\
-		\ac{C3A}, total	& \tablenum{8.5}  & Periclase		& \tablenum{1.0} \\
+		{\color{darkgrey}\color{darkgrey}\ac{C3A}, ort.}	& {\color{darkgrey}\tablenum{6.1}}  & Arcanite		& \tablenum{1.0} \\ % less than 1!
+		\ac{C3A}, total	& \tablenum{8.5}  & Periclase		& \tablenum{1.0} \\ % less than 1!
 		\midrule
 		Total			 & & & \tablenum{100.2} \\ 
 		\bottomrule
@@ -329,7 +329,7 @@ In this section, basic material characterisation data is presented, which are no
 			zlabel={ice volume in \si{\micro\liter\per\gram}},
 			mesh/rows=45
 		]
-		\ifdefined\DRAFT
+		\ifdefined\DRAFTSIMPLIFY
 		\else
 			\addplot3 [surf] table [x=x, y=y, z=z, col sep=comma] {figures/ltdsc/base_line_ice_vol/0.5K.csv};
 		\fi
@@ -356,7 +356,7 @@ In this section, basic material characterisation data is presented, which are no
 			zlabel={ice volume in \si{\micro\liter\per\gram}},
 			mesh/rows=45
 		]
-		\ifdefined\DRAFT
+		\ifdefined\DRAFTSIMPLIFY
 		\else
 			\addplot3 [surf] table [x=x, y=y, z=z, col sep=comma, restrict x to domain=-48.5:-44] {figures/ltdsc/base_line_ice_vol/2.0K.csv};
 		\fi
@@ -420,7 +420,7 @@ In this section, basic material characterisation data is presented, which are no
 			\addplot[dotted, thick, samples=2, darkgrey,forget plot] coordinates {(3.19,-.2)(3.19,.2)};
 			\node[darkgrey, rotate=90, anchor=west] at (axis cs: 2.8,-.12) {\scriptsize <\,\SI{-40}{\degreeCelsius}};
 
-			\ifdefined\DRAFT
+			\ifdefined\DRAFTSIMPLIFY
 			\else
             \addplot [ no marks, orange] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_7d-1_freeze_segment_14.csv};
             \addplot [ no marks, orange,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_7d-2_freeze_segment_14.csv};
@@ -497,7 +497,7 @@ In this section, basic material characterisation data is presented, which are no
 				yticklabel pos=right,
 			]
 
-			\ifdefined\DRAFT
+			\ifdefined\DRAFTSIMPLIFY
 			\else
 			\addplot+[restrict x to domain=1.5:5, no marks, orange] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_7d-1_freeze_segment_14.csv};
 			\addplot+[restrict x to domain=1.5:5, no marks, orange,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_7d-2_freeze_segment_14.csv};
@@ -591,7 +591,7 @@ In this section, basic material characterisation data is presented, which are no
 			\addplot[dotted, thick, samples=2, darkgrey,forget plot] coordinates {(3.19,-.2)(3.19,.2)};
 			\node[darkgrey, rotate=90, anchor=west] at (axis cs: 2.8,-.12) {\scriptsize <\,\SI{-40}{\degreeCelsius}};
 
-			\ifdefined\DRAFT
+			\ifdefined\DRAFTSIMPLIFY
 			\else
             \addplot [ no marks, yellow] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_1d-1_freeze_segment_14.csv};
             \addplot [ no marks, yellow,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_1d-2_freeze_segment_14.csv};
@@ -672,7 +672,7 @@ In this section, basic material characterisation data is presented, which are no
 				yticklabel pos=right,
 			]
 
-			\ifdefined\DRAFT
+			\ifdefined\DRAFTSIMPLIFY
 			\else
 			\addplot+[restrict x to domain=1.5:5, no marks, yellow] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_1d-1_freeze_segment_14.csv};
 			\addplot+[restrict x to domain=1.5:5, no marks, yellow,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_1d-2_freeze_segment_14.csv};
@@ -728,7 +728,7 @@ In this section, basic material characterisation data is presented, which are no
 \begin{figure}[H]
     \centering
 
-	\includegraphics[width=.7\textwidth]{particle-dist/cryo_site.pdf}
+	\includegraphics[width=\textwidth]{particle-dist/cryo_site.pdf}
 
     \caption{Overview over the \ac{FIBnt} site of the pressure-frozen \ac{C3S} paste. A: \ce{Pt} deposition, B: \ce{C3S} paste, C: brass crucible.}
     \label{fig:cryo_site}

@@ -12,50 +12,265 @@ Figures in the appendix section are not visible in draft mode!
 	\tikzexternaldisable
 \fi
 
-\section{\acl*{LAICPMS}}
+\section{Material data}
+
+In this section, basic material characterisation data is presented, which are not shown in the main text.
+
+%Zement nummer 808 für CT Untersuchungen -> Kapitel correlative Mikroskopie
+\begin{table}[H]
+	\centering
+	\caption{
+		Phase composition of the CEM I {\color{red}used for \dots}, determined by \ac{XRD}.
+		All results are presented in \si{\wtpercent}.
+	}
+	\begin{tabular}{lclc}
+		\toprule
+		Phase & CEM I & Phase & CEM I (cont.)\\
+		\midrule
+		\ac{C3S}		& \tablenum{60.2} & Anhydrite		& \tablenum{2.08} \\
+		$\beta$-\ac{C2S}& \tablenum{10.1} & Bassanite		& \tablenum{0.842} \\
+		{\color{darkgrey}\ac{C3A} cub.}	& {\color{darkgrey}\tablenum{7.88}} & Quartz			& \tablenum{0.745} \\
+		{\color{darkgrey}\ac{C3A} ort.}	& {\color{darkgrey}\tablenum{2.11}} & Portlandite		& \tablenum{0.708} \\
+		\ac{C3A} total	& \tablenum{9.99} & Dolomite		& \tablenum{0.520} \\
+		\ac{C4AF}		& \tablenum{7.70} & Arcanite		& \tablenum{0.432} \\
+		Calcite			& \tablenum{3.86} & \ce{CaO}		& \tablenum{0.156} \\
+		Gypsum			& \tablenum{2.67} & Periclase		& \tablenum{0.058} \\
+		\midrule
+		Total			&  & & \tablenum{100.0} \\
+		\acs{LOI}			&  & & \tablenum{3.17} \\
+
+		\bottomrule
+	\end{tabular}
+	\label{tab:phase-composition}
+\end{table}
+
+
+\begin{figure}[H]
+	\centering
+
+	\begin{tikzpicture}
+		\begin{semilogxaxis}[%darkgreen,
+			xmin=0.04, xmax=500,
+			ymin=0, ymax=3.5,
+			width=.9\linewidth,
+			height=.24\textheight,
+			xticklabels={0.04,0.1,1,10,100},
+			xtick={.04,.1,1,10,100},
+			extra x ticks={0.05,0.06,...,0.09,0.2,0.3,...,0.9,2,3,...,9,20,30,...,90,200,300,...,900},
+			extra x tick labels={},
+			ymajorticks=false,
+			xlabel={particle diameter \si{\micro\meter}},
+			ylabel={normed intensity},
+			grid=both,
+			grid style={line width=.1pt, draw=gray!10}
+		  ]
+
+		  \addplot+ [draw=none, no markers, name path=A,forget plot] table [x=diameter,col sep=comma,y expr={\thisrow{diff_percent}-\thisrow{stabw}}] {figures/particle-dist/psd_lasergran_CEM_I.csv};
+		  \addplot+ [draw=none, no markers, name path=B,forget plot] table [x=diameter,col sep=comma,y expr={\thisrow{diff_percent}+\thisrow{stabw}}] {figures/particle-dist/psd_lasergran_CEM_I.csv};
+		  \addplot [fill=red, fill opacity=0.2,forget plot] fill between [of=A and B];
+
+		  \addplot[red] table [x=diameter,y=diff_percent, col sep=comma] {figures/particle-dist/psd_lasergran_CEM_I.csv};
+
+		\end{semilogxaxis}
+		\begin{semilogxaxis}[blue,
+			xmin=0.04, xmax=500,
+			ymin=0, ymax=100,
+			axis y line*=right,
+			axis x line=none,
+			ylabel={Cumulative in \si{\volpercent}},
+			width=.9\linewidth,
+			height=.24\textheight,
+            legend style={at={(.01,0.97)},anchor=north west, style={column sep=3pt},text=black},
+            legend columns = 1,
+			legend cell align={left},
+			grid=none
+		]
+			\addlegendimage{red, mark=none}
+			\addlegendentry{Density distribution};
+
+			\addplot[blue, mark=none] table [x=diameter, y=cumulative, col sep=comma] {figures/particle-dist/psd_lasergran_CEM_I.csv};
+			\addlegendentry{Cumulative distribution};
+
+		\end{semilogxaxis}
+	\end{tikzpicture}
+
+	\caption{\ac{PSD} of a CEM I, measured using laser diffraction analysis. Specific surface area: \SI{13496(153)}{\square\centi\meter\per\milli\liter}.}
+	\label{fig:psd_CEM_I}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+
+	\begin{tikzpicture}
+		\begin{semilogxaxis}[%red,
+            xmin=0.04, xmax=500,
+            ymin=0, ymax=1,
+            width=.9\linewidth,
+            height=.25\textheight,
+			xticklabels={0.04,0.1,1,10,100},
+			xtick={.04,.1,1,10,100},
+			extra x ticks={0.05,0.06,...,0.09,0.2,0.3,...,0.9,2,3,...,9,20,30,...,90,200,300,...,900},
+			extra x tick labels={},
+			ymajorticks=false,
+			xlabel={particle diameter \si{\micro\meter}},
+			ylabel={normed intensity},
+            grid=both,
+            grid style={line width=.1pt, draw=gray!10}
+		  ]
+
+          \addplot[red, mark=none] table [x=diameter,y=diff_normed, col sep=comma] {figures/particle-dist/psd_lasergran_C3S_lt20mum.csv};
+		  %\addlegendentry{Laser diffraction analysis};
+
+          \addplot[darkgreen, mark=x] table [x=diameter,y=diff_normed, col sep=comma] {figures/particle-dist/psd_cryo_C3S_lt20mum.csv};
+		  %\addlegendentry{Feret diameter};
+
+        \end{semilogxaxis}
+		\begin{semilogxaxis}[blue,
+			xmin=0.04, xmax=500,
+			ymin=0, ymax=100,
+			axis y line*=right,
+			axis x line=none,
+			ylabel={Cumulative in \si{\volpercent}},
+			width=.9\linewidth,
+			height=.25\textheight,
+            legend style={at={(.5,1.03)},anchor=south, style={column sep=3pt},text=black},
+            legend columns = 2,
+			legend cell align={left},
+			grid=none
+		]
+			\addlegendimage{red, mark=none}
+			\addlegendentry{Density distribution};
+
+			\addplot[blue, mark=none] table [x=diameter, y=cumulative, col sep=comma] {figures/particle-dist/psd_lasergran_C3S_lt20mum.csv};
+			\addlegendentry{Cumulative distribution};
+
+			\addlegendimage{darkgreen, mark=x}
+			\addlegendentry{\textsc{Feret} diameter};
+
+		\end{semilogxaxis}
+	\end{tikzpicture}
+
+    \caption{\ac{PSD} of a \ac{C3S} powder (sieved to <\,\SI{20}{\micro\meter}), measured using laser diffraction analysis compared to the \textsc{Feret} diameter from the image analysis of Figure~\ref{fig:cryo-fib}.}
+    \label{fig:psd_cryo_C3S_lt20mum}
+\end{figure}
+
+\begin{table}[H]
+	\centering
+	\label{tab:phase-composition-clinker}
+	\caption{Phase composition of the CEM I clinker used for \ac{LAICPMS} experiments, determined by \ac{XRD} (Rietveld). All results are presented in \si{\wtpercent}.}
+	\begin{tabular}{lclc}
+		\toprule
+		Phase			& CEM I clinker & Phase & CEM I clinker (cont.) \\
+		\midrule
+		\ac{C3S}		& \tablenum{68.6} & \ac{C4AF}		& \tablenum{7.0} \\
+		$\beta$-\ac{C2S}& \tablenum{12.8} & Calcite			& \tablenum{3.86} \\
+		{\color{darkgrey}\ac{C3A}, cub.}	& {\color{darkgrey}\tablenum{2.4}}  & \ce{CaO}		& \tablenum{2.0} \\
+		{\color{darkgrey}\color{darkgrey}\ac{C3A}, ort.}	& {\color{darkgrey}\tablenum{6.1}}  & Arcanite		& \tablenum{1.0} \\
+		\ac{C3A}, total	& \tablenum{8.5}  & Periclase		& \tablenum{1.0} \\
+		\midrule
+		Total			 & & & \tablenum{100.2} \\ 
+		\bottomrule
+	\end{tabular}
+\end{table}
 
 \begin{table}[H]
 	\centering
 	\label{tab:laicpms-clinker}
 	\caption{
 		Chemical composition of the clinker used for \ac{LAICPMS} experiments, measured by \ac{ICP}-\ac{OES} (\textsc{Perkin Elmer} \textit{Avio 500}) and \ac{ICP}-\ac{MS} after digestion.
-		All results are presented in \si{\wtpercent} oxides. \label{tab:icpoes}
+		All results are presented in \si{\wtpercent}. \label{tab:icpoes}
 	}
-	\begin{tabular}{lcc}
+	\begin{tabular}{lcclcc}
 		\toprule
-		Chemical component         & \ac{ICP}-\ac{OES} & \ac{ICP}-\ac{MS} \\
+		Oxide         & \ac{ICP}-\ac{OES} & \ac{ICP}-\ac{MS} & Oxide         & \ac{ICP}-\ac{OES} (cont.) & \ac{ICP}-\ac{MS} (cont.) \\
 		\midrule
-		Loss of ignition (\SI{1000}{\degreeCelsius}) & \tablenum{0.70}    & -      \\
-		\ce{CaO}                         & \tablenum{64.81}   & -      \\
-		\ce{SiO2}                     & \tablenum{22.44}   & -      \\
-		\ce{Al2O3}                    & \tablenum{4.67}    & -      \\
-		\ce{Fe2O3}                    & \tablenum{2.59}    & -      \\
-		\ce{MgO}                         & \tablenum{1.36}    & -      \\
-		\ce{K2O}                      & \tablenum{1.26}    & -      \\
-		\ce{SO3}                      & \tablenum{1.01}    & -      \\
-		\ce{Na2O}                     & \tablenum{0.41}    & -      \\
-		\ce{TiO2}                     & \tablenum{0.24}    & \tablenum{0.1431} \\
-		\ce{SrO}                         & \tablenum{0.15}    & \tablenum{0.1254} \\
-		\ce{P2O5}                  & \tablenum{0.15}    & -      \\
-		\ce{ZnO}                         & \tablenum{0.04}    & -      \\
-		\ce{MnO}                         & \tablenum{0.04}    & \tablenum{0.0275} \\
-		\ce{V2O5}                  & \tablenum{0.01}    & \tablenum{0.0053} \\
-		\ce{ZnO}                         & \tablenum{0.04}    & \tablenum{0.0294} \\
-		\ce{Cr2O3}                 & \tablenum{0.01}    & \tablenum{0.0067} \\
-		\ce{BaO}                         & \tablenum{0.02}    & \tablenum{0.0185} \\
-		\ce{CuO}                         & -       & \tablenum{0.0107} \\
+		\ce{CaO}	& \tablenum{64.81}	& -					& \ce{SrO}	& \tablenum{0.15}	& \tablenum{0.1254} \\
+		\ce{SiO2}	& \tablenum{22.44}	& -					& \ce{P2O5}	& \tablenum{0.15}	& -      \\
+		\ce{Al2O3}	& \tablenum{4.67}	& -					& \ce{ZnO}	& \tablenum{0.04}	& -      \\
+		\ce{Fe2O3}	& \tablenum{2.59}	& -					& \ce{MnO}	& \tablenum{0.04}	& \tablenum{0.0275} \\
+		\ce{MgO}	& \tablenum{1.36}	& -					& \ce{V2O5}	& \tablenum{0.01}	& \tablenum{0.0053} \\
+		\ce{K2O}	& \tablenum{1.26}	& -					& \ce{ZnO}	& \tablenum{0.04}	& \tablenum{0.0294} \\
+		\ce{SO3}	& \tablenum{1.01}	& -					& \ce{Cr2O3}& \tablenum{0.01}	& \tablenum{0.0067} \\
+		\ce{Na2O}	& \tablenum{0.41}	& -					& \ce{BaO}	& \tablenum{0.02}	& \tablenum{0.0185} \\
+		\ce{TiO2}	& \tablenum{0.24}	& \tablenum{0.1431} & \ce{CuO}	& -					& \tablenum{0.0107} \\
 		\midrule
-		Total                       & \tablenum{99.88}   & -   \\
+		Total		&					&					&			&  \tablenum{99.88}	& -      \\
+		\acs{LOI} (\SI{1000}{\degreeCelsius}) & &			&			& \tablenum{0.70}	& -      \\
 		\bottomrule
 	\end{tabular}
 \end{table}
+
+\begin{figure}[H]
+    \centering
+
+	\begin{tikzpicture}
+		\begin{semilogxaxis}[%red,
+            xmin=0.04, xmax=500,
+            ymin=0, ymax=1,
+            width=.9\linewidth,
+            height=.25\textheight,
+            legend style={at={(.5,1.03)},anchor=south, style={column sep=3pt}},
+            legend columns = 2,
+			xticklabels={0.04,0.1,1,10,100},
+			xtick={.04,.1,1,10,100},
+			extra x ticks={0.05,0.06,...,0.09,0.2,0.3,...,0.9,2,3,...,9,20,30,...,90,200,300,...,900},
+			extra x tick labels={},
+			ymajorticks=false,
+			xlabel={particle diameter \si{\micro\meter}},
+			ylabel={normed intensity},
+            grid=both,
+            grid style={line width=.1pt, draw=gray!10}
+		  ]
+
+          \addplot[red, mark=none] table [x=diameter,y=diff_normed, col sep=comma] {figures/particle-dist/psd_lasergran_LC3.csv};
+
+          \addplot[darkgreen, mark=x] table [x=diameter,y=normed_i_noPUS, col sep=comma] {figures/particle-dist/LC3/LC3_cryo_feret.csv};
+		  %\addlegendentry{Feret diameter, \acs{LC3}};
+
+          \addplot[green, dashed, mark=x] table [x=diameter,y=normed_i_PUS, col sep=comma] {figures/particle-dist/LC3/LC3_cryo_feret.csv};
+		  %\addlegendentry{Feret diameter, \acs{LC3} + \acs{PUS}};
+
+        \end{semilogxaxis}
+		\begin{semilogxaxis}[blue,
+			xmin=0.04, xmax=500,
+			ymin=0, ymax=100,
+			axis y line*=right,
+			axis x line=none,
+			ylabel={Cumulative in \si{\volpercent}},
+			width=.9\linewidth,
+			height=.25\textheight,
+            legend style={at={(.5,1.03)},anchor=south, style={column sep=3pt},text=black},
+            legend columns = 2,
+			legend cell align={left},
+			grid=none
+		]
+			\addlegendimage{red, mark=none}
+			\addlegendentry{Density distribution};
+
+			\addplot[blue, mark=none] table [x=diameter, y=cumulative, col sep=comma] {figures/particle-dist/psd_lasergran_LC3.csv};
+			\addlegendentry{Cumulative distribution};
+
+			\addlegendimage{darkgreen, mark=x}
+			\addlegendentry{\textsc{Feret} diameter, no \acs{PUS}};
+
+			\addlegendimage{green, dashed, mark=x}
+			\addlegendentry{\textsc{Feret} diameter, after \acs{PUS}};
+
+		\end{semilogxaxis}
+	\end{tikzpicture}
+
+    \caption{\ac{PSD} of a \ac{LC3} (Specific surface area: \SI{23303}{\square\centi\meter\per\milli\liter}), comparing the \textsc{Feret} diameters from the image analysis of Figures~\ref{fig:cryo-fib-lc3a} and \ref{fig:cryo-fib-lc3b}.}
+    \label{fig:psd_cryo_LC3}
+\end{figure}
+
+
 
 \FloatBarrier
 \section{Hydrate rim measurements}
 
 \begin{figure*}[htb!]
     \centerline{\includegraphics[width=\textwidth]{hydrate-rim/supplementary/threshold_types.pdf}}
-    \caption{Segmentation results of 14 days hydrated alite. Raw image (A); segmentation result by thresholding (B), pixel classification (C) and manual segmentation (D). Grey: raw data; blue: alite; green: hydrates (C and D only dense C-S-H); red: CH; yellow: outer C-S-H.\label{fig:results_segmentation_methods}}
+    \caption{Segmentation results of \num{14} days hydrated alite. Raw image (A); segmentation result by thresholding (B), pixel classification (C) and manual segmentation (D). Grey: raw data; blue: alite; green: hydrates (C and D only dense \ac{CSH}); red: \ac{CH}; yellow: outer \ac{CSH}.\label{fig:results_segmentation_methods}}
 \end{figure*}
 
 \begin{figure}[htbp]
@@ -66,7 +281,7 @@ Figures in the appendix section are not visible in draft mode!
 
 \begin{figure}[htbp]
 	\centerline{\includegraphics[width=\textwidth]{hydrate-rim/supplementary/mixture_overview.pdf}}
-	\caption{Normalized distributions of the \ac{HLT} of hydrated alite, belite and mixtures (aged 7, 14, and \SI{28}{\day}) depending on the particle diameter.
+	\caption{Normalised distributions of the \ac{HLT} of hydrated alite, belite and mixtures (aged \num{7}, \num{14}, and \SI{28}{\day}) depending on the particle diameter.
 	Same diagram type as in Figure~\ref{fig:results2d_alite}.
 	\label{fig:results2d_mixture}}
 \end{figure}
@@ -496,7 +711,7 @@ Figures in the appendix section are not visible in draft mode!
     \end{tikzpicture}
 
     \caption{
-		Raw \ac{LTDSC} curves for the second freezing pass of \ac{C3S} from 1 to \SI{28}{\day} of hydration. Every specimen age was measured using three specimens.
+		Raw \ac{LTDSC} curves for the second freezing pass of \ac{C3S} from \num{1} to \SI{28}{\day} of hydration. Every specimen age was measured using three specimens.
 		The graph on the right is a zoomed in section of the left graph, showing the data correlating to the gel pores.
 		Note, that the pore radius is undefined below \SI{-40}{\degreeCelsius} according to \textcite{brun.1977}.
 	}
@@ -569,80 +784,6 @@ Figures in the appendix section are not visible in draft mode!
     \label{fig:cryo-fib-freeze-curve}
 \end{figure}
 
-
-\begin{figure}[H]
-    \centering
-
-	\begin{tikzpicture}
-		\begin{semilogxaxis}[%red,
-            xmin=0.04, xmax=100,
-            ymin=0, ymax=1,
-            width=\linewidth,
-            height=.25\textheight,
-            legend style={at={(.5,1.03)},anchor=south, style={column sep=3pt}},
-            legend columns = 3,
-			xticklabels={0.04,0.1,1,10,100},
-			xtick={.04,.1,1,10,100},
-			extra x ticks={0.05,0.06,...,0.09,0.2,0.3,...,0.9,2,3,...,9,20,30,...,90},
-			extra x tick labels={},
-			ymajorticks=false,
-			xlabel={particle diameter \si{\micro\meter}},
-			ylabel={normed intensity},
-            grid=both,
-            grid style={line width=.1pt, draw=gray!10}
-		  ]
-
-          \addplot[red, mark=x] table [x=diameter,y=diff_normed, col sep=comma] {figures/particle-dist/psd_lasergran_C3S_lt20mum.csv};
-		  \addlegendentry{Laser diffraction analysis};
-
-          \addplot[blue, mark=x] table [x=diameter,y=diff_normed, col sep=comma] {figures/particle-dist/psd_cryo_C3S_lt20mum.csv};
-		  \addlegendentry{Feret diameter};
-
-        \end{semilogxaxis}
-	\end{tikzpicture}
-
-    \caption{\ac{PSD} of a \ac{C3S} powder (sieved to <\,\SI{20}{\micro\meter}), measured using laser diffraction analysis compared to the \textsc{Feret} diameter from the image analysis of Figure~\ref{fig:cryo-fib}.}
-    \label{fig:psd_cryo_C3S_lt20mum}
-\end{figure}
-
-
-\begin{figure}[H]
-    \centering
-
-	\begin{tikzpicture}
-		\begin{semilogxaxis}[%red,
-            xmin=0.04, xmax=100,
-            ymin=0, ymax=1,
-            width=\linewidth,
-            height=.25\textheight,
-            legend style={at={(.5,1.03)},anchor=south, style={column sep=3pt}},
-            legend columns = 2,
-			xticklabels={0.04,0.1,1,10,100},
-			xtick={.04,.1,1,10,100},
-			extra x ticks={0.05,0.06,...,0.09,0.2,0.3,...,0.9,2,3,...,9,20,30,...,90},
-			extra x tick labels={},
-			ymajorticks=false,
-			xlabel={particle diameter \si{\micro\meter}},
-			ylabel={normed intensity},
-            grid=both,
-            grid style={line width=.1pt, draw=gray!10}
-		  ]
-
-          %\addplot[red, mark=x] table [x=diameter,y=normed_i_noPUS, col sep=comma] {figures/particle-dist/LC3/LC3_cryo_feret.csv};
-		  %\addlegendentry{Feret diameter, \acs{LC3} no \acs{PUS}};
-
-          \addplot[blue, mark=x] table [x=diameter,y=normed_i_noPUS, col sep=comma] {figures/particle-dist/LC3/LC3_cryo_feret.csv};
-		  \addlegendentry{Feret diameter, \acs{LC3}};
-
-          \addplot[blue, dashed, mark=x] table [x=diameter,y=normed_i_PUS, col sep=comma] {figures/particle-dist/LC3/LC3_cryo_feret.csv};
-		  \addlegendentry{Feret diameter, \acs{LC3} + \acs{PUS}};
-
-        \end{semilogxaxis}
-	\end{tikzpicture}
-
-    \caption{\ac{PSD} of a \ac{LC3}, comparing the \textsc{Feret} diameters from the image analysis of Figures~\ref{fig:cryo-fib-lc3a} and \ref{fig:cryo-fib-lc3b}.}
-    \label{fig:psd_cryo_LC3}
-\end{figure}
 
 \begin{table}[H]
 	\centering

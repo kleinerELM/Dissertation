@@ -327,6 +327,7 @@
 \definecolor{grey}{rgb}{0.8,0.8,0.8}  % Define grey
 
 % BUW Hausfarben
+%https://www.uni-weimar.de/de/universitaet/struktur/zentrale-einrichtungen/universitaetskommunikation/style-guide/hausfarben/
 \definecolor{yellow}{cmyk}{0, 0.1, 1, 0}
 \definecolor{orange}{cmyk}{0, 0.5, 1, 0}
 \definecolor{red}{cmyk}{0, 1, 1, 0}
@@ -337,6 +338,18 @@
 
 \definecolor{darkgreen}{cmyk}{0.5, 0, 1, 0.5}
 \definecolor{darkgrey}{cmyk}{0, 0, 0, 0.75}
+
+% sadly, CMYK colors are not correctly supported for colormap legends. Only the outer-most colors are shown correctly.
+\pgfplotsset{
+    colormap={buw}{ % Choose a name for your colormap, e.g., 'mycustommap'
+		rgb255=(0, 107, 148)    % blue (approx)
+        rgb255=(0, 155, 180)   % cyan (approx)
+        rgb255=(148, 193, 28)   % green (approx)
+        rgb255=(255, 221, 0)   % yellow (approx)
+        rgb255=(243, 145, 0)   % orange (approx)
+        rgb255=(183, 26, 73)    % darkred (approx)
+    }
+}
 
 % ########################
 % Table enhancements

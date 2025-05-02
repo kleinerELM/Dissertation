@@ -27,29 +27,30 @@ As the \ac{SEM}-images indicate (Figure~\ref{fig:ltdsc-vycor-glass}), the pores 
 	\begin{subfigure}{0.49\textwidth}
 		\includegraphics[width=\textwidth]{ltdsc/glass/segmentation/20nm.pdf}
 		\caption{Raw, pore size \SI{20}{\nano\meter} (diameter)}
+		\label{fig:ltdsc-vycor-glass-b}
 	\end{subfigure}
 
 	\begin{subfigure}{0.49\textwidth}
 		\includegraphics[width=\textwidth]{ltdsc/glass/segmentation/5nm_s.pdf}
 		\caption{Segmented, pore size \SI{5}{\nano\meter} (diameter)}
-		\label{fig:ltdsc-vycor-glass-b}
+		\label{fig:ltdsc-vycor-glass-c}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}{0.49\textwidth}
 		\includegraphics[width=\textwidth]{ltdsc/glass/segmentation/20nm_s.pdf}
 		\caption{Segmented, pore size \SI{20}{\nano\meter} (diameter)}
+		\label{fig:ltdsc-vycor-glass-d}
 	\end{subfigure}
 
     \caption{\ac{SEM} images of two \textsc{VYCOR}-glass samples and their segmentation result.} % Probenbilder-rodaten vmtl vertauscht.
     \label{fig:ltdsc-vycor-glass}
 \end{figure}
-% C:\Users\Florian Kleiner\Nextcloud\Uni\WdB\Paper\2024 LT-DSC-XRD-BSE Alit-Belit Paper\5. REM+EDX\Nanoporöses Glas\2022_02_08 Poröses Glas
 
-
-
-The pores can be segmented using a thresholding method and the pore size distribution can be calculated. %  (see Section~\ref{sec:segmentation})
+The pores can be segmented using a traditional thresholding method and the pore size distribution can be calculated. %  (see Section~\ref{sec:segmentation})
 However, areas with obvious damages due to the fracture process were excluded from the analysis.
 The results are shown in Figure~\ref{fig:vicor-SEM}.
+As indicated by the inhomogeneous distribution of the segmented pores (see Figure~\ref{fig:ltdsc-vycor-glass-c} and \ref{fig:ltdsc-vycor-glass-d}), the selected threshold value is not producing a uniform thresholding result.
+	
 
 \begin{figure}[!htb]
     \centering
@@ -67,7 +68,7 @@ The results are shown in Figure~\ref{fig:vicor-SEM}.
 				height=6cm,
 				grid=major,
 				xlabel={pore radius $r_\text{P}$ \si{\nano\meter}},
-				ylabel={normed frequency},
+				ylabel={normalised frequency},
 				grid style={line width=.1pt, draw=gray!10},
 				yticklabel style={
 						/pgf/number format/fixed,
@@ -122,7 +123,7 @@ The results are shown in Figure~\ref{fig:vicor-SEM}.
 				height=6cm,
 				grid=major,
 				xlabel={pore radius $r_\text{P}$ \si{\nano\meter}},
-				ylabel={normed frequency},
+				ylabel={normalised frequency},
 				grid style={line width=.1pt, draw=gray!10},
 				yticklabel style={
 						/pgf/number format/fixed,
@@ -169,9 +170,109 @@ The results are shown in Figure~\ref{fig:vicor-SEM}.
 % TODO: prüfe, ob tatsächlich Porenradien gemessen wurden!
 
 {\color{red} % Die abweichungen besonders bei der 5nm Probe sind sehr hoch.
-The measured pore radii are off by a factor of \num{4} and more (\SI{5}{\nano\meter}) and \num{2} (\SI{20}{\nano\meter}) compared to the \ac{MIP} measurements provided by the manufacturer (Figure~\ref{fig:vycor-mip}).
+The measured pore radii measured using a traditional thresholding method are off by a factor of \num{4} and more (\SI{5}{\nano\meter}) and \num{2} (\SI{20}{\nano\meter}) compared to the \ac{MIP} measurements provided by the manufacturer (Figure~\ref{fig:vycor-mip}).
 }
 
+\begin{figure}[htbp]
+	\centering
+	\begin{subfigure}[b]{0.46\textwidth} 
+
+		\begin{tikzpicture}
+			\begin{axis}[
+				xlabel={\textsc{Feret} diameter in \si{\nano\meter}},
+				ylabel={blocksize in \si{\nano\meter}},
+				colormap name=buw, 		 % Choose a colormap (others: hot, cool, jet, etc.)
+				colorbar=false,                       % Display the color bar
+				view={0}{90},                   % Set view angles for a 2D top-down view
+				enlargelimits=false,            % Fit plot tightly to data range
+				axis on top,
+				point meta min=0,
+				xmin=0, xmax=50,
+				width=7.2cm,
+				height=6cm,
+			]
+				\addplot [
+					matrix plot*,         % Use matrix plot for heatmaps (starred version often better for coordinate input)
+					point meta=explicit,  % Color data is explicitly given in the 'meta' column
+					shader=flat,
+					mesh/cols=50,
+				] 
+				table [
+					x={Feret diameter [nm]}, % Column name for X coordinate
+					y={Blocksize (nm)},      % Column name for Y coordinate
+					meta={Normalized Frequency},        % Column name for the color value
+					col sep=comma,           % Specify comma as the column separator
+					header=true              % Indicate that the CSV file has a header row
+				] {figures/mip/vycor5nm.csv}; % Path to your CSV file
+			\end{axis}
+		\end{tikzpicture}
+		\caption{\SI{5}{\nano\meter} porous \textsc{VYCOR}-glass.}
+		\label{fig:mip_heatmap_vycor5nm}
+
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.52\textwidth} 
+
+		\begin{tikzpicture}
+			\begin{axis}[
+				xlabel={\textsc{Feret} diameter in \si{\nano\meter}},
+				%ylabel={blocksize in \si{\nano\meter}},
+				colorbar,                       % Display the color bar
+				colorbar style={
+					ylabel={normalised frequency},
+					ytick=\empty,
+				}, % Label for the color bar
+				colormap name=buw, 		 % Choose a colormap (others: hot, cool, jet, etc.)
+				view={0}{90},                   % Set view angles for a 2D top-down view
+				enlargelimits=false,            % Fit plot tightly to data range
+				point meta min=0,               % Optional: Set minimum value for the color axis 
+				axis on top,
+				xmin=0, xmax=50,
+				yticklabel pos=right,
+				width=7.2cm,
+				height=6cm,
+				ytick=\empty,
+			]
+				\addplot [
+					matrix plot*,         % Use matrix plot for heatmaps (starred version often better for coordinate input)
+					point meta=explicit,  % Color data is explicitly given in the 'meta' column
+					shader=flat,
+					mesh/cols=50,
+				] 
+				table [
+					x={Feret diameter [nm]}, % Column name for X coordinate
+					y={Blocksize (nm)},      % Column name for Y coordinate
+					meta={Normalized Frequency},        % Column name for the color value
+					col sep=comma,           % Specify comma as the column separator
+					header=true              % Indicate that the CSV file has a header row
+				] {figures/mip/vycor20nm.csv}; % Path to your CSV file
+			\end{axis}
+		\end{tikzpicture}
+		\caption{\SI{20}{\nano\meter} porous \textsc{VYCOR}-glass.}
+		\label{fig:mheatmap_vycor20nm}
+
+	\end{subfigure}
+	\caption{A heatmap indicating the influence of the 'blocksize' option using 'adaptive threshold' on the measured \textsc{Feret} diameter of the \textsc{VYCOR}-glass. The frequency is normalised per blocksize. The blocksize is the size of the sliding window used for the adaptive thresholding.}
+	\label{fig:heatmap_vycor}
+\end{figure}
+
+
+% C:\Users\Florian Kleiner\Nextcloud\Uni\WdB\Paper\2024 LT-DSC-XRD-BSE Alit-Belit Paper\5. REM+EDX\Nanoporöses Glas\2022_02_08 Poröses Glas
+{\color{red}
+Adaptive thresholding is a segmentation method that adjusts the threshold value dynamically based on the local properties of the image, such as the intensity within a sliding window (blocksize).
+Depending on the blocksize used, very different results were obtained, as shown in Figure~\ref{fig:heatmap_vycor}.
+For \textsc{VYCOR}-glass with a given porosity of \SI{20}{\nano\meter}, using a blocksize larger than \SI{50}{\nano\meter} produced reliable results, with the main \textsc{Feret} diameter around \SI{20}{\nano\meter}.
+However, for \SI{5}{\nano\meter} glass, the porosity was overestimated by a factor of \num{2.5}, with a \textsc{Feret} diameter around \SI{15}{\nano\meter} (see Figure~\ref{fig:mip_heatmap_vycor5nm}).
+For block sizes smaller than \SI{50}{\nano\meter}, the segmentation result was very noisy, and the \textsc{Feret} diameter was underestimated and unreliable.
+It is recommended to use a blocksize that is at least three times larger than the expected feature size to achieve accurate segmentation results.
+
+Grund: Bruchfläche - unklare Kanten, subjektiv is 5 nm deutlich kleiner\dots
+Mehr als ein Bild analysieren, um die Reproduzierbarkeit zu prüfen.
+}
+
+
+
+\FloatBarrier
 \subsection{\acs*{LTDSC}}
 
 The glass standards were measured using a simplified temperature regimen.

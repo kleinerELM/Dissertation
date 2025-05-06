@@ -179,7 +179,7 @@ The measured pore radii measured using a traditional thresholding method are off
 
 		\begin{tikzpicture}
 			\begin{axis}[
-				xlabel={\textsc{Feret} diameter in \si{\nano\meter}},
+				xlabel={Median \textsc{Feret} diameter in \si{\nano\meter}},
 				ylabel={blocksize in \si{\nano\meter}},
 				colormap name=buw, 		 % Choose a colormap (others: hot, cool, jet, etc.)
 				colorbar=false,                       % Display the color bar
@@ -188,6 +188,7 @@ The measured pore radii measured using a traditional thresholding method are off
 				axis on top,
 				point meta min=0,
 				xmin=0, xmax=50,
+				ymin=0, ymax=190,
 				width=7.2cm,
 				height=6cm,
 			]
@@ -195,7 +196,7 @@ The measured pore radii measured using a traditional thresholding method are off
 					matrix plot*,         % Use matrix plot for heatmaps (starred version often better for coordinate input)
 					point meta=explicit,  % Color data is explicitly given in the 'meta' column
 					shader=flat,
-					mesh/cols=50,
+					mesh/cols=118,% 50,
 				] 
 				table [
 					x={Feret diameter [nm]}, % Column name for X coordinate
@@ -215,7 +216,7 @@ The measured pore radii measured using a traditional thresholding method are off
 
 		\begin{tikzpicture}
 			\begin{axis}[
-				xlabel={\textsc{Feret} diameter in \si{\nano\meter}},
+				xlabel={Median \textsc{Feret} diameter in \si{\nano\meter}},
 				%ylabel={blocksize in \si{\nano\meter}},
 				colorbar,                       % Display the color bar
 				colorbar style={
@@ -227,7 +228,8 @@ The measured pore radii measured using a traditional thresholding method are off
 				enlargelimits=false,            % Fit plot tightly to data range
 				point meta min=0,               % Optional: Set minimum value for the color axis 
 				axis on top,
-				xmin=0, xmax=50,
+				xmin=0, xmax=40,
+				ymin=0, ymax=190,
 				yticklabel pos=right,
 				width=7.2cm,
 				height=6cm,
@@ -237,7 +239,7 @@ The measured pore radii measured using a traditional thresholding method are off
 					matrix plot*,         % Use matrix plot for heatmaps (starred version often better for coordinate input)
 					point meta=explicit,  % Color data is explicitly given in the 'meta' column
 					shader=flat,
-					mesh/cols=50,
+					mesh/cols=118,% 50,
 				] 
 				table [
 					x={Feret diameter [nm]}, % Column name for X coordinate
@@ -252,7 +254,11 @@ The measured pore radii measured using a traditional thresholding method are off
 		\label{fig:mheatmap_vycor20nm}
 
 	\end{subfigure}
-	\caption{A heatmap indicating the influence of the 'blocksize' option using 'adaptive threshold' on the measured \textsc{Feret} diameter of the \textsc{VYCOR}-glass. The frequency is normalised per blocksize. The blocksize is the size of the sliding window used for the adaptive thresholding.}
+	\caption{
+		A heatmap indicating the influence of the 'blocksize' option using 'adaptive threshold' on the measured median \textsc{Feret} diameter of the \textsc{VYCOR}-glass.
+		The frequency is normalised per blocksize.
+		The blocksize is the size of the sliding window used for the adaptive thresholding.
+	}
 	\label{fig:heatmap_vycor}
 \end{figure}
 
@@ -261,8 +267,11 @@ The measured pore radii measured using a traditional thresholding method are off
 {\color{red}
 Adaptive thresholding is a segmentation method that adjusts the threshold value dynamically based on the local properties of the image, such as the intensity within a sliding window (blocksize).
 Depending on the blocksize used, very different results were obtained, as shown in Figure~\ref{fig:heatmap_vycor}.
-For \textsc{VYCOR}-glass with a given porosity of \SI{20}{\nano\meter}, using a blocksize larger than \SI{50}{\nano\meter} produced reliable results, with the main \textsc{Feret} diameter around \SI{20}{\nano\meter}.
-However, for \SI{5}{\nano\meter} glass, the porosity was overestimated by a factor of \num{2.5}, with a \textsc{Feret} diameter around \SI{15}{\nano\meter} (see Figure~\ref{fig:mip_heatmap_vycor5nm}).
+For each so segmented pore, the \textsc{Feret} diameter was calculated in all directions and the median \textsc{Feret} diameter for the pore.
+The median \textsc{Feret} diameter distribution for each blocksize was then normalised to the maximum value for each blocksize.
+
+For \textsc{VYCOR}-glass with a given porosity of \SI{20}{\nano\meter}, using a blocksize larger than \SI{50}{\nano\meter} produced reliable results, with the main median \textsc{Feret} diameter around \SI{20}{\nano\meter}.
+However, for \SI{5}{\nano\meter} glass, the porosity was overestimated by a factor of \num{2.5}, with a median \textsc{Feret} diameter around \SI{15}{\nano\meter} (see Figure~\ref{fig:mip_heatmap_vycor5nm}).
 For block sizes smaller than \SI{50}{\nano\meter}, the segmentation result was very noisy, and the \textsc{Feret} diameter was underestimated and unreliable.
 It is recommended to use a blocksize that is at least three times larger than the expected feature size to achieve accurate segmentation results.
 

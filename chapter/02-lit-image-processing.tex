@@ -1,3 +1,35 @@
+\FloatBarrier
+\subsection{Segmentation of \ac{SEM} images}
+\label{sec:lit_segmentation}
+{
+\color{red}
+
+To analyse any image, it has to be segmented first.
+Segmentation is the process of classification an image into multiple segments (sets of pixels) to simplify the representation of the image and make it more meaningful and easier to analyse.
+
+While manual segmentation is still used, it is time consuming and not reproducible.
+Automated segmentation methods are therefore often used to reduce the time and effort required for image analysis.
+However, a requirement for a good automatic segmentation is a good image quality.
+preprocessing steps like denoising, contrast enhancement and sharpening can be used to improve the image quality before segmentation.
+Especially edge preserving denoising methods like \textsc{median}, \textsc{Bilateral} or \textsc{Anisotropic} filtering are often used to reduce noise while preserving the edges of the objects in the image \cite{}. % todo - Ingas WK Arbeit
+
+Segmentation by applying threshold values to distinguish phases is still an often used technique due to its simplicity \cite{hlobil.2022}.
+There are multiple thresholding methods available, like \textsc{Otsu}'s method \cite{otsu.1979} or \textsc{Kapur}'s method \cite{kapur.1985} to automatically find a threshold to binarise an image.
+However, these method are rarely suitable, since many \ac{SEM} images contain more than two phases or show a low image contrast.
+Additionally, often a specific grey value (range) does not represent a specific phase throughout the entire dataset as border regions can appear darker than the image center.
+Therefore, adaptive thresholding methods can be used to find a threshold value for each pixel based on the surrounding pixels \cite{sauvola.2000, phansalkar.2011}.
+For example, the method proposed by \textcite{phansalkar.2011} is a good choice for low contrast \ac{SEM} images.
+These methods still require a lot of manual work and subjective decisions to find the right parameters for the specific dataset.
+
+Superpixel segmentation algorithms like \acs{SLIC} \cite{achanta.2012} can be used to segment very noisy datasets like \ac{EDX} \cite{georget.2021, jiang.2022}.
+The superpixel segmentation is a method to divide an image into small regions (superpixels) that are similar in color and texture, while preserving the boundaries of the objects in the image.
+
+
+Utilizing machine learning methods for segmentation is a promising approach to automate the process and improve the accuracy of the results \cite{} .
+
+
+}
+
 
 \FloatBarrier
 \subsection{Sectioning effect}

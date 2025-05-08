@@ -177,5 +177,6 @@
 	"github.copilot.chat.codeGeneration.instructions": [
 
 	],
-	"latex-workshop.intellisense.citation.backend": "biblatex"
+	"latex-workshop.intellisense.citation.backend": "biblatex",
+	"todo-tree.tree.scanMode": "workspace"
 }

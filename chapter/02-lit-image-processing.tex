@@ -3,15 +3,18 @@
 \label{sec:lit_segmentation}
 {
 \color{red}
+Segmentation is the process of partitioning an image into multiple segments (sets of pixels or objects).
+The goal is to simplify the representation of the image and make it more meaningful and easier to analyse.
+After an segmentation, each pixel in the image is assigned to a specific class or label, which can be used for further analysis.
 
-To analyse any image, it has to be segmented first.
-Segmentation is the process of classification an image into multiple segments (sets of pixels) to simplify the representation of the image and make it more meaningful and easier to analyse.
+The segmentation can be done manually by a human expert.
+The result is highly dependent on the experience and knowledge of the operator, but is often considered the gold standard against which automated methods are compared \cite{bajcsy.2020}.
 
-While manual segmentation is still used, it is time consuming and not reproducible.
+While manual segmentation is still used \cite{bajcsy.2020,kleiner.2024a}, it is time consuming and not reproducible.
 Automated segmentation methods are therefore often used to reduce the time and effort required for image analysis.
 However, a requirement for a good automatic segmentation is a good image quality.
-preprocessing steps like denoising, contrast enhancement and sharpening can be used to improve the image quality before segmentation.
-Especially edge preserving denoising methods like \textsc{median}, \textsc{Bilateral} or \textsc{Anisotropic} filtering are often used to reduce noise while preserving the edges of the objects in the image \cite{}. % todo - Ingas WK Arbeit
+Preprocessing steps like denoising, contrast enhancement and sharpening can be used to improve the image quality before segmentation.
+Especially edge preserving denoising methods like \textsc{median}, \textsc{Bilateral} or \textsc{Anisotropic} filtering are often used to reduce noise while preserving the edges of the objects in the image \cite{}. % TODO: - Ingas WK Arbeit
 
 Segmentation by applying threshold values to distinguish phases is still an often used technique due to its simplicity \cite{hlobil.2022}.
 There are multiple thresholding methods available, like \textsc{Otsu}'s method \cite{otsu.1979} or \textsc{Kapur}'s method \cite{kapur.1985} to automatically find a threshold to binarise an image.
@@ -23,11 +26,9 @@ These methods still require a lot of manual work and subjective decisions to fin
 
 Superpixel segmentation algorithms like \acs{SLIC} \cite{achanta.2012} can be used to segment very noisy datasets like \ac{EDX} \cite{georget.2021, jiang.2022}.
 The superpixel segmentation is a method to divide an image into small regions (superpixels) that are similar in color and texture, while preserving the boundaries of the objects in the image.
+% TODO: add details from jiang.2022 in the result section
 
-
-Utilizing machine learning methods for segmentation is a promising approach to automate the process and improve the accuracy of the results \cite{} .
-
-
+Utilizing machine learning methods for segmentation is a promising approach to automate the process and improve the accuracy of the results \cite{}.
 }
 
 

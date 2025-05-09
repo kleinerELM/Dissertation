@@ -171,7 +171,7 @@ Some selected phases and their respective $\eta$ are listed in Table~\ref{tab:bs
 \label{sec:edx}
 
 \ac{EDX} is a widely used technology available even on smaller \ac{SEM}-devices.
-It is based on the interaction of the electron beam with the sample surface.
+It is based on the interaction of the electron beam with the atoms in the sample surface.
 When the high-energy beam electrons strike the sample, they can knock out inner-shell electrons from the sample atoms.
 The outer-shell electrons will fall back to the energy level of the knocked out electrons, releasing the energy difference as X-rays.
 The energies of these X-ray are unique fingerprints of specific elements.
@@ -179,16 +179,86 @@ An \ac{EDX} detector measures the energy and intensity (counts) of the emitted X
 This allows for qualitative identification and semi-quantitative or quantitative analysis.
 Point analyses or elemental maps can show the spatial distribution of these elements and thus the associated phases.
 
-The excitation voltage has to be about twice as high as the expected X-ray energies of the elements of interest to collect enough counts to be able identify and quantify the elements.% \acs{Ka}  or \acs{Kb}
-This results in a minimal required electron beam voltage of \SI{12}{\kilo\volt} to measure e.g. \ce{Fe} with a \ac{Ka} of \SI{6.4}{\kilo\electronvolt} \cite{hudson.2003}.
+The excitation voltage has to be about \numrange{2}{3} times as high as the expected X-ray energies of the elements of interest to collect enough counts to be able identify and quantify the concentration of the elements.% \acs{Ka}  or \acs{Kb}
+This results in a minimal required electron beam voltage of \SI{10}{\kilo\volt} to measure e.g. \ce{Ca} with a \ac{Ka} of \SI{3.69}{\kilo\electronvolt} \cite{hudson.2003}.
+Using low voltages will result in lower X-ray-counts, which can only be countered by using a very sensitive detector, which has a large detection area and or has no window \cite{yamamoto.2016}.
+This can also enable to detect light elements like \ce{Li}, \ce{Be} and \ce{B} \cite{yamamoto.2016}.
+However, these elements still are challenging to differentiate in most specimens with a more complex composition due to the overlap of X-ray energies \cite{hudson.2003}.
+
+The lateral resolution of the \ac{EDX} analysis is limited by the electron beam voltage used.
+Similar to the \ac{BSE}, the higher the voltage, the larger the interaction volume and depth (see Figure~\ref{fig:penetration_depth}), and therefore the larger the area from which X-rays are emitted \cite{rossen.2017}.
+Depending on the beam voltage required, the interaction volume and therefore the resolution can be below \SI{1}{\micro\meter} \cite{jiang.2022}.
+Furthermore, a larger interaction volume will cause subsurface information being included in the measured spectra.
 
 
+% TODO: und dann sollte bei EDX schon was über phase maps stehen, also die methode von \cite{stutzman.2004}, vs \cite{georget.2021} vs. unser aachen ansatz \cite{jiang.2022} und vs die blackbox aus aztec \cite{aztec.2004} o.ä software.
+
+\FloatBarrier
+
+\subsection{\Acl*{EBSD} (\acs*{EBSD})}
+\label{sec:ebsd}
+
+\ac{EBSD} is a technique used in the \ac{SEM} to determine the crystallographic structure and orientation of crystalline materials in the sample.
+The electron beam interacts with a highly tilted crystalline sample, and some electrons are diffracted according to \textsc{Bragg}'s Law \cite{bragg.1913} by the crystal lattice planes.
+These diffracted electrons form \textcite{kikuchi.1928} patterns on a phosphor screen, which are captured by a camera.
+By indexing these patterns, \ac{EBSD} can be used to identify the crystal (e.g., distinguish between \ac{C3S} and \ac{C2S}) as pioneered in 1954 by \textcite{alam.1954}.
+This allows to determine the precise crystallographic orientation at that point on the sample.
+Scanning across the sample generates maps of phase distribution, crystal orientation, grain boundaries, and texture.
+
+The term \ac{EBSD} was introduced in 1973 by \textcite{venables.1973}.
+The first commercial \ac{EBSD} system was introduced in 1984 by \textsc{Moon} and \textsc{Harris} based on the work of \textsc{Dingley} \cite{wright.2000} and has since become a standard tool in materials science.
+Often it is used simultaneous with \ac{EDX} to provide a comprehensive analysis of the sample \cite{wright.2000}.
+
+% TODO: ein paar quellen
+% TODO: Christiane: ich hoffe in deiner arbeit wirds ein paar ebsd ergebnisse geben, zb dickenmessung des hydratsaums in abhängigkeit von der kristallorientierung? in 2d an C3S auch schnell gemacht.
+% und ich würde EBSD mit einem bild erläutern für die cement-cloud.
+
+\FloatBarrier
+\subsection{\Acl*{FIB} (\acs*{FIB})}
+\label{sec:lit_fib}
+
+The \ac{FIB} allows to manipulate specimens.
+Instead of electrons, ions (usually \ce{Ga+}) are accelerated to the specimen surface.
+This enables the targeted removal of material or to deposit coatings (e.g. \ce{Pt} or \ce{C}) to protect a \ac{ROI}, to weld  the specimen to a nearby object or to make a surface conductive.
 
 
-Hydrate phases can easily be damaged by high temperatures or after a prolonged \ac{EDX}-measurement using a high powered electron beam.
+In 1974/75 the \ac{FIB} technique was introduced by \textcite{levi-setti.1974} and \textcite{orloff.1975} for microprobing applications.
+\ac{FIB} systems are broadly available since the 1990s \cite{volkert.2007}.
+While it is also possible to obtain an image of the specimen surface with a resolution of $\approx$\SI{5}{\nano\meter} \cite{orloff.1996}, the main application is the preparation of samples for \ac{SEM} and \ac{TEM} due to the abrading effect of the ions.
+For example, \textcite{sakalli.2017} used a \ac{FIB} to prepare a \ac{TEM} lamella of hydrated \ac{C3S} and analysed it using \ac{EDX}. % The hydrate seems to be damaged
+While the first \ac{FIB}s were single beam devices, today combined \ac{FIB}-\ac{SEM} devices are the norm.
+
+These capabilities, allow to capture three-dimensional datasets using one or a combination of the detectors available (e.g. \ac{BSE}, \ac{EDX}, \ac{EBSD}).
+In contrast to X-ray computer tomography, this method is intrinsically destructive.
+\cite{holzer.2006, munch.2006} analysed particular systems using \ac{FIB} serial sectioning.
+This technique allows to obtain a digital 3D volume of the specimen.
+The technical details of the method will be further described in Section~\ref{sec:fib}.
+
+\textcite{holzer.2006a} used \ac{FIBnt} very early to cut a large volume (\num{46}\,$\times$\,\num{32}\,$\times$\,\SI{25}{\cubic\micro\meter}) of a cement paste sample with a resolution of \SI{74}{\nano\meter}.
+
+
+\FloatBarrier
+\subsection{Cryo-\acs*{FIB} and cryo-\acs*{FIB}}
+\label{sec:lit_cryo}
+
+Cryo-preparation for \acs*{SEM} and \acs*{FIBnt} is a method to obtain close-to-nature high-resolution images of water containing specimens \cite{desbois.2008}.
+It works by rapidly freezing the specimen in liquid nitrogen within a high-pressure freezer, which prevents the formation of ice crystals and preserves the original structure of the sample \cite{holzer.2007,muller.2021}.
+This method is often used in the biological field to obtain 3D datasets of cells or tissues \cite{muller.2021}.
+% \textcite{desbois.2008} compared cryo-preparation for the analysis of water-filled grain boundaries in halite, de.
+% -cryoSEM+nT? -> \cite{desbois.2008}
+
+\textcite{holzer.2007} established a segmentation workflow proposing to analyse cryo-stabilised cement suspensions utilizing \ac{FIBnt}. % the raw data is not available...
+
+% TODO: das ist noch etwas dünn
+
+
+\subsection{Beam and drying damage}
+\label{sec:beam_damage} 
+
+Hydrate phases can easily be damaged by high temperatures.
 Thermal damage is especially known for phases like \ac{CSH}, ettringite and \ac{CH} \cite{lothenbach.2016}.
 %The water content of \ac{CSH} changes depending on the temperature \textcite{sanna.2014}.
-\ac{CSH} begins to dehydrate at \SI{60}{\celsius} \cite{he.2018} and Ettringite can already be dehydrated below \SI{100}{\celsius} (Figure~\ref{fig:ettringite_dehydration}).
+For example, \ac{CSH} begins to dehydrate at \SI{60}{\celsius} \cite{he.2018} and ettringite can be dehydrated below \SI{100}{\celsius} (Figure~\ref{fig:ettringite_dehydration}).
 
 \begin{figure}[!htb]
     \centering
@@ -197,7 +267,7 @@ Thermal damage is especially known for phases like \ac{CSH}, ettringite and \ac{
 				legend style={at={(0.026,.96)},anchor=north west},
 				xmin=40, xmax=120,
 				ymin=0, ymax=1600,
-				width=0.95\linewidth,
+				width=0.9\linewidth,
 				height=0.4\linewidth,
 				grid=major,
 				xlabel={dehydration temperature $\vartheta$ in \si{\celsius}},
@@ -218,74 +288,58 @@ Thermal damage is especially known for phases like \ac{CSH}, ettringite and \ac{
     \label{fig:ettringite_dehydration}
 \end{figure}
 
-Dehydration damage may result in a geometrical deformation (see Figure~\ref{fig:ebeam_damage}) or may also introduce pores with a diameter of several \si{\nano\meter} as demonstrated in Figure~\ref{fig:edx_damage_a} and \ref{fig:edx_damage_b} which are slices of a \ac{FIBnt}-stack before and after an \ac{EDX}-measurement.
+After prolonged electron exposure, especially at higher beam voltages, alterations of sensitive specimens can be observed.
+These artefacts can be attributed to the electron beam heating the specimen or to the formation of gaseous products attributed to radiation damage.
+However, if thermal damage occurs is highly depended on the specimen (thermal conductivity, melting or decomposition temperature) and the applied scanning parameters (scanned area, beam voltage and current, dwell time). \cite{reimer.1998b}
 
-\begin{figure}[H]
+For cement hydrates, damages can be observed for example after a prolonged \ac{EDX}-measurement using a high powered electron beam.
+Also, at very high magnifications, the electron dose is very high even at low beam voltages and currents.
+In a literature review from 2002 \textcite{gartner.2002} pointed to a lot of studies of morphologically damaged \ac{CSH} phases in \ac{TEM} and \ac{SEM} images.
+The damages were mostly caused by the preparation and beam damage \cite{gartner.2002}.
+The difference in preparation methods was also demonstrated by \textcite{moser.1998,moser.2003} using an environmental \ac{SEM} (\acs{ESEM}).
+\textcite{rossler.2006} were able to show, that approx. \SI{8e2}{\elementarycharge\per\square\angstrom}  at \SI{-172}{\degreeCelsius} allow to retrieve electron diffraction patterns and artefact-free imaging \ac{CSH}, while \SI{6.2e3}{\elementarycharge\per\square\angstrom} at room temperature induce significant beam damage to the mineral, amorphising it in the process.
+A high energy dose in the \ac{SEM} can cause geometrical deformation of \ac{CSH}-structures and introduce pores within originally compact phases (see Figure~\ref{fig:ebeam_damage} \cite{kleiner.2021f}) \cite{moser.2003,kleiner.2021a}.
+
+\begin{figure}[h!]
     \centering
 
-	\begin{subfigure}[t]{0.49\textwidth}
-		\includegraphics[width=\textwidth]{methods/edx-damage/a.pdf}%
-		\caption{A undamaged surface slice.}
-		\label{fig:edx_damage_a}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[t]{0.49\textwidth}
-		\includegraphics[width=\textwidth]{methods/edx-damage/b.pdf}
-		\caption{Damaged surface after \ac{EDX}-measurements.}
-		\label{fig:edx_damage_b}
-	\end{subfigure}
+	\ifdefined\PRINTABLE
+		\includegraphics[height=0.33\textheight]{methods/ebeam_damage.pdf}
+	\else
+		\animategraphics[palindrome,poster=3,autoplay,height=0.33\textheight]{3}{methods/ebeam_damage_anim/Animation}{0}{4}
+	\fi
+
     \caption{
-        Effect of \ac{EDX} at \SI{6}{\kilo\volt} after multiple scans on a hydrated \ac{C3S} surface, prepared using \ac{FIB}.
-        Sections of \ac{BSE}-images created during a \ac{FIBnt}-process, (\SI{2}{\kilo\volt}, \SI{2}{\pico\ampere}).
-    } % BeamCurrent=2e-010
-    \label{fig:edx_damage}
+        Electron beam damage of a \ac{CSH} needle of \SI{28}{\day} hydrated alite.
+        \ac{SE} images captured at \SI{350}{\volt} accelerating voltage and \SI{200}{\volt} stage bias.
+        The image set was captured within \SI{124}{\second} during continuous electron beam exposure \cite{kleiner.2021a,kleiner.2021f}.
+    }
+    \label{fig:ebeam_damage}
 \end{figure}
 
-The lateral resolution of the \ac{EDX} analysis is limited by the electron beam voltage used.
-Similar to the \ac{BSE}, the higher the voltage, the larger the interaction volume and depth (see Figure~\ref{fig:penetration_depth}), and therefore the larger the area from which X-rays are emitted \cite{rossen.2017}.
-Depending on the beam voltage required, the interaction volume and therefore the resolution can be below \SI{1}{\micro\meter}.
-Furthermore, a larger interaction volume will cause subsurface information being included in the measured spectra.
 
+% with a diameter of several \si{\nano\meter} as demonstrated in Figure~\ref{fig:edx_damage_a} and \ref{fig:edx_damage_b} which are slices of a \ac{FIBnt}-stack before and after an \ac{EDX}-measurement.
 
-\FloatBarrier
+% \begin{figure}[H]
+%     \centering
 
-\subsection{\Acl*{EBSD} (\acs*{EBSD})}
-\label{sec:ebsd}
+% 	\begin{subfigure}[t]{0.49\textwidth}
+% 		\includegraphics[width=\textwidth]{methods/edx-damage/a.pdf}%
+% 		\caption{A undamaged surface slice.}
+% 		\label{fig:edx_damage_a}
+% 	\end{subfigure}
+% 	\hfill
+% 	\begin{subfigure}[t]{0.49\textwidth}
+% 		\includegraphics[width=\textwidth]{methods/edx-damage/b.pdf}
+% 		\caption{Damaged surface after \ac{EDX}-measurements.}
+% 		\label{fig:edx_damage_b}
+% 	\end{subfigure}
+%     \caption{
+%         Effect of \ac{EDX} at \SI{6}{\kilo\volt} after multiple scans on a hydrated \ac{C3S} surface, prepared using \ac{FIB}.
+%         Sections of \ac{BSE}-images created during a \ac{FIBnt}-process, (\SI{2}{\kilo\volt}, \SI{2}{\pico\ampere}).
+%     } % BeamCurrent=2e-010
+%     \label{fig:edx_damage}
+% \end{figure}
 
-\ac{EBSD} is a technique used in the \ac{SEM} to determine the crystallographic structure and orientation of crystalline materials in the sample.
-The electron beam interacts with a highly tilted crystalline sample, and some electrons are diffracted according to \textsc{Bragg}'s Law by the crystal lattice planes.
-These diffracted electrons form \textcite{kikuchi.1928} patterns on a phosphor screen, which are captured by a camera.
-By indexing these patterns, \ac{EBSD} can be used to identify the crystal (e.g., distinguish between \ac{C3S} and \ac{C2S}) as pioneered in 1954 by \textcite{alam.1954}.
-This allows to determine the precise crystallographic orientation at that point on the sample.
-Scanning across the sample generates maps of phase distribution, crystal orientation, grain boundaries, and texture.
-
-The term \ac{EBSD} was introduced in 1973 by \textcite{venables.1973}.
-The first commercial \ac{EBSD} system was introduced in 1984 by \textsc{Moon} and \textsc{Harris} based on the work of \textsc{Dingley} \cite{wright.2000} and has since become a standard tool in materials science.
-Often it is used simultaneous with \ac{EDX} to provide a comprehensive analysis of the sample \cite{wright.2000}.
-%TODO: ein paar quellen
-
-\FloatBarrier
-\subsection{\Acl*{FIB} (\acs*{FIB})}
-\label{sec:lit_fib}
-
-The \ac{FIB} allows to manipulate specimens.
-Instead of electrons, ions (usually \ce{Ga+}) are accelerated to the specimen surface.
-This enables the targeted removal of material or to deposit coatings (e.g. \ce{Pt} or \ce{C}) to protect a \ac{ROI}, to weld  the specimen to a nearby object or to make a surface conductive.
-
-In 1974/75 the \ac{FIB} technique was introduced by \textcite{levi-setti.1974} and \textcite{orloff.1975} for microprobing applications.
-\ac{FIB} systems are broadly available since the 1990s \cite{volkert.2007}.
-While it is also possible to obtain an image of the specimen surface with a resolution of $\approx$\SI{5}{\nano\meter} \cite{orloff.1996}, the main application is the preparation of samples for \ac{SEM} and \ac{TEM} due to the abrading effect of the ions.
-For example, \textcite{sakalli.2017} used a \ac{FIB} to prepare a \ac{TEM} lamella of hydrated \ac{C3S} and analysed it using \ac{EDX}. % The hydrate seems to be damaged
-While the first \ac{FIB}s were single beam devices, today combined \ac{FIB}-\ac{SEM} devices are the norm.
-
-These capabilities, allow to capture three-dimensional datasets using one or a combination of the detectors available (e.g. \ac{BSE}, \ac{EDX}, \ac{EBSD}).
-In contrast to X-ray computer tomography, this method is intrinsically destructive.
-\cite{holzer.2006, munch.2006} analysed particular systems using \ac{FIB} serial sectioning.
-This technique allows to obtain a digital 3D volume of the specimen.
-\textcite{holzer.2006a} used \ac{FIBnt} very early to cut a large volume (\num{46}\,$\times$\,\num{32}\,$\times$\,\SI{25}{\cubic\micro\meter}) of a cement paste sample with a resolution of \SI{74}{\nano\meter}.
-They also established a segmentation workflow proposing to analyse cryo-stabilised cement suspensions which they published shortly after \textcite{holzer.2007}.% the raw data is not available...
-Cryo-preparation for \acs*{SEM} and \acs*{FIBnt} is a method to obtain close-to-nature high-resolution images of water containing specimens \cite{desbois.2008}.
-It works by rapidly freezing the specimen in liquid nitrogen within a high-pressure freezer, which prevents the formation of ice crystals and preserves the original structure of the sample \cite{holzer.2007,muller.2021}.
-This method is often used in the biological field to obtain 3D datasets of cells or tissues \cite{muller.2021}.
-% \textcite{desbois.2008} compared cryo-preparation for the analysis of water-filled grain boundaries in halite, de.
-% -cryoSEM+nT? -> \cite{desbois.2008}
+Also due to the high vacuum in the \ac{SEM}, the specimen can dry out, inducing artefacts like cracks and shrinkage \cite{moser.2003}.
+This can be circumvented by using a \ac{SEM} in a low vacuum mode (Environmental \ac{SEM}), it is not always possible to use this mode

@@ -5,8 +5,8 @@
 % TEM images of early C3S grain hydration from \cite{yan.2023}
 % TEM images of CSH \cite{richardson.2004}
 
-The main phases of \ac{OPC} are \ac{C3S}, \ac{C2S}, \ac{C3A} and \ac{C4AF}.
-On contact with water these phases dissolve and new phases like \ac{CSH}, \ac{CH}, ettringite, syngenite, gypsum and \ac{AFm} form (see Figure~\ref{fig:moeser_phase_dev}) \cite{moser.2001, stark.2003}.
+The main phases of \ac{OPC} are \acf{C3S}, \acf{C2S}, \acf{C3A} and \acf{C4AF}.
+On contact with water these phases dissolve and new phases like \ac{CSH}, \ac{CH}, ettringite, syngenite, gypsum and hydrated \ac{AFm} form (see Figure~\ref{fig:moeser_phase_dev}) \cite{moser.2001, stark.2003}.
 
 \begin{figure}[!htb]
     \centering
@@ -119,13 +119,14 @@ As described in \cite{gartner.2002}, the periods are:
   \end{itemize}
 \end{multicols}
 
-% noch ein paar Quellen damits schön aussieht :D
-The early hydration process is important to describe the initial hardening process and the rheological behaviour of the cement.
-The first useful qualitative observations at room temperature can be made using the \ac{SE}-mode and fresh fractured surfaces \cite{stark.2001,voland.2000,suss.2001} after a few minutes or up to \SI{10}{\hour}.
+% TODO: Christiane: wann endet der bei dir? 24h??
+The hydration process until phase III is important to describe the initial hardening process and the rheological behaviour of the cement.
+The first useful qualitative observations at room temperature were made using the \ac{SE}-mode and fresh fractured surfaces after a few minutes or up to \SI{10}{\hour} \cite{stark.2001,voland.2000,suss.2001} .
 The the \ac{CSH}-needles are up to \SI{300}{\nano\meter} long, while the hydration front is barely visible in the particle \cite{voland.2000}.
-% However, for (electron) microscopical analysis it is hard to get reliable data in the first few hours.
-% find publications from Christiane/Long with those early hydration products
-However, reliable quantitative observations on polished surfaces using the \ac{BSE} mode can fist be made after the initial hardening after a few hours.
+% TODO: find publications of early hydration of cement using BSE mode
+% TODO: find publications from Christiane/Long with those early hydration products?
+%To embed and polish a sample for \ac{BSE} analysis, the specimen should be set or else, only powdery material can be observed.
+%However, reliable quantitative observations like particle distance on embedded polished surfaces using the \ac{BSE} mode can fist be made after the initial hardening after a few hours.
 
 \section{Growth of \acl*{CSH} (\acs*{CSH})}
 
@@ -180,10 +181,10 @@ Also, \textcite{nonat.2004} demonstrated the crystalline nature of \ac{CSH} crys
 {\color{red} However, during its very early development, \ac{CSH} forms water rich, droplets, which then aggregate on top of \ac{C3S} and \ac{C2S} surfaces in an amorphous state \cite{sowoidnich.2023}.
 \textcite{bellmann.2012} claimed, that then a thin \SI{2}{\nano\meter} layer is formed, covering the \ac{C3S} grains.
 The forming of this amorphous first layer could be understood as a `gel'.
-According to \textcite{jennings.1986a} and others \cite{bellmann.2015, naber.2019}, this layer can also act as a passivating layer causing the induction periods . % Thomas: Im neuen paper (was wir gerade bearbeiten) werden weitere Indizien für die Existenz eines passivating layers gezeigt…(Experimente mit Freikalk und Wasserglas); Jennings entnommen aus sowoidnich.2019
+According to \textcite{jennings.1986a} and others \cite{bellmann.2015, naber.2019}, this layer can also act as a passivating layer causing the induction periods . % TODO: Thomas: Im neuen paper (was wir gerade bearbeiten) werden weitere Indizien für die Existenz eines passivating layers gezeigt…(Experimente mit Freikalk und Wasserglas); Jennings entnommen aus sowoidnich.2019
 
 
-} -
+}
 % Mail von THomas vom 04.04.2025:
 % wenn man das streng nach Definition behandelt, dann sind die droplets, die wir im Nucleation…-paper gefunden haben ein Gel. War mir so noch nicht bewusst. In der Biomineral-Community sagt man eben droplet oder liquid precursor dazu. Das sind wohl die Bausteine, aus denen CSH aufgebaut wird.
 
@@ -201,36 +202,19 @@ In 1979, \textcite{ghosh.1979} argued based on morphology, that \ac{CSH} are nee
 Also the first published \ac{SEM} images from 1966 not only show ettringite needles, but also \ac{CSH} phases in needle and platelet form are recognizable \cite{chatterji.1966}.
 However, since no \ac{EDX} system was available, they only could not identify the phases without a doubt.
 \textcite{stark.2001} pointed to the usually required preparation steps drying and conductive coating of the specimen for \ac{SEM} analysis until the mid-1990ies.
-This preparation often leads to a significant change in the morphology of the \ac{CSH} and looking much more gel-like (e.g.: \cite{jennings.1981}).% more literature!! \cite{bergstrom.1992} has some rather bad ESEM images, however they show very young CSH and a lot of surface scattering making it look a little gel like
-In a literature review \textcite{gartner.2002} also pointed to a lot of studies of morphologically damaged \ac{CSH} phases in \ac{TEM} and \ac{SEM} images, which were caused by the preparation and too aggressive imaging parameters.
-The difference in preparation methods was also demonstrated by \textcite{moser.1998} using an Environmental \ac{SEM}.
-\textcite{rossler.2006} were able to show, that approx. \SI{8e2}{\elementarycharge\per\square\angstrom}  at \SI{-172}{\degreeCelsius} allow to retrieve electron diffraction patterns and artefact-free imaging \ac{CSH}, while \SI{6.2e3}{\elementarycharge\per\square\angstrom} at room temperature induce significant beam damage to the delicate crystals.
-Also, at very high magnifications, the energy dose is very high even at low voltages and currents.
-This can cause \ac{CSH}-structures to bent or melt and introduce pores within originally compact phases (Figure~\ref{fig:ebeam_damage}) \cite{kleiner.2021a,kleiner.2021f}.
+This preparation often leads to a significant change in the morphology of the \ac{CSH} and looking much more gel-like (e.g.: \cite{jennings.1981}).
+The damaging effect of the electron beam on the \ac{CSH} structure is discussed in more detail in Section~\ref{sec:beam_damage}.
 
-\begin{figure}[h!]
-    \centering
+Furthermore, early \ac{SEM}s required higher beam voltages and currents because of a low detector efficiency to image the surfaces.
+This was causing subsurface scattering and reduced surface detail \cite{moser.1998}, increasing the impression of a gel like material due to reduces surface details.
+This was demonstrated by \textcite{pawley.1984} comparing low and high voltage \ac{SEM} images of the same specimen.
 
-	\ifdefined\PRINTABLE
-		\includegraphics[height=0.33\textheight]{methods/ebeam_damage.pdf}
-	\else
-		\animategraphics[palindrome,poster=3,autoplay,height=0.33\textheight]{3}{methods/ebeam_damage_anim/Animation}{0}{4}
-	\fi
-
-    \caption{
-        Electron beam damage of a \ac{CSH} needle of \SI{28}{\day} hydrated alite.
-        \ac{SE} images captured at \SI{350}{\volt} accelerating voltage and \SI{200}{\volt} stage bias.
-        The image set was captured within \SI{124}{\second} during continuous electron beam exposure \cite{kleiner.2021a,kleiner.2021f}.
-    }
-    \label{fig:ebeam_damage}
-\end{figure}
-
-Furthermore, early \ac{SEM}s required higher voltages to image the surfaces, causing subsurface scattering and reduced surface detail \cite{moser.1998}, increasing the impression of a gel like material due to reduces surface details.
+% TODO: Christiane: evtl noch zwei bilder zur eläuterung (gel SEM und high resolution SEM von zement??)
 
 However, a gel can also be defined as a substance capable of swelling in the presence of a second component (in this case water) \cite{hermans.1946}.
 This seems to be the case, as observable by the creep, swelling and shrinkage behavior of concrete \cite{powers.1958,feldman.1970}, which can be attributed to \ac{CSH} \cite{zhou.2025}.
 
-The colloidal nature of hydration products of cement was proposed more than a century ago, as a lively discussion between \textcite{michaelis.1908} and the editorial of the \textsc{Tonindustrie-Zeitung} from 1907/1908 demonstrates.
+The colloidal nature of hydration products of cement was proposed more than a century ago, as a lively discussion between \textcite{michaelis.1908} and the editorial of the \textsc{Tonindustrie-Zeitung} in 1907/08 demonstrates.
 The required colloidal nature (porous structure between \SI{1}{\nano\meter} to \SI{1}{\micro\meter}) can be applied to water saturated, low density \ac{CSHo} and very young \ac{CSH} \cite{sowoidnich.2023}.
 However, according to \ac{SEM}-images dense \ac{CSHi} has a very low porosity and its morphology can hardly be classified as colloidal.
 Therefore, the swelling is often be attributed to the interlayer porosity of \ac{CSH} \cite{jennings.2008}, which is usually in the range of \num{0.9} to \SI{1.4}{\nano\meter} for tobermorite-like structures, while the latter seems to be more fitting for \ac{CSH} as discussed by \textcite{duque-redondo.2022}.
@@ -321,8 +305,9 @@ In contrast to the \ac{OPC} experiments, these consisted only out of very few se
 
 \textcite{garrault.2006} measured the development of the \ac{CSH} concentration of \SI{4}{\gram} \ac{C3S} grains with different median diameters (7, 10, 11, 12.5, \SI{14}{\micro\meter}) for up to one day in a concentrated lime solution.
 They estimated the thickness of \ac{CSHi} (replacing \ac{C3S}) and \ac{CSHo} (on top of the grain) at the time, when the \ac{CSH} precipitation became limited by diffusion (see Figure~\ref{fig:garrault-distribution}) (beginning of the second deceleration period in Figure~\ref{fig:opc_dca}).
-For \SI{7}{\micro\meter} the diffusion was limited was after $\approx$ \SI{600}{\min} (\SI{10}{\hour}), for \SI{14}{\micro\meter} after $\approx$ \SI{700}{\min} (\SI{12}{\hour}).
-The estimation is based on the \ac{CSH}-concentration, the mean diameter and that the particles are spherical.
+For a particle diameter of \SI{7}{\micro\meter} the diffusion was limited after $\approx$ \SI{600}{\min} (\SI{10}{\hour}), for \SI{14}{\micro\meter} after $\approx$ \SI{700}{\min} (\SI{12}{\hour}).
+% TODO: Christiane: determined by which method? <- im Paper steht keine Methode, aber ich nehme an, dass ICP verwendet wurde.
+The estimation is based on the \ac{CSH}-concentration (the measurement method was not mentioned), the mean diameter and that the particles are spherical.
 \textcite{garrault.2006} included a measurement of a single \ac{TEM}-image from  of a hydrated \ac{C3S} grain with a diameter of \SI{3}{\micro\meter}.% made by \textsc{Lachowski} and \textsc{Courault} in 1998.
 
 \begin{figure}[!htb]
@@ -828,6 +813,11 @@ When growing unhindered, the needle-like \ac{CSH} phases can reach a length of a
 \end{iquote}
 %Zitat Möser
 %It can be assumed that at the beginning of the acceleration period all C-S-H phases grow in form of fibres. These fibres grow in length during the course of hydration with hardly any changes in thickness. When growing unhindered, the needle-like \ac{CSH} phases can reach a length of approx. 1.4 µm. These applies only for hydration of alite (in pure belite: \ac{CSH}- length up to 2.5 µm). In compact concrete it is to be expected that there is intergrowth between the fibers as well as and interlocking with one another and thus gel pores are formed which have often been described.
+
+% TODO: Christiane: du solltest noch das ziemlich berühmte paper neubauer, sowidnich, bellmann rößler anschauen mit messungen zur PSD von alit :  
+\textcite{neubauer.2022} measured \ac{CSHi} on \ac{C3S} dispersed in epoxy resin utilizing \ac{SEM} on \ac{C3S} and measured a near-field \ac{PXCT} and  different hydration times.
+They determined the thickness of \ac{CSHi} at \num{12}, \num{16} and \SI{20}{\hour} as \SI{300(80)}{\nano\meter}, \SI{670(170)}{\nano\meter} and \SI{800(260)}{\nano\meter} respectively.
+% TODO: <- somehow measure the thickness from the PXCT data?
 
 
 \subsection{Hadley grains}

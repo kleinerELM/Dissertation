@@ -148,13 +148,14 @@ This also means, that very small particles, which have a higher probability to s
 
 \begin{figure}[htb]
 	\centerline{\includegraphics[width=\columnwidth, trim={0 1.7cm 0 1.8cm}, clip]{hydrate-rim/sectioning_overestimation.pdf}}
-	\caption{Overestimation of the \ac{HLT} depending on the HLT / grain diameter ratio and the integral limit $i$ (see Equation~\ref{eq:sectioning_effect_2}). The blue line indicates the results for HLT / grain diameter value of 0.3 as shown in Figure~\ref{fig:sectioning_effect_b}. }
+	\caption{
+        Overestimation of the \ac{HLT} depending on the \ac{HLT} / grain diameter ratio and the integral limit $i$ (see Equation~\ref{eq:sectioning_effect_3}).
+        The blue line indicates the results for \ac{HLT} / grain diameter value of \num{0.3} as shown in Figure~\ref{fig:sectioning_effect_b}. }
 	\label{fig:hlt_overestimation}
 \end{figure}
 
-%\subsection{FIB serial sectioning}
 
-\subsection{Calculating the phase composition based on 2D-\acs{SEM} images}
+\subsection{Calculating the phase composition based on 2D-SEM images}
 
 Using a segmented \ac{SEM}-image, the phase composition can be estimated by using the area-\% of alite $A_{\text{C}_3\text{S}}$ and the hydrate phases $A_\text{\text{CSH}}$ and $A_\text{CH}$ \cite{kleiner.2024a}.
 If the hydrate phases are undistinguishable, they can be summed up:
@@ -164,7 +165,7 @@ If the hydrate phases are undistinguishable, they can be summed up:
 	A_\text{hydrate} = A_\text{\text{CSH}} + A_\text{CH} = A_{\text{image}} - A_{\text{C}_3\text{S}} - A_{\text{pores}}
 \end{equation}
 
-Equation~\ref{eqn:est_frac} then allows to estimate the amount of hydrate phase $\sigma_\text{hyd}$ (\ac{CH} + \ac{CSH}) in \si{wtpercent}.
+Equation~\ref{eqn:est_frac} then allows to estimate the amount of hydrate phases \ac{CH} and \ac{CSH} ($\sigma_\text{hydrate}$) in \si{\wtpercent}.
 
 \begin{equation}
 	\label{eqn:est_frac}
@@ -176,13 +177,14 @@ The densities required to calculate these values are listed in Table~\ref{tab:de
 % why 2.5 : 1.0?
 \begin{table}[htb]
     \centering
-    \caption{Densities of \ac{C3S} \cite{garrault.2006}, \ac{C2S}, \ac{CH} and \ac{CSH} \cite{garrault.2006} different phases in \si{\gram\per\cubic\centi\meter} \cite{jennings.2000,garrault.2006}.\\$^{*}$mixture of \ac{CSH}:\ac{CH} at a volume ratio of 2.5:1}
+    \caption{
+        Densities of \ac{C3S} \cite{garrault.2006}, \ac{C2S}, \ac{CH} and \ac{CSH} \cite{garrault.2006} different phases in \si{\gram\per\cubic\centi\meter} \cite{jennings.2000,garrault.2006}.\\$^{*}$mixture of \ac{CSH}:\ac{CH} at a volume ratio of \num{2.5}:\num{1}}
     \label{tab:densities}
     \begin{tabular}{@{}lrrrrr@{}}
         \toprule
         \textbf{Phase} & \ac{C3S} & \ac{C2S} & \ac{CH} & \ac{CSH} & hydrate phase$^{*}$\\
 		\midrule
-        \textbf{Density} & 3.14 & & 2.2 & $\approx$ 2.116 &  2.07\\
+        \textbf{Density} & \num{3.14} & & \num{2.2} & $\approx$ \num{2.116} &  \num{2.07} \\
 		\bottomrule
     \end{tabular}
 \end{table}
@@ -190,19 +192,27 @@ The densities required to calculate these values are listed in Table~\ref{tab:de
 \subsection{Statistical analysis of the representativeness of an 2D image}
 \label{sec:2D-representativeness}
 
-%zur statistik von SEM bildanalyse an klinkern gibts auch arbeiten von Paul Stutzman und in dem buch von donald campbell über microscopiacl examination adn interpretation of portland cement clinker bzw die duetsch variante davon. bestimmt gibts auch aussagen von betonmikroskopikern
-
-Being sure, that a sample and the resulting measurement is representative can be a rather complicated challenge.
+To validate, that a sample and the resulting measurement is representative can be a rather complicated challenge.
 This is especially true for inhomogeneous materials consisting of multiple phases and wide ranges of particle sizes.
 The problem starts with sampling and sample preparation.
 This process is standardised for for granular or powdery samples for multiple fields (e.g. DIN 52101 \cite{din52101.2013} and DIN EN 932-1 \cite{dinen932-1.1996}).
 Although this solution is very helpful for analysing loose particles, for the analysis of a monolithic sample the only option is to analyse the largest possible volume or surface area.
-This raises the question of what the minimum size of the analysed area must be in order to obtain a statistically meaningful result.
-This is especially true for \ac{SEM}-analysis, since the imaged area is usually only a tiny detail of the whole specimen.
+This raises the question of what the minimum resolution and the size of the analysed area must be in order to obtain a statistically meaningful result.
+
+%TODO: Christiane: zur statistik von SEM bildanalyse an klinkern gibts auch arbeiten von Paul Stutzman und in dem buch von donald campbell über microscopiacl examination adn interpretation of portland cement clinker bzw die duetsch variante davon. bestimmt gibts auch aussagen von betonmikroskopikern
+The required lower resolution limit of a \ac{SEM} image can be concluded from the \textcite{nyquist.1928}-\textcite{shannon.1949} theorem. %\textcite{whittaker.1915}-\textcite{nyquist.1928}-\textcite{shannon.1949}
+In the context of spatial resolution in digital imaging, this translates to the following requirement:
+The pixel size should be no larger than half the size of the smallest resolvable feature \cite{roberge.2022}.
+Or in other words, to resolve an object with a size of \SI{4}{\nano\meter}, the pixel size should be less than \SI{2}{\nano\meter\per\px}.
+Due to the unavoidable noise level in most digital images (including images acquired by \ac{SEM}, \ac{CT} or light microscopy), a higher resolution is required to reliably represent a feature.
+Furthermore, the resolution limitations of the imaging device and the sample preparation (e.g. polishing) and the following segmentation methods have to be considered.
+
+However, the minimum area required to obtain a statistically relevant result is especially an issue for \ac{SEM}-analysis, since the imaged area is usually only a tiny detail of the whole specimen.
 While the operator of the microscope may try to exclude unusual areas or capture a typical, representative area of the specimen, this is a highly subjective task.
 %To reduce this subjectiveness, one may try to obtain a larger area or set of independent images and apply statistical analysis.
 
-{\color{red}In many cases, a particle size or pore size distribution is of interest, which allows to evaluate distinct objects of an image \cite{odziomek.2016}.
+
+{\color{red}In many cases, a particle size distribution or \ac{PSD} is of interest, which allows to evaluate distinct objects of an image \cite{odziomek.2016}.
 However, this is no good solution for interconnected phases or pore spaces. ...}
 
 Often a reliable phase composition measurement is sufficient.

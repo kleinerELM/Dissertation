@@ -22,7 +22,7 @@ However, each method has different measurement ranges as illustrated in Figure~\
 Image based methods like the \ac{SEM} or the \ac{CT} have already been introduced above.
 However, they inherently have either resolution issues, only give a 2-dimensional view or do not give representative results due to a small \ac{ROI}.
 Therefore, more indirect methods based on physical principles can help to obtain more statistically significant results.
-For this thesis, \ac{MIP}, \ac{LTDSC}, \ac{HNMR} were used as complementary methods to the image based methods.
+For this thesis, \ac{MIP}, \ac{LTDSC} and \ac{HNMR} were used as complementary methods to the image based methods.
 
 {\color{red} There were multiple studies trying to compare different pore analysis methods \cite{naber.2020,georget.2024}.} % more sources!
 
@@ -35,7 +35,7 @@ For this thesis, \ac{MIP}, \ac{LTDSC}, \ac{HNMR} were used as complementary meth
 \ac{MIP} is a rather old and well known method, which is used to characterize the \ac{PSD} of a solid material between \SI{3.5}{\nano\meter} to \SI{500}{\micro\meter} by applying pressure to force mercury into the pores \cite{giesche.2002}. % \cite{romberg.1978}
 However, the pore size range is a a constant point of discussion in the literature and depends on the type of material to be measured. % cite?
 Mercury is used due to its non-wetting properties and the high surface tension \cite{giesche.2002}. % of \SI{4850}{\newton\per\meter} 
-The fundamental principle is governed by the \textsc{Washburn} equation, which relates the applied pressure required to force mercury into a cylindrical pore to the pore's radius, the surface tension of mercury, and the contact angle between mercury and the sample material.
+The fundamental principle is governed by the \textcite{washburn.1921} equation, which relates the applied pressure required to force mercury into a cylindrical pore to the pore's radius, the surface tension of mercury, and the contact angle between mercury and the sample material.
 Smaller pores require significantly higher pressures for mercury intrusion.
 By precisely measuring the volume of mercury intruded into the sample at each pressure increment, a detailed pore size distribution can be obtained.
 
@@ -56,7 +56,7 @@ The `ink-bottle' effect (see Figure~\ref{fig:mip-bottle-neck}) is often mentione
 	
     \caption{
 		Illustration of the ink-bottle effect (not to scale).
-		Sample: grey; \ce{Hg}: colored by pressure (a) or {\color{blue}blue} (c).
+		Grey: sample; (a) colored by pressure: \ce{Hg}; (c) {\color{blue}blue}: \ce{Hg}.
 		During the intrusion (a), the pores will be filled from {\color{green}$d_1$} to {\color{orange}$d_3$}, while the small pore diameter {\color{red}$d_4$} (bottle-neck) is blocking the access to the larger pore with the diameter {\color{red}$d_5$}.
 		Therefore, the pore volume $V_5$ is measured together with $V_4$ at pressure $p_4$ (c).
 		After the depressurisation, mercury will remain trapped within the pores (c, {\color{blue}blue}), causing a hysteresis curve (b).
@@ -73,12 +73,12 @@ Furthermore, \ac{MIP} requires dried specimens, leading to a cracked and therefo
 In cement, the pore volume was comparable, the usage of \textsc{Wood}'s metal indicated that larger pores were present \cite{abell.1999}.
 \textcite{hildenbrand.2003} applied this comparison to mudstones and concluded, that \ac{MIP} causes a significant compression of the sample pore space.
 This was already assumed by \cite{horseman.1996} who declared \c{MIP} as `totally unreliable' for clay-like materials.
-\textcite{hall.1986} concludes in comparison with small angle neutron scattering and \ce{N2} measurements, that pores than \SI{70}{\nano\meter} in clays larger may be preparation artifacts (e.g. due to drying).
+\textcite{hall.1986} concludes in comparison with small angle neutron scattering and \ce{N2} measurements, that pores larger than \SI{70}{\nano\meter} in clays may be preparation artifacts (e.g. due to drying).
 \ac{MIP} was also deemed inadequate also for oolithic limestone by \textcite{roels.2001} due to the ink-bottle effect.
 They preferred the main wetting curve, \ac{SEM} images and pressure membrane apparatus measurements of saturated specimens over \ac{MIP}.
 
 Finally, due to the use of hazardous mercury and due to the high cost, it has a reduced relevance today.
-Despite its flaws, \ac{MIP} is useful to measure the porosity of similar samples or the change in porosity within a specimen \cite{juntgen.1966}.
+Despite its flaws, \ac{MIP} is useful to compare the porosity of similar samples or the change in porosity within a specimen \cite{juntgen.1966}.
 
 {\color{red}
 \begin{itemize}
@@ -89,7 +89,9 @@ Despite its flaws, \ac{MIP} is useful to measure the porosity of similar samples
 }
 
 
-%However, the technique is criticised since a long time \cite{juntgen.1966}
+%im hinblick auf mögliche gutachterinnen: hast du gecheckt, ich glaube hong wong zusammen mit buenfeld haben sich auch dazu geäußert
+% \cite{wong.2006} BSE porosity
+% \cite{wong.2012} BSE porosity - Estimating the permeability of cement pastes and mortars using image analysis and effective medium theory
 
 
 
@@ -115,7 +117,7 @@ They proposed the connection between pore types and the freezing point depressio
 \end{itemize}
 In their study only the peak presence at $\approx$ \SI{-15}{\degreeCelsius} was evaluated.
 
-\textcite{brun.1977} proposed an approximate solution based on a \textsc{Gibbs-Thompson} relationship to convert between freezing/melting point of water and the pore radius for cylindrical pores.
+\textcite{brun.1977} proposed an approximate solution to convert between freezing/melting point of water and the pore radius for cylindrical pores.%based on a \textsc{Gibbs-Thompson} relationship 
 The equation for freezing is:
 \begin{equation}
 	r_\text{P} = -\frac{64.67}{\Delta T }+0.57;~~~\SI{0}{\kelvin} > \Delta T > \SI{-40}{\kelvin},
@@ -211,9 +213,9 @@ This was indicated by a signal shift in the direction of higher freezing tempera
 %, while having limited effect on the size distribution of meso-pores.
 
 \Textcite{neffati.2001} studied the influence of the heat rate on the \ac{LTDSC} results using porous glass.
-They found, that slower heating rates lead to a narrower peaks and a lower signal response.
-Heat rates of more than \SI{2}{\kelvin\per\minute} were considered to be too imprecise to study the pore size distribution.% supported by
-However, cooling/heating rates below \SI{0.1}{\kelvin\per\minute} were considered to have a unpractical signal/noise ratio.
+They found, that slower heating rates lead to narrower peaks and a lower signal response.
+Heat rates of more than \SI{2}{\kelvin\per\minute} were considered to be too imprecise to study the pore size distribution.
+However, cooling/heating rates below \SI{0.1}{\kelvin\per\minute} were considered to have a bad signal-to-noise ratio.
 While \textcite{joseph.2024} used \SI{0.5}{\kelvin\per\minute} as a compromise, \textcite{wu.2015} and \textcite{ghantous.2023} still used a cooling/heating rate of \SI{0.1}{\kelvin\per\minute} to measure the porosity of cementitious materials, .
 {\color{red}Considering a higher sensitivity of more modern devices, this heating rate could still be valid.}
 %10.14359/51738808 \cite{Ghantous.2023} Examining Effect of Printing Directionality on Freezing and-Thawing Response of Three-Dimensional-Printed Cement Paste

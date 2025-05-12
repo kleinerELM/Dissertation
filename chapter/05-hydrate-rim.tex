@@ -3,8 +3,8 @@
 
 The in section \ref{subsec:algo_hlm} presented method was applied to embedded and polished alite and belite specimens and mixtures of both phases at different ages.
 The datasets differ in the imaged area and slightly in SEM imaging parameters.
-For example, the accelerating voltage used varied from 10 to 15\,kV.
-An overview of the images used is shown in Tables XX and YY.% \ref{tab:c3s}.
+For example, the accelerating voltage used varied from \SIrange{10}{15}{\kilo\volt}.
+An overview of the images used is shown in Tables~XX and YY.% \ref{tab:c3s}.
 The raw images are publicly available \cite{kleiner.2023a, kleiner.2023}.
 
 \FloatBarrier
@@ -29,7 +29,7 @@ The threshold segmentation leads to many erroneously identified phases.
 In contrast, the pixel classification gives a very close result to the manual segmentation.
 However, if \ac{CSHo} is taken into account in the pixel classification, the \ac{HLT} distribution and the calculated $l_\text{max}$ are comparable to the threshold-based segmentation, while the data density is significantly reduced (see Table~\ref{tab:segmentation} and Figure~\ref{fig:hlt_segmentation_influence}\cite{kleiner.2024}, \ac{SI}).
 This data density reduction is caused by a rough segmentation of the \ac{CSHo} and therefore, a significantly decreased pore space.
-Furthermore, a slightly larger 33.3\,\% confidence interval and a significant reduction of the first \ac{HLT} accumulation can be observed, including the \ac{CSHo}.
+Furthermore, a slightly larger \SI{33.3}{\percent} confidence interval and a significant reduction of the first \ac{HLT} accumulation can be observed, including the \ac{CSHo}.
 
 Manual segmentation and pixel classification ignoring \ac{CSHo} show nearly identical $l_\text{max}$ values, while restoring the data density (see \cite{kleiner.2024}, \ac{SI}, Figure~3).
 The difference of the $l_\text{max}$ of the pixel classification results allows to estimate a thickness of \ac{CSHo} of roughly \SI{0.4}{\micro\meter}.
@@ -43,14 +43,13 @@ In many cases, distinguishing whether \ac{CSHo} or merely an artifact such as a 
 	\begin{tabular}{@{}lrrrr@{}}
 		\toprule
 		segmentation	& threshold		& \multicolumn{2}{c}{pixel classification} & manual\\
-		method & - & w. C-S-H$_\text{o}$ & wo. C-S-H$_\text{o}$ & - \\ \midrule
-		pores in area-\%		& 38.5	& 22.1	& 30.7	& 22.2  \\
-		hydrates in area-\%		& 38.0	& 61.1	& 52.5	& 62.7  \\
-		clinker in area-\%		& 23.9	& 17.4	& 17.4	& 15.4  \\
-		\midrule
-		$l_\text{33\,\%, l}$ in \textmu m	&  1.43 	& 1.43	& 1.18	& 1.18 \\
-		$l_\text{max}$ in \textmu m	&  1.85	& 1.94	&  1.52	& 1.52 \\
-		$l_\text{33\,\%, h}$ in \textmu m	& 2.28 & 2.44	&  1.85	& 1.94 \\
+		method & - & w. \ac{CSHo} & wo. \ac{CSHo} & - \\ \midrule
+		pores in \si{\areapercent}		& \tablenum{38.5}	& \tablenum{22.1}	& \tablenum{30.7}	& \tablenum{22.2}  \\
+		hydrates in \si{\areapercent}		& \tablenum{38.0}	& \tablenum{61.1}	& \tablenum{52.5}	& \tablenum{62.7}  \\
+		clinker in \si{\areapercent}		& \tablenum{23.9}	& \tablenum{17.4}	& \tablenum{17.4}	& \tablenum{15.4}  \\ \midrule
+		$l_\text{\SI{33.3}{\percent}, l}$ in \si{\micro\meter}	&  \tablenum{1.43} 	& \tablenum{1.43}	& \tablenum{1.18}	& \tablenum{1.18} \\
+		$l_\text{max}$ in \si{\micro\meter}	&  \tablenum{1.85}	& \tablenum{1.94}	&  \tablenum{1.52}	& \tablenum{1.52} \\
+		$l_\text{\SI{33.3}{\percent}, h}$ in \si{\micro\meter}	& \tablenum{2.28} & \tablenum{2.44}	&  \tablenum{1.85}	& \tablenum{1.94} \\
 		\bottomrule
 	\end{tabular}
 \end{table}
@@ -77,7 +76,7 @@ Furthermore, very small grains seem to have no second \ac{HLT} accumulation, whi
 	The histogram on top illustrates the logarithmic frequency for each diameter bin in the diagram below.
 	The histogram on the right illustrates the frequency of \ac{HLT} measurements as sum of the main diagram.
 	The values are thus independent of the frequency of single grain diameters.
-	The yellow markers indicate the confidence interval at a confidence level of \SI{33.3}{\%} around $l_\text{max}$ (green).}
+	The yellow markers indicate the confidence interval at a confidence level of \SI{33.3}{\percent} around $l_\text{max}$ (green).}
 	\label{fig:results2d_alite}
 \end{figure}
 
@@ -89,24 +88,24 @@ Furthermore, very small grains seem to have no second \ac{HLT} accumulation, whi
 \end{figure}
 
 Belite shows a significant slower hydration, which is also visible in the hydrate rim growth (Figure~\ref{fig:hydration-rim-results}).
-After 28 days, Belite still shows smaller hydration rims than alite after 7 days.
+After \SI{28}{\day}, Belite still shows smaller hydration rims than alite after \SI{7}{\day}.
 
 \begin{figure}[ht!]
     \centering
 
 	\begin{subfigure}{0.475\textwidth}
 		\includegraphics[width=\textwidth]{hydrate-rim/alite_result.pdf}
-		\caption{Hydration of alite from 1 to \SI{28}{\day}. \cite{kleiner.2024} }
+		\caption{Hydration of alite from \SIrange{1}{28}{\day}. \cite{kleiner.2024} }
 		\label{fig:hyd-rim-alite}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}{0.475\textwidth}
 		\includegraphics[width=\textwidth]{hydrate-rim/belite_result.pdf}
-		\caption{Hydration development of belite from 1 to \SI{28}{\day}.}
+		\caption{Hydration development of belite from \SIrange{1}{28}{\day}.}
 		\label{fig:hyd-rim-belite}
 	\end{subfigure}
     \caption{Comparison between the hydration progression measured using \ac{XRD} (dashed lines) with $l_\text{max}$ (solid line).
-	The pink markers (dotted line) indicate the amount of hydrate phase $\sigma_\text{hyd}$ estimated from the image segmentation. The red translucent areas indicate the confidence interval at a confidence level of where 33.3\,\% (dark) and 50\,\% (light).}
+	The pink markers (dotted line) indicate the amount of hydrate phase $\sigma_\text{hyd}$ estimated from the image segmentation. The red translucent areas indicate the confidence interval at a confidence level of where \SI{33.3}{\percent} (dark) and \SI{50.0}{\percent}(light).}
     \label{fig:hydration-rim-results}
 \end{figure}
 

@@ -93,14 +93,14 @@ Subsequently, the specimen has to be dried below \SI{60}{\degreeCelsius} to avoi
 A selection of the preparation methods used within this work are listed here:
 
 \begin{itemize}
-	\item \textbf{Scatter sample}. This means sprinkling powdery material over an adhesive carbon pad, followed by the removal of loose material by using compressed air.
+	\item \textbf{Scatter sample}: Sprinkling powdery material over an adhesive carbon pad, followed by the removal of loose material by using compressed air.
 	This preparation method can fairly dangerous for the \ac{SEM} if not done properly.
 	Loose particles can damage detectors or the high-vacuum pumps during venting or due to charging.
-	\item \textbf{Fractured surface}. Crack the specimen, lean it with compressed air and observe the freshly prepared surface.
-	\item \textbf{Cross section (large scale)}. Most mineral specimens have to be embedded in epoxy resin before they are mechanically polished. (Section~\ref{sec:mech_pol}) The polishing result can then be improved by applying \ac{ArBIB} polishing. (Section~\ref{sec:bib_pol_moving})
-	\item \textbf{Cross section (small scale)}. A small rectangular specimen (embedded or resin free) can be polished using an \ac{ArBIB} to polish an area of about \SI{1}{\square\milli\meter}. (Section~\ref{sec:bib_pol_fixed})
-	\item \textbf{\Ac{FIB} cross section}. Cutting and polishing a small surface (up to 40\,$\times$\,\SI{10}{\square\micro\metre}) using \ac{FIB}. (Section~\ref{sec:fib})
-	\item \textbf{Cryo-preparation}. To observe water containing specimens (slurries, pastes or very young specimens), the specimen is frozen within \SI{400}{\milli\second} down to about \SI{113}{\kelvin} at \SI{>\,200}{\mega\pascal} to avoid ice-crystal formation. (Section~\ref{sec:cryofibnt}).
+	\item \textbf{Fractured surface}: Crack the specimen, lean it with compressed air and observe the freshly prepared surface.
+	\item \textbf{Cross section (large scale)}: Most mineral specimens have to be embedded in epoxy resin before they are mechanically polished. (Section~\ref{sec:mech_pol}) The polishing result can then be improved by applying \ac{ArBIB} polishing. (Section~\ref{sec:bib_pol_moving})
+	\item \textbf{Cross section (small scale)}: A small rectangular specimen (embedded or resin free) can be polished using an \ac{ArBIB} to polish an area of about \SI{1}{\square\milli\meter}. (Section~\ref{sec:bib_pol_fixed})
+	\item \textbf{\Ac{FIB} cross section}: Cutting and polishing a small surface (up to 40\,$\times$\,\SI{10}{\square\micro\metre}) using \ac{FIB}. (Section~\ref{sec:fib})
+	\item \textbf{Cryo-preparation}: To observe water containing specimens (slurries, pastes or very young specimens), the specimen is frozen within \SI{400}{\milli\second} down to about \SI{113}{\kelvin} at \SI{>\,200}{\mega\pascal} to avoid ice-crystal formation. (Section~\ref{sec:cryofibnt}).
 \end{itemize}
 
 A selection of these methods is described in more detail in the following sections.
@@ -123,15 +123,43 @@ The embedded specimen will then be degassed in two \SI{30}{\min} cycles.
 After hardening for \SI{24}{\hour} in an oven at \SI{40}{\celsius}, the specimen can be polished.
 This is done in multiple steps using diamond-oil-slurries.
 The particle sizes of the diamond pastes will be sequentially reduced (\num{15}, \num{9}, \num{3}, \num{1} down to \SI{0.25}{\micro\meter}).
-While this polishing method is good enough for many applications like BSE- or EDX-imaging, high-resolution imaging or \ac{EBSD} require even better surface qualities.
 
+% eigentlich ist das eher Literatur
+{\color{red}
+However, it is difficult to obtain a smooth surface without scratches using mechanical polishing.
+Due to hardness differences between the phases, the polishing process can also cause uneven surfaces in the specimen \cite{ji.2014}.
+This is especially true for resin embedded specimens \cite{desbois.2010}.
+Furthermore, smearing of the softer material (e.g. resin) can occur, filling pores or influencing subsequent analysis like \ac{EDX}.
+All these influences can lead to a significant reduction in image quality and resolution.
+\textcite{scrivener.2004} achieved a feature resolution of \ac{CSH}, ettringite, and pores of \SIrange{0.1}{0.2}{\micro\meter} using mechanical polishing techniques.
+This feature resolution is not sufficient for the analysis of nanoscale structures.
+\ac{CSH} needles, for example, can have a diameter significantly less than \SI{100}{\nano\meter} \cite{moser.2003} and therefore cannot be acceptably imaged.
+While mechanical polishing still can be good enough for many applications like \ac{BSE}- or \ac{EDX}-imaging, high-resolution imaging or \ac{EBSD} require better surface qualities without contaminations \cite{rossler.2017}.
+
+
+%For material with low or unconnected porosity, resin impregnation is often not completely possible.
+%As a result, subsequent sample preparation and imaging may be hindered or impossible.
+}
 
 \subsection{\Acl*{ArBIB} polishing}
+
+% eigentlich ist das eher Literatur
+{\color{red}
+\ac{ArBIB} sectioning is an alternative method to polish specimen surfaces \cite{harper.1983,grunewald.1987}.
+In a broad ion beam device, accelerated ions (e.g. \ce{Ar+}) are used to clean and polish the specimen surface.
+So prepared surfaces show limited damage to the nano-scale features of interest \cite{desbois.2009,desbois.2010},
+Furthermore, small pores are not filled with debris \cite{desbois.2009,desbois.2010}, which eliminates the need for resin intrusion \cite{Desbois.2009}, while it is still possible \cite{rossler.2017} and for later segmentation purposes advisable to do so.
+
+\ac{ArBIB} allows to polish large areas in the range of a few \si{\milli\meter\squared} \cite{hauffe.2003,desbois.2013}.
+Therefore, some authors utilised the broad ion beam polishing as a tool for tomography \cite{Desbois.2013,mac.2018}.
+Compared to \ac{FIBnt}, the slice thickness of this technique is large and inconsistent (>\,\SI{350(70)}{\nano\meter} compared to \SIrange{5}{10}{\nano\meter}) and the effort required is very high \cite{desbois.2013}.
+}
+
+Some \ac{ArBIB} devices provide two modes of operation.
 
 \subsection{\acs*{ArBIB} (moving specimen)}
 \label{sec:bib_pol_moving}
 
-Most \ac{ArBIB} devices provide two modes of operation.
 In one of the modes, the mechanically polished specimen is semi-erratically moved under a grazing incidence angle under the ion beam.
 This method can be applied to improve or clean mechanically polished specimens or to remove thin coatings (e.g. carbon or gold) applied for previous measurements.
 In this study, a triple ion beam milling system (\textit{EM TIC 3X}, \textsc{Leica}) was used (Figure~\ref{fig:bib_device}).

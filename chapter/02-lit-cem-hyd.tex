@@ -181,7 +181,7 @@ Also, \textcite{nonat.2004} demonstrated the crystalline nature of \ac{CSH} crys
 {\color{red} However, during its very early development, \ac{CSH} forms water rich, droplets, which then aggregate on top of \ac{C3S} and \ac{C2S} surfaces in an amorphous state \cite{sowoidnich.2023}.
 \textcite{bellmann.2012} claimed, that then a thin \SI{2}{\nano\meter} layer is formed, covering the \ac{C3S} grains.
 The forming of this amorphous first layer could be understood as a `gel'.
-According to \textcite{jennings.1986a} and others \cite{bellmann.2015, naber.2019}, this layer can also act as a passivating layer causing the induction periods . % TODO: Thomas: Im neuen paper (was wir gerade bearbeiten) werden weitere Indizien für die Existenz eines passivating layers gezeigt…(Experimente mit Freikalk und Wasserglas); Jennings entnommen aus sowoidnich.2019
+According to \textcite{jennings.1986a} and others \cite{bellmann.2015, naber.2019}, this layer can also act as a passivating layer causing the induction periods. % TODO: Thomas: Im neuen paper (was wir gerade bearbeiten) werden weitere Indizien für die Existenz eines passivating layers gezeigt…(Experimente mit Freikalk und Wasserglas); Jennings entnommen aus sowoidnich.2019
 
 
 }
@@ -196,7 +196,6 @@ According to \textcite{jennings.1986a} and others \cite{bellmann.2015, naber.201
 % Hier noch ein interessanter review über CSH:
 % \cite{ruiz-agudo.2024} (Mhh ich wüsste nicht wie ich den zitieren soll...)
 
-
 %\textcite{grudemo.1987} compared his proposed \ac{CSH} structure to \ac{CH}, which is crystalline and can not be classified as gel.
 In 1979, \textcite{ghosh.1979} argued based on morphology, that \ac{CSH} are needle-like crystals as shown in 1960 by \textcite{kurczyk.1960} and \textcite{grudemo.1960} and therefore not are not a gel as considered till then.
 Also the first published \ac{SEM} images from 1966 not only show ettringite needles, but also \ac{CSH} phases in needle and platelet form are recognizable \cite{chatterji.1966}.
@@ -205,11 +204,39 @@ However, since no \ac{EDX} system was available, they only could not identify th
 This preparation often leads to a significant change in the morphology of the \ac{CSH} and looking much more gel-like (e.g.: \cite{jennings.1981}).
 The damaging effect of the electron beam on the \ac{CSH} structure is discussed in more detail in Section~\ref{sec:beam_damage}.
 
+\begin{figure}[h!]
+    \centering
+
+    \begin{subfigure}[t]{0.32\linewidth}
+        \includegraphics[width=\textwidth]{methods/kV-influence/kV0.pdf}
+    \end{subfigure}%
+    \hfill%
+    \begin{subfigure}[t]{0.32\linewidth}
+        \ifdefined\PRINTABLE
+            \includegraphics[width=\textwidth]{methods/kV-influence/kV5.pdf}
+        \else
+            \animategraphics[loop,autoplay,poster=5,width=\textwidth]{2}{methods/kV-influence/kV}{0}{8}
+        \fi
+    \end{subfigure}
+    \hfill%
+    \begin{subfigure}[t]{0.32\linewidth}
+        \includegraphics[width=\textwidth]{methods/kV-influence/kV8.pdf}
+    \end{subfigure}
+
+    \caption{
+        Influence of the electron beam voltage from \SIrange{0.8}{6.0}{\kilo\volt} on the appearance of the \ac{CSH} morphology.
+        The \ac{CSH} looses detail and shows a halo at higher electron beam voltages.
+        \ac{C3S} + Calcite mixture (\num{2}:\num{1}) after \SI{14}{\day} of hydration.
+        Unpublished images from \textsc{Möser}, 2010.}
+    \label{fig:kV-influence}
+\end{figure}
+
 Furthermore, early \ac{SEM}s required higher beam voltages and currents because of a low detector efficiency to image the surfaces.
-This was causing subsurface scattering and reduced surface detail \cite{moser.1998}, increasing the impression of a gel like material due to reduces surface details.
-This was demonstrated by \textcite{pawley.1984} comparing low and high voltage \ac{SEM} images of the same specimen.
+This was causing subsurface scattering and reduced surface detail \cite{moser.1998}, increasing the impression of a gel like material due to reduces surface details (see Figure~\ref{fig:kV-influence}).
+This was also demonstrated by \textcite{pawley.1984} comparing low and high voltage \ac{SEM} images of the same specimen.
 
 % TODO: Christiane: evtl noch zwei bilder zur eläuterung (gel SEM und high resolution SEM von zement??)
+% Ich: zum Beispiel ein altes \cite{diamond.2004} BSE Bild und ein hochaufgelöstes neues, das die Nadeln zeigt
 
 However, a gel can also be defined as a substance capable of swelling in the presence of a second component (in this case water) \cite{hermans.1946}.
 This seems to be the case, as observable by the creep, swelling and shrinkage behavior of concrete \cite{powers.1958,feldman.1970}, which can be attributed to \ac{CSH} \cite{zhou.2025}.
@@ -354,8 +381,8 @@ The estimation is based on the \ac{CSH}-concentration (the measurement method wa
 
 The data of \textcite{garrault.2006} indicate a smaller hydrate seam with increasing mean particle diameters.
 This is contradicting the data of \textsc{Anderegg} and \textsc{Hubbell} \cite{anderegg.1929,anderegg.1930} (see Figure~\ref{fig:anderegg-hubbel-distribution}).
-However, \textsc{Anderegg} and \textsc{Hubbell} began their measurements after 7 days and therefore after the diffusion limited growth of the \ac{CSH}.
-Furthermore, their mean particle diameter was significantly larger (starting from \SI{15.5}{\micro\meter})
+However, \textsc{Anderegg} and \textsc{Hubbell} began their measurements after \SI{7}{\day} and therefore after the diffusion limited growth of the \ac{CSH}.
+Furthermore, their mean particle diameter was significantly larger (starting from \SI{15.5}{\micro\meter}).
 
 \ifdefined\EXTERNALIZE
     \tikzexternaldisable
@@ -364,35 +391,29 @@ Furthermore, their mean particle diameter was significantly larger (starting fro
 \begin{figure}[!htb]
     \centering
     \begin{tikzpicture}
-        \begin{groupplot}[
-            group style={group size=2 by 1,
-                    group name=coupeplot,
-                    xticklabels at=edge bottom,
-                    horizontal sep=0pt},
-            legend style={at={(.05,.94)},anchor=north west},
+        \begin{semilogxaxis}[
             axis x line=box,
             ymin=0, ymax=8.5,
             ytick={0,1,...,8},
             ylabel={$l_{\text{CSH}}$ in \si{\micro\meter}},
+            xmin=0.125, xmax=270,
+            extra x ticks={3,4,5,6,21,60},
+            extra x tick style={grid=major},
+            extra x tick labels={},
+            xtick={0.125,0.25,0.5,1,2,7,14,28,90,165,270},
+            xticklabels={\SI{3}{\hour},\SI{6}{\hour},\SI{12}{\hour},1,2,7,14,28,90,165,270},
             xlabel={time $t$ in \si{\day}},
-            width=0.5\linewidth,
+            width=\linewidth,
             height=0.4\linewidth,
             legend columns = 4,
-            legend style = {anchor=north, style={column sep=3pt}},
+            legend style={style={column sep=4pt}, cells={align=left}, at={(.5,1.02)}, anchor=south},
             grid=both,
             grid style={line width=.1pt, draw=gray!10},
-        ]
-        \nextgroupplot[
-            xmin=0, xmax=29,
-            restrict x to domain=0:42,
-            xtick={1,9,21,28},
-            axis y line*=left,
-            legend to name={CommonLegend3}
         ]
 
             %C3S
             \addplot [ mark=x, red, opacity=0.5 ] coordinates {
-                        (0,0)
+                        %(0,0)
                         (0.125,1.68)
                         (1,2.25)
                         %(2,3.02)
@@ -406,7 +427,7 @@ Furthermore, their mean particle diameter was significantly larger (starting fro
 
             %C2S
             \addplot [ mark=x, orange, opacity=0.5 ] coordinates {
-                        (0,0)
+                        %(0,0)
                         (1,0.28)
                         %(2,0.40)
                         %(3,0.50)
@@ -422,7 +443,7 @@ Furthermore, their mean particle diameter was significantly larger (starting fro
 
             \addplot [fill=cyan, fill opacity=0.2,forget plot] fill between [of=A and B];
 
-            \addplot [ mark=x, cyan, opacity=0.5 ] table [skip first n=2, x index=0, y index=12, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_andregg/PCA.csv};
+            \addplot [ mark=|, cyan, opacity=0.5 ] table [skip first n=2, x index=0, y index=12, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_andregg/PCA.csv};
             \addlegendentry[]{\acs*{OPC} \cite{anderegg.1929,anderegg.1930}}
 
 
@@ -433,85 +454,49 @@ Furthermore, their mean particle diameter was significantly larger (starting fro
             % \addplot [ mark=x, green, opacity=0.5 ] table [skip first n=2, x index=0, y index=9, col sep=comma] {figures/hydrate-rim/data_andregg/PCA+CaSO4.csv};
             % \addlegendentry[]{\acs{OPC} + CaSO4 \cite{anderegg.1929,anderegg.1930}}
 
-            \addplot+ [
-                only marks,
-                mark=x, black, opacity=0.5,
-                error bars/.cd,
-                    y dir=both,y explicit,
-            ] coordinates {
-                        %(0,0) +- (0,0)
-                        (1,.933) +- (0,0.083)
-                        (2,1.188) +- (0,0.049)
+            \addplot+ [draw=none, no markers, name path=A,forget plot] coordinates {
+                (1,.933-0.083)
+                (2,1.188-0.049)
+            };
+            \addplot+ [draw=none, no markers, name path=B,forget plot] coordinates {
+                (1,.933+0.083)
+                (2,1.188+0.049)
+            };
+            \addplot [fill=darkgreen, fill opacity=0.2,forget plot] fill between [of=A and B];
+
+            \addplot [ mark=+, darkgreen, opacity=0.5 ] coordinates {
+                (1,.933)
+                (2,1.188)
             };
             \addlegendentry[]{\acs*{C3S} \cite{nicoleau.2011}}
 
 
-        \nextgroupplot[
-            xmin=0, xmax=270,
-            restrict x to domain=27:1000,
-            xtick={28, 90, 165, 270},
-            %axis y line=right,
-            axis y line*=right,
-            axis x discontinuity=parallel,
-        ]
+            \addplot+ [draw=none, no markers, name path=A,forget plot] coordinates {
+                (0.5,0.3-0.080)
+                (.67,0.62-0.170)
+                (.83,0.800-0.260)
+            };
+            \addplot+ [draw=none, no markers, name path=B,forget plot] coordinates {
+                (0.5,0.3+0.080)
+                (.67,0.62+0.170)
+                (.83,0.800+0.260)
+            };
+            \addplot [fill=blue, fill opacity=0.2,forget plot] fill between [of=A and B];
 
-            %C3S
-            \addplot [ mark=x, red, opacity=0.5 ] coordinates {
-                        (0,0)
-                        (0.125,1.68)
-                        (1,2.25)
-                        %(2,3.02)
-                        %(3,3.60)
-                        (7,4.32)
-                        (28,4.44)
-                        (165,5.77)
-                    };
+            \addplot [ mark=o, blue, opacity=0.5 ] coordinates {
+                (0.5,0.3)
+                (.67,0.62)
+                (.83,0.800)
+            };
+            \addlegendentry[]{\acs*{C3S} \cite{neubauer.2022}}
+            %They determined the thickness at \num{12}, \num{16} and \SI{20}{\hour} as \SI{300(80)}{\nano\meter}, \SI{670(170)}{\nano\meter} and \SI{800(260)}{\nano\meter} respectively.
 
-            %C2S
-            \addplot [ mark=x, orange, opacity=0.5 ] coordinates {
-                        (0,0)
-                        (1,0.28)
-                        %(2,0.40)
-                        %(3,0.50)
-                        (7,0.62)
-                        (28,0.83)
-                        (165,3.54)
-                    };
-
-            % %C3A
-            % \addplot [ mark=x, blue, opacity=0.5 ] coordinates {
-            %             (0,0)
-            %             (0.01042,2.14)
-            %             (0.125,4.35)
-            %             %(1,4.7)
-            %             %(2,5.2)
-            %             (3,5.68) %(7,5.70)
-            %             (165,5.66)
-            %         };
-            % \addlegendentry[]{\acs*{C3A} \cite{anderegg.1930}}
-
-            %PC A average
-            \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=0, col sep=comma,y expr={\thisrowno{12}-\thisrowno{13}}, filter discard warning=false ] {figures/hydrate-rim/data_andregg/PCA.csv};
-            \addplot+ [draw=none, no markers, name path=B,forget plot] table [skip first n=3, x index=0, col sep=comma,y expr={\thisrowno{12}+\thisrowno{13}}, filter discard warning=false ] {figures/hydrate-rim/data_andregg/PCA.csv};
-
-            \addplot [fill=cyan, fill opacity=0.2,forget plot] fill between [of=A and B];
-
-            \addplot [ mark=x, cyan, opacity=0.5 ] table [skip first n=3, x index=0, y index=12, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_andregg/PCA.csv};
-
-
-            % \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=2, x index=0, col sep=comma,y expr={\thisrowno{9}-\thisrowno{10}}, ] {figures/hydrate-rim/data_andregg/PCA+CaSO4.csv};
-            % \addplot+ [draw=none, no markers, name path=B,forget plot] table [skip first n=2, x index=0, col sep=comma,y expr={\thisrowno{9}+\thisrowno{10}}, ] {figures/hydrate-rim/data_andregg/PCA+CaSO4.csv};
-
-            % \addplot [fill=green, fill opacity=0.2,forget plot] fill between [of=A and B];
-            % \addplot [ mark=x, green, opacity=0.5 ] table [skip first n=2, x index=0, y index=9, col sep=comma] {figures/hydrate-rim/data_andregg/PCA+CaSO4.csv};
-
-        \end{groupplot}
-        \node [above] (L) at (rel axis cs:1.0,1.04) {\ref{CommonLegend3}};
-
+        \end{semilogxaxis}
     \end{tikzpicture}
     \caption{Growth of \ac{CSH} on \ac{OPC}, \ac{C3S} and \ac{C2S} measured by \textsc{Anderegg} and \textsc{Hubbell} \cite{anderegg.1929,anderegg.1930} and \textcite{nicoleau.2011}}
-    \label{fig:anderegg-hubbel}
+    \label{fig:anderegg-hubbel2}
 \end{figure}
+
 
 In the 1960ies \textcite{kurczyk.1960} used an electron microscope to measure the length of \ac{CSH}-needles of one month hydrated \ac{C3S}.
 They measured an average length of \SI{500}{\nano\meter}.
@@ -521,11 +506,18 @@ However, the hydrated material was ground and dispersed using ultrasonic treatme
 \textcite{bishnoi.2012} criticised this approach due to the rather uncontrolled cracking, the subjectivity of the measurement and the occurrence of the sectioning effect, which was described in detail by \textcite{scrivener.2004}.
 This effect is an issue for all 2D images of polished sections (e.g. typical \ac{SEM}-\ac{BSE} images) and will be described and discussed in Subsection~\ref{subsec:sectioning-effect}.
 
+% TODO: Christiane: du solltest noch das ziemlich berühmte paper neubauer, sowidnich, bellmann rößler anschauen mit messungen zur PSD von alit :  
+\textcite{neubauer.2022} measured the same specimen using a near-field \ac{PXCT} at different hydration times.
+Furthermore, they manually measured the thickness of \ac{CSHi} on \ac{C3S}, dispersed in epoxy resin utilizing \ac{SEM}-images.
+They determined the thickness at \num{12}, \num{16} and \SI{20}{\hour} as \SI{300(80)}{\nano\meter}, \SI{670(170)}{\nano\meter} and \SI{800(260)}{\nano\meter} respectively.
+% TODO: <- somehow measure the thickness from the PXCT data?
+
 \textcite{voland.2000} and \textcite{suss.2001} manually measured the development of the length of \ac{CSH}-needles, (roughly equivalent with \ac{CSHo}), using \ac{SEM}-\ac{SE}-images until a specimen age of \SI{28}{\day}.
 \textsc{Stark} and \textsc{Möser} et al. \cite{stark.2001,moser.2001,moser.2002} continued this work close to the three years mark.
 The experiments were done using \ac{C3S} and $\beta$-\ac{C2S} at different temperatures.
 They measured a minimum and maximum value, of which the mean was calculated.
-However, it was not made clear by the authors, how many measurements were taken for each data point. Therefore, it should be assumed that these data are based on individual measurements.
+However, it was not made clear by the authors, how many measurements were taken for each data point.
+Therefore, it should be assumed that these data are based on individual measurements.
 The results are plotted in Figures~\ref{fig:suess_CSH_C3S} (\ac{C3S}) and \ref{fig:suess_CSH_C2S} ($\beta$-\ac{C2S}).
 
 \begin{figure}[!htb]
@@ -678,101 +670,37 @@ A higher \ac{wb}-ratio (\num{0.8} compared to \num{0.4}) lead to longer \ac{CSH}
 
 In contrast, \textcite{moser.2002} indicates that the needle length of \ac{CSH} on \ac{C2S} (\ac{wb}=\num{0.5}) is still increasing significantly, even until an age of 3 years.
 
+
 \begin{figure}[!htb]
     \centering
     \begin{tikzpicture}
-        \begin{groupplot}[
-            group style={group size=2 by 1,
-                    group name=coupeplot,
-                    xticklabels at=edge bottom,
-                    horizontal sep=0pt},
+        \begin{semilogxaxis}[
             axis x line=box,
-            ytick={0,1,1.5,...,3},
+            ytick={0,0.5,1,...,3},
             ylabel={$l_{\text{CSH}_\text{o}}$ in \si{\micro\meter}},
             xlabel={time $t$ in \si{\day}},
-            width=0.5\linewidth,
+            width=\linewidth,
             height=0.4\linewidth,
             legend columns = 3,
-            legend style = {style={column sep=4pt}, cells={align=left}, anchor=south},
+            legend style={style={column sep=4pt}, cells={align=left}, at={(.5,1.02)}, anchor=south},
             grid=both,
             grid style={line width=.1pt, draw=gray!10},
             y tick label style={
                 /pgf/number format/fixed zerofill,
                 /pgf/number format/precision=1},
-            scaled ticks=false, tick label style={/pgf/number format/fixed}
-        ]
-        \nextgroupplot[
-            xmin=0, xmax=29,
-            ymin=0, ymax=1.250,
-            ytick={0,.250,...,1.250},
-            restrict x to domain=0:42,
-            xtick={1,9,21,28},
-            axis y line*=left,
-            y tick label style={
-                /pgf/number format/fixed zerofill,
-                /pgf/number format/precision=2},
+            scaled ticks=false, tick label style={/pgf/number format/fixed},
+            extra x ticks={0.125,2,3,4,5,6,21,56,84,112},
+            extra x tick style={grid=major},
+            extra x tick labels={},
+            xtick={0.08,0.25,0.5,1,7,14,28,150,360,600,1000},
+            xticklabels={\SI{2}{\hour},\SI{6}{\hour},\SI{12}{\hour},1,7,14,28,150,360,600,100},%\SI{1}{\year},\SI{1.7}{\year},\SI{2.7}{\year}},
+            xmin=0.08, xmax=1000,
         ]
             \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=1, y index=5, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
             \addplot+ [draw=none, no markers, name path=B,forget plot] table [skip first n=3, x index=1, y index=7, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
             \addplot [fill=red, fill opacity=0.2,forget plot] fill between [of=A and B];
 
             \addplot [color=red, mark=x, dotted] table [skip first n=3, x index=1, y index=6, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
-
-
-            \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=1, y index=14, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
-            \addplot+ [draw=none, no markers, name path=B,forget plot] table [skip first n=3, x index=1, y index=16, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
-            \addplot [fill=green, fill opacity=0.2,forget plot] fill between [of=A and B];
-
-            \addplot [color=green, mark=+, dotted] table [skip first n=3, x index=1, y index=15, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
-
-
-            \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=0, y index=1, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C2S_moeser.csv};
-            \addplot+ [draw=none, no markers, name path=B,forget plot] table [skip first n=3, x index=0, y index=3, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C2S_moeser.csv};
-            \addplot [fill=cyan, fill opacity=0.2,forget plot] fill between [of=A and B];
-
-            \addplot [color=cyan, mark=star, dotted] table [skip first n=3, x index=0, y index=2, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C2S_moeser.csv};
-
-            % \cite{bazzoni.2014}
-            \addplot+ [ mark=Mercedes star, grey, dotted,
-                error bars/.cd,
-                    y dir=both,
-                    y explicit
-            ] table [x=x, y=y, y error=err] {
-                x     y       err
-                0.08  0.010   0.0100
-                0.45  0.265   0.0245
-                1     0.310   0.0380
-                7     0.311   0.0250
-            };
-
-            \addplot+ [ mark=|, black, dotted,
-                error bars/.cd,
-                    y dir=both,
-                    y explicit
-            ] table [x=x, y=y, y error=err] {
-                x     y       err
-                0.08  0.050   0.0250
-                0.45  0.363   0.0555
-                1     0.385   0.0575
-                7     0.400   0.0500
-            };
-
-        \nextgroupplot[
-            xmin=-65, xmax=1000,
-            ymin=0.4, ymax=2.75,
-            restrict x to domain=28:1000,
-            xtick={28,150, 360, 600, 1000},
-            ytick={.5,1,1.5,...,2.5},
-            axis y line*=right,
-            axis x discontinuity=parallel,
-            legend to name={CommonLegend2}
-        ]
-            \pgfplotsset{cycle list shift=+1}
-            \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=1, y index=5, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
-            \addplot+ [draw=none, no markers, name path=B,forget plot] table [skip first n=3, x index=1, y index=7, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
-            \addplot [fill=red, fill opacity=0.2,forget plot] fill between [of=A and B];
-
-            \addplot [color=red, mark=x, dotted] table [skip first n=3, x index=1, y index=6, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
             \addlegendentry[]{\acs*{C3S} \cite{voland.2000,suss.2001,stark.2001,moser.2002}}
 
 
@@ -791,21 +719,60 @@ In contrast, \textcite{moser.2002} indicates that the needle length of \ac{CSH} 
             \addplot [color=cyan, mark=star, dotted] table [skip first n=3, x index=0, y index=2, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C2S_moeser.csv};
             \addlegendentry[]{$\beta$-\acs*{C2S} \cite{moser.2002}}
 
-            % TODO: the legend entries are not visible!!
-            % Fake plots for styled legend entries
-            \addplot+ [color=grey, mark=Mercedes star, dotted] coordinates {(28,-.1)};
+
+            \addplot+ [draw=none, no markers, name path=A,forget plot] coordinates {
+                (0.08,0.010-0.0100)
+                (0.45,0.265-0.0245)
+                (1,0.310-0.0380)
+                (7,0.311-0.0250)
+            };
+            \addplot+ [draw=none, no markers, name path=B,forget plot] coordinates {
+                (0.08,0.010+0.0100)
+                (0.45,0.265+0.0245)
+                (1,0.310+0.0380)
+                (7,0.311+0.0250)
+            };
+            \addplot [fill=grey, fill opacity=0.4,forget plot] fill between [of=A and B];
+
+            \addplot [grey, mark=star, dashed] coordinates {
+                (0.08,0.010)
+                (0.45,0.265)
+                (1,0.310)
+                (7,0.311)
+            };
             \addlegendentry[]{\acs*{C3S}, \acs*{wb}=\num{0.8} \cite{bazzoni.2014}}
 
-            \addplot+ [color=black, mark=|, dotted] coordinates {(28,-.1)};
+
+
+            \addplot+ [draw=none, no markers, name path=A,forget plot] coordinates {
+                (0.08,0.050-0.0250)
+                (0.45,0.363-0.0555)
+                (1,0.385-0.0575)
+                (7,0.400-0.0500)
+            };
+            \addplot+ [draw=none, no markers, name path=B,forget plot] coordinates {
+                (0.08,0.050+0.0250)
+                (0.45,0.363+0.0555)
+                (1,0.385+0.0575)
+                (7,0.400+0.0500)
+            };
+            \addplot [fill=black, fill opacity=0.4,forget plot] fill between [of=A and B];
+
+            \addplot [black, mark=|, dashed] coordinates {
+                (0.08,0.050)
+                (0.45,0.363)
+                (1,0.385)
+                (7,0.400)
+            };
             \addlegendentry[]{\acs*{C3S}, \acs*{wb}=\num{0.4} \cite{bazzoni.2014}}
 
-        \end{groupplot}
-        \node [above] (L) at (rel axis cs:1.0,0.80) {\ref{CommonLegend2}};
+        \end{semilogxaxis}
 
     \end{tikzpicture}
     \caption{Growth of \ac{CSHo} on $\beta$-\ac{C2S} (\ac{wb}=\num{0.5}) compared to \ac{C3S} (\ac{wb}=\num{0.5}) at \SI{20}{\celsius}. Based on data from \textcite{voland.2000}, \textcite{suss.2001}, \textsc{Stark} and \textsc{Möser} et al. \cite{stark.2001,moser.2002} and compared to \ac{C3S}-data from \textcite{bazzoni.2014}.}
     \label{fig:suess_CSH_C2S}
 \end{figure}
+
 
 In his presentations, \textsc{Möser} summaried the results as follows:
 \begin{iquote}
@@ -814,10 +781,6 @@ When growing unhindered, the needle-like \ac{CSH} phases can reach a length of a
 %Zitat Möser
 %It can be assumed that at the beginning of the acceleration period all C-S-H phases grow in form of fibres. These fibres grow in length during the course of hydration with hardly any changes in thickness. When growing unhindered, the needle-like \ac{CSH} phases can reach a length of approx. 1.4 µm. These applies only for hydration of alite (in pure belite: \ac{CSH}- length up to 2.5 µm). In compact concrete it is to be expected that there is intergrowth between the fibers as well as and interlocking with one another and thus gel pores are formed which have often been described.
 
-% TODO: Christiane: du solltest noch das ziemlich berühmte paper neubauer, sowidnich, bellmann rößler anschauen mit messungen zur PSD von alit :  
-\textcite{neubauer.2022} measured \ac{CSHi} on \ac{C3S} dispersed in epoxy resin utilizing \ac{SEM} on \ac{C3S} and measured a near-field \ac{PXCT} and  different hydration times.
-They determined the thickness of \ac{CSHi} at \num{12}, \num{16} and \SI{20}{\hour} as \SI{300(80)}{\nano\meter}, \SI{670(170)}{\nano\meter} and \SI{800(260)}{\nano\meter} respectively.
-% TODO: <- somehow measure the thickness from the PXCT data?
 
 
 \subsection{Hadley grains}

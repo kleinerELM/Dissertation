@@ -18,12 +18,17 @@ The \ac{BSE} images have to be segmented into at least three phases: ($i$) pores
 
 To segment the images, a threshold based segmentation can be used.
 However, raw and preprocessed images have varying contrasts as shown in Figure~\ref{fig:hlt_contrast}A and B.
-Therefore, the segmentation usually cannot be carried out using fixed threshold values and the images have to be segmented using manually selected threshold values
+Therefore, the segmentation usually cannot be carried out using fixed threshold values and the images have to be segmented using manually selected threshold values.
 Nevertheless, the hydration products can not be separated using a simple threshold based segmentation without major segmentation errors.
 
 \begin{figure}[h]
 	\centerline{\includegraphics[width=\columnwidth]{hydrate-rim/fig1.horizontal.png}}
-	\caption{Detail of the stitched, unprocessed \ac{BSE} images of embedded and polished alite sections after 7 (A) and 28 days (B) of hydration. Identifiable phases from dark to light grey: resin/pores, \ac{CSH}, \ac{CH}, alite. The images also show a typical deviation in image contrast, even after using identical imaging parameters (\SI{12}{\kilo\volt}, \SI{12}{\nano\ampere}). \cite{kleiner.2023} \label{fig:hlt_contrast}}
+	\caption{
+		Detail of the unprocessed \ac{BSE} images of embedded and polished alite sections after 7 (A) and 28 days (B) of hydration.
+		Identifiable phases from dark to light grey: resin/pores, \ac{CSH}, \ac{CH}, alite.
+		The images also show a typical deviation in image contrast, even after using identical imaging parameters (\SI{12}{\kilo\volt}, \SI{12}{\nano\ampere}).
+		\cite{kleiner.2023} \label{fig:hlt_contrast}
+	}
 \end{figure}
 
 Therefore, the software can also be used to process pre-segmented images (e.g. manually segmented or segmented by machine learning algorithms).
@@ -92,7 +97,7 @@ To obtain these data, the Hadley grains have to be identified and segmented befo
 
 The algorithm described in the previous section can also be adapted to measure the particle distance from a 2D image.
 
-The data sources are also an \ac{SEM} image from a polished embedded specimen.
+The data sources are also an \ac{SEM}-\ac{BSE} image from a polished embedded specimen.
 However, this is not feasible to obtain a true particle distance of a fresh paste (younger than \SI{1}{\hour}), since the particle cohesion is still to weak for a conservative preparation.
 A possible solution is the cryo-\ac{FIB}-\ac{SEM}-preparation method, even if the prepared area is very small.
 

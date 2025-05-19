@@ -1539,8 +1539,12 @@ As already indicated by \ac{LTDSC}, the capillary pore space of \ac{C2S} is sign
 \label{sec:cryo_fib_sem}
 
 High-pressure frozen samples of cement pastes were prepared according to Section~\ref{sec:cryofibnt}.
-The freezing curve of the \ac{C3S} paste is shown in Figure~\ref{fig:cryo-fib-freeze-curve}.
-A fresh \ac{FIB}-cut was done to obtain a clean surface to acquire the \ac{SEM}-\ac{BSE} image, shown in Figure~\ref{fig:cryo-fib}.
+The freezing curve of the \ac{C3S} paste is shown in Figure~\ref{fig:cryo-fib-freeze-curve}.#
+The frozen sample was coated with \ce{Pt} to prevent charging effects during the \ac{SEM} imaging.
+Similar to the \ac{FIBnt} method (Section~\ref{sec:lit_fib}), a trench through the whole specimen thickness was cut to obtain a fresh vertical cross-section.
+Due to the low temperature, the \ce{Pt} layer thickness exceeded the intended thickness of \SI{.5}{\micro\meter} significantly (see Figure~\ref{fig:cryo_site}).
+Also, the redepositioning of the removed material during the cutting process was much more pronounced compared to the \ac{FIBnt} at room temperature due to the low temperature.
+\ac{SEM}-\ac{BSE} images as shown in Figure~\ref{fig:cryo-fib} were made from the cross-section.
 
 \begin{figure}[htb!]
     \centering
@@ -1556,7 +1560,7 @@ A fresh \ac{FIB}-cut was done to obtain a clean surface to acquire the \ac{SEM}-
 
     \caption{
 		\ac{FIB}-section of fresh \ac{C3S}-paste, \ac{wb}=\num{0.5}, \SI{2}{\hour}.
-		Denoised \ac{BSE}-image (left) and segmented image (right, red: \ac{C3S}, blue: \ce{Pt}, black: water).
+		Denoised \ac{BSE}-image (left) and segmented image (right, red: \ac{C3S}, blue: \ce{Pt}, black: ice).
 	}
     \label{fig:cryo-fib}
 \end{figure}
@@ -1564,7 +1568,7 @@ A fresh \ac{FIB}-cut was done to obtain a clean surface to acquire the \ac{SEM}-
 A comparison of the \ac{PSD} measured using laser diffraction and the image based analysis can be found in Figure~\ref{fig:psd_cryo_C3S_lt20mum}.
 As expected from the small and therefore not representative image area and sectioning effects (see Section~\ref{subsec:sectioning-effect}), the \ac{PSD} of the \ac{FIB}-\ac{SEM} image is shifted to smaller particle sizes.
 To evaluate the distance between the particles within Figure~\ref{fig:cryo-fib}, the image evaluation method used in Chapter~\ref{chap:hydrate-rim} was adapted.
-Instead of measuring the distance between the particles and the hydrate rim, the distance to the next particles was measured.
+Instead of measuring the distance between the particle surface and the hydrate rim, the distance to the next particles was measured.
 
 \begin{figure}[htb!]
     \centering
@@ -1600,7 +1604,7 @@ The images themselves, also give the impression that the \ac{PUS} has a signific
 
     \caption{
 		\ac{FIB}-sections of fresh \ac{LC3}-paste, reference, \ac{wb}=\num{0.5}, \SI{20}{\min}.
-		Denoised \ac{BSE}-image (left) and segmented image (right, white: unprocessed \ac{LC3}, yellow: \ac{LC3} particles used for the analysis, red: included measurements, black: unprocessed pore space).
+		Denoised \ac{BSE}-image (left) and segmented image (right, white: ignored \ac{LC3}, yellow: \ac{LC3} particles used for the analysis, red: included measurements, black: ignored pore space).
 	}
     \label{fig:cryo-fib-lc3a}
 \end{figure}
@@ -1619,7 +1623,7 @@ The images themselves, also give the impression that the \ac{PUS} has a signific
 
     \caption{
 		\ac{FIB}-sections of fresh \ac{LC3}-paste, \ac{PUS}, \ac{wb}=\num{0.5}, \SI{20}{\min}.
-		Denoised \ac{BSE}-image (left) and segmented image (right, white: unprocessed \ac{LC3}, yellow: \ac{LC3} particles used for the analysis, red: included measurements, black: unprocessed pore space).
+		Denoised \ac{BSE}-image (left) and segmented image (right, white: ignored \ac{LC3}, yellow: \ac{LC3} particles used for the analysis, red: included measurements, black: ignored pore space).
 	}
     \label{fig:cryo-fib-lc3b}
 \end{figure}
@@ -1730,7 +1734,8 @@ This fits to the subjective appearance of the particle distribution.
 \end{figure}
 
 These data illustrate, that the \ac{PUS} is able to disperse the particles of the \ac{LC3} more homogeneously.
-However, the image data acquired by cryo-\ac{FIBnt} is not very significant due to its small imaged area and therefore limited representativeness.
+However, a side effect ot the still agglomerated particles is their reduced number.
+Furthermore, the image data acquired by cryo-\ac{FIBnt} is not very significant due to its small imaged area and therefore limited representativeness.
 
 Due to the expensive experiments, two figures published by \textcite{zingg.2008a} (Figures~\num{5} and \num{7}) were also used to test the method.
 They used cryo-\ac{FIB}-\ac{SEM} to image the influence of \ac{PCE} on the fine fraction of \ac{OPC} in fresh cement pastes (\ac{wb}=\num{0.5}).

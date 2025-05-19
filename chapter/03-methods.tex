@@ -124,40 +124,11 @@ After hardening for \SI{24}{\hour} in an oven at \SI{40}{\celsius}, the specimen
 This is done in multiple steps using diamond-oil-slurries.
 The particle sizes of the diamond pastes will be sequentially reduced (\num{15}, \num{9}, \num{3}, \num{1} down to \SI{0.25}{\micro\meter}).
 
-% eigentlich ist das eher Literatur
-{\color{red}
-However, it is difficult to obtain a smooth surface without scratches using mechanical polishing.
-Due to hardness differences between the phases, the polishing process can also cause uneven surfaces in the specimen \cite{ji.2014}.
-This is especially true for resin embedded specimens \cite{desbois.2010}.
-Furthermore, smearing of the softer material (e.g. resin) can occur, filling pores or influencing subsequent analysis like \ac{EDX}.
-All these influences can lead to a significant reduction in image quality and resolution.
-\textcite{scrivener.2004} achieved a feature resolution of \ac{CSH}, ettringite, and pores of \SIrange{0.1}{0.2}{\micro\meter} using mechanical polishing techniques.
-This feature resolution is not sufficient for the analysis of nanoscale structures.
-\ac{CSH} needles, for example, can have a diameter significantly less than \SI{100}{\nano\meter} \cite{moser.2003} and therefore cannot be acceptably imaged.
-While mechanical polishing still can be good enough for many applications like \ac{BSE}- or \ac{EDX}-imaging, high-resolution imaging or \ac{EBSD} require better surface qualities without contaminations \cite{rossler.2017}.
-
-
-%For material with low or unconnected porosity, resin impregnation is often not completely possible.
-%As a result, subsequent sample preparation and imaging may be hindered or impossible.
-}
-
-\subsection{\Acl*{ArBIB} polishing}
-
-% eigentlich ist das eher Literatur
-{\color{red}
-\ac{ArBIB} sectioning is an alternative method to polish specimen surfaces \cite{harper.1983,grunewald.1987}.
-In a broad ion beam device, accelerated ions (e.g. \ce{Ar+}) are used to clean and polish the specimen surface.
-So prepared surfaces show limited damage to the nano-scale features of interest \cite{desbois.2009,desbois.2010},
-Furthermore, small pores are not filled with debris \cite{desbois.2009,desbois.2010}, which eliminates the need for resin intrusion \cite{Desbois.2009}, while it is still possible \cite{rossler.2017} and for later segmentation purposes advisable to do so.
-
-\ac{ArBIB} allows to polish large areas in the range of a few \si{\milli\meter\squared} \cite{hauffe.2003,desbois.2013}.
-Therefore, some authors utilised the broad ion beam polishing as a tool for tomography \cite{Desbois.2013,mac.2018}.
-Compared to \ac{FIBnt}, the slice thickness of this technique is large and inconsistent (>\,\SI{350(70)}{\nano\meter} compared to \SIrange{5}{10}{\nano\meter}) and the effort required is very high \cite{desbois.2013}.
-}
+\subsection{\Acl*{ArBIB} preparation}
 
 Some \ac{ArBIB} devices provide two modes of operation.
 
-\subsection{\acs*{ArBIB} (moving specimen)}
+\subsection{\acs*{ArBIB} polishing}
 \label{sec:bib_pol_moving}
 
 In one of the modes, the mechanically polished specimen is semi-erratically moved under a grazing incidence angle under the ion beam.
@@ -165,7 +136,7 @@ This method can be applied to improve or clean mechanically polished specimens o
 In this study, a triple ion beam milling system (\textit{EM TIC 3X}, \textsc{Leica}) was used (Figure~\ref{fig:bib_device}).
 The \ac{ArBIB} polishing is carried out under low pressure (\SIrange{1}{4}{\kilo\pascal}) conditions in an argon atmosphere.
 
-\subsection{\acs*{ArBIB} (fixed specimen)}
+\subsection{\acs*{ArBIB} sectioning}
 \label{sec:bib_pol_fixed}
 
 Another mode requires a smaller pre-cut sample (5\,$\times$\,3\,$\times$\,\SI{10}{\cubic\milli\meter}) in a fixed sample holder.
@@ -216,42 +187,14 @@ This is especially the case if the artifact is present in more than one directio
 % bad paper about ArBIB \cite{sammer.2024}
 
 
-\section{Focussed Ion Beam - nano Tomography (\acs*{FIBnt})}
+\section{\Acl*{FIBnt} (\acs*{FIBnt})}
 \label{sec:fib}
 
-Besides the classical detectors, modern \ac{SEM}s can also be combined with a \ac{FIB}.
 To apply this method, the cementitious specimen was embedded in resin to avoid imaging the pore background or loose moving material within larger pores.
 Resin filled pores have advantages for later pore segmentation.
 The specimen should be a polished section to find a suitable \ac{ROI} using the \ac{BSE} detector.
 
-The ion and the electron beam are arranged in an angle of \SI{52}{\degree}, while the ion beam hits the specimen in an angle of \SI{90}{\degree} as shown in Figure~\ref{fig:fib_scheme}.
-The \ac{ROI} has to be in the eucentric point (point of rotation/intersection point of the electron and ion beam).
-This means, if the specimen is tilted, the point does not move in the life image and therefore is in the rotational center.
-
-\begin{figure}[ht!]
-    \centering
-
-	\begin{subfigure}[t]{0.56\textwidth}
-		\includegraphics[width=\textwidth]{methods/fib_scheme.pdf}
-		\caption{Principle of \ac{FIB}-nT sectioning within the bulk material.}
-		\label{fig:fib_scheme}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[t]{0.43\textwidth}
-
-		\ifdefined\PRINTABLE
-			\includegraphics[width=\textwidth]{methods/fib_top.jpg}
-		\else
-			\animategraphics[palindrome,autoplay,width=\textwidth]{3}{methods/fib_process_anim/Animation}{00}{10}%controls=on,
-		\fi
-		\caption{Ion image of the tomography side  of a hydrated alite. \cite{kleiner.2021c}}
-		\label{fig:fib_top}
-	\end{subfigure}
-    \caption{Illustration of the \ac{FIBnt} process. The circle and line on the top right of (b) is a fiducial for constant positioning.}
-    \label{fig:fib}
-\end{figure}
-
-The standard method to obtain \ac{FIBnt}-images is to dig trenches around the \ac{ROI} (typically \num{10}\,$\times$\,\num{10}\,$\times$\,\SI{10}{\cubic\micro\meter}) as illustrated in Figure~\ref{fig:fib_top}.
+The standard method to obtain \ac{FIBnt}-images is to dig trenches around the \ac{ROI} (typically a sqare with an edge length of \SIrange{10}{20}{\micro\meter}) as illustrated in Figure~\ref{fig:fib_top}.
 Beforehand, the \ac{ROI} is coated with a layer of platinum for protection and a fiducial side is set.
 The fiducial is required to correct for specimen drift during the cutting process.
 After a polishing run and the imaging setup, the cutting process can start.
@@ -324,11 +267,10 @@ A detailed video of the \ac{FIBnt}-process, the required parameters, and potenti
 
 Cryo-preparation for \acs*{SEM} and \acs*{FIB} is a method to obtain close-to-nature high-resolution images of water containing specimens (e.g. slurries, pastes or very young specimens \cite{holzer.2007, zingg.2008a}).
 In this process, the specimen is frozen within a very short time down to about \SI{113}{\kelvin} at >\,\SI{0.2}{\giga\pascal} to avoid ice-crystal formation.
-For our experiments a cryo-preparation system from \textsc{Leica} including a \textit{EM HPM100} high-pressure freezer and a \textit{EM MED020} high vacuum preparation system was used.
 
-A small droplet of the specimen is placed within a sandwich of two brass crucibles (see Figure~\ref{fig:cryo-prep}).
-The crucibles are then frozen under high pressure and transferred to a high vacuum preparation system and cracked open.
-Then, the specimen is transferred in the \ac{SEM}.
+A small droplet of the specimen is placed within a sandwich of two brass sample holders (\diameter 3$\times$\SI{0.5}{\milli\meter}, \textit{type `B'} see Figure~\ref{fig:cryo-prep}).
+The crucibles are then frozen under high pressure (using a \textit{EM HPM100} by \textsc{Leica}) and transferred to a high vacuum preparation system (\textit{EM MED020} by \textsc{Leica}) and opened under cooled conditions using a knife.
+Then, the specimen is transferred in a vacuum and under cooled conditions to the cryo-stage within the \ac{SEM}.
 To avoid charging effects, the specimen can be coated with a layer of platinum using the \ac{FIB}-coating process.
 
 \begin{figure}[h!]
@@ -337,7 +279,8 @@ To avoid charging effects, the specimen can be coated with a layer of platinum u
 	\includegraphics[width=\textwidth]{methods/cryo-prep.pdf}
     \caption{
 		Illustration of cryo-preparation.
-		The specimen is placed between two brass crucibles and frozen under high pressure (left). The specimen is split under vacuum (center).
+		The specimen is placed between two brass sample holders (\diameter 3$\times$\SI{0.5}{\milli\meter}) and frozen under high pressure (left).
+		The specimen is split under vacuum (center).
 		Within the \ac{SEM} the specimen can be coated with \ce{Pt} (right).
 	}
     \label{fig:cryo-prep}
@@ -390,11 +333,11 @@ It stepwise covers an pressure range of 0.003 to \SI{206}{\mega\pascal}, which r
 However, values above {\color{red} ~\SI{20}{\micro\meter} should be ignored, since these are mostly cracks}.% geschätzt aus bettinas arbeit
 
 \FloatBarrier
-\subsection{Low Temperature - Differential Scanning Calorimetry (LT-DSC)}
+\subsection{Low Temperature - Differential Scanning Calorimetry (\acs*{LTDSC})}
 \label{fig:ltdsc}
 
-To obtain data about the capillary and gel porosity, the \textit{DSC Polyma 214} from \textit{Netzsch}, connected to the cooling system \textit{Intercooler IC70} was used.
-The specimens were sliced to fit the small aluminum crucibles with a inner volume of $\approx$ \SI{60}{\micro\litre}.
+To obtain data about the capillary and gel porosity, the a \acs*{LTDSC} system (\textit{DSC Polyma 214} from \textit{Netzsch}), connected to a cooling system (\textit{Intercooler IC70}) was used.
+The hardened specimens were sliced to fit the small aluminum crucibles with a inner volume of $\approx$ \SI{60}{\micro\litre}.
 These crucibles sealed air tight by cold-welding a lid under pressure and measured against an empty reference crucible.
 
 % \begin{figure}[!htb]
@@ -540,11 +483,12 @@ These crucibles sealed air tight by cold-welding a lid under pressure and measur
 
 The temperature regime used is shown in Figure~\ref{fig:ltdc_regime}.
 The zones indicated with {\color{blue}\ding{100}1} and {\color{blue}\ding{100}2} are intended to create ice nuclei and therefore to avoid supercooling.
-The measurement are done within the zones P1 (down to \SI{-25}{\celsius}) and P2 (down to \SI{-60}{\celsius}) at a cooling and heating rate of $\pm$\,\SI{2}{\kelvin\per\min}, which is the fastest usable heating rate according to \textcite{neffati.2001}.
-These two measurement zones allow to distinguish the ice mass of pores with radii smaller and larger than $\approx$ \SI{3}{\nano\meter}.
-
+Data from the zones P1 (down to \SI{-25}{\celsius}) and P2 (down to \SI{-60}{\celsius}) provide the data that can be evaluated for the porosity analysis.
+A cooling and heating rate of $\pm$\,\SI{2}{\kelvin\per\min} was applied, since it is the fastest usable heating rate according to \textcite{neffati.2001}.
+The difference between those two measurement zones allows to distinguish the ice mass of pores with radii smaller (P2) and larger (P1) than $\approx$ \SI{3}{\nano\meter}.
+ 
 The melting curve allows to process the cumulative ice mass.
-Do to this, \textcite{chen.1988} and \textcite{ishikiriyama.1995} proposed the following.
+%Do to this, \textcite{chen.1988} and \textcite{ishikiriyama.1995} proposed the following.
 
 % \begin{equation}
 % 	\Delta T = T_\text{melt} - T

@@ -164,7 +164,6 @@ Some selected phases and their respective $\eta$ are listed in Table~\ref{tab:bs
     \label{tab:bse_eta_Z}
 \end{table}
 
-
 \FloatBarrier
 
 \subsection{\Acl*{EDX} (\acs*{EDX})}
@@ -217,10 +216,9 @@ Often it is used simultaneous with \ac{EDX} to provide a comprehensive analysis 
 \subsection{\Acl*{FIB} (\acs*{FIB})}
 \label{sec:lit_fib}
 
-The \ac{FIB} allows to manipulate specimens.
+Besides the classical detectors, modern \ac{SEM}s can also be equipped with a \ac{FIB}.
 Instead of electrons, ions (usually \ce{Ga+}) are accelerated to the specimen surface.
-This enables the targeted removal of material or to deposit coatings (e.g. \ce{Pt} or \ce{C}) to protect a \ac{ROI}, to weld  the specimen to a nearby object or to make a surface conductive.
-
+\ac{FIB} systems enable the targeted removal of material or to deposit coatings (e.g. \ce{Pt} or \ce{C}) to protect a \ac{ROI}, to weld  the specimen to a nearby object or to make a surface conductive.
 
 In 1974/75 the \ac{FIB} technique was introduced by \textcite{levi-setti.1974} and \textcite{orloff.1975} for microprobing applications.
 \ac{FIB} systems are broadly available since the 1990s \cite{volkert.2007}.
@@ -228,13 +226,47 @@ While it is also possible to obtain an image of the specimen surface with a reso
 For example, \textcite{sakalli.2017} used a \ac{FIB} to prepare a \ac{TEM} lamella of hydrated \ac{C3S} and analysed it using \ac{EDX}. % The hydrate seems to be damaged
 While the first \ac{FIB}s were single beam devices, today combined \ac{FIB}-\ac{SEM} devices are the norm.
 
-These capabilities, allow to capture three-dimensional datasets using one or a combination of the detectors available (e.g. \ac{BSE}, \ac{EDX}, \ac{EBSD}).
-In contrast to X-ray computer tomography, this method is intrinsically destructive.
-\cite{holzer.2006, munch.2006} analysed particular systems using \ac{FIB} serial sectioning.
-This technique allows to obtain a digital 3D volume of the specimen.
-The technical details of the method will be further described in Section~\ref{sec:fib}.
 
-\textcite{holzer.2006a} used \ac{FIBnt} very early to cut a large volume (\num{46}\,$\times$\,\num{32}\,$\times$\,\SI{25}{\cubic\micro\meter}) of a cement paste sample with a resolution of \SI{74}{\nano\meter}.
+\begin{figure}[ht!]
+    \centering
+
+	\begin{subfigure}[t]{0.56\textwidth}
+		\includegraphics[width=\textwidth]{methods/fib_scheme.pdf}
+		\caption{Principle of \ac{FIB}-nT sectioning within the bulk material.}
+		\label{fig:fib_scheme}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{0.43\textwidth}
+
+		\ifdefined\PRINTABLE
+			\includegraphics[width=\textwidth]{methods/fib_top.jpg}
+		\else
+			\animategraphics[palindrome,autoplay,width=\textwidth]{3}{methods/fib_process_anim/Animation}{00}{10}%controls=on,
+		\fi
+		\caption{Ion image of the tomography side  of a hydrated alite. \cite{kleiner.2021c}}
+		\label{fig:fib_top}
+	\end{subfigure}
+    \caption{
+        Illustration of the \ac{FIBnt} process.
+        The circle and line on the top right of (b) is a fiducial for constant positioning.
+    }
+    \label{fig:fib}
+\end{figure}
+
+The ion and the electron beam are arranged in an angle of \SI{52}{\degree}, while the ion beam hits the specimen in an angle of \SI{90}{\degree} as shown in Figure~\ref{fig:fib_scheme}.
+The \ac{ROI} has to be in the eucentric point (point of rotation/intersection point of the electron and ion beam).
+This means, if the specimen is tilted, the point does not move in the life image and therefore is in the rotational center.
+
+These capabilities, allow to capture three-dimensional datasets using one or a combination of the detectors available (e.g. \ac{BSE}, \ac{EDX}, \ac{EBSD}).
+In contrast to X-ray \ac{CT}, this method is intrinsically destructive.
+
+% hier kann glaub noch ein bisschen was hin
+{ \color{red}
+\textcite{holzer.2006, munch.2006} analysed particular systems using \ac{FIB} serial sectioning.
+\textcite{holzer.2006a} used \ac{FIBnt} very early to cut a large volume (\num{46}\,$\times$\,\num{32}\,$\times$\,\SI{25}{\cubic\micro\meter}) of a cement paste sample with a voxel size of \SI{74}{\nano\meter}.
+}
+
+More technical details of the method will be further described in Section~\ref{sec:fib}.
 
 
 \FloatBarrier
@@ -245,11 +277,54 @@ Cryo-preparation for \acs*{SEM} and \acs*{FIBnt} is a method to obtain close-to-
 It works by rapidly freezing the specimen in liquid nitrogen within a high-pressure freezer, which prevents the formation of ice crystals and preserves the original structure of the sample \cite{holzer.2007,muller.2021}.
 This method is often used in the biological field to obtain 3D datasets of cells or tissues \cite{muller.2021}.
 % \textcite{desbois.2008} compared cryo-preparation for the analysis of water-filled grain boundaries in halite, de.
-% -cryoSEM+nT? -> \cite{desbois.2008}
+% -cryoSEM+nT? -> \cite{de sbois.2008}
 
 \textcite{holzer.2007} established a segmentation workflow proposing to analyse cryo-stabilised cement suspensions utilizing \ac{FIBnt}. % the raw data is not available...
 
 % TODO: das ist noch etwas dünn
+
+\subsection{Sample preparation - mechanical polishing}
+\label{sec:lit_sample_preparation}
+
+Detectors such as \ac{BSE} and \ac{EDX} provide the best results with the smoothest possible surfaces of sample cross-sections.
+Thus, resin embedding and mechanical polishing are very common methods to polish samples \cite{scrivener.2004}.
+The sample is embedded in a resin (e.g. epoxy resin) to stabilize the specimen and to fill the pores.
+Then, the sample is polished using a series of oil based polishing slurries with decreasing grain size (see Section~\ref{sec:mech_pol}).
+However, it is difficult to obtain a surface without scratches using mechanical polishing (see Figure~\ref{fig:mech_polishing_damage}).
+
+%X:\Mitarbeiter\Florian Kleiner\Einzelbilder\2020_07_07 C3S BSE ohne BIB\Anschliff BSE_020.tif
+\begin{figure}[H]
+    \centering
+
+    \includegraphics[width=.49\textwidth]{literature/mech-pol.pdf}
+
+    \caption{
+        \ac{BSE} image of a polished cross-section of a resin embedded, hydrated \ac{C3S} sample.
+        The scratches and the visible oil residue are caused by the polishing process and are visible in the \ac{BSE} image.
+        The image was taken at a low voltage (\SI{1.5}{\kilo\volt}, \SI{0.8}{\nano\ampere}) to make the surface more visible.
+    }
+    \label{fig:mech_polishing_damage}
+\end{figure}
+
+Due to hardness differences between the phases, the polishing process can also cause uneven surfaces in the specimen \cite{ji.2014}.
+This is especially true for resin embedded specimens \cite{desbois.2010}.
+Furthermore, smearing of the softer material (e.g. resin) can occur, filling pores or influencing subsequent analysis like \ac{EDX}.
+All these influences can lead to a significant reduction in image quality and resolution.
+\textcite{scrivener.2004} achieved a feature resolution of \ac{CSH}, ettringite, and pores of \SIrange{0.1}{0.2}{\micro\meter} using mechanical polishing techniques.
+This feature resolution is not sufficient for the analysis of nanoscale structures.
+\ac{CSH} needles, for example, can have a diameter significantly less than \SI{100}{\nano\meter} \cite{moser.2003} and therefore cannot be acceptably imaged.
+While mechanical polishing still can be good enough for many applications like \ac{BSE}- or \ac{EDX}-imaging, high-resolution imaging or \ac{EBSD} require better surface qualities without contaminations \cite{rossler.2017}.
+
+\subsection{Sample preparation - \Acl*{ArBIB} polishing}
+
+\ac{ArBIB} sectioning is an alternative method to polish specimen surfaces \cite{harper.1983,grunewald.1987}.
+In a broad ion beam device, accelerated ions (e.g. \ce{Ar+}) are used to clean and polish the specimen surface.
+So prepared surfaces show limited damage to the nano-scale features of interest \cite{desbois.2009,desbois.2010},
+Furthermore, small pores are not filled with debris \cite{desbois.2009,desbois.2010}, which eliminates the need for resin intrusion \cite{desbois.2009}, while it is still possible to do so \cite{rossler.2017} and advisable for later segmentation purposes.
+
+\ac{ArBIB} allows to polish large areas in the range of several \si{\milli\meter\squared} \cite{hauffe.2003,desbois.2013}.
+Therefore, some authors utilised the broad ion beam polishing as a tool for tomography \cite{desbois.2013,mac.2018}.
+Compared to \ac{FIBnt}, the slice thickness of this technique is large and inconsistent (>\,\SI{350(70)}{\nano\meter} compared to \SIrange{5}{10}{\nano\meter}) and the effort required is very high \cite{desbois.2013}.
 
 
 \subsection{Beam and drying damage}

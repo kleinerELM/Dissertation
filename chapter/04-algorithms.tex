@@ -62,7 +62,7 @@ Subsequently, a circular \ac{ROI} $r_\text{ROI}$ is selected, which is calculate
 This selection (Figure~\ref{fig:hlt-method}A, B) is then transformed into polar coordinates (Figure~\ref{fig:hlt-method}C).
 Particles located too close to the image border (less than $r_\text{ROI}$ from the particle center) are excluded from further processing.
 The \ac{HLT} was determined using 360 steps, representing a \ang{1} angle per step.
-To achieve this, the distance from the \ac{C3S} phase (left-hand side of Figure~\ref{fig:hlt-method}C, blue) to the next pore (red) is measured.
+To achieve this, the distance from the \ac{C3S} phase (left-hand side of Figure~\ref{fig:hlt-method}C, blue, \ding{172}) to the next pore (red, \ding{173}) is measured.
 If there is no adjacent pore within $r_\text{ROI}$, the measurement was ignored (Figure~\ref{fig:hlt-method}D, areas with adjacent grey).
 To reduce errors, \ang{3} before and after those areas are ignored as well (Figure~\ref{fig:hlt-method}D, marked as darker vertical lines).
 Furthermore, measurements of grains which provided less than \num{90} valid measurements (\SI{25}{\percent} of 360 possible measurements) are excluded from the statistical analysis. % less than 25% of 360 possible measurements
@@ -71,8 +71,8 @@ Furthermore, measurements of grains which provided less than \num{90} valid meas
 \centerline{\includegraphics[width=\textwidth]{hydrate-rim/Mechanism.pdf}}
 \caption{
 	Illustration of the processing to measure the \ac{HLT}.
-	In the center of A, B and E is an unhydrated \ac{C3S} grain (1) within a \SI{7}{\day} hydrated specimen.
-	A: raw image; B: segmented image (red: pores, green: hydrates, blue: \ac{C3S}); C: transformation of B into polar coordinates, the \ac{C3S} grain (blue) is on the left; D: like C, but only with the identified hydrate in green (grey areas were excluded from processing); E: version of D transformed into \textsc{Cartesian} coordinates.
+	In the center of A, B and E is an unhydrated \ac{C3S} grain \ding{172} within a \SI{7}{\day} hydrated specimen.
+	A: raw image; B: segmented image (red: pores \ding{173}, green: hydrates, blue: \ac{C3S}); C: transformation of B into polar coordinates, the \ac{C3S} grain (blue) is on the left; D: like C, but only with the identified hydrate in green (grey areas were excluded from processing); E: version of D transformed into \textsc{Cartesian} coordinates.
 	\cite{kleiner.2024}
 }
 \label{fig:hlt-method}
@@ -109,4 +109,12 @@ Nevertheless, the source image also has to be segmented to 2 phases (pore / wate
 The difference in the algorithms is the measured distance as shown in Figure~\ref{fig:hlt-method}C, where the measurement excludes hydrates and does stop at the neighbouring particle instead of pore space.
 
 
-\subsection{Representative area}
+%\subsection{Representative area}
+
+\subsection{Image denoising algorithms}
+
+Noise is unavoidable in real world imaging systems like \ac{SEM} or \ac{CT}.
+
+
+\cite{wang.2025}
+%\cite{rust.2023}

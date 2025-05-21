@@ -65,7 +65,7 @@ The `ink-bottle' effect (see Figure~\ref{fig:mip-bottle-neck}) is often mentione
 \end{figure}
 
 \textcite{wang.2019} showed the damage induced by \ac{MIP} using \ac{mCT}.
-They came to the conclusion, that the pore space was increased by approximately \SI{7}{\percent} due to the mercury intrusion.
+They came to the conclusion, that the pore space was increased by $\approx$ \SI{7}{\percent} due to the mercury intrusion.
 The main affected pore size range was around 100-\SI{500}{\micro\meter}.
 Furthermore, \ac{MIP} requires dried specimens, leading to a cracked and therefore non-native microstructure \cite{chatterji.2001,wang.2019}.
 
@@ -103,7 +103,7 @@ Another less common method to indirectly measure the \ac{PSD}, especially in the
 The method is based on the principle, that the freezing point of water is lowered in small pores due to surface tension \cite{brun.1973,brun.1977}.
 Since the heat capacity of the phase transition (liquid-solid) is significantly higher than that of the solid phases, this freezing point depression can be measured using \ac{DSC}.
 
-The measurable pore size range starts at approx. \num{2} \cite{cuperus.1992} or \SI{3.19}{\nano\meter} due to a temperature limit in the thermodynamic description of \SI{-40}{\degreeCelsius} \cite{brun.1977}.
+The measurable pore size range starts at $\approx$ \num{2} \cite{cuperus.1992} or \SI{3.19}{\nano\meter} due to a temperature limit in the thermodynamic description of \SI{-40}{\degreeCelsius} \cite{brun.1977}.
 However, this limit can be extended to lower temperatures and smaller pores when considering the extrapolated curve for the triple point depression in porous materials \cite{kloetstra.1995}.
 For pores larger than \SI{30}{\nano\meter} the temperature shift of the freezing point is too small to be separated from the freezing of free water \cite{cuperus.1992,stocker.2002}.
 
@@ -135,6 +135,7 @@ and for melting:
 \end{equation}
 % in Joseph.2024 stammt die + 0.68 aus "-0.12 + \delta" wobei \delta = the non-freezable layer of water in nm. With respect to the value of δ, both 1.2 nm [52,53] and 0.8 nm [51,54]
 
+
 It has to be noted, that $\Delta T$ measurements below \SI{-40}{\celsius} are not covered by these equations.
 However, \textcite{kloetstra.1995} proposed that it is possible to extend this lower limit.
 
@@ -149,55 +150,66 @@ $\Delta T$ is defined as:
 	T_\text{m} &   theoretical freezing point in \si{\kelvin}.
 \end{conditions}
 
-\textcite{brun.1977} considered an adsorbed water film in the pores (thickness of \SI{.8}{\nano\meter}) and also a temperature correction for surface tension and for the melting entropy.
-The relationship resulting from Equations~\ref{eq:brun_freeze} and \ref{eq:brun_melt} are plotted in Figure~\ref{fig:freezing_depression}.
-
-\begin{figure}[!htb]
+\begin{wrapfigure}{O}{0.6\linewidth}
+%\begin{figure}[!htb]
     \centering
+	\vspace{-\intextsep}
     \begin{tikzpicture}
         \begin{semilogyaxis}[
 				legend style={at={(0.03,.94)},anchor=north west},
 				xmin=-40, xmax=0,
-				ymin=1, ymax=30,
-				width=0.95\linewidth,
-				height=0.4\linewidth,
+				ymin=1, ymax=35,
+				width=\linewidth,
+				height=6cm,
 				grid=major,
 				xlabel={freezing poicnt depression $\Delta T$ in \si{\kelvin}},
 				ylabel={pore radius $r_\text{P}$ in \si{\nano\meter}},
 				xtick={0,-10,...,-40},
 				ytick     ={1,2.5,5,10,30},
-				yticklabels={1,2.5,5,10,30},
+				yticklabels={1.0,2.5,5.0,10,30},
 				grid style={line width=.1pt, draw=gray!10},
 				%x dir=reverse
             ]
 			\addplot[blue, domain=0:-40, samples=50] {0.57-64.67/x};
-            \addlegendentry{freezing \cite{brun.1977}};
+            \addlegendentry{freezing};
 			\addplot[red, domain=0:-40, samples=50, dashed] {0.68-32.33/x};
-            \addlegendentry{melting \cite{brun.1977}};
+            \addlegendentry{melting};
         \end{semilogyaxis}
     \end{tikzpicture}
-    \caption{Depression of the freezing or melting point as functions of the pore radius. Calculated according to \textcite{brun.1977} for water using Equations~\ref{eq:brun_freeze} and \ref{eq:brun_melt}.}
+    \caption{
+		Depression of the freezing or melting point as functions of the pore radius.
+		Calculated according to \textcite{brun.1977} for water using Equations~\ref{eq:brun_freeze} and \ref{eq:brun_melt}.
+	}
     \label{fig:freezing_depression}
-\end{figure}
+%\end{figure}
+\end{wrapfigure}
 % TODO: Stockhausen??
+
+\textcite{brun.1977} considered an adsorbed water film in the pores (thickness of \SI{.8}{\nano\meter}) and also a temperature correction for surface tension and for the melting entropy.
+The relationship resulting from Equations~\ref{eq:brun_freeze} and \ref{eq:brun_melt} are plotted in Figure~\ref{fig:freezing_depression}.
 
 This shows that smaller pores lead to lower freezing temperatures of the water inside the pores.
 However, this also depends on the pore type.
 
-If a larger pore ($d_4$) is only connected to smaller pores ($d_3$) or is isolated, it can only freeze at the same temperature as the smaller pores ($d_3$), while pores with a similar size ($d_2$) were already frozen.
+If a larger pore ($d_4$) is only connected to smaller pores ($d_3$) or is isolated, it can only freeze at the same temperature as the smaller pores ($d_3$), while pores with a similar size ($d_2$) were already frozen (Figure~\ref{fig:freeze}).
 
-\begin{figure}[!ht]
+\begin{wrapfigure}{O}{0.5\textwidth}
+%\begin{figure}[!htb]
     \centering
-
+	\vspace{-\intextsep}
 	\ifdefined\PRINTABLE
-		\includegraphics[width=.5\textwidth]{ltdsc/ltdsc_freezing3.pdf}
+		\includegraphics[width=.9\linewidth]{ltdsc/ltdsc_freezing3.pdf}
 	\else
-		\animategraphics[loop,poster=last,autoplay,width=.5\textwidth]{1}{ltdsc/ltdsc_freezing}{0}{3}
+		\animategraphics[loop,poster=last,autoplay,width=.9\linewidth]{1}{ltdsc/ltdsc_freezing}{0}{3}
 	\fi
 
-    \caption{Scheme of the freezing process within a connected pore system. Freezing happens sequentially from $d_1$ to $d_2$, followed by $d_3$ and $d_4$ at once. Based on \textcite{sun.2010}.}
+    \caption{
+		Scheme of the freezing process within a connected pore system.
+		Freezing happens sequentially from $d_1$ to $d_2$, followed by $d_3$ and $d_4$ at once. Based on \textcite{sun.2010}.
+	}
     \label{fig:freeze}
-\end{figure}
+%\end{figure}
+\end{wrapfigure}
 
 Furthermore, supercooling effects can be observed in the literature \cite{setzer.1994,sant.2011}, which renders the evaluation of the larger pore sizes more difficult or impossible.
 They are indicated by a shift of the main freezing peak to temperatures below \SI{-10}{\degreeCelsius}.

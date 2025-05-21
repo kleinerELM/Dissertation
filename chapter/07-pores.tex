@@ -115,7 +115,11 @@ As indicated by the inhomogeneous distribution of the segmented pores (see Figur
 
 		\begin{tikzpicture}
 		  \begin{semilogxaxis}[
-				legend style={at={(0.95,.7)},anchor=east},
+				legend style={
+					at={(0.95,.7)},
+					anchor=east,
+					cells={align=left}
+				},
 				legend cell align={left},
 				xmin=.64, xmax=160,
 				ymin=0, ymax=1.1,
@@ -313,8 +317,11 @@ For the measurement, the water saturated specimen was then cooled down to \SI{-6
 
         \end{semilogxaxis}
         \begin{semilogxaxis}[
-				legend style={at={(0.95,.7)},anchor=east},
-                legend cell align={left},
+				legend style={
+					at={(0.95,.7)},
+					anchor=east,
+					cells={align=left},
+				},
 				xmin=1.5, xmax=60,
 				ymin=-.20, ymax=0,
 				y dir=reverse,
@@ -680,17 +687,17 @@ It was not possible to measure \ac{C2S} after \SI{1}{\day} of hydration, since t
     \caption{
 		\ac{LTDSC} curves for the second freezing pass of \ac{C2S} from \SIrange{7}{28}{\day} of hydration.
 		Every specimen age was measured using three specimens.
-		The graph on the right is a zoomed in section of the left graph, showing the data correlating to the gel pores.
+		On the right is a magnified section, highlighting the data correlating to the gel pores.
 		Note that pore sizes below \SI{3.19}{\nano\meter} are undefined as noted in Equation~\ref{eq:brun_freeze}.
 	}
     \label{fig:ltdsc_result_c2s_freeze}
 \end{figure}
 
-The graph on the right is a zoomed in section of the left graph, showing the data correlating to the gel pores (\num{2.00} to \SI{2.25}{\nano\meter} pore radius according to \ref{eq:brun_freeze}).
+The graph on the right is a magnified section of the left graph, showing the data correlating to the gel pores (\num{2.00} to \SI{2.25}{\nano\meter} pore radius according to \ref{eq:brun_freeze}).
 The figure shows that the heat flow signal of the gel pores is increasing with the age of the specimen, which indicates an increase in the gel pore volume with increasing specimen age.
 
 \ac{C3S} was measured from \num{1} to \SI{28}{\day} of hydration.
-The \ac{LTDSC} curves from the second freezing pass are plotted in Figure~\ref{fig:ltdsc_result_C3S_freeze}.
+The \ac{LTDSC} curves from the second freezing pass (P2) are plotted in Figure~\ref{fig:ltdsc_result_C3S_freeze}.
 
 \begin{figure}[!htb]
     \centering
@@ -885,7 +892,7 @@ The \ac{LTDSC} curves from the second freezing pass are plotted in Figure~\ref{f
 
     \caption{
 		\ac{LTDSC} curves for the second freezing pass of \ac{C3S} from \SIrange{1}{28}{\day} of hydration. Every specimen age was measured using three specimens.
-		The graph on the right is a zoomed in section of the left graph, showing the data correlating to the gel pores.
+		On the right is a magnified section, highlighting the data correlating to the gel pores.
 		Note that pore sizes below \SI{3.19}{\nano\meter} are undefined as noted in Equation~\ref{eq:brun_freeze}.
 	}
     \label{fig:ltdsc_result_C3S_freeze}

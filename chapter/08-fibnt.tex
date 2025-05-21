@@ -1,0 +1,86 @@
+\chapter{\Acl*{FIBnT} (\acs*{FIBnT})}
+
+\section{Process optimisation}
+
+Due to the destructive nature of the \ac{FIBnT} process, there are a lot of possible artefacts.
+
+\begin{figure}[H]
+    \centering
+
+	\begin{subfigure}[t]{0.32\textwidth}
+		\includegraphics[width=\textwidth]{methods/fib_artifacts_b.pdf}
+		\caption{Redeposition in front of the \ac{ROI} and slight vertical shadowing.}
+		\label{fig:fib_artifacts_b}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{0.32\textwidth}
+		\includegraphics[width=\textwidth]{methods/fib_artifacts_c.pdf}
+		\caption{Charging effects in form of drift artifacts and redepositioning.}
+		\label{fig:fib_artifacts_c}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{0.32\textwidth}
+		\includegraphics[width=\textwidth]{methods/fib_artifacts_a.pdf}
+		\caption{Curtaining and charging effects.}
+		\label{fig:fib_artifacts_a}
+	\end{subfigure}
+    \caption{Imaging issues of hydrated and embedded \ac{C3S} specimens during the \ac{FIBnt}-process within the bulk material.}
+    \label{fig:fib_artifacts}
+\end{figure}
+
+As in the \ac{ArBIB} sectioning (see Section~\ref{sec:bib_pol_fixed}), the cutting process can introduce curtaining.
+It is caused by the cutting process causing vertical line artifacts in the direction of the ion beam (Figure~\ref{fig:fib_artifacts_a}).
+As in images from the stationary \ac{ArBIB} process, these lines can be reduced in post processing using a directional \ac{FFT} based filter \cite{fitschen.2017,schankula.2018}.
+
+Vertical shadowing is another typical artifact caused by a loss of signal of the back-scattered electrons due to the trench geometry (see Figure~\ref{fig:fib_artifacts_b}).
+This well known effect can be corrected in post processing \cite{holzer.2007, mac.2018, fager.2020}, if the phase contrast is good enough.
+However, there are more severe uncorrectable artifacts caused by the in-place slicing process.
+Since cementitious material is not conductive and the trenches are not coated throughout, charging effects can negatively influence the image quality (e.g. Figure~\ref{fig:fib_artifacts_c} and \ref{fig:fib_artifacts_a}) or cause uncorrectable image drift during the process.
+The re-deposition of the removed material usually happens within the trenches, which does not cause any problems.
+However, it may also appear on small structures in front of the \ac{ROI} or even on the specimen surface after longer imaging periods as shown in Figure~\ref{fig:fib_artifacts_b} and \ref{fig:fib_artifacts_c}.
+
+To avoid or at least reduce issues caused by slicing within the bulk material, the \ac{ROI} can be completely cut free.
+Then a lift-out process can be applied, which is similar to the preparation process of \ac{TEM} lamellas \cite{overwijk.1993, langford.2001a}.
+To do this, a needle is inserted and welded to the \ac{ROI}-cube using the platinum coating process.
+Afterwards, the cube is complete cut loose from the bulk material, and a copper comb is inserted to the SEM.
+Finally, the cube is transferred and then welded to a finger of the comb as shown in Figure~\ref{fig:fib_liftout}.
+
+\begin{figure}[h!]
+    \centering
+
+	\includegraphics[width=\textwidth]{methods/fib_liftout/image095_colored.pdf}
+    \caption{\SI{20}{\micro\meter} wide specimen ({\color{green}A}). On the left is the needle welded to the specimen ({\color{blue}B}). They are navigated and welded to the copper comb ({\color{red}C}). The platinum vapor source ({\color{orange}D}) used for welding is visible on the right. \cite{kleiner.2021c}}
+    \label{fig:fib_liftout}
+\end{figure}
+
+The so prepared and separated cube can now be serial cut as illustrated in Figure~\ref{fig:fib_scheme} with significantly reduced shadowing and charging effects.
+
+A detailed video of the \ac{FIBnt}-process, the required parameters, and potential sources of errors for cement-based materials was created and published \cite{kleiner.2025a}.
+
+\section{Evaluation obstacles}
+
+Due to the sensitive nature of the hydrate phases (see Section~\ref{sec:beam_damage}), the operator must pay particular attention when analysing at higher voltages as for \ac{EDX} or \ac{EBSD} samples. 
+As shown in Figure~\ref{fig:edx_damage}, an electron beam at \SI{6}{\kilo\volt} and a long dwell time can cause damage in the specimen which could be misinterpreted as porosity.
+In the example, pores with a diameter of several \si{\nano\meter} were induced, which can mostly be identified by comparing the damaged slice (Figure~\ref{fig:edx_damage_a}) with a freshly cut surface (Figure~\ref{fig:edx_damage_b}).
+In this case, the damage was visible for $\approx$ \SI{350}{\nano\meter}
+
+\begin{figure}[H]
+    \centering
+
+	\begin{subfigure}[t]{0.49\textwidth}
+		\includegraphics[width=\textwidth]{methods/edx-damage/a.pdf}%
+		\caption{A undamaged surface slice.}
+		\label{fig:edx_damage_a}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{0.49\textwidth}
+		\includegraphics[width=\textwidth]{methods/edx-damage/b.pdf}
+		\caption{Damaged surface after \ac{EDX}-measurements.}
+		\label{fig:edx_damage_b}
+	\end{subfigure}
+    \caption{
+        Effect of \ac{EDX} at \SI{6}{\kilo\volt} after multiple scans on a hydrated \ac{C3S} surface, prepared using \ac{FIB}.
+        Sections of \ac{BSE}-images created during a \ac{FIBnt}-process, (\SI{2}{\kilo\volt}, \SI{2}{\pico\ampere}).
+    } % BeamCurrent=2e-010
+    \label{fig:edx_damage}
+\end{figure}

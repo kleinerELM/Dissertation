@@ -12,20 +12,20 @@ On contact with water these phases dissolve and new phases like \ac{CSH}, \ac{CH
     \centering
     \begin{tikzpicture}
         \begin{axis}[
-				legend style={at={(1.05,.5)},anchor=west},
+                legend style={at={(1.05,.5)},anchor=west},
                 legend cell align={left},
-				xmin=0, xmax=28,
-				ymin=0, ymax=100,
-				width=0.65\linewidth,
-				height=0.4\linewidth,
-				grid=major,
-				grid style={line width=.1pt, draw=gray!10},
-				xlabel={hydration time},
+                xmin=0, xmax=28,
+                ymin=0, ymax=100,
+                width=0.65\linewidth,
+                height=0.4\linewidth,
+                grid=major,
+                grid style={line width=.1pt, draw=gray!10},
+                xlabel={hydration time},
                 xtick={0, 11.26, 19.35, 28},
-                xticklabels={0,\SI{60}{\min},\SI{24}{\hour},\SI{28}{\day}},
-				ylabel={trends in proportional\\phase development},
+                xticklabels={\SI{0}{\min},\SI{60}{\min},\SI{24}{\hour},\SI{28}{\day}},
+                ylabel={trends in proportional\\phase development},
                 ylabel style={align=center},
-				ytick={}
+                ytick={}
             ]
 
             \addplot+ [ mark=none, red, very thick ] table [x index=4, y index=5, col sep=comma, filter discard warning=false] {figures/literature/phase_dev_moeser.csv};
@@ -38,7 +38,7 @@ On contact with water these phases dissolve and new phases like \ac{CSH}, \ac{CH
             \addlegendentry{ettringite};
 
             \addplot+ [ mark=none, orange, very thick ] table [x index=0, y index=1, col sep=comma, filter discard warning=false] {figures/literature/phase_dev_moeser.csv};
-            \addlegendentry{syngenit};
+            \addlegendentry{syngenite};
 
             \addplot+ [ mark=none, grey, very thick ] table [x index=8, y index=9, col sep=comma, filter discard warning=false] {figures/literature/phase_dev_moeser.csv};
             \addlegendentry{secondary gypsum};
@@ -47,23 +47,23 @@ On contact with water these phases dissolve and new phases like \ac{CSH}, \ac{CH
             \addlegendentry{\ac{AFm}};
 
 
-			\node[right,green] at (axis cs: 5,23)  {\small $\cong$ \SI{0.5}{\micro\meter}};
-			\node[right,green] at (axis cs:21,43)  {\small $\cong$ \SI{2.5}{\micro\meter}};
+            \node[right,green] at (axis cs: 5,23)  {\small $\cong$ \SI{0.5}{\micro\meter}};
+            \node[right,green] at (axis cs:21,43)  {\small $\cong$ \SI{2.5}{\micro\meter}};
 
-			\node[right,red] at (axis cs:12.5,80)  {\small $\cong$ \SI{0.6}{\micro\meter}};
-			\node[right,red] at (axis cs:21,80)  {\small $\cong$ \SI{1.0}{\micro\meter}};
+            \node[right,red] at (axis cs:12.5,80)  {\small $\cong$ \SI{0.6}{\micro\meter}};
+            \node[right,red] at (axis cs:21,80)  {\small $\cong$ \SI{1.0}{\micro\meter}};
 
         \end{axis}
     \end{tikzpicture}
     \caption{
-        Scheme for ordinary Portland cement hydration at room temperature.
-        The coloured dimensions indicate the length of the crystal needles of \ac{CSH} and ettringite Redrawn after \textcite{moser.2001} and \textcite{stark.2003}.
+        Scheme for \ac{OPC} hydration at room temperature.
+        The coloured dimensions indicate the length of the crystal needles of \ac{CSH} and ettringite. Redrawn after \textcite{moser.2001} and \textcite{stark.2003}.
     }
     \label{fig:moeser_phase_dev}
 \end{figure}
 
-These reaction products are responsible for the hardening of cement based materials.
-The main reaction, forming \ac{CSH} and \ac{CH} can be summarised as follows \cite{gartner.2002}:
+These reaction products are responsible for the hardening of cement-based materials.
+The main reaction, forming \ac{CSH} and \ac{CH}, can be summarised as follows \cite{gartner.2002}:
 {
     \reaction{C3S + (3 - $x$ + $n$)H -> C_{x}SH_{n} + (3-$x$)CH }
     \reaction{C2S + 4.3H -> C_{1.7}SH4 + 0.3CH }
@@ -76,29 +76,30 @@ The hydration process can be subdivided into five periods as indicated in Figure
     \centering
     \begin{tikzpicture}
         \begin{axis}[
-				legend style={at={(1.05,.5)},anchor=west},
+                legend style={at={(1.05,.5)},anchor=west},
                 legend cell align={left},
-				xmin=0, xmax=48,%270,
-				ymin=0, ymax=30,
-				width=.95\linewidth,
-				height=.38\linewidth,
-				grid=major,
-				xlabel={Time in \si{\hour}},
-				ylabel={$dQ/dt$ \si{\joule/\gram}},
-				xtick={0,6,12,24,48},
-				grid style={line width=.1pt, draw=gray!10}
+                xmin=0, xmax=48,%270,
+                ymin=0, ymax=30,
+                width=.95\linewidth,
+                height=.38\linewidth,
+                grid=major,
+                xlabel={Time in \si{\hour}},
+                ylabel={$dQ/dt$ \si{\joule/\gram}},
+                xtick={0,6,12,24,48},
+                ytick={},
+                grid style={line width=.1pt, draw=gray!10}
             ]
 
-			\addplot[mark=none, red, dashed] coordinates {(1.0,30) (1.0,0)};
-			\addplot[mark=none, red, dashed] coordinates {(2.60,30) (2.60,0)};
-			\addplot[mark=none, red, dashed] coordinates {(7.77,30) (7.77,0)};
-			\addplot[mark=none, red, dashed] coordinates {(24,30) (24,0)};
+            \addplot[mark=none, red, dashed] coordinates {(1.0,30) (1.0,0)};
+            \addplot[mark=none, red, dashed] coordinates {(2.60,30) (2.60,0)};
+            \addplot[mark=none, red, dashed] coordinates {(7.77,30) (7.77,0)};
+            \addplot[mark=none, red, dashed] coordinates {(24,30) (24,0)};
 
-			\node[right,preaction={fill, white, opacity=0.5}] at (axis cs:-0.1,27)  {$\leftarrow$ 0-I};
-			\node[right] at (axis cs:0.75,22)  {II};
-			\node[right] at (axis cs:3.5,22)  {III};
-			\node[right] at (axis cs:14,22)  {IV};
-			\node[right] at (axis cs:35,22)  {V};
+            \node[right,preaction={fill, white, opacity=0.5}] at (axis cs:-0.1,27)  {$\leftarrow$ 0-I};
+            \node[right] at (axis cs:0.75,22)  {II};
+            \node[right] at (axis cs:3.5,22)  {III};
+            \node[right] at (axis cs:14,22)  {IV};
+            \node[right] at (axis cs:35,22)  {V};
 
             \addplot[blue] table [skip first n=1, x index=0, y index=1, col sep=comma] {figures/literature/DCA_OPC.csv};
         \end{axis}
@@ -121,36 +122,36 @@ As described in \cite{gartner.2002}, the periods are:
 
 % TODO: Christiane: wann endet der bei dir? 24h??
 The hydration process until phase III is important to describe the initial hardening process and the rheological behaviour of the cement.
-The first useful qualitative observations at room temperature were made using the \ac{SE}-mode and fresh fractured surfaces after a few minutes or up to \SI{10}{\hour} \cite{stark.2001,voland.2000,suss.2001} .
-The the \ac{CSH}-needles are up to \SI{300}{\nano\meter} long, while the hydration front is barely visible in the particle \cite{voland.2000}.
+The first useful qualitative observations at room temperature were made using the \ac{SE}-mode and fresh fractured surfaces after a few minutes or up to \SI{10}{\hour} \cite{stark.2001,voland.2000,suss.2001}.
+The \ac{CSH}-needles are up to \SI{300}{\nano\meter} long, while the hydration front is barely visible in the particle \cite{voland.2000}.
 % TODO: find publications of early hydration of cement using BSE mode
 % TODO: find publications from Christiane/Long with those early hydration products?
 %To embed and polish a sample for \ac{BSE} analysis, the specimen should be set or else, only powdery material can be observed.
-%However, reliable quantitative observations like particle distance on embedded polished surfaces using the \ac{BSE} mode can fist be made after the initial hardening after a few hours.
+%However, reliable quantitative observations like particle distance on embedded polished surfaces using the \ac{BSE} mode can first be made after the initial hardening after a few hours.
 
 \section{Growth of \acl*{CSH} (\acs*{CSH})}
 
 \ac{CSH} is the decisive phase for the strength of the concrete during the later hydration process.
-The detailed knowledge of the \ac{CSH}-development in volume but also microstructural shape is especially important to simulate its growth \cite{breugel.1997,nguyen-tuan.2023,nguyen-tuan.2024} and the resulting pore space.
+Detailed knowledge of the \ac{CSH} development in volume but also microstructural shape is especially important to simulate its growth \cite{breugel.1997,nguyen-tuan.2023,nguyen-tuan.2024} and the resulting pore space.
 
 \subsection{\acs*{CSH} morphology and structure}
 
-In the literature, \ac{CSH} is usually distinguished in two different morphological types: a high density and a low density variant.
+In the literature, \ac{CSH} is usually distinguished in two different morphological types: a high-density and a low-density variant.
 Their definition and terms vary between publications and may sometimes not mean exactly the same phenomenon:
 
 \begin{itemize}
     \item inner / outer product \cite{scrivener.1986, richardson.1993}
     %\item phenograins and groundmass \cite{diamond.1993} % somehow this seems to be something else - read!
-    \item low density (LD) / high density (HD) \ac{CSH} \cite{jennings.2000}
+    \item low-density (LD) / high-density (HD) \ac{CSH} \cite{jennings.2000}
     \item low stiffness / high stiffness \ac{CSH} \cite{constantinides.2004}
 \end{itemize}
 In this document they will be called \ac{CSHi} for the dense inner structure and \ac{CSHo} for the needle or foil-like outer structure.
 
 \ac{TEM} experiments by \textcite{melzer.1989} identified five different variations of \ac{CSH}:
 \begin{itemize}
-    \item gel-like \ac{CSH}: vermicular-like;surrounding anhydrous \ac{C3S} (\ac{CSHi})
+    \item gel-like \ac{CSH}: vermicular-like; surrounding anhydrous \ac{C3S} (\ac{CSHi})
     \item $\alpha$-\ac{CSH}:, type 1 needle-like, type 2 sword-like (more crystalline); projecting radially from the gel-like \ac{CSH} (\ac{CSHo})
-    \item $\beta$-\ac{CSH}: sheet like particles; often conglomerated; also epitaxal intergrowth with $\gamma$- and $\delta$-\ac{CSH} and \ac{CH}
+    \item $\beta$-\ac{CSH}: sheet-like particles; often conglomerated; also epitaxial intergrowth with $\gamma$- and $\delta$-\ac{CSH} and \ac{CH}
     \item $\gamma$-\ac{CSH}: epitaxial growths with $\beta$-\ac{CSH} and \ac{CH}
     \item $\delta$-\ac{CSH}: epitaxial growths with $\beta$- and $\gamma$-\ac{CSH} and \ac{CH}
 \end{itemize}
@@ -166,8 +167,8 @@ The needle-like structure was first described by \textcite{lechatelier.1887} in 
 \subsection{\acs*{CSH} - Gel or crystal?}
 
 Especially in early publications, the hydration products of cement were called cement gel \cite{lea.1937,powers.1958}.
-This was mainly due to to the physical properties of fresh cement paste \cite{lea.1937}.
-In recent literature, the \ac{CSH}-phase is still often referred to as `gel' \cite{masoero.2018, walkley.2019, duque-redondo.2022}. %hou.2015,
+This was mainly due to the physical properties of fresh cement paste \cite{lea.1937}.
+In recent literature, the \ac{CSH} phase is still often referred to as `gel' \cite{masoero.2018, walkley.2019, duque-redondo.2022}. %hou.2015,
 According to \textsc{IUPAC}, a gel is defined as:
 \begin{iquote}
     Non-fluid colloidal network or polymer network that is expanded throughout its whole volume by a fluid. \cite{gold.2019}
@@ -178,14 +179,13 @@ Often, \ac{CSH} is referred to as a `gel' due to its X-ray amorphous nature comp
 So one may argue, that water bound within the layers of the \ac{CSH} is the fluid throughout the unordered `\ac{CSH}-network' instead of bound crystal water.
 However, it was shown by electron diffraction in (cryo-)\ac{TEM} that mature \ac{CSH} phases are (crypto-)crystalline \cite{kurczyk.1960, grudemo.1960, grudemo.1965, melzer.1989, rossler.2006} with a similar structure to the tobermorite group \cite{grudemo.1960,kurczyk.1960,biagioni.2015}.
 Also, \textcite{nonat.2004} demonstrated the crystalline nature of \ac{CSH} crystallised on a calcite single crystal using atomic force microscopy.
-{\color{red} However, during its very early development, \ac{CSH} forms water rich, droplets, which then aggregate on top of \ac{C3S} and \ac{C2S} surfaces in an amorphous state \cite{sowoidnich.2023}.
-\textcite{bellmann.2012} claimed, that then a thin \SI{2}{\nano\meter} layer is formed, covering the \ac{C3S} grains.
+However, during its very early development, \ac{CSH} forms water-rich droplets, which then aggregate on top of \ac{C3S} and \ac{C2S} surfaces in an amorphous state \cite{sowoidnich.2023}.
+\textcite{bellmann.2012} claimed that then a thin \SI{2}{\nano\meter} layer is formed, covering the \ac{C3S} grains.
 The forming of this amorphous first layer could be understood as a `gel'.
-According to \textcite{jennings.1986a} and others \cite{bellmann.2015, naber.2019}, this layer can also act as a passivating layer causing the induction periods. % TODO: Thomas: Im neuen paper (was wir gerade bearbeiten) werden weitere Indizien für die Existenz eines passivating layers gezeigt…(Experimente mit Freikalk und Wasserglas); Jennings entnommen aus sowoidnich.2019
+According to \textcite{jennings.1986a} and others \cite{bellmann.2015, naber.2019}, this layer can also act as a passivating layer causing the induction periods.
+% TODO: Thomas: Im neuen paper (was wir gerade bearbeiten) werden weitere Indizien für die Existenz eines passivating layers gezeigt (Experimente mit Freikalk und Wasserglas); Jennings entnommen aus sowoidnich.2019
 
-
-}
-% Mail von THomas vom 04.04.2025:
+% Mail von Thomas vom 04.04.2025:
 % wenn man das streng nach Definition behandelt, dann sind die droplets, die wir im Nucleation…-paper gefunden haben ein Gel. War mir so noch nicht bewusst. In der Biomineral-Community sagt man eben droplet oder liquid precursor dazu. Das sind wohl die Bausteine, aus denen CSH aufgebaut wird.
 
 % Ich würde auf jeden Fall noch sagen, dass das frühe C-S-H (young CSH in deiner Diss genannt) einen layer bildet (passivating layer) und daraus dann das ältere CSH entsteht. Hier gibt es heiße Diskussionen und Literatur, auch von uns. Im neuen paper (was wir gerade bearbeiten) werden weitere Indizien für die Existenz eines passivating layers gezeigt…(Experimente mit Freikalk und Wasserglas)
@@ -197,11 +197,11 @@ According to \textcite{jennings.1986a} and others \cite{bellmann.2015, naber.201
 % \cite{ruiz-agudo.2024} (Mhh ich wüsste nicht wie ich den zitieren soll...)
 
 %\textcite{grudemo.1987} compared his proposed \ac{CSH} structure to \ac{CH}, which is crystalline and can not be classified as gel.
-In 1979, \textcite{ghosh.1979} argued based on morphology, that \ac{CSH} are needle-like crystals as shown in 1960 by \textcite{kurczyk.1960} and \textcite{grudemo.1960} and therefore not are not a gel as considered till then.
-Also the first published \ac{SEM} images from 1966 not only show ettringite needles, but also \ac{CSH} phases in needle and platelet form are recognizable \cite{chatterji.1966}.
-However, since no \ac{EDX} system was available, they only could not identify the phases without a doubt.
-\textcite{stark.2001} pointed to the usually required preparation steps drying and conductive coating of the specimen for \ac{SEM} analysis until the mid-1990ies.
-This preparation often leads to a significant change in the morphology of the \ac{CSH} and looking much more gel-like (e.g.: \cite{jennings.1981}).
+In 1979, \textcite{ghosh.1979} argued based on morphology, that \ac{CSH} are needle-like crystals as shown in 1960 by \textcite{kurczyk.1960} and \textcite{grudemo.1960} and therefore are not a gel as considered till then.
+Also the first published \ac{SEM} images from 1966 not only show ettringite needles, but also \ac{CSH} phases in needle and platelet form are recognisable \cite{chatterji.1966}.
+However, since no \ac{EDX} system was available, they could not identify the phases without a doubt.
+\textcite{stark.2001} pointed to the usually required preparation steps of drying and conductive coating of the specimen for \ac{SEM} analysis until the mid-1990s.
+This preparation often leads to a significant change in the morphology of the \ac{CSH}, making it look much more gel-like (e.g.: \cite{jennings.1981}).
 The damaging effect of the electron beam on the \ac{CSH} structure is discussed in more detail in Section~\ref{sec:beam_damage}.
 
 \begin{figure}[h!]
@@ -225,51 +225,55 @@ The damaging effect of the electron beam on the \ac{CSH} structure is discussed 
 
     \caption{
         Influence of the electron beam voltage from \SIrange{0.8}{6.0}{\kilo\volt} on the appearance of the \ac{CSH} morphology.
-        The \ac{CSH} looses detail and shows a halo at higher electron beam voltages.
+        The \ac{CSH} loses detail and shows a halo at higher electron beam voltages.
         \ac{C3S} + Calcite mixture (\num{2}:\num{1}) after \SI{14}{\day} of hydration.
-        Unpublished images from \textsc{Möser}, 2010.}
+        Unpublished images from \textsc{Möser}, 2010.
+    }
     \label{fig:kV-influence}
 \end{figure}
 
 Furthermore, early \ac{SEM}s required higher beam voltages and currents because of a low detector efficiency to image the surfaces.
-This was causing subsurface scattering and reduced surface detail \cite{moser.1998}, increasing the impression of a gel like material due to reduces surface details (see Figure~\ref{fig:kV-influence}).
+This caused subsurface scattering and reduced surface detail \cite{moser.1998}, increasing the impression of a gel-like material (see Figure~\ref{fig:kV-influence}).
 This was also demonstrated by \textcite{pawley.1984} comparing low and high voltage \ac{SEM} images of the same specimen.
 
-% TODO: Christiane: evtl noch zwei bilder zur eläuterung (gel SEM und high resolution SEM von zement??)
+% TODO: Christiane: evtl noch zwei bilder zur erläuterung (gel SEM und high-resolution SEM von zement??)
 % Ich: zum Beispiel ein altes \cite{diamond.2004} BSE Bild und ein hochaufgelöstes neues, das die Nadeln zeigt
 
 However, a gel can also be defined as a substance capable of swelling in the presence of a second component (in this case water) \cite{hermans.1946}.
-This seems to be the case, as observable by the creep, swelling and shrinkage behavior of concrete \cite{powers.1958,feldman.1970}, which can be attributed to \ac{CSH} \cite{zhou.2025}.
+This seems to be the case, as evident in the creep, swelling, and shrinkage behaviour of concrete \cite{powers.1958,feldman.1970}, which can be attributed to \ac{CSH} \cite{zhou.2025}.
 
 The colloidal nature of hydration products of cement was proposed more than a century ago, as a lively discussion between \textcite{michaelis.1908} and the editorial of the \textsc{Tonindustrie-Zeitung} in 1907/08 demonstrates.
-The required colloidal nature (porous structure between \SI{1}{\nano\meter} to \SI{1}{\micro\meter}) can be applied to water saturated, low density \ac{CSHo} and very young \ac{CSH} \cite{sowoidnich.2023}.
-However, according to \ac{SEM}-images dense \ac{CSHi} has a very low porosity and its morphology can hardly be classified as colloidal.
-Therefore, the swelling is often be attributed to the interlayer porosity of \ac{CSH} \cite{jennings.2008}, which is usually in the range of \num{0.9} to \SI{1.4}{\nano\meter} for tobermorite-like structures, while the latter seems to be more fitting for \ac{CSH} as discussed by \textcite{duque-redondo.2022}.
+The required colloidal nature - i.e. a porous structure between \SI{1}{\nano\meter} and \SI{1}{\micro\meter} - can be applied to water-saturated, low-density \ac{CSHo} and very young \ac{CSH} \cite{sowoidnich.2023}.
+However, dense \ac{CSHi} as observed in \ac{SEM} images, has a very low porosity and its morphology can hardly be classified as colloidal.
+Therefore, the swelling is often attributed to the interlayer porosity of \ac{CSH} \cite{jennings.2008}, which typically ranges from \SIrange{0.9}{1.4}{\nano\meter} for tobermorite-like structures.
+According to \textcite{duque-redondo.2022} a porosity of \SI{1.4}{\nano\meter} seems to be more fitting for \ac{CSH}.
 At this pore size, the colloidal criteria for a gel would be fulfilled.
 
 In 1937, \textcite{lea.1937} called hardened cement a `rigid gel' and described similarities to silica gel, which is today classified as a `xerogel' (a solid dried gel).
-Accordingly, \textcite{wittmann.1976,wittmann.1977} described \ac{CSH} phases as xerogel in the 1970ies.
-However, some authors like \textcite{almdal.1993} argue, that `\textit{xerogel and undiluted systems should not be admitted as gels}'.
-Furthermore, they discussed, that a gel should contain a `\textit{substantial quantity}' of liquid \cite{almdal.1993}, which is debatable for \ac{CSH}, since a lot of water is bound in its crystalline structure.
+Accordingly, \textcite{wittmann.1976,wittmann.1977} described \ac{CSH} phases as xerogel in the 1970s.
+However, some authors like \textcite{almdal.1993} argue that `\textit{xerogel and undiluted systems should not be admitted as gels}'.
+Furthermore, they discussed that a gel should contain a `\textit{substantial quantity}' of liquid \cite{almdal.1993}.
+This is debatable for \ac{CSH}, since a lot of water is bound in its crystalline structure.
 
-In 2001 \textcite{stark.2001} concluded, that while the designation \ac{CSH}-gel is correct `\textit{from a physical point of view as gel implies a particle size}', `\textit{from the point of view of cement chemistry and mineralogy}' \ac{CSH} can not be classified as gel due to its nano-crystalline nature.
+In 2001, \textcite{stark.2001} concluded that while the designation \ac{CSH}-gel is correct `\textit{from a physical point of view as gel implies a particle size}', `\textit{from the point of view of cement chemistry and mineralogy}' \ac{CSH} cannot be classified as gel due to its nano-crystalline nature.
 
 Considering the literature, the term `\ac{CSH}-gel' will not be used in this work due to the nano-crystalline nature of \ac{CSH}.
-While \ac{CSH} forms a colloidal network, it forms a rigid solid, not the soft, elastic material often associated with the common understanding of a gelatin like `gel'.
+While \ac{CSH} forms a colloidal network, it forms a rigid solid, not the soft, elastic material often associated with the common understanding of a gelatin-like `gel'.
 
 \subsection{\acs*{CSH} layer development}
 
-In 1929 / 1930 \textsc{Anderegg} and \textsc{Hubbell} \cite{anderegg.1929,anderegg.1930} already tried to measure the hydration layer development of \ac{OPC} at \SI{21(3)}{\celsius} using optical light microscopy.
-They utilised the difference of the refraction index between \ac{CSH} and unhydrated clinker.
-According to their experiments, the hydrate rim is depending on the mean particle dimension (measured from 150 particles) as shown in Figure~\ref{fig:anderegg-hubbel-distribution}.
+In 1929/30 \textsc{Anderegg} and \textsc{Hubbell} \cite{anderegg.1929,anderegg.1930} already attempted to measure the hydration layer development of \ac{OPC} at \SI{21(3)}{\celsius} using optical light microscopy.
+They utilised the difference in the refractive index between \ac{CSH} and unhydrated clinker.
+According to their experiments, the thickness of the hydrate rim depends on the mean particle dimension (measured from \num{150} particles) as shown in Figure~\ref{fig:anderegg-hubbel-distribution}.
 
 \begin{figure}[!htb]
+
     \centering
     \begin{tikzpicture}
         \begin{axis}[
 				legend style={at={(1.05,.5)},anchor=west},
                 legend cell align={left},
-				xmin=10, xmax=30,%270,
+				xmin=14, xmax=29,%270,
 				ymin=0, ymax=7,
 				width=0.7\linewidth,
 				height=0.41\linewidth,
@@ -320,7 +324,10 @@ According to their experiments, the hydrate rim is depending on the mean particl
             %\addlegendentry{\SI{90}{\day}, $R^2=0.82$};
         \end{axis}
     \end{tikzpicture}
-    \caption{Mean hydration rim of \ac{OPC} from experiments of \textsc{Anderegg} and \textsc{Hubbell} \cite{anderegg.1929,anderegg.1930} in dependence of the mean particle `dimension' of 150 measured grains. The lack or addition of \SI{0.8}{\percent} \ce{CaSO4} in the experiments is marked with $\times$ and $\circ$ respectively. }
+    \caption{
+        Mean hydration rim of \ac{OPC} from experiments of \textsc{Anderegg} and \textsc{Hubbell} \cite{anderegg.1929,anderegg.1930} in dependence of the mean particle `dimension' of \num{150} measured grains.
+        The lack or addition of \SI{0.8}{\percent} \ce{CaSO4} in the experiments is marked with $\times$ and $\circ$ respectively.
+    }
     \label{fig:anderegg-hubbel-distribution}
 \end{figure}
 
@@ -337,37 +344,44 @@ For a particle diameter of \SI{7}{\micro\meter} the diffusion was limited after 
 The estimation is based on the \ac{CSH}-concentration (the measurement method was not mentioned), the mean diameter and that the particles are spherical.
 \textcite{garrault.2006} included a measurement of a single \ac{TEM}-image from  of a hydrated \ac{C3S} grain with a diameter of \SI{3}{\micro\meter}.% made by \textsc{Lachowski} and \textsc{Courault} in 1998.
 
-\begin{figure}[!htb]
+\begin{wrapfigure}{O}{0.6\linewidth}
+%\begin{figure}[!htb]
     \centering
+    \vspace{-\intextsep}
     \begin{tikzpicture}
         \begin{axis}[
-				legend style={at={(.97,.97)},anchor=north east},
+				legend style={
+                    at={(0.5,1.03)},
+                    anchor=south,
+                    style={column sep=4pt},
+                    cells={align=left},
+                },
                 legend cell align={left},
-                legend columns = -1,
-				xmin=0, xmax=20,
-				ymin=0, ymax=0.7,
-				width=0.7\linewidth,
-				height=0.35\linewidth,
+                legend columns = 4,
+				xmin=0, xmax=16,
+				ymin=0, ymax=0.55,
+				width=\linewidth,
+				height=6cm,
 				grid=major,
 				xlabel={mean particle diameter in \si{\micro\meter}},
 				ylabel={$l_{\text{CSH}}$ in \si{\micro\meter}},
-				ytick={0,0.1,...,0.7},
+				ytick={0.1,...,0.7},
 				grid style={line width=.1pt, draw=gray!10},
             ]
 
             \addplot [ mark=+, blue, only marks ] table {figures/hydrate-rim/data_garrault/CSH.dat};
             \addplot [ draw=none, forget plot ] table [ y={create col/linear regression={y=Y}} ] {figures/hydrate-rim/data_garrault/CSH.dat};
-            \addplot[update limits=false, no markers, blue, domain={2:16}, forget plot] {\pgfplotstableregressionb + x*\pgfplotstableregressiona};
+            \addplot[update limits=false, no markers, blue, domain={2:15}, forget plot] {\pgfplotstableregressionb + x*\pgfplotstableregressiona};
             \addlegendentry{\acs*{CSH}};
 
             \addplot [ mark=x, red, only marks ] table {figures/hydrate-rim/data_garrault/CSHi.dat};
             \addplot [ draw=none, forget plot ] table [ y={create col/linear regression={y=Y}} ]  {figures/hydrate-rim/data_garrault/CSHi.dat};
-            \addplot[update limits=false, no markers, red, domain={6:16}, forget plot] {\pgfplotstableregressionb + x*\pgfplotstableregressiona};
+            \addplot[update limits=false, no markers, red, domain={6:15}, forget plot] {\pgfplotstableregressionb + x*\pgfplotstableregressiona};
             \addlegendentry{\acs*{CSHi}};
 
             \addplot [ mark=x, orange, only marks ] table {figures/hydrate-rim/data_garrault/CSHo.dat};
             \addplot [ draw=none, forget plot ] table [ y={create col/linear regression={y=Y}} ]  {figures/hydrate-rim/data_garrault/CSHo.dat};
-            \addplot[update limits=false, no markers, orange, domain={6:16}, forget plot] {\pgfplotstableregressionb + x*\pgfplotstableregressiona};
+            \addplot[update limits=false, no markers, orange, domain={6:15}, forget plot] {\pgfplotstableregressionb + x*\pgfplotstableregressiona};
             \addlegendentry{\acs*{CSHo}};
 
             \addplot [ mark=diamond, black, only marks ] coordinates { (3, 0.50) };
@@ -377,9 +391,11 @@ The estimation is based on the \ac{CSH}-concentration (the measurement method wa
     \end{tikzpicture}
     \caption{Mean hydration rim of \SI{4}{\gram} \ac{C3S} from an estimation based of experiments by \textcite{garrault.2006} in dependence of the mean particle diameter after roughly 10 to \SI{12}{\hour}. The \ac{CSHo} data ($l_{\text{CSHo}}=l_{\text{CSH}}-l_{\text{CSHi}}$) were calculated for better comparability.}
     \label{fig:garrault-distribution}
-\end{figure}
+%\end{figure}
+\end{wrapfigure}
 
-The data of \textcite{garrault.2006} indicate a smaller hydrate seam with increasing mean particle diameters.
+
+The data of \textcite{garrault.2006} indicate a smaller hydrate rim with increasing mean particle diameters.
 This is contradicting the data of \textsc{Anderegg} and \textsc{Hubbell} \cite{anderegg.1929,anderegg.1930} (see Figure~\ref{fig:anderegg-hubbel-distribution}).
 However, \textsc{Anderegg} and \textsc{Hubbell} began their measurements after \SI{7}{\day} and therefore after the diffusion limited growth of the \ac{CSH}.
 Furthermore, their mean particle diameter was significantly larger (starting from \SI{15.5}{\micro\meter}).
@@ -498,25 +514,25 @@ Furthermore, their mean particle diameter was significantly larger (starting fro
 \end{figure}
 
 
-In the 1960ies \textcite{kurczyk.1960} used an electron microscope to measure the length of \ac{CSH}-needles of one month hydrated \ac{C3S}.
+In the 1960s, \textcite{kurczyk.1960} used an electron microscope to measure the length of \ac{CSH}-needles of one-month hydrated \ac{C3S}.
 They measured an average length of \SI{500}{\nano\meter}.
 However, the hydrated material was ground and dispersed using ultrasonic treatment, which may have damaged the hydrates.
 
 \textcite{nicoleau.2011} measured the \ac{CSH}-thickness using Cryo-\ac{SEM} on cracked surfaces of hydrated \ac{C3S} ($w/b=0.5$, $\vartheta=$\SI{20}{\celsius}) (see Figure~\ref{fig:anderegg-hubbel}).
-\textcite{bishnoi.2012} criticised this approach due to the rather uncontrolled cracking, the subjectivity of the measurement and the occurrence of the sectioning effect, which was described in detail by \textcite{scrivener.2004}.
-This effect is an issue for all 2D images of polished sections (e.g. typical \ac{SEM}-\ac{BSE} images) and will be described and discussed in Subsection~\ref{subsec:sectioning-effect}.
+\textcite{bishnoi.2012} criticised this approach due to the rather uncontrolled cracking, the subjectivity of the measurement, and the occurrence of the sectioning effect, which was described in detail by \textcite{scrivener.2004}.
+This effect is an issue for all 2D images of polished sections (e.g., typical \ac{SEM}-\ac{BSE} images) and will be described and discussed in Subsection~\ref{subsec:sectioning-effect}.
 
 % TODO: Christiane: du solltest noch das ziemlich berühmte paper neubauer, sowidnich, bellmann rößler anschauen mit messungen zur PSD von alit :  
 \textcite{neubauer.2022} measured the same specimen using a near-field \ac{PXCT} at different hydration times.
 Furthermore, they manually measured the thickness of \ac{CSHi} on \ac{C3S}, dispersed in epoxy resin utilizing \ac{SEM}-images.
-They determined the thickness at \num{12}, \num{16} and \SI{20}{\hour} as \SI{300(80)}{\nano\meter}, \SI{670(170)}{\nano\meter} and \SI{800(260)}{\nano\meter} respectively.
+They determined the thickness at \num{12}, \num{16}, and \SI{20}{\hour} as \SI{300(80)}{\nano\meter}, \SI{670(170)}{\nano\meter}, and \SI{800(260)}{\nano\meter}, respectively.
 % TODO: <- somehow measure the thickness from the PXCT data?
 
-\textcite{voland.2000} and \textcite{suss.2001} manually measured the development of the length of \ac{CSH}-needles, (roughly equivalent with \ac{CSHo}), using \ac{SEM}-\ac{SE}-images until a specimen age of \SI{28}{\day}.
-\textsc{Stark} and \textsc{Möser} et al. \cite{stark.2001,moser.2001,moser.2002} continued this work close to the three years mark.
-The experiments were done using \ac{C3S} and $\beta$-\ac{C2S} at different temperatures.
-They measured a minimum and maximum value, of which the mean was calculated.
-However, it was not made clear by the authors, how many measurements were taken for each data point.
+\textcite{voland.2000} and \textcite{suss.2001} manually measured the development of the length of \ac{CSH}-needles (roughly equivalent to \ac{CSHo}) using \ac{SEM}-\ac{SE} images up to a specimen age of \SI{28}{\day}.
+\textsc{Stark} and \textsc{Möser} et al. \cite{stark.2001,moser.2001,moser.2002} continued this work up to nearly three years.
+The experiments were conducted using \ac{C3S} and $\beta$-\ac{C2S} at different temperatures.
+They measured a minimum and maximum value, from which the mean was calculated.
+However, the authors did not clarify how many measurements were taken for each data point.
 Therefore, it should be assumed that these data are based on individual measurements.
 The results are plotted in Figures~\ref{fig:suess_CSH_C3S} (\ac{C3S}) and \ref{fig:suess_CSH_C2S} ($\beta$-\ac{C2S}).
 
@@ -660,15 +676,14 @@ The results are plotted in Figures~\ref{fig:suess_CSH_C3S} (\ac{C3S}) and \ref{f
 
 % TODO: include data from \cite{shirani.2023}?
 % - 450 - 550 nm shell thickness of csh after 19h (i do not really get why there exist these two numbers? Durchschnitt insgesamt vs hadley grain-shell?)
-
 The formation of \ac{CSH} begins earlier at increasing temperatures.
-This also causes a significant increase of the overall fibre length.
-At the same temperature, \ac{C2S} demonstrates a slower \ac{CSH}-growth.
-The \ac{CSH}-growth of \ac{C3S} (\ac{wb}=\num{0.5}) stagnates after 5 months according to \textcite{voland.2000}, \textcite{suss.2001}, \textsc{Stark} and \textsc{Möser} et al. \cite{stark.2001,moser.2002}.
-\textcite{bazzoni.2014} observed this stagnation alread after a day, depending on the \ac{wb}-ratio.
-A higher \ac{wb}-ratio (\num{0.8} compared to \num{0.4}) lead to longer \ac{CSH}-needles.
+This also causes a significant increase in the overall fibre length.
+At the same temperature, \ac{C2S} demonstrates a slower \ac{CSH} growth.
+The \ac{CSH} growth of \ac{C3S} (\ac{wb}=\num{0.5}) stagnates after 5 months according to \textcite{voland.2000}, \textcite{suss.2001}, \textsc{Stark} and \textsc{Möser} et al. \cite{stark.2001,moser.2002}.
+\textcite{bazzoni.2014} observed this stagnation already after a day, depending on the \ac{wb}-ratio.
+A higher \ac{wb}-ratio (\num{0.8} compared to \num{0.4}) led to longer \ac{CSH} needles.
 
-In contrast, \textcite{moser.2002} indicates that the needle length of \ac{CSH} on \ac{C2S} (\ac{wb}=\num{0.5}) is still increasing significantly, even until an age of 3 years.
+In contrast, \textcite{moser.2002} indicates that the needle length of \ac{CSH} on \ac{C2S} (\ac{wb}=\num{0.5}) is still increasing significantly, even up to an age of \num{3} years.
 
 
 \begin{figure}[!htb]
@@ -774,9 +789,9 @@ In contrast, \textcite{moser.2002} indicates that the needle length of \ac{CSH} 
 \end{figure}
 
 
-In his presentations, \textsc{Möser} summaried the results as follows:
+In his presentations, \textsc{Möser} summarised the results as follows:
 \begin{iquote}
-When growing unhindered, the needle-like \ac{CSH} phases can reach a length of approximately \SI{1.4}{\micro\meter}. This applies only for the hydration of alite. In pure belite, a \ac{CSH}-length of up to \SI{2.5}{\micro\meter} can be measured. \cite{moser.2001}
+When growing unhindered, the needle-like \ac{CSH} phases can reach a length of approximately \SI{1.4}{\micro\meter}. This applies only to the hydration of alite. In pure belite, a \ac{CSH}-length of up to \SI{2.5}{\micro\meter} can be measured. \cite{moser.2001}
 \end{iquote}
 %Zitat Möser
 %It can be assumed that at the beginning of the acceleration period all C-S-H phases grow in form of fibres. These fibres grow in length during the course of hydration with hardly any changes in thickness. When growing unhindered, the needle-like \ac{CSH} phases can reach a length of approx. 1.4 µm. These applies only for hydration of alite (in pure belite: \ac{CSH}- length up to 2.5 µm). In compact concrete it is to be expected that there is intergrowth between the fibers as well as and interlocking with one another and thus gel pores are formed which have often been described.
@@ -786,13 +801,13 @@ When growing unhindered, the needle-like \ac{CSH} phases can reach a length of a
 \subsection{Hadley grains}
 \label{subsec:hadley}
 
-Sometimes, in polished sections of hydrated cementitious materials, hollow hydrate rims, sometimes filled with an unhydrated clinker grain can be observed (see Figure~\ref{fig:hadley}).
-These objects are called `\textcite{hadley.1972} grains' after \textsc{Hadley} who first described this phenomenon in detail \cite{hadley.1972, hadley.2000} .
+Sometimes, in polished sections of hydrated cementitious materials, hollow hydrate rims, sometimes filled with an unhydrated clinker grain, can be observed (see Figure~\ref{fig:hadley}).
+These objects are called `\textcite{hadley.1972} grains' after \textsc{Hadley}, who first described this phenomenon in detail \cite{hadley.1972, hadley.2000}.
 \textcite{kjellsen.1997} described the formation of hollow shells depending on the \ac{wb}-ratio and silica fume content.
-They observed an increase in porisity attributed to \textsc{Hadley} grains with an increasing \ac{wb}-ratio especially for young specimens.
+They observed an increase in porosity attributed to \textsc{Hadley} grains with an increasing \ac{wb}-ratio, especially for young specimens.
 \ac{PXCT} enabled \textcite{shirani.2023} to analyse the early development of \textsc{Hadley} grains around \ac{C3S} grains.
-They identified a gap of \SI{450}{\nano\meter} between \ac{CSH} and the unhdydrated \ac{C3S}.
-This \ac{CSH} had a very low density compared to more matured material.
+They identified a gap of \SI{450}{\nano\meter} between \ac{CSH} and the unhydrated \ac{C3S}.
+This \ac{CSH} had a very low density compared to more mature material.
 
 \textcite{yio.2015a} observed the development of such a grain using confocal microscopy.
 After \SI{28}{\day} they observed `\textit{needle-like hydration products that connect the outer products and the anhydrous core}'\cite{yio.2015a}.

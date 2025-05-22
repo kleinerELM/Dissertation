@@ -1,8 +1,6 @@
 {
 	"latex-workshop.latex.tools": [
 
-
-
 		{
 			"name": "latexmk",
 			"command": "latexmk",
@@ -148,6 +146,7 @@
 		"epitaxal",
 		"ettringite",
 		"eucentric",
+		"fiducials",
 		"Hadley",
 		"Hubbell",
 		"Lachowski",
@@ -178,5 +177,37 @@
 
 	],
 	"latex-workshop.intellisense.citation.backend": "biblatex",
-	"todo-tree.tree.scanMode": "workspace"
+	"todo-tree.tree.scanMode": "workspace",
+    "latex-workshop.latex.clean.fileTypes": [
+        "%DOCFILE%.aux",
+        "%DOCFILE%.bbl",
+        "%DOCFILE%.blg",
+        "%DOCFILE%.idx",
+        "%DOCFILE%.ind",
+        "%DOCFILE%.lof",
+        "%DOCFILE%.lot",
+        "%DOCFILE%.out",
+        "%DOCFILE%.toc",
+        "%DOCFILE%.acn",
+        "%DOCFILE%.acr",
+        "%DOCFILE%.alg",
+        "%DOCFILE%.glg",
+        "%DOCFILE%.glo",
+        "%DOCFILE%.gls",
+        "%DOCFILE%.fls",
+        "%DOCFILE%.log",
+        "%DOCFILE%.fdb_latexmk",
+        "%DOCFILE%.snm",
+        "%DOCFILE%.synctex(busy)",
+        "%DOCFILE%.synctex.gz(busy)",
+        "%DOCFILE%.synctex.gz",
+        "%DOCFILE%.nav",
+        "%DOCFILE%.vrb",
+        "%DOCFILE%.tex.bak",
+        "%DOCFILE%-blx.bib",
+        "%DOCFILE%.bcf",
+        "%DOCFILE%.bcf-SAVE-ERROR",
+        "%DOCFILE%.run.xml",
+        "%DOCFILE%.xdv"
+    ],
 }

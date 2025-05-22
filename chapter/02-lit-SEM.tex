@@ -286,27 +286,26 @@ This method is often used in the biological field to obtain 3D datasets of cells
 \subsection{Sample preparation - mechanical polishing}
 \label{sec:lit_sample_preparation}
 
+%X:\Mitarbeiter\Florian Kleiner\Einzelbilder\2020_07_07 C3S BSE ohne BIB\Anschliff BSE_020.tif
+\begin{wrapfigure}[14 ]{R}{0.6\linewidth}
+%\begin{figure}[H]
+    \centering
+    \vspace{-\intextsep}
+    \includegraphics[width=\linewidth]{literature/mech-pol.pdf}
+
+    \caption{\ac{BSE} image of a polished cross-section of resin embedded, hydrated \ac{C3S}.
+        The scratches and the oil residue are caused by the polishing process.
+        The image was taken at \SI{1.5}{\kilo\volt}, \SI{0.8}{\nano\ampere} to make the surface more visible.
+    }
+    \label{fig:mech_polishing_damage}
+%\end{figure}
+\end{wrapfigure}
+
 Detectors such as \ac{BSE} and \ac{EDX} provide the best results with the smoothest possible surfaces of sample cross-sections.
 Thus, resin embedding and mechanical polishing are very common methods to polish samples \cite{scrivener.2004}.
 The sample is embedded in a resin (e.g. epoxy resin) to stabilize the specimen and to fill the pores.
 Then, the sample is polished using a series of oil-based polishing slurries with decreasing grain size (see Section~\ref{sec:mech_pol}).
 However, it is difficult to obtain a surface without scratches using mechanical polishing (see Figure~\ref{fig:mech_polishing_damage}).
-
-%X:\Mitarbeiter\Florian Kleiner\Einzelbilder\2020_07_07 C3S BSE ohne BIB\Anschliff BSE_020.tif
-%\begin{wrapfigure}{r}{0.6\linewidth}
-\begin{figure}[H]
-    \centering
-
-    \includegraphics[width=.7\linewidth]{literature/mech-pol.pdf}
-
-    \caption{
-        \ac{BSE} image of a polished cross-section of a resin embedded, hydrated \ac{C3S} sample.
-        The scratches and the visible oil residue are caused by the polishing process and are visible in the \ac{BSE} image.
-        The image was taken at a low voltage (\SI{1.5}{\kilo\volt}, \SI{0.8}{\nano\ampere}) to make the surface more visible.
-    }
-    \label{fig:mech_polishing_damage}
-\end{figure}
-%\end{wrapfigure}
 
 Due to hardness differences between the phases, the polishing process can also cause uneven surfaces in the specimen \cite{ji.2014}.
 This is especially true for resin embedded specimens \cite{desbois.2010}.
@@ -319,12 +318,12 @@ While mechanical polishing still can be good enough for many applications like \
 
 \subsection{Sample preparation - \Acl*{ArBIB} polishing}
 
-\ac{ArBIB} sectioning is an alternative method to polish specimen surfaces \cite{harper.1983,grunewald.1987}.
+\Ac{ArBIB} sectioning is an alternative method to polish specimen surfaces \cite{harper.1983,grunewald.1987}.
 In a broad ion beam device, accelerated ions (e.g. \ce{Ar+}) are used to clean and polish the specimen surface.
 So prepared surfaces show limited damage to the nano-scale features of interest \cite{desbois.2009,desbois.2010},
 Furthermore, small pores are not filled with debris \cite{desbois.2009,desbois.2010}, which eliminates the need for resin intrusion \cite{desbois.2009}, while it is still possible to do so \cite{rossler.2017} and advisable for later segmentation purposes.
 
-\ac{ArBIB} allows to polish large areas in the range of several \si{\milli\meter\squared} \cite{hauffe.2003,desbois.2013}.
+\Ac{ArBIB} allows to polish large areas in the range of several \si{\milli\meter\squared} \cite{hauffe.2003,desbois.2013}.
 Therefore, some authors utilised the broad ion beam polishing as a tool for tomography \cite{desbois.2013,mac.2018}.
 Compared to \ac{FIBnt}, the slice thickness of this technique is large and inconsistent (>\,\SI{350(70)}{\nano\meter} compared to \SIrange{5}{10}{\nano\meter}) and the effort required is very high \cite{desbois.2013}.
 
@@ -332,21 +331,14 @@ Compared to \ac{FIBnt}, the slice thickness of this technique is large and incon
 \subsection{Beam and drying damage}
 \label{sec:beam_damage} 
 
-Hydrate phases can easily be damaged by high temperatures.
-Thermal damage is especially known for phases like \ac{CSH}, ettringite and \ac{CH} \cite{lothenbach.2016}.
-%The water content of \ac{CSH} changes depending on the temperature \textcite{sanna.2014}.
-For example, \ac{CSH} begins to dehydrate at \SI{60}{\celsius} \cite{he.2018} and the water saturation and the size of gel pores change at this temperature \cite{gajewicz.2016}.
-Ettringite can be dehydrated below \SI{100}{\celsius} (Figure~\ref{fig:ettringite_dehydration}).
-
-\begin{wrapfigure}{O}{0.6\linewidth}
+\begin{wrapfigure}[13]{R}{0.6\linewidth}
 %\begin{figure}[!htb]
-    \centering
     \vspace{-\intextsep}
     \begin{tikzpicture}
         \begin{axis}[
 				legend style={
-                    at={(0.5,1.03)},
-                    anchor=south,
+                    at={(0.03,0.97)},
+                    anchor=north west,
                     font=\footnotesize,
                 },
                 legend cell align={left},
@@ -364,15 +356,22 @@ Ettringite can be dehydrated below \SI{100}{\celsius} (Figure~\ref{fig:ettringit
             ]
 			\addplot [only marks, blue, mark=o] coordinates {
 				(45,6) (70,35) (80,75) (95,250) (100,400) (120,1500)};
-			\addlegendentry{raw data \cite{zhou.2001}};
+			\addlegendentry{raw data};
 			\addplot[red, domain=0:140, samples=50, dashed] {exp(- 1.61 + 0.075*x)};
-            \addlegendentry{$ln(P_{\text{H}_2\text{O}}) = -1.61 + 0.075\vartheta$ \cite{zhou.2001}};
+            \addlegendentry{$ln(P_{\text{H}_2\text{O}}) = -1.61 + 0.075\vartheta$};
         \end{axis}
     \end{tikzpicture}
     \caption{Dehydration temperature of ettringite depending on the water vapour pressure \cite{zhou.2001}.}
     \label{fig:ettringite_dehydration}
 %\end{figure}
 \end{wrapfigure}
+
+Hydrate phases can easily be damaged by high temperatures.
+Thermal damage is especially known for phases like \ac{CSH}, ettringite and \ac{CH} \cite{lothenbach.2016}.
+%The water content of \ac{CSH} changes depending on the temperature \textcite{sanna.2014}.
+For example, \ac{CSH} begins to dehydrate at \SI{60}{\celsius} \cite{he.2018} and the water saturation and the size of gel pores change at this temperature \cite{gajewicz.2016}.
+Ettringite can be dehydrated below \SI{100}{\celsius} (Figure~\ref{fig:ettringite_dehydration}).
+
 
 After prolonged electron exposure, especially at higher beam voltages, alterations of sensitive specimens can be observed.
 These artefacts can be attributed to the electron beam heating the specimen or to the formation of gaseous products attributed to radiation damage.
@@ -384,15 +383,15 @@ In a literature review from 2002 \textcite{gartner.2002} pointed to a lot of stu
 The damages were mostly caused by the preparation and beam damage \cite{gartner.2002}.
 The difference in preparation methods was also demonstrated by \textcite{moser.1998,moser.2003} using an environmental \ac{SEM} (\acs{ESEM}).
 \textcite{rossler.2006} were able to show, that $\approx$ \SI{8e2}{\elementarycharge\per\square\angstrom}  at \SI{-172}{\degreeCelsius} allow to retrieve electron diffraction patterns and artefact-free imaging \ac{CSH}, while \SI{6.2e3}{\elementarycharge\per\square\angstrom} at room temperature induce significant beam damage to the mineral, amorphising it in the process.
-A high energy dose in the \ac{SEM} can cause geometrical deformation of \ac{CSH}-structures and introduce pores within originally compact phases (see Figure~\ref{fig:ebeam_damage} \cite{kleiner.2021f}) \cite{moser.2003,kleiner.2021a}.
+A high energy dose in the \ac{SEM} can cause geometrical deformation of \ac{CSH}-structures and introduce pores within originally compact phases (see Figure~\ref{fig:ebeam_damage}) \cite{moser.2003,kleiner.2021a}.
 
 \begin{figure}[h!]
     \centering
 
 	\ifdefined\PRINTABLE
-		\includegraphics[height=0.33\textheight]{methods/ebeam_damage.pdf}
+		\includegraphics[width=.8\linewidth]{methods/ebeam_damage.pdf}
 	\else
-		\animategraphics[palindrome,poster=3,autoplay,height=0.33\textheight]{3}{methods/ebeam_damage_anim/Animation}{0}{4}
+		\animategraphics[palindrome,poster=3,autoplay,width=.8\linewidth]{3}{methods/ebeam_damage_anim/Animation}{0}{4}
 	\fi
 
     \caption{

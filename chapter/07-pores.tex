@@ -462,6 +462,8 @@ In contrast, \ac{ArBIB}-sectioning allows to cut cross-sections (see Section~\re
     \label{fig:csh-arbib-SEM}
 \end{figure}
 
+These images of a section of a \ac{CSH}-needle illustrate, that the needles are indeed not hollow as suggested by \textcite{double.1976, double.1978} in the 1970s.
+
 % TODO: results from the ArBIB Paper -> phansalkar thresholding to segment the pores in CSHi
 
 
@@ -502,9 +504,9 @@ This allows to create a 3D reconstruction of a hydrated \ac{C3S} grain covered i
 \FloatBarrier
 \subsection{\acs{LTDSC}}
 
-The \ac{LTDSC} curves of the second freezing pass of \ac{C2S} from \SIrange{1}{28}{\day} of hydration are shown in Figure~\ref{fig:ltdsc_result_c2s_freeze}.
-Three measurements were done for every specimen age.
-It was not possible to measure \ac{C2S} after \SI{1}{\day} of hydration, since the material was not hard enough to be handled and transferred into the \ac{LTDSC}-crucible.
+The \ac{LTDSC} curves of the second freezing pass P2 of \ac{C2S} from \SIrange{1}{28}{\day} of hydration are shown in Figure~\ref{fig:ltdsc_result_c2s_freeze}.
+Three measurements were made for each specimen age.
+It was not possible to measure \ac{C2S} after \SI{1}{\day} of hydration, since the material was not hard enough to be handled and transferred into the \ac{LTDSC} crucible.
 
 \ifdefined\EXTERNALIZE
 	\tikzexternaldisable
@@ -1116,7 +1118,7 @@ To mitigate this, the dashed curve indicates the heat flow $\dot{Q}$ of the \SI{
 
 	\end{subfigure}
 
-    \caption{\ac{LTDSC} curves and the cumulative ice volume for a slow (\SI{0.5}{\kelvin\per\minute}) and fast (\SI{2}{\kelvin\per\minute}) heating curves from \SIrange{-50}{15}{\degreeCelsius} of \SI{28}{\day} hydrated CEM IV (\ac{wb} = \num{0.5}).}
+    \caption{\ac{LTDSC} curves and the cumulative ice volume for a slow (\SI{0.5}{\kelvin\per\minute}) and fast (\SI{2}{\kelvin\per\minute}) heating curves from \SIrange{-50}{15}{\degreeCelsius} of \SI{28}{\day} hydrated cement (\ac{wb} = \num{0.5}).}
     \label{fig:ltdsc_result_heating_rate}
 \end{figure}
 
@@ -1165,7 +1167,7 @@ Therefore, it has been decided to use a faster heating rate of \SI{2}{\kelvin\pe
 			legend style={
 					at={(0.98,0.97)},
 					anchor=north east,
-					column sep=1ex
+					column sep=4pt
 			},
 			legend columns=-1,
 			scaled y ticks = false,
@@ -1232,7 +1234,7 @@ Therefore, it has been decided to use a faster heating rate of \SI{2}{\kelvin\pe
 			legend style={
 					at={(0.98,0.97)},
 					anchor=north east,
-					column sep=1ex
+					column sep=4pt
 			},
 			error bars/y dir=both,
 			error bars/y explicit,
@@ -1577,18 +1579,19 @@ As expected from the small and therefore not representative image area and secti
 To evaluate the distance between the particles within Figure~\ref{fig:cryo-fib}, the image evaluation method used in Chapter~\ref{chap:hydrate-rim} was adapted.
 Instead of measuring the distance between the particle surface and the hydrate rim, the distance to the next particles was measured.
 
-\begin{figure}[htb!]
+\begin{wrapfigure}{R}{0.6\linewidth}
+%\begin{figure}[htb]
+    \vspace{-\intextsep}
     \centering
-
-	\includegraphics[width=.7\textwidth]{particle-dist/dis_histogram.pdf}
+	\includegraphics[width=\linewidth, trim={.8cm 0.3cm 0.5cm 0.5cm}, clip]{particle-dist/dis_histogram.pdf}
 
     \caption{
 		Particle distance to particle diameter distribution of \SI{20}{\min} old \ac{C3S} paste (\ac{wb}=\num{0.5}).
-		%The mean distance between particles was calculated as \SI{0.73(0.43)}{\micro\meter} within a confidence interval of \SI{33.3}{\percent}.
 	}
     \label{fig:cryo-fib-results}
-\end{figure}
-
+    \vspace{-\intextsep}
+%\end{figure}
+\end{wrapfigure}
 
 % \Uni\WdB\Cryo-LC3-PUS\Segmentierung LC3+PUS\
 Another application of the method was used to measure the distance between particles of \ac{LC3} with and without the application of \ac{PUS}.
@@ -1674,7 +1677,11 @@ This fits to the subjective appearance of the particle distribution.
 				bar width=.0193, % pixel width of the raw image
 				xmin=0, xmax=3,
 				ymin=0, ymax=1,
-				legend style={at={(.99,.98)},anchor=north east, style={column sep=3pt}},
+				legend style={
+					at={(.99,.98)},
+					anchor=north east,
+					style={column sep=4pt}
+				},
 				legend columns = 1,
 				ymajorticks=false,
 				xlabel={particle distance \si{\micro\meter}},
@@ -1708,7 +1715,11 @@ This fits to the subjective appearance of the particle distribution.
 				bar width=.030304, % pixel width of the raw image
 				xmin=0, xmax=3,
 				ymin=0, ymax=1,
-				legend style={at={(.99,.98)},anchor=north east, style={column sep=3pt}},
+				legend style={
+					at={(.99,.98)},
+					anchor=north east,
+					style={column sep=4pt}
+				},
 				legend columns = 1,
 				ymajorticks=false,
 				xlabel={particle distance \si{\micro\meter}},

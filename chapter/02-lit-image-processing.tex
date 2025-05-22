@@ -1,36 +1,85 @@
+
+\FloatBarrier
+\subsection{Image denoising}
+\label{sec:denoising}
+
+%\cite{rust.2023}
+
+\ac{SEM} images often contain varying amounts of noise.
+While it is preferable to reduce the noise by collecting more signal (i.e. by longer dwell times, higher current, stacking of multiple scans), this is often impossible due to time constraints or the sensitivity of the specimen (see Figure~\ref{fig:ebeam_damage}).
+
+In \ac{SEM} images, multiple noise types can be found.
+Shot noise (also known as \textsc{Poisson} noise) arises from the discrete nature of electron detection, leading to random fluctuations in pixel intensity, especially noticeable at low signal levels.
+Next to the shot noise originating from the primary and secondary electrons, detector noise can also limit the image quality \cite{agarwal.2024}.
+Another typical noise type in the \ac{SEM} is banding noise.
+It is caused by the line scanning nature of a \ac{SEM}.
+These stripe artefacts in the scanning direction can occur due to object drift or charging.
+
+A relevant preprocessing step for most image processing is therefore denoising.
+It can be classified into classical methods, transform techniques and \ac{CNN}-based denoising methods \cite{fan.2019}.
+The following paragraphs are only intended to provide a brief overview of the most important filters and are not exhaustive.
+
+Classical methods remove noise in the spatial domain.
+Linear filters (e.g. mean filtering) can easily lead to blurring of fine detail and edges in very noisy images.
+Non-linear filters like the \textit{median} and \textit{bilateral}\cite{tomasi.1998} filter provide edge-preserving noise reduction.
+More advanced classical filters like \ac{NLM}\cite{buades.2005} or total variation\cite{rudin.1992} are better at preserving edges.
+However, they also struggle with more complex noise patterns (e.g. low count \ac{EDX}) and can introduce artefacts.
+
+Transform techniques decompose the image into frequency components, allowing for selective noise reduction in specific domains like high-frequency noise (shot noise) or low-frequency, directional patterns (banding noise).
+One important representative filter is \ac{BM3D}\cite{dabov.2007}, which is a two-stage filtering method and an extension of the \ac{NLM} filter.
+These methods often provide good performance but can be computationally intensive and require careful selection of parameters.
+
+More recently, \ac{CNN}-based denoising methods were introduced.
+They attempt to learn complex noise patterns directly from degraded-clean image pairs.
+These models try to predict the clean image from its noisy counterpart using a training set.
+Their goal is to optimise a loss function or, in other words, to minimise the prediction error.
+Various \ac{CNN} architectures have been proposed since 2008 \cite{jain.2008}.
+They can be differentiated into multi-layer perceptron models and deep learning models.
+The strength of \ac{CNN}s lies in their capacity to learn highly non-linear mappings and adapt to different noise characteristics, often outperforming traditional methods, especially in scenarios with unknown or complex noise distributions.
+However, their performance heavily relies on the availability of large and diverse training datasets of degraded-clean image pairs.
+
+In addition, their use is often still a hurdle for untrained users, as they are still rarely available in ready-to-use software.
+
+To objectively evaluate the performance of denoising algorithms, quantitative benchmarks such as \ac{PSNR}, \ac{SSIM} and \ac{MSE} are commonly used.
+\ac{PSNR} measures the ratio between the maximum possible signal power and the power of corrupting noise in \si{\decibel}, providing a simple metric for image fidelity.
+\ac{SSIM}, on the other hand, assesses perceived image quality by comparing local patterns of pixel intensities, taking into account luminance, contrast, and texture. Higher \ac{PSNR} and \ac{SSIM} values indicate better preservation of image quality after denoising.
+Finally, \ac{MSE} quantifies the average squared difference between the original and denoised images, with lower values indicating better noise suppression and fidelity to the ground truth.
+
+\textcite{wang.2025} used median, wavelet and a \ac{CNN}-based algorithms (Deep \ac{CNN} with guided filtering) on \ac{SEM}-images of polished sections of hydrated \ac{C3S}.
+They came to the conclusion, that the \ac{CNN} significantly outperforms (\ac{PSNR} of \SI{26.35}{\decibel}) the median (\ac{PSNR} of \SI{23.20}{\decibel}) and wavelet filter (\ac{PSNR} of \SI{18.25}{\decibel}).
+
 \FloatBarrier
 \subsection{Segmentation of \acs{SEM} images}
 \label{sec:lit_segmentation}
-{
-\color{red}
+
 Segmentation is the process of partitioning an image into multiple segments (sets of pixels or objects).
 The goal is to simplify the representation of the image and make it more meaningful and easier to analyse.
-After an segmentation, each pixel in the image is assigned to a specific class or label, which can be used for further analysis.
+After segmentation, each pixel in the image is assigned to a specific class or label, which can be used for further analysis.
 
-The segmentation can be done manually by a human expert.
+Segmentation can be done manually by a human expert.
 The result is highly dependent on the experience and knowledge of the operator, but is often considered the gold standard against which automated methods are compared \cite{bajcsy.2020}.
 
-While manual segmentation is still used \cite{bajcsy.2020,kleiner.2024a}, it is time consuming and not reproducible.
+While manual segmentation is still used \cite{bajcsy.2020,kleiner.2024a}, it is time-consuming and not reproducible.
 Automated segmentation methods are therefore often used to reduce the time and effort required for image analysis.
-However, a requirement for a good automatic segmentation is a good image quality.
-Preprocessing steps like denoising, contrast enhancement and sharpening can be used to improve the image quality before segmentation.
-Especially edge preserving denoising methods like \textsc{median}, \textsc{Bilateral} or \textsc{Anisotropic} filtering are often used to reduce noise while preserving the edges of the objects in the image \cite{}. % TODO: - Ingas WK Arbeit
+However, a requirement for good automatic segmentation is good image quality.
+Preprocessing steps such as denoising, contrast enhancement and sharpening can be used to improve the image quality before segmentation.
 
-Segmentation by applying threshold values to distinguish phases is still an often used technique due to its simplicity \cite{hlobil.2022}.
-There are multiple thresholding methods available, like \textsc{Otsu}'s method \cite{otsu.1979} or \textsc{Kapur}'s method \cite{kapur.1985} to automatically find a threshold to binarise an image.
-However, these method are rarely suitable, since many \ac{SEM} images contain more than two phases or show a low image contrast.
-Additionally, often a specific grey value (range) does not represent a specific phase throughout the entire dataset as border regions can appear darker than the image center.
+Segmentation by applying threshold values to distinguish phases is still a commonly used technique due to its simplicity \cite{hlobil.2022}.
+There are multiple thresholding methods available, such as \textsc{Otsu}'s method \cite{otsu.1979} or \textsc{Kapur}'s method \cite{kapur.1985} to automatically find a threshold to binarise an image.
+However, these methods are rarely suitable, since many \ac{SEM} images contain more than two phases or show low image contrast.
+Additionally, often a specific grey value (range) does not represent a specific phase throughout the entire dataset as border regions can appear darker than the image centre.
 Therefore, adaptive thresholding methods can be used to find a threshold value for each pixel based on the surrounding pixels \cite{sauvola.2000, phansalkar.2011}.
 For example, the method proposed by \textcite{phansalkar.2011} is a good choice for low contrast \ac{SEM} images.
 These methods still require a lot of manual work and subjective decisions to find the right parameters for the specific dataset.
 
-Superpixel segmentation algorithms like \acs{SLIC} \cite{achanta.2012} can be used to segment very noisy datasets like \ac{EDX} \cite{georget.2021, jiang.2022}.
-The superpixel segmentation is a method to divide an image into small regions (superpixels) that are similar in color and texture, while preserving the boundaries of the objects in the image.
+Superpixel segmentation algorithms such as \acs{SLIC} \cite{achanta.2012} can be used to segment very noisy datasets like \ac{EDX} \cite{georget.2021, jiang.2022}.
+Superpixel segmentation is a method to divide an image into small regions (superpixels) that are similar in colour and texture, while preserving the boundaries of the objects in the image.
 % TODO: add details from jiang.2022 in the result section
 
+{
+\color{red}
 Utilizing machine learning methods for segmentation is a promising approach to automate the process and improve the accuracy of the results \cite{}.
 }
-
 
 \FloatBarrier
 \subsection{Sectioning effect}
@@ -43,7 +92,7 @@ This causes an unavoidable sectioning effect \cite{scrivener.2004}, as illustrat
 \begin{figure}[htb]
     \centering
 
-	\begin{subfigure}{0.45\textwidth}
+	\begin{subfigure}{0.42\textwidth}
 		\centerline{\includegraphics[width=.9\textwidth]{hydrate-rim/sectioning_effect_3D.pdf}}
 		\caption{
             Two imaging planes (blue) at different sectioning positions within a sphere, where $a \ll b$.
@@ -52,7 +101,7 @@ This causes an unavoidable sectioning effect \cite{scrivener.2004}, as illustrat
 
 	\end{subfigure}
 	\hfill
-	\begin{subfigure}{0.54\textwidth}
+	\begin{subfigure}{0.57\textwidth}
 
 		\begin{tikzpicture}
 			\begin{axis}[
@@ -106,6 +155,7 @@ This causes an unavoidable sectioning effect \cite{scrivener.2004}, as illustrat
     \caption{Illustration of the sectioning effect of a spherical grain. }
     \label{fig:sectioning_effect}
 \end{figure}
+
 In particle size distributions, smaller particles are often over-represented, since the section through the particle tends to occur non-diametrically.
 Starting from a monodisperse distribution of spheres with a true diameter of $d_0$, a size distribution with a modal apparent diameter of $d_\text{app} = \Pi d_0  / 4$ is obtained \cite{cuzzi.2017}.
 % https://doi.org/10.1111/maps.12812 <- 2d to 3d hochrechnen mittels fortran code \cite{cuzzi.2017}
@@ -143,6 +193,20 @@ Equations~\ref{eq:sectioning_effect_1} and \ref{eq:sectioning_effect_2} can be u
 	d				&   $0 < i \leq r_\text{grain}$.
 \end{conditions}
 
+\begin{wrapfigure}[14]{R}{0.6\linewidth}
+%\begin{figure}[htb]
+    \vspace{-\intextsep}
+    \centering
+	\includegraphics[width=\linewidth, trim={1.9cm 1.7cm 1.1cm 1.8cm}, clip]{hydrate-rim/sectioning_overestimation.pdf}
+	\caption{
+        Overestimation of the \ac{HLT} depending on the \ac{HLT} / grain diameter ratio and the integral limit $i$ (see Equation~\ref{eq:sectioning_effect_3}).
+        The blue line indicates the results for \ac{HLT} / grain diameter value of \num{0.3}.
+    }
+	\label{fig:hlt_overestimation}
+%\end{figure}
+\end{wrapfigure}
+
+
 Figure~\ref{fig:sectioning_effect_b} (blue curve) indicates that the \ac{HLT} can be significantly overestimated.
 This becomes more prevalent the closer the cut through a particle is to the particle border.
 % https://www.wolframalpha.com/input?i=integral&assumption=%7B%22F%22%2C+%22Integral%22%2C+%22rangestart%22%7D+-%3E%220%22&assumption=%7B%22C%22%2C+%22integral%22%7D+-%3E+%7B%22Calculator%22%2C+%22dflt%22%7D&assumption=%7B%22F%22%2C+%22Integral%22%2C+%22integrand%22%7D+-%3E%22sqrt%282*1.3*%28x%2B1.3%29+-+%28x%2B1.3%29%5E2%29+-+sqrt%282*1*%28x%2B1%29+-+%28x%2B1%29%5E2%29%22&assumption=%7B%22F%22%2C+%22Integral%22%2C+%22rangeend%22%7D+-%3E%22.9%22
@@ -153,21 +217,18 @@ It shows that the smaller the \ac{HLT}, and therefore the younger the specimen, 
 The dependence on $M_\text{HLT}$ shows that specimens cut at or near the border especially increase the error.
 This also means that very small particles, which have a higher probability of originating from particle edges, are prone to larger overestimations and should therefore not be considered for further analysis.
 
-\begin{figure}[htb]
-    \centering
-	\includegraphics[width=\linewidth, trim={0 1.7cm 0 1.8cm}, clip]{hydrate-rim/sectioning_overestimation.pdf}
-	\caption{
-        Overestimation of the \ac{HLT} depending on the \ac{HLT} / grain diameter ratio and the integral limit $i$ (see Equation~\ref{eq:sectioning_effect_3}).
-        The blue line indicates the results for \ac{HLT} / grain diameter value of \num{0.3} as shown in Figure~\ref{fig:sectioning_effect_b}. }
-	\label{fig:hlt_overestimation}
-\end{figure}
+
+\FloatBarrier
 \subsection{Calculating the phase composition based on 2D-\acs*{SEM} images}
 Using a segmented \ac{SEM} image, the phase composition can be estimated by using the \si{\areapercent} of alite $A_{\text{C}_3\text{S}}$ and the hydrate phases $A_\text{\text{CSH}}$ and $A_\text{CH}$ \cite{kleiner.2024a}.
 If the hydrate phases are indistinguishable, they can be summed up:
 
 \begin{equation}
     \label{eqn:est_hydrate_area}
-    A_\text{hydrate} = A_\text{\text{CSH}} + A_\text{CH} = A_{\text{image}} - A_{\text{C}_3\text{S}} - A_{\text{pores}}
+    \begin{aligned}
+        A_\text{hydrate} &= A_\text{\text{CSH}} + A_\text{CH} \\
+        &= A_{\text{image}} - A_{\text{C}_3\text{S}} - A_{\text{pores}}
+    \end{aligned}
 \end{equation}
 
 Equation~\ref{eqn:est_frac} then allows an estimation of the amount of hydrate phases \ac{CH} and \ac{CSH} ($\sigma_\text{hydrate}$) in \si{\wtpercent}.
@@ -193,9 +254,10 @@ The densities required to calculate these values are listed in Table~\ref{tab:de
 		\bottomrule
     \end{tabular}
 \end{table}
+
+\FloatBarrier
 \subsection{Statistical analysis of the representativeness of a 2D image}
 \label{sec:2D-representativeness}
-
 To validate that a sample and the resulting measurement are representative can be a rather complicated challenge.
 This is especially true for inhomogeneous materials consisting of multiple phases and wide ranges of particle sizes.
 The problem starts with sampling and sample preparation.
@@ -248,14 +310,14 @@ The code used to compare both methods is publicly available \cite{kleiner.2024b}
 
 \subsubsection{\acl*{BC} method} % the method names are not great
 
-The \ac{BC} method is an often used technique to get an indication of the statistical representativeness of the phase composition within an image \cite{mouret.2001, hlavacek.2015, cosenza.2019}.
-This method splits an image or multiple images of the same material in smaller sub-tiles (see Figure~\ref{fig:lit_box_methods_b}).
-Then, a growing number of tiles is randomly selected from this tile-pool.
-Of this selection, the phase composition is then remeasured.
-If this is repeated multiple times, the standard deviation indicates, how much area has to be imaged and analysed to obtain a reasonable phase composition measurement.
+The \ac{BC} method is a commonly used technique to obtain an indication of the statistical representativeness of the phase composition within an image \cite{mouret.2001, hlavacek.2015, cosenza.2019}.
+This method splits an image or multiple images of the same material into smaller sub-tiles (see Figure~\ref{fig:lit_box_methods_b}).
+Then, a growing number of tiles is randomly selected from this tile pool.
+From this selection, the phase composition is then remeasured.
+If this is repeated multiple times, the standard deviation indicates how much area has to be imaged and analysed to obtain a reasonable phase composition measurement.
 The result of this method is a graph as shown in Figure~\ref{fig:lit_box_count}.
-The standard deviation $\sigma$ in Figure~\ref{fig:lit_box_count_b} indicates the shrinking uncertainty with a larger area analysed.
-Compared to Figure~\ref{fig:lit_box_growth_b}, $\sigma$ is shrinking much more continuously, since there is no location bias.
+The standard deviation $\sigma$ in Figure~\ref{fig:lit_box_count_b} indicates the decreasing uncertainty with a larger area analysed.
+Compared to Figure~\ref{fig:lit_box_growth_b}, $\sigma$ decreases much more continuously, since there is no location bias.
 
 \begin{figure}[H]
     \centering
@@ -358,28 +420,29 @@ Compared to Figure~\ref{fig:lit_box_growth_b}, $\sigma$ is shrinking much more c
       \caption{Standard deviation of the phase composition.}
       \label{fig:lit_box_count_b}
     \end{subfigure}
-    \caption{Example of the results of the box count method as explained in \cite{mouret.2001,hlavacek.2015} and the respective standard deviations after 100 random patch selections.}
+    \caption{
+        Example of the results of the box count method as explained in \cite{mouret.2001,hlavacek.2015} and the respective standard deviations after \num{100} random patch selections.
+    }
     \label{fig:lit_box_count}
 \end{figure}
-
 The method is fast and works well for area calculations.
-However, it ignores the influence of larger inhomogeneities, as the rather large \ac{CH}-areas in the example image.
+However, it ignores the influence of larger inhomogeneities, such as the rather large \ac{CH} areas in the example image.
 
 \subsubsection{Box grow method} % the method names are not great
 \label{sec:box_growth}
 
-an alteration of the \ac{BC} method was used by \textcite{kameda.2006} and others \cite{klaver.2012, }.
-It which works by randomly selecting a growth point in the center of an image and gradually increasing the box size around this point
-From this point a box will grow stepwise as illustrated in Figure~\ref{fig:lit_box_methods_a}.
-This method will therefore be called \textsc{box grow method} from heron.
-The phase composition of these growing boxes is constantly measured.
-To initiate multiple experiments within an image, the growth point has to be selected randomly within a limited window in the center of the image.
-This allows to calculate a standard deviation.
+A variation of the \ac{BC} method was used by \textcite{kameda.2006} and others \cite{klaver.2012, }. % TODO: at least one more reference
+It works by randomly selecting a growth point in the centre of an image and gradually increasing the box size around this point.
+From this point, a box will grow stepwise as illustrated in Figure~\ref{fig:lit_box_methods_a}.
+This method will therefore be called the \textsc{box grow method} from here on.
+The phase composition of these growing boxes is continuously measured.
+To initiate multiple experiments within an image, the growth point has to be selected randomly within a limited window in the centre of the image.
+This allows calculation of a standard deviation.
 Figure~\ref{fig:lit_box_growth} shows the result of such an analysis using an image of \SI{28}{\day} hydrated alite.
 This image has to be segmented beforehand into pores, unhydrated alite, \ac{CH} and \ac{CSH}.
-The standard deviation in Figure~\ref{fig:lit_box_growth_b}indicates, the shrinking uncertainty with a larger area analysed.
-However, $\sigma$ is shrinking unsteadily.
-Since the location of larger phases does not change in the image used, even the randomised starting point cant remove the bias.
+The standard deviation in Figure~\ref{fig:lit_box_growth_b} indicates the decreasing uncertainty with a larger area analysed.
+However, $\sigma$ decreases unsteadily.
+Since the location of larger phases does not change in the image used, even the randomised starting point cannot remove the bias.
 This can be reduced by using more source images.
 
 \begin{figure}[H]

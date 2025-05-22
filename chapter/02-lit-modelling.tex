@@ -4,14 +4,14 @@
 % aus dem ct/fib-sem-antrag
 As the demands on building materials increase, so do the requirements for characterising and modelling the underlying material systems.
 There are advanced approaches to modelling and simulating the strength, shape retention and durability characteristics of concretes \cite{bishnoi.2009, kumar.2017, zhou.2019, ouzia.2019}.
-Due to the high complexity, multi-scale heterogeneity and temporal changes, this is often only possible in a highly simplified form and in a very limited scale.
+Due to the high complexity, multi-scale heterogeneity and temporal changes, this is often only possible in a highly simplified form and on a very limited scale.
 
 The microstructure of concretes is simulated in a variety of models at different scales \cite{bishnoi.2009, kumar.2017, zhou.2019, ouzia.2019}.
 The mesostructure (between atomistic and micro scale) of e.g. \ac{CSH} phases and the porosity was also modelled \cite{ioannidou.2016, yu.2016}.
 Atomistic modelling is used to fundamentally simulate the structural composition \cite{kumar.2017,mishra.2017,kunhimohamed.2020,casar.2023}.
 Finally, there are modern micromechanical models that attempt to close the transition from meso- to macro-modelling \cite{bernard.2003, hlobil.2016, gobel.2018}.
 
-The hydration of cement over time can also be simulated using the sheet growth model in 2D \cite{etzold.2014} and 3D \cite{nguyen-tuan.2019,nguyen-tuan.2023} \cite{etzold.2014, nguyen-tuan.2019,nguyen-tuan.2023} (see Figure~\ref{fig:sheet_growth}).
+The hydration of cement over time can also be simulated using the sheet growth model in 2D \cite{etzold.2014} and 3D \cite{nguyen-tuan.2019,nguyen-tuan.2023} (see Figure~\ref{fig:sheet_growth}).
 
 % from a talk of long from the ICCC 2019, slide 14/18 but not in the paper
 \begin{figure*}[htb]
@@ -38,8 +38,7 @@ The hydration of cement over time can also be simulated using the sheet growth m
     }
     \label{fig:sheet_growth}
 \end{figure*}
-
-For larger domains, \textcite{nguyen-tuan.2024} utilised the level set based method allowing to simulate the growth of low and high density \ac{CSH} in 2D based on a segmented image of polished alite after \SI{1}{\day} of hydration (see Figure~\ref{fig:level_set}).
+For larger domains, \textcite{nguyen-tuan.2024} utilised the level set-based method, allowing simulation of the growth of low- and high-density \ac{CSH} in 2D based on a segmented image of polished alite after \SI{1}{\day} of hydration (see Figure~\ref{fig:level_set}).
 
 \begin{figure*}[htb]
     \centering
@@ -63,12 +62,11 @@ For larger domains, \textcite{nguyen-tuan.2024} utilised the level set based met
     \caption{Visualisation of the growth of \ac{CSH} (blue) in the low and high density variant on top of \ac{C3S} (yellow) by \textcite{nguyen-tuan.2024}, based on the level set method. The red line indicates the surface of the unhydrated \ac{C3S} particle.}
     \label{fig:level_set}
 \end{figure*}
-
 %{\color{red} % erstmal nur so dahin gequatscht
-\textsc{CEMHYD3D} \cite{bentz.2005} is a program to simulate the hydration of cement in three dimensions using a voxel based model.
-Models like these (\cite{bentz.2005, nguyen-tuan.2024}) allow to simulate the development of the phase composition over time which can be validated using various experiments.
-3D-based simulations inherently have a better chance to closely image the reality, since 2D-simulations are always missing a lot of information, which can cause distorted results (see Section~\ref{subsec:sectioning-effect}).
-However, 2D-simulations are much faster and allow to simulate larger areas reflecting a more representative are, which is very important due to the heterogeneity of cement (see Section~\ref{sec:2D-representativeness}).
+\textsc{CEMHYD3D} \cite{bentz.2005} is a programme to simulate the hydration of cement in three dimensions using a voxel-based model.
+Models like these (\cite{bentz.2005, nguyen-tuan.2024}) allow simulation of the development of the phase composition over time, which can be validated using various experiments.
+3D-based simulations inherently have a better chance to closely represent reality, since 2D simulations are always missing a lot of information, which can cause distorted results (see Section~\ref{subsec:sectioning-effect}).
+However, 2D simulations are much faster and allow simulation of larger areas, reflecting a more representative area, which is very important due to the heterogeneity of cement (see Section~\ref{sec:2D-representativeness}).
 % simulationspaper der hydratation \cite{hlobil.2022} which was compared to volumetric \ac{mCT} data of differently aged cement.
 % CEMHYD3D -> Fig 3 anteile der phasen vgl mit Messungen
 % Literatur aus Long übernehmen und Modelle erwähnen

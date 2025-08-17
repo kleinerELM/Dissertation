@@ -24,10 +24,10 @@ Therefore,a section of one image (\qty{14}{\day} hydrated \ac{C3S}, \cite{kleine
 \end{enumerate}
 
 %Additionally, a representative area demonstrating the performed measurements is shown in the \ac{SI} of \cite{kleiner.2024}, Figure 2.
-Comparing the raw segmentation results (see \ac{SI} of \cite{kleiner.2024}, Figure~1 and Table~\zcref{tab:segmentation}), there are obvious differences.
+Comparing the raw segmentation results (see \ac{SI} of \cite{kleiner.2024}, Figure~1 and \zcref{tab:segmentation}), there are obvious differences.
 The threshold segmentation leads to many erroneously identified phases.
 In contrast, the pixel classification gives a very close result to the manual segmentation.
-However, if \ac{CSHo} is taken into account in the pixel classification, the \ac{HLT} distribution and the calculated $l_\text{max}$ are comparable to the threshold-based segmentation, while the data density is significantly reduced (see Table~\zcref{tab:segmentation} and \zcref{fig:hlt_segmentation_influence}\cite{kleiner.2024}, \ac{SI}).
+However, if \ac{CSHo} is taken into account in the pixel classification, the \ac{HLT} distribution and the calculated $l_\text{max}$ are comparable to the threshold-based segmentation, while the data density is significantly reduced (see \zcref{tab:segmentation} and \zcref{fig:hlt_segmentation_influence} \cite{kleiner.2024}, \ac{SI}).
 This data density reduction is caused by a rough segmentation of the \ac{CSHo} and therefore, a significantly decreased pore space.
 Furthermore, a slightly larger \qty{33.3}{\percent} confidence interval and a significant reduction of the first \ac{HLT} accumulation can be observed, including the \ac{CSHo}.
 
@@ -39,7 +39,6 @@ In many cases, distinguishing whether \ac{CSHo} or merely an artifact such as a 
 \begin{table}[htb]
 	\centering
 	\caption{Influence of the segmentation method of a cropped dataset with a reduced resolution (age: \qty{14}{\day}; image area: \qty{0.25}{\square\milli\meter}; resolution: \qty{84.3}{\nano\meter} per px). \cite{kleiner.2024}}
-	\label{tab:segmentation}
 	\begin{tabular}{@{}lrrrr@{}}
 		\toprule
 		segmentation	& threshold		& \multicolumn{2}{c}{pixel classification} & manual\\
@@ -52,6 +51,7 @@ In many cases, distinguishing whether \ac{CSHo} or merely an artifact such as a 
 		$l_\text{\qty{33.3}{\percent}, h}$ in \unit{\micro\meter}	& \tablenum{2.28} & \tablenum{2.44}	&  \tablenum{1.85}	& \tablenum{1.94} \\
 		\bottomrule
 	\end{tabular}
+	\label{tab:segmentation}
 \end{table}
 
 \section{Single phase analysis}

@@ -2,6 +2,7 @@
 
 \pagenumbering{Roman}  % set page numbering to Roman
 
+
 \ifdefined\DRAFTSIMPLIFY
 {
 \color{red}
@@ -99,7 +100,9 @@ In this section, basic material characterisation data is presented, which are no
 		\end{semilogxaxis}
 	\end{tikzpicture}
 
-	\caption{\ac{PSD} of a CEM I, measured using laser diffraction analysis. Specific surface area: \qty{13496(153)}{\square\centi\meter\per\milli\liter}.}
+	\caption{
+		\ac{PSD} of a CEM I, measured using laser diffraction analysis. Specific surface area: \qty{13496(153)}{\square\centi\meter\per\milli\liter}.
+	}
 	\label{fig:psd_CEM_I}
 \end{figure}
 
@@ -155,14 +158,17 @@ In this section, basic material characterisation data is presented, which are no
 		\end{semilogxaxis}
 	\end{tikzpicture}
 
-    \caption{\ac{PSD} of a \ac{C3S} powder (sieved to <\,\qty{20}{\micro\meter}), measured using laser diffraction analysis compared to the \textsc{Feret} diameter from the image analysis of \zcref{fig:cryo-fib}.}
+    \caption{
+		\ac{PSD} of a \ac{C3S} powder (sieved to <\,\qty{20}{\micro\meter}), measured using laser diffraction analysis compared to the \textsc{Feret} diameter from the image analysis of \zcref{fig:cryo-fib}.
+	}
     \label{fig:psd_cryo_C3S_lt20mum}
 \end{figure}
 
 \begin{table}[H]
 	\centering
-	\label{tab:phase-composition-clinker}
-	\caption{Phase composition of the CEM I clinker used for \ac{LAICPMS} experiments, determined by \ac{XRD} (Rietveld). All results are presented in \unit{\wtpercent}.}
+	\caption{
+		Phase composition of the CEM I clinker used for \ac{LAICPMS} experiments, determined by \ac{XRD} (Rietveld). All results are presented in \unit{\wtpercent}
+	}
 	\begin{tabular}{lclc}
 		\toprule
 		Phase			& CEM I clinker & Phase & CEM I clinker (cont.) \\
@@ -176,14 +182,14 @@ In this section, basic material characterisation data is presented, which are no
 		Total			 & & & \tablenum{100.2} \\ 
 		\bottomrule
 	\end{tabular}
+	\label{tab:phase-composition-clinker}
 \end{table}
 
 \begin{table}[H]
 	\centering
-	\label{tab:laicpms-clinker}
 	\caption{
 		Chemical composition of the clinker used for \ac{LAICPMS} experiments, measured by \ac{ICP}-\ac{OES} (\textsc{Perkin Elmer} \textit{Avio 500}) and \ac{ICP}-\ac{MS} after digestion.
-		All results are presented in \unit{\wtpercent}. \label{tab:icpoes}
+		All results are presented in \unit{\wtpercent}.
 	}
 	\begin{tabular}{lcclcc}
 		\toprule
@@ -203,6 +209,7 @@ In this section, basic material characterisation data is presented, which are no
 		\acs{LOI} (\qty{1000}{\degreeCelsius}) & &			&			& \tablenum{0.70}	& -      \\
 		\bottomrule
 	\end{tabular}
+	\label{tab:laicpms-clinker}
 \end{table}
 
 \begin{figure}[H]
@@ -271,12 +278,14 @@ In this section, basic material characterisation data is presented, which are no
 \end{figure}
 
 \FloatBarrier
-\section{\ac{LAICPMS} measurements}
+\section{\acs*{LAICPMS} measurements}
 
 \begin{figure}[htbp]
 	\centerline{\includegraphics[width=.6\textwidth]{figures/la-icp-ms/positions.pdf}}
-	\caption{Positions of the \ac{LAICPMS} measurements.
-	\label{fig:LAICPMS-specimen}}
+	\caption{
+		Positions of the \ac{LAICPMS} measurements.
+	}
+	\label{fig:LAICPMS-specimen}
 \end{figure}
 
 \FloatBarrier
@@ -284,7 +293,11 @@ In this section, basic material characterisation data is presented, which are no
 
 \begin{figure*}[htb!]
     \centerline{\includegraphics[width=\textwidth]{hydrate-rim/supplementary/threshold_types.pdf}}
-    \caption{Segmentation results of \num{14} days hydrated alite. Raw image (A); segmentation result by thresholding (B), pixel classification (C) and manual segmentation (D). Grey: raw data; blue: alite; green: hydrates (C and D only dense \ac{CSH}); red: \ac{CH}; yellow: outer \ac{CSH}.\label{fig:results_segmentation_methods}}
+    \caption{
+		Segmentation results of \num{14} days hydrated alite. Raw image (A); segmentation result by thresholding (B), pixel classification (C) and manual segmentation (D).
+		Grey: raw data; blue: alite; green: hydrates (C and D only dense \ac{CSH}); red: \ac{CH}; yellow: outer \ac{CSH}.
+	}
+	\label{fig:results_segmentation_methods}
 \end{figure*}
 
 \begin{figure}[htbp]
@@ -293,6 +306,7 @@ In this section, basic material characterisation data is presented, which are no
 		Histograms of the hydration layers of \qty{14}{\day} hydrated alite. Segmentation result by thresholding ($l_\text{max}$ = \qty{1.85}{\micro\meter}), pixel classification with ($l_\text{max}$ = \qty{1.94}{\micro\meter}) and without respecting \ac{CSHo} ($l_\text{max}$ = \qty{1.52}{\micro\meter}) and manual segmentation ($l_\text{max}$ = \qty{1.52}{\micro\meter})
 		Same diagram type as in \zcref{fig:results2d_alite}.
 	}
+	\label{fig:hlt_segmentation_influence}
 \end{figure}
 
 \begin{figure}[htbp]
@@ -321,9 +335,11 @@ In this section, basic material characterisation data is presented, which are no
 		\includegraphics[width=\textwidth]{mip/vycor_glass_20.png}
 		\caption{\qty{20}{\nano\meter} porous \textsc{VYCOR}-glass.}
 		\label{fig:vycor-mip-20}
-	\end{subfigure}\label{fig:hlt_segmentation_influence}
+	\end{subfigure}
 
-    \caption{\ac{PSD} of the \textsc{VYCOR}-glass measured using \ac{MIP} according to the test certificate of the manufacturer; University of Leipzig; ICT, February 2020.}
+    \caption{
+		\ac{PSD} of the \textsc{VYCOR}-glass measured using \ac{MIP} according to the test certificate of the manufacturer; University of Leipzig; ICT, February 2020.
+	}
     \label{fig:vycor-mip}
 \end{figure}
 
@@ -808,7 +824,10 @@ In this section, basic material characterisation data is presented, which are no
 
 \begin{table}[H]
 	\centering
-	\caption{Metadata of the \ac{SEM}-images used for the particle distance measurements. $A_\text{unusable}$ is the area of the image containing other phases or artifacts, which were manually excluded. $A_\text{sol}$ and $A_\text{solids}$ are the areas of the solution and solid phases, respectively.}
+	\caption{
+		Metadata of the \ac{SEM}-images used for the particle distance measurements. $A_\text{unusable}$ is the area of the image containing other phases or artifacts, which were manually excluded.
+		$A_\text{sol}$ and $A_\text{solids}$ are the areas of the solution and solid phases, respectively.
+	}
 	\begin{tabular}{lcccccc}
 		\toprule
 		Figure & Scaling & $A_\text{usable}$ & $A_\text{sol}$ & $A_\text{solids}$ & $A_\text{unusable}$ & $n_\text{particle count}$ \\

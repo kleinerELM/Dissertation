@@ -11,7 +11,7 @@ The mesostructure (between atomistic and micro scale) of e.g. \ac{CSH} phases an
 Atomistic modelling is used to fundamentally simulate the structural composition \cite{kumar.2017,mishra.2017,kunhimohamed.2020,casar.2023}.
 Finally, there are modern micromechanical models that attempt to close the transition from meso- to macro-modelling \cite{bernard.2003, hlobil.2016, gobel.2018}.
 
-The hydration of cement over time can also be simulated using the sheet growth model in 2D \cite{etzold.2014} and 3D \cite{nguyen-tuan.2019,nguyen-tuan.2023} (see Figure~\ref{fig:sheet_growth}).
+The hydration of cement over time can also be simulated using the sheet growth model in 2D \cite{etzold.2014} and 3D \cite{nguyen-tuan.2019,nguyen-tuan.2023} (see \zcref{fig:sheet_growth}).
 
 % from a talk of long from the ICCC 2019, slide 14/18 but not in the paper
 \begin{figure*}[htb]
@@ -34,11 +34,11 @@ The hydration of cement over time can also be simulated using the sheet growth m
     \end{subfigure}
 
     \caption{
-        Visualisation of the growth of \ac{CSH} in a representative domain of \num{.5}\,$\times$\,\num{.5}\,$\times$\,\SI{.5}{\micro\meter\cubed} between \SI{15}{\minute} and \SI{4}{\hour}, based on the sheet growth model \cite{nguyen-tuan.2019,nguyen-tuan.2023}.% in the second paper 300x300x2200nm is used due to some restrictions.
+        Visualisation of the growth of \ac{CSH} in a representative domain of \qtyproduct{.5 x .5 x .5}{\micro\meter\cubed} between \qty{15}{\minute} and \qty{4}{\hour}, based on the sheet growth model \cite{nguyen-tuan.2019,nguyen-tuan.2023}.% in the second paper 300x300x2200nm is used due to some restrictions.
     }
     \label{fig:sheet_growth}
 \end{figure*}
-For larger domains, \textcite{nguyen-tuan.2024} utilised the level set-based method, allowing simulation of the growth of low- and high-density \ac{CSH} in 2D based on a segmented image of polished alite after \SI{1}{\day} of hydration (see Figure~\ref{fig:level_set}).
+For larger domains, \textcite{nguyen-tuan.2024} utilised the level set-based method, allowing simulation of the growth of low- and high-density \ac{CSH} in 2D based on a segmented image of polished alite after \qty{1}{\day} of hydration (see \zcref{fig:level_set}).
 
 \begin{figure*}[htb]
     \centering
@@ -65,14 +65,14 @@ For larger domains, \textcite{nguyen-tuan.2024} utilised the level set-based met
 %{\color{red} % erstmal nur so dahin gequatscht
 \textsc{CEMHYD3D} \cite{bentz.2005} is a programme to simulate the hydration of cement in three dimensions using a voxel-based model.
 Models like these (\cite{bentz.2005, nguyen-tuan.2024}) allow simulation of the development of the phase composition over time, which can be validated using various experiments.
-3D-based simulations inherently have a better chance to closely represent reality, since 2D simulations are always missing a lot of information, which can cause distorted results (see Section~\ref{subsec:sectioning-effect}).
-However, 2D simulations are much faster and allow simulation of larger areas, reflecting a more representative area, which is very important due to the heterogeneity of cement (see Section~\ref{sec:2D-representativeness}).
+3D-based simulations inherently have a better chance to closely represent reality, since 2D simulations are always missing a lot of information, which can cause distorted results (see \zcref{subsec:sectioning-effect}).
+However, 2D simulations are much faster and allow simulation of larger areas, reflecting a more representative area, which is very important due to the heterogeneity of cement (see \zcref{sec:2D-representativeness}).
 % simulationspaper der hydratation \cite{hlobil.2022} which was compared to volumetric \ac{mCT} data of differently aged cement.
 % CEMHYD3D -> Fig 3 anteile der phasen vgl mit Messungen
 % Literatur aus Long übernehmen und Modelle erwähnen
 %}
 
-However, the basis for all realistic modelling is a qualitative and quantitative experimental characterisation of the corresponding structures \cite{nguyen-tuan.2019, gobel.2018a}.
+However, thed will be described basis for all realistic modelling is a qualitative and quantitative experimental characterisation of the corresponding structures \cite{nguyen-tuan.2019, gobel.2018a}.
 
 
 % Handlungsanweise - wie kann man REM mit Methoden kombinieren um Baustoffe zu beschreiben - welche Techniken gibt es?

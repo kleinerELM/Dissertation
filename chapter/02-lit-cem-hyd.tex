@@ -5,7 +5,7 @@
 % TEM images of early C3S grain hydration from \cite{yan.2023}
 % TEM images of CSH \cite{richardson.2004}
 The main phases of \ac{OPC} are \acf{C3S}, \acf{C2S}, \acf{C3A} and \acf{C4AF}.
-On contact with water, these phases dissolve and new phases such as \ac{CSH}, \ac{CH}, ettringite, syngenite, gypsum and hydrated \ac{AFm} form (see Figure~\ref{fig:moeser_phase_dev}) \cite{moser.2001, stark.2003}.
+On contact with water, these phases dissolve and new phases such as \ac{CSH}, \ac{CH}, ettringite, syngenite, gypsum and hydrated \ac{AFm} form (see \zcref{fig:moeser_phase_dev}) \cite{moser.2001, stark.2003}.
 
 \begin{figure}[!htb]
     \centering
@@ -21,7 +21,7 @@ On contact with water, these phases dissolve and new phases such as \ac{CSH}, \a
                 grid style={line width=.1pt, draw=gray!10},
                 xlabel={hydration time},
                 xtick={0, 11.26, 19.35, 28},
-                xticklabels={\SI{0}{\min},\SI{60}{\min},\SI{24}{\hour},\SI{28}{\day}},
+                xticklabels={\qty{0}{\min},\qty{60}{\min},\qty{24}{\hour},\qty{28}{\day}},
                 ylabel={trends in proportional\\phase development},
                 ylabel style={align=center},
                 ytick={}
@@ -46,11 +46,11 @@ On contact with water, these phases dissolve and new phases such as \ac{CSH}, \a
             \addlegendentry{\ac{AFm}};
 
 
-            \node[right,green] at (axis cs: 5,23)  {\small $\cong$ \SI{0.5}{\micro\meter}};
-            \node[right,green] at (axis cs:21,43)  {\small $\cong$ \SI{2.5}{\micro\meter}};
+            \node[right,green] at (axis cs: 5,23)  {\small $\cong$ \qty{0.5}{\micro\meter}};
+            \node[right,green] at (axis cs:21,43)  {\small $\cong$ \qty{2.5}{\micro\meter}};
 
-            \node[right,red] at (axis cs:12.5,80)  {\small $\cong$ \SI{0.6}{\micro\meter}};
-            \node[right,red] at (axis cs:21,80)  {\small $\cong$ \SI{1.0}{\micro\meter}};
+            \node[right,red] at (axis cs:12.5,80)  {\small $\cong$ \qty{0.6}{\micro\meter}};
+            \node[right,red] at (axis cs:21,80)  {\small $\cong$ \qty{1.0}{\micro\meter}};
 
         \end{axis}
     \end{tikzpicture}
@@ -69,7 +69,7 @@ The main reaction, forming \ac{CSH} and \ac{CH}, can be summarised as follows \c
     \reaction{C2S + 4.3H -> C_{1.7}SH4 + 0.3CH }
 }
 
-The hydration process can be subdivided into five periods as indicated in Figure~\ref{fig:opc_dca}.
+The hydration process can be subdivided into five periods as indicated in \zcref{fig:opc_dca}.
 
 %CEM I 42,5 R; Lengerich/Dyck.; Z808; 24.01.2023 - E-mail von Sophie vom 24.10.2024
 \begin{figure}[!htb]
@@ -83,8 +83,8 @@ The hydration process can be subdivided into five periods as indicated in Figure
                 width=.95\linewidth,
                 height=.38\linewidth,
                 grid=major,
-                xlabel={Time in \si{\hour}},
-                ylabel={$dQ/dt$ \si{\joule/\gram}},
+                xlabel={Time in \unit{\hour}},
+                ylabel={$dQ/dt$ \unit{\joule/\gram}},
                 xtick={0,6,12,24,48},
                 ytick={},
                 grid style={line width=.1pt, draw=gray!10}
@@ -122,8 +122,8 @@ As described in \cite{gartner.2002}, the periods are:
 
 % TODO: Christiane: when does it end for you? 24h??
 The hydration process up to phase III is important for describing the initial hardening process and the rheological behaviour of the cement.
-The first useful qualitative observations at room temperature were made using the \ac{SE} mode and freshly fractured surfaces after a few minutes or up to \SI{10}{\hour} \cite{stark.2001,voland.2000,suss.2001}.
-The \ac{CSH} needles are up to \SI{300}{\nano\meter} long, while the hydration front is barely visible in the particle \cite{voland.2000}.
+The first useful qualitative observations at room temperature were made using the \ac{SE} mode and freshly fractured surfaces after a few minutes or up to \qty{10}{\hour} \cite{stark.2001,voland.2000,suss.2001}.
+The \ac{CSH} needles are up to \qty{300}{\nano\meter} long, while the hydration front is barely visible in the particle \cite{voland.2000}.
 % TODO: find publications on early hydration of cement using BSE mode
 % TODO: find publications from Christiane/Long with those early hydration products?
 %To embed and polish a sample for \ac{BSE} analysis, the specimen should be set; otherwise, only powdery material can be observed.
@@ -183,7 +183,7 @@ So one may argue that water bound within the layers of the \ac{CSH} is the fluid
 However, it was shown by electron diffraction in (cryo-)\ac{TEM} that mature \ac{CSH} phases are (crypto-)crystalline \cite{kurczyk.1960, grudemo.1960, grudemo.1965, melzer.1989, rossler.2006} with a similar structure to the tobermorite group \cite{grudemo.1960,kurczyk.1960,biagioni.2015}.
 Also, \textcite{nonat.2004} demonstrated the crystalline nature of \ac{CSH} crystallised on a calcite single crystal using atomic force microscopy.
 However, during its very early development, \ac{CSH} forms water-rich droplets, which then aggregate on top of \ac{C3S} and \ac{C2S} surfaces in an amorphous state \cite{sowoidnich.2023}.
-\textcite{bellmann.2012} claimed that then a thin \SI{2}{\nano\meter} layer is formed, covering the \ac{C3S} grains.
+\textcite{bellmann.2012} claimed that then a thin \qty{2}{\nano\meter} layer is formed, covering the \ac{C3S} grains.
 The forming of this amorphous first layer could be understood as a ‘gel’.
 According to \textcite{jennings.1986a} and others \cite{bellmann.2015, naber.2019}, this layer can also act as a passivating layer causing the induction periods.
 % TODO: Thomas: Im neuen paper (was wir gerade bearbeiten) werden weitere Indizien für die Existenz eines passivating layers gezeigt (Experimente mit Freikalk und Wasserglas); Jennings entnommen aus sowoidnich.2019
@@ -205,7 +205,7 @@ Also the first published \ac{SEM} images from 1966 not only show ettringite need
 However, since no \ac{EDX} system was available, they could not identify the phases without a doubt.
 \textcite{stark.2001} pointed to the usually required preparation steps of drying and conductive coating of the specimen for \ac{SEM} analysis until the mid-1990s.
 This preparation often leads to a significant change in the morphology of the \ac{CSH}, making it look much more gel-like (e.g.: \cite{jennings.1981}).
-The damaging effect of the electron beam on the \ac{CSH} structure is discussed in more detail in Section~\ref{sec:beam_damage}.
+The damaging effect of the electron beam on the \ac{CSH} structure is discussed in more detail in \zcref{sec:beam_damage}.
 
 \begin{figure}[h!]
     \centering
@@ -227,16 +227,16 @@ The damaging effect of the electron beam on the \ac{CSH} structure is discussed 
     \end{subfigure}
 
     \caption{
-        Influence of the electron beam voltage from \SIrange{0.8}{6.0}{\kilo\volt} on the appearance of the \ac{CSH} morphology.
+        Influence of the electron beam voltage from \qtyrange{0.8}{6.0}{\kilo\volt} on the appearance of the \ac{CSH} morphology.
         The \ac{CSH} loses detail and shows a halo at higher electron beam voltages.
-        \ac{C3S} + Calcite mixture (\num{2}:\num{1}) after \SI{14}{\day} of hydration.
+        \ac{C3S} + Calcite mixture (\num{2}:\num{1}) after \qty{14}{\day} of hydration.
         Unpublished images from \textsc{Möser}, 2010.
     }
     \label{fig:kV-influence}
 \end{figure}
 
 Furthermore, early \ac{SEM}s required higher beam voltages and currents because of a low detector efficiency to image the surfaces.
-This caused subsurface scattering and reduced surface detail \cite{moser.1998}, increasing the impression of a gel-like material (see Figure~\ref{fig:kV-influence}).
+This caused subsurface scattering and reduced surface detail \cite{moser.1998}, increasing the impression of a gel-like material (see \zcref{fig:kV-influence}).
 This was also demonstrated by \textcite{pawley.1984} comparing low and high voltage \ac{SEM} images of the same specimen.
 
 % TODO: Christiane: evtl noch zwei bilder zur erläuterung (gel SEM und high-resolution SEM von zement??)
@@ -246,10 +246,10 @@ This seems to be the case, as evident in the creep, swelling, and shrinkage beha
 
 The colloidal nature of hydration products of cement was proposed more than a century ago, as a lively discussion between \textcite{michaelis.1908} and the editorial of the \textsc{Tonindustrie-Zeitung} in 1907/08 demonstrates.
 However, \textcite{chatelier.1918} disputed the use of the term colloid in cement hardening in 1918.
-The required colloidal nature – i.e. a porous structure between \SI{1}{\nano\meter} and \SI{1}{\micro\meter} – can be applied to water-saturated, low-density \ac{CSHo} and very young \ac{CSH} \cite{sowoidnich.2023}.
+The required colloidal nature – i.e. a porous structure between \qty{1}{\nano\meter} and \qty{1}{\micro\meter} – can be applied to water-saturated, low-density \ac{CSHo} and very young \ac{CSH} \cite{sowoidnich.2023}.
 However, dense \ac{CSHi} as observed in \ac{SEM} images, has a very low porosity and its morphology can hardly be classified as colloidal.
-Therefore, the swelling is often attributed to the interlayer porosity of \ac{CSH} \cite{jennings.2008}, which typically ranges from \SIrange{0.9}{1.4}{\nano\meter} for tobermorite-like structures.
-According to \textcite{duque-redondo.2022}, a porosity of \SI{1.4}{\nano\meter} seems to be more fitting for \ac{CSH}.
+Therefore, the swelling is often attributed to the interlayer porosity of \ac{CSH} \cite{jennings.2008}, which typically ranges from \qtyrange{0.9}{1.4}{\nano\meter} for tobermorite-like structures.
+According to \textcite{duque-redondo.2022}, a porosity of \qty{1.4}{\nano\meter} seems to be more fitting for \ac{CSH}.
 At this pore size, the colloidal criteria for a gel would be fulfilled.
 
 In 1937, \textcite{lea.1937} called hardened cement a `rigid gel' and described similarities to silica gel, which is today classified as a `xerogel' (a solid dried gel).
@@ -265,9 +265,9 @@ While \ac{CSH} forms a colloidal network, it forms a rigid solid, not the soft, 
 
 \subsection{\acs*{CSH} layer development}
 
-In 1929/30 \textsc{Anderegg} and \textsc{Hubbell} \cite{anderegg.1929,anderegg.1930} already attempted to measure the hydration layer development of \ac{OPC} at \SI{21(3)}{\celsius} using optical light microscopy.
+In 1929/30 \textsc{Anderegg} and \textsc{Hubbell} \cite{anderegg.1929,anderegg.1930} already attempted to measure the hydration layer development of \ac{OPC} at \qty{21(3)}{\celsius} using optical light microscopy.
 They utilised the difference in the refractive index between \ac{CSH} and unhydrated clinker.
-According to their experiments, the thickness of the hydrate rim depends on the mean particle dimension (measured from \num{150} particles) as shown in Figure~\ref{fig:anderegg-hubbel-distribution}.
+According to their experiments, the thickness of the hydrate rim depends on the mean particle dimension (measured from \num{150} particles) as shown in \zcref{fig:anderegg-hubbel-distribution}.
 
 \begin{figure}[!htb]
 
@@ -281,8 +281,8 @@ According to their experiments, the thickness of the hydrate rim depends on the 
 				width=0.7\linewidth,
 				height=0.41\linewidth,
 				grid=major,
-				xlabel={mean particle dimension in \si{\micro\meter}},
-				ylabel={$l_{\text{CSH}}$ in \si{\micro\meter}},
+				xlabel={mean particle dimension in \unit{\micro\meter}},
+				ylabel={$l_{\text{CSH}}$ in \unit{\micro\meter}},
 				ytick={0,1,...,7},
 				grid style={line width=.1pt, draw=gray!10}
             ]
@@ -290,46 +290,46 @@ According to their experiments, the thickness of the hydrate rim depends on the 
             \addplot+ [ only marks, mark=x, orange ] table [skip first n=1, x index=0, y index=3, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_andregg/gsd-PCA.csv};
             \addplot [ draw=none, forget plot ] table [skip first n=1, col sep=comma, x index=0, y={create col/linear regression={y=[index]3}}, filter discard warning=false ] {figures/hydrate-rim/data_andregg/gsd-PCA.csv};
             \addplot[update limits=false, no markers, orange, domain=15:26, samples=2, forget plot] {\pgfplotstableregressionb + x*\pgfplotstableregressiona};
-            \addlegendentry{\SI{7}{\day}, \acs*{OPC}};
+            \addlegendentry{\qty{7}{\day}, \acs*{OPC}};
 
             \addplot+ [ only marks, mark=o, orange ] table [skip first n=1, x index=0, y index=3, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_andregg/gsd-PCA+CaSO4.csv};
             \addplot [ draw=none, forget plot ] table [skip first n=1, col sep=comma, x index=0, y={create col/linear regression={y=[index]3}}, filter discard warning=false ] {figures/hydrate-rim/data_andregg/gsd-PCA+CaSO4.csv};
             \addplot[update limits=false, no markers, orange, dashed, domain=16:26, samples=2, forget plot] {\pgfplotstableregressionb + x*\pgfplotstableregressiona};
-            \addlegendentry{\SI{7}{\day}, \acs*{OPC}+\ce{CaSO4}};
+            \addlegendentry{\qty{7}{\day}, \acs*{OPC}+\ce{CaSO4}};
 
             %\addplot[orange, domain=14:30, opacity=0.5, samples=2] {0.068516925009012*x + 1.05223737455958};
-            %\addlegendentry{\SI{7}{\day}, $R^2=0.11$};
+            %\addlegendentry{\qty{7}{\day}, $R^2=0.11$};
 
             \addplot+ [ only marks, mark=x, cyan ] table [skip first n=1, x index=0, y index=4, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_andregg/gsd-PCA.csv};
             \addplot [ draw=none, forget plot ] table [skip first n=1, col sep=comma, x index=0, y={create col/linear regression={y=[index]4}}, filter discard warning=false ] {figures/hydrate-rim/data_andregg/gsd-PCA.csv};
             \addplot[update limits=false, no markers, cyan, domain=15:28, samples=2, forget plot] {\pgfplotstableregressionb + x*\pgfplotstableregressiona};
-            \addlegendentry{\SI{28}{\day}, \acs*{OPC}};
+            \addlegendentry{\qty{28}{\day}, \acs*{OPC}};
 
             \addplot+ [ only marks, mark=o, cyan ] table [skip first n=1, x index=0, y index=4, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_andregg/gsd-PCA+CaSO4.csv};
             \addplot [ draw=none, forget plot ] table [skip first n=1, col sep=comma, x index=0, y={create col/linear regression={y=[index]4}}, filter discard warning=false ] {figures/hydrate-rim/data_andregg/gsd-PCA+CaSO4.csv};
             \addplot[update limits=false, no markers, cyan, dashed, domain=16:26, samples=2, forget plot] {\pgfplotstableregressionb + x*\pgfplotstableregressiona};
-            \addlegendentry{\SI{28}{\day}, \acs*{OPC}+\ce{CaSO4}};
+            \addlegendentry{\qty{28}{\day}, \acs*{OPC}+\ce{CaSO4}};
 
             %\addplot[cyan, domain=14:30, opacity=0.5, samples=2] {0.196884840055179*x + 0.0780310618817959};
-            %\addlegendentry{\SI{28}{\day}, $R^2=0.59$};
+            %\addlegendentry{\qty{28}{\day}, $R^2=0.59$};
 
             \addplot+ [ only marks, mark=x, red ] table [skip first n=1, x index=0, y index=5, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_andregg/gsd-PCA.csv};
             \addplot [ draw=none, forget plot ] table [skip first n=1, col sep=comma, x index=0, y={create col/linear regression={y=[index]5}}, filter discard warning=false ] {figures/hydrate-rim/data_andregg/gsd-PCA.csv};
             \addplot[update limits=false, no markers, red, domain=15:28, samples=2, forget plot] {\pgfplotstableregressionb + x*\pgfplotstableregressiona};
-            \addlegendentry{\SI{90}{\day}, \acs*{OPC}};
+            \addlegendentry{\qty{90}{\day}, \acs*{OPC}};
 
             \addplot+ [ only marks, mark=o, red ] table [skip first n=1, x index=0, y index=5, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_andregg/gsd-PCA+CaSO4.csv};
             \addplot [ draw=none, forget plot ] table [skip first n=1, col sep=comma, x index=0, y={create col/linear regression={y=[index]5}}, filter discard warning=false ] {figures/hydrate-rim/data_andregg/gsd-PCA+CaSO4.csv};
             \addplot[update limits=false, no markers, red, dashed, domain=16:26, samples=2, forget plot] {\pgfplotstableregressionb + x*\pgfplotstableregressiona};
-            \addlegendentry{\SI{90}{\day}, \acs*{OPC}+\ce{CaSO4}};
+            \addlegendentry{\qty{90}{\day}, \acs*{OPC}+\ce{CaSO4}};
 
             %\addplot[red, domain=14:30, opacity=0.5, samples=2] {0.224971630191457*x + 0.566670110374461};
-            %\addlegendentry{\SI{90}{\day}, $R^2=0.82$};
+            %\addlegendentry{\qty{90}{\day}, $R^2=0.82$};
         \end{axis}
     \end{tikzpicture}
     \caption{
         Mean hydration rim of \ac{OPC} from experiments of \textsc{Anderegg} and \textsc{Hubbell} \cite{anderegg.1929,anderegg.1930} in dependence of the mean particle `dimension' of \num{150} measured grains.
-        The lack or addition of \SI{0.8}{\percent} \ce{CaSO4} in the experiments is marked with $\times$ and $\circ$ respectively.
+        The lack or addition of \qty{0.8}{\percent} \ce{CaSO4} in the experiments is marked with $\times$ and $\circ$ respectively.
     }
     \label{fig:anderegg-hubbel-distribution}
 \end{figure}
@@ -338,7 +338,7 @@ This dependence becomes more prone for older specimens, since particles with a r
 However, they mainly observed rather coarse particles.
 
 In 1930 they also published datasets for the hydration of \ac{C3S} and \ac{C2S} \cite{anderegg.1930}.
-In contrast to the \ac{OPC} experiments, these consisted only out of very few series of experiments with a rather high variance (see Figure~\ref{fig:anderegg-hubbel}).
+In contrast to the \ac{OPC} experiments, these consisted only out of very few series of experiments with a rather high variance (see \zcref{fig:anderegg-hubbel-distribution}).
 
 \begin{wrapfigure}[16]{R}{0.6\linewidth}
 %\begin{figure}[!htb]
@@ -357,8 +357,8 @@ In contrast to the \ac{OPC} experiments, these consisted only out of very few se
 				width=\linewidth,
 				height=6cm,
 				grid=major,
-				xlabel={mean particle diameter in \si{\micro\meter}},
-				ylabel={$l_{\text{CSH}}$ in \si{\micro\meter}},
+				xlabel={mean particle diameter in \unit{\micro\meter}},
+				ylabel={$l_{\text{CSH}}$ in \unit{\micro\meter}},
 				ytick={0.1,0.2,...,0.7},
 				grid style={line width=.1pt, draw=gray!10},
             ]
@@ -383,23 +383,23 @@ In contrast to the \ac{OPC} experiments, these consisted only out of very few se
 
         \end{axis}
     \end{tikzpicture}
-    \caption{Mean hydration rim of \SI{4}{\gram} \ac{C3S} from an estimation based of experiments by \textcite{garrault.2006} in dependence of the mean particle diameter after roughly 10 to \SI{12}{\hour}. The \ac{CSHo} data ($l_{\text{CSHo}}=l_{\text{CSH}}-l_{\text{CSHi}}$) were calculated for better comparability.}
+    \caption{Mean hydration rim of \qty{4}{\gram} \ac{C3S} from an estimation based of experiments by \textcite{garrault.2006} in dependence of the mean particle diameter after roughly 10 to \qty{12}{\hour}. The \ac{CSHo} data ($l_{\text{CSHo}}=l_{\text{CSH}}-l_{\text{CSHi}}$) were calculated for better comparability.}
     %\vspace{-\intextsep}
     \label{fig:garrault-distribution}
 %\end{figure}
 \end{wrapfigure}
 
-\textcite{garrault.2006} measured the development of the \ac{CSH} concentration of \SI{4}{\gram} \ac{C3S} grains with different median diameters (7, 10, 11, 12.5, \SI{14}{\micro\meter}) for up to one day in a concentrated lime solution.
-They estimated the thickness of \ac{CSHi} (replacing \ac{C3S}) and \ac{CSHo} (on top of the grain) at the time, when the \ac{CSH} precipitation became limited by diffusion (see Figure~\ref{fig:garrault-distribution}) (beginning of the second deceleration period in Figure~\ref{fig:opc_dca}).
-For a particle diameter of \SI{7}{\micro\meter} the diffusion was limited after $\approx$ \SI{600}{\min} (\SI{10}{\hour}), for \SI{14}{\micro\meter} after $\approx$ \SI{700}{\min} (\SI{12}{\hour}).
+\textcite{garrault.2006} measured the development of the \ac{CSH} concentration of \qty{4}{\gram} \ac{C3S} grains with different median diameters (7, 10, 11, 12.5, \qty{14}{\micro\meter}) for up to one day in a concentrated lime solution.
+They estimated the thickness of \ac{CSHi} (replacing \ac{C3S}) and \ac{CSHo} (on top of the grain) at the time, when the \ac{CSH} precipitation became limited by diffusion (see \zcref{fig:garrault-distribution}) (beginning of the second deceleration period in \zcref{fig:opc_dca}).
+For a particle diameter of \qty{7}{\micro\meter} the diffusion was limited after $\approx$ \qty{600}{\min} (\qty{10}{\hour}), for \qty{14}{\micro\meter} after $\approx$ \qty{700}{\min} (\qty{12}{\hour}).
 % TODO: Christiane: determined by which method? <- im Paper steht keine Methode, aber ich nehme an, dass ICP verwendet wurde.
 The estimation is based on the \ac{CSH}-concentration (the measurement method was not mentioned), the mean diameter and that the particles are spherical.
-\textcite{garrault.2006} included a measurement of a single \ac{TEM}-image from  of a hydrated \ac{C3S} grain with a diameter of \SI{3}{\micro\meter}.% made by \textsc{Lachowski} and \textsc{Courault} in 1998.
+\textcite{garrault.2006} included a measurement of a single \ac{TEM}-image from  of a hydrated \ac{C3S} grain with a diameter of \qty{3}{\micro\meter}.% made by \textsc{Lachowski} and \textsc{Courault} in 1998.
 
 The data of \textcite{garrault.2006} indicate a smaller hydrate rim with increasing mean particle diameters.
-This is contradicting the data of \textsc{Anderegg} and \textsc{Hubbell} \cite{anderegg.1929,anderegg.1930} (see Figure~\ref{fig:anderegg-hubbel-distribution}).
-However, \textsc{Anderegg} and \textsc{Hubbell} began their measurements after \SI{7}{\day} and therefore after the diffusion limited growth of the \ac{CSH}.
-Furthermore, their mean particle diameter was significantly larger (starting from \SI{15.5}{\micro\meter}).
+This is contradicting the data of \textsc{Anderegg} and \textsc{Hubbell} \cite{anderegg.1929,anderegg.1930} (see \zcref{fig:anderegg-hubbel-distribution}).
+However, \textsc{Anderegg} and \textsc{Hubbell} began their measurements after \qty{7}{\day} and therefore after the diffusion limited growth of the \ac{CSH}.
+Furthermore, their mean particle diameter was significantly larger (starting from \qty{15.5}{\micro\meter}).
 
 \ifdefined\EXTERNALIZE
     \tikzexternaldisable
@@ -412,14 +412,14 @@ Furthermore, their mean particle diameter was significantly larger (starting fro
             axis x line=box,
             ymin=0, ymax=8.5,
             ytick={0,1,...,8},
-            ylabel={$l_{\text{CSH}}$ in \si{\micro\meter}},
+            ylabel={$l_{\text{CSH}}$ in \unit{\micro\meter}},
             xmin=0.125, xmax=270,
             extra x ticks={3,4,5,6,21,60},
             extra x tick style={grid=major},
             extra x tick labels={},
             xtick={0.125,0.25,0.5,1,2,7,14,28,90,165,270},
-            xticklabels={\SI{3}{\hour},\SI{6}{\hour},\SI{12}{\hour},1,2,7,14,28,90,165,270},
-            xlabel={time $t$ in \si{\day}},
+            xticklabels={\qty{3}{\hour},\qty{6}{\hour},\qty{12}{\hour},1,2,7,14,28,90,165,270},
+            xlabel={time $t$ in \unit{\day}},
             width=\linewidth,
             height=0.4\linewidth,
             legend columns = 5,
@@ -506,36 +506,36 @@ Furthermore, their mean particle diameter was significantly larger (starting fro
                 (.83,0.800)
             };
             \addlegendentry[]{\acs*{C3S} \cite{neubauer.2022}}
-            %They determined the thickness at \num{12}, \num{16} and \SI{20}{\hour} as \SI{300(80)}{\nano\meter}, \SI{670(170)}{\nano\meter} and \SI{800(260)}{\nano\meter} respectively.
+            %They determined the thickness at \num{12}, \num{16} and \qty{20}{\hour} as \qty{300(80)}{\nano\meter}, \qty{670(170)}{\nano\meter} and \qty{800(260)}{\nano\meter} respectively.
 
         \end{semilogxaxis}
     \end{tikzpicture}
     \caption{Growth of \ac{CSH} on \ac{OPC}, \ac{C3S} and \ac{C2S} measured by \textsc{Anderegg} and \textsc{Hubbell} \cite{anderegg.1929,anderegg.1930} and \textcite{nicoleau.2011}}
-    \label{fig:anderegg-hubbel2}
+    \label{fig:anderegg-hubbel}
 \end{figure}
 
 
 In the 1960s, \textcite{kurczyk.1960} used an electron microscope to measure the length of \ac{CSH}-needles of one-month hydrated \ac{C3S}.
-They measured an average length of \SI{500}{\nano\meter}.
+They measured an average length of \qty{500}{\nano\meter}.
 However, the hydrated material was ground and dispersed using ultrasonic treatment, which may have damaged the hydrates.
 
-\textcite{nicoleau.2011} measured the \ac{CSH}-thickness using Cryo-\ac{SEM} on cracked surfaces of hydrated \ac{C3S} ($w/b=0.5$, $\vartheta=$\SI{20}{\celsius}) (see Figure~\ref{fig:anderegg-hubbel}).
+\textcite{nicoleau.2011} measured the \ac{CSH}-thickness using Cryo-\ac{SEM} on cracked surfaces of hydrated \ac{C3S} ($w/b=0.5$, $\vartheta=$\qty{20}{\celsius}) (see \zcref{fig:anderegg-hubbel}).
 \textcite{bishnoi.2012} criticised this approach due to the rather uncontrolled cracking, the subjectivity of the measurement, and the occurrence of the sectioning effect, which was described in detail by \textcite{scrivener.2004}.
-This effect is an issue for all 2D images of polished sections (e.g., typical \ac{SEM}-\ac{BSE} images) and will be described and discussed in Subsection~\ref{subsec:sectioning-effect}.
+This effect is an issue for all 2D images of polished sections (e.g., typical \ac{SEM}-\ac{BSE} images) and will be described and discussed in Subsection~\zcref{subsec:sectioning-effect}.
 
 % TODO: Christiane: du solltest noch das ziemlich berühmte paper neubauer, sowidnich, bellmann rößler anschauen mit messungen zur PSD von alit :
 \textcite{neubauer.2022} measured the same specimen using a near-field \ac{PXCT} at different hydration times.
 Furthermore, they manually measured the thickness of \ac{CSHi} on \ac{C3S}, dispersed in epoxy resin utilizing \ac{SEM}-images.
-They determined the thickness at \num{12}, \num{16}, and \SI{20}{\hour} as \SI{300(80)}{\nano\meter}, \SI{670(170)}{\nano\meter}, and \SI{800(260)}{\nano\meter}, respectively.
+They determined the thickness at \num{12}, \num{16}, and \qty{20}{\hour} as \qty{300(80)}{\nano\meter}, \qty{670(170)}{\nano\meter}, and \qty{800(260)}{\nano\meter}, respectively.
 % TODO: <- somehow measure the thickness from the PXCT data?
 
-\textcite{voland.2000} and \textcite{suss.2001} manually measured the development of the length of \ac{CSH}-needles (roughly equivalent to \ac{CSHo}) using \ac{SEM}-\ac{SE} images up to a specimen age of \SI{28}{\day}.
+\textcite{voland.2000} and \textcite{suss.2001} manually measured the development of the length of \ac{CSH}-needles (roughly equivalent to \ac{CSHo}) using \ac{SEM}-\ac{SE} images up to a specimen age of \qty{28}{\day}.
 \textsc{Stark} and \textsc{Möser} et al. \cite{stark.2001,moser.2001,moser.2002} continued this work up to nearly three years.
 The experiments were conducted using \ac{C3S} and $\beta$-\ac{C2S} at different temperatures.
 They measured a minimum and maximum value, from which the mean was calculated.
 However, the authors did not clarify how many measurements were taken for each data point.
 Therefore, it should be assumed that these data are based on individual measurements.
-The results are plotted in Figures~\ref{fig:suess_CSH_C3S} (\ac{C3S}) and \ref{fig:suess_CSH_C2S} ($\beta$-\ac{C2S}).
+The results are plotted in \zcref{fig:suess_CSH_C3S} (\ac{C3S}) and \zcref{fig:suess_CSH_C2S} ($\beta$-\ac{C2S}).
 
 \begin{figure}[!htb]
     \centering
@@ -545,7 +545,7 @@ The results are plotted in Figures~\ref{fig:suess_CSH_C3S} (\ac{C3S}) and \ref{f
                     group name=coupeplot,
                     xticklabels at=edge bottom,
                     horizontal sep=0pt},
-            ylabel = {$l_{\text{CSH}_\text{o}}$ in \si{\micro\meter}},
+            ylabel = {$l_{\text{CSH}_\text{o}}$ in \unit{\micro\meter}},
             width=0.5\linewidth,
             height=0.4\linewidth,
             legend columns = 3,
@@ -561,7 +561,7 @@ The results are plotted in Figures~\ref{fig:suess_CSH_C3S} (\ac{C3S}) and \ref{f
         \nextgroupplot[
             xmin=0, xmax=700,
             ymin=0, ymax=1.250,
-            xlabel={time $t$ in \si{\min}},
+            xlabel={time $t$ in \unit{\min}},
             xtick={0,0,130,300,600},
             ytick={0,.250,...,3.000},
             restrict x to domain=0:700,
@@ -611,7 +611,7 @@ The results are plotted in Figures~\ref{fig:suess_CSH_C3S} (\ac{C3S}) and \ref{f
         \nextgroupplot[
             xmin=-1.5, xmax=28,
             ymin=0, ymax=3.000,
-            xlabel={time $t$ in \si{\day}},
+            xlabel={time $t$ in \unit{\day}},
             xtick={1,9,21,28},
             ytick={0.5,1,1.500,...,3.000},
             restrict x to domain=1:28,
@@ -625,7 +625,7 @@ The results are plotted in Figures~\ref{fig:suess_CSH_C3S} (\ac{C3S}) and \ref{f
             \addplot [fill=green, fill opacity=0.2,forget plot] fill between [of=A and B];
 
             \addplot [color=green, mark=+, dotted] table [skip first n=3, x index=1, y index=3, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
-            \addlegendentry[]{\acs*{C3S} \SI{5}{\celsius} \cite{suss.2001}}
+            \addlegendentry[]{\acs*{C3S} \qty{5}{\celsius} \cite{suss.2001}}
 
 
             \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=1, y index=5, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
@@ -633,7 +633,7 @@ The results are plotted in Figures~\ref{fig:suess_CSH_C3S} (\ac{C3S}) and \ref{f
             \addplot [fill=cyan, fill opacity=0.2,forget plot] fill between [of=A and B];
 
             \addplot [color=cyan, mark=x, dotted] table [skip first n=3, x index=1, y index=6, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
-            \addlegendentry[]{\acs*{C3S} \SI{20}{\celsius} \cite{voland.2000}}
+            \addlegendentry[]{\acs*{C3S} \qty{20}{\celsius} \cite{voland.2000}}
 
 
             \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=1, y index=8, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
@@ -641,7 +641,7 @@ The results are plotted in Figures~\ref{fig:suess_CSH_C3S} (\ac{C3S}) and \ref{f
             \addplot [fill=red, fill opacity=0.2,forget plot] fill between [of=A and B];
 
             \addplot [color=red, mark=star, dotted] table [skip first n=3, x index=1, y index=9, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
-            \addlegendentry[]{\acs*{C3S} \SI{60}{\celsius} \cite{suss.2001}}
+            \addlegendentry[]{\acs*{C3S} \qty{60}{\celsius} \cite{suss.2001}}
 
 
             \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=1, y index=11, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
@@ -649,7 +649,7 @@ The results are plotted in Figures~\ref{fig:suess_CSH_C3S} (\ac{C3S}) and \ref{f
             \addplot [fill=orange, fill opacity=0.2,forget plot] fill between [of=A and B];
 
             \addplot [color=orange, mark=Mercedes star, dotted] table [skip first n=3, x index=1, y index=12, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
-            \addlegendentry[]{\acs*{C3S} \SI{90}{\celsius} \cite{suss.2001}}
+            \addlegendentry[]{\acs*{C3S} \qty{90}{\celsius} \cite{suss.2001}}
 
             % \cite{bazzoni.2014}
             \addplot+ [ mark=|, black, dotted,
@@ -661,7 +661,7 @@ The results are plotted in Figures~\ref{fig:suess_CSH_C3S} (\ac{C3S}) and \ref{f
                 1     0.385   0.0575
                 7     0.400   0.0500
             };
-            \addlegendentry[]{\acs*{C3S}, \SI{20}{\celsius}, \acs*{wb}=\num{0.4} \cite{bazzoni.2014}}
+            \addlegendentry[]{\acs*{C3S}, \qty{20}{\celsius}, \acs*{wb}=\num{0.4} \cite{bazzoni.2014}}
 
         \end{groupplot}
         \node [above] (L) at (rel axis cs:1.0,1.05) {\ref{CommonLegend}};
@@ -693,8 +693,8 @@ In contrast, \textcite{moser.2002} indicates that the needle length of \ac{CSH} 
         \begin{semilogxaxis}[
             axis x line=box,
             ytick={0,0.5,1,...,3},
-            ylabel={$l_{\text{CSH}_\text{o}}$ in \si{\micro\meter}},
-            xlabel={time $t$ in \si{\day}},
+            ylabel={$l_{\text{CSH}_\text{o}}$ in \unit{\micro\meter}},
+            xlabel={time $t$ in \unit{\day}},
             width=\linewidth,
             height=0.4\linewidth,
             legend columns = 3,
@@ -709,7 +709,7 @@ In contrast, \textcite{moser.2002} indicates that the needle length of \ac{CSH} 
             extra x tick style={grid=major},
             extra x tick labels={},
             xtick={0.08,0.25,0.5,1,7,14,28,150,360,1000},
-            xticklabels={\SI{2}{\hour},\SI{6}{\hour},\SI{12}{\hour},1,7,14,28,150,360,1000},%\SI{1}{\year},\SI{1.7}{\year},\SI{2.7}{\year}},
+            xticklabels={\qty{2}{\hour},\qty{6}{\hour},\qty{12}{\hour},1,7,14,28,150,360,1000},%\qty{1}{\year},\qty{1.7}{\year},\qty{2.7}{\year}},
             xmin=0.08, xmax=1000,
         ]
             \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=1, y index=5, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
@@ -785,14 +785,14 @@ In contrast, \textcite{moser.2002} indicates that the needle length of \ac{CSH} 
         \end{semilogxaxis}
 
     \end{tikzpicture}
-    \caption{Growth of \ac{CSHo} on $\beta$-\ac{C2S} (\ac{wb}=\num{0.5}) compared to \ac{C3S} (\ac{wb}=\num{0.5}) at \SI{20}{\celsius}. Based on data from \textcite{voland.2000}, \textcite{suss.2001}, \textsc{Stark} and \textsc{Möser} et al. \cite{stark.2001,moser.2002} and compared to \ac{C3S}-data from \textcite{bazzoni.2014}.}
+    \caption{Growth of \ac{CSHo} on $\beta$-\ac{C2S} (\ac{wb}=\num{0.5}) compared to \ac{C3S} (\ac{wb}=\num{0.5}) at \qty{20}{\celsius}. Based on data from \textcite{voland.2000}, \textcite{suss.2001}, \textsc{Stark} and \textsc{Möser} et al. \cite{stark.2001,moser.2002} and compared to \ac{C3S}-data from \textcite{bazzoni.2014}.}
     \label{fig:suess_CSH_C2S}
 \end{figure}
 
 
 In his presentations, \textsc{Möser} summarised the results as follows:
 \begin{iquote}
-When growing unhindered, the needle-like \ac{CSH} phases can reach a length of approximately \SI{1.4}{\micro\meter}. This applies only to the hydration of alite. In pure belite, a \ac{CSH}-length of up to \SI{2.5}{\micro\meter} can be measured. \cite{moser.2001}
+When growing unhindered, the needle-like \ac{CSH} phases can reach a length of approximately \qty{1.4}{\micro\meter}. This applies only to the hydration of alite. In pure belite, a \ac{CSH}-length of up to \qty{2.5}{\micro\meter} can be measured. \cite{moser.2001}
 \end{iquote}
 %Zitat Möser
 %It can be assumed that at the beginning of the acceleration period all C-S-H phases grow in form of fibres. These fibres grow in length during the course of hydration with hardly any changes in thickness. When growing unhindered, the needle-like \ac{CSH} phases can reach a length of approx. 1.4 µm. These applies only for hydration of alite (in pure belite: \ac{CSH}- length up to 2.5 µm). In compact concrete it is to be expected that there is intergrowth between the fibers as well as and interlocking with one another and thus gel pores are formed which have often been described.
@@ -801,23 +801,23 @@ When growing unhindered, the needle-like \ac{CSH} phases can reach a length of a
 
 \subsection{Hadley grains}
 \label{subsec:hadley}
-Sometimes, in polished sections of hydrated cementitious materials, hollow hydrate rims, sometimes filled with an unhydrated clinker grain, can be observed (see Figure~\ref{fig:hadley}).
+Sometimes, in polished sections of hydrated cementitious materials, hollow hydrate rims, sometimes filled with an unhydrated clinker grain, can be observed (see \zcref{fig:hadley}).
 These objects are called `\textcite{hadley.1972} grains' after \textsc{Hadley}, who first described this phenomenon in detail \cite{hadley.1972, hadley.2000}.
 \textcite{kjellsen.1997} described the formation of hollow shells depending on the \ac{wb}-ratio and silica fume content.
 They observed an increase in porosity attributed to \textsc{Hadley} grains with an increasing \ac{wb}-ratio, especially for young specimens.
 \ac{PXCT} enabled \textcite{shirani.2023} to analyse the early development of \textsc{Hadley} grains around \ac{C3S} grains.
-They identified a gap of \SI{450}{\nano\meter} between \ac{CSH} and the unhydrated \ac{C3S}.
+They identified a gap of \qty{450}{\nano\meter} between \ac{CSH} and the unhydrated \ac{C3S}.
 This \ac{CSH} had a very low density compared to more mature material.
 
 \textcite{yio.2015a} observed the development of such a grain using confocal microscopy.
-After \SI{28}{\day} they observed `\textit{needle-like hydration products that connect the outer products and the anhydrous core}'\cite{yio.2015a}.
+After \qty{28}{\day} they observed `\textit{needle-like hydration products that connect the outer products and the anhydrous core}'\cite{yio.2015a}.
 In the later stages, the grain can completely dissolve and empty shells of \ac{CSH} remain.
-This can be seen in Figure~\ref{fig:hadley}, where both filled and hollow \textsc{Hadley} grains are visible, especially around \ac{C2S}.
+This can be seen in \zcref{fig:hadley}, where both filled and hollow \textsc{Hadley} grains are visible, especially around \ac{C2S}.
 
 \begin{figure}[htb]
 	\centerline{\includegraphics[width=\textwidth]{hydrate-rim/hadley_grains.pdf}}
 	\caption{
-        \ac{BSE} image of a polished section of a \SI{28}{\day} hydrated \ac{C3S} and \ac{C2S} mixture (\num{3}:\num{1}).
+        \ac{BSE} image of a polished section of a \qty{28}{\day} hydrated \ac{C3S} and \ac{C2S} mixture (\num{3}:\num{1}).
         Around many \ac{C2S} grains, \textsc{Hadley} grains were formed.
         Furthermore, hollow \textsc{Hadley} grains can be found. \label{fig:hadley}
     }

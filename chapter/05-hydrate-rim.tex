@@ -1,17 +1,17 @@
 \chapter{Hydrate rim measurements}
 \label{chap:hydrate-rim}
 
-The in section \ref{subsec:algo_hlm} presented method was applied to embedded and polished \ac{C3S} and \ac{C2S} specimens and mixtures of both phases at different ages.
+The in \zcref{subsec:algo_hlm} presented method was applied to embedded and polished \ac{C3S} and \ac{C2S} specimens and mixtures of both phases at different ages.
 The datasets differ in the imaged area and slightly in SEM imaging parameters.
-For example, the accelerating voltage used varied from \SIrange{10}{15}{\kilo\volt}.
-An overview of the images used is shown in Tables~XX and YY.% \ref{tab:c3s}.
+For example, the accelerating voltage used varied from \qtyrange{10}{15}{\kilo\volt}.
+An overview of the images used is shown in Tables~XX and YY.% \zcref{tab:c3s}.
 The raw images are publicly available \cite{kleiner.2023a, kleiner.2023}.
 
 \FloatBarrier
 \section{Influence of the segmentation method used}
 
 Since the segmentation result is the prerequisite of this method, it can be expected, that it has a large influence on the final result.
-Therefore,a section of one image (\SI{14}{\day} hydrated \ac{C3S}, \cite{kleiner.2024a}) was segmented by using three different segmentation methods:
+Therefore,a section of one image (\qty{14}{\day} hydrated \ac{C3S}, \cite{kleiner.2024a}) was segmented by using three different segmentation methods:
 
 \begin{enumerate}
 	\item a manually selected threshold value to distinguish between pores, hydrate phases and the unhydrated clinker,
@@ -24,88 +24,88 @@ Therefore,a section of one image (\SI{14}{\day} hydrated \ac{C3S}, \cite{kleiner
 \end{enumerate}
 
 %Additionally, a representative area demonstrating the performed measurements is shown in the \ac{SI} of \cite{kleiner.2024}, Figure 2.
-Comparing the raw segmentation results (see \ac{SI} of \cite{kleiner.2024}, Figure~1 and Table~\ref{tab:segmentation}), there are obvious differences.
+Comparing the raw segmentation results (see \ac{SI} of \cite{kleiner.2024}, Figure~1 and Table~\zcref{tab:segmentation}), there are obvious differences.
 The threshold segmentation leads to many erroneously identified phases.
 In contrast, the pixel classification gives a very close result to the manual segmentation.
-However, if \ac{CSHo} is taken into account in the pixel classification, the \ac{HLT} distribution and the calculated $l_\text{max}$ are comparable to the threshold-based segmentation, while the data density is significantly reduced (see Table~\ref{tab:segmentation} and Figure~\ref{fig:hlt_segmentation_influence}\cite{kleiner.2024}, \ac{SI}).
+However, if \ac{CSHo} is taken into account in the pixel classification, the \ac{HLT} distribution and the calculated $l_\text{max}$ are comparable to the threshold-based segmentation, while the data density is significantly reduced (see Table~\zcref{tab:segmentation} and \zcref{fig:hlt_segmentation_influence}\cite{kleiner.2024}, \ac{SI}).
 This data density reduction is caused by a rough segmentation of the \ac{CSHo} and therefore, a significantly decreased pore space.
-Furthermore, a slightly larger \SI{33.3}{\percent} confidence interval and a significant reduction of the first \ac{HLT} accumulation can be observed, including the \ac{CSHo}.
+Furthermore, a slightly larger \qty{33.3}{\percent} confidence interval and a significant reduction of the first \ac{HLT} accumulation can be observed, including the \ac{CSHo}.
 
 Manual segmentation and pixel classification ignoring \ac{CSHo} show nearly identical $l_\text{max}$ values, while restoring the data density (see \cite{kleiner.2024}, \ac{SI}, Figure~3).
-The difference of the $l_\text{max}$ of the pixel classification results allows to estimate a thickness of \ac{CSHo} of roughly \SI{0.4}{\micro\meter}.
+The difference of the $l_\text{max}$ of the pixel classification results allows to estimate a thickness of \ac{CSHo} of roughly \qty{0.4}{\micro\meter}.
 Nevertheless, segmenting the outer layer presents a non-trivial challenge as it relies on the person performing the segmentation and training the pixel classification.
 In many cases, distinguishing whether \ac{CSHo} or merely an artifact such as a flat edge is being segmented remains unclear.
 
 \begin{table}[htb]
 	\centering
-	\caption{Influence of the segmentation method of a cropped dataset with a reduced resolution (age: \SI{14}{\day}; image area: \SI{0.25}{\square\milli\meter}; resolution: \SI{84.3}{\nano\meter} per px). \cite{kleiner.2024}}
+	\caption{Influence of the segmentation method of a cropped dataset with a reduced resolution (age: \qty{14}{\day}; image area: \qty{0.25}{\square\milli\meter}; resolution: \qty{84.3}{\nano\meter} per px). \cite{kleiner.2024}}
 	\label{tab:segmentation}
 	\begin{tabular}{@{}lrrrr@{}}
 		\toprule
 		segmentation	& threshold		& \multicolumn{2}{c}{pixel classification} & manual\\
 		method & - & w. \ac{CSHo} & wo. \ac{CSHo} & - \\ \midrule
-		pores in \si{\areapercent}		& \tablenum{38.5}	& \tablenum{22.1}	& \tablenum{30.7}	& \tablenum{22.2}  \\
-		hydrates in \si{\areapercent}		& \tablenum{38.0}	& \tablenum{61.1}	& \tablenum{52.5}	& \tablenum{62.7}  \\
-		clinker in \si{\areapercent}		& \tablenum{23.9}	& \tablenum{17.4}	& \tablenum{17.4}	& \tablenum{15.4}  \\ \midrule
-		$l_\text{\SI{33.3}{\percent}, l}$ in \si{\micro\meter}	&  \tablenum{1.43} 	& \tablenum{1.43}	& \tablenum{1.18}	& \tablenum{1.18} \\
-		$l_\text{max}$ in \si{\micro\meter}	&  \tablenum{1.85}	& \tablenum{1.94}	&  \tablenum{1.52}	& \tablenum{1.52} \\
-		$l_\text{\SI{33.3}{\percent}, h}$ in \si{\micro\meter}	& \tablenum{2.28} & \tablenum{2.44}	&  \tablenum{1.85}	& \tablenum{1.94} \\
+		pores in \unit{\areapercent}		& \tablenum{38.5}	& \tablenum{22.1}	& \tablenum{30.7}	& \tablenum{22.2}  \\
+		hydrates in \unit{\areapercent}		& \tablenum{38.0}	& \tablenum{61.1}	& \tablenum{52.5}	& \tablenum{62.7}  \\
+		clinker in \unit{\areapercent}		& \tablenum{23.9}	& \tablenum{17.4}	& \tablenum{17.4}	& \tablenum{15.4}  \\ \midrule
+		$l_\text{\qty{33.3}{\percent}, l}$ in \unit{\micro\meter}	&  \tablenum{1.43} 	& \tablenum{1.43}	& \tablenum{1.18}	& \tablenum{1.18} \\
+		$l_\text{max}$ in \unit{\micro\meter}	&  \tablenum{1.85}	& \tablenum{1.94}	&  \tablenum{1.52}	& \tablenum{1.52} \\
+		$l_\text{\qty{33.3}{\percent}, h}$ in \unit{\micro\meter}	& \tablenum{2.28} & \tablenum{2.44}	&  \tablenum{1.85}	& \tablenum{1.94} \\
 		\bottomrule
 	\end{tabular}
 \end{table}
 
 \section{Single phase analysis}
 
-Applying the algorithm proposed in section \ref{subsec:algo_hlm} to individually hydrated phases gives the results shown in Figure~\ref{fig:results2d_alite} and \ref{fig:results2d_belite} for \ac{C3S} and \ac{C2S} respectively.
+Applying the algorithm proposed in \zcref{subsec:algo_hlm} to individually hydrated phases gives the results shown in \zcref{fig:results2d_alite} and \zcref{fig:results2d_belite} for \ac{C3S} and \ac{C2S} respectively.
 The diagrams consist of a graph indicating frequency of a measured \ac{HLT} in dependency of the grain size (blue-green).
 This plot is accompanied by a frequency plot of the grain size diameter (grey) and a grain-size-agnostic distribution plot of the \ac{HLT} frequency (orange).
 
 As expected, smaller particles are more frequent than larger particles throughout all samples tested.
 Furthermore, especially larger particles become less frequent with increasing specimen age, which results in a coarser data density.
 
-The \ac{HLT} distributions of \ac{C3S} at \SIrange{7}{28}{\day} and \ac{C2S} at \SI{28}{\day} specimens show two distinct accumulations in the \ac{HLT} distribution.
-The second, larger accumulation appears at larger \ac{HLT}s, the older the specimen, until it ultimately disappears for really old \ac{C3S} specimens at \SI{84}{\day} and \SI{365}{\day}, where the pore space is mostly consumed by \ac{CSH} and \ac{CH}, which makes the measurement impossible.
+The \ac{HLT} distributions of \ac{C3S} at \qtyrange{7}{28}{\day} and \ac{C2S} at \qty{28}{\day} specimens show two distinct accumulations in the \ac{HLT} distribution.
+The second, larger accumulation appears at larger \ac{HLT}s, the older the specimen, until it ultimately disappears for really old \ac{C3S} specimens at \qty{84}{\day} and \qty{365}{\day}, where the pore space is mostly consumed by \ac{CSH} and \ac{CH}, which makes the measurement impossible.
 However, the \ac{CSH} growth is then also limited by the neighbouring particles and hydrate phases, which would also reduce the meaning of the measurement.
-The first accumulation is most likely an artifact of the segmentation quality as becomes more obvious in Figure~\ref{fig:hlt_segmentation_influence}.
+The first accumulation is most likely an artifact of the segmentation quality as becomes more obvious in \zcref{fig:hlt_segmentation_influence}.
 Furthermore, very small grains seem to have no second \ac{HLT} accumulation, while the first is more pronounced, which also reduced with different segmentation methods.
 %Another reason: split, larger particles?
 
 \begin{figure}[htbp]
 	\centerline{\includegraphics[width=\textwidth]{hydrate-rim/HLT_histogram_alit.pdf}}
-	\caption{Normalised distributions of the \ac{HLT} of hydrated \ac{C3S} (aged 1, 7, 14, 28, 84, and \SI{365}{\day}) depending on the particle diameter.
+	\caption{Normalised distributions of the \ac{HLT} of hydrated \ac{C3S} (aged 1, 7, 14, 28, 84, and \qty{365}{\day}) depending on the particle diameter.
 	The histogram on top illustrates the logarithmic frequency for each diameter bin in the diagram below.
 	The histogram on the right illustrates the frequency of \ac{HLT} measurements as sum of the main diagram.
 	The values are thus independent of the frequency of single grain diameters.
-	The yellow markers indicate the confidence interval at a confidence level of \SI{33.3}{\percent} around $l_\text{max}$ (green).}
+	The yellow markers indicate the confidence interval at a confidence level of \qty{33.3}{\percent} around $l_\text{max}$ (green).}
 	\label{fig:results2d_alite}
 \end{figure}
 
 \begin{figure}[htbp]
 	\centerline{\includegraphics[width=\textwidth]{hydrate-rim/HLT_histogram_belit.pdf}}
-	\caption{Normalised distributions of the \ac{HLT} of hydrated \ac{C2S} (aged 1, 7, 14, and \SI{28}{\day}) depending on the particle diameter.
-	Same diagram type as in Figure~\ref{fig:results2d_alite}.
+	\caption{Normalised distributions of the \ac{HLT} of hydrated \ac{C2S} (aged 1, 7, 14, and \qty{28}{\day}) depending on the particle diameter.
+	Same diagram type as in \zcref{fig:results2d_alite}.
 	\label{fig:results2d_belite}}
 \end{figure}
 
-\ac{C2S} shows a significant slower hydration, which is also visible in the hydrate rim growth (Figure~\ref{fig:hydration-rim-results}).
-After \SI{28}{\day}, \ac{C2S} still shows smaller hydration rims than \ac{C3S} after \SI{7}{\day}.
+\ac{C2S} shows a significant slower hydration, which is also visible in the hydrate rim growth (\zcref{fig:hydration-rim-results}).
+After \qty{28}{\day}, \ac{C2S} still shows smaller hydration rims than \ac{C3S} after \qty{7}{\day}.
 
 \begin{figure}[ht!]
     \centering
 
 	\begin{subfigure}{0.475\textwidth}
 		\includegraphics[width=\textwidth]{hydrate-rim/alite_result.pdf}
-		\caption{Hydration of \ac{C3S} from \SIrange{1}{28}{\day}. \cite{kleiner.2024} }
+		\caption{Hydration of \ac{C3S} from \qtyrange{1}{28}{\day}. \cite{kleiner.2024} }
 		\label{fig:hyd-rim-alite}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}{0.475\textwidth}
 		\includegraphics[width=\textwidth]{hydrate-rim/belite_result.pdf}
-		\caption{Hydration of \ac{C2S} from \SIrange{1}{28}{\day}.}
+		\caption{Hydration of \ac{C2S} from \qtyrange{1}{28}{\day}.}
 		\label{fig:hyd-rim-belite}
 	\end{subfigure}
     \caption{Comparison between the hydration progression measured using \ac{XRD} (dashed lines) with $l_\text{max}$ (solid line).
-	The pink markers (dotted line) indicate the amount of hydrate phase $\sigma_\text{hyd}$ estimated from the image segmentation. The red translucent areas indicate the confidence interval at a confidence level of where \SI{33.3}{\percent} (dark) and \SI{50.0}{\percent}(light).}
+	The pink markers (dotted line) indicate the amount of hydrate phase $\sigma_\text{hyd}$ estimated from the image segmentation. The red translucent areas indicate the confidence interval at a confidence level of where \qty{33.3}{\percent} (dark) and \qty{50.0}{\percent}(light).}
     \label{fig:hydration-rim-results}
 \end{figure}
 
@@ -114,36 +114,36 @@ After \SI{28}{\day}, \ac{C2S} still shows smaller hydration rims than \ac{C3S} a
 \section{Multi phase analysis}
 
 Applying the algorithm to mixtures of \ac{C3S} and \ac{C2S} without distinguishing between clinker phases using a simple threshold-method is also possible.
-Especially specimens older than 14 or \SI{28}{\day} show two to three distinct \ac{HLT} peaks.
+Especially specimens older than 14 or \qty{28}{\day} show two to three distinct \ac{HLT} peaks.
 The first peak can be attributed to the erroneous segmentation and might overlap the actual \ac{HLT} for younger specimens.
 
-The raw images of the mixtures (e.g. Figure~\ref{fig:hadley}) show, that the \ac{CSH} around \ac{C2S} grows much less/slower, than around \ac{C3S} grains.
+The raw images of the mixtures (e.g. \zcref{fig:hadley}) show, that the \ac{CSH} around \ac{C2S} grows much less/slower, than around \ac{C3S} grains.
 This indicates, that the lower \ac{HLT}-peak stems from \ac{C2S}, while the larger one is caused by the \ac{CSH} around \ac{C3S}.
 However for younger specimens, the later two peaks are not well distinguishable.
-Extracting the peak maxima using Equation~\ref{eqn:fitcurve} between peak-minima, the results shown in Figure~\ref{fig:hyd-rim-mix} can be determined.
+Extracting the peak maxima using \zcref{eq:fitcurve} between peak-minima, the results shown in \zcref{fig:hyd-rim-mix} can be determined.
 
 \begin{figure}[ht!]
     \centering
 
 	\begin{subfigure}{0.475\textwidth}
 		\includegraphics[width=\textwidth]{hydrate-rim/mixture_result_a.pdf}
-		\caption{Hydration of \ac{C3S}:\ac{C2S} mixtures with different ratios from \SIrange{7}{28}{\day}.}
+		\caption{Hydration of \ac{C3S}:\ac{C2S} mixtures with different ratios from \qtyrange{7}{28}{\day}.}
 		\label{fig:hyd-rim-mix}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}{0.475\textwidth}
 		\includegraphics[width=\textwidth]{hydrate-rim/mixture_result_b.pdf}
-		\caption{Hydration development depending on the \ac{C3S}:\ac{C2S} ratio at \SI{28}{\day}.}
+		\caption{Hydration development depending on the \ac{C3S}:\ac{C2S} ratio at \qty{28}{\day}.}
 		\label{fig:hyd-rim-mix-28d}
 	\end{subfigure}
     \caption{Comparison of the \ac{HLT} of \ac{C3S}/\ac{C2S} mixtures and dependency of time and mixture ratio.}
     \label{fig:hydration-rim-mixture-results}
 \end{figure}
 
-Based on the \ac{C2S} results younger than \SI{28}{\day} (see Figure~\ref{fig:results2d_belite}), the \ac{HLT} of \ac{C2S} should be included in the first noise peak and cannot be measured reliably.
-By only comparing specimens with an age of \SI{28}{\day} with distinct peaks, a mutual dependence of both phases can be identified.
+Based on the \ac{C2S} results younger than \qty{28}{\day} (see \zcref{fig:results2d_belite}), the \ac{HLT} of \ac{C2S} should be included in the first noise peak and cannot be measured reliably.
+By only comparing specimens with an age of \qty{28}{\day} with distinct peaks, a mutual dependence of both phases can be identified.
 
-In Figure~\ref{fig:hyd-rim-mix-28d} it becomes visible, that \ac{C3S} reacts slower with increasing \ac{C2S} content, while \ac{C2S} reacts only slightly faster, if at all.
+In \zcref{fig:hyd-rim-mix-28d} it becomes visible, that \ac{C3S} reacts slower with increasing \ac{C2S} content, while \ac{C2S} reacts only slightly faster, if at all.
 This uncertainty is caused by the following sources of error:
 \begin{itemize}
 	\item Overlap/contact of the \ac{CSH} from \ac{C3S} and \ac{C2S},

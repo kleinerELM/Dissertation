@@ -210,4 +210,5 @@
         "%DOCFILE%.run.xml",
         "%DOCFILE%.xdv"
     ],
+	"latex-workshop.latex.autoBuild.run": "onSave"
 }

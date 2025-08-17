@@ -49,31 +49,31 @@ They allow to observe the chemical composition, the crystallographic orientation
 \subsection{\Acl*{SE} (\acs*{SE}) imaging}
 \label{sec:se}
 
-\ac{SE} detectors primarily capture low-energy secondary electrons (<\,\SI{50}{\electronvolt}) which are inelastically scattered and emitted from the very near-surface region (a depth of <\,\SI{50}{\nano\meter}) of the sample \cite{pawley.1984}. %fylak.2011
+\ac{SE} detectors primarily capture low-energy secondary electrons (<\,\qty{50}{\electronvolt}) which are inelastically scattered and emitted from the very near-surface region (a depth of <\,\qty{50}{\nano\meter}) of the sample \cite{pawley.1984}. %fylak.2011
 Therefore, their detection is highly sensitive to the surface topography of the sample.
 Edges, and surfaces tilted towards the detector emit more electrons than surfaces facing away from the detector.
 
-Especially improvements in low-\si{\kilo\volt} \ac{SE} imaging significantly improved the resolution, contrast and topographic representation of specimens \cite{pawley.1984,moser.1998}.
-This in contrast to the relatively long electron wavelength of  \SI{38.8}{\pico\meter} at \SI{1}{\kilo\volt} compared to \SI{12.2}{\pico\meter} at \SI{10}{\kilo\volt}.
+Especially improvements in low-\unit{\kilo\volt} \ac{SE} imaging significantly improved the resolution, contrast and topographic representation of specimens \cite{pawley.1984,moser.1998}.
+This in contrast to the relatively long electron wavelength of  \qty{38.8}{\pico\meter} at \qty{1}{\kilo\volt} compared to \qty{12.2}{\pico\meter} at \qty{10}{\kilo\volt}.
 The improvement is instead caused by the reduced penetration depth of the electrons, less pronounced charging artefacts and reduced beam damage \cite{pawley.1984}.
 The voltage reduction also allows to omit conductive coatings \cite{pawley.1984,moser.1996}.
-While the advantages of low-\si{\kilo\volt} imaging were known early on \cite{vonardenne.1940}, it took until the late 70s and early 80s until problems like chromatic aberration and low source brightness were reduced in the first widely available \ac{SEM}s equipped with a field emission gun and more sensitive detectors were developed \cite{pawley.1984,moser.1996}.
+While the advantages of low-\unit{\kilo\volt} imaging were known early on \cite{vonardenne.1940}, it took until the late 70s and early 80s until problems like chromatic aberration and low source brightness were reduced in the first widely available \ac{SEM}s equipped with a field emission gun and more sensitive detectors were developed \cite{pawley.1984,moser.1996}.
 
-Current \ac{SEM}s are able to further improve the \ac{SE}-imaging utilising voltages of a few hundred Volts and beam deceleration techniques, allowing for high resolutions of uncoated specimens in the \si{\nano\meter} scale.
+Current \ac{SEM}s are able to further improve the \ac{SE}-imaging utilising voltages of a few hundred Volts and beam deceleration techniques, allowing for high resolutions of uncoated specimens in the \unit{\nano\meter} scale.
 
 \subsection{\Acl*{BSE} (\acs*{BSE}) detector}
 \label{sec:bse}
 
 \ac{BSE} detectors collect high-energy electrons from the primary beam that have been elastically scattered back out of the sample after interacting with atomic nuclei.
 Heavier elements (with a higher atomic number $Z$) scatter electrons more strongly and appear brighter in the \ac{BSE} image.
-The higher the voltage and the lower the material density, the larger the interaction volume and depth (see Figure~\ref{fig:penetration_depth}).
+The higher the voltage and the lower the material density, the larger the interaction volume and depth (see \zcref{fig:penetration_depth}).
 
 \begin{figure}[!htb]
     \centering
 
 	\begin{subfigure}[t]{0.49\textwidth}
 		\includegraphics[width=\textwidth]{literature/pen_depth/pen_depth.pdf}
-		\caption{\textsc{Monte-Carlo}-simulation of the interaction volume of a \SI{10}{\kilo\volt} electron beam in \ac{C3S}. Modelled using \cite{drouin.2016}.}
+		\caption{\textsc{Monte-Carlo}-simulation of the interaction volume of a \qty{10}{\kilo\volt} electron beam in \ac{C3S}. Modelled using \cite{drouin.2016}.}
 		\label{fig:pen_depth_a}
 	\end{subfigure}
 	\hfill
@@ -91,8 +91,8 @@ The higher the voltage and the lower the material density, the larger the intera
                 width=\linewidth,
                 height=0.69\linewidth,
                 grid=major,
-                xlabel={accelerating voltage in \si{\kilo\volt}},
-                ylabel={depth in \si{\micro\meter}},
+                xlabel={accelerating voltage in \unit{\kilo\volt}},
+                ylabel={depth in \unit{\micro\meter}},
                 xtick={0,2,...,12},
                 ytick={0,0.01,0.1,1,4},
                 y dir=reverse,
@@ -135,7 +135,7 @@ For materials composed from multiple elements, the backscatter coefficient can b
 \end{equation}
 , where $c_i$ is the concentration of the element $i$ and $\eta_i$ is its backscatter coefficient.
 
-The contrast $C$ can be calculated as shown in Equation~\ref{eq:bse_contrast} from the the backscatter coefficient ($\eta$) of a material (\cite{goldstein.1992}, Equation~4.11), where $\eta_1$ and $\eta_2$ are the backscatter coefficients of the two materials:
+The contrast $C$ can be calculated as shown in \zcref{eq:bse_contrast} from the the backscatter coefficient ($\eta$) of a material (\cite{goldstein.1992}, Equation~4.11), where $\eta_1$ and $\eta_2$ are the backscatter coefficients of the two materials:
 
 \begin{equation}
     \label{eq:bse_contrast}
@@ -143,7 +143,7 @@ The contrast $C$ can be calculated as shown in Equation~\ref{eq:bse_contrast} fr
 \end{equation}
 
 The backscatter coefficient is defined as the ratio of the number of backscattered electrons to the number of incident electrons \cite{goldstein.1992a}
-Some selected phases and their respective $\eta$ are listed in Table~\ref{tab:bse_eta_Z}.
+Some selected phases and their respective $\eta$ are listed in Table~\zcref{tab:bse_eta_Z}.
 
 \begin{table}[htbp]
     \centering
@@ -179,14 +179,14 @@ This allows for qualitative identification and semi-quantitative or quantitative
 Point analyses or elemental maps can show the spatial distribution of these elements and thus the associated phases.
 
 The excitation voltage has to be about \numrange{2}{3} times as high as the expected X-ray energies of the elements of interest to collect enough counts to be able identify and quantify the concentration of the elements.% \acs{Ka}  or \acs{Kb}
-This results in a minimal required electron beam voltage of \SI{10}{\kilo\volt} to measure e.g. \ce{Ca} with a \ac{Ka} of \SI{3.69}{\kilo\electronvolt} \cite{hudson.2003}.
+This results in a minimal required electron beam voltage of \qty{10}{\kilo\volt} to measure e.g. \ce{Ca} with a \ac{Ka} of \qty{3.69}{\kilo\electronvolt} \cite{hudson.2003}.
 Using low voltages will result in lower X-ray-counts, which can only be countered by using a very sensitive detector, which has a large detection area and/or has no window \cite{yamamoto.2016}.
 This can also enable to detect light elements like \ce{Li}, \ce{Be} and \ce{B} \cite{yamamoto.2016}.
 However, these elements still are challenging to differentiate in most specimens with a more complex composition due to the overlap of X-ray energies \cite{hudson.2003}.
 
 The lateral resolution of the \ac{EDX} analysis is limited by the electron beam voltage used.
-Similar to the \ac{BSE}, the higher the voltage, the larger the interaction volume and depth (see Figure~\ref{fig:penetration_depth}), and therefore the larger the area from which X-rays are emitted \cite{rossen.2017}.
-Depending on the beam voltage required, the interaction volume and therefore the resolution can be below \SI{1}{\micro\meter} \cite{jiang.2022}.
+Similar to the \ac{BSE}, the higher the voltage, the larger the interaction volume and depth (see \zcref{fig:penetration_depth}), and therefore the larger the area from which X-rays are emitted \cite{rossen.2017}.
+Depending on the beam voltage required, the interaction volume and therefore the resolution can be below \qty{1}{\micro\meter} \cite{jiang.2022}.
 Furthermore, a larger interaction volume will cause subsurface information being included in the measured spectra.
 
 
@@ -222,7 +222,7 @@ Instead of electrons, ions (usually \ce{Ga+}) are accelerated to the specimen su
 
 In 1974/75 the \ac{FIB} technique was introduced by \textcite{levi-setti.1974} and \textcite{orloff.1975} for microprobing applications.
 \ac{FIB} systems are broadly available since the 1990s \cite{volkert.2007}.
-While it is also possible to obtain an image of the specimen surface with a resolution of $\approx$\SI{5}{\nano\meter} \cite{orloff.1996}, the main application is the preparation of samples for \ac{SEM} and \ac{TEM} due to the abrading effect of the ions.
+While it is also possible to obtain an image of the specimen surface with a resolution of $\approx$\qty{5}{\nano\meter} \cite{orloff.1996}, the main application is the preparation of samples for \ac{SEM} and \ac{TEM} due to the abrading effect of the ions.
 For example, \textcite{sakalli.2017} used a \ac{FIB} to prepare a \ac{TEM} lamella of hydrated \ac{C3S} and analysed it using \ac{EDX}. % The hydrate seems to be damaged
 While the first \ac{FIB}s were single beam devices, today combined \ac{FIB}-\ac{SEM} devices are the norm.
 
@@ -253,7 +253,7 @@ While the first \ac{FIB}s were single beam devices, today combined \ac{FIB}-\ac{
     \label{fig:fib}
 \end{figure}
 
-The ion and the electron beam are arranged in an angle of \SI{52}{\degree}, while the ion beam hits the specimen in an angle of \SI{90}{\degree} as shown in Figure~\ref{fig:fib_scheme}.
+The ion and the electron beam are arranged in an angle of \qty{52}{\degree}, while the ion beam hits the specimen in an angle of \qty{90}{\degree} as shown in \zcref{fig:fib_scheme}.
 The \ac{ROI} has to be in the eucentric point (point of rotation/intersection point of the electron and ion beam).
 This means, if the specimen is tilted, the point does not move in the live image and therefore is in the rotational center.
 
@@ -263,10 +263,10 @@ In contrast to X-ray \ac{CT}, this method is intrinsically destructive.
 % hier kann glaub noch ein bisschen was hin
 { \color{red}
 \textcite{holzer.2006, munch.2006} analysed particular systems using \ac{FIB} serial sectioning.
-\textcite{holzer.2006a} used \ac{FIBnt} very early to cut a large volume (\num{46}\,$\times$\,\num{32}\,$\times$\,\SI{25}{\cubic\micro\meter}) of a cement paste sample with a voxel size of \SI{74}{\nano\meter}.
+\textcite{holzer.2006a} used \ac{FIBnt} very early to cut a large volume (\qtyproduct{46 x 32 x 25}{\cubic\micro\meter}) of a cement paste sample with a voxel size of \qty{74}{\nano\meter}.
 }
 
-More technical details of the method will be further described in Section~\ref{sec:fib}.
+More technical details of the method will be further described in \zcref{sec:fib}.
 
 
 \FloatBarrier
@@ -295,7 +295,7 @@ This method is often used in the biological field to obtain 3D datasets of cells
 
     \caption{\ac{BSE} image of a polished cross-section of resin embedded, hydrated \ac{C3S}.
         The scratches and the oil residue are caused by the polishing process.
-        The image was taken at \SI{1.5}{\kilo\volt}, \SI{0.8}{\nano\ampere} to make the surface more visible.
+        The image was taken at \qty{1.5}{\kilo\volt}, \qty{0.8}{\nano\ampere} to make the surface more visible.
     }
     \label{fig:mech_polishing_damage}
 %\end{figure}
@@ -304,16 +304,16 @@ This method is often used in the biological field to obtain 3D datasets of cells
 Detectors such as \ac{BSE} and \ac{EDX} provide the best results with the smoothest possible surfaces of sample cross-sections.
 Thus, resin embedding and mechanical polishing are very common methods to polish samples \cite{scrivener.2004}.
 The sample is embedded in a resin (e.g. epoxy resin) to stabilize the specimen and to fill the pores.
-Then, the sample is polished using a series of oil-based polishing slurries with decreasing grain size (see Section~\ref{sec:mech_pol}).
-However, it is difficult to obtain a surface without scratches using mechanical polishing (see Figure~\ref{fig:mech_polishing_damage}).
+Then, the sample is polished using a series of oil-based polishing slurries with decreasing grain size (see \zcref{sec:mech_pol}).
+However, it is difficult to obtain a surface without scratches using mechanical polishing (see \zcref{fig:mech_polishing_damage}).
 
 Due to hardness differences between the phases, the polishing process can also cause uneven surfaces in the specimen \cite{ji.2014}.
 This is especially true for resin embedded specimens \cite{desbois.2010}.
 Furthermore, smearing of the softer material (e.g. resin) can occur, filling pores or influencing subsequent analysis like \ac{EDX}.
 All these influences can lead to a significant reduction in image quality and resolution.
-\textcite{scrivener.2004} achieved a feature resolution of \ac{CSH}, ettringite, and pores of \SIrange{0.1}{0.2}{\micro\meter} using mechanical polishing techniques.
+\textcite{scrivener.2004} achieved a feature resolution of \ac{CSH}, ettringite, and pores of \qtyrange{0.1}{0.2}{\micro\meter} using mechanical polishing techniques.
 This feature resolution is not sufficient for the analysis of nanoscale structures.
-\ac{CSH} needles, for example, can have a diameter significantly less than \SI{100}{\nano\meter} \cite{moser.2003} and therefore cannot be acceptably imaged.
+\ac{CSH} needles, for example, can have a diameter significantly less than \qty{100}{\nano\meter} \cite{moser.2003} and therefore cannot be acceptably imaged.
 While mechanical polishing still can be good enough for many applications like \ac{BSE}- or \ac{EDX}-imaging, high-resolution imaging or \ac{EBSD} require better surface qualities without contaminations \cite{rossler.2017}.
 
 \subsection{Sample preparation - \Acl*{ArBIB} polishing}
@@ -323,16 +323,16 @@ In a broad ion beam device, accelerated ions (e.g. \ce{Ar+}) are used to clean a
 So prepared surfaces show limited damage to the nano-scale features of interest \cite{desbois.2009,desbois.2010},
 Furthermore, small pores are not filled with debris \cite{desbois.2009,desbois.2010}, which eliminates the need for resin intrusion \cite{desbois.2009}, while it is still possible to do so \cite{rossler.2017} and advisable for later segmentation purposes.
 
-\Ac{ArBIB} allows to polish large areas in the range of several \si{\milli\meter\squared} \cite{hauffe.2003,desbois.2013}.
+\Ac{ArBIB} allows to polish large areas in the range of several \unit{\milli\meter\squared} \cite{hauffe.2003,desbois.2013}.
 Therefore, some authors utilised the broad ion beam polishing as a tool for tomography \cite{desbois.2013,mac.2018}.
-Compared to \ac{FIBnt}, the slice thickness of this technique is large and inconsistent (>\,\SI{350(70)}{\nano\meter} compared to \SIrange{5}{10}{\nano\meter}) and the effort required is very high \cite{desbois.2013}.
+Compared to \ac{FIBnt}, the slice thickness of this technique is large and inconsistent (>\,\qty{350(70)}{\nano\meter} compared to \qtyrange{5}{10}{\nano\meter}) and the effort required is very high \cite{desbois.2013}.
 
 
 \subsection{Beam and drying damage}
 \label{sec:beam_damage} 
 
-\begin{wrapfigure}[13]{R}{0.6\linewidth}
-%\begin{figure}[!htb]
+%\begin{wrapfigure}[13]{R}{0.6\linewidth}
+\begin{figure}[!htb]
     \vspace{-\intextsep}
     \begin{tikzpicture}
         \begin{axis}[
@@ -347,9 +347,9 @@ Compared to \ac{FIBnt}, the slice thickness of this technique is large and incon
 				width=0.86\linewidth,
 				height=6.5cm,
 				grid=major,
-				xlabel={dehydration temperature $\vartheta$ in \si{\celsius}},
+				xlabel={dehydration temperature $\vartheta$ in \unit{\celsius}},
 				ylabel style={align=center},
-				ylabel={water vapour pressure\\$P_{\text{H}_2\text{O}}$ in \si{\mmHg}},
+				ylabel={water vapour pressure\\$P_{\text{H}_2\text{O}}$ in \unit{\mmHg}},
 				xtick={0,10,...,140},
 				ytick={0,400,...,1600},
 				grid style={line width=.1pt, draw=gray!10},
@@ -361,16 +361,18 @@ Compared to \ac{FIBnt}, the slice thickness of this technique is large and incon
             \addlegendentry{$ln(P_{\text{H}_2\text{O}}) = -1.61 + 0.075\vartheta$};
         \end{axis}
     \end{tikzpicture}
-    \caption{Dehydration temperature of ettringite depending on the water vapour pressure \cite{zhou.2001}.}
+    \caption{
+        Dehydration temperature of ettringite depending on the water vapour pressure \cite{zhou.2001}.
+    }
     \label{fig:ettringite_dehydration}
-%\end{figure}
-\end{wrapfigure}
+\end{figure}
+%\end{wrapfigure}
 
 Hydrate phases can easily be damaged by high temperatures.
 Thermal damage is especially known for phases like \ac{CSH}, ettringite and \ac{CH} \cite{lothenbach.2016}.
 %The water content of \ac{CSH} changes depending on the temperature \textcite{sanna.2014}.
-For example, \ac{CSH} begins to dehydrate at \SI{60}{\celsius} \cite{he.2018} and the water saturation and the size of gel pores change at this temperature \cite{gajewicz.2016}.
-Ettringite can be dehydrated below \SI{100}{\celsius} (Figure~\ref{fig:ettringite_dehydration}).
+For example, \ac{CSH} begins to dehydrate at \qty{60}{\celsius} \cite{he.2018} and the water saturation and the size of gel pores change at this temperature \cite{gajewicz.2016}.
+Ettringite can be dehydrated below \qty{100}{\celsius} (\zcref{fig:ettringite_dehydration}).
 
 
 After prolonged electron exposure, especially at higher beam voltages, alterations of sensitive specimens can be observed.
@@ -382,8 +384,8 @@ Also, at very high magnifications, the electron dose is very high even at low be
 In a literature review from 2002 \textcite{gartner.2002} pointed to a lot of studies of morphologically damaged \ac{CSH} phases in \ac{TEM} and \ac{SEM} images.
 The damages were mostly caused by the preparation and beam damage \cite{gartner.2002}.
 The difference in preparation methods was also demonstrated by \textcite{moser.1998,moser.2003} using an environmental \ac{SEM} (\acs{ESEM}).
-\textcite{rossler.2006} were able to show, that $\approx$ \SI{8e2}{\elementarycharge\per\square\angstrom}  at \SI{-172}{\degreeCelsius} allow to retrieve electron diffraction patterns and artefact-free imaging \ac{CSH}, while \SI{6.2e3}{\elementarycharge\per\square\angstrom} at room temperature induce significant beam damage to the mineral, amorphising it in the process.
-A high energy dose in the \ac{SEM} can cause geometrical deformation of \ac{CSH}-structures and introduce pores within originally compact phases (see Figure~\ref{fig:ebeam_damage}) \cite{moser.2003,kleiner.2021a}.
+\textcite{rossler.2006} were able to show, that $\approx$ \qty{8e2}{\elementarycharge\per\square\angstrom}  at \qty{-172}{\degreeCelsius} allow to retrieve electron diffraction patterns and artefact-free imaging \ac{CSH}, while \qty{6.2e3}{\elementarycharge\per\square\angstrom} at room temperature induce significant beam damage to the mineral, amorphising it in the process.
+A high energy dose in the \ac{SEM} can cause geometrical deformation of \ac{CSH}-structures and introduce pores within originally compact phases (see \zcref{fig:ebeam_damage}) \cite{moser.2003,kleiner.2021a}.
 
 \begin{figure}[h!]
     \centering
@@ -395,9 +397,9 @@ A high energy dose in the \ac{SEM} can cause geometrical deformation of \ac{CSH}
 	\fi
 
     \caption{
-        Electron beam damage of a \ac{CSH} needle of \SI{28}{\day} hydrated alite.
-        \ac{SE} images captured at \SI{350}{\volt} accelerating voltage and \SI{200}{\volt} stage bias.
-        The image set was captured within \SI{124}{\second} during continuous electron beam exposure \cite{kleiner.2021a,kleiner.2021f}.
+        Electron beam damage of a \ac{CSH} needle of \qty{28}{\day} hydrated alite.
+        \ac{SE} images captured at \qty{350}{\volt} accelerating voltage and \qty{200}{\volt} stage bias.
+        The image set was captured within \qty{124}{\second} during continuous electron beam exposure \cite{kleiner.2021a,kleiner.2021f}.
     }
     \label{fig:ebeam_damage}
 \end{figure}

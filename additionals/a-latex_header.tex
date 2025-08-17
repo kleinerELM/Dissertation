@@ -108,6 +108,7 @@
 			sorting=none
 			]{biblatex}  % use biblatex for bibliography
 
+
 % Treiber für den Eintragstyp "video"
 \DeclareBibliographyDriver{video}{%
   \usebibmacro{bibindex}%
@@ -165,6 +166,13 @@
     }
   }
 }
+% Make the year in the bibliography bold
+\AtEveryBibitem{%
+  \renewbibmacro*{date}{%
+    \printtext[date]{\printfield{year}}%
+  }%
+}
+\DeclareFieldFormat{year}{\textbf{#1}}
 
 % https://tex.stackexchange.com/questions/134191/line-breaks-of-long-urls-in-biblatex-bibliography
 \setcounter{biburllcpenalty}{7000}
@@ -180,6 +188,8 @@
 
 \usepackage[
 	range-units=single,
+	product-units=single,
+	list-units=single,
 % on default show only a single unit when using /SIrange{}
 	detect-family,
 	per-mode=symbol,
@@ -200,6 +210,7 @@
 \DeclareSIUnit{\volpercent}{vol.\hbox{-}\%}
 \DeclareSIUnit{\areapercent}{area\hbox{-}\%}
 \DeclareSIUnit{\px}{px}
+\DeclareSIUnit{\mmHg}{mmHg}
 
 \usepackage{animate}
 \usepackage{enumitem}  % improves enumerate and itemize environment
@@ -399,3 +410,6 @@
 \usepackage{qrcode}
 \usepackage[shortcuts]{extdash}
 \usepackage{wasysym} % für \diameter
+\usepackage{pdfcomment}
+\usepackage{zref-clever}
+\zcsetup{capfirst=true} # first letter in "Figure" etc. is always capitalised 

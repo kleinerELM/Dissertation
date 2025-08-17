@@ -6,7 +6,7 @@
 %\cite{rust.2023}
 
 \ac{SEM} images often contain varying amounts of noise.
-While it is preferable to reduce the noise by collecting more signal (i.e. by longer dwell times, higher current, stacking of multiple scans), this is often impossible due to time constraints or the sensitivity of the specimen (see Figure~\ref{fig:ebeam_damage}).
+While it is preferable to reduce the noise by collecting more signal (i.e. by longer dwell times, higher current, stacking of multiple scans), this is often impossible due to time constraints or the sensitivity of the specimen (see \zcref{fig:ebeam_damage}).
 
 In \ac{SEM} images, multiple noise types can be found.
 Shot noise (also known as \textsc{Poisson} noise) arises from the discrete nature of electron detection, leading to random fluctuations in pixel intensity, especially noticeable at low signal levels.
@@ -41,12 +41,12 @@ However, their performance heavily relies on the availability of large and diver
 In addition, their use is often still a hurdle for untrained users, as they are still rarely available in ready-to-use software.
 
 To objectively evaluate the performance of denoising algorithms, quantitative benchmarks such as \ac{PSNR}, \ac{SSIM} and \ac{MSE} are commonly used.
-\ac{PSNR} measures the ratio between the maximum possible signal power and the power of corrupting noise in \si{\decibel}, providing a simple metric for image fidelity.
+\ac{PSNR} measures the ratio between the maximum possible signal power and the power of corrupting noise in \unit{\decibel}, providing a simple metric for image fidelity.
 \ac{SSIM}, on the other hand, assesses perceived image quality by comparing local patterns of pixel intensities, taking into account luminance, contrast, and texture. Higher \ac{PSNR} and \ac{SSIM} values indicate better preservation of image quality after denoising.
 Finally, \ac{MSE} quantifies the average squared difference between the original and denoised images, with lower values indicating better noise suppression and fidelity to the ground truth.
 
 \textcite{wang.2025} used median, wavelet and a \ac{CNN}-based algorithms (Deep \ac{CNN} with guided filtering) on \ac{SEM}-images of polished sections of hydrated \ac{C3S}.
-They came to the conclusion, that the \ac{CNN} significantly outperforms (\ac{PSNR} of \SI{26.35}{\decibel}) the median (\ac{PSNR} of \SI{23.20}{\decibel}) and wavelet filter (\ac{PSNR} of \SI{18.25}{\decibel}).
+They came to the conclusion, that the \ac{CNN} significantly outperforms (\ac{PSNR} of \qty{26.35}{\decibel}) the median (\ac{PSNR} of \qty{23.20}{\decibel}) and wavelet filter (\ac{PSNR} of \qty{18.25}{\decibel}).
 
 \FloatBarrier
 \subsection{Segmentation of \acs{SEM} images}
@@ -87,7 +87,7 @@ Utilizing machine learning methods for segmentation is a promising approach to a
 
 Many measurements are made using \ac{BSE} images of embedded and polished hydrated clinker phases.
 In other words, all measurements are taken on random sections through grains and their hydrate layers.
-This causes an unavoidable sectioning effect \cite{scrivener.2004}, as illustrated in Figure~\ref{fig:sectioning_effect_a}.
+This causes an unavoidable sectioning effect \cite{scrivener.2004}, as illustrated in \zcref{fig:sectioning_effect_a}.
 
 \begin{figure}[htb]
     \centering
@@ -147,7 +147,7 @@ This causes an unavoidable sectioning effect \cite{scrivener.2004}, as illustrat
 			\end{axis}
 		\end{tikzpicture}
 		\caption{
-            Influence of the sectioning distance from center point $x$ on the \acs{HLT} ($t(x)$), calculated using Equation \ref{eq:sectioning_effect_2}.
+            Influence of the sectioning distance from center point $x$ on the \acs{HLT} ($t(x)$), calculated using Equation \zcref{eq:sectioning_effect_2}.
         }
 		\label{fig:sectioning_effect_b}
 	\end{subfigure}
@@ -160,8 +160,8 @@ In particle size distributions, smaller particles are often over-represented, si
 Starting from a monodisperse distribution of spheres with a true diameter of $d_0$, a size distribution with a modal apparent diameter of $d_\text{app} = \Pi d_0  / 4$ is obtained \cite{cuzzi.2017}.
 % https://doi.org/10.1111/maps.12812 <- 2d to 3d hochrechnen mittels fortran code \cite{cuzzi.2017}
 
-In contrast, the \ac{HLT} of a grain is often overestimated as shown in Figure~\ref{fig:sectioning_effect_b}.
-Equations~\ref{eq:sectioning_effect_1} and \ref{eq:sectioning_effect_2} can be used to calculate the \ac{HLT} ($t$) for a spherical particle, depending on the sectioning distance from the centre point ($x$).
+In contrast, the \ac{HLT} of a grain is often overestimated as shown in \zcref{fig:sectioning_effect_b}.
+\zcref{eq:sectioning_effect_1, eq:sectioning_effect_2} can be used to calculate the \ac{HLT} ($t$) for a spherical particle, depending on the sectioning distance from the centre point ($x$).
 
 \begin{equation}
 	f(x, r) = \sqrt{2r(x+r) - (x+r)^2}
@@ -193,26 +193,26 @@ Equations~\ref{eq:sectioning_effect_1} and \ref{eq:sectioning_effect_2} can be u
 	d				&   $0 < i \leq r_\text{grain}$.
 \end{conditions}
 
-\begin{wrapfigure}[14]{R}{0.6\linewidth}
-%\begin{figure}[htb]
+%\begin{wrapfigure}[14]{R}{0.6\linewidth}
+\begin{figure}[htb]
     \vspace{-\intextsep}
     \centering
-	\includegraphics[width=\linewidth, trim={1.9cm 1.7cm 1.1cm 1.8cm}, clip]{hydrate-rim/sectioning_overestimation.pdf}
+	\includegraphics[width=.7\linewidth, trim={1.9cm 1.7cm 1.1cm 1.8cm}, clip]{hydrate-rim/sectioning_overestimation.pdf}
 	\caption{
-        Overestimation of the \ac{HLT} depending on the \ac{HLT} / grain diameter ratio and the integral limit $i$ (see Equation~\ref{eq:sectioning_effect_3}).
+        Overestimation of the \ac{HLT} depending on the \ac{HLT} / grain diameter ratio and the integral limit $i$ (see \zcref{eq:sectioning_effect_3}).
         The blue line indicates the results for \ac{HLT} / grain diameter value of \num{0.3}.
     }
 	\label{fig:hlt_overestimation}
-%\end{figure}
-\end{wrapfigure}
+\end{figure}
+%\end{wrapfigure}
 
 
-Figure~\ref{fig:sectioning_effect_b} (blue curve) indicates that the \ac{HLT} can be significantly overestimated.
+\zcref{fig:sectioning_effect_b} (blue curve) indicates that the \ac{HLT} can be significantly overestimated.
 This becomes more prevalent the closer the cut through a particle is to the particle border.
 % https://www.wolframalpha.com/input?i=integral&assumption=%7B%22F%22%2C+%22Integral%22%2C+%22rangestart%22%7D+-%3E%220%22&assumption=%7B%22C%22%2C+%22integral%22%7D+-%3E+%7B%22Calculator%22%2C+%22dflt%22%7D&assumption=%7B%22F%22%2C+%22Integral%22%2C+%22integrand%22%7D+-%3E%22sqrt%282*1.3*%28x%2B1.3%29+-+%28x%2B1.3%29%5E2%29+-+sqrt%282*1*%28x%2B1%29+-+%28x%2B1%29%5E2%29%22&assumption=%7B%22F%22%2C+%22Integral%22%2C+%22rangeend%22%7D+-%3E%22.9%22
-For example, for a \ac{HLT} of \num{0.3} (as shown in Figure~\ref{fig:sectioning_effect_b}), a mean overestimation of \SI{23.8}{\percent} can be expected. %0,3715/0,33
+For example, for a \ac{HLT} of \num{0.3} (as shown in \zcref{fig:sectioning_effect_b}), a mean overestimation of \qty{23.8}{\percent} can be expected. %0,3715/0,33
 
-Figure~\ref{fig:hlt_overestimation} illustrates the overestimation of the measured \ac{HLT} depending on the \ac{HLT} / grain radius ratio and $M_\text{HLT}$ (Equation~\ref{eq:sectioning_effect_3}).
+\zcref{fig:hlt_overestimation} illustrates the overestimation of the measured \ac{HLT} depending on the \ac{HLT} / grain radius ratio and $M_\text{HLT}$ (\zcref{eq:sectioning_effect_3}).
 It shows that the smaller the \ac{HLT}, and therefore the younger the specimen, the greater the overestimation.
 The dependence on $M_\text{HLT}$ shows that specimens cut at or near the border especially increase the error.
 This also means that very small particles, which have a higher probability of originating from particle edges, are prone to larger overestimations and should therefore not be considered for further analysis.
@@ -220,31 +220,31 @@ This also means that very small particles, which have a higher probability of or
 
 \FloatBarrier
 \subsection{Calculating the phase composition based on 2D-\acs*{SEM} images}
-Using a segmented \ac{SEM} image, the phase composition can be estimated by using the \si{\areapercent} of alite $A_{\text{C}_3\text{S}}$ and the hydrate phases $A_\text{\text{CSH}}$ and $A_\text{CH}$ \cite{kleiner.2024a}.
+Using a segmented \ac{SEM} image, the phase composition can be estimated by using the \unit{\areapercent} of alite $A_{\text{C}_3\text{S}}$ and the hydrate phases $A_\text{\text{CSH}}$ and $A_\text{CH}$ \cite{kleiner.2024a}.
 If the hydrate phases are indistinguishable, they can be summed up:
 
 \begin{equation}
-    \label{eqn:est_hydrate_area}
+    \label{eq:est_hydrate_area}
     \begin{aligned}
         A_\text{hydrate} &= A_\text{\text{CSH}} + A_\text{CH} \\
         &= A_{\text{image}} - A_{\text{C}_3\text{S}} - A_{\text{pores}}
     \end{aligned}
 \end{equation}
 
-Equation~\ref{eqn:est_frac} then allows an estimation of the amount of hydrate phases \ac{CH} and \ac{CSH} ($\sigma_\text{hydrate}$) in \si{\wtpercent}.
+\zcref{eq:est_frac} then allows an estimation of the amount of hydrate phases \ac{CH} and \ac{CSH} ($\sigma_\text{hydrate}$) in \unit{\wtpercent}.
 
 \begin{equation}
-    \label{eqn:est_frac}
+    \label{eq:est_frac}
     \sigma_\text{hydrate} = \frac{A_\text{hydrate} \cdot \rho_\text{hydrate}}{A_\text{hydrate} \cdot \rho_\text{hydrate} + A_{\text{C}_3\text{S}} \cdot \rho_{\text{C}_3\text{S}}}
 \end{equation}
 
-The densities required to calculate these values are listed in Table~\ref{tab:densities}.
+The densities required to calculate these values are listed in Table~\zcref{tab:densities}.
 
 % why 2.5 : 1.0?
 \begin{table}[htb]
     \centering
     \caption{
-        Densities of \ac{C3S} \cite{garrault.2006}, \ac{C2S}, \ac{CH} and \ac{CSH} \cite{garrault.2006} different phases in \si{\gram\per\cubic\centi\meter} \cite{jennings.2000,garrault.2006}.\\$^{*}$mixture of \ac{CSH}:\ac{CH} at a volume ratio of \num{2.5}:\num{1}}
+        Densities of \ac{C3S} \cite{garrault.2006}, \ac{C2S}, \ac{CH} and \ac{CSH} \cite{garrault.2006} different phases in \unit{\gram\per\cubic\centi\meter} \cite{jennings.2000,garrault.2006}.\\$^{*}$mixture of \ac{CSH}:\ac{CH} at a volume ratio of \num{2.5}:\num{1}}
     \label{tab:densities}
     \begin{tabular}{@{}lrrrrr@{}}
         \toprule
@@ -269,7 +269,7 @@ This raises the question of what the minimum resolution and the size of the anal
 The required lower resolution limit of a \ac{SEM} image can be concluded from the \textcite{nyquist.1928}-\textcite{shannon.1949} theorem. %\textcite{whittaker.1915}-\textcite{nyquist.1928}-\textcite{shannon.1949}
 In the context of spatial resolution in digital imaging, this translates to the following requirement:
 The pixel size should be no larger than half the size of the smallest resolvable feature \cite{roberge.2022}.
-In other words, to resolve an object with a size of \SI{4}{\nano\meter}, the pixel size should be less than \SI{2}{\nano\meter\per\px}.
+In other words, to resolve an object with a size of \qty{4}{\nano\meter}, the pixel size should be less than \qty{2}{\nano\meter\per\px}.
 Due to the unavoidable noise level in most digital images (including images acquired by \ac{SEM}, \ac{CT} or light microscopy), a higher resolution is required to reliably represent a feature.
 Furthermore, the resolution limitations of the imaging device and the sample preparation (e.g. polishing) and the subsequent segmentation methods have to be considered.
 
@@ -283,7 +283,7 @@ However, this is no good solution for interconnected phases or pore spaces. ...}
 
 Often a reliable phase composition measurement is sufficient.
 Therefore, some authors tried to apply a \ac{REA} calculation, to make sure the observed image features are statistically relevant \cite{bosl.1998,kameda.2006,klaver.2012,houben.2014,jiang.2022} .
-In the selected publications two main methods were used for this statistical analysis (see Figure~\ref{fig:lit_box_methods}).
+In the selected publications two main methods were used for this statistical analysis (see \zcref{fig:lit_box_methods}).
 
 \begin{figure}[H]
     \centering
@@ -300,7 +300,7 @@ In the selected publications two main methods were used for this statistical ana
         \label{fig:lit_box_methods_b}
 	\end{subfigure}
     \caption{
-        Example of the box grow and \acs{BC} method applied to an segmented image of \SI{28}{\day} hydrated alite.
+        Example of the box grow and \acs{BC} method applied to an segmented image of \qty{28}{\day} hydrated alite.
         Red: {\color{red}\ac{CSH}}, yellow: {\color{orange}\ac{C3S}}, cyan: {\color{cyan}\ac{CH}}, black: pores.
     }
     \label{fig:lit_box_methods}
@@ -311,13 +311,13 @@ The code used to compare both methods is publicly available \cite{kleiner.2024b}
 \subsubsection{\acl*{BC} method} % the method names are not great
 
 The \ac{BC} method is a commonly used technique to obtain an indication of the statistical representativeness of the phase composition within an image \cite{mouret.2001, hlavacek.2015, cosenza.2019}.
-This method splits an image or multiple images of the same material into smaller sub-tiles (see Figure~\ref{fig:lit_box_methods_b}).
+This method splits an image or multiple images of the same material into smaller sub-tiles (see \zcref{fig:lit_box_methods_b}).
 Then, a growing number of tiles is randomly selected from this tile pool.
 From this selection, the phase composition is then remeasured.
 If this is repeated multiple times, the standard deviation indicates how much area has to be imaged and analysed to obtain a reasonable phase composition measurement.
-The result of this method is a graph as shown in Figure~\ref{fig:lit_box_count}.
-The standard deviation $\sigma$ in Figure~\ref{fig:lit_box_count_b} indicates the decreasing uncertainty with a larger area analysed.
-Compared to Figure~\ref{fig:lit_box_growth_b}, $\sigma$ decreases much more continuously, since there is no location bias.
+The result of this method is a graph as shown in \zcref{fig:lit_box_count}.
+The standard deviation $\sigma$ in \zcref{fig:lit_box_count_b} indicates the decreasing uncertainty with a larger area analysed.
+Compared to \zcref{fig:lit_box_growth_b}, $\sigma$ decreases much more continuously, since there is no location bias.
 
 \begin{figure}[H]
     \centering
@@ -327,8 +327,8 @@ Compared to Figure~\ref{fig:lit_box_growth_b}, $\sigma$ decreases much more cont
         \begin{axis}[
                 xmin=0, xmax=1,
                 ymin=0, ymax=80,
-				xlabel={image area in \si{\square\milli\meter}},
-				ylabel={phase amount \si{\percent}},
+				xlabel={image area in \unit{\square\milli\meter}},
+				ylabel={phase amount \unit{\percent}},
 				xtick={0,.2,...,1},
                 ytick={20,40,...,80},
                 width=\linewidth,
@@ -389,9 +389,9 @@ Compared to Figure~\ref{fig:lit_box_growth_b}, $\sigma$ decreases much more cont
             width=\linewidth,
             xmin=0, xmax=1,
             ymin=0, ymax=10,
-            xlabel={image area in \si{\square\milli\meter}},
+            xlabel={image area in \unit{\square\milli\meter}},
             legend style={at={(.98,.98)},anchor=north east},
-            ylabel={standard deviation $\sigma$ in \si{\percent}},
+            ylabel={standard deviation $\sigma$ in \unit{\percent}},
             xtick={0,.2,...,1},
             ytick={2,4,...,10},
             ylabel near ticks, yticklabel pos=right,
@@ -433,14 +433,14 @@ However, it ignores the influence of larger inhomogeneities, such as the rather 
 
 A variation of the \ac{BC} method was used by \textcite{kameda.2006} and others \cite{klaver.2012, }. % TODO: at least one more reference
 It works by randomly selecting a growth point in the centre of an image and gradually increasing the box size around this point.
-From this point, a box will grow stepwise as illustrated in Figure~\ref{fig:lit_box_methods_a}.
+From this point, a box will grow stepwise as illustrated in \zcref{fig:lit_box_methods_a}.
 This method will therefore be called the \textsc{box grow method} from here on.
 The phase composition of these growing boxes is continuously measured.
 To initiate multiple experiments within an image, the growth point has to be selected randomly within a limited window in the centre of the image.
 This allows calculation of a standard deviation.
-Figure~\ref{fig:lit_box_growth} shows the result of such an analysis using an image of \SI{28}{\day} hydrated alite.
+\zcref{fig:lit_box_growth} shows the result of such an analysis using an image of \qty{28}{\day} hydrated alite.
 This image has to be segmented beforehand into pores, unhydrated alite, \ac{CH} and \ac{CSH}.
-The standard deviation in Figure~\ref{fig:lit_box_growth_b} indicates the decreasing uncertainty with a larger area analysed.
+The standard deviation in \zcref{fig:lit_box_growth_b} indicates the decreasing uncertainty with a larger area analysed.
 However, $\sigma$ decreases unsteadily.
 Since the location of larger phases does not change in the image used, even the randomised starting point cannot remove the bias.
 This can be reduced by using more source images.
@@ -453,8 +453,8 @@ This can be reduced by using more source images.
                 xmin=0, xmax=1,
                 ymin=0, ymax=80,
                 width=\linewidth,
-                xlabel={image area in \si{\square\milli\meter}},
-                ylabel={phase amount \si{\percent}},
+                xlabel={image area in \unit{\square\milli\meter}},
+                ylabel={phase amount \unit{\percent}},
                 xtick={0,0.2,...,1},
                 ytick={20,40,...,80},
 				grid=major,
@@ -516,8 +516,8 @@ This can be reduced by using more source images.
             legend style={at={(.98,.98)},anchor=north east},
             %axis y line=right,
             ylabel near ticks, yticklabel pos=right,
-			xlabel={image area in \si{\square\milli\meter}},
-			ylabel={standard deviation $\sigma$ in \si{\percent}},
+			xlabel={image area in \unit{\square\milli\meter}},
+			ylabel={standard deviation $\sigma$ in \unit{\percent}},
             xtick={0,0.2,...,1},
             ytick={2,4,...,10},
             grid=major,

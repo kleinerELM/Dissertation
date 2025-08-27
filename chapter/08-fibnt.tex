@@ -1,8 +1,8 @@
-\chapter{\acs*{FIBnT}}
+\chapter{\acs*{FIBnt}}
 
 \section{Process optimisation}
 
-Due to the destructive nature of the \ac{FIBnT} process, there are a lot of possible artefacts.
+Due to the destructive nature of the \ac{FIBnt} process, there are a lot of possible artefacts.
 
 \begin{figure}[H]
     \centering
@@ -89,31 +89,33 @@ In this case, the damage was visible for $\approx$ \qty{350}{\nano\meter}
 
 Solutions to this problem are to reduce the scanning duration or the electron beam current, which subsequently will reduce the overall counts, to reduce the electron beam voltage, which will limit the elements which can be analysed or to use more sensitive detectors.
 For the presented experiments, a even more reduced electron beam voltage was not applicable.
-Therefore, a very sensitive, windowless \ac{EDX}-detector was used and combined with the counts of a second, less-sensitive \ac{EDX}-detector, the exposure time (\qty{60}{\micro\second}, 60 frames) and the current were reduced as low as possible, while leaving the beam voltage at \qty{10}{\kilo\volt}.
-however .
+Therefore, a very sensitive, windowless \ac{EDX}-detector was used and combined with the counts of a second, less-sensitive \ac{EDX}-detector, which yields only one-fifth of the counts of the windowless detector.
+The exposure time (\qty{60}{\micro\second}, 60 frames) and the current were reduced as low as possible, while leaving the beam voltage at \qty{10}{\kilo\volt}.
 
 This still results in a very noisy, low count \ac{EDX} dataset.
 However, it allows the distinction of the different main phases of the material.
 
 \section{Postprocessing}
 
-The so acquired datasets require much less post processing.
+The so acquired datasets require much less post processing to reduce artefacts.
 However, some problems still remain to be solved.
+For example, the noisy \ac{EDX} dataset has to be denoised with an edge preserving denoising algorithm.
+Since the signal-to noise ratio of the \ac{EDX} element mappings are very low, algorithms like median and \ac{NLM} are not suitable.
+\ac{BM3D} denoising was found to be effective for the noise found in the \ac{EDX} slices and enables to reproducible quantitative analysis across elements.
 
 The main challenge for the dataset is the precise alignment of the acquired images.
 Drift during acquisition can cause a shift of the observed object between consecutive slices.
-For a single image stack, this issue can be addressed effectively using the \ac{SIFT} algorithm as implemented in TrakEM2 \cite{cardona.2012}, which allows for automated correction of in-plane translations.
+For a single image stack, this issue can be addressed effectively using the \ac{SIFT} algorithm as implemented in \textit{TrakEM2} \cite{cardona.2012}, which allows for automated correction of in-plane translations.
+
 However, aligning the \ac{EDX} dataset to the corresponding \ac{BSE} dataset is more challenging.
 Although the correspondence between \ac{BSE} and \ac{EDX} slices is known, the images differ in resolution and field of view.
 If the image shift between the \ac{BSE} and \ac{EDX} images of the same slice is nearly identical, the alignment problem can be solved relatively easily.
 %Otherwise, additional registration steps, such as the use of landmarks or scale-adjusted transformations, are required to achieve accurate overlay of the datasets.
 
-Therefore, a python tool utilising napari \cite{sofroniew.2025}, a graphical user interface to view and edit 2D and 3D image data, was developed.
+Therefore, a python tool utilising \textit{napari} \cite{sofroniew.2025}, a graphical user interface to view and edit 2D and 3D image data, was developed.
 This workflow aligns, visualizes, and analyzes correlative \ac{BSE} and \ac{EDX} image stacks.
-First it loads the preprocessed in-plane translation data stored in the TrakEM2 project and the user has to provide the image scale and the slice thickness in \unit{\nano\meter\per\px}, if these information are not stored in the metadata of the files.
-Since the the \ac{EDX} images are very noisy and have a unusual noise pattern, only a few denoising algorithms provide usable results.
-\ac{BM3D} denoising was found to be the most effective for the \ac{EDX} slices and enables to reproducible quantitative analysis across elements.
-Then, landmark pairs between the first \ac{BSE} and \ac{EDX} image have to be provided by the user.
+First it loads the preprocessed in-plane translation data stored in the \textit{TrakEM2} project and the user has to provide the image scale and the slice thickness in \unit{\nano\meter\per\px}, if these information are not stored in the metadata of the files.
+After denoising, landmark pairs between the first \ac{BSE} and \ac{EDX} image have to be provided by the user.
 This is then used to estimate an isotropic scale-and-translation transform for a good stack-to-stack alignment.
 
 Due to the geometry within the \ac{SEM}, the image stacks inherently have a systematically shift in the vertical direction \ac{SIFT}-algorithm.
@@ -122,8 +124,9 @@ This can be compensated using a user-defined drift angle.
 {
 	\color{red} % has to be rewritten
 	Inter-slice intensity banding ($z$-banding) is then reduced via per-slice mean normalization.
-	The registered 3D \ac{BSE} and \ac{EDX} volumes are displayed in napari with physically meaningful voxel scales. The user then has to select an \ac{ROI}, which will be used for the further processing.
+	The registered 3D \ac{BSE} and \ac{EDX} volumes are displayed in \textit{napari} with physically meaningful voxel scales.
+	The user then has to select an \ac{ROI}, which will be used for the further processing.
 	Within the \ac{ROI}, 3D \ac{SLIC} superpixels are computed on the \ac{BSE} volume.
 	For each superpixel, mean \ac{EDX} intensities (per element) are aggregated.
-	These superpixel-wise vectors are then standardized and clustered by k-means to identify material phases, yielding a 3D phase label volume that is directly overlaid in napari.
+	These superpixel-wise vectors are then standardized and clustered by $k$-means to identify material phases, yielding a 3D phase label volume that is directly overlaid in \textit{napari}.
 }

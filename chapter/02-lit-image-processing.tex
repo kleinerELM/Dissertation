@@ -21,12 +21,12 @@ The following paragraphs are only intended to provide a brief overview of the mo
 
 Classical methods remove noise in the spatial domain.
 Linear filters (e.g. mean filtering) can easily lead to blurring of fine detail and edges in very noisy images.
-Non-linear filters like the \textit{median} and \textit{bilateral}\cite{tomasi.1998} filter provide edge-preserving noise reduction.
-More advanced classical filters like \ac{NLM}\cite{buades.2005} or total variation\cite{rudin.1992} are better at preserving edges.
+Non-linear filters like the \textit{median} \cite{huang.1979} and \textit{bilateral} \cite{tomasi.1998} filter provide edge-preserving noise reduction.
+More advanced classical filters like \ac{NLM} \cite{buades.2005} or total variation \cite{rudin.1992} are better at preserving edges.
 However, they also struggle with more complex noise patterns (e.g. low count \ac{EDX}) and can introduce artefacts.
 
 Transform techniques decompose the image into frequency components, allowing for selective noise reduction in specific domains like high-frequency noise (shot noise) or low-frequency, directional patterns (banding noise).
-One important representative filter is \ac{BM3D}\cite{dabov.2007}, which is a two-stage filtering method and an extension of the \ac{NLM} filter.
+One important representative filter is \ac{BM3D} \cite{dabov.2007}, which is a two-stage filtering method and an extension of the \ac{NLM} filter.
 These methods often provide good performance but can be computationally intensive and require careful selection of parameters.
 
 More recently, \ac{CNN}-based denoising methods were introduced.
@@ -56,10 +56,10 @@ Segmentation is the process of partitioning an image into multiple segments (set
 The goal is to simplify the representation of the image and make it more meaningful and easier to analyse.
 After segmentation, each pixel in the image is assigned to a specific class or label, which can be used for further analysis.
 
-Segmentation can be done manually by a human expert.
-The result is highly dependent on the experience and knowledge of the operator, but is often considered the gold standard against which automated methods are compared \cite{bajcsy.2020}.
+Segmentation can be done automatically or manually by a human expert.
+The manual segmentation result is highly dependent on the experience and knowledge of the operator, but is often considered the gold standard against which automated methods are compared \cite{bajcsy.2020}.
 
-While manual segmentation is still used \cite{bajcsy.2020,kleiner.2024a}, it is time-consuming and not reproducible.
+While manual segmentation is still used \cite{bajcsy.2020,kleiner.2024a}, it is very time-consuming and not reproducible.
 Automated segmentation methods are therefore often used to reduce the time and effort required for image analysis.
 However, a requirement for good automatic segmentation is good image quality.
 Preprocessing steps such as denoising, contrast enhancement and sharpening can be used to improve the image quality before segmentation.

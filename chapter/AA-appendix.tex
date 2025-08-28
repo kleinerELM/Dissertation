@@ -206,7 +206,7 @@ In this section, basic material characterisation data is presented, which are no
 		\ce{TiO2}	& \tablenum{0.24}	& \tablenum{0.1431} & \ce{CuO}	& -					& \tablenum{0.0107} \\
 		\midrule
 		Total		&					&					&			&  \tablenum{99.88}	& -      \\
-		\acs{LOI} (\qty{1000}{\degreeCelsius}) & &			&			& \tablenum{0.70}	& -      \\
+		\acs{LOI} (\qty{1000}{\celsius}) & &			&			& \tablenum{0.70}	& -      \\
 		\bottomrule
 	\end{tabular}
 	\label{tab:laicpms-clinker}
@@ -402,8 +402,8 @@ In this section, basic material characterisation data is presented, which are no
 
     \caption{
 		Example of the influence of the temperature range selection for the baseline correction on the ice volume.
-		The lower temperature rage $\vartheta_\text{low}$ and the higher $\vartheta_\text{high}$ are given in \unit{\degreeCelsius} and are \qty{1}{\degreeCelsius} wide.
-		The dataset for the slow heating rate starts at \qty{-50}{\degreeCelsius}, while the fast heating rate starts at \qty{-48.5}{\degreeCelsius}, since lower values were still influenced by unsteady conditions.
+		The lower temperature rage $\vartheta_\text{low}$ and the higher $\vartheta_\text{high}$ are given in \unit{\celsius} and are \qty{1}{\celsius} wide.
+		The dataset for the slow heating rate starts at \qty{-50}{\celsius}, while the fast heating rate starts at \qty{-48.5}{\celsius}, since lower values were still influenced by unsteady conditions.
 	}
     \label{fig:basle_line_ice_vol}
 \end{figure}
@@ -422,7 +422,7 @@ In this section, basic material characterisation data is presented, which are no
 				width=\linewidth,
 				height=7cm,
 				grid=none,
-				xlabel={temperature in \unit{\degreeCelsius}},
+				xlabel={temperature in \unit{\celsius}},
 				xticklabels={-51.2, -25.3, -12.4, -4.6, -2.0},
 				xtick={2.5,5,10,25,50},
 				ytick=\empty,
@@ -456,7 +456,7 @@ In this section, basic material characterisation data is presented, which are no
 
 
 			\addplot[dotted, thick, samples=2, darkgrey,forget plot] coordinates {(3.19,-.2)(3.19,.2)};
-			\node[darkgrey, rotate=90, anchor=west] at (axis cs: 2.8,-.12) {\scriptsize <\,\qty{-40}{\degreeCelsius}};
+			\node[darkgrey, rotate=90, anchor=west] at (axis cs: 2.8,-.12) {\scriptsize <\,\qty{-40}{\celsius}};
 
 			\ifdefined\DRAFTSIMPLIFY
 			\else
@@ -501,7 +501,7 @@ In this section, basic material characterisation data is presented, which are no
 			width=\linewidth,
 			height=7cm,
 			grid=none,
-			xlabel={temperature in \unit{\degreeCelsius}},
+			xlabel={temperature in \unit{\celsius}},
 			xticklabels={-73.3, -64.1, -56.9, -51.2, -46.5},
 			xtick={1.75,2.00,2.25,2.50,2.75},
 			ytick=\empty,
@@ -572,7 +572,7 @@ In this section, basic material characterisation data is presented, which are no
     \caption{
 		Raw \ac{LTDSC} curves for the second freezing pass of \ac{C2S} from 7 to \qty{28}{\day} of hydration.
 		Every specimen age was measured using three specimens. The graph on the right is a zoomed in section of the left graph, showing the data correlating to the gel pores.
-		Note, that the pore radius is undefined below \qty{-40}{\degreeCelsius} according to \textcite{brun.1977}.
+		Note, that the pore radius is undefined below \qty{-40}{\celsius} according to \textcite{brun.1977}.
 	}
     \label{fig:ltdsc_result_c2s_freeze_raw}
 \end{figure}
@@ -591,7 +591,7 @@ In this section, basic material characterisation data is presented, which are no
 				width=\linewidth,
 				height=7cm,
 				grid=none,
-				xlabel={temperature in \unit{\degreeCelsius}},
+				xlabel={temperature in \unit{\celsius}},
 				xticklabels={-51.2, -25.3, -12.4, -4.6, -2.0},
 				xtick={2.5,5,10,25,50},
 				ytick=\empty,
@@ -625,7 +625,7 @@ In this section, basic material characterisation data is presented, which are no
 
 
 			\addplot[dotted, thick, samples=2, darkgrey,forget plot] coordinates {(3.19,-.2)(3.19,.2)};
-			\node[darkgrey, rotate=90, anchor=west] at (axis cs: 2.8,-.12) {\scriptsize <\,\qty{-40}{\degreeCelsius}};
+			\node[darkgrey, rotate=90, anchor=west] at (axis cs: 2.8,-.12) {\scriptsize <\,\qty{-40}{\celsius}};
 
 			\ifdefined\DRAFTSIMPLIFY
 			\else
@@ -674,7 +674,7 @@ In this section, basic material characterisation data is presented, which are no
 			width=\linewidth,
 			height=7cm,
 			grid=none,
-			xlabel={temperature in \unit{\degreeCelsius}},
+			xlabel={temperature in \unit{\celsius}},
 			xticklabels={-73.3, -64.1, -56.9, -51.2, -46.5},
 			xtick={1.75,2.00,2.25,2.50,2.75},
 			ytick=\empty,
@@ -749,7 +749,7 @@ In this section, basic material characterisation data is presented, which are no
     \caption{
 		Raw \ac{LTDSC} curves for the second freezing pass of \ac{C3S} from \num{1} to \qty{28}{\day} of hydration. Every specimen age was measured using three specimens.
 		On the right is a magnified section, highlighting the data correlating to the gel pores.
-		Note, that the pore radius is undefined below \qty{-40}{\degreeCelsius} according to \textcite{brun.1977}.
+		Note, that the pore radius is undefined below \qty{-40}{\celsius} according to \textcite{brun.1977}.
 	}
     \label{fig:ltdsc_result_C3S_freeze_raw}
 \end{figure}
@@ -782,7 +782,7 @@ In this section, basic material characterisation data is presented, which are no
 			width=.83\linewidth,
 			height=.25\textheight,
 			xlabel={time in \unit{\second}},
-			ylabel={temperature in \unit{\degreeCelsius}},
+			ylabel={temperature in \unit{\celsius}},
 			grid=none,
 			grid style={line width=.1pt, draw=gray!10}
 		  ]

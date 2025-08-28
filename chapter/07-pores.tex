@@ -290,7 +290,7 @@ Mehr als ein Bild analysieren, um die Reproduzierbarkeit zu prüfen.
 
 The glass standards were measured using a simplified temperature regimen.
 It also experienced ice crystal-inducing freeze-thaw cycles before the actual measurement.
-For the measurement, the water saturated specimen was then cooled down to \qty{-60}{\degreeCelsius} and heated up to \qty{20}{\degreeCelsius} at a cooling and heating rate of $\pm$\,\qty{2}{\kelvin\per\min}.
+For the measurement, the water saturated specimen was then cooled down to \qty{-60}{\celsius} and heated up to \qty{20}{\celsius} at a cooling and heating rate of $\pm$\,\qty{2}{\kelvin\per\min}.
 
 \begin{figure}[!htb]
     \centering
@@ -306,7 +306,7 @@ For the measurement, the water saturated specimen was then cooled down to \qty{-
 				width=\linewidth,
 				height=6cm,
 				grid=none,
-				xlabel={temperature in \unit{\degreeCelsius}},
+				xlabel={temperature in \unit{\celsius}},
 				xticklabels={-51.2, -25.3, -12.4, -4.6, -2.0},
 				xtick={2.5,5,10,25,50},
 				ytick=\empty,
@@ -342,7 +342,7 @@ For the measurement, the water saturated specimen was then cooled down to \qty{-
 				scaled x ticks=false,
             ]
 			  \addplot[dotted, thick, samples=2, darkgrey,forget plot] coordinates {(3.19,-.2)(3.19,.2)};
-			  \node[darkgrey, rotate=90, anchor=west] at (axis cs: 2.6,-.06) {\scriptsize <\,\qty{-40}{\degreeCelsius}!};
+			  \node[darkgrey, rotate=90, anchor=west] at (axis cs: 2.6,-.06) {\scriptsize <\,\qty{-40}{\celsius}!};
 
 			\addplot [ no marks, blue] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/glass/ExpDat_2.1-5nm_freeze_segment_18.csv};
 			\addplot [ no marks, blue,forget plot, dashed] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/glass/ExpDat_2.2-5nm_freeze_segment_18.csv};
@@ -365,7 +365,7 @@ For the measurement, the water saturated specimen was then cooled down to \qty{-
 					width=\linewidth,
 					height=6cm,
 					grid=none,
-					xlabel={temperature in \unit{\degreeCelsius}},
+					xlabel={temperature in \unit{\celsius}},
 					xticklabels={-51.2, -25.3, -12.4, -4.6, -2.0},
 					xtick={2.5,5,10,25,50},
 					ytick=\empty,
@@ -399,7 +399,7 @@ For the measurement, the water saturated specimen was then cooled down to \qty{-
 				yticklabel pos=right,
 			]
 			  \addplot[dotted, thick, samples=2, darkgrey,forget plot] coordinates {(3.19,-.2)(3.19,0)};
-			  \node[darkgrey, rotate=90, anchor=west] at (axis cs: 2.6,-.06) {\scriptsize <\,\qty{-40}{\degreeCelsius}!};
+			  \node[darkgrey, rotate=90, anchor=west] at (axis cs: 2.6,-.06) {\scriptsize <\,\qty{-40}{\celsius}!};
 
 			  \addplot [ no marks, orange,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/glass/ExpDat_1.1-20nm_freeze_segment_18.csv};
 			  \addplot [ no marks, orange,forget plot, dashed] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/glass/ExpDat_1.2-20nm_freeze_segment_18.csv};
@@ -525,7 +525,7 @@ It was not possible to measure \ac{C2S} after \qty{1}{\day} of hydration, since 
 				width=\linewidth,
 				height=6cm,
 				grid=none,
-				xlabel={temperature in \unit{\degreeCelsius}},
+				xlabel={temperature in \unit{\celsius}},
 				xticklabels={-51.2, -25.3, -12.4, -4.6, -2.0},
 				xtick={2.5,5,10,25,50},
 				ytick=\empty,
@@ -558,7 +558,7 @@ It was not possible to measure \ac{C2S} after \qty{1}{\day} of hydration, since 
 				scaled x ticks=false,
             ]
 			\addplot[dotted, thick, samples=2, darkgrey,forget plot] coordinates {(3.19,-.2)(3.19,.2)};
-			\node[darkgrey, rotate=90, anchor=west] at (axis cs: 2.51,-.105) {\scriptsize <\,\qty{-40}{\degreeCelsius}};
+			\node[darkgrey, rotate=90, anchor=west] at (axis cs: 2.51,-.105) {\scriptsize <\,\qty{-40}{\celsius}};
 
 			% std dev of 7d C2S
             \addplot+ [draw=none, no markers, name path=A,forget plot] table [each nth point=4,filter discard warning=false, unbounded coords=discard, x index=3, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}, ] {figures/ltdsc/C2S_7d_mean_freeze_segment.csv};
@@ -610,7 +610,7 @@ It was not possible to measure \ac{C2S} after \qty{1}{\day} of hydration, since 
 			width=\linewidth,
 			height=6cm,
 			grid=none,
-			xlabel={temperature in \unit{\degreeCelsius}},
+			xlabel={temperature in \unit{\celsius}},
 			xticklabels={-73.3, -64.1, -56.9, -51.2, -46.5},
 			xtick={1.75,2.00,2.25,2.50,2.75},
 			ytick=\empty,
@@ -715,7 +715,7 @@ The \ac{LTDSC} curves from the second freezing pass (P2) are plotted in \zcref{f
 				width=\linewidth,
 				height=6cm,
 				grid=none,
-				xlabel={temperature in \unit{\degreeCelsius}},
+				xlabel={temperature in \unit{\celsius}},
 				xticklabels={-51.2, -25.3, -12.4, -4.6, -2.0},
 				xtick={2.5,5,10,25,50},
 				ytick=\empty,
@@ -748,7 +748,7 @@ The \ac{LTDSC} curves from the second freezing pass (P2) are plotted in \zcref{f
 				scaled x ticks=false,
             ]
 			\addplot[dotted, thick, samples=2, darkgrey,forget plot] coordinates {(3.19,-.2)(3.19,.2)};
-			\node[darkgrey, rotate=90, anchor=west] at (axis cs: 2.51,-.105) {\scriptsize <\,\qty{-40}{\degreeCelsius}};
+			\node[darkgrey, rotate=90, anchor=west] at (axis cs: 2.51,-.105) {\scriptsize <\,\qty{-40}{\celsius}};
 
 			% std dev of 1d C3S
             \addplot+ [draw=none, no markers, name path=A,forget plot] table [each nth point=4,filter discard warning=false, unbounded coords=discard, x index=3, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}, ] {figures/ltdsc/C3S_1d_mean_freeze_segment.csv};
@@ -807,7 +807,7 @@ The \ac{LTDSC} curves from the second freezing pass (P2) are plotted in \zcref{f
 			width=\linewidth,
 			height=6cm,
 			grid=none,
-			xlabel={temperature in \unit{\degreeCelsius}},
+			xlabel={temperature in \unit{\celsius}},
 			xticklabels={-73.3, -64.1, -56.9, -51.2, -46.5},
 			xtick={1.75,2.00,2.25,2.50,2.75},
 			ytick=\empty,
@@ -968,11 +968,11 @@ The red area represents the gel pore volume, while the yellow area represents th
     \label{fig:ltdsc_result_c2s_melt}
 \end{figure}
 
-The melting curve shows two distinctive peaks, one at \qty{0}{\degreeCelsius} and one at \qty{2}{\degreeCelsius}.
-This indicates, that the heating rate of \qty{2}{\kelvin\per\minute} was higher than the inertia of the melting process, as the ice should melt at or before \qty{0}{\degreeCelsius}, but is delayed due to the fast temperature change (\qty{2}{\kelvin\per\minute}).
+The melting curve shows two distinctive peaks, one at \qty{0}{\celsius} and one at \qty{2}{\celsius}.
+This indicates, that the heating rate of \qty{2}{\kelvin\per\minute} was higher than the inertia of the melting process, as the ice should melt at or before \qty{0}{\celsius}, but is delayed due to the fast temperature change (\qty{2}{\kelvin\per\minute}).
 
 Therefore, an experiment comparing a slower heating rate (\qty{0.5}{\kelvin\per\minute}) was carried out (\zcref{fig:ltdsc_result_heating_rate_a}).
-This results in a shift of the melting peak in the direction of \qty{0}{\degreeCelsius} and a seemingly smaller heat output.
+This results in a shift of the melting peak in the direction of \qty{0}{\celsius} and a seemingly smaller heat output.
 However, difference in peak height is caused by a change in the measuring interval.
 To mitigate this, the dashed curve indicates the heat flow $\dot{Q}$ of the \qty{0.5}{\kelvin\per\minute} heat rate, corrected for the interval difference . %TODO: ist das legitim?
 
@@ -1118,7 +1118,7 @@ To mitigate this, the dashed curve indicates the heat flow $\dot{Q}$ of the \qty
 
 	\end{subfigure}
 
-    \caption{\ac{LTDSC} curves and the cumulative ice volume for a slow (\qty{0.5}{\kelvin\per\minute}) and fast (\qty{2}{\kelvin\per\minute}) heating curves from \qtyrange{-50}{15}{\degreeCelsius} of \qty{28}{\day} hydrated cement (\ac{wb} = \num{0.5}).}
+    \caption{\ac{LTDSC} curves and the cumulative ice volume for a slow (\qty{0.5}{\kelvin\per\minute}) and fast (\qty{2}{\kelvin\per\minute}) heating curves from \qtyrange{-50}{15}{\celsius} of \qty{28}{\day} hydrated cement (\ac{wb} = \num{0.5}).}
     \label{fig:ltdsc_result_heating_rate}
 \end{figure}
 
@@ -1131,7 +1131,7 @@ Therefore, the temperature ranges used for this correction were held constant fo
 This should still enable comparability between different measurements, run with the same heating rates.
 
 % The cumulative ice mass calculated using both methods is shown in \zcref{fig:ltdsc_result_heating_rate_b}.
-% As can be seen in the zoomed in section, the manual approach gives more plausible curves, starting at roughly \qty{-47}{\degreeCelsius}, while the automatic approach seems to loose ice mass until \num{-38} ore \qty{-34}{\degreeCelsius}.
+% As can be seen in the zoomed in section, the manual approach gives more plausible curves, starting at roughly \qty{-47}{\celsius}, while the automatic approach seems to loose ice mass until \num{-38} ore \qty{-34}{\celsius}.
 % This is caused by the intersection point of the base line corrected raw data with the x-axis.
 
 While a slower heating rate causes improved results, the time required for a single measurement was deemed unpractical.
@@ -1280,7 +1280,7 @@ Therefore, it has been decided to use a faster heating rate of \qty{2}{\kelvin\p
     \caption{
 		Ice volume for the two pore types and total pore amount of \ac{C3S} and \ac{C3S} from 1 to \qty{28}{\day} of hydration.
 		The data were calculated from three \ac{LTDSC}-measurements for each value.
-		The baseline correction was done using temperature range from a lower range of \qtyrange{-21.5}{-20.5}{\degreeCelsius} (capillary pores) and \qtyrange{-57}{-56}{\degreeCelsius} (gel pores) and \qtyrange{9}{10}{\degreeCelsius} in the upper range.
+		The baseline correction was done using temperature range from a lower range of \qtyrange{-21.5}{-20.5}{\celsius} (capillary pores) and \qtyrange{-57}{-56}{\celsius} (gel pores) and \qtyrange{9}{10}{\celsius} in the upper range.
 	}
 	\label{fig:ltdsc_result_melt_bar}
 \end{figure}
@@ -1311,7 +1311,7 @@ These observations fit well to the microstructural development visible in \ac{SE
 
 \zcref{fig:mip_c2s, fig:mip_c3s} illustrate the \ac{MIP} results for \ac{C2S} and \ac{C3S} after up to \qty{28}{\day} of hydration in comparison to the second freezing curves of the \ac{LTDSC}-measurements.
 For these diagrams, the freeze curves were base line corrected.
-This was done by calculating the linear regression of the data between \numrange{-55}{-50} and \qtyrange{-27}{-23}{\degreeCelsius} and subtracting this regression function from the mean data shown in \zcref{fig:ltdsc_result_c2s_melt}.
+This was done by calculating the linear regression of the data between \numrange{-55}{-50} and \qtyrange{-27}{-23}{\celsius} and subtracting this regression function from the mean data shown in \zcref{fig:ltdsc_result_c2s_melt}.
 
 \begin{figure}[!htb]
     \centering
@@ -1333,7 +1333,7 @@ This was done by calculating the linear regression of the data between \numrange
 			width=.85\linewidth,
 			height=6cm,
 			grid=major,
-			xlabel={temperature in \unit{\degreeCelsius}},
+			xlabel={temperature in \unit{\celsius}},
 			xticklabels={-51.2, -25.3, -12.4, -4.6, -2.0},
 			xtick={2.5,5,10,25,50},
 			ylabel={heat flow $\dot{Q}$ in \unit{\watt\per\gram}},
@@ -1350,7 +1350,7 @@ This was done by calculating the linear regression of the data between \numrange
 		]
 
 			\addplot[dotted, thick, samples=2, darkgrey,forget plot] coordinates {(3.19,-.2)(3.19,.2)};
-			\node[darkgrey, rotate=90, anchor=west] at (axis cs: 2.50,-.035) {\scriptsize <\,\qty{-40}{\degreeCelsius}!};
+			\node[darkgrey, rotate=90, anchor=west] at (axis cs: 2.50,-.035) {\scriptsize <\,\qty{-40}{\celsius}!};
 
 			\addplot [ no marks, orange, forget plot, opacity=0.5] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=3, y index=4, col sep=comma] {figures/ltdsc/C2S_7d_mean_freeze_segment.csv};
 			\addplot [ no marks, red, forget plot, opacity=0.5] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=3, y index=4, col sep=comma] {figures/ltdsc/C2S_14d_mean_freeze_segment.csv};
@@ -1440,7 +1440,7 @@ This was done by calculating the linear regression of the data between \numrange
 				width=.85\linewidth,
 				height=6cm,
 				grid=major,
-				xlabel={temperature in \unit{\degreeCelsius}},
+				xlabel={temperature in \unit{\celsius}},
 				xticklabels={-51.2, -25.3, -12.4, -4.6, -2.0},
 				xtick={2.5,5,10,25,50},
 				ylabel={heat flow $\dot{Q}$ in \unit{\watt\per\gram}},
@@ -1457,7 +1457,7 @@ This was done by calculating the linear regression of the data between \numrange
 			]
 
 			\addplot[dotted, thick, samples=2, darkgrey,forget plot] coordinates {(3.19,-.2)(3.19,.2)};
-			\node[darkgrey, rotate=90, anchor=west] at (axis cs: 2.50,-.020) {\scriptsize <\,\qty{-40}{\degreeCelsius}!};
+			\node[darkgrey, rotate=90, anchor=west] at (axis cs: 2.50,-.020) {\scriptsize <\,\qty{-40}{\celsius}!};
 
             \addplot [ no marks, yellow, opacity=0.5, forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=3, y index=4, col sep=comma] {figures/ltdsc/C3S_1d_mean_freeze_segment.csv};
             \addplot [ no marks, orange, opacity=0.5, forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=3, y index=4, col sep=comma] {figures/ltdsc/C3S_7d_mean_freeze_segment.csv};
@@ -1533,7 +1533,7 @@ This was done by calculating the linear regression of the data between \numrange
     \label{fig:mip_c3s}
 \end{figure}
 
-The \ac{LTDSC} curves above \qty{-12.4}{\degreeCelsius} / \qty{10}{\nano\meter} are not reliable due to system inertia.
+The \ac{LTDSC} curves above \qty{-12.4}{\celsius} / \qty{10}{\nano\meter} are not reliable due to system inertia.
 This is because the rapid freezing rate shifts the capillary pore space and larger pores become indistinguishable.
 However, \ac{MIP} is considered fairly reliable above \qty{10}{\nano\meter}, while smaller pores are hardly detectable.
 Therefore, both methods cover different pore space ranges.

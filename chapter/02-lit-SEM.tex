@@ -253,12 +253,18 @@ While the first \ac{FIB}s were single beam devices, today combined \ac{FIB}-\ac{
     \label{fig:fib}
 \end{figure}
 
-The ion and the electron beam are arranged in an angle of \qty{52}{\degree}, while the ion beam hits the specimen in an angle of \qty{90}{\degree} as shown in \zcref{fig:fib_scheme}.
-The \ac{ROI} has to be in the eucentric point (point of rotation/intersection point of the electron and ion beam).
-This means, if the specimen is tilted, the point does not move in the live image and therefore is in the rotational center.
+The ion and electron beams are arranged at an angle of \qtyrange{50}{55}{\degree}\cite{taillon.2018}, while the ion beam strikes the specimen at an angle of \qty{90}{\degree}, as shown in \zcref{fig:fib_scheme}.
+The \ac{ROI} must be positioned at the eucentric point (the intersection point of the electron and ion beams).
+This means that if the specimen is tilted, the point remains stationary in the live image and is therefore at the center of rotation.
 
-These capabilities, allow to capture three-dimensional datasets using one or a combination of the detectors available (e.g. \ac{BSE}, \ac{EDX}, \ac{EBSD}).
+These capabilities allow the capture of three-dimensional datasets using one or a combination of the detectors available (e.g., \ac{BSE}, \ac{EDX}, \ac{EBSD}).
 In contrast to X-ray \ac{CT}, this method is intrinsically destructive.
+To prepare the \ac{ROI}, trenches must be cut around it, as illustrated in \zcref{fig:fib_top}.
+The \ac{ROI} can then be sliced and imaged within the bulk material.
+However, this can cause artefacts such as gradual shadowing \cite{joos.2011,taillon.2018,fager.2020}, which significantly reduce the usable volume in the vertical direction \cite{jiang.2023}.
+While this effect can be reduced in post-processing \cite{taillon.2018}, redeposition of material inside pores or in front of the \ac{ROI} is a significant issue, which can be mitigated by changing the trench geometry \cite{fager.2020}.
+Charging is another common issue in imaging non-conductive materials during \ac{FIB} serial sectioning \cite{fager.2020}, since the imaged surface is always uncoated and the trenches can `trap' charges.
+This can usually be reduced by applying conductive coatings (e.g., \ce{Pt}) within the \ac{SEM} or by changing the imaging parameters during data acquisition \cite{fager.2020}.
 
 % hier kann glaub noch ein bisschen was hin
 { \color{red}
@@ -287,19 +293,20 @@ This method is often used in the biological field to obtain 3D datasets of cells
 \label{sec:lit_sample_preparation}
 
 %X:\Mitarbeiter\Florian Kleiner\Einzelbilder\2020_07_07 C3S BSE ohne BIB\Anschliff BSE_020.tif
-\begin{wrapfigure}[14 ]{R}{0.6\linewidth}
-%\begin{figure}[H]
+%\begin{wrapfigure}[14 ]{R}{0.6\linewidth}
+\begin{figure}[H]
     \centering
     \vspace{-\intextsep}
-    \includegraphics[width=\linewidth]{literature/mech-pol.pdf}
+    \includegraphics[width=.7\linewidth]{literature/mech-pol.pdf}
 
-    \caption{\ac{BSE} image of a polished cross-section of resin embedded, hydrated \ac{C3S}.
+    \caption{
+        \ac{BSE} image of a polished cross-section of resin embedded, hydrated \ac{C3S}.
         The scratches and the oil residue are caused by the polishing process.
         The image was taken at \qty{1.5}{\kilo\volt}, \qty{0.8}{\nano\ampere} to make the surface more visible.
     }
     \label{fig:mech_polishing_damage}
-%\end{figure}
-\end{wrapfigure}
+\end{figure}
+%\end{wrapfigure}
 
 Detectors such as \ac{BSE} and \ac{EDX} provide the best results with the smoothest possible surfaces of sample cross-sections.
 Thus, resin embedding and mechanical polishing are very common methods to polish samples \cite{scrivener.2004}.
@@ -320,7 +327,7 @@ While mechanical polishing still can be good enough for many applications like \
 
 \Ac{ArBIB} sectioning is an alternative method to polish specimen surfaces \cite{harper.1983,grunewald.1987}.
 In a broad ion beam device, accelerated ions (e.g. \ce{Ar+}) are used to clean and polish the specimen surface.
-So prepared surfaces show limited damage to the nano-scale features of interest \cite{desbois.2009,desbois.2010},
+So prepared surfaces show limited damage to the nanoscale features of interest \cite{desbois.2009,desbois.2010},
 Furthermore, small pores are not filled with debris \cite{desbois.2009,desbois.2010}, which eliminates the need for resin intrusion \cite{desbois.2009}, while it is still possible to do so \cite{rossler.2017} and advisable for later segmentation purposes.
 
 \Ac{ArBIB} allows to polish large areas in the range of several \unit{\milli\meter\squared} \cite{hauffe.2003,desbois.2013}.

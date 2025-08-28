@@ -21,12 +21,12 @@ The following paragraphs are only intended to provide a brief overview of the mo
 
 Classical methods remove noise in the spatial domain.
 Linear filters (e.g. mean filtering) can easily lead to blurring of fine detail and edges in very noisy images.
-Non-linear filters like the \textit{median} and \textit{bilateral}\cite{tomasi.1998} filter provide edge-preserving noise reduction.
-More advanced classical filters like \ac{NLM}\cite{buades.2005} or total variation\cite{rudin.1992} are better at preserving edges.
+Non-linear filters like the \textit{median} \cite{huang.1979} and \textit{bilateral} \cite{tomasi.1998} filter provide edge-preserving noise reduction.
+More advanced classical filters like \ac{NLM} \cite{buades.2005} or total variation \cite{rudin.1992} are better at preserving edges.
 However, they also struggle with more complex noise patterns (e.g. low count \ac{EDX}) and can introduce artefacts.
 
 Transform techniques decompose the image into frequency components, allowing for selective noise reduction in specific domains like high-frequency noise (shot noise) or low-frequency, directional patterns (banding noise).
-One important representative filter is \ac{BM3D}\cite{dabov.2007}, which is a two-stage filtering method and an extension of the \ac{NLM} filter.
+One important representative filter is \ac{BM3D} \cite{dabov.2007}, which is a two-stage filtering method and an extension of the \ac{NLM} filter.
 These methods often provide good performance but can be computationally intensive and require careful selection of parameters.
 
 More recently, \ac{CNN}-based denoising methods were introduced.

@@ -49,7 +49,9 @@ Finally, the cube is transferred and then welded to a finger of the comb as show
     \centering
 
 	\includegraphics[width=\textwidth]{methods/fib_liftout/image095_colored.pdf}
-    \caption{\qty{20}{\micro\meter} wide specimen ({\color{green}A}). On the left is the needle welded to the specimen ({\color{blue}B}). They are navigated and welded to the copper comb ({\color{red}C}). The platinum vapor source ({\color{orange}D}) used for welding is visible on the right. \cite{kleiner.2021c}}
+    \caption{\qty{20}{\micro\meter} wide specimen ({\color{green}A}).
+	On the left is the needle welded to the specimen ({\color{blue}B}). They are navigated and welded to the copper comb ({\color{red}C}).
+	The platinum vapour source ({\color{orange}D}) used for welding is visible on the right. \cite{kleiner.2021c}}
     \label{fig:fib_liftout}
 \end{figure}
 
@@ -59,7 +61,7 @@ A detailed video of the \ac{FIBnt}-process, the required parameters, and potenti
 
 \section{Evaluation obstacles}
 
-Due to the sensitive nature of the hydrate phases (see \zcref{sec:beam_damage}), the operator must pay particular attention when analysing at higher voltages as for \ac{EDX} or \ac{EBSD} samples. 
+Due to the sensitive nature of the hydrate phases (see \zcref{sec:beam_damage}), the operator must pay particular attention when analysing at higher voltages as for \ac{EDX} or \ac{EBSD} samples.
 As shown in \zcref{fig:edx_damage}, an electron beam at \qty{6}{\kilo\volt} and a long exposure time can cause damage in the specimen which could be misinterpreted as porosity.
 The exposure time is the sum of the dwell time on each point and the frame count.
 But especially the frame count increases the risk of specimen damage.
@@ -113,20 +115,24 @@ If the image shift between the \ac{BSE} and \ac{EDX} images of the same slice is
 %Otherwise, additional registration steps, such as the use of landmarks or scale-adjusted transformations, are required to achieve accurate overlay of the datasets.
 
 Therefore, a python tool utilising \textit{napari} \cite{sofroniew.2025}, a graphical user interface to view and edit 2D and 3D image data, was developed.
-This workflow aligns, visualizes, and analyzes correlative \ac{BSE} and \ac{EDX} image stacks.
-First it loads the preprocessed in-plane translation data stored in the \textit{TrakEM2} project and the user has to provide the image scale and the slice thickness in \unit{\nano\meter\per\px}, if these information are not stored in the metadata of the files.
+This workflow aligns, visualizes, and analyses correlative \ac{BSE} and \ac{EDX} image stacks.
+First, it loads the preprocessed in-plane translation data stored in the \textit{TrakEM2} project and the user has to provide the image scale and the slice thickness in \unit{\nano\meter\per\px}, if these information are not stored in the metadata of the files.
 After denoising, landmark pairs between the first \ac{BSE} and \ac{EDX} image have to be provided by the user.
 This is then used to estimate an isotropic scale-and-translation transform for a good stack-to-stack alignment.
 
 Due to the geometry within the \ac{SEM}, the image stacks inherently have a systematically shift in the vertical direction \ac{SIFT}-algorithm.
-This can be compensated using a user-defined drift angle.
+This can be compensated using a user-defined angle.
+This angle depends mostly on the device geometry and the angle at which the cube is welded to the copper comb.
 
 {
 	\color{red} % has to be rewritten
-	Inter-slice intensity banding ($z$-banding) is then reduced via per-slice mean normalization.
+	Inter-slice intensity banding ($z$-banding) in the \ac{EDX} and brightness changes in the \ac{BSE} datasets are reduced via a normalization based on the mean brightness value of the overall stack.
 	The registered 3D \ac{BSE} and \ac{EDX} volumes are displayed in \textit{napari} with physically meaningful voxel scales.
 	The user then has to select an \ac{ROI}, which will be used for the further processing.
-	Within the \ac{ROI}, 3D \ac{SLIC} superpixels are computed on the \ac{BSE} volume.
-	For each superpixel, mean \ac{EDX} intensities (per element) are aggregated.
-	These superpixel-wise vectors are then standardized and clustered by $k$-means to identify material phases, yielding a 3D phase label volume that is directly overlaid in \textit{napari}.
+	Within the \ac{ROI}, 3D \ac{SLIC}O superpixels are computed on the denoised \ac{EDX} volume.
+	Similar to the basic idea of Multi\ac{SLIC}, three main elements (\ce{Ca}, \ce{Si}, \ce{Al}) are selected and set as individual RGB color channels in an image, from which the superpixels are generated.
+	This allows to use the standard implementations of \ac{SLIC} as found in \textit{OpenCV}.
+	For each superpixel, mean \ac{EDX} intensities are aggregated for each element from the raw \ac{EDX}-data.
+	These superpixel-wise vectors are then standardised and clustered using $k$-means in combination with \ac{UMAP}.
+	This allows to identify material phases, yielding a 3D phase label volume that is directly overlaid in \textit{napari}.
 }

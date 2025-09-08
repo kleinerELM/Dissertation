@@ -8,7 +8,8 @@ To address this, a standard material was utilised to test and compare selected m
 
 \section{Porous glass standard}
 Two porous glass standards (see \zcref{sec:boraglas}) were evaluated using \ac{SEM}, \ac{LTDSC}, and \ac{HNMR}.
-
+The glass standards were initially defined using \ac{MIP} by the manufacturer (\zcref{fig:vycor-mip}).% or \ce{N2}-ad/absorption.
+% TODO: die Endporosität wird normalerweise eher durch Engstellen (necks) definiert als durch die Bulk-porosität
 
 \subsection{\acs*{SEM}}
 
@@ -50,7 +51,7 @@ The pores can be segmented using a traditional thresholding method and the pore 
 However, areas with obvious damages due to the fracture process were excluded from the analysis.
 The results are shown in \zcref{fig:vicor-SEM}.
 As indicated by the inhomogeneous distribution of the segmented pores (see \zcref{fig:ltdsc-vycor-glass-c} and \zcref{fig:ltdsc-vycor-glass-d}), the selected threshold value is not producing a uniform thresholding result.
-	
+
 
 \begin{figure}[!htb]
     \centering
@@ -179,7 +180,7 @@ The measured pore radii measured using a traditional thresholding method are off
 
 \begin{figure}[htbp]
 	\centering
-	\begin{subfigure}[b]{0.46\textwidth} 
+	\begin{subfigure}[b]{0.46\textwidth}
 
 		\begin{tikzpicture}
 			\begin{axis}[
@@ -191,7 +192,7 @@ The measured pore radii measured using a traditional thresholding method are off
 				enlargelimits=false,            % Fit plot tightly to data range
 				axis on top,
 				point meta min=0,
-				xmin=0, xmax=50,
+				xmin=0, xmax=40,
 				ymin=0, ymax=190,
 				width=7.2cm,
 				height=6cm,
@@ -200,15 +201,15 @@ The measured pore radii measured using a traditional thresholding method are off
 					matrix plot*,         % Use matrix plot for heatmaps (starred version often better for coordinate input)
 					point meta=explicit,  % Color data is explicitly given in the 'meta' column
 					shader=flat,
-					mesh/cols=118,% 50,
-				] 
+					mesh/cols=49,% 50, %118
+				]
 				table [
 					x={Feret diameter [nm]}, % Column name for X coordinate
 					y={Blocksize (nm)},      % Column name for Y coordinate
 					meta={Normalized Frequency},        % Column name for the color value
 					col sep=comma,           % Specify comma as the column separator
 					header=true              % Indicate that the CSV file has a header row
-				] {figures/mip/vycor5nm.csv}; % Path to your CSV file
+				] {figures/mip/vycor5nm.crop.csv}; % Path to your CSV file
 			\end{axis}
 		\end{tikzpicture}
 		\caption{\qty{5}{\nano\meter} porous \textsc{VYCOR}-glass.}
@@ -216,7 +217,7 @@ The measured pore radii measured using a traditional thresholding method are off
 
 	\end{subfigure}
 	\hfill
-	\begin{subfigure}[b]{0.52\textwidth} 
+	\begin{subfigure}[b]{0.52\textwidth}
 
 		\begin{tikzpicture}
 			\begin{axis}[
@@ -230,7 +231,7 @@ The measured pore radii measured using a traditional thresholding method are off
 				colormap name=buw, 		 % Choose a colormap (others: hot, cool, jet, etc.)
 				view={0}{90},                   % Set view angles for a 2D top-down view
 				enlargelimits=false,            % Fit plot tightly to data range
-				point meta min=0,               % Optional: Set minimum value for the color axis 
+				point meta min=0,               % Optional: Set minimum value for the color axis
 				axis on top,
 				xmin=0, xmax=40,
 				ymin=0, ymax=190,
@@ -240,18 +241,18 @@ The measured pore radii measured using a traditional thresholding method are off
 				ytick=\empty,
 			]
 				\addplot [
-					matrix plot*,         % Use matrix plot for heatmaps (starred version often better for coordinate input)
-					point meta=explicit,  % Color data is explicitly given in the 'meta' column
+					matrix plot*,
+					point meta=explicit,
 					shader=flat,
-					mesh/cols=118,% 50,
-				] 
+					mesh/cols=49,
+				]
 				table [
-					x={Feret diameter [nm]}, % Column name for X coordinate
-					y={Blocksize (nm)},      % Column name for Y coordinate
-					meta={Normalized Frequency},        % Column name for the color value
-					col sep=comma,           % Specify comma as the column separator
-					header=true              % Indicate that the CSV file has a header row
-				] {figures/mip/vycor20nm.csv}; % Path to your CSV file
+					x={Feret diameter [nm]},
+					y={Blocksize (nm)},
+					meta={Normalized Frequency},
+					col sep=comma,
+					header=true
+				] {figures/mip/vycor20nm.crop.csv};
 			\end{axis}
 		\end{tikzpicture}
 		\caption{\qty{20}{\nano\meter} porous \textsc{VYCOR}-glass.}
@@ -626,7 +627,7 @@ It was not possible to measure \ac{C2S} after \qty{1}{\day} of hydration, since 
 				xmin=1.75, xmax=2.75,
 				ymin=-.11, ymax=-0.03,
 				y dir=reverse,
-				width=\linewidth,
+				width=.9\linewidth,
 				height=6cm,
 				grid=major,
 				xlabel={pore radius $r_\text{P}$ \unit{\nano\meter}},

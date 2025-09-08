@@ -84,8 +84,10 @@ In this case, the damage was visible for $\approx$ \qty{350}{\nano\meter}
 	\end{subfigure}
     \caption{
         Effect of \ac{EDX} at \qty{6}{\kilo\volt} after multiple scans on a hydrated \ac{C3S} surface, prepared using \ac{FIB}.
-        Sections of \ac{BSE}-images created during a \ac{FIBnt}-process, (\qty{2}{\kilo\volt}, \qty{2}{\pico\ampere}).
-    } % BeamCurrent=2e-010
+        Sections of \ac{BSE}-images (\qty{2}{\kilo\volt}, \qty{2}{\pico\ampere}) created during a \ac{FIBnt}-process, .
+    }
+	% BeamCurrent=2e-010
+	% TODO: how many frames and how much current was used for the damaged surface?
     \label{fig:edx_damage}
 \end{figure}
 
@@ -93,6 +95,8 @@ Solutions to this problem are to reduce the scanning duration or the electron be
 For the presented experiments, a even more reduced electron beam voltage was not applicable.
 Therefore, a very sensitive, windowless \ac{EDX}-detector was used and combined with the counts of a second, less-sensitive \ac{EDX}-detector, which yields only one-fifth of the counts of the windowless detector.
 The exposure time (\qty{60}{\micro\second}, 60 frames) and the current were reduced as low as possible, while leaving the beam voltage at \qty{10}{\kilo\volt}.
+% TODO: what dataset was used here?
+% TODO: reduced to 10µs/10 frames @10kV and 1.6nA
 
 This still results in a very noisy, low count \ac{EDX} dataset.
 However, it allows the distinction of the different main phases of the material.
@@ -108,6 +112,7 @@ Since the signal-to noise ratio of the \ac{EDX} element mappings are very low, a
 The main challenge for the dataset is the precise alignment of the acquired images.
 Drift during acquisition can cause a shift of the observed object between consecutive slices.
 For a single image stack, this issue can be addressed effectively using the \ac{SIFT} algorithm as implemented in \textit{TrakEM2} \cite{cardona.2012}, which allows for automated correction of in-plane translations.
+Furthermore, after the \ac{SIFT}-alignment the stack is often still systematically shifted about \qtyrange{30}{40}{\degree} caused by the geometry within the \ac{SEM} (see \ref{fig:fib_scheme}).
 
 However, aligning the \ac{EDX} dataset to the corresponding \ac{BSE} dataset is more challenging.
 Although the correspondence between \ac{BSE} and \ac{EDX} slices is known, the images differ in resolution and field of view.
@@ -136,3 +141,7 @@ This angle depends mostly on the device geometry and the angle at which the cube
 	These superpixel-wise vectors are then standardised and clustered using $k$-means in combination with \ac{UMAP}.
 	This allows to identify material phases, yielding a 3D phase label volume that is directly overlaid in \textit{napari}.
 }
+
+% TODO: compare different ways to get to the goal? - SLIC -> (direct/indirect with umap?) -> labeling; UNET
+% TODO: how good is the data alignment? What does this to the segmentation - see ANtons dataset
+% Wie ist das mit der Reliefstruktur und der Abschattung während EDX?

@@ -21,7 +21,7 @@ In this section, basic material characterisation data is presented, which are no
 \begin{table}[H]
 	\centering
 	\caption{
-		Phase composition of the CEM I {\color{red}used for \dots}, determined by \ac{XRD}.
+		Phase composition of the CEM I used for \ac{FIBnT} experiments, determined by \ac{XRD}.
 		All results are presented in \unit{\wtpercent}.
 	}
 	\begin{tabular}{lclc}
@@ -53,7 +53,7 @@ In this section, basic material characterisation data is presented, which are no
 		\begin{semilogxaxis}[%darkgreen,
 			xmin=0.04, xmax=500,
 			ymin=0, ymax=3.5,
-			width=.9\linewidth,
+			width=.95\linewidth,
 			height=.24\textheight,
 			xticklabels={0.04,0.1,1,10,100},
 			xtick={.04,.1,1,10,100},
@@ -79,7 +79,7 @@ In this section, basic material characterisation data is presented, which are no
 			axis y line*=right,
 			axis x line=none,
 			ylabel={Cumulative in \unit{\volpercent}},
-			width=.9\linewidth,
+			width=.95\linewidth,
 			height=.24\textheight,
             legend style={
 				at={(.01,0.97)},
@@ -113,7 +113,7 @@ In this section, basic material characterisation data is presented, which are no
 		\begin{semilogxaxis}[%red,
             xmin=0.04, xmax=500,
             ymin=0, ymax=1,
-            width=.9\linewidth,
+            width=.95\linewidth,
             height=.25\textheight,
 			xticklabels={0.04,0.1,1,10,100},
 			xtick={.04,.1,1,10,100},
@@ -139,7 +139,7 @@ In this section, basic material characterisation data is presented, which are no
 			axis y line*=right,
 			axis x line=none,
 			ylabel={Cumulative in \unit{\volpercent}},
-			width=.9\linewidth,
+			width=.95\linewidth,
 			height=.25\textheight,
             legend style={at={(.5,1.03)},anchor=south, style={column sep=4pt},text=black},
             legend columns = 2,
@@ -219,7 +219,7 @@ In this section, basic material characterisation data is presented, which are no
 		\begin{semilogxaxis}[%red,
             xmin=0.04, xmax=500,
             ymin=0, ymax=1,
-            width=.9\linewidth,
+            width=.95\linewidth,
             height=.25\textheight,
             legend style={at={(.5,1.03)},anchor=south, style={column sep=4pt}},
             legend columns = 2,
@@ -249,7 +249,7 @@ In this section, basic material characterisation data is presented, which are no
 			axis y line*=right,
 			axis x line=none,
 			ylabel={Cumulative in \unit{\volpercent}},
-			width=.9\linewidth,
+			width=.95\linewidth,
 			height=.25\textheight,
             legend style={at={(.5,1.03)},anchor=south, style={column sep=4pt},text=black},
             legend columns = 2,
@@ -460,24 +460,24 @@ In this section, basic material characterisation data is presented, which are no
 
 			\ifdefined\DRAFTSIMPLIFY
 			\else
-            \addplot [ no marks, orange] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_7d-1_freeze_segment_14.csv};
-            \addplot [ no marks, orange,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_7d-2_freeze_segment_14.csv};
-            \addplot [ no marks, orange,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_7d-3_freeze_segment_14.csv};
+            \addplot [ no marks, orange] table [x index=2, y index=1, col sep=comma] {figures/ltdsc/reduced/ExpDat_C2S_7d-1_freeze_segment_14.csv};
+            \addplot [ no marks, orange, forget plot] table [x index=2, y index=1, col sep=comma] {figures/ltdsc/reduced/ExpDat_C2S_7d-2_freeze_segment_14.csv};
+            \addplot [ no marks, orange,forget plot] table [x index=2, y index=1, col sep=comma] {figures/ltdsc/reduced/ExpDat_C2S_7d-3_freeze_segment_14.csv};
             %\addlegendentry{\ac{C2S}, \qty{7}{\day}};
 
-            \addplot [ no marks, red] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_14d-1_freeze_segment_14.csv};
-            \addplot [ no marks, red,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_14d-2_freeze_segment_14.csv};
-            \addplot [ no marks, red,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_14d-3_freeze_segment_14.csv};
+            \addplot [ no marks, red] table [x index=2, y index=1, col sep=comma] {figures/ltdsc/reduced/ExpDat_C2S_14d-1_freeze_segment_14.csv};
+            \addplot [ no marks, red,forget plot] table [x index=2, y index=1, col sep=comma] {figures/ltdsc/reduced/ExpDat_C2S_14d-2_freeze_segment_14.csv};
+            \addplot [ no marks, red,forget plot] table [x index=2, y index=1, col sep=comma] {figures/ltdsc/reduced/ExpDat_C2S_14d-3_freeze_segment_14.csv};
             %\addlegendentry{\ac{C2S}, \qty{14}{\day}};
 
-            \addplot [ no marks, green] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_21d-1_freeze_segment_14.csv};
-            \addplot [ no marks, green,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_21d-2_freeze_segment_14.csv};
-            \addplot [ no marks, green,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_21d-3_freeze_segment_14.csv};
+            \addplot [ no marks, green] table [x index=2, y index=1, col sep=comma] {figures/ltdsc/reduced/ExpDat_C2S_21d-1_freeze_segment_14.csv};
+            \addplot [ no marks, green,forget plot] table [x index=2, y index=1, col sep=comma] {figures/ltdsc/reduced/ExpDat_C2S_21d-2_freeze_segment_14.csv};
+            \addplot [ no marks, green,forget plot] table [x index=2, y index=1, col sep=comma] {figures/ltdsc/reduced/ExpDat_C2S_21d-3_freeze_segment_14.csv};
             %\addlegendentry{\ac{C2S}, \qty{21}{\day}};
 
-            \addplot [ no marks, blue] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_28d-1_freeze_segment_14.csv};
-            \addplot [ no marks, blue,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_28d-2_freeze_segment_14.csv};
-            \addplot [ no marks, blue,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_28d-3_freeze_segment_14.csv};
+            \addplot [ no marks, blue] table [x index=2, y index=1, col sep=comma] {figures/ltdsc/reduced/ExpDat_C2S_28d-1_freeze_segment_14.csv};
+            \addplot [ no marks, blue,forget plot] table [x index=2, y index=1, col sep=comma] {figures/ltdsc/reduced/ExpDat_C2S_28d-2_freeze_segment_14.csv};
+            \addplot [ no marks, blue,forget plot] table [x index=2, y index=1, col sep=comma] {figures/ltdsc/reduced/ExpDat_C2S_28d-3_freeze_segment_14.csv};
             %\addlegendentry{\ac{C2S}, \qty{28}{\day}};
 			\fi
 
@@ -498,7 +498,7 @@ In this section, basic material characterisation data is presented, which are no
 			xmin=1.75, xmax=2.75,
 			ymin=-.11, ymax=-0.03,
 			y dir=reverse,
-			width=\linewidth,
+			width=.9\linewidth,
 			height=7cm,
 			grid=none,
 			xlabel={temperature in \unit{\celsius}},
@@ -517,7 +517,7 @@ In this section, basic material characterisation data is presented, which are no
 				xmin=1.75, xmax=2.75,
 				ymin=-.11, ymax=-0.03,
 				y dir=reverse,
-				width=\linewidth,
+				width=.9\linewidth,
 				height=7cm,
 				grid=major,
 				xlabel={pore radius $r_\text{P}$ \unit{\nano\meter}},
@@ -537,26 +537,26 @@ In this section, basic material characterisation data is presented, which are no
 
 			\ifdefined\DRAFTSIMPLIFY
 			\else
-			\addplot+[restrict x to domain=1.5:5, no marks, orange] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_7d-1_freeze_segment_14.csv};
-			\addplot+[restrict x to domain=1.5:5, no marks, orange,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_7d-2_freeze_segment_14.csv};
-			\addplot+[restrict x to domain=1.5:5,no marks, orange,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_7d-3_freeze_segment_14.csv};
+			\addplot+[no marks, orange] table [ x index=2, y index=1, col sep=comma] {figures/ltdsc/reduced/zoom/ExpDat_C2S_7d-1_freeze_segment_14.csv};
+			\addplot+[no marks, orange,forget plot] table [ x index=2, y index=1, col sep=comma] {figures/ltdsc/reduced/zoom/ExpDat_C2S_7d-2_freeze_segment_14.csv};
+			\addplot+[no marks, orange,forget plot] table [ x index=2, y index=1, col sep=comma] {figures/ltdsc/reduced/zoom/ExpDat_C2S_7d-3_freeze_segment_14.csv};
 			\addlegendentry{\qty{7}{\day}};
 
-			\addplot+[restrict x to domain=1.5:5, no marks, red] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_14d-1_freeze_segment_14.csv};
-			\addplot+[restrict x to domain=1.5:5, no marks, red,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_14d-2_freeze_segment_14.csv};
-			\addplot+[restrict x to domain=1.5:5,no marks, red,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_14d-3_freeze_segment_14.csv};
+			\addplot+[no marks, red] table [ x index=2, y index=1, col sep=comma] {figures/ltdsc/reduced/zoom/ExpDat_C2S_14d-1_freeze_segment_14.csv};
+			\addplot+[no marks, red,forget plot] table [ x index=2, y index=1, col sep=comma] {figures/ltdsc/reduced/zoom/ExpDat_C2S_14d-2_freeze_segment_14.csv};
+			\addplot+[no marks, red,forget plot] table [ x index=2, y index=1, col sep=comma] {figures/ltdsc/reduced/zoom/ExpDat_C2S_14d-3_freeze_segment_14.csv};
 			\addlegendentry{\qty{14}{\day}};
 
 
-			\addplot+[restrict x to domain=1.5:5, no marks, green] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_21d-1_freeze_segment_14.csv};
-			\addplot+[restrict x to domain=1.5:5, no marks, green,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_21d-2_freeze_segment_14.csv};
-			\addplot+[restrict x to domain=1.5:5,no marks, green,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_21d-3_freeze_segment_14.csv};
+			\addplot+[no marks, green] table [ x index=2, y index=1, col sep=comma] {figures/ltdsc/reduced/zoom/ExpDat_C2S_21d-1_freeze_segment_14.csv};
+			\addplot+[no marks, green,forget plot] table [ x index=2, y index=1, col sep=comma] {figures/ltdsc/reduced/zoom/ExpDat_C2S_21d-2_freeze_segment_14.csv};
+			\addplot+[no marks, green,forget plot] table [ x index=2, y index=1, col sep=comma] {figures/ltdsc/reduced/zoom/ExpDat_C2S_21d-3_freeze_segment_14.csv};
 			\addlegendentry{\qty{21}{\day}};
 
 
-			\addplot+[restrict x to domain=1.5:5, no marks, blue] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_28d-1_freeze_segment_14.csv};
-			\addplot+[restrict x to domain=1.5:5, no marks, blue,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_28d-2_freeze_segment_14.csv};
-			\addplot+[restrict x to domain=1.5:5,no marks, blue,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_28d-3_freeze_segment_14.csv};
+			\addplot+[no marks, blue] table [ x index=2, y index=1, col sep=comma] {figures/ltdsc/reduced/zoom/ExpDat_C2S_28d-1_freeze_segment_14.csv};
+			\addplot+[no marks, blue,forget plot] table [ x index=2, y index=1, col sep=comma] {figures/ltdsc/reduced/zoom/ExpDat_C2S_28d-2_freeze_segment_14.csv};
+			\addplot+[no marks, blue,forget plot] table [ x index=2, y index=1, col sep=comma] {figures/ltdsc/reduced/zoom/ExpDat_C2S_28d-3_freeze_segment_14.csv};
 			\addlegendentry{\qty{28}{\day}};
 			\fi
 			\node[draw=none] (top-2) at (axis cs:1.75,-.11) {};
@@ -629,29 +629,25 @@ In this section, basic material characterisation data is presented, which are no
 
 			\ifdefined\DRAFTSIMPLIFY
 			\else
-            \addplot [ no marks, yellow] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_1d-1_freeze_segment_14.csv};
-            \addplot [ no marks, yellow,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_1d-2_freeze_segment_14.csv};
-            \addplot [ no marks, yellow,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_1d-3_freeze_segment_14.csv};
-
-            \addplot [ no marks, orange] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_7d-1_freeze_segment_14.csv};
-            \addplot [ no marks, orange,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_7d-2_freeze_segment_14.csv};
-            \addplot [ no marks, orange,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_7d-3_freeze_segment_14.csv};
-            %\addlegendentry{\ac{C3S}, \qty{7}{\day}};
-
-            \addplot [ no marks, red] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_14d-1_freeze_segment_14.csv};
-            \addplot [ no marks, red,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_14d-2_freeze_segment_14.csv};
-            \addplot [ no marks, red,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_14d-3_freeze_segment_14.csv};
-            %\addlegendentry{\ac{C3S}, \qty{14}{\day}};
-
-            \addplot [ no marks, green] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_21d-1_freeze_segment_14.csv};
-            \addplot [ no marks, green,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_21d-2_freeze_segment_14.csv};
-            \addplot [ no marks, green,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_21d-3_freeze_segment_14.csv};
-            %\addlegendentry{\ac{C3S}, \qty{21}{\day}};
-
-            \addplot [ no marks, blue] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_28d-1_freeze_segment_14.csv};
-            \addplot [ no marks, blue,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_28d-2_freeze_segment_14.csv};
-            \addplot [ no marks, blue,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_28d-3_freeze_segment_14.csv};
-            %\addlegendentry{\ac{C3S}, \qty{28}{\day}};
+			\addplot [ no marks, yellow] table [x index=2, y index=1, col sep=comma] {figures/ltdsc/reduced/ExpDat_C3S_1d-1_freeze_segment_14.csv};
+			\addplot [ no marks, yellow,forget plot] table [x index=2, y index=1, col sep=comma] {figures/ltdsc/reduced/ExpDat_C3S_1d-2_freeze_segment_14.csv};
+			\addplot [ no marks, yellow,forget plot] table [x index=2, y index=1, col sep=comma] {figures/ltdsc/reduced/ExpDat_C3S_1d-3_freeze_segment_14.csv};
+			
+			\addplot [ no marks, orange] table [x index=2, y index=1, col sep=comma] {figures/ltdsc/reduced/ExpDat_C3S_7d-1_freeze_segment_14.csv};
+			\addplot [ no marks, orange,forget plot] table [x index=2, y index=1, col sep=comma] {figures/ltdsc/reduced/ExpDat_C3S_7d-2_freeze_segment_14.csv};
+			\addplot [ no marks, orange,forget plot] table [x index=2, y index=1, col sep=comma] {figures/ltdsc/reduced/ExpDat_C3S_7d-3_freeze_segment_14.csv};
+			
+			\addplot [ no marks, red] table [x index=2, y index=1, col sep=comma] {figures/ltdsc/reduced/ExpDat_C3S_14d-1_freeze_segment_14.csv};
+			\addplot [ no marks, red,forget plot] table [x index=2, y index=1, col sep=comma] {figures/ltdsc/reduced/ExpDat_C3S_14d-2_freeze_segment_14.csv};
+			\addplot [ no marks, red,forget plot] table [x index=2, y index=1, col sep=comma] {figures/ltdsc/reduced/ExpDat_C3S_14d-3_freeze_segment_14.csv};
+			
+			\addplot [ no marks, green] table [x index=2, y index=1, col sep=comma] {figures/ltdsc/reduced/ExpDat_C3S_21d-1_freeze_segment_14.csv};
+			\addplot [ no marks, green,forget plot] table [x index=2, y index=1, col sep=comma] {figures/ltdsc/reduced/ExpDat_C3S_21d-2_freeze_segment_14.csv};
+			\addplot [ no marks, green,forget plot] table [x index=2, y index=1, col sep=comma] {figures/ltdsc/reduced/ExpDat_C3S_21d-3_freeze_segment_14.csv};
+			
+			\addplot [ no marks, blue] table [x index=2, y index=1, col sep=comma] {figures/ltdsc/reduced/ExpDat_C3S_28d-1_freeze_segment_14.csv};
+			\addplot [ no marks, blue,forget plot] table [x index=2, y index=1, col sep=comma] {figures/ltdsc/reduced/ExpDat_C3S_28d-2_freeze_segment_14.csv};
+			\addplot [ no marks, blue,forget plot] table [x index=2, y index=1, col sep=comma] {figures/ltdsc/reduced/ExpDat_C3S_28d-3_freeze_segment_14.csv};
 			\fi
 
 			\draw[draw=black, densely dotted] (2.75,-.11) rectangle (1.75,-0.03);
@@ -671,7 +667,7 @@ In this section, basic material characterisation data is presented, which are no
 			xmin=1.75, xmax=2.75,
 			ymin=-.11, ymax=-0.03,
 			y dir=reverse,
-			width=\linewidth,
+			width=.9\linewidth,
 			height=7cm,
 			grid=none,
 			xlabel={temperature in \unit{\celsius}},
@@ -690,7 +686,7 @@ In this section, basic material characterisation data is presented, which are no
 				xmin=1.75, xmax=2.75,
 				ymin=-.11, ymax=-0.03,
 				y dir=reverse,
-				width=\linewidth,
+				width=.9\linewidth,
 				height=7cm,
 				grid=major,
 				xlabel={pore radius $r_\text{P}$ \unit{\nano\meter}},
@@ -710,29 +706,29 @@ In this section, basic material characterisation data is presented, which are no
 
 			\ifdefined\DRAFTSIMPLIFY
 			\else
-			\addplot+[restrict x to domain=1.5:5, no marks, yellow] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_1d-1_freeze_segment_14.csv};
-			\addplot+[restrict x to domain=1.5:5, no marks, yellow,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_1d-2_freeze_segment_14.csv};
-			\addplot+[restrict x to domain=1.5:5,no marks, yellow,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_1d-3_freeze_segment_14.csv};
+			\addplot+[no marks, yellow] table [ x index=2, y index=1, col sep=comma] {figures/ltdsc/reduced/zoom/ExpDat_C3S_1d-1_freeze_segment_14.csv};
+			\addplot+[no marks, yellow,forget plot] table [ x index=2, y index=1, col sep=comma] {figures/ltdsc/reduced/zoom/ExpDat_C3S_1d-2_freeze_segment_14.csv};
+			\addplot+[no marks, yellow,forget plot] table [ x index=2, y index=1, col sep=comma] {figures/ltdsc/reduced/zoom/ExpDat_C3S_1d-3_freeze_segment_14.csv};
 			\addlegendentry{\qty{1}{\day}};
 
-			\addplot+[restrict x to domain=1.5:5, no marks, orange] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_7d-1_freeze_segment_14.csv};
-			\addplot+[restrict x to domain=1.5:5, no marks, orange,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_7d-2_freeze_segment_14.csv};
-			\addplot+[restrict x to domain=1.5:5,no marks, orange,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_7d-3_freeze_segment_14.csv};
+			\addplot+[no marks, orange] table [ x index=2, y index=1, col sep=comma] {figures/ltdsc/reduced/zoom/ExpDat_C3S_7d-1_freeze_segment_14.csv};
+			\addplot+[no marks, orange,forget plot] table [ x index=2, y index=1, col sep=comma] {figures/ltdsc/reduced/zoom/ExpDat_C3S_7d-2_freeze_segment_14.csv};
+			\addplot+[no marks, orange,forget plot] table [ x index=2, y index=1, col sep=comma] {figures/ltdsc/reduced/zoom/ExpDat_C3S_7d-3_freeze_segment_14.csv};
 			\addlegendentry{\qty{7}{\day}};
 
-			\addplot+[restrict x to domain=1.5:5, no marks, red] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_14d-1_freeze_segment_14.csv};
-			\addplot+[restrict x to domain=1.5:5, no marks, red,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_14d-2_freeze_segment_14.csv};
-			\addplot+[restrict x to domain=1.5:5,no marks, red,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_14d-3_freeze_segment_14.csv};
+			\addplot+[no marks, red] table [ x index=2, y index=1, col sep=comma] {figures/ltdsc/reduced/zoom/ExpDat_C3S_14d-1_freeze_segment_14.csv};
+			\addplot+[no marks, red,forget plot] table [ x index=2, y index=1, col sep=comma] {figures/ltdsc/reduced/zoom/ExpDat_C3S_14d-2_freeze_segment_14.csv};
+			\addplot+[no marks, red,forget plot] table [ x index=2, y index=1, col sep=comma] {figures/ltdsc/reduced/zoom/ExpDat_C3S_14d-3_freeze_segment_14.csv};
 			\addlegendentry{\qty{14}{\day}};
 
-			\addplot+[restrict x to domain=1.5:5, no marks, green] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_21d-1_freeze_segment_14.csv};
-			\addplot+[restrict x to domain=1.5:5, no marks, green,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_21d-2_freeze_segment_14.csv};
-			\addplot+[restrict x to domain=1.5:5,no marks, green,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_21d-3_freeze_segment_14.csv};
+			\addplot+[no marks, green] table [ x index=2, y index=1, col sep=comma] {figures/ltdsc/reduced/zoom/ExpDat_C3S_21d-1_freeze_segment_14.csv};
+			\addplot+[no marks, green,forget plot] table [ x index=2, y index=1, col sep=comma] {figures/ltdsc/reduced/zoom/ExpDat_C3S_21d-2_freeze_segment_14.csv};
+			\addplot+[no marks, green,forget plot] table [ x index=2, y index=1, col sep=comma] {figures/ltdsc/reduced/zoom/ExpDat_C3S_21d-3_freeze_segment_14.csv};
 			\addlegendentry{\qty{21}{\day}};
 
-			\addplot+[restrict x to domain=1.5:5, no marks, blue, solid] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_28d-1_freeze_segment_14.csv};
-			\addplot+[restrict x to domain=1.5:5, no marks, blue, solid,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_28d-2_freeze_segment_14.csv};
-			\addplot+[restrict x to domain=1.5:5,no marks, blue, solid,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C3S_28d-3_freeze_segment_14.csv};
+			\addplot+[no marks, blue, solid] table [ x index=2, y index=1, col sep=comma] {figures/ltdsc/reduced/zoom/ExpDat_C3S_28d-1_freeze_segment_14.csv};
+			\addplot+[no marks, blue, solid,forget plot] table [ x index=2, y index=1, col sep=comma] {figures/ltdsc/reduced/zoom/ExpDat_C3S_28d-2_freeze_segment_14.csv};
+			\addplot+[no marks, blue, solid,forget plot] table [ x index=2, y index=1, col sep=comma] {figures/ltdsc/reduced/zoom/ExpDat_C3S_28d-3_freeze_segment_14.csv};
 			\addlegendentry{\qty{28}{\day}};
 			\fi
 
@@ -779,7 +775,7 @@ In this section, basic material characterisation data is presented, which are no
 			ymin=-160, ymax=25,
 			axis y line*=left,
 			ytick={-150, -100, -50, 0,25},
-			width=.83\linewidth,
+			width=.9\linewidth,
 			height=.25\textheight,
 			xlabel={time in \unit{\second}},
 			ylabel={temperature in \unit{\celsius}},
@@ -804,7 +800,7 @@ In this section, basic material characterisation data is presented, which are no
 					/pgf/number format/precision=2,
 					/pgf/number format/fixed zerofill,
 			},
-			width=.83\linewidth,
+			width=.9\linewidth,
 			height=.25\textheight,
 			grid=none,
 		]
@@ -825,12 +821,14 @@ In this section, basic material characterisation data is presented, which are no
 \begin{table}[H]
 	\centering
 	\caption{
-		Metadata of the \ac{SEM}-images used for the particle distance measurements. $A_\text{unusable}$ is the area of the image containing other phases or artifacts, which were manually excluded.
+		Metadata of the \ac{SEM}-images used for the particle distance measurements.
+		$A_\text{unusable}$ is the area of the image containing other phases or artifacts, which were manually excluded.
 		$A_\text{sol}$ and $A_\text{solids}$ are the areas of the solution and solid phases, respectively.
+		$n$ represents the corresponding particle count.
 	}
 	\begin{tabular}{lcccccc}
 		\toprule
-		Figure & Scaling & $A_\text{usable}$ & $A_\text{sol}$ & $A_\text{solids}$ & $A_\text{unusable}$ & $n_\text{particle count}$ \\
+		Figure & Scaling & $A_\text{usable}$ & $A_\text{sol}$ & $A_\text{solids}$ & $A_\text{unusable}$ & $n$ \\
 			& \unit{\nano\meter\per\px} & \unit{\micro\meter\squared} & \unit{\percent} & \unit{\percent} & \unit{\percent} & \\
 			\midrule
 			\zcref{fig:cryo-fib}, \acs{C3S}   & \tablenum{26.9789}           & \tablenum{10683.3}                  & \tablenum{36.3}            & \tablenum{48.8}             & \tablenum{14.9}                & \tablenum{1500} \\

@@ -61,12 +61,16 @@ A detailed video of the \ac{FIBnt}-process, the required parameters, and potenti
 
 \section{Evaluation obstacles}
 
+While the specimen is vacuum-infused with a low-viscosity resin, it often occurs that some larger pores are not completely filled.
+This complicates the segmentation and therefore the analysis of the pore space, since needle-like structures tend to move and the pore background is constantly visible.
+Such small structures are therefore ignored in the segmentation process, especially if \ac{EDX} datasets are available, since they allow distinction between pore and phase due to a reduced signal strength.
+
 Due to the sensitive nature of the hydrate phases (see \zcref{sec:beam_damage}), the operator must pay particular attention when analysing at higher voltages as for \ac{EDX} or \ac{EBSD} samples.
-As shown in \zcref{fig:edx_damage}, an electron beam at \qty{6}{\kilo\volt} and a long exposure time can cause damage in the specimen which could be misinterpreted as porosity.
+As shown in \zcref{fig:edx_damage}, an electron beam at \qty{10}{\kilo\volt}, \qty{4}{\pico\ampere} and a long exposure time (\qty{600}{\micro\second}, \num{6} frames) can cause damage in the specimen which could be misinterpreted as porosity.
 The exposure time is the sum of the dwell time on each point and the frame count.
-But especially the frame count increases the risk of specimen damage.
+But especially the dwell time increases the risk of specimen damage.
 In the example, pores with a diameter of several \unit{\nano\meter} were induced, which can mostly be identified by comparing the damaged slice (\zcref{fig:edx_damage_a}) with a freshly cut surface (\zcref{fig:edx_damage_b}).
-In this case, the damage was visible for $\approx$ \qty{350}{\nano\meter}
+In this case, the damage was visible in a depth of $\approx$ \qty{350}{\nano\meter}
 
 \begin{figure}[H]
     \centering
@@ -83,23 +87,46 @@ In this case, the damage was visible for $\approx$ \qty{350}{\nano\meter}
 		\label{fig:edx_damage_b}
 	\end{subfigure}
     \caption{
-        Effect of \ac{EDX} at \qty{6}{\kilo\volt} after multiple scans on a hydrated \ac{C3S} surface, prepared using \ac{FIB}.
-        Sections of \ac{BSE}-images (\qty{2}{\kilo\volt}, \qty{2}{\pico\ampere}) created during a \ac{FIBnt}-process, .
+        Sections of \ac{BSE}-images (\qty{2}{\kilo\volt}, \qty{2}{\pico\ampere}) created during a \ac{FIBnt}-process illustrating the effect of \ac{EDX} at \qty{10}{\kilo\volt}, \qty{4}{\pico\ampere} after \num{6} frames and a dwell time of \qty{600}{\micro\second} on a hydrated \ac{C3S} surface, prepared using \ac{FIB}.
     }
-	% BeamCurrent=2e-010
-	% TODO: how many frames and how much current was used for the damaged surface?
+	% details in E:\Mitarbeiter\Florian Kleiner\FIB-Data\C3S + EDX\2020_11_18 C3S 28d+EDX (2 Teile)\EDX_RAW\2020_11_18 C3S 28d+EDX
     \label{fig:edx_damage}
 \end{figure}
 
 Solutions to this problem are to reduce the scanning duration or the electron beam current, which subsequently will reduce the overall counts, to reduce the electron beam voltage, which will limit the elements which can be analysed or to use more sensitive detectors.
 For the presented experiments, a even more reduced electron beam voltage was not applicable.
 Therefore, a very sensitive, windowless \ac{EDX}-detector was used and combined with the counts of a second, less-sensitive \ac{EDX}-detector, which yields only one-fifth of the counts of the windowless detector.
-The exposure time (\qty{60}{\micro\second}, 60 frames) and the current were reduced as low as possible, while leaving the beam voltage at \qty{10}{\kilo\volt}.
-% TODO: what dataset was used here?
-% TODO: reduced to 10µs/10 frames @10kV and 1.6nA
+While a reduction of the accelerating voltage from \num{10} to \qty{6}{\kilo\volt} had no significant effect, a reduced dwell time (reduced from \num{600} to \qty{60}{\micro\second}) and increased frame count (from \num{6} to \num{60}) significantly decreases the damage.
 
-This still results in a very noisy, low count \ac{EDX} dataset.
-However, it allows the distinction of the different main phases of the material.
+While these measures result in a good signal-to-noise ratio for the main components, especially the less abundant elements have a fairly noisy mapping.
+However, it still allows the distinction of the different main phases of the material.
+
+
+\begin{figure}[H]
+    \centering
+
+	\begin{subfigure}[t]{0.32\textwidth}
+		\includegraphics[width=\textwidth]{methods/edx-damage/a.pdf}
+		\caption{noisy}
+		\label{fig:edx_noise_a}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{0.32\textwidth}
+		\includegraphics[width=\textwidth]{methods/edx-damage/b.pdf}
+		\caption{denoised}
+		\label{fig:edx_noise_b}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{0.32\textwidth}
+		\includegraphics[width=\textwidth]{methods/edx-damage/b.pdf}
+		\caption{segmented}
+		\label{fig:edx_noise_c}
+	\end{subfigure}
+    \caption{
+      asdf  
+    }
+    \label{fig:edx_noise}
+\end{figure}
 
 \section{Postprocessing}
 
@@ -112,7 +139,7 @@ Since the signal-to noise ratio of the \ac{EDX} element mappings are very low, a
 The main challenge for the dataset is the precise alignment of the acquired images.
 Drift during acquisition can cause a shift of the observed object between consecutive slices.
 For a single image stack, this issue can be addressed effectively using the \ac{SIFT} algorithm as implemented in \textit{TrakEM2} \cite{cardona.2012}, which allows for automated correction of in-plane translations.
-Furthermore, after the \ac{SIFT}-alignment the stack is often still systematically shifted about \qtyrange{30}{40}{\degree} caused by the geometry within the \ac{SEM} (see \ref{fig:fib_scheme}).
+Furthermore, after the \ac{SIFT}-alignment the stack is often still systematically shifted about \qtyrange{30}{40}{\degree} caused by the geometry within the \ac{SEM} (see \zcref{fig:fib_scheme}).
 
 However, aligning the \ac{EDX} dataset to the corresponding \ac{BSE} dataset is more challenging.
 Although the correspondence between \ac{BSE} and \ac{EDX} slices is known, the images differ in resolution and field of view.
@@ -145,3 +172,4 @@ This angle depends mostly on the device geometry and the angle at which the cube
 % TODO: compare different ways to get to the goal? - SLIC -> (direct/indirect with umap?) -> labeling; UNET
 % TODO: how good is the data alignment? What does this to the segmentation - see ANtons dataset
 % Wie ist das mit der Reliefstruktur und der Abschattung während EDX?
+

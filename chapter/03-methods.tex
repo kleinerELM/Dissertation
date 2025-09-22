@@ -138,7 +138,7 @@ This technique is mostly used to improve surfaces for \ac{EDX}- or \ac{EBSD}-mea
 \subsection{\acs*{ArBIB} sectioning}
 \label{sec:bib_pol_fixed}
 
-Another mode requires a smaller pre-cut sample (\qtyproduct{5 x 3 x 10}{\cubic\milli\meter}) in a fixed sample holder.
+The sectioning mode requires a smaller pre-cut sample (\qtyproduct{5 x 3 x 10}{\cubic\milli\meter}) in a fixed sample holder.
 The three argon ion beams intersect at a sharp edged tungsten mask forming a horizontal milling sector of $\approx$ \qty{100}{\degree} (\zcref{fig:bib_device}).
 The mask and the specimen surface are arranged in a way that only \qtyrange{20}{100}{\micro\meter} of the sample are exposed to the ion beam above the mask (\zcref{fig:bib_scheme}).
 
@@ -175,26 +175,35 @@ Therefore, the ion beam device used, allows to cool the specimen below \qty{-140
 %To determine the influence of the ion beam during the regular milling process on hydrated cement specimens, it was compared with a milling process while cooling the specimen (see section~\ref{}). %Kapitelplatz finden
 %The comparison was made using hydrated alite, hydrated \ac{OPC} and \ac{LC3}.
 %}
-
-Due to variations in hardness among the phases within a material, the ion beam can also induce the `curtaining effect' in the context of \ac{SEM}-\ac{FIB} \cite{cantoni.2014} an artifact called the `curtaining effect'
+Due to variations in hardness among the phases within a material, the ion beam can also induce an artefact called the `curtaining effect' \cite{desbois.2013}, which is also known in the context of \ac{SEM}-\ac{FIB} \cite{cantoni.2014}.
 These stripes align with the direction of the ion beams, as harder phases or pores create `shadows' of material in their wake.
 While they can be reduced in the \ac{SEM}-\ac{FIB} process using coatings \cite{cantoni.2014}, this is not possible in the \ac{ArBIB} process.
-These artifacts can be significantly reduced by applying a \ac{FFT} \cite{kleiner.2021a} as also demonstrated for images from a \ac{SEM}-\ac{FIB} process \cite{fitschen.2017,schankula.2018}.
+These artefacts can be significantly reduced by applying a \ac{FFT} \cite{kleiner.2021a}, as also demonstrated for images from a \ac{SEM}-\ac{FIB} process \cite{fitschen.2017,schankula.2018}.
 This removes the stripes in one direction.
 However, this filter can also soften the image.
-This is especially the case if the artifact is present in more than one direction in the image \cite{kleiner.2021a}.
+This is especially the case if the artefact is present in more than one direction in the image \cite{kleiner.2021a}.
 
 % bad paper about ArBIB \cite{sammer.2024}
+\section{Tomography utilizing ion beam and laser milling}
 
+Within the last decades, multiple slice-based tomography methods were developed to obtain microscopical 3D volumes of a sample.
+\textcite{desbois.2013} demonstrated that \ac{ArBIB} can be used for tomography by stepwise milling large areas (up to a few \unit{\square\micro\meter}) of a mineralogical sample within a \ac{SEM}.
+However, the surface roughness was still rather high (\qty{\pm 40}{\nano\meter}), reducing the effective resolution in the $z$ direction significantly.
 
-\section{\Acl*{FIBnt} (\acs*{FIBnt})}
+In recent years, a new high-volume technique has emerged using a \unit{\femto\second}-laser to prepare and slice specimen volumes in the range of multiple hundred \unit{\micro\meter}.
+This method still often requires a secondary polishing step using a plasma-\ac{FIB} or \ac{ArBIB} to acquire datasets with limited artefacts.
+However, these triple-beam / laser-\ac{SEM} systems are not yet widely available and have mainly been applied to alloys and other fairly stable materials \cite{gholinia.2024}.
+
+Much more common is the \ac{FIBnt}, which was also used in this study.
+
+\subsection{\Acl*{FIBnt} (\acs*{FIBnt})}
 \label{sec:fib}
 
 To apply this method, the cementitious specimen was embedded in resin to avoid imaging the pore background or loose moving material within larger pores.
 Resin filled pores have advantages for later pore segmentation.
 The specimen should be a polished section to find a suitable \ac{ROI} using the \ac{BSE} detector.
 
-The standard method to obtain \ac{FIBnt}-images is to dig trenches around the \ac{ROI} (typically a sqare with an edge length of \qtyrange{10}{20}{\micro\meter}) as illustrated in \zcref{fig:fib_top}.
+The standard method to obtain \ac{FIBnt}-images is to dig trenches around the \ac{ROI} (typically a square with an edge length of \qtyrange{10}{20}{\micro\meter}) as illustrated in \zcref{fig:fib_top}.
 Beforehand, the \ac{ROI} is coated with a layer of platinum for protection and a fiducial side is set.
 The fiducial is required to correct for specimen drift during the cutting process.
 After a polishing run and the imaging setup, the cutting process can start (see \zcref{fig:fib_scheme}).
@@ -217,9 +226,9 @@ Cryo-preparation for \acs*{SEM} and \acs*{FIB} is a method to obtain close-to-na
 In this process, the specimen is frozen within a very short time down to about \qty{113}{\kelvin} at >\,\qty{0.2}{\giga\pascal} to avoid ice-crystal formation.
 
 A small droplet of the specimen is placed within a sandwich of two brass sample holders (\diameter \qty{3}{\milli\meter}\,$\times$\,\qty{0.5}{\milli\meter} depth, \textit{type `B'}, \textsc{BalTec}; see \zcref{fig:cryo-prep}).
-The crucibles are then frozen under high pressure (using a \textit{EM HPM100} by \textsc{Leica}) and transferred to a high vacuum preparation system (\textit{EM MED020} by \textsc{Leica}) and opened under cooled conditions using a knife.
-Then, the specimen is transferred in a vacuum and under cooled conditions to the cryo-stage within the \ac{SEM}.
-To avoid charging effects, the specimen can be coated with a layer of \ce{Pt} using the \ac{FIB}-coating process.
+The crucibles are then frozen under high pressure (using an \textit{EM HPM100} by \textsc{Leica}) and transferred to a high vacuum preparation system (\textit{EM MED020} by \textsc{Leica}) and opened under cooled conditions using a knife.
+Then, the specimen is transferred in vacuum and under cooled conditions to the cryo-stage within the \ac{SEM}.
+To avoid charging effects, the specimen can be coated with a layer of \ce{Au} after splitting open the cooled sample holder.
 
 \begin{figure}[h!]
     \centering
@@ -228,8 +237,7 @@ To avoid charging effects, the specimen can be coated with a layer of \ce{Pt} us
     \caption{
 		Illustration of cryo-preparation.
 		The specimen is placed between two brass sample holders (\diameter \qty{3}{\milli\meter}\,$\times$\,\qty{0.5}{\milli\meter} depth) and frozen under high pressure (left).
-		The specimen is split under vacuum (center).
-		Within the \ac{SEM} the specimen can be coated with \ce{Pt} (right).
+		The specimen is split under vacuum (center) and can also be coated with \ce{Au} (right).
 	}
     \label{fig:cryo-prep}
 \end{figure}

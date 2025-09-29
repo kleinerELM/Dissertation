@@ -39,12 +39,6 @@ Since cementitious material is not conductive and the trenches are not coated th
 The re-deposition of the removed material usually happens within the trenches, which does not cause any problems.
 However, it may also appear on small structures in front of the \ac{ROI} or even on the specimen surface after longer imaging periods as shown in \zcref{fig:fib_artifacts_b} and \zcref{fig:fib_artifacts_c}.
 
-To avoid or at least reduce issues caused by slicing within the bulk material, the \ac{ROI} can be completely cut free.
-Then a lift-out process can be applied, which is similar to the preparation process of \ac{TEM} lamellas \cite{overwijk.1993, langford.2001a}.
-To do this, a needle is inserted and welded to the \ac{ROI}-cube using the platinum coating process.
-Afterwards, the cube is complete cut loose from the bulk material, and a copper comb is inserted to the SEM.
-Finally, the cube is transferred and then welded to a finger of the comb as shown in \zcref{fig:fib_liftout}.
-
 \begin{figure}[h!]
     \centering
 
@@ -53,6 +47,35 @@ Finally, the cube is transferred and then welded to a finger of the comb as show
 	On the left is the needle welded to the specimen ({\color{blue}B}). They are navigated and welded to the copper comb ({\color{red}C}).
 	The platinum vapour source ({\color{orange}D}) used for welding is visible on the right. \cite{kleiner.2021c}}
     \label{fig:fib_liftout}
+\end{figure}
+
+To avoid or at least reduce issues caused by slicing within the bulk material, the \ac{ROI} can be completely cut free.
+Then a lift-out process can be applied, which is similar to the preparation process of \ac{TEM} lamellas \cite{overwijk.1993, langford.2001a}.
+To do this, a needle is inserted and welded to the \ac{ROI}-cube using the platinum coating process.
+Afterwards, the cube is complete cut loose from the bulk material, and a copper comb is inserted to the SEM.
+Finally, the cube is transferred and then welded to a finger of the comb as shown in \zcref{fig:fib_liftout}.
+
+\begin{figure}[htb]
+    \centering
+
+    \newlength{\desiredheight}
+    \setlength{\desiredheight}{0.219\textheight}
+    
+
+	\begin{subfigure}[t]{0.7\textwidth}
+		\includegraphics[height=\desiredheight]{methods/fib_liftout/ion_image.pdf}%
+		\caption{Top view (ion image)}
+		\label{fig:fib_liftout_result_a}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{0.29\textwidth}
+		\includegraphics[height=\desiredheight]{methods/fib_liftout/bse_image.pdf}
+		\caption{Front view (\ac{BSE} image)}
+		\label{fig:fib_liftout_result_b}
+	\end{subfigure}
+
+    \caption{The cement cube (\qtyproduct{20 x 20 x 20}{\micro\meter\cubed}) welded to the copper comb. \cite{kleiner.2025b}}
+    \label{fig:fib_liftout_result}
 \end{figure}
 
 The so prepared and separated cube can now be serial cut as illustrated in \zcref{fig:fib_scheme} with significantly reduced shadowing and charging effects.
@@ -72,7 +95,7 @@ But especially the dwell time increases the risk of specimen damage.
 In the example, pores with a diameter of several \unit{\nano\meter} were induced, which can mostly be identified by comparing the damaged slice (\zcref{fig:edx_damage_a}) with a freshly cut surface (\zcref{fig:edx_damage_b}).
 In this case, the damage was visible in a depth of $\approx$ \qty{350}{\nano\meter}
 
-\begin{figure}[H]
+\begin{figure}[htb]
     \centering
 
 	\begin{subfigure}[t]{0.49\textwidth}
@@ -110,46 +133,46 @@ For example, the noisy \ac{EDX} dataset has to be denoised with an edge preservi
 Since the signal-to noise ratio of the \ac{EDX} element mappings are very low, algorithms like median and \ac{NLM} are not suitable.
 \ac{BM3D} denoising was found to be effective for the noise found in the \ac{EDX} slices and enables to reproducible quantitative analysis across elements.
 
-\begin{figure}[H]
+\begin{figure}[htb]
     \centering
 
 	\begin{subfigure}[t]{0.32\textwidth}
-		\includegraphics[width=\textwidth]{methods/fib_postprocessing/Ca_noisy.png}
+		\includegraphics[width=\textwidth]{methods/fib_postprocessing/Ca_noisy.pdf}
 		\caption{Noisy \ce{Ca} mapping}
 		\label{fig:edx_noise_a}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[t]{0.32\textwidth}
-		\includegraphics[width=\textwidth]{methods/fib_postprocessing/Ca_BM3D.png}
+		\includegraphics[width=\textwidth]{methods/fib_postprocessing/Ca_BM3D.pdf}
 		\caption{Denoised \ce{Ca} mapping (Total Variation)}
 		\label{fig:edx_noise_b}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[t]{0.32\textwidth}
-		\includegraphics[width=\textwidth]{methods/fib_postprocessing/Ca_BM3D.png}
+		\includegraphics[width=\textwidth]{methods/fib_postprocessing/Ca_BM3D.pdf}
 		\caption{Denoised \ce{Ca} mapping (\ac{BM3D})}
 		\label{fig:edx_noise_c}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[t]{0.32\textwidth}
-		\includegraphics[width=\textwidth]{methods/fib_postprocessing/S_noisy.png}
+		\includegraphics[width=\textwidth]{methods/fib_postprocessing/S_noisy.pdf}
 		\caption{Noisy \ce{S} mapping}
 		\label{fig:edx_noise_d}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[t]{0.32\textwidth}
-		\includegraphics[width=\textwidth]{methods/fib_postprocessing/S_BM3D.png}
+		\includegraphics[width=\textwidth]{methods/fib_postprocessing/S_BM3D.pdf}
 		\caption{Denoised \ce{S} mapping (Total Variation)}
 		\label{fig:edx_noise_e}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[t]{0.32\textwidth}
-		\includegraphics[width=\textwidth]{methods/fib_postprocessing/S_BM3D.png}
+		\includegraphics[width=\textwidth]{methods/fib_postprocessing/S_BM3D.pdf}
 		\caption{Denoised \ce{S} mapping (\ac{BM3D})}
 		\label{fig:edx_noise_f}
 	\end{subfigure}
     \caption{
-      Effect of \ac{BM3D} denoising on the \ac{EDX}-mappings of \ce{Ca} (high signal) and \ce{S} (low signal). \cite{kleiner.2025b}
+      Effect of \ac{BM3D} denoising on the \ac{EDX}-mappings of \ce{Ca} (high signal) and \ce{S} (low signal).
     }
     \label{fig:edx_noise}
 \end{figure}
@@ -166,22 +189,47 @@ If the image shift between the \ac{BSE} and \ac{EDX} images of the same slice is
 
 Therefore, a python tool utilising \textit{napari} \cite{sofroniew.2025}, a graphical user interface to view and edit 2D and 3D image data, was developed.
 This workflow aligns, visualizes, and analyses correlative \ac{BSE} and \ac{EDX} image stacks.
-First, it loads the preprocessed in-plane translation data stored in the \textit{TrakEM2} project and the user has to provide the image scale and the slice thickness in \unit{\nano\meter\per\px}, if these information are not stored in the metadata of the files.
-After denoising, landmark pairs between the first \ac{BSE} and \ac{EDX} image have to be provided by the user.
-This is then used to estimate an isotropic scale-and-translation transform for a good stack-to-stack alignment.
+First, the preprocessed in-plane translation data stored in the \textit{TrakEM2} project are loaded.
+The user must provide the image scale and slice thickness in \unit{\nano\meter\per\px}, unless this information is available in the file metadata.
+
+Following denoising, inter-slice intensity banding ($z$-banding) in the \ac{EDX} dataset and brightness fluctuations in the \ac{BSE} dataset are mitigated by normalisation based on the mean brightness value of the entire stack (see \zcref{fig:sem_z-banding}).
+
+\begin{figure}[htb]
+	\centering
+
+	\begin{subfigure}[t]{0.49\textwidth}
+		\includegraphics[width=\textwidth]{methods/fib_postprocessing/z-band-raw_scaled.pdf}
+		\caption{Uncorrected}
+		\label{fig:sem_z-banding_a}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{0.49\textwidth}
+		\includegraphics[width=\textwidth]{methods/fib_postprocessing/z-band-corr_scaled.pdf}
+		\caption{Corrected}
+		\label{fig:sem_z-banding_b}
+	\end{subfigure}
+	\caption{
+		Illustration of the mean brightness variations between \ac{EDX} slices ($z$-banding) and the result of the correction.
+		The images depict the $x$-$z$ plane and the mean values of the denoised \ac{EDX} image stack.
+	}
+	\label{fig:sem_z-banding}
+\end{figure}
+
+Subsequently, landmark pairs between the first \ac{BSE} and \ac{EDX} images must be specified.
+These landmarks are utilised to estimate an isotropic scale-and-translation transformation, thereby enabling accurate stack-to-stack alignment.
 
 
-\begin{figure}[H]
+\begin{figure}[htb]
     \centering
 
 	\begin{subfigure}[t]{0.32\textwidth}
-		\includegraphics[width=\textwidth]{methods/fib_postprocessing/BSE.png}
+		\includegraphics[width=\textwidth]{methods/fib_postprocessing/BSE.pdf}
 		\caption{\ac{BSE} image}
 		\label{fig:sem_postprocessing_a}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[t]{0.32\textwidth}
-		\includegraphics[width=\textwidth]{methods/fib_postprocessing/EDX_CaSiAl.png}
+		\includegraphics[width=\textwidth]{methods/fib_postprocessing/EDX_CaSiAl.pdf}
 		\caption{
 			\ac{EDX}-map ({\color{red}\ce{Ca}}, {\color{green}\ce{Si}} and {\color{blue}\ce{Al}})
 		}
@@ -189,7 +237,7 @@ This is then used to estimate an isotropic scale-and-translation transform for a
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[t]{0.32\textwidth}
-		\includegraphics[width=\textwidth]{methods/fib_postprocessing/superpixel.png}
+		\includegraphics[width=\textwidth]{methods/fib_postprocessing/superpixel.pdf}
 		\caption{Superpixel and clustering (in 3D)}
 		\label{fig:sem_postprocessing_c}
 	\end{subfigure}
@@ -204,40 +252,16 @@ Due to the geometry within the \ac{SEM}, the image stacks inherently exhibit a s
 This shift can be compensated by applying a user-defined correction angle.
 The required angle is primarily determined by the device geometry and the orientation at which the specimen cube is welded to the copper comb.
 
-\begin{figure}[H]
-	\centering
 
-	\begin{subfigure}[t]{0.48\textwidth}
-		\includegraphics[width=\textwidth]{methods/fib_postprocessing/z-band-raw.jpg}
-		\caption{Uncorrected}
-		\label{fig:sem_z-banding_a}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[t]{0.48\textwidth}
-		\includegraphics[width=\textwidth]{methods/fib_postprocessing/z-band-corr.jpg}
-		\caption{Corrected}
-		\label{fig:sem_z-banding_b}
-	\end{subfigure}
-	\caption{
-		Illustration of brightness variations between image slices ($z$-banding) and the result of the correction.
-		The images depict the $x$-$z$ plane and the mean values of the denoised \ac{EDX} image stack.
-	}
-	\label{fig:sem_z-banding}
-\end{figure}
-
-Inter-slice intensity banding ($z$-banding) in the \ac{EDX} and brightness changes in the \ac{BSE} datasets are mitigated by normalisation based on the mean brightness value of the entire stack (see \zcref{fig:sem_z-banding}).
-
-{
-	\color{red} % has to be rewritten
-	The registered and corrected \ac{BSE} and \ac{EDX} volumes are visualised in \textit{napari} with physically meaningful voxel scales.
-	The user then has to select an \ac{ROI}, which will be used for the further processing.
-	Within the \ac{ROI}, 3D \ac{SLIC}O superpixels are computed on the denoised \ac{EDX} volume.
-	Similar to the basic idea of Multi\ac{SLIC}, three main elements (\ce{Ca}, \ce{Si}, \ce{Al}) are selected and set as individual RGB color channels in an image, from which the superpixels are generated.
-	This allows to use the standard implementations of \ac{SLIC} as found in \textit{OpenCV}.
-	For each superpixel, mean \ac{EDX} intensities are aggregated for each element from the raw \ac{EDX}-data.
-	These superpixel-wise vectors are then standardised and clustered using $k$-means in combination with \ac{UMAP}.
-	This allows to identify material phases, yielding a 3D phase label volume that is directly overlaid in \textit{napari}.
-}
+The registered and corrected \ac{BSE} and \ac{EDX} volumes are visualised using physically meaningful voxel scales.
+The user selects a \ac{ROI}, which is utilised for subsequent processing.
+Within the \ac{ROI}, three-dimensional \ac{SLIC}O superpixels are computed on the denoised \ac{EDX} volume (see \zcref{fig:sem_postprocessing_c}).
+Analogous to the approach of Multi\ac{SLIC} \cite{yu.2023}, three principal elements (\ce{Ca}, \ce{Si}, \ce{Al}) are chosen.
+This allows to assign the elements individual RGB colour channels in an image, from which the superpixels are generated.
+This enables the use of standard \ac{SLIC}O implementations in \textit{OpenCV}.
+For each superpixel, the mean intensities for each element are calculated from the raw \ac{EDX} data.
+These superpixel-wise vectors are subsequently standardised and clustered using $k$-means in combination with \ac{UMAP}.
+This approach facilitates the identification of material phases, resulting in a three-dimensional phase label volume that is directly overlaid in \textit{napari}.
 
 % TODO: compare different ways to get to the goal? - SLIC -> (direct/indirect with umap?) -> labeling; UNET
 % TODO: how good is the data alignment? What does this to the segmentation - see ANtons dataset

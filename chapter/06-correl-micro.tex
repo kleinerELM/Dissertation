@@ -169,7 +169,7 @@ However, the \ac{EDX} quality was not the major focus of this study.
         symbolic x coords={Ca,Si,Al,Fe,Mg,K,S,Na,Ti,P,Mn,Cr},
         table/col sep=comma,
         log origin=infty,
-        width=.97\textwidth,
+        width=\textwidth,
         height=7cm,
         ybar,
         bar width=8pt,
@@ -235,9 +235,9 @@ Concentrations below \qty{0.1}{\wtpercent} oxide are outside the \ac{EDX} detect
   \centering
 
   \ifdefined\PRINTABLE
-    \includegraphics[width=.9\textwidth]{la-icp-ms/la-icp-ms-mapping/result0.pdf}
+    \includegraphics[width=\textwidth]{la-icp-ms/la-icp-ms-mapping/result0.pdf}
   \else
-    \animategraphics[loop,autoplay,width=.9\textwidth]{1}{la-icp-ms/la-icp-ms-mapping/result}{0}{2}
+    \animategraphics[loop,autoplay,width=\textwidth]{1}{la-icp-ms/la-icp-ms-mapping/result}{0}{2}
   \fi
 
   \caption{
@@ -471,10 +471,10 @@ Comparing the locations of high concentrations of \ce{Rb}, \ce{Cr} and \ce{K} in
         error bars/y explicit,
         scaled y ticks = false,
         legend cell align=left,
-        legend columns = -1,
+        legend columns = 1,
         legend style={
-            at={(0.5,1.03)},
-            anchor=south,
+            at={(1.03,0.5)},
+            anchor=west,
             column sep=4pt
         },
     ]
@@ -583,7 +583,7 @@ Furthermore, an inaccurate image registration seems to be a minor problem, as th
 
 
 
-The data presented in \zcref{fig:LA-EDX-results-high, LA-EDX-results-low} originating from the segmented \ac{LAICPMS} measurements support the semi-quantitative visual observations documented in \zcref{fig:LAICPMS-la-maps}.
+The data presented in \zcref{fig:LA-EDX-results-high, fig:LA-EDX-results-low} originating from the segmented \ac{LAICPMS} measurements support the semi-quantitative visual observations documented in \zcref{fig:LAICPMS-la-maps}.
 In the following, \ce{Ba} is used as an example to evaluate the data.
 The element distribution maps clearly show that \ce{Ba} is predominantly enriched in belite (\qty{0.0351(0.0145)}{\wtpercent}), while elevated concentrations (\qty{0.0234(0.0139)}{\wtpercent}) are also observed in aluminium-rich regions, which can be identified as interstitial phases (\ac{C3A} and \ac{C4AF}) (see \zcref{fig:LAICPMS-la-maps}).
 For alite, the determined \ce{Ba} concentrations are \qty{0.0187(0.0113)}{\wtpercent}, which is only half the concentration found in belite.

@@ -56,7 +56,7 @@ On contact with water, these phases dissolve and new phases such as \ac{CSH}, \a
     \end{tikzpicture}
     \caption{
         Scheme for \ac{OPC} hydration at room temperature.
-        The coloured dimensions indicate the length of the crystal needles of \ac{CSH} and ettringite.
+        The coloured dimensions indicate the length of the crystal needles of {\color{red}\ac{CSH}} and {\color{green}ettringite}.
         Redrawn after \textcite{moser.2001} and \textcite{stark.2003}.
     }
     \label{fig:moeser_phase_dev}
@@ -120,14 +120,13 @@ As described in \cite{gartner.2002}, the periods are:
   \end{itemize}
 \end{multicols}
 
-% TODO: Christiane: when does it end for you? 24h??
-The hydration process up to phase III is important for describing the initial hardening process and the rheological behaviour of the cement.
+The hydration process within the first 24 hours, particularly up to the end of the main hydration peak (phase III), is crucial for describing the initial hardening process and the rheological behaviour of the cement.
 The first useful qualitative observations at room temperature were made using the \ac{SE} mode and freshly fractured surfaces after a few minutes or up to \qty{10}{\hour} \cite{stark.2001,voland.2000,suss.2001}.
-The \ac{CSH} needles are up to \qty{300}{\nano\meter} long, while the hydration front is barely visible in the particle \cite{voland.2000}.
-% TODO: find publications on early hydration of cement using BSE mode
-% TODO: find publications from Christiane/Long with those early hydration products?
-%To embed and polish a sample for \ac{BSE} analysis, the specimen should be set; otherwise, only powdery material can be observed.
-%However, reliable quantitative observations such as particle distance on embedded polished surfaces using the \ac{BSE} mode can first be made after the initial hardening after a few hours.
+At this time, \ac{CSH} needles are up to \qty{300}{\nano\meter} long, while the hydration front is barely visible in the particle \cite{voland.2000}.
+In contrast, reliable quantitative observations on embedded and polished surfaces using the \ac{BSE} mode can typically only be made after the initial setting, which takes a few hours.
+Before this point, the material is not sufficiently hardened to withstand the preparation process without disintegrating into a powder.
+While \textcite{neubauer.2022} performed \ac{BSE} analysis on dispersed \ac{C3S} particles after \qty{12}{\hour}, detailed studies on polished sections of cement paste at very early ages (i.e. within the first hours) are scarce.
+This is a significant challenge, as such data would be valuable for validating hydration models like those developed by \textcite{nguyen-tuan.2024}.
 
 \section{Growth of \acl*{CSH} (\acs*{CSH})}
 
@@ -157,7 +156,7 @@ In this document they will be called \ac{CSHi} for the dense inner structure and
 \end{itemize}
 
 However, this classification is not often used in the literature (e.g. \cite{nonat.2004,haas.2015}).
-%Von THomas:
+%TODO:Von THomas:
 % Auch weiß ich nicht, ob die Bezeichnungen alpha-, beta-, gamma-CSH verschiedene Bedeutungen haben. In Nonat-papers werden diese Bezeichnungen auch verwendet:
 % \cite{nonat.2004}
 % \cite{haas.2015}
@@ -198,6 +197,12 @@ According to \textcite{jennings.1986a} and others \cite{bellmann.2015, naber.201
 
 % Hier noch ein interessanter review über CSH:
 % \cite{ruiz-agudo.2024} (Mhh ich wüsste nicht wie ich den zitieren soll...)
+
+% The existence of such a passivating layer is a subject of ongoing research, with recent studies providing further evidence through experiments with free lime and water glass \cite{sowoidnich.2019, naber.2019, bellmann.2015}.
+% The initial amorphous droplets, also referred to as liquid precursors in the biomineral community, can be considered a gel according to the strict IUPAC definition, as they represent a colloidal network expanded by a fluid.
+% These precursors are thought to be the building blocks from which the more structured, older C-S-H subsequently develops.
+% A comprehensive review of the nonclassical crystallization pathways of C-S-H, which covers these topics, can be found in \textcite{ruiz-agudo.2024}.
+
 
 %\textcite{grudemo.1987} compared his proposed \ac{CSH} structure to \ac{CH}, which is crystalline and can not be classified as gel.
 In 1979, \textcite{ghosh.1979} argued based on morphology, that \ac{CSH} are needle-like crystals as shown in 1960 by \textcite{kurczyk.1960} and \textcite{grudemo.1960} and therefore are not a gel as considered till then.
@@ -340,21 +345,21 @@ However, they mainly observed rather coarse particles.
 In 1930 they also published datasets for the hydration of \ac{C3S} and \ac{C2S} \cite{anderegg.1930}.
 In contrast to the \ac{OPC} experiments, these consisted only out of very few series of experiments with a rather high variance (see \zcref{fig:anderegg-hubbel-distribution}).
 
-\begin{wrapfigure}[16]{R}{0.6\linewidth}
-%\begin{figure}[!htb]
+%\begin{wrapfigure}[16]{R}{0.6\linewidth}
+\begin{figure}[!htb]
     \vspace{-\intextsep}
     \begin{tikzpicture}
         \begin{axis}[
 				legend style={
-                    at={(0.5,1.03)},
-                    anchor=south,
+                    at={(1.03,0.5)},
+                    anchor=west,
                     style={column sep=4pt},
                 },
                 legend cell align={left},
-                legend columns = 4,
+                legend columns = 1,
 				xmin=0, xmax=16,
 				ymin=0, ymax=0.55,
-				width=\linewidth,
+				width=.7\linewidth,
 				height=6cm,
 				grid=major,
 				xlabel={mean particle diameter in \unit{\micro\meter}},
@@ -386,8 +391,8 @@ In contrast to the \ac{OPC} experiments, these consisted only out of very few se
     \caption{Mean hydration rim of \qty{4}{\gram} \ac{C3S} from an estimation based of experiments by \textcite{garrault.2006} in dependence of the mean particle diameter after roughly 10 to \qty{12}{\hour}. The \ac{CSHo} data ($l_{\text{CSHo}}=l_{\text{CSH}}-l_{\text{CSHi}}$) were calculated for better comparability.}
     %\vspace{-\intextsep}
     \label{fig:garrault-distribution}
-%\end{figure}
-\end{wrapfigure}
+\end{figure}
+%\end{wrapfigure}
 
 \textcite{garrault.2006} measured the development of the \ac{CSH} concentration of \qty{4}{\gram} \ac{C3S} grains with different median diameters (7, 10, 11, 12.5, \qty{14}{\micro\meter}) for up to one day in a concentrated lime solution.
 They estimated the thickness of \ac{CSHi} (replacing \ac{C3S}) and \ac{CSHo} (on top of the grain) at the time, when the \ac{CSH} precipitation became limited by diffusion (see \zcref{fig:garrault-distribution}) (beginning of the second deceleration period in \zcref{fig:opc_dca}).
@@ -510,7 +515,7 @@ Furthermore, their mean particle diameter was significantly larger (starting fro
 
         \end{semilogxaxis}
     \end{tikzpicture}
-    \caption{Growth of \ac{CSH} on \ac{OPC}, \ac{C3S} and \ac{C2S} measured by \textsc{Anderegg} and \textsc{Hubbell} \cite{anderegg.1929,anderegg.1930} and \textcite{nicoleau.2011}}
+    \caption{Growth of \ac{CSH} on \ac{OPC}, \ac{C3S} and \ac{C2S} measured by \textsc{Anderegg} and \textsc{Hubbell} \cite{anderegg.1929,anderegg.1930}, \textcite{nicoleau.2011} and \textcite{neubauer.2022}}
     \label{fig:anderegg-hubbel}
 \end{figure}
 
@@ -523,7 +528,6 @@ However, the hydrated material was ground and dispersed using ultrasonic treatme
 \textcite{bishnoi.2012} criticised this approach due to the rather uncontrolled cracking, the subjectivity of the measurement, and the occurrence of the sectioning effect, which was described in detail by \textcite{scrivener.2004}.
 This effect is an issue for all 2D images of polished sections (e.g., typical \ac{SEM}-\ac{BSE} images) and will be described and discussed in Subsection~\zcref{subsec:sectioning-effect}.
 
-% TODO: Christiane: du solltest noch das ziemlich berühmte paper neubauer, sowidnich, bellmann rößler anschauen mit messungen zur PSD von alit :
 \textcite{neubauer.2022} measured the same specimen using a near-field \ac{PXCT} at different hydration times.
 Furthermore, they manually measured the thickness of \ac{CSHi} on \ac{C3S}, dispersed in epoxy resin utilizing \ac{SEM}-images.
 They determined the thickness at \num{12}, \num{16}, and \qty{20}{\hour} as \qty{300(80)}{\nano\meter}, \qty{670(170)}{\nano\meter}, and \qty{800(260)}{\nano\meter}, respectively.
@@ -670,10 +674,6 @@ The results are plotted in \zcref{fig:suess_CSH_C3S} (\ac{C3S}) and \zcref{fig:s
     \caption{Growth of \ac{CSHo} on \ac{C3S} at different temperatures. Based on data from \textcite{voland.2000} and \textcite{suss.2001}.}
     \label{fig:suess_CSH_C3S}
 \end{figure}
-
-\ifdefined\EXTERNALIZE
-    \tikzexternalenable
-\fi
 
 % TODO: include data from \cite{shirani.2023}?
 % - 450 - 550 nm shell thickness of csh after 19h (i do not really get why there exist these two numbers? Durchschnitt insgesamt vs hadley grain-shell?)

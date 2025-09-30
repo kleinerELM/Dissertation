@@ -1,6 +1,45 @@
 \chapter{Summary and Outlook}
 
-{\color{red} I cannot recommend doing a PHD!}
+This thesis focused on the advanced 2D and 3D characterization of clinker phases and hydrated cementitious binders. by combining a variety of modern imaging and analytical techniques.
+The main focus was the application of modern scanning electron microscopic (\ac{SEM}) imaging techniques which were combined with a variety of other methods.
+The primary goal is to improve the understanding of cement hydration and microstructure development by developing and refining evaluation methods and workflows.
 
+\color{red}
+% TODO: das ist nur ein Gerüst...
+The key findings and contributions of this work are:
+\begin{itemize}
+    \item \textbf{Development of an Automated Hydrate Layer Measurement Algorithm:} An algorithm was developed to automatically measure the \acl{HLT} from 2D-\ac{SEM} images of polished sections. This method was successfully applied to \ac{C3S} and \ac{C2S}, and their mixtures, revealing the influence of phase composition and age on hydration kinetics. It was shown that pixel classification-based segmentation yields more reliable results than simple thresholding.
+
+    \item \textbf{Correlative Microscopy Workflows:}
+    \begin{itemize}
+        \item A correlative workflow combining \ac{SEM}-\ac{EDX} and \acl{LAICPMS} was established to map major, minor, and trace elements in unhydrated clinker. This approach allowed for the precise localization of trace elements within specific clinker phases, demonstrating, for example, the enrichment of \ce{Ba} in belite and \ce{Mn} in the interstitial phase.
+        \item The combination of multiple techniques proved to be a powerful tool to overcome the limitations of individual methods.
+    \end{itemize}
+
+    \item \textbf{Pore Structure Analysis:}
+    \begin{itemize}
+        \item A comparative study of pore analysis methods (\ac{SEM}, \acl{LTDSC}, \acl{MIP}) was conducted on reference materials (porous glass) and hydrated cement pastes.
+        \item \ac{LTDSC} proved effective for analyzing nano-scale gel porosity, showing an increase in gel pore volume with hydration time for both \ac{C3S} and \ac{C2S}. \ac{C2S} showed a higher overall pore volume but a lower gel pore volume compared to \ac{C3S}.
+        \item \ac{SEM} image analysis of pore structures was shown to be highly dependent on the segmentation method, with adaptive thresholding requiring careful parameter selection.
+    \end{itemize}
+
+    \item \textbf{Imaging with \ac{FIBnt}:}
+    \begin{itemize}
+        \item Cryo-\acl{FIB}-\ac{SEM} was successfully used to analyze the particle-particle distances in fresh cement pastes, objectively demonstrating the dispersing effect of \acl{PCE} and \acl{PUS}.
+        \item A refined lift-out technique for \acl{FIBnt} was optimized for cementitious materials to minimize common artifacts like charging, redeposition, and shadowing, enabling high-quality 3D dataset acquisition.
+        \item A post-processing workflow was developed to register, denoise, and segment correlative \acl{BSE} and \ac{EDX} 3D datasets, utilizing 3D superpixel clustering for phase identification.
+    \end{itemize}
+
+    \item \textbf{Specimen Preparation and Methodical Improvements:} The importance of advanced specimen preparation techniques like \acl{ArBIB} polishing for obtaining artifact-free surfaces for high-resolution \ac{SEM} imaging was highlighted. The star-shaped cross-section of \ac{CSH} needles was revealed using this method.
+\end{itemize}
+
+\textbf{Outlook:}
+The methods and workflows developed in this thesis lay the groundwork for future research.
+\begin{itemize}
+    \item The automated \ac{HLT} measurement can be applied to a wider range of binder systems to build a comprehensive database for validating hydration models like the level-set method.
+    \item The correlative 3D datasets from \ac{FIBnt} provide a rich basis for advanced microstructural modeling, simulation of transport properties, and validation of 2D-to-3D conversion algorithms.
+    \item The cryo-\ac{FIB}-\ac{SEM} technique for analyzing fresh pastes can be extended to study the very early stages of hydration and the influence of different admixtures on particle interaction in-situ.
+    \item Further development of machine learning-based segmentation for both 2D and 3D datasets will be crucial to increase the throughput and objectivity of microstructural analysis.
+\end{itemize}
 
 \color{black}

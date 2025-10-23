@@ -39,6 +39,8 @@ Since cementitious material is not conductive and the trenches are not coated th
 The re-deposition of the removed material usually happens within the trenches, which does not cause any problems.
 However, it may also appear on small structures in front of the \ac{ROI} or even on the specimen surface after longer imaging periods as shown in \zcref{fig:fib_artifacts_b} and \zcref{fig:fib_artifacts_c}.
 
+\subsection{The lift-out process}
+
 \begin{figure}[h!]
     \centering
 
@@ -82,6 +84,9 @@ The so prepared and separated cube can now be serial cut as illustrated in \zcre
 
 A detailed video tutorial of the \ac{FIBnt}-process, the required parameters, and potential sources of errors for cement-based materials was created and published \cite{kleiner.2025b}.
 
+
+
+
 \section{Evaluation obstacles}
 
 While the specimen is vacuum-infused with a low-viscosity resin, it often occurs that some larger pores are not completely filled.
@@ -124,6 +129,36 @@ While a reduction of the accelerating voltage from \num{10} to \qty{6}{\kilo\vol
 While these measures result in a good signal-to-noise ratio for the main components, especially the less abundant elements have a fairly noisy mapping.
 However, it still allows the distinction of the different main phases of the material.
 
+\subsection{The laser preparation process}
+
+Issues such as charging, shadowing, and redeposition are primarily due to the geometric constraints of the \ac{FIBnt} process, including the presence of narrow trenches.
+While it is possible to enlarge the trenches, doing so is often impractical and time-consuming. Laser ablation offers an alternative for trench creation.
+An example of such a prepared specimen is shown in \zcref{fig:laser_prep_tilt_anim}.
+
+\begin{figure}[htb]
+    \centering
+
+    \begin{subfigure}[t]{0.49\textwidth}
+        \animategraphics[palindrome,poster=4,autoplay,width=\textwidth]{5}{methods/laser_prep/tilt}{0}{4}
+        \caption{Laser-prepared bar and trenches.}
+        \label{fig:laser_prep_tilt_anim}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{methods/laser_prep/C3S_7d_Laser_prep_067.jpg}
+        \caption{Fresh \ac{FIBnt} slice.}
+        \label{fig:fibnt_fresh_slice}
+    \end{subfigure}
+    \caption{
+		\qty{7}{\d} hydrated \ac{C3S} specimen, embedded in epoxy resin and prepared using a \ac{fs-laser}.
+		The preparation site has a size of \qtyproduct{.6 x 1.0}{\milli\meter} and the prepared bar is \qty{40}{\micro\meter} wide at the top.
+        The white deposition on the top of the volume is a protective \ce{Pt} coating.
+    }
+    \label{fig:laser_prep}
+\end{figure}
+
+The cross-section (\zcref{fig:fibnt_fresh_slice}) shows minor damage to the bulk material.
+Amorphous depositions up to \qty{2}{\micro\meter} and debris-filled pores are visible on the surface sectioned using a \ac{FIB}.
 
 \section{Postprocessing}
 

@@ -217,15 +217,19 @@ Often it is used simultaneously with \ac{EDX} to provide a comprehensive analysi
 \label{sec:lit_fib}
 
 Besides the classical detectors, modern \ac{SEM}s can also be equipped with a \ac{FIB}.
-Instead of electrons, ions (usually \ce{Ga+}) are accelerated to the specimen surface.
+Instead of electrons, ions (usually \ce{Ga+} or \ce{Xe+}) are accelerated to the specimen surface.
 \ac{FIB} systems enable the targeted removal of material or to deposit coatings (e.g. \ce{Pt} or \ce{C}) to protect a \ac{ROI}, to weld  the specimen to a nearby object or to make a surface conductive.
 
-In 1974/75 the \ac{FIB} technique was introduced by \textcite{levi-setti.1974} and \textcite{orloff.1975} for microprobing applications.
-\ac{FIB} systems are broadly available since the 1990s \cite{volkert.2007}.
-While it is also possible to obtain an image of the specimen surface with a resolution of $\approx$\qty{5}{\nano\meter} \cite{orloff.1996}, the main application is the preparation of samples for \ac{SEM} and \ac{TEM} due to the abrading effect of the ions.
-For example, \textcite{sakalli.2017} used a \ac{FIB} to prepare a \ac{TEM} lamella of hydrated \ac{C3S} and analysed it using \ac{EDX}. % The hydrate seems to be damaged
-While the first \ac{FIB}s were single beam devices, today combined \ac{FIB}-\ac{SEM} devices are more common.
-But also triple beam devices (electron, ion and laser beam) are in use today to analyse larger volumes \cite{gholinia.2024}.
+The \ac{FIB} technique was initially introduced in 1974/75 by \textcite{levi-setti.1974} and \textcite{orloff.1975} for microprobing applications.
+\ac{FIB} systems became broadly available since the 1990s, mainly utilizing Liquid Metal Ion Sources (LMIS) like \ce{Ga+} \cite{volkert.2007}.
+While these instruments are capable of imaging the specimen surface with a resolution of $\approx$ \qty{5}{\nano\meter} \cite{orloff.1996}, their primary application is the precise abrasion and preparation of samples for \ac{SEM} and \ac{TEM}.
+For example, \textcite{sakalli.2017} used a \ce{Ga+}-\ac{FIB} to prepare a \ac{TEM} lamella of hydrated \ac{C3S} for subsequent \ac{EDX} analysis.
+
+Plasma-\ac{FIB} devices utilising \ce{Xe+} ions are broadly available since the 2010s \cite{hrncir.2012}.
+\ce{Xe+}-\ac{FIB} devices have much higher milling rates and have the advantage to not incorporate \ce{Ga} ions in the specimen \cite{burnett.2016}.
+While they have found to be even suitable for \ac{TEM}-lamella preparation \cite{zhong.2021}, \ce{Ga+}-\ac{FIB} devices still have a slight advantage in their spatial resolution due to lower possible currents \cite{zhong.2021}.
+
+While the first \ac{FIB}s were single-beam devices, today's combined \ac{FIB}-\ac{SEM} dual-beam systems are the standard configuration.
 
 \begin{figure}[ht!]
     \centering
@@ -253,27 +257,33 @@ But also triple beam devices (electron, ion and laser beam) are in use today to 
     \label{fig:fib}
 \end{figure}
 
-In a dual beam device, the ion and electron beams are arranged at an angle of \qtyrange{50}{55}{\degree}\cite{taillon.2018}, while the ion beam strikes the specimen at an angle of \qty{90}{\degree}, as shown in \zcref{fig:fib_scheme}.
+In a dual-beam device, the ion and electron beams are arranged at an angle of \qtyrange{50}{55}{\degree}\cite{taillon.2018}, while the ion beam strikes the specimen at an angle of \qty{90}{\degree}, as shown in \zcref{fig:fib_scheme}.
 The \ac{ROI} must be positioned at the eucentric point (the intersection point of the electron and ion beams).
 This means that if the specimen is tilted, the point remains stationary in the live image and is therefore at the center of rotation.
 
-These capabilities allow the capture of three-dimensional datasets using one or a combination of the detectors available (e.g., \ac{BSE}, \ac{EDX}, \ac{EBSD}).
+These capabilities allow the acquisition of three-dimensional datasets using one or a combination of the available detectors (e.g., \ac{BSE}, \ac{EDX}, \ac{EBSD}).
 In contrast to X-ray \ac{CT}, this method is intrinsically destructive.
 To prepare the \ac{ROI}, trenches must be cut around it, as illustrated in \zcref{fig:fib_top}.
-The \ac{ROI} can then be sliced and imaged within the bulk material.
-However, this can cause artefacts such as gradual shadowing \cite{joos.2011,taillon.2018,fager.2020}, which significantly reduce the usable volume in the vertical direction \cite{jiang.2023}.
-While this effect can be reduced in post-processing \cite{taillon.2018}, redeposition of material inside pores or in front of the \ac{ROI} is a significant issue, which can be mitigated by changing the trench geometry \cite{fager.2020}.
-Charging is another common issue in imaging non-conductive materials during \ac{FIB} serial sectioning \cite{fager.2020}, since the imaged surface is always uncoated and the trenches can `trap' charges.
-This can usually be reduced by applying conductive coatings (e.g., \ce{Pt}) within the \ac{SEM} or by changing the imaging parameters during data acquisition \cite{fager.2020}.
+The \ac{ROI} can then be sectioned and imaged within the bulk material.
+However, this may cause artefacts such as gradual shadowing \cite{joos.2011,taillon.2018,fager.2020}, which significantly reduce the usable volume in the vertical direction \cite{jiang.2023}.
+Whilst this effect can be reduced in post-processing \cite{taillon.2018}, redeposition of material inside pores or in front of the \ac{ROI} is a significant issue, which can be mitigated by altering the trench geometry \cite{fager.2020}.
+Charging is another common issue when imaging non-conductive materials during \ac{FIB} serial sectioning \cite{fager.2020}, since the imaged surface is always uncoated and the trenches can 'trap' charges.
+This can usually be reduced by applying conductive coatings (e.g., \ce{Pt}) within the \ac{SEM} or by altering imaging parameters during data acquisition \cite{fager.2020}.
 
-% hier kann glaub noch ein bisschen was hin
-{ \color{red}
-\textcite{holzer.2006, munch.2006} analysed particular systems using \ac{FIB} serial sectioning.
-\textcite{holzer.2006a} used \ac{FIBnt} very early to cut a large volume (\qtyproduct{46 x 32 x 25}{\cubic\micro\meter}) of a cement paste sample with a voxel size of \qty{74}{\nano\meter}.
-}
+\textcite{holzer.2006, munch.2006} analysed the particle distribution of cement powder embedded in a matrix of \textsc{Wood}'s metal and resin using \ac{FIB} serial sectioning.
+\textcite{munch.2006, holzer.2006a} also demonstrated early on that \ac{FIBnt} can be used to cut larger volumes (\numproduct{65 x 46 x 34} and \qtyproduct{46 x 32 x 25}{\cubic\micro\meter}) of a cement powder and a hydrated cement paste sample.
+However, this came at the cost of a reduction in resolution, with the achieved non-cubic voxel sizes being \qtyrange{74}{170}{\nano\meter}.
+
+Recently, triple-beam devices have been introduced, combining electron, ion, and \ac{fs-laser} beams.
+These can be used for the preparation and sectioning of large volumes \cite{gholinia.2024}.
+However, these systems are not yet widely available and have mainly been applied to alloys and other fairly stable materials \cite{gholinia.2024}.
+
+
+However, the especially time-consuming site preparation using a \ac{fs-laser} can also be carried out with more universal standalone preparation devices.
+This preparation method can be utilised for the preparation of \ac{mCT} volumes \cite{krause.2023} and \ac{TEM} lamellae \cite{tkadletz.2024}.
+This allows removal of material volumes impractical to achieve using the \ac{FIB} process, and may even eliminate the need for the complicated lift-out process for \ac{TEM} lamellae \cite{tkadletz.2024}.
 
 %More technical details of the method will be further described in \zcref{sec:fib}.
-
 
 \FloatBarrier
 \subsection{Cryo-\acs*{FIB} and cryo-\acs*{FIB}}

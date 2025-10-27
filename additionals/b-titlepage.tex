@@ -37,20 +37,28 @@
 
 
 		\vspace*{3\baselineskip}
-		\begin{tabbing}
-			Stand des Dokumentes:	\=	Name \kill
-			Gutachter:	\>	\myFirstReviewer \\
-						\>	\mySecondReviewer \\
-						\>	\myThirdReviewer
-		\end{tabbing}
 
-		\begin{tabbing}
-			Stand des Dokumentes:	\=	Name \kill
-			Tag der Disputation: \>	\myExamDate \\
-			\ifdefined\DRAFT
+		\ifdefined\EXAMVERSION
+		\else
+			\begin{tabbing}
+				Stand des Dokumentes:	\=	Name \kill
+				Gutachter:	\>	\myFirstReviewer \\
+							\>	\mySecondReviewer \\
+							\>	\myThirdReviewer
+			\end{tabbing}
+			
+			\begin{tabbing}
+				Stand des Dokumentes:	\=	Name \kill
+				Tag der Disputation: \>	\myExamDate \\
+			\end{tabbing}
+		\fi
+
+		\ifdefined\DRAFT
+			\begin{tabbing}
+				Stand des Dokumentes:	\=	Name \kill
 				Stand des Dokumentes: \> \today, \currenttime Uhr
-			\fi
-		\end{tabbing}
+			\end{tabbing}
+		\fi
 	}
 
 \end{titlepage}

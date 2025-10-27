@@ -6,8 +6,9 @@
 
 \def\DRAFT{} % comment out for the printable document!
 %\def\DRAFTSIMPLIFY{} % comment out for the printable document!
+\def\EXAMVERSION{} % disables some information on the title page
 %\def\EXTERNALIZE{}
-%\def\PRINTABLE{} % uncomment to disable animated figures
+\def\PRINTABLE{} % uncomment to disable animated figures
 %\def\REVIEW{}
 
 \def\myTypeOfDocument{Dissertation}
@@ -17,7 +18,7 @@
 \def\mySecondReviewer{Unknown}  % name of second reviewer
 \def\myThirdReviewer{Unknown}   % name of third reviewer
 \def\myExamDate{xx.xx.2025}
-\title{2D and 3D characterisation of clinker phases and hydrated cementitious binders by a variety of modern imaging techniques}
+\title{Correlative characterisation of clinker phases and hydrated cementitious binders by a variety of modern 2D and 3D imaging techniques}
 \def\myKeywords{SEM EDX {image analysis} cement hydration clinker {specimen preparation}}
 \ifdefined\PRINTABLE
 	\def\mySubtitle{Printversion}
@@ -67,6 +68,8 @@
 		\fi
 
 		\selectlanguage{english}
+
+		\setcounter{tocdepth}{1}
 		\tableofcontents  % print table of contents
 		\input{additionals/d-symbols}  % include list of symbols
 
@@ -77,7 +80,7 @@
 
 		\input{chapter/01-introduction}
 
-		\chapter{Literature}
+		%\chapter{Literature}
 			\input{chapter/02-lit-SEM}
 			\input{chapter/02-lit-corr-mic.tex}
 		  	\input{chapter/02-lit-image-processing}

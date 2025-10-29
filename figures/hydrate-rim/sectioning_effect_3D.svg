@@ -7,10 +7,11 @@
    viewBox="0 0 87.099586 87.099594"
    version="1.1"
    id="svg1"
-   inkscape:version="1.4 (86a8ad7, 2024-10-11)"
+   inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
    sodipodi:docname="sectioning_effect_3D.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <sodipodi:namedview
@@ -24,8 +25,8 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      inkscape:zoom="2.0899411"
-     inkscape:cx="151.91816"
-     inkscape:cy="35.646938"
+     inkscape:cx="152.39664"
+     inkscape:cy="73.925528"
      inkscape:window-width="2560"
      inkscape:window-height="1369"
      inkscape:window-x="1912"
@@ -34,19 +35,29 @@
      inkscape:current-layer="layer1" />
   <defs
      id="defs1">
-    <filter
+    <linearGradient
+       id="linearGradient3"
+       inkscape:collect="always">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:0.46052632;"
+         offset="0"
+         id="stop3" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:0;"
+         offset="1"
+         id="stop4" />
+    </linearGradient>
+    <radialGradient
        inkscape:collect="always"
-       style="color-interpolation-filters:sRGB"
-       id="filter7"
-       x="-0.67714164"
-       y="-0.19080253"
-       width="2.3542833"
-       height="1.3816051">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="4.6472875"
-         id="feGaussianBlur7" />
-    </filter>
+       xlink:href="#linearGradient3"
+       id="radialGradient4"
+       cx="38.017483"
+       cy="179.51294"
+       fx="38.017483"
+       fy="179.51294"
+       r="26.216597"
+       gradientTransform="matrix(1,0,0,0.7942544,0,36.933998)"
+       gradientUnits="userSpaceOnUse" />
   </defs>
   <g
      inkscape:label="Ebene 1"
@@ -84,14 +95,6 @@
        id="ellipse5-2"
        style="fill:#006b94;fill-opacity:0.50196099;stroke:none;stroke-width:1.89083"
        d="m 118.51628,73.881795 c -17.96678,-4.4e-5 -32.531922,3.270319 -32.531864,7.303947 -5.9e-5,4.033629 14.565074,7.303473 32.531864,7.30343 17.96663,-7e-6 32.53141,-3.269835 32.53135,-7.30343 6e-5,-4.033593 -14.56472,-7.30394 -32.53135,-7.303947 z m 0,6.145878 a 7.3517098,0.49753842 0 0 1 7.35149,0.497644 7.3517098,0.49753842 0 0 1 -7.35149,0.497644 7.3517098,0.49753842 0 0 1 -7.35149,-0.497644 7.3517098,0.49753842 0 0 1 7.35149,-0.497644 z" />
-    <ellipse
-       style="mix-blend-mode:normal;fill:#ffffff;fill-opacity:0.258907;stroke:none;stroke-width:3.66501;filter:url(#filter7)"
-       id="path7"
-       cx="119.95496"
-       cy="111.49547"
-       rx="8.235714"
-       ry="29.227835"
-       transform="matrix(2.4992327,0,0,0.73841378,-164.75649,44.652403)" />
     <path
        id="path8"
        style="fill:#94c11c;fill-opacity:0.501961;stroke:none;stroke-width:3.66501"
@@ -142,5 +145,13 @@
          style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.76111px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman,  Italic';stroke-width:0.264583"
          x="81.998596"
          y="91.741913">a</tspan></text>
+    <ellipse
+       style="mix-blend-mode:normal;fill:url(#radialGradient4);fill-opacity:0.501961;stroke:none;stroke-width:5.51927;opacity:0.903125"
+       id="ellipse1"
+       cx="38.017483"
+       cy="179.51294"
+       rx="26.216597"
+       ry="20.822647"
+       transform="rotate(-34.416184)" />
   </g>
 </svg>

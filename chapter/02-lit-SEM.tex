@@ -245,23 +245,29 @@ Furthermore, a larger interaction volume will cause subsurface information being
 \subsection{\Acl*{EBSD} (\acs*{EBSD})}
 \label{sec:ebsd}
 
-\ac{EBSD} is a technique used in the \ac{SEM} to determine the crystallographic structure and orientation of crystalline materials in the sample.
-The electron beam interacts with a highly tilted crystalline sample, and some electrons are diffracted according to \textsc{Bragg}'s Law \cite{bragg.1913} by the crystal lattice planes.
+\ac{EBSD} is a technique used in the \ac{SEM}, which allows to spatially resolve the crystallographic structure and orientation of crystalline materials on the sample surface.
+The electron beam interacts with a tilted crystalline sample.
+The term \ac{EBSD} was introduced in 1973 by \textcite{venables.1973}.
+The first commercial \ac{EBSD} system was introduced in 1984 by \textsc{Moon} and \textsc{Harris} based on the work of \textsc{Dingley} \cite{wright.2000} and has since become a standard tool in materials science.
+Often it is used simultaneously with \ac{EDX} to provide a comprehensive analysis of the sample \cite{wright.2000}.
+
+Some electrons are diffracted according to \textsc{Bragg}'s Law \cite{bragg.1913} by the crystal lattice planes within the crystals.
 These diffracted electrons form \textcite{kikuchi.1928} patterns on a phosphor screen, which are captured by a camera.
 By indexing these patterns, \ac{EBSD} can be used to identify the crystal (e.g., distinguish between \ac{C3S} and \ac{C2S}) as pioneered in 1954 by \textcite{alam.1954}.
 This allows to determine the precise crystallographic orientation at that point on the sample.
 Scanning across the sample generates maps of phase distribution, crystal orientation, grain boundaries, and texture.
 
-The term \ac{EBSD} was introduced in 1973 by \textcite{venables.1973}.
-The first commercial \ac{EBSD} system was introduced in 1984 by \textsc{Moon} and \textsc{Harris} based on the work of \textsc{Dingley} \cite{wright.2000} and has since become a standard tool in materials science.
-Often it is used simultaneously with \ac{EDX} to provide a comprehensive analysis of the sample \cite{wright.2000}.
+\ac{EBSD} relies on the principle of \textsc{Bragg} diffraction, which mandates the presence of a sufficiently well-ordered crystal lattice.
+Consequently, highly disordered materials (as in \ac{C2S} or \ac{CSH}) cannot be reliably analysed.
+Additionally, the technique generally requires a minimum crystallite size (a few tens of nanometres or more) to generate a discernible \textsc{Kikuchi} pattern.
+Furthermore, to obtain a good pattern, \ac{EBSD} requires high voltages and currents, which can potentially damage electron beam sensitive specimens.
+
 
 % TODO: ein paar quellen
 % TODO: Christiane: ich hoffe in deiner arbeit wirds ein paar ebsd ergebnisse geben, zb dickenmessung des hydratsaums in abhängigkeit von der kristallorientierung? in 2d an C3S auch schnell gemacht.
 % und ich würde EBSD mit einem bild erläutern für die cement-cloud. 
 
 %TODO: Im Prinzip eine PD (pole figure diffraction), aber mit räumlicher Auflösung? Falls ja, solltest du die Analogie erwähnen.
-% TODO: Kann man hier noch etwas an die Anforderungen/Einschränkungen der Methode sagen? Man braucht ja bestimmt eine Mindestgröße der Kristallite, amorphe Strukturen sollten ja diesbezüglich nicht wirklich funktionieren, man braucht ja eine gewisse Fernordnung, damit man eine Bragg-Streuung kriegt.
 
 \FloatBarrier
 \subsection{\Acl*{FIB} (\acs*{FIB})}
@@ -328,11 +334,14 @@ Utilising a \ac{PFIB}, \textcite{dong.2022} were able to image a very large volu
 
 Recently, triple-beam devices have been introduced, combining electron, ion, and \ac{fs-laser} beams.
 These can be used for the preparation and sectioning of large volumes \cite{gholinia.2024}.
-However, these systems are not yet widely available and have mainly been applied to alloys and other fairly stable materials \cite{gholinia.2024}.
+However, these systems are not yet widely available.
+The have mainly been applied to alloys and other fairly stable materials to obtain cross sections or volumes \cite{gholinia.2024}.
+To obtain artefact free nano scale resolutions, the specimens still have to be polished using \ac{BIB} or \ac{FIB}.
 
 However, the especially time-consuming site preparation using a \ac{fs-laser} can also be carried out with more universal standalone preparation devices.
 This preparation method can be utilised for the preparation of \ac{mCT} volumes \cite{krause.2023} and \ac{TEM} lamellae \cite{tkadletz.2024}.
 This allows removal of material volumes impractical to achieve using the \ac{FIB} process, and may even eliminate the need for the complicated lift-out process for \ac{TEM} lamellae \cite{tkadletz.2024}.
+According to \textcite{}, the surface irradiation damage of the \ac{fs-laser} is limited to a few \unit{\micro\meter}.
 
 %More technical details of the method will be further described in \zcref{sec:fib}.
 
@@ -394,7 +403,7 @@ All these influences can lead to a significant reduction in image quality and re
 \textcite{scrivener.2004} achieved a feature resolution of \ac{CSH}, ettringite, and pores of \qtyrange{0.1}{0.2}{\micro\meter} using mechanical polishing techniques.
 This feature resolution is not sufficient for the analysis of nanoscale structures.
 \ac{CSH} needles, for example, can have a diameter significantly less than \qty{100}{\nano\meter} \cite{moser.2003} and therefore cannot be acceptably imaged.
-While mechanical polishing still can be good enough for many applications like \ac{BSE}- or \ac{EDX}-imaging, high-resolution imaging or \ac{EBSD} require better surface qualities without contaminations \cite{rossler.2017}.
+While mechanical polishing still can be good enough for many applications like \ac{BSE}- or \ac{EDX}-imaging, high-resolution imaging or \ac{EBSD} require smooth surfaces without contaminations \cite{rossler.2017}.
 
 
 \subsection{Sample preparation - \Acl*{ArBIB} polishing}
@@ -412,6 +421,12 @@ Compared to \ac{FIBnt}, the slice thickness of this technique is large and incon
 \subsection{Beam and drying damage}
 \label{sec:beam_damage} 
 
+Hydrate phases contain hydrogen bonds with low bond energies and can therefore be damaged thermally.
+Thermal damage is especially known for phases like \ac{CSH}, ettringite and \ac{CH} \cite{lothenbach.2016}.
+%The water content of \ac{CSH} changes depending on the temperature \textcite{sanna.2014}.
+For example, \ac{CSH} begins to dehydrate at \qty{60}{\celsius} \cite{he.2018} and the water saturation and the size of gel pores change at this temperature \cite{gajewicz.2016}.
+Ettringite can be dehydrated below \qty{100}{\celsius} (\zcref{fig:ettringite_dehydration}).
+
 %\begin{wrapfigure}[13]{R}{0.6\linewidth}
 \begin{figure}[!htb]
     \vspace{-\intextsep}
@@ -424,22 +439,22 @@ Compared to \ac{FIBnt}, the slice thickness of this technique is large and incon
                 },
                 legend cell align={left},
 				xmin=40, xmax=120,
-				ymin=0, ymax=1650,
+				ymin=0, ymax=200,
 				width=0.86\linewidth,
 				height=6.5cm,
 				grid=major,
 				xlabel={dehydration temperature $\vartheta$ in \unit{\celsius}},
 				ylabel style={align=center},
-				ylabel={water vapour pressure\\$P_{\text{H}_2\text{O}}$ in \unit{\mmHg}},
+				ylabel={water vapour pressure\\$P_{\text{H}_2\text{O}}$ in \unit{\kilo\pascal}},
 				xtick={0,10,...,140},
-				ytick={0,400,...,1600},
+				ytick={0,50,...,200},
 				grid style={line width=.1pt, draw=gray!10},
             ]
 			\addplot [only marks, blue, mark=o] coordinates {
-				(45,6) (70,35) (80,75) (95,250) (100,400) (120,1500)};
+				(45,0.8) (70,4.7) (80,10.0) (95,33.3) (100,53.3) (120,200.0)};
 			\addlegendentry{raw data};
-			\addplot[red, domain=0:140, samples=50, dashed] {exp(- 1.61 + 0.075*x)};
-            \addlegendentry{$ln(P_{\text{H}_2\text{O}}) = -1.61 + 0.075\vartheta$};
+			\addplot[red, domain=0:140, samples=50, dashed] {exp(- 3.6242 + 0.075*x)};
+            \addlegendentry{$P_{\text{H}_2\text{O}} = \exp(-3.624 + \qty{0.075}{\per\celsius} \cdot \vartheta)$};
         \end{axis}
     \end{tikzpicture}
     \caption{
@@ -449,24 +464,18 @@ Compared to \ac{FIBnt}, the slice thickness of this technique is large and incon
 \end{figure}
 %\end{wrapfigure}
 
-Hydrate phases can easily be damaged by high temperatures.
-Thermal damage is especially known for phases like \ac{CSH}, ettringite and \ac{CH} \cite{lothenbach.2016}.
-%The water content of \ac{CSH} changes depending on the temperature \textcite{sanna.2014}.
-For example, \ac{CSH} begins to dehydrate at \qty{60}{\celsius} \cite{he.2018} and the water saturation and the size of gel pores change at this temperature \cite{gajewicz.2016}.
-Ettringite can be dehydrated below \qty{100}{\celsius} (\zcref{fig:ettringite_dehydration}).
-
 
 After prolonged electron exposure, especially at higher beam voltages, alterations of sensitive specimens can be observed.
-These artefacts can be attributed to the electron beam heating the specimen or to the formation of gaseous products attributed to radiation damage.
+These artefacts can be attributed to the electron beam heating the specimen and to the formation of gaseous products attributed to radiation damage.
 However, whether thermal damage occurs is highly dependent on the specimen (thermal conductivity, melting or decomposition temperature) and the applied scanning parameters (scanned area, beam voltage and current, dwell time). \cite{reimer.1998b}
 
 For cement hydrates, damages can be observed for example after a prolonged \ac{EDX}-measurement using a high-powered electron beam.
-Also, at very high magnifications, the electron dose is very high even at low beam voltages and currents.
-In a literature review from 2002 \textcite{gartner.2002} pointed to a lot of studies of morphologically damaged \ac{CSH} phases in \ac{TEM} and \ac{SEM} images.
-The damages were mostly caused by the preparation and beam damage \cite{gartner.2002}.
-The difference in preparation methods was also demonstrated by \textcite{moser.1998,moser.2003} using an environmental \ac{SEM} (\acs{ESEM}).
-\textcite{rossler.2006} were able to show, that $\approx$ \qty{8e2}{\elementarycharge\per\square\angstrom}  at \qty{-172}{\celsius} allow to retrieve electron diffraction patterns and artefact-free imaging \ac{CSH}, while \qty{6.2e3}{\elementarycharge\per\square\angstrom} at room temperature induce significant beam damage to the mineral, amorphising it in the process.
-A high energy dose in the \ac{SEM} can cause geometrical deformation of \ac{CSH}-structures and introduce pores within originally compact phases (see \zcref{fig:ebeam_damage}) \cite{moser.2003,kleiner.2021a}.
+Also, at high magnifications, the energy density (electron dose per area) is high even at low beam voltages and currents.
+In a literature review from 2002, \textcite{gartner.2002} pointed to a lot of studies of morphologically damaged \ac{CSH} phases in \ac{TEM} and \ac{SEM} images.
+The damages were mostly caused by the preparation and the electron beam \cite{gartner.2002}.
+The difference in preparation methods was also demonstrated by \textsc{Möser} and \textsc{Stark} \cite{moser.1998,moser.2003} using an environmental \ac{SEM} (\acs{ESEM}).
+\textcite{rossler.2006} were able to show, that at at \qty{-172}{\celsius} an energy dose of $\approx$ \qty{8e2}{\elementarycharge\per\square\angstrom} allows to retrieve electron diffraction patterns and artefact-free imaging \ac{CSH}, while \qty{6.2e3}{\elementarycharge\per\square\angstrom} at room temperature induce significant beam damage to the mineral, amorphising it in the process.
+A high energy dose in the \ac{SEM} can cause geometrical deformation of \ac{CSH}-structures and introduce pores within initially compact phases (see \zcref{fig:ebeam_damage}) \cite{moser.2003,kleiner.2021a}.
 
 \begin{figure}[h!]
     \centering

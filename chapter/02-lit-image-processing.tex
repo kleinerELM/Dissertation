@@ -17,7 +17,7 @@ These stripe artefacts in the scanning direction can occur due to object drift o
 
 A relevant preprocessing step for most image processing is therefore denoising.
 It can be classified into classical methods, transform techniques and \ac{CNN}-based denoising methods \cite{fan.2019}.
-The following paragraphs are only intended to provide a brief overview of the most important filters and are not exhaustive.
+The following paragraphs are intended to provide a brief overview of the most important filters.
 
 Classical methods remove noise in the spatial domain.
 Linear filters (e.g. mean filtering) can easily lead to blurring of fine detail and edges in very noisy images.
@@ -27,17 +27,16 @@ However, they also struggle with more complex noise patterns (e.g. low count \ac
 
 Transform techniques decompose the image into frequency components, allowing for selective noise reduction in specific domains like high-frequency noise (shot noise) or low-frequency, directional patterns (banding noise).
 One important representative filter is \ac{BM3D} \cite{dabov.2007}, which is a two-stage filtering method and an extension of the \ac{NLM} filter.
-These methods often provide good performance but can be computationally intensive and require careful selection of parameters.
+These methods often provide good performance but can be computationally expensive and require a careful selection of parameters.
 
 More recently, \ac{CNN}-based denoising methods were introduced.
 They attempt to learn complex noise patterns directly from degraded-clean image pairs.
 These models try to predict the clean image from its noisy counterpart using a training set.
-Their goal is to optimise a loss function or, in other words, to minimise the prediction error.
+The reduce a loss function and thus, minimise the prediction error.
 Various \ac{CNN} architectures have been proposed since 2008 \cite{jain.2008}.
 They can be differentiated into multi-layer perceptron models and deep learning models.
 The strength of \ac{CNN}s lies in their capacity to learn highly non-linear mappings and adapt to different noise characteristics, often outperforming traditional methods, especially in scenarios with unknown or complex noise distributions.
 However, their performance heavily relies on the availability of large and diverse training datasets of degraded-clean image pairs.
-
 In addition, their use is often still a hurdle for untrained users, as they are still rarely available in ready-to-use software.
 
 To objectively evaluate the performance of denoising algorithms, quantitative benchmarks such as \ac{PSNR}, \ac{SSIM} and \ac{MSE} are commonly used.
@@ -55,21 +54,21 @@ They came to the conclusion, that the \ac{CNN} significantly outperforms (\ac{PS
 
 Segmentation is the process of partitioning an image into multiple segments (sets of pixels or objects).
 The goal is to simplify the representation of the image and make it more meaningful and easier to analyse.
-After segmentation, each pixel in the image is assigned to a specific class or label, which can be used for further analysis.
+After segmentation, each pixel in the image is assigned to a specific class, cluster or label, which can be used for further analysis.
 
 Segmentation can be done automatically, semi-automatically or manually by a human expert.
 While manual segmentation is still used \cite{bajcsy.2020,kleiner.2024a}, it is time-consuming and not reproducible.
-The result is highly dependent on the experience and knowledge of the operator, but is often considered the gold standard against which automated methods are compared \cite{bajcsy.2020}.
+The result is highly dependent on the experience and knowledge of the operator, but is often considered as the gold standard to which automated methods are compared to \cite{bajcsy.2020}.
 
 Automated segmentation methods are often used to reduce the time and effort required for image analysis and to enable reproducibility.
 However, the prerequisite for a good automatic segmentation is a good image quality.
-However, especially images acquired using a \ac{SEM} and its detectors are noisy and lack contrast.
-These issues can be reduced by applying steps such as denoising, contrast enhancement and sharpening.
-However, especially low-count \ac{EDX} datasets remain challenging.
+Nevertheless, especially images acquired using a \ac{SEM} and its detectors are noisy and lack contrast.
+These issues can be reduced by applying steps such as denoising, contrast enhancement, and sharpening.
+However, low-count \ac{EDX} datasets remain challenging.
 
 Segmentation by applying threshold values to distinguish phases is still a commonly used technique since it is fast and easy to apply \cite{hlobil.2022}.
 There are multiple thresholding methods available, such as \textsc{Otsu}'s method \cite{otsu.1979} or \textsc{Kapur}'s method \cite{kapur.1985} to automatically find a threshold to binarise an image.
-However, these methods are rarely suitable, since many \ac{SEM} images contain more than two phases or show low image contrast.
+However, these methods are rarely suitable, since many \ac{SEM} images contain more than two phases or show low contrast.
 Additionally, often a specific grey value or range does not represent a specific phase throughout the entire dataset as border regions can appear darker than the image centre.
 This is can especially occur in \ac{SEM}-\ac{SE} images, \ac{SEM}-\ac{FIB} datasets or \ac{mCT} datasets.
 In those cases, adaptive thresholding methods can be used to find a threshold value for each pixel based on the surrounding pixels \cite{sauvola.2000, phansalkar.2011}.
@@ -78,8 +77,8 @@ Nevertheless, these methods still require a lot of manual work and subjective de
 
 Superpixel segmentation algorithms such as \ac{SLIC} \cite{achanta.2012} divide an image into smaller regions, which are similar in color and texture, while preserving boundaries of objects within the image.
 \ac{SLIC}O allows to omit the compactness parameter, since it adaptively chooses this parameter for each superpixel.
-These small regions are called superpixel.
-These algorithms can help to segment very noisy datasets like \ac{EDX} \cite{georget.2021, jiang.2022}.
+These small regions are called superpixels.
+These algorithms can help to segment very noisy datasets like from \ac{EDX} \cite{georget.2021, jiang.2022}.
 Extensions such as Multi\ac{SLIC} \cite{yu.2023} further enable segmentation across multiple data modalities or data layers resulting in more robust and informative representations.
 % TODO: add details from jiang.2022 in the result section
 
@@ -95,7 +94,7 @@ Utilizing machine learning methods for segmentation is a promising approach to a
 \subsection{Sectioning effect}
 \label{subsec:sectioning-effect}
 
-Many measurements are made using \ac{BSE} images of embedded and polished hydrated clinker phases.
+Many measurements are made by using \ac{BSE} images of embedded and polished hydrated clinker phases.
 In other words, all measurements are taken on random sections through grains and their hydrate layers.
 This causes an unavoidable sectioning effect \cite{scrivener.2004}, as illustrated in \zcref{fig:sectioning_effect_a}.
 
@@ -167,7 +166,7 @@ This causes an unavoidable sectioning effect \cite{scrivener.2004}, as illustrat
 \end{figure}
 
 In particle size distributions, smaller particles are often over-represented, since the section through the particle tends to occur non-diametrically.
-Starting from a monodisperse distribution of spheres with a true diameter of $d_0$, a size distribution with a modal apparent diameter of $d_\text{app} = \Pi d_0  / 4$ is obtained \cite{cuzzi.2017}.
+Starting from a monodisperse distribution of spheres with a true diameter of $d_0$, a size distribution with a modal apparent diameter of $d_\text{app} = \pi d_0  / 4$ is obtained \cite{cuzzi.2017}.
 % https://doi.org/10.1111/maps.12812 <- 2d to 3d hochrechnen mittels fortran code \cite{cuzzi.2017}
 
 In contrast, the \ac{HLT} of a grain is often overestimated as shown in \zcref{fig:sectioning_effect_b}.
@@ -270,7 +269,8 @@ The densities required to calculate these values are listed in \zcref{tab:densit
 \FloatBarrier
 \subsection{Statistical analysis of the representativeness of a 2D image}
 \label{sec:2D-representativeness}
-To validate that a sample and the resulting measurement are representative can be a rather complicated challenge.
+
+To validate that a measurement is representative can be a rather complicated challenge.
 This is especially true for inhomogeneous materials consisting of multiple phases and wide ranges of particle sizes.
 The problem starts with sampling and sample preparation.
 This process is standardised for granular or powdery samples in multiple fields (e.g. DIN 52101 \cite{din52101.2013} and DIN EN 932-1 \cite{dinen932-1.1996}).
@@ -280,8 +280,8 @@ This raises the question of what the minimum resolution and the size of the anal
 %TODO: Christiane: zur statistik von SEM bildanalyse an klinkern gibts auch arbeiten von Paul Stutzman und in dem buch von donald campbell über microscopiacl examination adn interpretation of portland cement clinker bzw die duetsch variante davon. bestimmt gibts auch aussagen von betonmikroskopikern
 The required lower resolution limit of a \ac{SEM} image can be concluded from the \textcite{nyquist.1928}-\textcite{shannon.1949} theorem. %\textcite{whittaker.1915}-\textcite{nyquist.1928}-\textcite{shannon.1949}
 In the context of spatial resolution in digital imaging, this translates to the following requirement:
-The pixel size should be no larger than half the size of the smallest resolvable feature \cite{roberge.2022}.
-In other words, to resolve an object with a size of \qty{4}{\nano\meter}, the pixel size should be less than \qty{2}{\nano\meter\per\px}.
+The pixel should be no larger than half the size of the smallest resolvable feature \cite{roberge.2022}.
+In other words, to resolve an object with a size of \qty{4}{\nano\meter}, a resolution of less than \qty{2}{\nano\meter\per\px} is required.
 Due to the unavoidable noise level in most digital images (including images acquired by \ac{SEM}, \ac{CT} or light microscopy), a higher resolution is required to reliably represent a feature.
 Furthermore, the resolution limitations of the imaging device and the sample preparation (e.g. polishing) and the subsequent segmentation methods have to be considered.
 

@@ -96,7 +96,12 @@ Utilizing machine learning methods for segmentation is a promising approach to a
 
 Many measurements are made by using \ac{BSE} images of embedded and polished hydrated clinker phases.
 In other words, all measurements are taken on random sections through grains and their hydrate layers.
-This causes an unavoidable sectioning effect \cite{scrivener.2004}, as illustrated in \zcref{fig:sectioning_effect_a}.
+This causes an unavoidable sectioning effect \cite{scrivener.2004}.
+
+In particle size distributions, smaller particles are often over-represented, since the section through the particle tends to occur non-diametrically.
+Starting from a monodisperse distribution of spheres with a true diameter of $d_0$, a size distribution with a modal apparent diameter of $d_\text{app} = \pi d_0  / 4$ is obtained \cite{cuzzi.2017}.
+% https://doi.org/10.1111/maps.12812 <- 2d to 3d hochrechnen mittels fortran code \cite{cuzzi.2017}
+In contrast, the \ac{HLT} around the grain is often overestimated as illustrated in \zcref{fig:sectioning_effect}.
 
 \begin{figure}[htb]
     \centering
@@ -119,8 +124,8 @@ This causes an unavoidable sectioning effect \cite{scrivener.2004}, as illustrat
 					width=0.7\textwidth,
 					height=0.7\textwidth,
 					grid=major,
-					xlabel={\small sectioning distance from center point $x$},
-					ylabel={\small radius, \acs{HLT}},
+					xlabel={\small sectioning distance from centre point $x$},
+					ylabel={\small radius, \acs*{HLT}},
 					ytick={.3,1,1.3},
 					xtick={0,.3,1,1.3},
 					grid style={line width=.1pt, draw=gray!10},
@@ -146,7 +151,7 @@ This causes an unavoidable sectioning effect \cite{scrivener.2004}, as illustrat
 				\addplot[red, domain=0:1.35, samples=1000, very thick] {sqrt(2*1.3*(x+1.3) - (x+1.3)^2)};
 				\addlegendentry{outer radius \\ $f(x, r_\text{outer})$};
 				\addplot[blue,   domain=0:1, samples=1000, name path=f] {sqrt(2*1.3*(x+1.3) - (x+1.3)^2) - sqrt(2*1*(x+1) - (x+1)^2)};
-				\addlegendentry{measured \acs{HLT} \\ $t(x)$};
+				\addlegendentry{\acs*{HLT} \\ $t(x)$};
 				\path[name path=axis] (axis cs:0,0) -- (axis cs:1,0);
 				\addplot [fill=blue, fill opacity=0.2] fill between[of=f and axis, soft clip={domain=0:1}];
 
@@ -156,20 +161,15 @@ This causes an unavoidable sectioning effect \cite{scrivener.2004}, as illustrat
 			\end{axis}
 		\end{tikzpicture}
 		\caption{
-            Influence of the sectioning distance from center point $x$ on the \acs{HLT} ($t(x)$), calculated using Equation \zcref{eq:sectioning_effect_2}.
+            Influence of the sectioning distance from centre point $x$ on the \acs*{HLT} ($t(x)$), calculated using Equation \zcref{eq:sectioning_effect_2}.
         }
 		\label{fig:sectioning_effect_b}
 	\end{subfigure}
 
-    \caption{Illustration of the sectioning effect of a spherical grain. }
+    \caption{Illustration of the sectioning effect on the \acs*{HLT} of a spherical grain. }
     \label{fig:sectioning_effect}
 \end{figure}
 
-In particle size distributions, smaller particles are often over-represented, since the section through the particle tends to occur non-diametrically.
-Starting from a monodisperse distribution of spheres with a true diameter of $d_0$, a size distribution with a modal apparent diameter of $d_\text{app} = \pi d_0  / 4$ is obtained \cite{cuzzi.2017}.
-% https://doi.org/10.1111/maps.12812 <- 2d to 3d hochrechnen mittels fortran code \cite{cuzzi.2017}
-
-In contrast, the \ac{HLT} of a grain is often overestimated as shown in \zcref{fig:sectioning_effect_b}.
 \zcref{eq:sectioning_effect_1, eq:sectioning_effect_2} can be used to calculate the \ac{HLT} ($t$) for a spherical particle, depending on the sectioning distance from the centre point ($x$).
 
 \begin{equation}
@@ -179,7 +179,7 @@ In contrast, the \ac{HLT} of a grain is often overestimated as shown in \zcref{f
 \begin{conditions}
 	f	&	measured \ac{HLT}, \\
 	r	&   radius, \\
-	x	&   sectioning distance from center point; $0 \leq x \leq r$.
+	x	&   sectioning distance from centre point; $0 \leq x \leq r$.
 \end{conditions}
 
 \begin{equation}
@@ -193,13 +193,12 @@ In contrast, the \ac{HLT} of a grain is often overestimated as shown in \zcref{f
 \end{conditions}
 
 \begin{equation}
-	M_\text{HLT} = \frac{\int_{0}^{i} t(x) \,dx}{r_\text{grain}}
+	M_\text{HLT} = \frac{\int_{0}^{i} t(x) \,dx}{r_\text{grain}}, where 0 < i \leq r_\text{grain}.
 	\label{eq:sectioning_effect_3}
 \end{equation}
 \begin{conditions}
 	M_\text{HLT}	&	mean \ac{HLT} of a grain, \\
 	r_\text{grain}	&   grain radius, \\
-	d				&   $0 < i \leq r_\text{grain}$.
 \end{conditions}
 
 %\begin{wrapfigure}[14]{R}{0.6\linewidth}
@@ -216,31 +215,33 @@ In contrast, the \ac{HLT} of a grain is often overestimated as shown in \zcref{f
 %\end{wrapfigure}
 
 
-\zcref{fig:sectioning_effect_b} (blue curve) indicates that the \ac{HLT} can be significantly overestimated.
+\zcref{fig:sectioning_effect_b} indicates that the \ac{HLT} can be significantly overestimated.
 This becomes more prevalent the closer the cut through a particle is to the particle border.
 % https://www.wolframalpha.com/input?i=integral&assumption=%7B%22F%22%2C+%22Integral%22%2C+%22rangestart%22%7D+-%3E%220%22&assumption=%7B%22C%22%2C+%22integral%22%7D+-%3E+%7B%22Calculator%22%2C+%22dflt%22%7D&assumption=%7B%22F%22%2C+%22Integral%22%2C+%22integrand%22%7D+-%3E%22sqrt%282*1.3*%28x%2B1.3%29+-+%28x%2B1.3%29%5E2%29+-+sqrt%282*1*%28x%2B1%29+-+%28x%2B1%29%5E2%29%22&assumption=%7B%22F%22%2C+%22Integral%22%2C+%22rangeend%22%7D+-%3E%22.9%22
-For example, for a \ac{HLT} of \num{0.3} (as shown in \zcref{fig:sectioning_effect_b}), a mean overestimation of \qty{23.8}{\percent} can be expected. %0,3715/0,33
+For example, if a grain has a constant \ac{HLT} of \qty{30}{\percent} of the grain radius (as shown in \zcref{fig:sectioning_effect_b}, blue curve), an overestimation of from \num{0} to \qty{23.8}{\percent} of the \ac{HLT} can be expected. %0,3715/0,33
 
 \zcref{fig:hlt_overestimation} illustrates the overestimation of the measured \ac{HLT} depending on the \ac{HLT} / grain radius ratio and $M_\text{HLT}$ (\zcref{eq:sectioning_effect_3}).
-It shows that the smaller the \ac{HLT}, and therefore the younger the specimen, the greater the overestimation.
-The dependence on $M_\text{HLT}$ shows that specimens cut at or near the border especially increase the error.
+Since younger specimens have a smaller \ac{HLT}, a greater overestimation is to be expected, while the overestimation of older specimens with larger layers should be significantly lower.
+The dependence on $M_\text{HLT}$ shows that specimens cut at or near the border of the core particle especially increase the error.
 This also means that very small particles, which have a higher probability of originating from particle edges, are prone to larger overestimations and should therefore not be considered for further analysis.
 
 
 \FloatBarrier
 \subsection{Calculating the phase composition based on 2D-\acs*{SEM} images}
-Using a segmented \ac{SEM} image, the phase composition can be estimated by using the \unit{\areapercent} of alite $A_{\text{C}_3\text{S}}$ and the hydrate phases $A_\text{\text{CSH}}$ and $A_\text{CH}$ \cite{kleiner.2024a}.
+Using a segmented \ac{SEM} image with the image area $A_1$, the phase composition can be estimated by using the \unit{\areapercent} of alite $A_{\text{C}_3\text{S}}$ and the hydrate phases $A_\text{\text{CSH}}$ and $A_\text{CH}$ \cite{kleiner.2024a}.
 If the hydrate phases are indistinguishable, they can be summed up:
 
 \begin{equation}
     \label{eq:est_hydrate_area}
     \begin{aligned}
         A_\text{hydrate} &= A_\text{\text{CSH}} + A_\text{CH} \\
-        &= A_{\text{image}} - A_{\text{C}_3\text{S}} - A_{\text{pores}}
+        &= A_1 - A_{\text{C}_3\text{S}} - A_{\text{pores}}
     \end{aligned}
 \end{equation}
 
-\zcref{eq:est_frac} then allows an estimation of the amount of hydrate phases \ac{CH} and \ac{CSH} ($\sigma_\text{hydrate}$) in \unit{\wtpercent}.
+Although density is a volumetric property and the measurements provide only areas, it can be used to approximate the volume fraction of the hydrate phases.
+This approximation assumes that the phase fractions observed in 2D images are representative of the true volumetric fractions.
+Under this assumption, Equation \zcref{eq:est_frac} yields an estimate of the mass fraction of the hydrate phases (\ac{CH} and \ac{CSH}), \(\sigma_{\text{hydrate}}\), expressed in \unit{\wtpercent}.
 
 \begin{equation}
     \label{eq:est_frac}
@@ -270,7 +271,8 @@ The densities required to calculate these values are listed in \zcref{tab:densit
 \subsection{Statistical analysis of the representativeness of a 2D image}
 \label{sec:2D-representativeness}
 
-To validate that a measurement is representative can be a rather complicated challenge.
+A question coming up often, especially in \ac{SEM}, where the field of view is often only a few \unit{\milli\meter\squared} or even less, is how representative an image is of the whole specimen.
+However, to evaluate that a measurement is representative can be a rather complicated challenge.
 This is especially true for inhomogeneous materials consisting of multiple phases and wide ranges of particle sizes.
 The problem starts with sampling and sample preparation.
 This process is standardised for granular or powdery samples in multiple fields (e.g. DIN 52101 \cite{din52101.2013} and DIN EN 932-1 \cite{dinen932-1.1996}).
@@ -285,13 +287,13 @@ In other words, to resolve an object with a size of \qty{4}{\nano\meter}, a reso
 Due to the unavoidable noise level in most digital images (including images acquired by \ac{SEM}, \ac{CT} or light microscopy), a higher resolution is required to reliably represent a feature.
 Furthermore, the resolution limitations of the imaging device and the sample preparation (e.g. polishing) and the subsequent segmentation methods have to be considered.
 
-However, the minimum area required to obtain a statistically relevant result is especially an issue for \ac{SEM} analysis, since the imaged area is usually only a tiny detail of the whole specimen.
+However, the minimum area required to obtain a statistically relevant result is especially an issue for \ac{SEM} analysis, because the imaged field of view is usually only a tiny detail of the whole specimen.
 While the operator of the microscope may try to exclude unusual areas or capture a typical, representative area of the specimen, this is a highly subjective task.
-%To reduce this subjectiveness, one may try to obtain a larger area or set of independent images and apply statistical analysis.
+Although the operator may try to avoid atypical regions and select a representative area, this judgement is inherently subjective.
+Acquiring a larger field of view or several independent images reduces this subjectivity, but it is not always clear how large the dataset must be to attain the desired level of statistical confidence.
 
-
-{\color{red}In many cases, a particle size distribution or \ac{PSD} is of interest, which allows to evaluate distinct objects of an image \cite{odziomek.2016}.
-However, this is no good solution for interconnected phases or pore spaces. ...}
+In many cases, a particle size distribution or \ac{PSD} is of interest, which allows to evaluate distinct objects of an image \cite{odziomek.2016}.
+However, this parameter is not easily applicable for interconnected phases or pore spaces.
 
 Often a reliable phase composition measurement is sufficient.
 Therefore, some authors tried to apply a \ac{REA} calculation, to make sure the observed image features are statistically relevant \cite{bosl.1998,kameda.2006,klaver.2012,houben.2014,jiang.2022} .
@@ -301,26 +303,26 @@ In the selected publications two main methods were used for this statistical ana
     \centering
 
 	\begin{subfigure}[t]{0.49\textwidth}
-		\includegraphics[width=\textwidth]{literature/area growth_illust.png}
-		\caption{Box grow method.}
-        \label{fig:lit_box_methods_a}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[t]{0.49\textwidth}
 		\includegraphics[width=\textwidth]{literature/box_cnt_illust.png}
 		\caption{Box count method.}
         \label{fig:lit_box_methods_b}
 	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{0.49\textwidth}
+		\includegraphics[width=\textwidth]{literature/area growth_illust.png}
+		\caption{Box grow method.}
+        \label{fig:lit_box_methods_a}
+	\end{subfigure}
     \caption{
-        Example of the box grow and \acs{BC} method applied to an segmented image of \qty{28}{\day} hydrated alite.
+        Example of the \acs*{BC} and box grow method applied to a segmented image of \qty{28}{\day} hydrated \ac{C3S}.
         Red: {\color{red}\ac{CSH}}, yellow: {\color{orange}\ac{C3S}}, cyan: {\color{cyan}\ac{CH}}, black: pores.
     }
     \label{fig:lit_box_methods}
 \end{figure}
 
-The code used to compare both methods is publicly available \cite{kleiner.2024b}. %-> https://github.com/kleinerELM/box_count_method
+The source code used to compare both methods is publicly available \cite{kleiner.2024b}. %-> https://github.com/kleinerELM/box_count_method
 
-\subsubsection{\acl*{BC} method} % the method names are not great
+\subsubsection{\Acl*{BC} method} % the method names are not great
 
 The \ac{BC} method is a commonly used technique to obtain an indication of the statistical representativeness of the phase composition within an image \cite{mouret.2001, hlavacek.2015, cosenza.2019}.
 This method splits an image or multiple images of the same material into smaller sub-tiles (see \zcref{fig:lit_box_methods_b}).
@@ -425,8 +427,7 @@ Compared to \zcref{fig:lit_box_growth_b}, $\sigma$ decreases much more continuou
           \addlegendentry{pores};
           \addlegendentry{\ac{CSH}};
           \addlegendentry{\ac{CH}};
-          \addlegendentry{alite};
-
+          \addlegendentry{\ac{C3S}};
         \end{axis}
       \end{tikzpicture}
       \caption{Standard deviation of the phase composition.}
@@ -451,11 +452,11 @@ The phase composition of these growing boxes is continuously measured.
 To initiate multiple experiments within an image, the growth point has to be selected randomly within a limited window in the centre of the image.
 This allows calculation of a standard deviation.
 \zcref{fig:lit_box_growth} shows the result of such an analysis using an image of \qty{28}{\day} hydrated alite.
-This image has to be segmented beforehand into pores, unhydrated alite, \ac{CH} and \ac{CSH}.
+This image has to be segmented beforehand into pores, unhydrated \ac{C3S}, \ac{CH} and \ac{CSH}.
 The standard deviation in \zcref{fig:lit_box_growth_b} indicates the decreasing uncertainty with a larger area analysed.
-However, $\sigma$ decreases unsteadily.
+While $\sigma$ decreases unsteadily, the standard deviation is below \qty{2}{\percent} at \qty{0.1}{\square\milli\meter}
 Since the location of larger phases does not change in the image used, even the randomised starting point cannot remove the bias.
-This can be reduced by using more source images.
+%This can be reduced by using more source images.
 
 \begin{figure}[H]
     \centering
@@ -551,7 +552,7 @@ This can be reduced by using more source images.
           \addlegendentry{pores};
           \addlegendentry{\ac{CSH}};
           \addlegendentry{\ac{CH}};
-          \addlegendentry{alite};
+          \addlegendentry{\ac{C3S}};
 
         \end{axis}
       \end{tikzpicture}

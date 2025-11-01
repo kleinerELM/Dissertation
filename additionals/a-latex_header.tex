@@ -215,12 +215,23 @@
 \usepackage{animate}
 \usepackage{enumitem}  % improves enumerate and itemize environment
 \usepackage[version=4]{mhchem}
-\makeatletter
-	\newcommand\reaction@[1]{\begin{equation}\ce{#1}\end{equation}}
-	\newcommand\reaction@nonumber[1]%
-	{\begin{equation*}\ce{#1}\end{equation*}}
-	\newcommand\reaction{\@ifstar{\reaction@nonumber}{\reaction@}}
-\makeatother
+% \makeatletter
+% 	\newcommand\reaction@[1]{\begin{equation}\ce{#1}\end{equation}}
+% 	\newcommand\reaction@nonumber[1]%
+% 	{\begin{equation*}\ce{#1}\end{equation*}}
+% 	\newcommand\reaction{\@ifstar{\reaction@nonumber}{\reaction@}}
+% \makeatother
+\NewDocumentCommand{\reaction}{s o m}{%
+  \IfBooleanTF{#1}
+    {% starred -> unnumbered
+      \begin{equation*}\ce{#3}\end{equation*}%
+    }
+    {% unstarred -> numbered, attach label if provided
+      \begin{equation}\ce{#3}%
+        \IfValueT{#2}{\label{#2}}%
+      \end{equation}%
+    }%
+}
 
 %\usepackage{ziffer}  % conversion of punctuation in maths mode (switches . and ,) % usage leads to an error with siunitx (missing decimal point)
 \usepackage{lineno}  % create line numbering for review process

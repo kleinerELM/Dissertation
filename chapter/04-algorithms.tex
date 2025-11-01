@@ -50,7 +50,7 @@ For very oval particles, the hydrate fringe could otherwise be greatly overestim
 In addition, the clinker further dissolves and thus, the particle size reduces over time and small grains are consumed.
 Since the selected size of the grain diameters was kept constant regardless of the specimen age, this effect is not taken into account in this analysis. %kann man das irgendwie messen, wie sich der Korngrößendurchmesser ändert mit der Zeit? Einen Peak gabs ja leider nicht... Eventuell mal Korngrößenverteilungen gegenüberstellen...
 
-The segmented particles are the extracted as objects using the \textit{OpenCV} \cite{bradski.2000} library and their respective center of gravity is determines.
+The segmented particles are the extracted as objects using the \textit{OpenCV} \cite{bradski.2000} library and their respective centre of gravity is determines.
 Starting from this point, the mean radius $r_\text{particle}$ is determined.
 Subsequently, a circular \ac{ROI} $r_\text{ROI}$ is selected, which is calculated using \zcref{eq:r-roi}, where the potential hydration radius $r_\text{p-hyd}$ is set to \qty{7.0}{\micro\meter}, as the expected region within the hydration rim exists.
 

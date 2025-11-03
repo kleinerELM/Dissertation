@@ -310,3 +310,4 @@ Dissertation.bcf-SAVE-ERROR
 figures/tikz/*.pdf
 figures/tikz/*.dep
 20nm_003.jpg
+figures/hydrate-rim/images/*

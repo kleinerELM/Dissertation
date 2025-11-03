@@ -21,36 +21,36 @@ Figures in the appendix section are not visible in draft mode!
 
 
 
-The cryoscopic constant $K_{sp}$ of water is \qty{1.86}{\celsius\kilo\gram\per\mole} and the solubility product $K_{sp}$ of \ce{Ca(OH)2} is \num{5.5e-6} \cite{rumble.2018}.
-The molar solubility $S$ of \ce{Ca(OH)2} can be determined as
+The cryoscopic constant $K_{f}$ of water is \qty{1.86}{\celsius\kilo\gram\per\mole} and the solubility product $K_{sp}$ of \ce{Ca(OH)2} is \num{5.02e-6} \cite{haynes.2017}.
 \begin{equation}
     K_{sp} = [\text{Ca}^{2+}][\text{OH}^{-}]^2 = (S)(2S)^2 = 4S^3
 \end{equation}
 
 and can now be calculated as:
 \begin{equation}
-	S = \sqrt[3]{ \frac{K_{sp}}{4}} = \sqrt[3]{ \frac{\num{5.5e-6}}{4}} = 0.0111 \frac{\text{mol}}{\text{L}}
+	S = \sqrt[3]{ \frac{K_{sp}}{4}} = \sqrt[3]{ \frac{\num{5.02e-6}}{4}} = 0.01079 \frac{\text{mol}}{\text{L}}
 \end{equation}
 
 The mass of \qty{1}{\litre} of the saturated \ce{Ca(OH)2}-solution is \qty{0.999}{\kilo\gram\per\liter}.
-The molarity $m$ of \ce{Ca(OH)2} at its saturation point ($n=S$) at room temperature is therefore:
+The molality $m$ of \ce{Ca(OH)2} at its saturation point ($n=S$) at room temperature is therefore:
 \begin{equation}
-	m = \frac{n}{M}  = \frac{0.0111 \frac{\text{mol}}{\text{L}}}{0.999\frac{\text{kg}}{\text{L}}} = 0.0111 \frac{\text{mol}}{\text{kg}}
+	m = \frac{n}{M}  = \frac{0.01079 \frac{\text{mol}}{\text{L}}}{0.999\frac{\text{kg}}{\text{L}}} = 0.01080 \frac{\text{mol}}{\text{kg}}
 \end{equation}
 
 The temperature depression can now be calculated as 
 \begin{equation}
-	\Delta T_f = i \cdot K_f \cdot m = 3 \cdot 1.86 \frac{^\circ\text{C} \cdot \text{kg}}{\text{mol}} \cdot 0.0111 \frac{\text{mol}}{\text{kg}}
+	\Delta T_f = i \cdot K_f \cdot m = 3 \cdot 1.86 \frac{^\circ\text{C} \cdot \text{kg}}{\text{mol}} \cdot 0.01080 \frac{\text{mol}}{\text{kg}}
 \end{equation}
 \begin{conditions}
 	i	&	3 (number of ions in \ce{Ca(OH)2})
 \end{conditions}
 \begin{equation}
-	\Delta T_f = \qty{0.0619}{\celsius}
+	\Delta T_f = \qty{0.0602}{\celsius}
 \end{equation}
 
-The freezing point of a saturated \ce{Ca(OH)2}-solution is therefore to be expected at \qty{-0.0619}{\celsius}.
+The freezing point of a saturated \ce{Ca(OH)2}-solution is therefore to be expected at \qty{-0.0602}{\celsius}.
 
+\FloatBarrier
 \section{Materials}
 \label{sec:materials}
 
@@ -62,10 +62,13 @@ The measurements were carried out using a \textit{D8 DaVinci} diffractometer by 
 
 \begin{table}[h]
 	\centering
-	\caption{Chemical composition of the alite (\acs{C3S}), belite (\acs{C2S}), and CEM I used. The data were obtained by \ac{mXRF} in \unit{\wtpercent}.}
+	\caption{
+		Chemical composition of the \acs{C3S}, \acs{C2S}, and CEM I used.
+		The data were obtained by \ac{mXRF} in \unit{\wtpercent}.
+	}
 	\begin{tabular}{@{}lrrr@{}}
 		\toprule
-			oxides  		& alite (\acs{C3S}) & belite ($\beta$-\acs{C2S}) & CEM I \\
+			oxides  		& \acs{C3S} & $\beta$-\acs{C2S} & CEM I \\
 		\midrule
 			\ce{CaO}		& \tablenum{70.8}  & \tablenum{64.4}  & \tablenum{62.9}  \\
 			\ce{SiO2}		& \tablenum{26.3}  & \tablenum{34.2}  & \tablenum{20.7}  \\
@@ -162,7 +165,7 @@ For some \ac{CT} and \ac{FIBnt} experiments, a commercially available \ac{OPC} (
 	\centering
 	\caption{
 		Phase composition of the CEM I used for \ac{FIBnt} experiments, determined by \ac{XRD}.
-		'\ac{C3A} total' is the sum of '\ac{C3A} ort.' and '\ac{C3A} cub.'.
+		`\ac{C3A} total' is the sum of `\ac{C3A} ort.' and `\ac{C3A} cub.'.
 		All results are presented in \unit{\wtpercent}.
 	}
 	\begin{tabular}{lclc}

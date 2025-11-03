@@ -122,8 +122,9 @@ They proposed the connection between pore types and the freezing point depressio
 \end{itemize}
 In their study, only the peak presence at $\approx$ \qty{-15}{\celsius} was evaluated.
 
-Salts change the freezing point of water and pores are filled with a saturated solution of \ce{Ca(OH2)}.
-However, calculation the theoretical freezing point depression shows, that a shift of only \qty{-0.062}{\celsius} is to be expected (see \zcref{sec:freezing-point-depression}).
+The freezing point of a solution is typically lower than that of the pure solvent.
+In cementitious materials, the pores are filled with a saturated \ce{Ca(OH)2} solution.
+As calculated in \zcref{sec:freezing-point-depression}, this results in a freezing point of \qty{-0.06}{\celsius}.
 
 \textcite{brun.1977} proposed an approximate solution to convert between freezing/melting point of water and the pore radius for cylindrical pores. %based on a \textsc{Gibbs-Thompson} relationship 
 The equation for freezing is:
@@ -143,9 +144,6 @@ and for melting:
 \end{equation}
 % in Joseph.2024 stammt die + 0.68 aus "-0.12 + \delta" wobei \delta = the non-freezable layer of water in nm. With respect to the value of δ, both 1.2 nm [52,53] and 0.8 nm [51,54]
 
-It has to be noted, that $\Delta T$ measurements below \qty{-40}{\celsius} are not covered by these equations.
-However, \textcite{kloetstra.1995} proposed that it is possible to extend this lower limit.
-
 $\Delta T$ is defined as:
 
 \begin{equation}
@@ -157,10 +155,14 @@ $\Delta T$ is defined as:
 	T_\text{m} &   theoretical freezing point in \unit{\kelvin}.
 \end{conditions}
 
+It has to be noted that \textcite{brun.1977} experimental investigations of water, from which these numerical approximations were derived, were limited to a temperature range of $\qty{0}{\kelvin} > \Delta T > \qty{-40}{\kelvin}$.
+Therefore, the equations lack validation for freezing point depressions below \qty{-40}{\celsius}.
+However, \textcite{kloetstra.1995} applied these relations to their mesoporous materials and noted that the extrapolated curve for the triple point depression in porous materials shows that the relations can also be used at lower temperatures.
+
 %\begin{wrapfigure}{R}{0.6\linewidth}
 \begin{figure}[!htb]
     \centering
-	\vspace{-\intextsep}
+	%\vspace{-\intextsep}
     \begin{tikzpicture}
         \begin{semilogyaxis}[
 				legend style={at={(0.03,.94)},anchor=north west},
@@ -186,15 +188,16 @@ $\Delta T$ is defined as:
     \caption{
 		Depression of the freezing or melting point as functions of the pore radius.
 		Calculated according to \textcite{brun.1977} for water using \zcref{eq:brun_freeze, eq:brun_melt}.
+		The pore radius $r_\text{P}$ is plotted logarithmically.
 	}
-	\vspace{-\intextsep}
+	%\vspace{-\intextsep}
     \label{fig:freezing_depression}
 \end{figure}
 %\end{wrapfigure}
 % TODO: Stockhausen??
-\textcite{brun.1977} considered an adsorbed water film in the pores (thickness of \qty{0.8}{\nano\meter}) and also a temperature correction for surface tension and for the melting entropy.
-The relationships resulting from \zcref{eq:brun_freeze, eq:brun_melt} are plotted in \zcref{fig:freezing_depression}.
 
+\textcite{brun.1977} considered an adsorbed water film in the pores (thickness of \qty{0.8}{\nano\meter}) and also a temperature correction for surface tension and for the melting entropy.
+The correlations resulting from \zcref{eq:brun_freeze, eq:brun_melt} are plotted in \zcref{fig:freezing_depression}.
 This shows that smaller pores lead to lower freezing temperatures of the water inside the pores.
 However, this also depends on the pore type.
 
@@ -213,7 +216,7 @@ However, this also depends on the pore type.
 		Scheme of the freezing process within a connected pore system.
 		Freezing happens sequentially from $d_1$ to $d_2$, followed by $d_3$ and $d_4$ at once. Based on \textcite{sun.2010}.
 	}
-	\vspace{-\intextsep}
+	%\vspace{-\intextsep}
     \label{fig:freeze}
 \end{figure}
 %\end{wrapfigure}
@@ -239,10 +242,11 @@ They found that slower heating rates lead to narrower peaks and a lower signal r
 Heating rates of more than \qty{2}{\kelvin\per\minute} were considered too imprecise to study the pore size distribution.
 However, cooling/heating rates below \qty{0.1}{\kelvin\per\minute} were considered to have a poor signal-to-noise ratio.
 While \textcite{joseph.2024} used \qty{0.5}{\kelvin\per\minute} as a compromise, \textcite{wu.2015} and \textcite{ghantous.2023} still used a cooling/heating rate of \qty{0.1}{\kelvin\per\minute} to measure the porosity of cementitious materials.
-{\color{red}Considering the higher sensitivity of more modern devices, this heating rate could still be valid.}
+%{\color{red}Considering the higher sensitivity of more modern devices, this heating rate could still be valid.}
 %10.14359/51738808 \cite{Ghantous.2023} Examining Effect of Printing Directionality on Freezing and-Thawing Response of Three-Dimensional-Printed Cement Paste
 %also measured Pore-size distribution using dynamic vapor sorption
-\subsection{Other non-image-based methods to estimate the porosity}
+
+\subsection{Other non-image-based methods}
 \label{subsec:other_porosity}
 
 Other methods to obtain information about the porosity of materials are based on their respective response to the diffusion, permeability or the sorption of various gases like \ce{N2}, \ce{O2} or water vapour.
@@ -252,11 +256,11 @@ Furthermore, \ac{HNMR} can be used to measure the porosity of a material.
 
 \ac{HNMR} can be used to evaluate the porosity of cementitious materials at room temperature without the need for drying or freezing, which would change its microstructure \cite{gran.1997,muller.2014,naber.2020}.
 It is based on the magnetic resonance of the \ce{^1H} nuclei, primarily found in water molecules.
-The method involves placing a water-saturated sample in a strong magnetic field and perturbing the hydrogen nuclei with pulses.
+The method involves placing a water-saturated sample in a strong magnetic field and perturbing the hydrogen nuclei with electromagnetic pulses.
 The subsequent relaxation of these nuclei back to their equilibrium state generates a measurable signal.
 The key principle is that the \ac{NMR} relaxation time (particularly the transverse relaxation time, $T2$) of water molecules confined within pores is significantly affected by their interaction with the pore surfaces. % hier muss ich mich nochmal einlesen
 However, this method is not suitable for materials with a significant content of paramagnetic species (like iron oxides) \cite{barrie.2000}. 
-These species alter the relaxation rate of the water, thereby interfering with the measurement \cite{muller.2014}.
+These species alter the relaxation rate of the protons, thereby interfering with the measurement \cite{muller.2014}.
 
 \ac{NMR} allows the analysis of the porosity of a specimen in a wide range, including porosity below \qty{2}{\nano\meter} \cite{barrie.2000}. 
 Therefore, it is especially useful to gain insight into the interlayer volume of the \ac{CSH} phases \cite{naber.2020}.
@@ -269,16 +273,17 @@ Results from \ac{HNMR} and \ac{LTDSC} (here TMP) do fit, however \ac{HNMR} provi
 \dots
 }
 
+\subsubsection{\Acl*{DVS} (\acs*{DVS})}
 
-\ac{DVS} can give a rough idea of the porosity of a material \cite{pinson.2015} and the behaviour of the material under changing humidity at different temperatures \cite{wang.2023}.
+\Ac{DVS} can give a rough idea of the porosity of a material \cite{pinson.2015} and the behaviour of the material under changing humidity at different temperatures \cite{wang.2023}.
 While the operating gas is variable, it is usually water.
-Therefore, this method is useful for fully hydrated specimens.
-However, for specimens younger than \qty{14}{\day}, this method is not suitable, since hydration can continue significantly during the measurement period.
 
 The method works by placing a dry specimen in a humidity-controlled chamber, while stepwise increasing the humidity inside and measuring the mass change of the specimen until mass consistency is reached.
 This is followed by a subsequent stepwise reduction of the humidity.
 Depending on the available and accessible pore classes (capillary or gel porosity), the amount of mass change can indicate their presence at different humidities during the drying step \cite{pinson.2015}.
 Depending on the device used and the experimental setup, the measurements can take multiple days or weeks at room temperature and below \cite{wang.2023}.
 
-Most authors do not directly evaluate the porosity of the specimen using this method but use it comparatively between specimens or parameters \cite{ghantous.2023, wang.2023}.
+Therefore, this method is only useful for fully hydrated specimens.
+For specimens younger than \qty{14}{\day}, this method is not suitable, since hydration can continue significantly during the measurement period.
 
+Most authors do not directly evaluate the porosity of the specimen using this method but use it comparatively between specimens or parameters \cite{ghantous.2023, wang.2023}.

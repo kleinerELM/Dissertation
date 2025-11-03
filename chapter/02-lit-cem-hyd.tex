@@ -15,16 +15,18 @@ On contact with water, these phases dissolve and new phases such as \ac{CSH}, \a
                 legend cell align={left},
                 xmin=0, xmax=28,
                 ymin=0, ymax=100,
-                width=0.65\linewidth,
+                width=0.7\linewidth,
                 height=0.4\linewidth,
                 grid=major,
                 grid style={line width=.1pt, draw=gray!10},
                 xlabel={hydration time},
                 xtick={0, 11.26, 19.35, 28},
                 xticklabels={\qty{0}{\min},\qty{60}{\min},\qty{24}{\hour},\qty{28}{\day}},
-                ylabel={estimated\\phase content in \unit{\percent}},
+                ylabel={proportional\\phase development},
                 ylabel style={align=center},
-                ytick={}
+                ytick=\empty,
+                yticklabels={},
+                ytick style={draw=none},
             ]
 
             \addplot+ [ mark=none, red, very thick ] table [x index=4, y index=5, col sep=comma, filter discard warning=false] {figures/literature/phase_dev_moeser.csv};

@@ -14,15 +14,155 @@ Figures in the appendix section are not visible in draft mode!
 	\tikzexternaldisable
 \fi
 
-\section{Material data}
+\section{Freezing point depression due to \ce{CaOH}}
+\label{sec:freezing-point-depression}
 
-In this section, basic material characterisation data is presented, which are not shown in the main text.
+%\reaction[CaOH_dissolution]{Ca(OH2)<=>Ca2++2OH-}
+
+
+
+The cryoscopic constant $K_{sp}$ of water is \qty{1.86}{\celsius\kilo\gram\per\mole} and the solubility product $K_{sp}$ of \ce{Ca(OH)2} is \num{5.5e-6} \cite{rumble.2018}.
+The molar solubility $S$ of \ce{Ca(OH)2} can be determined as
+\begin{equation}
+    K_{sp} = [\text{Ca}^{2+}][\text{OH}^{-}]^2 = (S)(2S)^2 = 4S^3
+\end{equation}
+
+and can now be calculated as:
+\begin{equation}
+	S = \sqrt[3]{ \frac{K_{sp}}{4}} = \sqrt[3]{ \frac{\num{5.5e-6}}{4}} = 0.0111 \frac{\text{mol}}{\text{L}}
+\end{equation}
+
+The mass of \qty{1}{\litre} of the saturated \ce{Ca(OH)2}-solution is \qty{0.999}{\kilo\gram\per\liter}.
+The molarity $m$ of \ce{Ca(OH)2} at its saturation point ($n=S$) at room temperature is therefore:
+\begin{equation}
+	m = \frac{n}{M}  = \frac{0.0111 \frac{\text{mol}}{\text{L}}}{0.999\frac{\text{kg}}{\text{L}}} = 0.0111 \frac{\text{mol}}{\text{kg}}
+\end{equation}
+
+The temperature depression can now be calculated as 
+\begin{equation}
+	\Delta T_f = i \cdot K_f \cdot m = 3 \cdot 1.86 \frac{^\circ\text{C} \cdot \text{kg}}{\text{mol}} \cdot 0.0111 \frac{\text{mol}}{\text{kg}}
+\end{equation}
+\begin{conditions}
+	i	&	3 (number of ions in \ce{Ca(OH)2})
+\end{conditions}
+\begin{equation}
+	\Delta T_f = \qty{0.0619}{\celsius}
+\end{equation}
+
+The freezing point of a saturated \ce{Ca(OH)2}-solution is therefore to be expected at \qty{-0.0619}{\celsius}.
+
+\section{Materials}
+\label{sec:materials}
+
+\subsection{\acs{C2S} and \acs{C3S} clinker}
+
+Commercially available alite (MIII polymorph, Vustah, Czech Republic) and belite (Vustah, Czech Republic) were used in the experiments.
+The chemical composition (\zcref{tab:chemical_composition}) was determined by \ac{mXRF}, and the phase purity was confirmed at \qty{99.4(0.4)}{\wtpercent} for alite (\ac{C3S}, \acs{ICSD} 94742 \cite{delatorre.2002}) and \qty{91.7(0.7)}{\wtpercent} for belite ($\beta$-\ac{C2S}, \acs{ICSD} 963 \cite{jost.1977}) using \ac{XRD} analysis.
+The measurements were carried out using a \textit{D8 DaVinci} diffractometer by \textsc{Bruker}.
+
+\begin{table}[h]
+	\centering
+	\caption{Chemical composition of the alite (\acs{C3S}), belite (\acs{C2S}), and CEM I used. The data were obtained by \ac{mXRF} in \unit{\wtpercent}.}
+	\begin{tabular}{@{}lrrr@{}}
+		\toprule
+			oxides  		& alite (\acs{C3S}) & belite ($\beta$-\acs{C2S}) & CEM I \\
+		\midrule
+			\ce{CaO}		& \tablenum{70.8}  & \tablenum{64.4}  & \tablenum{62.9}  \\
+			\ce{SiO2}		& \tablenum{26.3}  & \tablenum{34.2}  & \tablenum{20.7}  \\
+			\ce{MgO}		& \tablenum{1.70}  & \tablenum{0.223} & \tablenum{1.02}  \\
+			\ce{Al2O3}		& \tablenum{0.238} & \tablenum{0.285} & \tablenum{5.17}  \\
+			\ce{P2O5}		& \tablenum{0.193} & \tablenum{0.094} & \tablenum{0.122} \\
+			\ce{Fe2O3}		& \tablenum{0.094} & \tablenum{0.087} & \tablenum{2.13}  \\
+			\ce{Na2O}		& \tablenum{0.083} & \tablenum{0.310} & \tablenum{0.122} \\
+			\ce{K2O}		& \tablenum{0.032} & \tablenum{0.037} & \tablenum{0.902} \\
+			\ce{TiO2}		& \tablenum{0.031} & \tablenum{0.034} & \tablenum{0.270} \\
+			\ce{SrO}		& \tablenum{0.012} & \tablenum{0.011} & \tablenum{0.199} \\
+			\ce{Mn2O3             }		& \tablenum{0.006} & \tablenum{0.006} & \tablenum{0.110} \\
+			\ce{Cr2O3}		& \tablenum{0.005} & \tablenum{0.004} & \tablenum{0.008} \\
+			\ce{ZnO}		& \tablenum{0.001} & \tablenum{0.001} & \tablenum{0.016} \\
+			\ce{SO3}		& \tablenum{0} & \tablenum{0} & \tablenum{3.617} \\
+			\midrule
+			sum		& \tablenum{99.94} & \tablenum{99.96} & \tablenum{97,22} \\
+		\bottomrule
+	\end{tabular}
+	\label{tab:chemical_composition}
+\end{table}
+
+The particle size distribution of the \ac{C3S} powder sieved to <\,\qty{20}{\micro\meter} was measured using laser diffraction analysis and is plotted in \zcref{fig:psd_cryo_C3S_lt20mum}.
+
+\begin{figure}[H]
+    \centering
+
+	\begin{tikzpicture}
+		\begin{semilogxaxis}[%red,
+            xmin=0.04, xmax=500,
+            ymin=0, ymax=1,
+            width=.95\linewidth,
+            height=.25\textheight,
+			xticklabels={0.04,0.1,1,10,100},
+			xtick={.04,.1,1,10,100},
+			extra x ticks={0.05,0.06,...,0.09,0.2,0.3,...,0.9,2,3,...,9,20,30,...,90,200,300,...,900},
+			extra x tick labels={},
+			ymajorticks=false,
+			xlabel={particle diameter \unit{\micro\meter}},
+			ylabel={normed intensity},
+            grid=both,
+            grid style={line width=.1pt, draw=gray!10}
+		  ]
+
+          \addplot[red, mark=none] table [x=diameter,y=diff_normed, col sep=comma] {figures/particle-dist/psd_lasergran_C3S_lt20mum.csv};
+		  %\addlegendentry{Laser diffraction analysis};
+
+          \addplot[darkgreen, mark=x] table [x=diameter,y=diff_normed, col sep=comma] {figures/particle-dist/psd_cryo_C3S_lt20mum.csv};
+		  %\addlegendentry{Feret diameter};
+
+        \end{semilogxaxis}
+		\begin{semilogxaxis}[blue,
+			xmin=0.04, xmax=500,
+			ymin=0, ymax=100,
+			axis y line*=right,
+			axis x line=none,
+			ylabel={Cumulative in \unit{\volpercent}},
+			width=.95\linewidth,
+			height=.25\textheight,
+            legend style={at={(.5,1.03)},anchor=south, style={column sep=4pt},text=black},
+            legend columns = 2,
+			legend cell align={left},
+			grid=none
+		]
+			\addlegendimage{red, mark=none}
+			\addlegendentry{Density distribution};
+
+			\addplot[blue, mark=none] table [x=diameter, y=cumulative, col sep=comma] {figures/particle-dist/psd_lasergran_C3S_lt20mum.csv};
+			\addlegendentry{Cumulative distribution};
+
+			\addlegendimage{darkgreen, mark=x}
+			\addlegendentry{\textsc{Feret} diameter};
+
+		\end{semilogxaxis}
+	\end{tikzpicture}
+
+    \caption{
+		\ac{PSD} of a \ac{C3S} powder (sieved to <\,\qty{20}{\micro\meter}), measured using laser diffraction analysis compared to the \textsc{Feret} diameter from the image analysis of \zcref{fig:cryo-fib}.
+	}
+    \label{fig:psd_cryo_C3S_lt20mum}
+\end{figure}
+
+The pastes were prepared with a \ac{wb} value of \num{0.5} and stored in sealed cylindrical containers with a diameter of $\approx$ \qty{8}{\milli\meter}.
+The hydration of the specimens was stopped after the desired age by immersion in isopropanol and subsequent drying at \qty{60}{\celsius}.
+The phase composition of samples stored for \num{1} (only \ac{C3S}), \num{7}, and \qty{28}{\day} were assessed by quantitative \ac{XRD} analysis using the $G$-factor method \cite{oconnor.1988, jansen.2011}.
+
+\subsection{Cements}
+\label{sec:cements}
+
+For some \ac{CT} and \ac{FIBnt} experiments, a commercially available \ac{OPC} (type CEM I \num{42.5} R from \textsc{Dyckerhoff}) was used (chemical composition see \zcref{tab:phase-composition}) to produce a mortar (\qty{450(2)}{\gram} cement, \qty{1350(5)}{\gram} sand and \qty{225(1)}{\gram} water; according to DIN EN 196-1 \cite{dinen196-1.2016}).
 
 %Zement nummer 808 für CT Untersuchungen -> Kapitel correlative Mikroskopie
 \begin{table}[H]
 	\centering
 	\caption{
-		Phase composition of the CEM I used for \ac{FIBnT} experiments, determined by \ac{XRD}.
+		Phase composition of the CEM I used for \ac{FIBnt} experiments, determined by \ac{XRD}.
+		'\ac{C3A} total' is the sum of '\ac{C3A} ort.' and '\ac{C3A} cub.'.
 		All results are presented in \unit{\wtpercent}.
 	}
 	\begin{tabular}{lclc}
@@ -45,6 +185,7 @@ In this section, basic material characterisation data is presented, which are no
 	\end{tabular}
 	\label{tab:phase-composition}
 \end{table}
+
 
 
 \begin{figure}[H]
@@ -107,111 +248,12 @@ In this section, basic material characterisation data is presented, which are no
 	\label{fig:psd_CEM_I}
 \end{figure}
 
-\begin{figure}[H]
-    \centering
 
-	\begin{tikzpicture}
-		\begin{semilogxaxis}[%red,
-            xmin=0.04, xmax=500,
-            ymin=0, ymax=1,
-            width=.95\linewidth,
-            height=.25\textheight,
-			xticklabels={0.04,0.1,1,10,100},
-			xtick={.04,.1,1,10,100},
-			extra x ticks={0.05,0.06,...,0.09,0.2,0.3,...,0.9,2,3,...,9,20,30,...,90,200,300,...,900},
-			extra x tick labels={},
-			ymajorticks=false,
-			xlabel={particle diameter \unit{\micro\meter}},
-			ylabel={normed intensity},
-            grid=both,
-            grid style={line width=.1pt, draw=gray!10}
-		  ]
-
-          \addplot[red, mark=none] table [x=diameter,y=diff_normed, col sep=comma] {figures/particle-dist/psd_lasergran_C3S_lt20mum.csv};
-		  %\addlegendentry{Laser diffraction analysis};
-
-          \addplot[darkgreen, mark=x] table [x=diameter,y=diff_normed, col sep=comma] {figures/particle-dist/psd_cryo_C3S_lt20mum.csv};
-		  %\addlegendentry{Feret diameter};
-
-        \end{semilogxaxis}
-		\begin{semilogxaxis}[blue,
-			xmin=0.04, xmax=500,
-			ymin=0, ymax=100,
-			axis y line*=right,
-			axis x line=none,
-			ylabel={Cumulative in \unit{\volpercent}},
-			width=.95\linewidth,
-			height=.25\textheight,
-            legend style={at={(.5,1.03)},anchor=south, style={column sep=4pt},text=black},
-            legend columns = 2,
-			legend cell align={left},
-			grid=none
-		]
-			\addlegendimage{red, mark=none}
-			\addlegendentry{Density distribution};
-
-			\addplot[blue, mark=none] table [x=diameter, y=cumulative, col sep=comma] {figures/particle-dist/psd_lasergran_C3S_lt20mum.csv};
-			\addlegendentry{Cumulative distribution};
-
-			\addlegendimage{darkgreen, mark=x}
-			\addlegendentry{\textsc{Feret} diameter};
-
-		\end{semilogxaxis}
-	\end{tikzpicture}
-
-    \caption{
-		\ac{PSD} of a \ac{C3S} powder (sieved to <\,\qty{20}{\micro\meter}), measured using laser diffraction analysis compared to the \textsc{Feret} diameter from the image analysis of \zcref{fig:cryo-fib}.
-	}
-    \label{fig:psd_cryo_C3S_lt20mum}
-\end{figure}
-
-\begin{table}[H]
-	\centering
-	\caption{
-		Phase composition of the CEM I clinker used for \ac{LAICPMS} experiments, determined by \ac{XRD} (Rietveld). All results are presented in \unit{\wtpercent}
-	}
-	\begin{tabular}{lclc}
-		\toprule
-		Phase			& CEM I clinker & Phase & CEM I clinker (cont.) \\
-		\midrule
-		\ac{C3S}		& \tablenum{68.6} & \ac{C4AF}		& \tablenum{7.0} \\
-		$\beta$-\ac{C2S}& \tablenum{12.8} & Calcite			& \tablenum{3.86} \\
-		{\color{darkgrey}\ac{C3A}, cub.}	& {\color{darkgrey}\tablenum{2.4}}  & \ce{CaO}		& \tablenum{2.0} \\
-		{\color{darkgrey}\color{darkgrey}\ac{C3A}, ort.}	& {\color{darkgrey}\tablenum{6.1}}  & Arcanite		& \tablenum{1.0} \\ % less than 1!
-		\ac{C3A}, total	& \tablenum{8.5}  & Periclase		& \tablenum{1.0} \\ % less than 1!
-		\midrule
-		Total			 & & & \tablenum{100.2} \\ 
-		\bottomrule
-	\end{tabular}
-	\label{tab:phase-composition-clinker}
-\end{table}
-
-\begin{table}[H]
-	\centering
-	\caption{
-		Chemical composition of the clinker used for \ac{LAICPMS} experiments, measured by \ac{ICP}-\ac{OES} (\textsc{Perkin Elmer} \textit{Avio 500}) and \ac{ICP}-\ac{MS} after digestion.
-		All results are presented in \unit{\wtpercent}.
-	}
-	\begin{tabular}{lcclcc}
-		\toprule
-		Oxide         & \ac{ICP}-\ac{OES} & \ac{ICP}-\ac{MS} & Oxide         & \ac{ICP}-\ac{OES} (cont.) & \ac{ICP}-\ac{MS} (cont.) \\
-		\midrule
-		\ce{CaO}	& \tablenum{64.81}	& -					& \ce{SrO}	& \tablenum{0.15}	& \tablenum{0.1254} \\
-		\ce{SiO2}	& \tablenum{22.44}	& -					& \ce{P2O5}	& \tablenum{0.15}	& -      \\
-		\ce{Al2O3}	& \tablenum{4.67}	& -					& \ce{ZnO}	& \tablenum{0.04}	& -      \\
-		\ce{Fe2O3}	& \tablenum{2.59}	& -					& \ce{MnO}	& \tablenum{0.04}	& \tablenum{0.0275} \\
-		\ce{MgO}	& \tablenum{1.36}	& -					& \ce{V2O5}	& \tablenum{0.01}	& \tablenum{0.0053} \\
-		\ce{K2O}	& \tablenum{1.26}	& -					& \ce{ZnO}	& \tablenum{0.04}	& \tablenum{0.0294} \\
-		\ce{SO3}	& \tablenum{1.01}	& -					& \ce{Cr2O3}& \tablenum{0.01}	& \tablenum{0.0067} \\
-		\ce{Na2O}	& \tablenum{0.41}	& -					& \ce{BaO}	& \tablenum{0.02}	& \tablenum{0.0185} \\
-		\ce{TiO2}	& \tablenum{0.24}	& \tablenum{0.1431} & \ce{CuO}	& -					& \tablenum{0.0107} \\
-		\midrule
-		Total		&					&					&			&  \tablenum{99.88}	& -      \\
-		\acs{LOI} (\qty{1000}{\celsius}) & &			&			& \tablenum{0.70}	& -      \\
-		\bottomrule
-	\end{tabular}
-	\label{tab:laicpms-clinker}
-\end{table}
+\Ac{LC3} with a composition of \qty{51.87}{\wtpercent} CEM I, \qty{30.00}{\wtpercent} calcined clay, \qty{15.61}{\wtpercent} limestone and \qty{2.52}{\wtpercent} set regulator was used in the cryo-\ac{FIB} experiments (see \zcref{sec:cryo_fib_sem}).
+The pore size distribution measured using laser diffraction analysis is plotted in \zcref{fig:psd_cryo_LC3} and compared to the \textsc{Feret} diameter, measured using \zcref{fig:cryo-fib-lc3a, fig:cryo-fib-lc3b}.
+More details on the \ac{LC3} used can be found in \cite{pott.2023}.
+The \ac{LC3} was mixed with water (\ac{wb}=0.5) and a part of the paste was sonicated with \ac{PUS}.
+For this, a ultrasound processor and generator \textit{UIP1000hd} connected to a \textit{Booster B2-2.2} amplifier and a \textit{BS2d34} sonotrode at a maximum amplitude of \qty{42.4}{\micro\meter} was used.
 
 \begin{figure}[H]
     \centering
@@ -278,8 +320,62 @@ In this section, basic material characterisation data is presented, which are no
     \label{fig:psd_cryo_LC3}
 \end{figure}
 
-\FloatBarrier
-\section{\acs*{LAICPMS} measurements}
+
+\subsection{Clinker}
+
+For the \ac{LAICPMS} experiments, an \ac{OPC} clinker granule (CEM I type) from an industrial process was used.
+The phase compositon measured using \ac{XRD} is listed in \zcref{tab:phase-composition-clinker} and the chemical composition measured using \ac{ICP}-\ac{OES} can be found in \zcref{tab:laicpms-clinker}.
+
+\begin{table}[H]
+	\centering
+	\caption{
+		Phase composition of the CEM I clinker used for \ac{LAICPMS} experiments, determined by \ac{XRD} (Rietveld). All results are presented in \unit{\wtpercent}
+	}
+	\begin{tabular}{lclc}
+		\toprule
+		Phase			& CEM I clinker & Phase & CEM I clinker (cont.) \\
+		\midrule
+		\ac{C3S}		& \tablenum{68.6} & \ac{C4AF}		& \tablenum{7.0} \\
+		$\beta$-\ac{C2S}& \tablenum{12.8} & Calcite			& \tablenum{3.86} \\
+		{\color{darkgrey}\ac{C3A}, cub.}	& {\color{darkgrey}\tablenum{2.4}}  & \ce{CaO}		& \tablenum{2.0} \\
+		{\color{darkgrey}\color{darkgrey}\ac{C3A}, ort.}	& {\color{darkgrey}\tablenum{6.1}}  & Arcanite		& \tablenum{1.0} \\ % less than 1!
+		\ac{C3A}, total	& \tablenum{8.5}  & Periclase		& \tablenum{1.0} \\ % less than 1!
+		\midrule
+		Total			 & & & \tablenum{100.2} \\ 
+		\bottomrule
+	\end{tabular}
+	\label{tab:phase-composition-clinker}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{
+		Chemical composition of the clinker used for \ac{LAICPMS} experiments, measured by \ac{ICP}-\ac{OES} (\textsc{Perkin Elmer} \textit{Avio 500}) and \ac{ICP}-\ac{MS} after digestion.
+		All results are presented in \unit{\wtpercent}.
+	}
+	\begin{tabular}{lcclcc}
+		\toprule
+		Oxide         & \ac{ICP}-\ac{OES} & \ac{ICP}-\ac{MS} & Oxide         & \ac{ICP}-\ac{OES} (cont.) & \ac{ICP}-\ac{MS} (cont.) \\
+		\midrule
+		\ce{CaO}	& \tablenum{64.81}	& -					& \ce{SrO}	& \tablenum{0.15}	& \tablenum{0.1254} \\
+		\ce{SiO2}	& \tablenum{22.44}	& -					& \ce{P2O5}	& \tablenum{0.15}	& -      \\
+		\ce{Al2O3}	& \tablenum{4.67}	& -					& \ce{ZnO}	& \tablenum{0.04}	& -      \\
+		\ce{Fe2O3}	& \tablenum{2.59}	& -					& \ce{MnO}	& \tablenum{0.04}	& \tablenum{0.0275} \\
+		\ce{MgO}	& \tablenum{1.36}	& -					& \ce{V2O5}	& \tablenum{0.01}	& \tablenum{0.0053} \\
+		\ce{K2O}	& \tablenum{1.26}	& -					& \ce{ZnO}	& \tablenum{0.04}	& \tablenum{0.0294} \\
+		\ce{SO3}	& \tablenum{1.01}	& -					& \ce{Cr2O3}& \tablenum{0.01}	& \tablenum{0.0067} \\
+		\ce{Na2O}	& \tablenum{0.41}	& -					& \ce{BaO}	& \tablenum{0.02}	& \tablenum{0.0185} \\
+		\ce{TiO2}	& \tablenum{0.24}	& \tablenum{0.1431} & \ce{CuO}	& -					& \tablenum{0.0107} \\
+		\midrule
+		Total		&					&					&			&  \tablenum{99.88}	& -      \\
+		\acs{LOI} (\qty{1000}{\celsius}) & &			&			& \tablenum{0.70}	& -      \\
+		\bottomrule
+	\end{tabular}
+	\label{tab:laicpms-clinker}
+\end{table}
+
+The measurement positions on the grain are marked in \zcref{fig:LAICPMS-specimen}.
+
 
 \begin{figure}[htbp]
 	\centerline{\includegraphics[width=.6\textwidth]{figures/la-icp-ms/positions.pdf}}
@@ -287,6 +383,40 @@ In this section, basic material characterisation data is presented, which are no
 		Positions of the \ac{LAICPMS} measurements.
 	}
 	\label{fig:LAICPMS-specimen}
+\end{figure}
+
+\subsection{Porous glass standard}
+\label{sec:boraglas}
+
+As reference  with a defined pore size, porous glass membranes by \textsc{Boraglas} with a pore size of \qtylist{5;20}{\nano\meter} were used.
+These borosilicate glass products are made using the \textsc{VYCOR}-process and are usually utilised as filter material.
+The specimens were provided as \qtyproduct{10 x 10 x
+1.2}{\milli\meter} plates, which were cut into smaller pieces for the measurements.
+
+The manufacturer provided a certificate for the porosity of the materials based on \ac{MIP} measurements (\zcref{fig:vycor-mip}).
+The \qty{5}{\nano\meter} glass sieve has a modal pore diameter of \num{4.5} and a median diameter of \qty{4.7}{\nano\meter} at a porosity of \qty{54.1}{\percent}.
+For the \qty{20}{\nano\meter} material a modal pore diameter of \num{22.3} and a median diameter of \qty{19.4}{\nano\meter} at a porosity of \qty{51.3}{\percent} is given.
+A revalidation of the \ac{MIP} results was omitted, due to the high material costs.
+
+\begin{figure}[htb!]
+	\centering
+
+	\begin{subfigure}{0.49\textwidth}
+		\includegraphics[width=\textwidth]{mip/vycor_glass_5.png}
+		\caption{\qty{5}{\nano\meter} porous \textsc{VYCOR}-glass.}
+		\label{fig:vycor-mip-5}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.49\textwidth}
+		\includegraphics[width=\textwidth]{mip/vycor_glass_20.png}
+		\caption{\qty{20}{\nano\meter} porous \textsc{VYCOR}-glass.}
+		\label{fig:vycor-mip-20}
+	\end{subfigure}
+
+    \caption{
+		\ac{PSD} of the \textsc{VYCOR}-glass measured using \ac{MIP} according to the test certificate of the manufacturer; University of Leipzig; ICT, February 2020.
+	}
+    \label{fig:vycor-mip}
 \end{figure}
 
 \FloatBarrier
@@ -323,26 +453,6 @@ In this section, basic material characterisation data is presented, which are no
 \FloatBarrier
 \section{Pore size distribution}
 
-\begin{figure}[htb!]
-	\centering
-
-	\begin{subfigure}{0.49\textwidth}
-		\includegraphics[width=\textwidth]{mip/vycor_glass_5.png}
-		\caption{\qty{5}{\nano\meter} porous \textsc{VYCOR}-glass.}
-		\label{fig:vycor-mip-5}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}{0.49\textwidth}
-		\includegraphics[width=\textwidth]{mip/vycor_glass_20.png}
-		\caption{\qty{20}{\nano\meter} porous \textsc{VYCOR}-glass.}
-		\label{fig:vycor-mip-20}
-	\end{subfigure}
-
-    \caption{
-		\ac{PSD} of the \textsc{VYCOR}-glass measured using \ac{MIP} according to the test certificate of the manufacturer; University of Leipzig; ICT, February 2020.
-	}
-    \label{fig:vycor-mip}
-\end{figure}
 
 \begin{figure}[!htb]
     \centering

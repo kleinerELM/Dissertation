@@ -5,6 +5,7 @@
 % pore analysis paper \cite{yio.2019,levitz.2007,muench.2008,desbois.2016...}
 % TODO: Ich würde mich ja zunächst erst einmal fragen: warum muss ich die Porenverteilung kennen? Was sagt mir die? Ist sie dynamisch/statisch?
 
+The porosity of a hydrated cement not only defines its final strength, but also its durability, freeze-thaw resistance and resistance to chemical attack.
 On initial thought, the measurement of pores and pore sizes seems to be fairly easy.
 However, while air voids in mortar and concrete are mostly spherical due to the surface tension of the fresh binder, this significantly changes below a scale of tens of micrometres, where the capillary pores begin.
 These pores are filled with pore solution/water during hydration and feature much more complex, fractal-like geometries.
@@ -78,7 +79,7 @@ Furthermore, \ac{MIP} requires dried specimens, leading to a cracked and therefo
 In cement, the pore volume was comparable; the usage of \textsc{Wood}'s metal indicated that larger pores were present \cite{abell.1999}.
 \textcite{hildenbrand.2003} applied this comparison to mudstones and concluded that \ac{MIP} causes a significant compression of the sample pore space.
 This was already assumed by \cite{horseman.1996} who declared \ac{MIP} as `totally unreliable' for clay-like materials.
-\textcite{hall.1986} concludes in comparison with small angle neutron scattering and \ce{N2} measurements, that pores larger than \qty{70}{\nano\meter} in clays may be preparation artefacts (e.g. due to drying).
+\textcite{hall.1986} concludes in comparison with small angle neutron scattering and \ce{N2} measurements (e.g. \ac{BET}), that pores larger than \qty{70}{\nano\meter} in clays may be preparation artefacts (e.g. due to drying).
 \ac{MIP} was also deemed inadequate for oolitic limestone by \textcite{roels.2001} due to the ink-bottle effect.
 They preferred the main wetting curve, \ac{SEM} images and pressure membrane apparatus measurements of saturated specimens over \ac{MIP}.
 
@@ -107,8 +108,8 @@ Another less common method to indirectly measure the \ac{PSD}, especially in the
 The method is based on the principle that the freezing point of water is lowered in small pores due to surface tension \cite{brun.1973,brun.1977}.
 Since the heat capacity of the phase transition (liquid-solid) is significantly higher than that of the solid phases, this freezing point depression can be measured using \ac{DSC}.
 
-The measurable pore size range starts at $\approx$ \num{2} \cite{cuperus.1992} or \qty{3.19}{\nano\meter} due to a temperature limit in the thermodynamic description of \qty{-40}{\celsius} \cite{brun.1977}.
-However, this limit can be extended to lower temperatures and smaller pores when considering the extrapolated curve for the triple point depression in porous materials \cite{kloetstra.1995}.
+The measurable pore size range starts at \qtyrange{2}{3.19}{\nano\meter} \cite{cuperus.1992} due to a temperature limit in the thermodynamic description of \qty{-40}{\celsius} \cite{brun.1977}.
+However, this limit can be ignored and extended to lower temperatures and smaller pores when considering the extrapolated curve for the triple point depression in porous materials \cite{kloetstra.1995}.
 For pores larger than \qty{30}{\nano\meter} the temperature shift of the freezing point is too small to be separated from the freezing of free water \cite{cuperus.1992,stocker.2002}.
 
 \ac{LTDSC} requires water-saturated specimens and therefore avoids damage due to drying \cite{gran.1997,galle.2001} often criticised in \ac{MIP} and \ac{SEM} experiments \cite{chatterji.2001,georget.2024}.
@@ -121,10 +122,13 @@ They proposed the connection between pore types and the freezing point depressio
 \end{itemize}
 In their study, only the peak presence at $\approx$ \qty{-15}{\celsius} was evaluated.
 
+Salts change the freezing point of water and pores are filled with a saturated solution of \ce{Ca(OH2)}.
+However, calculation the theoretical freezing point depression shows, that a shift of only \qty{-0.062}{\celsius} is to be expected (see \zcref{sec:freezing-point-depression}).
+
 \textcite{brun.1977} proposed an approximate solution to convert between freezing/melting point of water and the pore radius for cylindrical pores. %based on a \textsc{Gibbs-Thompson} relationship 
 The equation for freezing is:
 \begin{equation}
-	r_\text{P} = -\frac{64.67}{\Delta T }+0.57;~~~\qty{0}{\kelvin} > \Delta T > \qty{-40}{\kelvin},
+	r_\text{P} = -\frac{\qty{64.67}{\nano\meter\per\kelvin}}{\Delta T }+\qty{0.57}{\nano\meter};~~~\qty{-40}{\kelvin} < \Delta T < \qty{0}{\kelvin},
 	\label{eq:brun_freeze}
 \end{equation}
 \begin{conditions}
@@ -134,7 +138,7 @@ The equation for freezing is:
 
 and for melting:
 \begin{equation}
-	r_\text{P} = -\frac{32.33}{\Delta T }+0.68;~~~\qty{0}{\kelvin} > \Delta T > \qty{-40}{\kelvin}.
+	r_\text{P} = -\frac{\qty{32.33}{\nano\meter\per\kelvin}}{\Delta T }+\qty{0.68}{\nano\meter};~~~\qty{0}{\kelvin} > \Delta T > \qty{-40}{\kelvin}.
 	\label{eq:brun_melt}
 \end{equation}
 % in Joseph.2024 stammt die + 0.68 aus "-0.12 + \delta" wobei \delta = the non-freezable layer of water in nm. With respect to the value of δ, both 1.2 nm [52,53] and 0.8 nm [51,54]
@@ -165,7 +169,7 @@ $\Delta T$ is defined as:
 				width=\linewidth,
 				height=6cm,
 				grid=major,
-				xlabel={freezing poicnt depression $\Delta T$ in \unit{\kelvin}},
+				xlabel={freezing point depression $\Delta T$ in \unit{\kelvin}},
 				ylabel={pore radius $r_\text{P}$ in \unit{\nano\meter}},
 				xtick={0,-10,...,-40},
 				ytick     ={1,2.5,5,10,30},
@@ -174,9 +178,9 @@ $\Delta T$ is defined as:
 				%x dir=reverse
             ]
 			\addplot[blue, domain=0:-40, samples=50] {0.57-64.67/x};
-            \addlegendentry{freezing};
+            \addlegendentry{freezing $r_\text{P,f}$};
 			\addplot[red, domain=0:-40, samples=50, dashed] {0.68-32.33/x};
-            \addlegendentry{melting};
+            \addlegendentry{melting $r_\text{P,m}$};
         \end{semilogyaxis}
     \end{tikzpicture}
     \caption{

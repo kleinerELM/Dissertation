@@ -1,76 +1,8 @@
-\chapter{Materials and Methods}
+\chapter{Methods}
 \label{sec:methods}
 
+{\color{red}The materials used in this work are descibed in the Appendix.}
 
-\section{Materials}
-
-\subsection{\acs{C2S} and \acs{C3S} clinker}
-
-Commercially available alite (MIII polymorph, Vustah, Czech Republic) and belite (Vustah, Czech Republic) were used in the experiments.
-The chemical composition (\zcref{tab:xrf}) was determined by \ac{mXRF}, and the phase purity was confirmed at \qty{99.4(0.4)}{\wtpercent} for alite (\ac{C3S}, \acs{ICSD} 94742 \cite{delatorre.2002}) and \qty{91.7(0.7)}{\wtpercent} for belite ($\beta$-\ac{C2S}, \acs{ICSD} 963 \cite{jost.1977}) using \ac{XRD} analysis.
-The measurements were carried out using a \textit{D8 DaVinci} diffractometer by \textsc{Bruker}.
-
-\begin{table}[h]
-	\centering
-	\caption{Chemical composition of the alite (\acs{C3S}), belite (\acs{C2S}), and CEM I used. The data were obtained by \ac{mXRF} in \unit{\wtpercent}. \label{tab:xrf}}
-	\begin{tabular}{@{}lrrr@{}}
-		\toprule
-			oxides  		& alite (\acs{C3S}) & belite ($\beta$-\acs{C2S}) & CEM I \\
-		\midrule
-			\ce{CaO}		& \tablenum{70.8}  & \tablenum{64.4}  & \tablenum{62.9}  \\
-			\ce{SiO2}		& \tablenum{26.3}  & \tablenum{34.2}  & \tablenum{20.7}  \\
-			\ce{MgO}		& \tablenum{1.70}  & \tablenum{0.223} & \tablenum{1.02}  \\
-			\ce{Al2O3}		& \tablenum{0.238} & \tablenum{0.285} & \tablenum{5.17}  \\
-			\ce{P2O5}		& \tablenum{0.193} & \tablenum{0.094} & \tablenum{0.122} \\
-			\ce{Fe2O3}		& \tablenum{0.094} & \tablenum{0.087} & \tablenum{2.13}  \\
-			\ce{Na2O}		& \tablenum{0.083} & \tablenum{0.310} & \tablenum{0.122} \\
-			\ce{K2O}		& \tablenum{0.032} & \tablenum{0.037} & \tablenum{0.902} \\
-			\ce{TiO2}		& \tablenum{0.031} & \tablenum{0.034} & \tablenum{0.270} \\
-			\ce{SrO}		& \tablenum{0.012} & \tablenum{0.011} & \tablenum{0.199} \\
-			\ce{MnO}		& \tablenum{0.006} & \tablenum{0.006} & \tablenum{0.110} \\
-			\ce{Cr2O3}		& \tablenum{0.005} & \tablenum{0.004} & \tablenum{0.008} \\
-			\ce{ZnO}		& \tablenum{0.001} & \tablenum{0.001} & \tablenum{0.016} \\
-			\ce{SO3}		& \tablenum{0} & \tablenum{0} & \tablenum{3.617} \\
-			\midrule
-			sum		& \tablenum{99.94} & \tablenum{99.96} & \tablenum{97,22} \\
-		\bottomrule
-	\end{tabular}
-	\label{tab:chemical_composition}
-\end{table}
-
-The clinker pastes were prepared with a \ac{wb} value of \num{0.5} and stored in sealed cylindrical containers with a diameter of $\approx$ \qty{8}{\milli\meter}.
-The hydration of the specimens was stopped after the desired age by immersion in isopropanol and subsequent drying at \qty{60}{\celsius}.
-The phase composition of samples stored for \num{1} (only alite), \num{7}, and \qty{28}{\day} were assessed by quantitative \ac{XRD} analysis using the $G$-factor method \cite{oconnor.1988, jansen.2011}.
-
-\subsection{Cements and Clinker}
-\label{sec:clinker}
-
-For some \ac{CT} and \ac{FIBnt} experiments, a commercially available \ac{OPC} (type CEM I \num{42.5} R from \textsc{Dyckerhoff}) was used (chemical composition see \zcref{tab:chemical_composition}) to produce a mortar (\qty{450(2)}{\gram} cement, \qty{1350(5)}{\gram} sand and \qty{225(1)}{\gram} water; according to DIN EN 196-1 \cite{dinen196-1.2016}).
-
-\Ac{LC3} with a composition of \qty{51.87}{\wtpercent} CEM I, \qty{30.00}{\wtpercent} calcined clay, \qty{15.61}{\wtpercent} limestone and \qty{2.52}{\wtpercent} set regulator was used in the cryo-\ac{FIB} experiments (see \zcref{sec:cryo_fib_sem}).
-More details on the \ac{LC3} used can be found in \cite{pott.2023}.
-The \ac{LC3} was mixed with water (\ac{wb}=0.5) and a part of the paste was sonicated with \ac{PUS}.
-For this, a ultrasound processor and generator \textit{UIP1000hd} connected to a \textit{Booster B2-2.2} amplifier and a \textit{BS2d34} sonotrode at a maximum amplitude of \qty{42.4}{\micro\meter} was used.
-
-{\color{red}
-For the \ac{LAICPMS} experiments, an \ac{OPC} clinker granule (CEM I type) from an industrial process was used.
-The composition can be found in \zcref{tab:laicpms-clinker}.
-}
-
-\subsection{Porous glass standard}
-\label{sec:boraglas}
-
-As reference  with a defined pore size, porous glass membranes by \textsc{Boraglas} with a pore size of \qtylist{5;20}{\nano\meter} were used.
-These borosilicate glass products are made using the \textsc{VYCOR}-process and are usually utilised as filter material.
-The specimens were provided as \qtyproduct{10 x 10 x
-1.2}{\milli\meter} plates, which were cut into smaller pieces for the measurements.
-
-The manufacturer provided a certificate for the porosity of the materials based on \ac{MIP} measurements (\zcref{fig:vycor-mip}).
-The \qty{5}{\nano\meter} glass sieve has a modal pore diameter of \num{4.5} and a median diameter of \qty{4.7}{\nano\meter} at a porosity of \qty{54.1}{\percent}.
-For the \qty{20}{\nano\meter} material a modal pore diameter of \num{22.3} and a median diameter of \qty{19.4}{\nano\meter} at a porosity of \qty{51.3}{\percent} is given.
-A revalidation of the \ac{MIP} results was omitted, due to the high material costs.
-
-\FloatBarrier
 \section{\acs*{SEM}}
 \label{sec:sem}
 

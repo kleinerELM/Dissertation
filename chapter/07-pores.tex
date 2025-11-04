@@ -505,13 +505,13 @@ This allows to create a 3D reconstruction of a hydrated \ac{C3S} grain covered i
 \FloatBarrier
 \subsection{\acs{LTDSC}}
 
-The \ac{LTDSC} curves of the second freezing pass P2 of \ac{C2S} from \qtyrange{1}{28}{\day} of hydration are shown in \zcref{fig:ltdsc_result_c2s_freeze}.
+The \ac{LTDSC} curves of the second freezing pass P2 of \ac{C2S} from \qtyrange{1}{28}{\day} of hydration are shown in \zcref{fig:ltdsc_result_c2s_freeze} (top).
 Three measurements were made for each specimen age.
 It was not possible to measure \ac{C2S} after \qty{1}{\day} of hydration, since the material was not hard enough to be handled and transferred into the \ac{LTDSC} crucible.
 
-\ifdefined\EXTERNALIZE
-	\tikzexternaldisable
-\fi
+% \ifdefined\EXTERNALIZE
+% 	\tikzexternaldisable
+% \fi
 \begin{figure}[!htb]
     \centering
  	\begin{subfigure}{.47\textwidth}
@@ -677,6 +677,8 @@ It was not possible to measure \ac{C2S} after \qty{1}{\day} of hydration, since 
 			\addplot+[no marks, blue] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=3, y index=1, col sep=comma] {figures/ltdsc/reduced/zoom/C2S_28d_mean_freeze_segment.csv};
 			\addlegendentry{\qty{28}{\day}};
 
+            \node[anchor=west, align=left] at (axis cs:2,-0.09) {\ac{C2S}};
+
 			\node[draw=none] (top-2) at (axis cs:1.75,-.11) {};
 			\node[draw=none] (bottom-2) at (axis cs:1.75,-.03) {};
 		\end{axis}
@@ -687,23 +689,7 @@ It was not possible to measure \ac{C2S} after \qty{1}{\day} of hydration, since 
         \draw[dashed,grey] (bottom-1) -- (bottom-2);
     \end{tikzpicture}
 
-    \caption{
-		\ac{LTDSC} curves for the second freezing pass of \ac{C2S} from \qtyrange{7}{28}{\day} of hydration.
-		Every specimen age was measured using three specimens.
-		On the right is a magnified section, highlighting the data correlating to the gel pores.
-		Note that pore sizes below \qty{3.19}{\nano\meter} are undefined as noted in \zcref{eq:brun_freeze}.
-	}
-    \label{fig:ltdsc_result_c2s_freeze}
-\end{figure}
-
-The graph on the right is a magnified section of the left graph, showing the data correlating to the gel pores (\num{2.00} to \qty{2.25}{\nano\meter} pore radius according to \zcref{eq:brun_freeze}).
-The figure shows that the heat flow signal of the gel pores is increasing with the age of the specimen, which indicates an increase in the gel pore volume with increasing specimen age.
-
-\ac{C3S} was measured from \num{1} to \qty{28}{\day} of hydration.
-The \ac{LTDSC} curves from the second freezing pass (P2) are plotted in \zcref{fig:ltdsc_result_C3S_freeze}.
-
-\begin{figure}[!htb]
-    \centering
+	\vspace{1\baselineskip}
 
  	\begin{subfigure}{.47\textwidth}
       \begin{tikzpicture}[remember picture]
@@ -883,6 +869,8 @@ The \ac{LTDSC} curves from the second freezing pass (P2) are plotted in \zcref{f
 			\addplot+[no marks, blue] table [x index=3, y index=1, col sep=comma] {figures/ltdsc/reduced/zoom/C3S_28d_mean_freeze_segment.csv};
 			\addlegendentry{\qty{28}{\day}};
 
+            \node[anchor=west, align=left] at (axis cs:2,-0.09) {\ac{C3S}};
+
 			\node[draw=none] (top-4) at (axis cs:1.75,-.11) {};
 			\node[draw=none] (bottom-4) at (axis cs:1.75,-.03) {};
 		\end{axis}
@@ -894,15 +882,222 @@ The \ac{LTDSC} curves from the second freezing pass (P2) are plotted in \zcref{f
     \end{tikzpicture}
 
     \caption{
-		\ac{LTDSC} curves for the second freezing pass of \ac{C3S} from \qtyrange{1}{28}{\day} of hydration. Every specimen age was measured using three specimens.
+		\ac{LTDSC} measurements (mean of three measurements) for the second freezing pass of \ac{C2S} (top) and \ac{C3S} (bottom) from \qtyrange{7}{28}{\day} of hydration.
+		Every specimen age was measured using three specimens.
+		On the left, the full measurement is plotted (pore radius and temperature is logarithmic).
 		On the right is a magnified section, highlighting the data correlating to the gel pores.
-		Note that pore sizes below \qty{3.19}{\nano\meter} are undefined as noted in \zcref{eq:brun_freeze}.
+		Note that pore sizes below \qty{3.19}{\nano\meter} (<\,\qty{-40}{\celsius}) are undefined as noted in \zcref{eq:brun_freeze}.
 	}
-    \label{fig:ltdsc_result_C3S_freeze}
+    \label{fig:ltdsc_result_c2s_freeze}
 \end{figure}
-\ifdefined\EXTERNALIZE
-	\tikzexternalenable
-\fi
+
+The graph on the right is a magnified section of the left graph, showing the data correlating to the gel pores (\num{2.00} to \qty{2.25}{\nano\meter} pore radius according to \zcref{eq:brun_freeze}).
+The figure shows that the heat flow signal of the gel pores is increasing with the age of the specimen, which indicates an increase in the gel pore volume with increasing specimen age.
+
+\ac{C3S} was measured from \num{1} to \qty{28}{\day} of hydration.
+The \ac{LTDSC} measurements from the second freezing pass (P2) are plotted in \zcref{fig:ltdsc_result_c2s_freeze} (bottom).
+
+% \begin{figure}[!htb]
+%     \centering
+
+%  	\begin{subfigure}{.47\textwidth}
+%       \begin{tikzpicture}[remember picture]
+%         \begin{semilogxaxis}[
+% 				blue,
+% 				axis line style={black},
+% 				xmin=1.5, xmax=60,
+% 				ymin=-.20, ymax=0,
+% 				y dir=reverse,
+% 				width=\linewidth,
+% 				height=6cm,
+% 				grid=none,
+% 				xlabel={temperature in \unit{\celsius}},
+% 				xticklabels={-51.2, -25.3, -12.4, -4.6, -2.0},
+% 				xtick={2.5,5,10,25,50},
+% 				ytick=\empty,
+% 				scaled y ticks=false,
+% 				scaled x ticks=false,
+% 				axis x line*=top,
+%             ]
+
+%         \end{semilogxaxis}
+%         \begin{semilogxaxis}[
+% 				legend style={at={(0.95,.7)},anchor=east},
+%                 legend cell align={left},
+% 				xmin=1.5, xmax=60,
+% 				ymin=-.20, ymax=0.07,
+% 				y dir=reverse,
+% 				width=\linewidth,
+% 				height=6cm,
+% 				grid=major,
+% 				xlabel={pore radius $r_\text{P}$ \unit{\nano\meter}},
+% 				ylabel={heat flow $\dot{Q}$ in \unit{\watt\per\gram}},
+% 				grid style={line width=.1pt, draw=gray!10},
+% 				yticklabel style={
+% 						/pgf/number format/fixed,
+% 						/pgf/number format/precision=1,
+% 						/pgf/number format/fixed zerofill,
+% 				},
+% 				xticklabels={2.5,5,10,25,50},
+% 				xtick={2.5,5,10,25,50},
+% 				scaled y ticks=false,
+% 				scaled x ticks=false,
+%             ]
+% 			\addplot[dotted, thick, samples=2, darkgrey,forget plot] coordinates {(3.19,-.2)(3.19,.2)};
+% 			\node[darkgrey, rotate=90, anchor=west] at (axis cs: 2.51,-.105) {\scriptsize <\,\qty{-40}{\celsius}};
+
+% 			% std dev of 1d C3S
+%             \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=3, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}] {figures/ltdsc/reduced/C3S_1d_mean_freeze_segment.csv};
+%             \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=3, col sep=comma,y expr={\thisrowno{1}+\thisrowno{2}}] {figures/ltdsc/reduced/C3S_1d_mean_freeze_segment.csv};
+%             \addplot [fill=yellow, fill opacity=0.2,forget plot] fill between [of=A and B];
+
+% 			% std dev of 7d C3S
+%             \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=3, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}] {figures/ltdsc/reduced/C3S_7d_mean_freeze_segment.csv};
+%             \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=3, col sep=comma,y expr={\thisrowno{1}+\thisrowno{2}}] {figures/ltdsc/reduced/C3S_7d_mean_freeze_segment.csv};
+%             \addplot [fill=orange, fill opacity=0.2,forget plot] fill between [of=A and B];
+
+% 			% std dev of 14d C3S
+%             \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=3, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}] {figures/ltdsc/reduced/C3S_14d_mean_freeze_segment.csv};
+%             \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=3, col sep=comma,y expr={\thisrowno{1}+\thisrowno{2}}] {figures/ltdsc/reduced/C3S_14d_mean_freeze_segment.csv};
+%             \addplot [fill=red, fill opacity=0.2,forget plot] fill between [of=A and B];
+
+% 			% std dev of 21d C3S
+%             \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=3, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}] {figures/ltdsc/reduced/C3S_21d_mean_freeze_segment.csv};
+%             \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=3, col sep=comma,y expr={\thisrowno{1}+\thisrowno{2}}] {figures/ltdsc/reduced/C3S_21d_mean_freeze_segment.csv};
+%             \addplot [fill=green, fill opacity=0.2,forget plot] fill between [of=A and B];
+
+% 			% std dev of 28d C3S
+%             \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=3, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}] {figures/ltdsc/reduced/C3S_28d_mean_freeze_segment.csv};
+%             \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=3, col sep=comma,y expr={\thisrowno{1}+\thisrowno{2}}] {figures/ltdsc/reduced/C3S_28d_mean_freeze_segment.csv};
+%             \addplot [fill=blue, fill opacity=0.2,forget plot] fill between [of=A and B];
+
+
+%             \addplot [ no marks, yellow] table [x index=3, y index=1, col sep=comma] {figures/ltdsc/reduced/C3S_1d_mean_freeze_segment.csv};
+%             %\addlegendentry{\ac{C3S}, \qty{1}{\day}};
+%             \addplot [ no marks, orange] table [x index=3, y index=1, col sep=comma] {figures/ltdsc/reduced/C3S_7d_mean_freeze_segment.csv};
+%             %\addlegendentry{\ac{C3S}, \qty{7}{\day}};
+%             \addplot [ no marks, red] table [x index=3, y index=1, col sep=comma] {figures/ltdsc/reduced/C3S_14d_mean_freeze_segment.csv};
+%             %\addlegendentry{\ac{C3S}, \qty{14}{\day}};
+%             \addplot [ no marks, green] table [x index=3, y index=1, col sep=comma] {figures/ltdsc/reduced/C3S_21d_mean_freeze_segment.csv};
+%             %\addlegendentry{\ac{C3S}, \qty{21}{\day}};
+%             \addplot [ no marks, blue] table [x index=3, y index=1, col sep=comma] {figures/ltdsc/reduced/C3S_28d_mean_freeze_segment.csv};
+%             %\addlegendentry{\ac{C3S}, \qty{28}{\day}};
+
+% 			\draw[draw=black, densely dotted] (2.75,-.11) rectangle (1.75,-0.03);
+% 			\node[draw=none] (top-3) at (axis cs:2.75,-.11) {};
+% 			\node[draw=none] (bottom-3) at (axis cs:2.75,-.03) {};
+%         \end{semilogxaxis}
+% 	  \end{tikzpicture}
+
+% 	\end{subfigure}
+% 	\hfill
+% 	\begin{subfigure}{.47\textwidth}
+
+% 	  \begin{tikzpicture}[remember picture]
+%         \begin{axis}[
+% 			blue,
+% 			axis line style={black},
+% 			xmin=1.75, xmax=2.75,
+% 			ymin=-.11, ymax=-0.03,
+% 			y dir=reverse,
+% 			width=.9\linewidth,
+% 			height=6cm,
+% 			grid=none,
+% 			xlabel={temperature in \unit{\celsius}},
+% 			xticklabels={-73.3, -64.1, -56.9, -51.2, -46.5},
+% 			xtick={1.75,2.00,2.25,2.50,2.75},
+% 			ytick=\empty,
+% 			scaled y ticks=false,
+% 			scaled x ticks=false,,
+% 			axis x line*=top
+% 		]
+
+% 		\end{axis}
+% 		\begin{axis}[
+% 				legend style={at={(0.97,.97)},anchor=north east},
+% 				legend cell align={left},
+% 				xmin=1.75, xmax=2.75,
+% 				ymin=-.11, ymax=-0.03,
+% 				y dir=reverse,
+% 				width=.9\linewidth,
+% 				height=6cm,
+% 				grid=major,
+% 				xlabel={pore radius $r_\text{P}$ \unit{\nano\meter}},
+% 				ylabel={heat flow $\dot{Q}$ in \unit{\watt\per\gram}},
+% 				grid style={line width=.1pt, draw=gray!10},
+% 				xticklabels={1.75,2.00,2.25,2.50,2.75},
+% 				xtick={1.75,2.00,2.25,2.50,2.75},
+% 				yticklabel style={
+% 						/pgf/number format/fixed,
+% 						/pgf/number format/precision=2,
+% 						/pgf/number format/fixed zerofill,
+% 				},
+% 				scaled y ticks=false,
+% 				scaled x ticks=false,
+% 				yticklabel pos=right,
+% 			]
+
+% 			% std dev of 1d C3S
+%             \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=3, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}] {figures/ltdsc/reduced/zoom/C3S_1d_mean_freeze_segment.csv};
+%             \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=3, col sep=comma,y expr={\thisrowno{1}+\thisrowno{2}}] {figures/ltdsc/reduced/zoom/C3S_1d_mean_freeze_segment.csv};
+%             \addplot [fill=yellow, fill opacity=0.2,forget plot] fill between [of=A and B];
+
+% 			% std dev of 7d C3S
+%             \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=3, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}] {figures/ltdsc/reduced/zoom/C3S_7d_mean_freeze_segment.csv};
+%             \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=3, col sep=comma,y expr={\thisrowno{1}+\thisrowno{2}}] {figures/ltdsc/reduced/zoom/C3S_7d_mean_freeze_segment.csv};
+%             \addplot [fill=orange, fill opacity=0.2,forget plot] fill between [of=A and B];
+
+% 			% std dev of 14d C3S
+%             \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=3, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}] {figures/ltdsc/reduced/zoom/C3S_14d_mean_freeze_segment.csv};
+%             \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=3, col sep=comma,y expr={\thisrowno{1}+\thisrowno{2}}] {figures/ltdsc/reduced/zoom/C3S_14d_mean_freeze_segment.csv};
+%             \addplot [fill=red, fill opacity=0.2,forget plot] fill between [of=A and B];
+
+% 			% std dev of 21d C3S
+%             \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=3, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}] {figures/ltdsc/reduced/zoom/C3S_21d_mean_freeze_segment.csv};
+%             \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=3, col sep=comma,y expr={\thisrowno{1}+\thisrowno{2}}] {figures/ltdsc/reduced/zoom/C3S_21d_mean_freeze_segment.csv};
+%             \addplot [fill=green, fill opacity=0.2,forget plot] fill between [of=A and B];
+
+% 			% std dev of 28d C3S
+%             \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=3, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}] {figures/ltdsc/reduced/zoom/C3S_28d_mean_freeze_segment.csv};
+%             \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=3, col sep=comma,y expr={\thisrowno{1}+\thisrowno{2}}] {figures/ltdsc/reduced/zoom/C3S_28d_mean_freeze_segment.csv};
+%             \addplot [fill=blue, fill opacity=0.2,forget plot] fill between [of=A and B];
+
+% 			% mean values of the 1d C3S
+% 			\addplot+[no marks, orange] table [x index=3, y index=1, col sep=comma] {figures/ltdsc/reduced/zoom/C3S_1d_mean_freeze_segment.csv};
+% 			\addlegendentry{\qty{1}{\day}};
+% 			% mean values of the 7d C3S
+% 			\addplot+[no marks, orange] table [x index=3, y index=1, col sep=comma] {figures/ltdsc/reduced/zoom/C3S_7d_mean_freeze_segment.csv};
+% 			\addlegendentry{\qty{7}{\day}};
+% 			% mean values of the 14d C3S
+% 			\addplot+[no marks, red] table [x index=3, y index=1, col sep=comma] {figures/ltdsc/reduced/zoom/C3S_14d_mean_freeze_segment.csv};
+% 			\addlegendentry{\qty{14}{\day}};
+% 			% mean values of the 21d C3S
+% 			\addplot+[no marks, green] table [x index=3, y index=1, col sep=comma] {figures/ltdsc/reduced/zoom/C3S_21d_mean_freeze_segment.csv};
+% 			\addlegendentry{\qty{21}{\day}};
+% 			% mean values of the 28d C3S
+% 			\addplot+[no marks, blue] table [x index=3, y index=1, col sep=comma] {figures/ltdsc/reduced/zoom/C3S_28d_mean_freeze_segment.csv};
+% 			\addlegendentry{\qty{28}{\day}};
+
+% 			\node[draw=none] (top-4) at (axis cs:1.75,-.11) {};
+% 			\node[draw=none] (bottom-4) at (axis cs:1.75,-.03) {};
+% 		\end{axis}
+% 	  \end{tikzpicture}
+% 	\end{subfigure}
+%     \begin{tikzpicture}[remember picture,overlay]
+%         \draw[dashed,grey] (top-3) -- (top-4);
+%         \draw[dashed,grey] (bottom-3) -- (bottom-4);
+%     \end{tikzpicture}
+
+%     \caption{
+% 		\ac{LTDSC} curves for the second freezing pass of \ac{C3S} from \qtyrange{1}{28}{\day} of hydration. Every specimen age was measured using three specimens.
+% 		On the right is a magnified section, highlighting the data correlating to the gel pores.
+% 		Note that pore sizes below \qty{3.19}{\nano\meter} are undefined as noted in \zcref{eq:brun_freeze}.
+% 	}
+%     \label{fig:ltdsc_result_C3S_freeze}
+% \end{figure}
+% \ifdefined\EXTERNALIZE
+% 	\tikzexternalenable
+% \fi
 
 On first glance, the \ac{C3S} results look similar to the \ac{C2S} results.
 However, they have a lower signal response in the temperature range corresponding to the gel pores.
@@ -925,7 +1120,7 @@ The red area represents the gel pore volume, while the yellow area represents th
 
     \begin{tikzpicture}
         \begin{axis}[
-				legend style={at={(0.05,.95)},anchor=north west},
+				legend style={at={(0.1,.95)},anchor=north west},
                 legend cell align={left},
 				xmin=-60, xmax=15,
 				ymin=0, ymax=0.6,
@@ -934,6 +1129,7 @@ The red area represents the gel pore volume, while the yellow area represents th
 				grid=major,
 				xlabel={temperature $\vartheta$ in \unit{\celsius}},
 				ylabel={heat flow $\dot{Q}$ in \unit{\watt\per\gram}},
+				yticklabels={-60, -50,...,10},
 				grid style={line width=.1pt, draw=gray!10},
 				yticklabel style={
 						/pgf/number format/fixed,
@@ -944,11 +1140,28 @@ The red area represents the gel pore volume, while the yellow area represents th
 				scaled x ticks=false
             ]
 
+			
+            \addplot[fill=red, fill opacity=0.25, draw=none] coordinates {
+                (-57, 0) (-56,0) (-56, 0.6) (-57,0.6) (-57,0)
+            };
+            \addplot[fill=red, fill opacity=0.25, draw=none] coordinates {
+                (-21.5, 0) (-20.5,0) (-20.5, 0.6) (-21.5,0.6) (-21.5,0)
+            };
+
+            \addplot[fill=red, fill opacity=0.25, draw=none] coordinates {
+                (9, 0) (10,0) (10, 0.6) (9,0.6) (9,0)
+            };
+
+            \node[anchor=west, align=left, font=\tiny]
+                at (axis cs:-50,0.225) {
+					$\dot{Q}_\text{B, P1}(T) = 0.00091x + 0.04939$\\
+					$\dot{Q}_\text{B, P2}(T) = 0.00073x + 0.04064$};
+
             \addplot [ no marks, green, dashed] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=0, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_28d-1_melt_segment_8.csv};
-            \addlegendentry{\ac{C2S} zone P1, raw data};
+            \addlegendentry{P1, raw data};
 
             \addplot [ no marks, blue, dashed] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=0, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_28d-1_melt_segment_16.csv};
-            \addlegendentry{\ac{C2S} zone P2, raw data};
+            \addlegendentry{P2, raw data};
 
 
 			\addplot[thick, domain=0:1, color=blue, fill = yellow, fill opacity=0.3, forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=0, y index=2, col sep=comma] {figures/ltdsc/ExpDat_C2S_28d-1_melt_segment_16.csv};
@@ -957,17 +1170,23 @@ The red area represents the gel pore volume, while the yellow area represents th
 
 
             \addplot [thick, no marks, green] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=0, y index=2, col sep=comma] {figures/ltdsc/ExpDat_C2S_28d-1_melt_segment_8.csv};
-            \addlegendentry{\ac{C2S} zone P1, corrected};
+            \addlegendentry{P1, corrected};
 
             \addplot [thick, no marks, blue] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=0, y index=2, col sep=comma] {figures/ltdsc/ExpDat_C2S_28d-1_melt_segment_16.csv};
-            \addlegendentry{\ac{C2S} zone P2, corrected};
+            \addlegendentry{P2, corrected};
 
         \end{axis}
 	\end{tikzpicture}
 
-    \caption{\ac{LTDSC} curves for the first and second melting pass of \qty{28}{\day} hydrated \ac{C2S}. The red area correlate to the capillary porosity, while the yellow area correlates to the gel porosity.}
+    \caption{
+		\ac{LTDSC} curves for the first and second melting pass of \qty{28}{\day} hydrated \ac{C2S}.
+		The red area correlate to the capillary porosity, while the yellow area correlates to the gel porosity.
+		The marked areas between \qtyrange{-57}{-56}{\celsius} (P2) or \qtyrange{-21.5}{-20.5}{\celsius} (P1) and \qtyrange{9}{10}{\celsius} (P1 and P2) determine the value range used for the linear baseline regression.
+	}
     \label{fig:ltdsc_result_c2s_melt}
 \end{figure}
+
+
 
 The melting curve shows two distinctive peaks, one at \qty{0}{\celsius} and one at \qty{2}{\celsius}.
 This indicates, that the heating rate of \qty{2}{\kelvin\per\minute} was higher than the inertia of the melting process, as the ice should melt at or before \qty{0}{\celsius}, but is delayed due to the fast temperature change (\qty{2}{\kelvin\per\minute}).

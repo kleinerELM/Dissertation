@@ -391,7 +391,9 @@ Data from the measurement passes P1 (down to \qty{-25}{\celsius}) and P2 (down t
 A cooling and heating rate of $\pm$\,\qty{2}{\kelvin\per\min} was applied, since it is the fastest usable heating rate according to \textcite{neffati.2001}.
 The difference between those two measurement zones allows to distinguish the ice mass of pores with radii smaller (P2) and larger (P1) than $\approx$ \qty{3}{\nano\meter}.
 
-The melting curve allows to process the cumulative ice mass.
+The melting curve allows to process the cumulative ice mass and volume.
+In this work a simplified method proposed by \textcite{mueller.2021} was used.
+
 %Do to this, \textcite{chen.1988} and \textcite{ishikiriyama.1995} proposed the following.
 
 % \begin{equation}
@@ -402,60 +404,104 @@ The melting curve allows to process the cumulative ice mass.
 % Randall to process the melting enthalpy
 %\cite{randall} https://reader.library.cornell.edu/docviewer/digital?id=chla2944761_2176#page/19/mode/1up
 % \Delta H^{0}_{m} =  \qty{334.1}{\joule\per\gram}
+
 During supercooling the enthalpy of the melting of ice ($H_\text{fus}(T)$ in \unit{\joule\per\gram}) is changing slightly.
 Therefore, at first this enthalpy has to be approximated for every $T$ using \zcref{eq:ltdsc_h} by \textcite{chen.1988} and \textcite{ishikiriyama.1995} based on data from \textcite{randall.1930}:
+
 \begin{equation}
-	\Delta H_\text{fus}(T) = \qty{334.1}{\joule\per\gram} + \qty{2.119}{\joule\per\gram\per\kelvin} \cdot ( T - \qty{273.15}{\kelvin} ) - \qty{0.000783}{\joule\per\gram\per\kelvin^2} \cdot ( T - \qty{273.15}{\kelvin} )^2
+	\begin{aligned}
+		\Delta H_\text{fus}(T) = \qty{334.1}{\joule\per\gram} & + \qty{2.119}{\joule\per\gram\per\kelvin} \cdot ( \Delta T_\text{fus} ) \\
+		& - \qty{0.000783}{\joule\per\gram\per\kelvin\squared} \cdot ( \Delta T_\text{fus} )^2 ,
+	\end{aligned}
 	\label{eq:ltdsc_h}
 \end{equation}
 
+where $\Delta T_\text{fus}$ is the temperature difference between the freezing point $T_{\text{fus},0}$ and the current temperature $T$.
+
+\begin{equation}
+	\begin{aligned}
+	\Delta T_\text{fus} = T - T_{\text{fus},0} = T - \qty{273.15}{\kelvin}
+	\end{aligned}
+\end{equation}
+
 Then the measured heat flow signal $\dot{Q}_{raw}(T)$ caused by the phase transition has to be prepared by subtracting a baseline $\dot{Q}_\text{B}(T)$.
+The baseline represents the heat capacity of the solid matrix and the unfrozen liquid/ice fractions.
+A linear approximation of the baseline is established by fitting the steady-state heat flow signal in temperature ranges free from phase transition peaks, which have to be found manually.
+
 \begin{equation}
 	\dot{Q}_{m}(T) = \dot{Q}_\text{raw}(T) -\dot{Q}_\text{B}(T)
 	\label{eq:mass_heat_flow}
 \end{equation}
 
-{\color{red}
-The heat flow of the baseline is caused by the heat capacity of the whole specimen (binder + water/ice).
-The heat capacity of the whole sample $C_{p}$ with the mass $m$ is a combination of the heat capacities of the solid body ($C_{p\text{S}}$), the pore liquid ($C_{p\text{L}}$) and the ice crystals ($C_{p\text{I}}$) phase (Equation~21 from \textcite{sun.2010}):
+
+After the baseline correction, the total ice mass can be calculated by integrating the heat flow curve over the melting peak.
+%\dot{Q}/m_\text{specimen} = DSC / Wärmestrom pro Probenmasse
+% \begin{equation}
+% 	m_\text{ice} = \int_{\vartheta_\text{min}}^{\vartheta_\text{max}} \dot{Q}_{m}(\vartheta) d\vartheta  / \Delta H_\text{fus}
+% 	\label{eq:ltdsc_ice}
+% \end{equation}
+
+The heat flow per unit mass $\dot{Q}_{m}$ is related to the rate of ice mass formation $\dot{m}_\text{ice}$ and the enthalpy of fusion $H_\text{fus}$.
+Since $\dot{Q}_{m}=\dot{m}_\text{ice}\cdot H_\text{fus}$, the total mass is found by integrating the mass rate over the time interval of the measurement:
+
 \begin{equation}
-	mC_{p} = m_\text{S}C_{p\text{S}} + m_\text{L}C_{p\text{L}} + m_\text{C}C_{p\text{I}}
-	\label{eq:mass_heat_capacity}
+	m_\text{ice} = \int_{t_{\text{min}}}^{t_{\text{max}}} \frac{\dot{Q}_{m}(T)}{\Delta H_\text{fus}(T)} dt
+	\label{eq:ltdsc_ice_integral}
 \end{equation}
 
-The baseline can now be calculated using Equation~30 and 31 from \textcite{sun.2010}:
+The ice mass of the gel pores $m_\text{gel}$ can then be estimated by subtracting the ice mass of the capillary pores ($m_\text{P1}$, P1 zone) from the total measured ice mass ($m_\text{P2}$, P2 zone):
+
 \begin{equation}
-	\dot{Q}_\text{B}(T) = mC_{p} \cdot \frac{dT}{dt}
-	\label{eq:ltdsc_baseline}
+	m_\text{gel} = m_\text{P2} - m_\text{P1}
+	\label{eq:ltdsc_ice2}
 \end{equation}
 
 
-In contrast, \textcite{wu.2014} and \textcite{johannesson.2010} used a dry reference sample to mitigate the heat capacity of the concrete binder.
-%The baseline is calculated by a linear regression of the data points before and after the freezing peak as in {\color{red}\textcite{unbehau.2025}}.
-However, this is a fairly subjective method, since the temperature (or time) ranges have to be chosen manually.
-
-
-The calculation of the ice mass is influenced by the way, this baseline of the heat flow $Q_\text{B}$ is determined.
-\begin{itemize}
-	\item \textcite{sun.2010}, \textcite{mueller.2021} and \textcite{unbehau.2025} used a linear regression of the heat flow data utilizing manually selected temperature ranges before and after the freezing peak.
-	\begin{itemize}
-		\item \textcite{mueller.2021} analysed only a small temperature change from \qty{-20}{\celsius} to \qty{+20}{\celsius} and therefore considered this method as sufficiently accurate.
-		In both cases, the initial data were ignored, since they were .
-	\end{itemize}
-	\item 'J' baseline correction - \textcite{johannesson.2010} (large samples, slow heat rate (\qty{0.08}{\kelvin\per\minute}))
-	\item 'C' baseline correction - \textcite{wu.2014} based on heat capacities of ice and water based on \cite{sun.2010}
-\end{itemize}
-}
-
-The ice density can be calculated using Equation~(XIX) from \textcite{mueller.2021} which was calculated from data in \cite{eisenberg.2005}:
+The ice density $\rho_\text{ice}$ is required for converting the calculated ice mass to a volume.
+However, the ice density significatly depends on its temperature.
+The density can be calculated using \zcref{eq:ice_density} \cite{mueller.2021} which was fitted using data published in \cite{eisenberg.2005}:
 
 \begin{equation}
 	\begin{aligned}
-		\rho_\text{ice} = \qty{0.9167}{\gram\per\centi\meter\cubed} & - \qty{2.053e-4}{\gram\per\centi\meter\cubed\per\kelvin} \cdot ( T - \qty{273.15}{\kelvin} ) \\
-		& - \qty{1.357e-6}{\gram\per\centi\meter\cubed\per\kelvin\squared} \cdot ( T - \qty{273.15}{\kelvin} )^2
+		\rho_\text{ice} = \qty{0.9167}{\gram\per\centi\meter\cubed} & - \qty{2.053e-4}{\gram\per\centi\meter\cubed\per\kelvin} \cdot ( \Delta T_\text{fus} ) \\
+		& - \qty{1.357e-6}{\gram\per\centi\meter\cubed\per\kelvin\squared} \cdot ( \Delta T_\text{fus} )^2
 	\end{aligned}
 	\label{eq:ice_density}
 \end{equation}
+
+The source code of the procedure which was used for this analysis can be found in \cite{kleiner.2025}. %\url{https://github.com/kleinerELM/Kalorimeterauswertung}
+
+
+%{\color{red}
+% The heat flow of the baseline is caused by the heat capacity of the whole specimen (binder + water/ice).
+% The heat capacity of the whole sample $C_{p}$ with the mass $m$ is a combination of the heat capacities of the solid body ($C_{p\text{S}}$), the pore liquid ($C_{p\text{L}}$) and the ice crystals ($C_{p\text{I}}$) phase (Equation~21 from \textcite{sun.2010}):
+% \begin{equation}
+% 	mC_{p} = m_\text{S}C_{p\text{S}} + m_\text{L}C_{p\text{L}} + m_\text{C}C_{p\text{I}}
+% 	\label{eq:mass_heat_capacity}
+% \end{equation}
+
+% The baseline can now be calculated using Equation~30 and 31 from \textcite{sun.2010}:
+% \begin{equation}
+% 	\dot{Q}_\text{B}(T) = mC_{p} \cdot \frac{dT}{dt}
+% 	\label{eq:ltdsc_baseline}
+% \end{equation}
+
+
+% In contrast, \textcite{wu.2014} and \textcite{johannesson.2010} used a dry reference sample to mitigate the heat capacity of the concrete binder.
+% %The baseline is calculated by a linear regression of the data points before and after the freezing peak as in {\color{red}\textcite{unbehau.2025}}.
+% However, this is a fairly subjective method, since the temperature (or time) ranges have to be chosen manually.
+
+
+% The calculation of the ice mass is influenced by the way, this baseline of the heat flow $Q_\text{B}$ is determined.
+% \begin{itemize}
+% 	\item \textcite{sun.2010}, \textcite{mueller.2021} and \textcite{unbehau.2025} used a linear regression of the heat flow data utilizing manually selected temperature ranges before and after the freezing peak.
+% 	\begin{itemize}
+% 		\item \textcite{mueller.2021} analysed only a small temperature change from \qty{-20}{\celsius} to \qty{+20}{\celsius} and therefore considered this method as sufficiently accurate.
+% 	\end{itemize}
+% 	\item 'J' baseline correction - \textcite{johannesson.2010} (large samples, slow heat rate (\qty{0.08}{\kelvin\per\minute}))
+% 	\item 'C' baseline correction - \textcite{wu.2014} based on heat capacities of ice and water based on \cite{sun.2010}
+% \end{itemize}
+%}
 
 
 % {\color{red}
@@ -471,17 +517,3 @@ The ice density can be calculated using Equation~(XIX) from \textcite{mueller.20
 % \texttt{auto\textunderscore select\textunderscore baseline} within the \texttt{ltdsc\textunderscore measurement}-class \cite{kleiner.2025}.
 % } %\url{https://github.com/kleinerELM/Kalorimeterauswertung}
 % % TODO: bild?
-
-After the baseline correction, the total ice mass can be calculated by integrating the heat flow curve over the melting peak.
-%\dot{Q}/m_\text{specimen} = DSC / Wärmestrom pro Probenmasse
-\begin{equation}
-	m_\text{ice} = \int_{\vartheta_\text{min}}^{\vartheta_\text{max}} \dot{Q}_{m}(\vartheta) d\vartheta  / \Delta H_\text{fus}
-	\label{eq:ltdsc_ice}
-\end{equation}
-
-The ice mass of the gel pores $m_\text{gel}$ can then be estimated by subtracting the ice mass of the capillary pores ($m_\text{P1}$, P1 zone) from the total ice mass ($m_\text{P2}$, P2 zone):
-
-\begin{equation}
-	m_\text{gel} = m_\text{P2} - m_\text{P1}
-	\label{eq:ltdsc_ice2}
-\end{equation}

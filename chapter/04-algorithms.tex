@@ -1,7 +1,7 @@
 \section{Algorithms}
 \label{sec:algorithms}
 
-This chapter describes the algorithms used to process and evaluate image data.
+This chapter describes the algorithms used to process and evaluate the image data.
 The code used in this chapter is publicly available and was written for \textit{Python 3.x}.
 
 \subsection{Hydrate layer measurement}
@@ -12,14 +12,15 @@ For most images, a denoising step is recommended using algorithms like `Non Loca
 The script uses the implementation provided by the \textit{OpenCV} \cite{bradski.2000} library.
 
 %% actual algorithm description
-This algorithm was already published in \cite{kleiner.2024}.
+This algorithm was published in \cite{kleiner.2024}.
 As for many image processing tasks, the segmentation is one of the most important steps.
-The \ac{BSE} images have to be segmented into at least three phases: ($i$) pores, ($ii$) hydration products (($a$) \ac{CH}, ($b$) dense inner \ac{CSH} and ($c$) \ac{CSHo}), and ($iii$) unhydrated clinker.
+The \ac{BSE} images have to be segmented into at least three phases: ($i$) pores, ($ii$) hydration products (($a$) \ac{CH}, ($b$) ac{CSHi} and ($c$) \ac{CSHo}), and ($iii$) unhydrated clinker.
 
-To segment the images, a threshold based segmentation can be used.
-However, raw and preprocessed images have varying contrasts as shown in \zcref{fig:hlt_contrast}A and B.
+To segment images, a threshold-based segmentation can be used.
+However, raw and pre-processed images have varying contrasts as shown in \zcref{fig:hlt_contrast}.
 Therefore, the segmentation usually cannot be carried out using fixed threshold values and the images have to be segmented using manually selected threshold values.
-Nevertheless, the hydration products can not be separated using a simple threshold based segmentation without major segmentation errors.
+Nevertheless, the hydration products cannot be separated using a simple threshold based segmentation without major segmentation errors.
+However, the software can be used to process pre-segmented images (e.g. manually segmented or segmented by machine learning algorithms).
 
 \begin{figure}[h]
 	\centerline{\includegraphics[width=\columnwidth]{hydrate-rim/fig1.horizontal.png}}
@@ -31,39 +32,31 @@ Nevertheless, the hydration products can not be separated using a simple thresho
 	}
 \end{figure}
 
-Therefore, the software can also be used to process pre-segmented images (e.g. manually segmented or segmented by machine learning algorithms).
-
-% To compare the influence of the chosen segmentation method and to reduce the processing time, a single dataset (\qty{14}{\day}) was prepared by reducing the resolution and cropping a \qtyproduct{0.5 x 0.5}{\milli\meter} square out of the full dataset \cite{kleiner.2024}.
-% Additionally to the thresholding-based segmentation, a trained pixel classification \cite{kleiner.2024} using the software \textit{ilastic} \cite{berg.2019} was used.
-% The major differences between these methods were, that ($i$) contrast enhanced images without the denoising step were used and ($ii$) the hydrates were differentiated into \ac{CH}, the dense \ac{CSHi} and the needle-like \ac{CSHo} (see Figure~\ref{fig1}, (3), (4)).
-% However, the hydrate phases were combined to a single hydrate phase \ac{CSH}, once with and once without considering \ac{CSHo}.
-% This allows for a direct comparison to the threshold segmentation.
-
-% In addition, a manual segmentation was created based on the result of the pixel classification, ignoring the \ac{CSHo} mask \cite{kleiner.2024}.
-
 After the segmentation, the holes within segmented clinker particles were removed to avoid errors in the following analysis.
 
-Only clinker particles with a grain diameter between 0.3 and \qtyrange{0.3}{9.0}{\micro\meter} (grain area between \qtyrange{0.07}{63.6}{\square\micro\meter}) were used to determine the \ac{HLT}.
+Only clinker particles with a grain diameter between \qtyrange{0.3}{9.0}{\micro\meter} (grain area between \qtyrange{0.07}{63.6}{\square\micro\meter}) were used to determine the \ac{HLT}.
 Furthermore, particles with a circularity lower than \num{0.3} are excluded to avoid extreme sectioning effects.
+The circularity is a value between \num{0} and \num{1}, where \num{1} represents a perfect circle.
 For very oval particles, the hydrate fringe could otherwise be greatly overestimated and undercuts could also lead to undesirable results.
 
 In addition, the clinker further dissolves and thus, the particle size reduces over time and small grains are consumed.
 Since the selected size of the grain diameters was kept constant regardless of the specimen age, this effect is not taken into account in this analysis. %kann man das irgendwie messen, wie sich der Korngrößendurchmesser ändert mit der Zeit? Einen Peak gabs ja leider nicht... Eventuell mal Korngrößenverteilungen gegenüberstellen...
 
-The segmented particles are the extracted as objects using the \textit{OpenCV} \cite{bradski.2000} library and their respective centre of gravity is determines.
-Starting from this point, the mean radius $r_\text{particle}$ is determined.
-Subsequently, a circular \ac{ROI} $r_\text{ROI}$ is selected, which is calculated using \zcref{eq:r-roi}, where the potential hydration radius $r_\text{p-hyd}$ is set to \qty{7.0}{\micro\meter}, as the expected region within the hydration rim exists.
+The segmented particles were then extracted as objects using the \textit{OpenCV} \cite{bradski.2000} library and their respective centre of gravity was determined.
+Starting from this point, the mean radius $r_\text{particle}$ was measured.
+Subsequently, a circular \ac{ROI} $r_\text{ROI}$ was selected, which was calculated using \zcref{eq:r-roi}, where the potential hydration radius $r_\text{p-hyd}$ was set to \qty{7.0}{\micro\meter}, as the expected region within the hydration rim exists.
 
 \begin{equation}
 	\label{eq:r-roi}
 	r_\text{ROI} = r_\text{particle} + r_\text{p-hyd}
 \end{equation}
-This selection (\zcref{fig:hlt-method}A, B) is then transformed into polar coordinates (\zcref{fig:hlt-method}C).
-Particles located too close to the image border (less than $r_\text{ROI}$ from the particle centre) are excluded from further processing.
-The \ac{HLT} was determined using \num{360} steps, representing a \ang{1} angle per step.
-To achieve this, the distance from the \ac{C3S} phase (left-hand side of \zcref{fig:hlt-method}C, blue, \ding{172}) to the next pore (red, \ding{173}) is measured.
-If there is no adjacent pore within $r_\text{ROI}$, the measurement was ignored (\zcref{fig:hlt-method}D, areas with adjacent grey).
-To reduce errors, \ang{3} before and after those areas are ignored as well (\zcref{fig:hlt-method}D, marked as darker vertical lines).
+
+The selection (\zcref{fig:hlt-method}A, B) was then transformed into polar coordinates (\zcref{fig:hlt-method}C).
+Particles located too close to the image border (less than $r_\text{ROI}$ from the particle centre) were excluded from further processing.
+The \ac{HLT} was determined using \ang{1} increments in \num{360} steps.
+To achieve this, the distance from the \ac{C3S} phase (left-hand side of \zcref{fig:hlt-method}C, blue, \ding{172}) to the next pore (red, \ding{173}) was measured.
+If there was no adjacent pore within $r_\text{ROI}$, the measurement was ignored (\zcref{fig:hlt-method}D, areas with adjacent grey).
+To reduce errors, \ang{3} before and after those areas were ignored as well (\zcref{fig:hlt-method}D, marked as darker vertical lines).
 Furthermore, measurements of grains which provided fewer than \num{90} valid measurements (\qty{25}{\percent} of \num{360} possible measurements) are excluded from the statistical analysis.
 
 \begin{figure}[htb]
@@ -77,8 +70,8 @@ Furthermore, measurements of grains which provided fewer than \num{90} valid mea
 \label{fig:hlt-method}
 \end{figure}
 
-Subsequently, the histogram of the \ac{HLT} distribution is analysed.
-To safely determine the most frequent \ac{HLT}, a function is fitted to the histogram using \zcref{eq:fitcurve}.
+Subsequently, the histogram of the \ac{HLT} distribution was analysed.
+To safely determine the most frequent \ac{HLT}, a function was fitted to the histogram using \zcref{eq:fitcurve}.
 
 \begin{equation}
 	\label{eq:fitcurve}
@@ -87,24 +80,25 @@ To safely determine the most frequent \ac{HLT}, a function is fitted to the hist
 \begin{conditions}
 	f				&	frequency, \\
 	a, b, c, d		&   fit parameters, \\
-	l				&	\ac{HLT}, \\
-	l_\text{max}	&	most frequent \ac{HLT}.
+	l				&	\ac{HLT} ($l>0$)\\
+	%l_\text{max}	&	most frequent \ac{HLT}.
 \end{conditions}
 
+{\color{red}
 \textsc{Hadley} grains (\zcref{subsec:hadley}) cannot be measured as described above, since the pore space of the \textsc{Hadley} grain would stop the measurement.
 However, with a slight modification of the algorithm, the seam thickness and the \textsc{Hadley} grain gap can be measured.
 To obtain these data, the \textsc{Hadley} grains have to be identified and segmented beforehand.
-{\color{red} TODO}
+}
 
 \subsubsection{Particle distance measurements}
 
 The algorithm described in the previous section can also be adapted to measure the particle distance from a 2D image.
 
-The data sources are also an \ac{SEM}-\ac{BSE} image from a polished embedded specimen.
-However, this is not feasible to obtain a true particle distance of a fresh paste (younger than \qty{1}{\hour}), since the particle cohesion is still to weak for a conservative preparation.
-A possible solution is the cryo-\ac{FIB}-\ac{SEM}-preparation method, even if the prepared area is very small.
+\ac{SEM}-\ac{BSE} images from a polished embedded specimen can also be used as input data.
+However, this is not feasible to obtain a true particle distance of a fresh paste (younger than \qty{1}{\hour}), since the particle cohesion is still too weak to handle without disintegrating.
+A possible solution is the cryo-\ac{FIB}-\ac{SEM}-preparation method, even if the resulting image area is very small.
 
-Nevertheless, the source image also has to be segmented to 2 phases (pore / water and clinker).
+Nevertheless, the source image also has to be segmented into two phases (pore / water and clinker).
 The difference in the algorithms is the measured distance as shown in \zcref{fig:hlt-method}C, where the measurement excludes hydrates and does stop at the neighbouring particle instead of pore space.
 
 

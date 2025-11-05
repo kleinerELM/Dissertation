@@ -228,7 +228,7 @@ If the image shift between the \ac{BSE} and \ac{EDX} images of the same slice is
 
 Therefore, a python tool utilising \textit{napari} \cite{sofroniew.2025}, a graphical user interface to view and edit 2D and 3D image data, was developed.
 This workflow aligns, visualizes, and analyses correlative \ac{BSE} and \ac{EDX} image stacks.
-First, the preprocessed in-plane translation data stored in the \textit{TrakEM2} project are loaded.
+First, the pre-processed in-plane translation data stored in the \textit{TrakEM2} project are loaded.
 The user must provide the image scale and slice thickness in \unit{\nano\meter\per\px}, unless this information is available in the file metadata.
 
 Following denoising, inter-slice intensity banding ($z$-banding) in the \ac{EDX} dataset and brightness fluctuations in the \ac{BSE} dataset are mitigated by normalisation based on the mean brightness value of the entire stack (see \zcref{fig:sem_z-banding}).

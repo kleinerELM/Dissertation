@@ -125,7 +125,7 @@ An overview of some basic statistics of the images analysed is shown in \zcref{t
 
 \begin{table}[htb]
 	\caption{
-		Overview of the processed \ac{C3S} and \ac{C2S} datasets  and basic statistics. 
+		Overview of the processed \ac{C3S} and \ac{C2S} datasets listing basic image statistics. 
 		Image size, normed particle count (diameter <\,\qty{9.0}{\micro\meter}, circularity >\,\num{0.3}) and phase areas based on the segmentation.
 		%, and the maximum HLT $l_\text{max}$ of the second value accumulation.
 	}
@@ -137,7 +137,7 @@ An overview of some basic statistics of the images analysed is shown in \zcref{t
 	 & \multicolumn{6}{c}{\ac{C3S}} \\ \midrule
 	area in \unit{\milli\meter\squared}		& 0.56	& 2.41	& 2.41	& 2.41	& 2.41	& 2.41  \\
 	particles per \unit{\milli\meter\squared}	& 25296	& 6540	& 11342	& 8050	& 8385	& 7512  \\
-	source pixel size in \unit{\nano\meter\per\px} & 34.89	& 42.16	& 42.16	& 42.16	& 42.16	& 42.16 \\ \midrule
+	source pixel size in \unit{\nano\meter\per\px} & 34.9	& 42.2	& 42.2	& 42.2	& 42.2	& 42.2 \\ \midrule
 	pores in \unit{\areapercent}		& 38.5	& 28.5	& 22.2	& 13.7	& 21.7	& 14.8  \\
 	hydrates in \unit{\areapercent}	& 38.0	& 52.8	& 62.7	& 78.7	& 72.7	& 83.2  \\
 	clinker in \unit{\areapercent}		& 23.9	& 19.1	& 15.4	&  7.7	& 5.7	& 2.0   \\
@@ -148,7 +148,7 @@ An overview of some basic statistics of the images analysed is shown in \zcref{t
 	 & \multicolumn{6}{c}{\ac{C2S}} \\ \midrule
 	area in \unit{\milli\meter\squared} 	 & 2.41 	& 2.41 	& 2.41 	& 2.41 	& - 	& - 	\\
     particles per \unit{\milli\meter\squared} 	 & 74870 & 86495 & 113898 & 95004 & - 	& - 	\\
-    source pixel size in \unit{\nano\meter\per\px} & 42.16 	& 42.16 & 42.16 & 42.16 & - 	& - 	\\ \midrule
+    source pixel size in \unit{\nano\meter\per\px} & 42.2 	& 42.2 & 42.2 & 42.2 & - 	& - 	\\ \midrule
     pores in \unit{\areapercent} 	 	& 46.2 	& 43.2 	& 31.4 	& 15.9 	& - 	& - 	\\
     hydrates in \unit{\areapercent} & 15.4 	& 27.0 	& 44.5 	& 63.4 	& - 	& - 	\\
     clinker in \unit{\areapercent} 	 	& 38.4 	& 30.1 	& 21.1 	& 20.6 	& - 	& - 	\\
@@ -157,106 +157,83 @@ An overview of some basic statistics of the images analysed is shown in \zcref{t
 	\end{tabularx}
 \end{table}
 
+The phase composition indicates the reaction progress of the specimen.
+The porosity data must be interpreted with caution and cannot be reliably evaluated, as the measurement of total porosity can be significantly influenced by the presence of air voids and cracks within the specimen.
+therefore, the hydrate content within the solids $F_\text{norm, hydrate}$ was calculated:
+
+\begin{equation}
+	F_\text{norm, hydrate} = \frac{A_{\text{hydrate}}}{A_{\text{clinker}} + A_{\text{hydrate}}}
+\end{equation}
+
+As established in the literature \cite{goni.2010}, the \ac{C3S} reaction is much faster than the \ac{C2S} reaction and after \qty{28}{\day} the hydrates account for \,\qty{91.1}{\percent} of the measured area of solids.
+In \ac{C2S} only \qty{75.5}{\percent} hydrates can be found after \qty{28}{\day},  a value comparable to the \ac{C3S} hydration progress after \qty{7}{\day}.
+
+% \cite{goni.2010}
+% day	C2S		hyd
+% 7	60.0	13.1+1.5 = 13.6
+% 28	41.0	36.6+3.9 = 40.5
+
+% day	C3S		hyd
+% 1	38.7	29.9+13.8 = 43.7
+% 7	22.8	36.1+17.0 = 53.1
+% 28	11.8	42.8+20.6 = 63.4
+
+% Phase,Tag (days),Klinker,Hydrate
+% C2S,7,81.5,18.5
+% C2S,28,50.3,49.7
+% C3S,1,47.0,53.0
+% C3S,7,30.0,70.0
+% C3S,28,15.7,84.3
 
 \begin{figure}[htb]
 	\centering
 	\begin{tikzpicture}
 		\begin{axis}[
-			name=axisC3S,
-			ybar stacked,
+			ybar,
 			ymin=0, ymax=100,
-			ylabel={propotion in \unit{\percent}},
+			ylabel={hydrate propotion $F_\text{norm, hydrate}$ in \unit{\percent}},
 			symbolic x coords={1,7,14,28,84,365},
 			xtick=data,
 			xlabel={age in \unit{\day}},
 			bar width=10pt,
 			enlarge x limits=0.15,
-			legend style={at={(1.05,0.65)}, anchor=west, legend columns=1},
+			legend style={at={(1.02,0.5)}, anchor=west, legend columns=1},
 			bar shift=-7pt,
 			width=.7\textwidth,
-			height=7cm,
+			height=6.5cm,
 		]
 			\addplot[fill=red,red] coordinates {
 				(1,61.4) (7,73.4) (14,80.3) (28,91.1) (84,92.7) (365,97.6)
 			};
-			\addplot[fill=orange,orange] coordinates {
-				(1,38.6) (7,26.6) (14,19.7) (28,8.9) (84,7.3) (365,2.4)
-			};
 			\addlegendentry{\ac{C3S} hydrate}
-			\addlegendentry{\ac{C3S} clinker}
-		\end{axis}
 
-		\begin{axis}[
-			ybar stacked,
-			ymin=0, ymax=100,
-			symbolic x coords={1,7,14,28,84,365},
-			bar width=10pt,
-			enlarge x limits=0.15,
-			bar shift=+7pt,
-			axis x line=none,
-			axis y line=none,
-			xtick=\empty,
-			ylabel=\empty,
-			at={(axisC3S.south west)}, % an die erste Achse koppeln
-			anchor=south west,
-			hide axis=false,
-			legend style={at={(1.05,0.35)}, anchor=west, legend columns=1},
-			width=.7\textwidth,
-			height=7cm,
-		]
-			\addplot[fill=cyan,cyan] coordinates {
+			\addplot[fill=blue,blue,bar shift=+7pt] coordinates {
 				(1,28.6) (7,47.3) (14,67.8) (28,75.5) (84,0) (365,0)
 			};
-			\addplot[fill=green,green] coordinates {
-				(1,71.4) (7,52.7) (14,32.2) (28,24.5) (84,0) (365,0)
-			};
 			\addlegendentry{\ac{C2S} hydrate}
-			\addlegendentry{\ac{C2S} clinker}
+
+			\addplot[fill=red, opacity=0.35, draw opacity=0, bar shift=-16pt, bar width=5pt] coordinates {
+				(1,53.0) (7,70.0) (14,0) (28,84.3) (84,0) (365,0)
+			};
+			\addlegendentry{\ac{C3S} hydrate, \cite{goni.2010}}
+			
+			\addplot[fill=blue, opacity=0.35, draw opacity=0, bar shift=+16pt, bar width=5pt] coordinates {
+				(1,0) (7,18.5) (14,0) (28,49.7) (84,0) (365,0)
+			};
+			\addlegendentry{\ac{C2S} hydrate, \cite{goni.2010}}
 		\end{axis}
 	\end{tikzpicture}
 	\caption{%
 		Hydrate content relative to clinker content for \ac{C3S} and \ac{C2S} at different specimen ages based on the image segmentation results.
+		For comparison, thermogravimetric data from \cite{goni.2010} are plotted in the less saturated colors.
 	}
 	\label{fig:hydrate_clinker_stacked_bar}
 \end{figure}
 
+A comparison with the data obtained by thermogravimetry \cite{goni.2010} shows a similar trend, although the \ac{C2S} reaction is even slower in the literature than in our experiments.
+This may have various causes, such as differences in particle size distribution, differences in the \c{wb} value (\num{0.4} in the literature compared to \num{0.5}) and errors due to comparing volumetric data to 2D image data, where the sectioning effect may influence the result (see \zcref{subsec:sectioning-effect}).
 
-% % Bar chart: Hydrate share relative to clinker (Hydrate / Clinker)
-% % Values taken from tables: C3S (14 d): hydrates=62.7, clinker=15.4 -> 62.7/15.4 = 4.07
-% %                      C2S (14 d): hydrates=44.5, clinker=21.1 -> 44.5/21.1 = 2.11
-% \begin{figure}[htb]
-% 	\centering
-% 	\begin{tikzpicture}
-% 		\begin{axis}[
-% 			ybar,
-% 			ymin=0,
-% 			ylabel={hydrates / clinker ratio},
-% 			symbolic x coords={1,7,14,28,84},
-% 			xtick=data,
-% 			xlabel={age in \unit{\day}},
-% 			enlarge x limits=0.12,
-% 			ymax=15,
-% 			bar width=12pt,
-% 			%nodes near coords,
-% 			%nodes near coords style={font=\footnotesize, black},
-% 			legend style={at={(0.05,0.95)},anchor=north west,legend columns=2},
-% 			unbounded coords=jump,
-% 		]
-% 			% C3S (red): ratios for ages 1,7,14,28,84,365
-% 			\addplot+[red, fill=red] coordinates {(1,1.59) (7,2.77) (14,4.07) (28,10.22) (84,12.75)};
-% 			% C2S (orange): ratios for ages 1,7,14,28,84,365 (missing values set to NaN so they are skipped)
-% 			\addplot+[orange, fill=orange] coordinates {(1,0.40) (7,0.90) (14,2.11) (28,3.08) (84,nan)};
-% 			\legend{\ac{C3S},\ac{C2S}}
-% 		\end{axis}
-% 	\end{tikzpicture}
-% 	\caption{
-% 		Hydrate content relative to clinker content (hydrate / clinker) for \ac{C3S} and \ac{C2S} at different specimen ages based on the image segmentation results.
-% 	}
-% 	\label{fig:hydrate_clinker_ratio_phases}
-% \end{figure}
-
-
-Applying the algorithm proposed in \zcref{subsec:algo_hlm} to individually hydrated phases gives the results shown in \zcref{fig:results2d_alite} and \zcref{fig:results2d_belite} for \ac{C3S} and \ac{C2S} respectively.
+Applying the \ac{HLT}-measurement algorithm proposed in \zcref{subsec:algo_hlm} to individually hydrated phases gives the results shown in \zcref{fig:results2d_alite} and \zcref{fig:results2d_belite} for \ac{C3S} and \ac{C2S} respectively.
 The diagrams consist of a graph indicating frequency of a measured \ac{HLT} in dependency of the grain size (blue-green).
 This plot is accompanied by a frequency plot of the grain size diameter (grey) and a grain-size-agnostic distribution plot of the \ac{HLT} frequency (orange).
 
@@ -288,7 +265,7 @@ Furthermore, very small grains seem to have no second \ac{HLT} accumulation, whi
 	\label{fig:results2d_belite}}
 \end{figure}
 
-\ac{C2S} shows a significant slower hydration, which is also visible in the growth of the \c{HLT} (\zcref{fig:hydration-rim-results}).
+\ac{C2S} shows a significant slower hydration, which is also visible in the growth of the \ac{HLT} (\zcref{fig:hydration-rim-results}).
 After \qty{28}{\day}, \ac{C2S} still shows smaller hydration rims than \ac{C3S} after \qty{7}{\day}.
 
 \begin{figure}[ht!]
@@ -312,14 +289,82 @@ After \qty{28}{\day}, \ac{C2S} still shows smaller hydration rims than \ac{C3S} 
 \end{figure}
 
 
+
 \FloatBarrier
 \section{Multi phase analysis}
 
 Applying the algorithm to mixtures of \ac{C3S} and \ac{C2S} without distinguishing between clinker phases using a simple threshold-method is also possible.
-Especially specimens older than 14 or \qty{28}{\day} show two to three distinct \ac{HLT} peaks.
-The first peak can be attributed to the erroneous segmentation and might overlap the actual \ac{HLT} for younger specimens.
 
-The raw images of the mixtures (e.g. \zcref{fig:hadley}) show, that the \ac{CSH} around \ac{C2S} grows much less/slower, than around \ac{C3S} grains.
+\begin{table}[htb]
+	\caption{
+		Overview of the processed \ac{C3S}:\ac{C2S} mixture datasets listing basic image statistics. 
+		Image size, normed particle count (diameter <\,\qty{9.0}{\micro\meter}, circularity >\,\num{0.3}) and phase areas based on the segmentation.
+		All images cover an area of \qty{2.4}{\milli\meter\squared} with a source pixel size of \qty{42.2}{\nano\meter\per\px}.
+	}
+	\label{tab:multi_phase_images}
+	\centering
+	\begin{tabularx}{\textwidth}{@{}l*{6}{>{\raggedleft\arraybackslash}X}@{}}
+	\toprule
+	age in days										& 7		& 14	& 28 \\ \midrule
+	 & \multicolumn{3}{c}{\ac{C3S} 1:3 \ac{C2S}} \\ \midrule
+	particles per \unit{\milli\meter\squared}		& 77636	& 59619	& 37509 \\ \midrule
+	pores in \unit{\areapercent}					& 40.6	& 40.4	& 18.2 \\
+	hydrates in \unit{\areapercent}					& 32.5	& 38.6	& 65.0 \\
+	clinker in \unit{\areapercent}					& 27.1	& 21.1	& 16.9 \\ \midrule
+
+	 & \multicolumn{3}{c}{\ac{C3S} 1:1 \ac{C2S}} \\ \midrule
+	particles per \unit{\milli\meter\squared}		& 42752 & 44094 & 30576 \\ \midrule
+	pores in \unit{\areapercent}					& 32.1	& 30.1	& 10.1 \\
+	hydrates in \unit{\areapercent}					& 45.5	& 53.8	& 73.4 \\
+	clinker in \unit{\areapercent}					& 21.4	& 16.1	& 16.6 \\ \midrule
+
+	 & \multicolumn{3}{c}{\ac{C3S} 3:1 \ac{C2S}} \\ \midrule
+	particles per \unit{\milli\meter\squared}		& 73380	& 22228 & 41577 \\ \midrule
+	pores in \unit{\areapercent}					& 27.8	& 16.9	& 13.9 \\
+	hydrates in \unit{\areapercent}					& 55.5	& 68.4	& 73.8 \\
+	clinker in \unit{\areapercent}					& 16.7	& 14.7	& 12.4 \\
+
+	\bottomrule
+	\end{tabularx}
+\end{table}
+
+\zcref{fig:hydrate_clinker_stacked_bar_mix} shows the hydration progress using the hydrate content $F_\text{norm, hydrate}$ relative to the solid fraction.
+With increasing \ac{C2S} content, the hydrate content is usually reduced.
+Only the \ac{C3S} 3:1 \ac{C2S} mixture deviates slight from this trend at \num{7} and \qty{14}{\day}.
+However, there is no obvious reason for this deviation and may result from a poor segmentation quality.
+
+\begin{figure}[htb]
+	\centering
+	\begin{tikzpicture}
+		\begin{axis}[
+			ybar,
+			ymin=0, ymax=100,
+			ylabel={hydrate propotion $F_\text{norm, hydrate}$ in \unit{\percent}},
+			symbolic x coords={1:0, 3:1, 1:1, 1:3, 0:1},
+			xtick=data,
+			xlabel={\ac{C3S}:\ac{C2S} ratio},
+			bar width=8pt,
+			enlarge x limits=0.25,
+			legend style={at={(1.02,0.5)}, anchor=west, legend columns=1},
+			width=.9\textwidth,
+			height=6.5cm,
+		]
+			\addplot[fill=yellow, draw opacity=0, bar shift=-9pt,] coordinates { (1:0,73.44) (3:1,76.87) (1:1,68.01) (1:3,54.53) (0:1,47.29) };
+			\addlegendentry{\qty{7}{\day}}
+			\addplot[fill=orange, draw opacity=0] coordinates { (1:0,80.28) (3:1,82.31) (1:1,76.97) (1:3,64.66) (0:1,67.84) };
+			\addlegendentry{\qty{14}{\day}}
+			\addplot[fill=red, draw opacity=0, bar shift=9pt,] coordinates { (1:0,91.09) (3:1,85.61) (1:1,81.56) (1:3,79.37) (0:1,75.48) };
+			\addlegendentry{\qty{28}{\day}}
+
+		\end{axis}
+	\end{tikzpicture}
+	\caption{%
+		Hydrate content relative to clinker content for \ac{C3S}:\ac{C2S} mixtures after \num{7}, \num{14} and \qty{28}{\day} of hydration based on the image segmentation results.
+	}
+    \label{fig:hydrate_clinker_stacked_bar_mix}
+\end{figure}
+
+The raw images of the mixtures (e.g. \zcref{fig:hadley}) show, that the \ac{CSH} around \ac{C2S} grows much slower, than around \ac{C3S} grains.
 This indicates, that the lower \ac{HLT}-peak stems from \ac{C2S}, while the larger one is caused by the \ac{CSH} around \ac{C3S}.
 However for younger specimens, the later two peaks are not well distinguishable.
 Extracting the peak maxima using \zcref{eq:fitcurve} between peak-minima, the results shown in \zcref{fig:hyd-rim-mix} can be determined.
@@ -342,20 +387,21 @@ Extracting the peak maxima using \zcref{eq:fitcurve} between peak-minima, the re
     \label{fig:hydration-rim-mixture-results}
 \end{figure}
 
-Based on the \ac{C2S} results younger than \qty{28}{\day} (see \zcref{fig:results2d_belite}), the \ac{HLT} of \ac{C2S} should be included in the first noise peak and cannot be measured reliably.
-By only comparing specimens with an age of \qty{28}{\day} with distinct peaks, a mutual dependence of both phases can be identified.
+Specimens older than 14 or \qty{28}{\day} reliably show two to three distinct \ac{HLT} peaks.
+The first peak can be attributed to the erroneous segmentation and might overlap the actual \ac{HLT} for younger specimens.
+Based on the \ac{C2S} results younger than \qty{28}{\day} (see \zcref{fig:results2d_belite}), the \ac{HLT} of \ac{C2S} is represented by the the first noise peak and cannot be measured reliably.
+By only comparing specimens with an age of \qty{28}{\day} with three distinct peaks, a mutual dependence of both phases can be identified.
 
-In \zcref{fig:hyd-rim-mix-28d} it becomes visible, that \ac{C3S} reacts slower with increasing \ac{C2S} content, while \ac{C2S} reacts only slightly faster, if at all.
+In \zcref{fig:hyd-rim-mix-28d} it becomes apparent, that \ac{C3S} reacts slower with increasing \ac{C2S} content, while \ac{C2S} reacts only slightly faster, if at all.
 This uncertainty is caused by the following sources of error:
 \begin{itemize}
 	\item Overlap/contact of the \ac{CSH} from \ac{C3S} and \ac{C2S},
-	\item and filled Hadley-grains with no contact to the actual hydrate layer around the grain resulting in an overestimation and lower data density for \ac{C2S}.
+	\item and filled Hadley-grains with no contact to the actual hydrate layer around the grain resulting in an overestimation and lower data density.
 \end{itemize}
 
-
+Manually reviewing the images reveals, that the \textsc{Hadley} grain development is significantly more pronounced around \ac{C2S} grains.
+This can cause a reduced \ac{HLT} measurement around \ac{C2S}.
 
 \begin{itemize}
-	\item C-S-H structure
-	\item \textsc{Hadley} grain development more pronounced in \ac{C2S}. This more often results in a gap between rim and clinker and reduces the \ac{HLT}.
-	\item TODO: MIXTURES?
+	\item TODO: C-S-H structure
 \end{itemize}

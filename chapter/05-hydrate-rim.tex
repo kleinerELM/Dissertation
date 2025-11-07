@@ -63,7 +63,9 @@ The difference of the $l_\text{max}$ of the pixel classification results allows 
 Nevertheless, segmenting the outer layer presents a non-trivial challenge as it relies on the person performing the segmentation and training the pixel classification.
 In many cases, whether \ac{CSHo} or merely an artifact such as a flat edge is being segmented remains unclear.
 
-\begin{table}[htb]
+An overview of the influence of the segmentation method on the results can be found in \zcref{tab:segmentation}.
+
+\begin{table}[htbp]
 	\centering
 	\caption{
 		Influence of the segmentation method of a cropped dataset with a reduced resolution (age: \qty{14}{\day}; image area: \qty{0.25}{\square\milli\meter}; resolution: \qty{84.3}{\nano\meter\per\px}). \cite{kleiner.2024}
@@ -77,9 +79,9 @@ In many cases, whether \ac{CSHo} or merely an artifact such as a flat edge is be
 		 & - & w. \ac{CSHo} & wo. \ac{CSHo} & - \\ \midrule
 		time required & $\approx$\,\qty{5}{\minute} & \multicolumn{2}{c}{$\approx$\,\qty{4}{\hour}} & $\approx$\,\qty{2}{weeks} \\\midrule
 
-		pores in \unit{\areapercent}        & 38.5    & 22.1    & 30.7    & 22.2  \\
-		hydrates in \unit{\areapercent}        & 38.0    & 61.1    & 52.5    & 62.7  \\
-		clinker in \unit{\areapercent}        & 23.9    & 17.4    & 17.4    & 15.4  \\ \midrule
+		pores in \unit{\areapercent}        & 23.3   & 22.1    & 30.7    & 30.0  \\
+		hydrates in \unit{\areapercent}        & 62.9    & 61.1    & 52.5    & 53.4  \\
+		clinker in \unit{\areapercent}        & 13.9    & 17.4    & 17.4    & 17.2 \\ \midrule
 		$l_\text{\qty{-33.3}{\percent}}$ in \unit{\micro\meter}    &  1.43    & 1.43    & 1.18    & 1.18 \\
 		$l_\text{max}$ in \unit{\micro\meter}    &  1.85    & 1.94    & 1.52    & 1.52 \\
 		$l_\text{+\qty{33.3}{\percent}}$ in \unit{\micro\meter}    & 2.28 & 2.44    & 1.85    & 1.94 \\
@@ -88,85 +90,117 @@ In many cases, whether \ac{CSHo} or merely an artifact such as a flat edge is be
 	\label{tab:segmentation}
 \end{table}
 
-% Bar chart: Hydratanteil bezogen auf Klinkeranteil (Hydrat / Klinker)
-% Werte entnommen aus Tabelle \ref{tab:segmentation}:
-% method 1: Hydrat 38.0, Klinker 23.9 -> 38.0/23.9 = 1.59
-% method 2.a: Hydrat 61.1, Klinker 17.4 -> 61.1/17.4 = 3.51
-% method 2.b: Hydrat 52.5, Klinker 17.4 -> 52.5/17.4 = 3.02
-% method 3: Hydrat 62.7, Klinker 15.4 -> 62.7/15.4 = 4.07
-\begin{figure}[htb]
+The phase composition indicates the reaction progress of the specimen.
+The porosity data must be interpreted with caution and cannot be reliably evaluated, as the measurement of total porosity can be significantly influenced by the presence of air voids and cracks within the specimen.
+Therefore, the hydrate content within the solids $F_\text{norm, hydrate}$ was calculated:
+
+\begin{equation}
+	F_\text{norm, hydrate} = \frac{A_{\text{hydrate}}}{A_{\text{clinker}} + A_{\text{hydrate}}}
+\end{equation}
+
+\zcref{fig:segmentation_hydrate_clinker_ratio} indicates the variation in $F_\text{norm, hydrate}$ caused by different segmentation methods.
+
+% Bar chart: Normalised hydrate content F_norm, hydrate
+% Values taken from table \ref{tab:segmentation}:
+% method 1: 62.9 / (13.9 + 62.9) * 100 = 81.9
+% method 2.a: 61.1 / (17.4 + 61.1) * 100 = 77.8
+% method 2.b: 52.5 / (17.4 + 52.5) * 100 = 75.1
+% method 3: 53.4 / (17.2 + 53.4) * 100 = 75.6
+\begin{figure}[htbp]
 	\centering
 	\begin{tikzpicture}
 		\begin{axis}[
 			ybar,
-			ymin=0,
-			ylabel={hydrate/clinker ratio},
+			ymin=0, ymax=100,
+			ylabel={$F_\text{norm, hydrate}$ in \unit{\percent}},
 			symbolic x coords={1,2.a,2.b,3},
 			xtick=data,
 			enlarge x limits=0.25,
 			nodes near coords,
-			nodes near coords style={font=\footnotesize},
+			nodes near coords style={
+				font=\footnotesize,
+				/pgf/number format/.cd,
+				fixed,
+				precision=1
+			},
 			bar width=14pt,
+			height=6cm,
 		]
-			\addplot+[fill=blue!50] coordinates {(1,1.59) (2.a,3.51) (2.b,3.02) (3,4.07)};
+			\addplot+[fill=orange, orange] coordinates {(1,81.9) (2.a,77.8) (2.b,75.1) (3,75.6)};
 		\end{axis}
 	\end{tikzpicture}
 	\caption{
-		Hydrate content relative to clinker content (hydrate/clinker) for various segmentation methods.
-		1: threshold, 2: pixel classification (a: with and b: witout \ac{CSHo}), 3: manual segmentation.
+		Normalised hydrate content $F_\text{norm, hydrate}$ for various segmentation methods.
+		1: threshold, 2: pixel classification (a: with and b: without \ac{CSHo}), 3: manual segmentation.
 	}
-	\label{fig:hydrate_clinker_ratio}
+	\label{fig:segmentation_hydrate_clinker_ratio}
 \end{figure}
+
+Simple thresholding overestimates the amount of hydration products by more than \qty{6}{\percent}.
+In contrast, the pixel classification (ignoring \ac{CSHo}) deviates by only \qty{1}{\percent} from the manual segmentation.
+The estimated time required to manually train this method is approximately \qty{4}{\hour}, although this can vary considerably depending on the training results.
+However, the thresholding method is the fastest option.
+It can perform well if the raw images have good phase contrast, which can be difficult to achieve due to the low differences in the backscatter coefficient $\eta$, as described in \zcref{sec:bse}.
+In some cases, large-scale \ac{BSE} images may exhibit brightness deviations from one edge to another, or the overall brightness of image tiles within a larger image set may change (for example, due to charging).
+These artefacts can significantly influence the thresholding method in particular.
 
 
 \section{Single phase analysis}
 
-An overview of some basic statistics of the images analysed is shown in \zcref{tab:single_phase_images}.
+An overview of some basic statistics of the images analysed is listed in \zcref{tab:single_phase_images}.
 
-\begin{table}[htb]
+\begin{table}[htbp]
 	\caption{
-		Overview of the processed \ac{C3S} and \ac{C2S} datasets listing basic image statistics. 
-		Image size, normed particle count (diameter <\,\qty{9.0}{\micro\meter}, circularity >\,\num{0.3}) and phase areas based on the segmentation.
-		%, and the maximum HLT $l_\text{max}$ of the second value accumulation.
+		Listing of basic image statistics of the processed \ac{C3S}, \ac{C2S} and \ac{C3S}:\ac{C2S} mixture datasets:
+		Relative particle count (diameter <\,\qty{9.0}{\micro\meter}, circularity >\,\num{0.3}) and phase areas based on the segmentation.
+		Most images cover an area of \qty{2.4}{\milli\meter\squared} with a source pixel size of \qty{42.2}{\nano\meter\per\px}.
+		Only the \qty{1}{day} hydrated \ac{C3S} image is \qty{0.56}{\milli\meter\squared} with a source pixel size of \qty{34.9}{\nano\meter\per\px}.
 	}
 	\label{tab:single_phase_images}
 	\centering
 	\begin{tabularx}{\textwidth}{@{}l*{6}{>{\raggedleft\arraybackslash}X}@{}}
 	\toprule
 	age in days				& 1		& 7		& 14		& 28		& 84		& 365 \\ \midrule
-	 & \multicolumn{6}{c}{\ac{C3S}} \\ \midrule
-	area in \unit{\milli\meter\squared}		& 0.56	& 2.41	& 2.41	& 2.41	& 2.41	& 2.41  \\
-	particles per \unit{\milli\meter\squared}	& 25296	& 6540	& 11342	& 8050	& 8385	& 7512  \\
-	source pixel size in \unit{\nano\meter\per\px} & 34.9	& 42.2	& 42.2	& 42.2	& 42.2	& 42.2 \\ \midrule
+	 \multicolumn{7}{c}{\textbf{\ac{C3S}}} \\ \midrule
+	particles per \unit{\milli\meter\squared}	& \num{25296}	& \num{6540}	& \num{11342}	& \num{8050}	& \num{8385}	& \num{7512}  \\[2pt] %\midrule
 	pores in \unit{\areapercent}		& 38.5	& 28.5	& 22.2	& 13.7	& 21.7	& 14.8  \\
 	hydrates in \unit{\areapercent}	& 38.0	& 52.8	& 62.7	& 78.7	& 72.7	& 83.2  \\
-	clinker in \unit{\areapercent}		& 23.9	& 19.1	& 15.4	&  7.7	& 5.7	& 2.0   \\
-	\midrule
+	clinker in \unit{\areapercent}		& 23.9	& 19.1	& 15.4	&  7.7	& 5.7	& 2.0   \\[5pt] \midrule
 	% $l_\text{33\,\%, l}$ in \unit{\micro\meter}	&  - 	& 1.10	& 1.52 & 2.44 & - & - \\
 	% $l_\text{max}$ in \unit{\micro\meter}	&  0.45	&  1.35		& 1.94	&  3.04	& -	& - \\
 	% $l_\text{33\,\%, h}$ in \unit{\micro\meter}	& 0.63 &  1.69	& 2.36 & 3.63 & - & - \\
-	 & \multicolumn{6}{c}{\ac{C2S}} \\ \midrule
-	area in \unit{\milli\meter\squared} 	 & 2.41 	& 2.41 	& 2.41 	& 2.41 	& - 	& - 	\\
-    particles per \unit{\milli\meter\squared} 	 & 74870 & 86495 & 113898 & 95004 & - 	& - 	\\
-    source pixel size in \unit{\nano\meter\per\px} & 42.2 	& 42.2 & 42.2 & 42.2 & - 	& - 	\\ \midrule
+
+	\multicolumn{7}{c}{\textbf{\ac{C2S}}} \\ \midrule
+    particles per \unit{\milli\meter\squared} 	 & \num{74870} & \num{86495} & \num{113898} & \num{95004} & - 	& - 	\\[2pt] %\midrule
     pores in \unit{\areapercent} 	 	& 46.2 	& 43.2 	& 31.4 	& 15.9 	& - 	& - 	\\
     hydrates in \unit{\areapercent} & 15.4 	& 27.0 	& 44.5 	& 63.4 	& - 	& - 	\\
-    clinker in \unit{\areapercent} 	 	& 38.4 	& 30.1 	& 21.1 	& 20.6 	& - 	& - 	\\
+    clinker in \unit{\areapercent} 	 	& 38.4 	& 30.1 	& 21.1 	& 20.6 	& - 	& - 	\\[5pt] \midrule
 	
+	\multicolumn{7}{c}{\textbf{\ac{C3S} 3:1 \ac{C2S}}} \\ \midrule
+	particles per \unit{\milli\meter\squared}		& - & \num{73380}	& \num{22228} & \num{41577} & - & - \\[2pt] %\midrule
+	pores in \unit{\areapercent}					& - & 27.8	& 16.9	& 13.9 & - & - \\
+	hydrates in \unit{\areapercent}					& - & 55.5	& 68.4	& 73.8 & - & - \\
+	clinker in \unit{\areapercent}					& - & 16.7	& 14.7	& 12.4 & - & - \\
+
+	\multicolumn{7}{c}{\textbf{\ac{C3S} 1:1 \ac{C2S}}} \\ \midrule
+	particles per \unit{\milli\meter\squared}		& - & \num{42752} & \num{44094} & \num{30576} & - & - \\[2pt] %\midrule
+	pores in \unit{\areapercent}					& - & 32.1	& 30.1	& 10.1 & - & - \\
+	hydrates in \unit{\areapercent}					& - & 45.5	& 53.8	& 73.4 & - & - \\
+	clinker in \unit{\areapercent}					& - & 21.4	& 16.1	& 16.6 & - & - \\[5pt] \midrule
+
+	\multicolumn{7}{c}{\textbf{\ac{C3S} 1:3 \ac{C2S}}} \\ \midrule
+	particles per \unit{\milli\meter\squared}		& - & \num{77636}	& \num{59619}	& \num{37509} & - & - \\[2pt] %\midrule
+	pores in \unit{\areapercent}					& - & 40.6	& 40.4	& 18.2 & - & - \\
+	hydrates in \unit{\areapercent}					& - & 32.5	& 38.6	& 65.0 & - & - \\
+	clinker in \unit{\areapercent}					& - & 27.1	& 21.1	& 16.9 & - & - \\[5pt] \midrule
+
 	\bottomrule
 	\end{tabularx}
 \end{table}
 
-The phase composition indicates the reaction progress of the specimen.
-The porosity data must be interpreted with caution and cannot be reliably evaluated, as the measurement of total porosity can be significantly influenced by the presence of air voids and cracks within the specimen.
-therefore, the hydrate content within the solids $F_\text{norm, hydrate}$ was calculated:
-
-\begin{equation}
-	F_\text{norm, hydrate} = \frac{A_{\text{hydrate}}}{A_{\text{clinker}} + A_{\text{hydrate}}}
-\end{equation}
-
-As established in the literature \cite{goni.2010}, the \ac{C3S} reaction is much faster than the \ac{C2S} reaction and after \qty{28}{\day} the hydrates account for \,\qty{91.1}{\percent} of the measured area of solids.
-In \ac{C2S} only \qty{75.5}{\percent} hydrates can be found after \qty{28}{\day},  a value comparable to the \ac{C3S} hydration progress after \qty{7}{\day}.
+The hydrate content within the solids $F_\text{norm, hydrate}$ is plotted in \zcref{fig:hydrate_clinker_stacked_bar}.
+As established in the literature \cite{goni.2010}, the diagram shows that the \ac{C3S} reaction is much faster than the \ac{C2S} reaction and after \qty{28}{\day} the hydrates account for \,\qty{91.1}{\percent} of the measured area of solids.
+In \ac{C2S} only \qty{75.5}{\percent} hydrates can be found after \qty{28}{\day}, a value comparable to the \ac{C3S} hydration progress after \qty{7}{\day}.
 
 % \cite{goni.2010}
 % day	C2S		hyd
@@ -191,7 +225,7 @@ In \ac{C2S} only \qty{75.5}{\percent} hydrates can be found after \qty{28}{\day}
 		\begin{axis}[
 			ybar,
 			ymin=0, ymax=100,
-			ylabel={hydrate propotion $F_\text{norm, hydrate}$ in \unit{\percent}},
+			ylabel={$F_\text{norm, hydrate}$ in \unit{\percent}},
 			symbolic x coords={1,7,14,28,84,365},
 			xtick=data,
 			xlabel={age in \unit{\day}},
@@ -200,7 +234,7 @@ In \ac{C2S} only \qty{75.5}{\percent} hydrates can be found after \qty{28}{\day}
 			legend style={at={(1.02,0.5)}, anchor=west, legend columns=1},
 			bar shift=-7pt,
 			width=.7\textwidth,
-			height=6.5cm,
+			height=6cm,
 		]
 			\addplot[fill=red,red] coordinates {
 				(1,61.4) (7,73.4) (14,80.3) (28,91.1) (84,92.7) (365,97.6)
@@ -230,8 +264,12 @@ In \ac{C2S} only \qty{75.5}{\percent} hydrates can be found after \qty{28}{\day}
 	\label{fig:hydrate_clinker_stacked_bar}
 \end{figure}
 
-A comparison with the data obtained by thermogravimetry \cite{goni.2010} shows a similar trend, although the \ac{C2S} reaction is even slower in the literature than in our experiments.
+A comparison with the data obtained by thermogravimetry \cite{goni.2010} (less saturated bars in \zcref{fig:hydrate_clinker_stacked_bar}) shows a similar trend, although the \ac{C2S} reaction is even slower in the literature than in our experiments.
 This may have various causes, such as differences in particle size distribution, differences in the \c{wb} value (\num{0.4} in the literature compared to \num{0.5}) and errors due to comparing volumetric data to 2D image data, where the sectioning effect may influence the result (see \zcref{subsec:sectioning-effect}).
+
+Comparing the particle counts of the \ac{C3S} and \ac{C2S} shows, that \ac{C2S} has up to \num{10} times the number of \ac{C3S} particles.
+This is caused by the slower dissolution rates of \ac{C2S} and the tendency of larger \ac{C2S} particles to shatter in multiple smaller ones.
+This also allows to visually distinguish both phases in a \ac{BSE} image.
 
 Applying the \ac{HLT}-measurement algorithm proposed in \zcref{subsec:algo_hlm} to individually hydrated phases gives the results shown in \zcref{fig:results2d_alite} and \zcref{fig:results2d_belite} for \ac{C3S} and \ac{C2S} respectively.
 The diagrams consist of a graph indicating frequency of a measured \ac{HLT} in dependency of the grain size (blue-green).
@@ -295,38 +333,38 @@ After \qty{28}{\day}, \ac{C2S} still shows smaller hydration rims than \ac{C3S} 
 
 Applying the algorithm to mixtures of \ac{C3S} and \ac{C2S} without distinguishing between clinker phases using a simple threshold-method is also possible.
 
-\begin{table}[htb]
-	\caption{
-		Overview of the processed \ac{C3S}:\ac{C2S} mixture datasets listing basic image statistics. 
-		Image size, normed particle count (diameter <\,\qty{9.0}{\micro\meter}, circularity >\,\num{0.3}) and phase areas based on the segmentation.
-		All images cover an area of \qty{2.4}{\milli\meter\squared} with a source pixel size of \qty{42.2}{\nano\meter\per\px}.
-	}
-	\label{tab:multi_phase_images}
-	\centering
-	\begin{tabularx}{\textwidth}{@{}l*{6}{>{\raggedleft\arraybackslash}X}@{}}
-	\toprule
-	age in days										& 7		& 14	& 28 \\ \midrule
-	 & \multicolumn{3}{c}{\ac{C3S} 1:3 \ac{C2S}} \\ \midrule
-	particles per \unit{\milli\meter\squared}		& 77636	& 59619	& 37509 \\ \midrule
-	pores in \unit{\areapercent}					& 40.6	& 40.4	& 18.2 \\
-	hydrates in \unit{\areapercent}					& 32.5	& 38.6	& 65.0 \\
-	clinker in \unit{\areapercent}					& 27.1	& 21.1	& 16.9 \\ \midrule
+% \begin{table}[htb]
+% 	\caption{
+% 		Overview of the processed \ac{C3S}:\ac{C2S} mixture datasets listing basic image statistics:
+% 		Normed particle count (diameter <\,\qty{9.0}{\micro\meter}, circularity >\,\num{0.3}) and phase areas based on the segmentation.
+% 		All images cover an area of \qty{2.4}{\milli\meter\squared} with a source pixel size of \qty{42.2}{\nano\meter\per\px}.
+% 	}
+% 	\label{tab:multi_phase_images}
+% 	\centering
+% 	\begin{tabularx}{\textwidth}{@{}l*{6}{>{\raggedleft\arraybackslash}X}@{}}
+% 	\toprule
+% 	age in days										& 7		& 14	& 28 \\ \midrule
+% 	 & \multicolumn{3}{c}{\ac{C3S} 1:3 \ac{C2S}} \\ \midrule
+% 	particles per \unit{\milli\meter\squared}		& 77636	& 59619	& 37509 \\ \midrule
+% 	pores in \unit{\areapercent}					& 40.6	& 40.4	& 18.2 \\
+% 	hydrates in \unit{\areapercent}					& 32.5	& 38.6	& 65.0 \\
+% 	clinker in \unit{\areapercent}					& 27.1	& 21.1	& 16.9 \\ \midrule
 
-	 & \multicolumn{3}{c}{\ac{C3S} 1:1 \ac{C2S}} \\ \midrule
-	particles per \unit{\milli\meter\squared}		& 42752 & 44094 & 30576 \\ \midrule
-	pores in \unit{\areapercent}					& 32.1	& 30.1	& 10.1 \\
-	hydrates in \unit{\areapercent}					& 45.5	& 53.8	& 73.4 \\
-	clinker in \unit{\areapercent}					& 21.4	& 16.1	& 16.6 \\ \midrule
+% 	 & \multicolumn{3}{c}{\ac{C3S} 1:1 \ac{C2S}} \\ \midrule
+% 	particles per \unit{\milli\meter\squared}		& 42752 & 44094 & 30576 \\ \midrule
+% 	pores in \unit{\areapercent}					& 32.1	& 30.1	& 10.1 \\
+% 	hydrates in \unit{\areapercent}					& 45.5	& 53.8	& 73.4 \\
+% 	clinker in \unit{\areapercent}					& 21.4	& 16.1	& 16.6 \\ \midrule
 
-	 & \multicolumn{3}{c}{\ac{C3S} 3:1 \ac{C2S}} \\ \midrule
-	particles per \unit{\milli\meter\squared}		& 73380	& 22228 & 41577 \\ \midrule
-	pores in \unit{\areapercent}					& 27.8	& 16.9	& 13.9 \\
-	hydrates in \unit{\areapercent}					& 55.5	& 68.4	& 73.8 \\
-	clinker in \unit{\areapercent}					& 16.7	& 14.7	& 12.4 \\
+% 	 & \multicolumn{3}{c}{\ac{C3S} 3:1 \ac{C2S}} \\ \midrule
+% 	particles per \unit{\milli\meter\squared}		& 73380	& 22228 & 41577 \\ \midrule
+% 	pores in \unit{\areapercent}					& 27.8	& 16.9	& 13.9 \\
+% 	hydrates in \unit{\areapercent}					& 55.5	& 68.4	& 73.8 \\
+% 	clinker in \unit{\areapercent}					& 16.7	& 14.7	& 12.4 \\
 
-	\bottomrule
-	\end{tabularx}
-\end{table}
+% 	\bottomrule
+% 	\end{tabularx}
+% \end{table}
 
 \zcref{fig:hydrate_clinker_stacked_bar_mix} shows the hydration progress using the hydrate content $F_\text{norm, hydrate}$ relative to the solid fraction.
 With increasing \ac{C2S} content, the hydrate content is usually reduced.
@@ -339,7 +377,7 @@ However, there is no obvious reason for this deviation and may result from a poo
 		\begin{axis}[
 			ybar,
 			ymin=0, ymax=100,
-			ylabel={hydrate propotion $F_\text{norm, hydrate}$ in \unit{\percent}},
+			ylabel={$F_\text{norm, hydrate}$ in \unit{\percent}},
 			symbolic x coords={1:0, 3:1, 1:1, 1:3, 0:1},
 			xtick=data,
 			xlabel={\ac{C3S}:\ac{C2S} ratio},
@@ -347,7 +385,7 @@ However, there is no obvious reason for this deviation and may result from a poo
 			enlarge x limits=0.25,
 			legend style={at={(1.02,0.5)}, anchor=west, legend columns=1},
 			width=.9\textwidth,
-			height=6.5cm,
+			height=6cm,
 		]
 			\addplot[fill=yellow, draw opacity=0, bar shift=-9pt,] coordinates { (1:0,73.44) (3:1,76.87) (1:1,68.01) (1:3,54.53) (0:1,47.29) };
 			\addlegendentry{\qty{7}{\day}}
@@ -364,8 +402,19 @@ However, there is no obvious reason for this deviation and may result from a poo
     \label{fig:hydrate_clinker_stacked_bar_mix}
 \end{figure}
 
-The raw images of the mixtures (e.g. \zcref{fig:hadley}) show, that the \ac{CSH} around \ac{C2S} grows much slower, than around \ac{C3S} grains.
+The raw images of the mixtures (e.g. \zcref{fig:hadley2}) show, that the \ac{CSH} around \ac{C2S} grows much slower, than around \ac{C3S} grains.
 This indicates, that the lower \ac{HLT}-peak stems from \ac{C2S}, while the larger one is caused by the \ac{CSH} around \ac{C3S}.
+
+
+\begin{figure}[htb]
+	\centerline{\includegraphics[width=\textwidth]{hydrate-rim/hadley_grains.pdf}}
+	\caption{
+        \ac{BSE} image of a polished section of a \qty{28}{\day} hydrated \ac{C3S} and \ac{C2S} mixture (\num{3}:\num{1}).
+        Around many \ac{C2S} grains, \textsc{Hadley} grains were formed.
+        Furthermore, hollow \textsc{Hadley} grains can be found. \label{fig:hadley2}
+    }
+\end{figure}
+
 However for younger specimens, the later two peaks are not well distinguishable.
 Extracting the peak maxima using \zcref{eq:fitcurve} between peak-minima, the results shown in \zcref{fig:hyd-rim-mix} can be determined.
 

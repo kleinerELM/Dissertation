@@ -124,7 +124,8 @@ Therefore, the hydrate content within the solids $F_\text{norm, hydrate}$ was ca
 				precision=1
 			},
 			bar width=14pt,
-			height=6cm,
+			height=5.5cm,
+			width=.6\textwidth,
 		]
 			\addplot+[fill=orange, orange] coordinates {(1,81.9) (2.a,77.8) (2.b,75.1) (3,75.6)};
 		\end{axis}
@@ -147,9 +148,35 @@ These artefacts can significantly influence the thresholding method in particula
 
 \section{Single phase analysis}
 
+Initially, the individual phases were analysed.
+The images reveal distinct differences in the morphology of the hydration products.
+For example, the \ac{CSH}-needles in hydrated alite are small and form on a dense \ac{CSHi} rim.
+In contrast, hydrated belite produces coarser needles with a less homogeneous, dense \ac{CSH} layer underneath (see \zcref{fig:single_phase_examples}).
+Furthermore, a higher number of unhydrated \ac{C2S} particles can be observed in the same area, often shattered into smaller fragments.
+
+\begin{figure}[htb!]
+    \centering
+
+	\begin{subfigure}{0.475\textwidth}
+		\includegraphics[width=\textwidth]{hydrate-rim/single_phase_C2S.pdf}
+		\caption{\ac{C3S}.}
+		\label{fig:single_phase_examples-alite}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.475\textwidth}
+		\includegraphics[width=\textwidth]{hydrate-rim/single_phase_C3S.pdf}
+		\caption{\ac{C2S}.}
+		\label{fig:single_phase_examples-belite}
+	\end{subfigure}
+    \caption{
+		\ac{BSE} images of \qty{28}{\day} hydrated \ac{C3S} and \ac{C2S} at the same magnification.
+	}
+    \label{fig:single_phase_examples}
+\end{figure}
+
 An overview of some basic statistics of the images analysed is listed in \zcref{tab:single_phase_images}.
 
-\begin{table}[htbp]
+\begin{table}[p]
 	\caption{
 		Listing of basic image statistics of the processed \ac{C3S}, \ac{C2S} and \ac{C3S}:\ac{C2S} mixture datasets:
 		Relative particle count (diameter <\,\qty{9.0}{\micro\meter}, circularity >\,\num{0.3}) and phase areas based on the segmentation.
@@ -192,7 +219,7 @@ An overview of some basic statistics of the images analysed is listed in \zcref{
 	particles per \unit{\milli\meter\squared}		& - & \num{77636}	& \num{59619}	& \num{37509} & - & - \\[2pt] %\midrule
 	pores in \unit{\areapercent}					& - & 40.6	& 40.4	& 18.2 & - & - \\
 	hydrates in \unit{\areapercent}					& - & 32.5	& 38.6	& 65.0 & - & - \\
-	clinker in \unit{\areapercent}					& - & 27.1	& 21.1	& 16.9 & - & - \\[5pt] \midrule
+	clinker in \unit{\areapercent}					& - & 27.1	& 21.1	& 16.9 & - & - \\[5pt]
 
 	\bottomrule
 	\end{tabularx}
@@ -264,7 +291,7 @@ In \ac{C2S} only \qty{75.5}{\percent} hydrates can be found after \qty{28}{\day}
 	\label{fig:hydrate_clinker_stacked_bar}
 \end{figure}
 
-A comparison with the data obtained by thermogravimetry \cite{goni.2010} (less saturated bars in \zcref{fig:hydrate_clinker_stacked_bar}) shows a similar trend, although the \ac{C2S} reaction is even slower in the literature than in our experiments.
+A comparison with data obtained by thermogravimetry \cite{goni.2010} (less saturated bars in \zcref{fig:hydrate_clinker_stacked_bar}) shows a similar trend, although the \ac{C2S} reaction is even slower in the literature than in our experiments.
 This may have various causes, such as differences in particle size distribution, differences in the \c{wb} value (\num{0.4} in the literature compared to \num{0.5}) and errors due to comparing volumetric data to 2D image data, where the sectioning effect may influence the result (see \zcref{subsec:sectioning-effect}).
 
 Comparing the particle counts of the \ac{C3S} and \ac{C2S} shows, that \ac{C2S} has up to \num{10} times the number of \ac{C3S} particles.
@@ -320,9 +347,11 @@ After \qty{28}{\day}, \ac{C2S} still shows smaller hydration rims than \ac{C3S} 
 		\caption{Hydration of \ac{C2S} from \qtyrange{1}{28}{\day}.}
 		\label{fig:hyd-rim-belite}
 	\end{subfigure}
-    \caption{Comparison between the hydration progression measured using \ac{XRD} (dashed lines) with $l_\text{max}$ (solid line).
-	The pink markers (dotted line) indicate the amount of hydrate phase $\sigma_\text{hyd}$ estimated from the image segmentation.
-	The red translucent areas indicate the confidence interval at a confidence level of where \qty{33.3}{\percent} (dark) and \qty{50.0}{\percent}(light).}
+    \caption{
+		Comparison between the hydration progression measured using \ac{XRD} (dashed lines) with $l_\text{max}$ (solid line).
+		The pink markers (dotted line) indicate the amount of hydrate phase $\sigma_\text{hyd}$ estimated from the image segmentation.
+		The red translucent areas indicate the confidence interval at a confidence level of where \qty{33.3}{\percent} (dark) and \qty{50.0}{\percent} (light).
+	}
     \label{fig:hydration-rim-results}
 \end{figure}
 

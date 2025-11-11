@@ -7,8 +7,6 @@ For example, the accelerating voltage used varied from \qtyrange{10}{15}{\kilo\v
 The raw images are publicly available \cite{kleiner.2023a, kleiner.2023}.
 
 
-%TODO:add mixtures
-
 
 \FloatBarrier
 \section{Influence of the segmentation method}
@@ -158,13 +156,13 @@ Furthermore, a higher number of unhydrated \ac{C2S} particles can be observed in
     \centering
 
 	\begin{subfigure}{0.475\textwidth}
-		\includegraphics[width=\textwidth]{hydrate-rim/single_phase_C2S.pdf}
+		\includegraphics[width=\textwidth]{hydrate-rim/single_phase_C3S.pdf}
 		\caption{\ac{C3S}.}
 		\label{fig:single_phase_examples-alite}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}{0.475\textwidth}
-		\includegraphics[width=\textwidth]{hydrate-rim/single_phase_C3S.pdf}
+		\includegraphics[width=\textwidth]{hydrate-rim/single_phase_C2S.pdf}
 		\caption{\ac{C2S}.}
 		\label{fig:single_phase_examples-belite}
 	\end{subfigure}
@@ -187,7 +185,7 @@ An overview of some basic statistics of the images analysed is listed in \zcref{
 	\centering
 	\begin{tabularx}{\textwidth}{@{}l*{6}{>{\raggedleft\arraybackslash}X}@{}}
 	\toprule
-	age in days				& 1		& 7		& 14		& 28		& 84		& 365 \\ \midrule
+	age in \unit{\day}			& 1		& 7		& 14		& 28		& 84		& 365 \\ \midrule
 	 \multicolumn{7}{c}{\textbf{\ac{C3S}}} \\ \midrule
 	particles per \unit{\milli\meter\squared}	& \num{25296}	& \num{6540}	& \num{11342}	& \num{8050}	& \num{8385}	& \num{7512}  \\[2pt] %\midrule
 	pores in \unit{\areapercent}		& 38.5	& 28.5	& 22.2	& 13.7	& 21.7	& 14.8  \\
@@ -297,6 +295,7 @@ This may have various causes, such as differences in particle size distribution,
 Comparing the particle counts of the \ac{C3S} and \ac{C2S} shows, that \ac{C2S} has up to \num{10} times the number of \ac{C3S} particles.
 This is caused by the slower dissolution rates of \ac{C2S} and the tendency of larger \ac{C2S} particles to shatter in multiple smaller ones.
 This also allows to visually distinguish both phases in a \ac{BSE} image.
+
 
 Applying the \ac{HLT}-measurement algorithm proposed in \zcref{subsec:algo_hlm} to individually hydrated phases gives the results shown in \zcref{fig:results2d_alite} and \zcref{fig:results2d_belite} for \ac{C3S} and \ac{C2S} respectively.
 The diagrams consist of a graph indicating frequency of a measured \ac{HLT} in dependency of the grain size (blue-green).
@@ -483,3 +482,424 @@ This can cause a reduced \ac{HLT} measurement around \ac{C2S}.
 \begin{itemize}
 	\item TODO: C-S-H structure
 \end{itemize}
+
+\FloatBarrier
+\section{Statistical analysis of the representativeness of the 2D images}
+
+\subsection{Acs*{BC} method}
+
+The result of the \ac{BC} method is a graph as shown in \zcref{fig:lit_box_count}.
+The standard deviation $\sigma$ in \zcref{fig:lit_box_count_b} indicates the decreasing uncertainty with a larger area analysed.
+Compared to \zcref{fig:lit_box_growth_b}, $\sigma$ decreases much more continuously, since there is no location bias.
+
+\begin{figure}[H]
+    \centering
+	\begin{subfigure}[t]{0.49\linewidth}
+        \centering
+      \begin{tikzpicture}
+        \begin{axis}[
+                xmin=0, xmax=1,
+                ymin=0, ymax=80,
+				xlabel={image area in \unit{\square\milli\meter}},
+				ylabel={phase amount \unit{\percent}},
+				xtick={0,.2,...,1},
+                ytick={20,40,...,80},
+                width=\linewidth,
+				grid=major,
+				grid style={line width=.1pt, draw=gray!10},
+                xticklabel style={
+                        /pgf/number format/fixed,
+                        /pgf/number format/precision=1,
+                        /pgf/number format/fixed zerofill,
+                },
+            ]
+
+            %Pores
+            \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}, ] {figures/literature/C3S_28d_box_count.csv};
+            \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{1}+\thisrowno{2}}, ] {figures/literature/C3S_28d_box_count.csv};
+
+            \addplot [fill=black, fill opacity=0.2,forget plot] fill between [of=A and B];
+
+            \addplot [ mark=none, black, opacity=0.5 ] table [x index=9, y index=1, col sep=comma] {figures/literature/C3S_28d_box_count.csv};
+            %\addlegendentry{pores};
+
+            %CSH
+            \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{3}-\thisrowno{4}}, ] {figures/literature/C3S_28d_box_count.csv};
+            \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{3}+\thisrowno{4}}, ] {figures/literature/C3S_28d_box_count.csv};
+
+            \addplot [fill=red, fill opacity=0.2,forget plot] fill between [of=A and B];
+
+            \addplot [ mark=none, red, opacity=0.5 ] table [x index=9, y index=3, col sep=comma] {figures/literature/C3S_28d_box_count.csv};
+            %\addlegendentry{\ac{CSH}};
+
+            %CH
+            \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{5}-\thisrowno{6}}, ] {figures/literature/C3S_28d_box_count.csv};
+            \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{5}+\thisrowno{6}}, ] {figures/literature/C3S_28d_box_count.csv};
+
+            \addplot [fill=cyan, fill opacity=0.2,forget plot] fill between [of=A and B];
+
+            \addplot [ mark=none, cyan, opacity=0.5 ] table [x index=9, y index=5, col sep=comma] {figures/literature/C3S_28d_box_count.csv};
+            %\addlegendentry{\ac{CH}};
+
+            %alite
+            \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{7}-\thisrowno{8}}, ] {figures/literature/C3S_28d_box_count.csv};
+            \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{7}+\thisrowno{8}}, ] {figures/literature/C3S_28d_box_count.csv};
+
+            \addplot [fill=orange, fill opacity=0.2,forget plot] fill between [of=A and B];
+
+            \addplot [ mark=none, orange, opacity=0.5 ] table [x index=9, y index=7, col sep=comma] {figures/literature/C3S_28d_box_count.csv};
+            %\addlegendentry{alite};
+        \end{axis}
+      \end{tikzpicture}
+      \caption{Phase composition statistics.}
+      \label{fig:lit_box_count_a}
+    \end{subfigure}%
+    \hfill%
+	\begin{subfigure}[t]{0.49\linewidth}
+      \centering
+      \begin{tikzpicture}
+		\begin{axis}[
+            width=\linewidth,
+            xmin=0, xmax=1,
+            ymin=0, ymax=10,
+            xlabel={image area in \unit{\square\milli\meter}},
+            legend style={at={(.98,.98)},anchor=north east},
+            ylabel={standard deviation $\sigma$ in \unit{\percent}},
+            xtick={0,.2,...,1},
+            ytick={2,4,...,10},
+            ylabel near ticks, yticklabel pos=right,
+            grid=major,
+            grid style={line width=.1pt, draw=gray!10},
+            xticklabel style={
+                    /pgf/number format/fixed,
+                    /pgf/number format/precision=1,
+                    /pgf/number format/fixed zerofill,
+            },
+		  ]
+          \addplot[black, smooth, tension=0.5, no markers] table [x index=9, col sep=comma,y index=2] {figures/literature/C3S_28d_box_count.csv};
+
+          \addplot[red, smooth, tension=0.5, no markers] table [x index=9, col sep=comma,y index=4] {figures/literature/C3S_28d_box_count.csv};
+
+          \addplot[cyan, smooth, tension=0.5, no markers] table [x index=9, col sep=comma,y index=6] {figures/literature/C3S_28d_box_count.csv};
+
+          \addplot[orange, smooth, tension=0.5, no markers] table [x index=9, col sep=comma,y index=8] {figures/literature/C3S_28d_box_count.csv};
+          \addlegendentry{pores};
+          \addlegendentry{\ac{CSH}};
+          \addlegendentry{\ac{CH}};
+          \addlegendentry{\ac{C3S}};
+        \end{axis}
+      \end{tikzpicture}
+      \caption{Standard deviation of the phase composition.}
+      \label{fig:lit_box_count_b}
+    \end{subfigure}
+    \caption{
+        Example of the results of the box count method as explained in \cite{mouret.2001,hlavacek.2015} and the respective standard deviations after \num{100} random patch selections.
+    }
+    \label{fig:lit_box_count}
+\end{figure}
+
+The method is fast and works well for area calculations.
+However, it ignores the influence of larger inhomogeneities, such as the rather large \ac{CH} areas in the example image or occasionally occurring air voids.
+
+\color{red}
+All image used in the sections above were analysed using the \ac{BC} method.
+The minimum required area for a standard deviation of <\,\qty{2}{\percent} was calculated for each phase (see \zcref{tab:convergence_area_box_cnt}) and was plotted in the following figures.
+
+
+\begin{figure}[htbp]
+    \centering
+    % ---- LINKS: Poren (Box Count) ----
+    \begin{subfigure}[b]{0.49\textwidth}
+        \centering
+        \begin{tikzpicture}
+            \begin{axis}[
+                ybar,
+                ymin=0, ymax=1.3, % NEU: Angepasst an max(0.4, 1.3)
+                ylabel={Min. area in \unit{\milli\meter\squared}},
+                symbolic x coords={1:0, 3:1, 1:1, 1:3, 0:1},
+                xtick=data,
+                xlabel={\ac{C3S}:\ac{C2S} ratio},
+                bar width=8pt,
+                enlarge x limits=0.2,
+                %legend style={legend pos=north, legend columns=1}, % NEU: Legende oben
+                width=\textwidth, % NEU: Füllt die subfigure
+                height=6cm,
+            ]
+                % 7d Pores Data (Reihenfolge: 1:0, 3:1, 1:1, 1:3, 0:1)
+                \addplot[fill=yellow, draw opacity=0, bar shift=-9pt] coordinates { 
+                    (1:0, 0.03165) (3:1, 0.03617) (1:1, 0.02707) (1:3, 0.02110) (0:1, 0.02411) 
+                };
+                \addlegendentry{\qty{7}{\day}}
+                
+                % 14d Pores Data
+                \addplot[fill=orange, draw opacity=0] coordinates { 
+                    (1:0, 0.03165) (3:1, 0.02101) (1:1, 0.15633) (1:3, 0.02261) (0:1, 0.00904) 
+                };
+                \addlegendentry{\qty{14}{\day}}
+                
+                % 28d Pores Data
+                \addplot[fill=red, draw opacity=0, bar shift=9pt] coordinates { 
+                    (1:0, 0.01055) (3:1, 0.07820) (1:1, 0.01808) (1:3, 0.00546) (0:1, 0.01808) 
+                };
+                \addlegendentry{\qty{28}{\day}}
+            \end{axis}
+        \end{tikzpicture}
+        \caption{%
+            Minimum required area for pores (max. \qty{2}{\percent} std. dev.).
+        }
+        \label{fig:convergence_pores}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.49\textwidth}
+        \centering
+        \begin{tikzpicture}
+            \begin{axis}[
+                ybar,
+                ymin=0, ymax=1.3, % (Original ymax)
+                ylabel={Min. area in \unit{\milli\meter\squared}},
+                symbolic x coords={1:0, 3:1, 1:1, 1:3, 0:1},
+                xtick=data,
+                xlabel={\ac{C3S}:\ac{C2S} ratio},
+                bar width=8pt,
+                enlarge x limits=0.2,
+                %legend style={legend pos=north, legend columns=1}, % NEU: Legende oben
+                width=\textwidth, % NEU: Füllt die subfigure
+                height=6cm,
+                ylabel near ticks, yticklabel pos=right,
+            ]
+                % 7d Pores Data (Reihenfolge: 1:0, 3:1, 1:1, 1:3, 0:1)
+                \addplot[fill=green, draw opacity=0, bar shift=-9pt] coordinates { 
+                    (1:0, 0.144934) (3:1, 0.065734) (1:1, 0.101282) (1:3, 0.019552) (0:1, 0.262979)
+                };
+                \addlegendentry{\qty{7}{\day}}
+                
+                % 14d Pores Data
+                \addplot[fill=cyan, draw opacity=0] coordinates { 
+                    (1:0, 0.058000) (3:1, 0.065431) (1:1, 1.248485) (1:3, 0.029220) (0:1, 0.182607)
+                };
+                \addlegendentry{\qty{14}{\day}}
+                
+                % 28d Pores Data
+                \addplot[fill=blue, draw opacity=0, bar shift=9pt] coordinates { 
+                    (1:0, 0.026615) (3:1, 0.466620) (1:1, 0.054304) (1:3, 0.034310) (0:1, 0.031932)
+                };
+                \addlegendentry{\qty{28}{\day}}
+            \end{axis}
+        \end{tikzpicture}
+        \caption{%
+            Box growth for pores for \ac{C3S}:\ac{C2S} mixtures.
+        }
+        \label{fig:areagrowth_pores}
+    \end{subfigure}
+    \caption{Comparison of the \ac{BC} and box growth methods for pores.}
+    \label{fig:combined_pores}
+\end{figure}
+
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.49\textwidth}
+        \centering
+        \begin{tikzpicture}
+            \begin{axis}[
+                ybar,
+                ymin=0, ymax=1.3, % NEU: Angepasst an max(0.4, 1.1)
+                ylabel={Min. area in \unit{\milli\meter\squared}},
+                symbolic x coords={1:0, 3:1, 1:1, 1:3, 0:1},
+                xtick=data,
+                xlabel={\ac{C3S}:\ac{C2S} ratio},
+                bar width=8pt,
+                enlarge x limits=0.2,
+                %legend style={legend pos=north, legend columns=1}, % NEU
+                width=\textwidth, % NEU
+                height=6cm,
+            ]
+                % 7d clinker Data
+                \addplot[fill=yellow, draw opacity=0, bar shift=-9pt] coordinates { 
+                    (1:0, 0.04522) (3:1, 0.04974) (1:1, 0.04361) (1:3, 0.01356) (0:1, 0.00602) 
+                };
+                \addlegendentry{\qty{7}{\day}}
+                
+                % 14d clinker Data
+                \addplot[fill=orange, draw opacity=0] coordinates { 
+                    (1:0, 0.01356) (3:1, 0.03752) (1:1, 0.15633) (1:3, 0.01808) (0:1, 0.00904) 
+                };
+                \addlegendentry{\qty{14}{\day}}
+                
+                % 28d clinker Data
+                \addplot[fill=red, draw opacity=0, bar shift=9pt] coordinates { 
+                    (1:0, 0.02562) (3:1, 0.30678) (1:1, 0.14470) (1:3, 0.01966) (0:1, 0.01055) 
+                };
+                \addlegendentry{\qty{28}{\day}}
+            \end{axis}
+        \end{tikzpicture}
+        \caption{%
+            Minimum required area for clinker (max. \qty{2}{\percent} std. dev.).
+        }
+        \label{fig:convergence_clinker}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.49\textwidth}
+        \centering
+        \begin{tikzpicture}
+            \begin{axis}[
+                ybar,
+                ymin=0, ymax=1.3, % (Original ymax)
+                ylabel={Min. area in \unit{\milli\meter\squared}},
+                symbolic x coords={1:0, 3:1, 1:1, 1:3, 0:1},
+                xtick=data,
+                xlabel={\ac{C3S}:\ac{C2S} ratio},
+                bar width=8pt,
+                enlarge x limits=0.2,
+                %legend style={legend pos=north, legend columns=1}, % NEU
+                width=\textwidth, % NEU
+                height=6cm,
+                ylabel near ticks, yticklabel pos=right,
+            ]
+                % 7d clinker Data
+                \addplot[fill=green, draw opacity=0, bar shift=-9pt] coordinates { 
+                    (1:0, 0.054324) (3:1, 0.078231) (1:1, 0.188929) (1:3, 0.015454) (0:1, 0.050768)
+                };
+                \addlegendentry{\qty{7}{\day}}
+                
+                % 14d clinker Data
+                \addplot[fill=cyan, draw opacity=0] coordinates { 
+                    (1:0, 0.047315) (3:1, 0.162460) (1:1, 0.138721) (1:3, 0.024144) (0:1, 0.106486)
+                };
+                \addlegendentry{\qty{14}{\day}}
+                
+                % 28d clinker Data
+                \addplot[fill=blue, draw opacity=0, bar shift=9pt] coordinates { 
+                    (1:0, 0.101484) (3:1, 0.810745) (1:1, 1.051917) (1:3, 0.113844) (0:1, 0.024144)
+                };
+                \addlegendentry{\qty{28}{\day}}
+            \end{axis}
+        \end{tikzpicture}
+        \caption{%
+            Box growth for clinker for \ac{C3S}:\ac{C2S} mixtures.
+        }
+        \label{fig:areagrowth_clinker}
+    \end{subfigure}
+    \caption{Comparison of the \ac{BC} and box growth methods for clinker.}
+    \label{fig:combined_clinker}
+\end{figure}
+
+
+
+\color{black}
+
+\subsection{Box growth method}
+
+\zcref{fig:lit_box_growth} shows the result of the box grow method applied to an image of \qty{28}{\day} hydrated \ac{C3S}.
+This image has to be segmented beforehand into pores, unhydrated \ac{C3S}, \ac{CH} and \ac{CSH}.
+The standard deviation in \zcref{fig:lit_box_growth_b} indicates the decreasing uncertainty with a larger area analysed.
+While $\sigma$ decreases unsteadily, the standard deviation is below \qty{2}{\percent} at \qty{0.1}{\square\milli\meter}.
+However, the deviation from the phase measurement of the whole specimen can still be more than \qty{2}{\percent}.
+Since the location of larger phases like pores or \ac{CH} do not change in the image used, even the randomised starting point cannot remove the bias.
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[t]{0.49\linewidth}
+      \begin{tikzpicture}
+        \begin{axis}[
+                xmin=0, xmax=1,
+                ymin=0, ymax=80,
+                width=\linewidth,
+                xlabel={image area in \unit{\square\milli\meter}},
+                ylabel={phase amount \unit{\percent}},
+                xtick={0,0.2,...,1},
+                ytick={20,40,...,80},
+				grid=major,
+				grid style={line width=.1pt, draw=gray!10},
+                xticklabel style={
+                        /pgf/number format/fixed,
+                        /pgf/number format/precision=1,
+                        /pgf/number format/fixed zerofill,
+                },
+            ]
+
+            %Pores
+            \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}, ] {figures/literature/C3S_28d_area_growth.csv};
+            \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{1}+\thisrowno{2}}, ] {figures/literature/C3S_28d_area_growth.csv};
+
+            \addplot [fill=black, fill opacity=0.2,forget plot] fill between [of=A and B];
+
+            \addplot [ mark=none, black, opacity=0.5 ] table [x index=9, y index=1, col sep=comma] {figures/literature/C3S_28d_area_growth.csv};
+            %\addlegendentry{pores};
+
+            %CSH
+            \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{3}-\thisrowno{4}}, filter discard warning=false ] {figures/literature/C3S_28d_area_growth.csv};
+            \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{3}+\thisrowno{4}}, filter discard warning=false ] {figures/literature/C3S_28d_area_growth.csv};
+
+            \addplot [fill=red, fill opacity=0.2,forget plot] fill between [of=A and B];
+
+            \addplot [ mark=none, red, opacity=0.5 ] table [x index=9, y index=3, col sep=comma, filter discard warning=false] {figures/literature/C3S_28d_area_growth.csv};
+            %\addlegendentry{\ac{CSH}};
+
+            %CH
+            \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{5}-\thisrowno{6}}, filter discard warning=false ] {figures/literature/C3S_28d_area_growth.csv};
+            \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{5}+\thisrowno{6}}, filter discard warning=false ] {figures/literature/C3S_28d_area_growth.csv};
+
+            \addplot [fill=cyan, fill opacity=0.2,forget plot] fill between [of=A and B];
+
+            \addplot [ mark=none, cyan, opacity=0.5 ] table [x index=9, y index=5, col sep=comma, filter discard warning=false] {figures/literature/C3S_28d_area_growth.csv};
+            %\addlegendentry{\ac{CH}};
+
+            %alite
+            \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{7}-\thisrowno{8}}, filter discard warning=false ] {figures/literature/C3S_28d_area_growth.csv};
+            \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=9, col sep=comma,y expr={\thisrowno{7}+\thisrowno{8}}, filter discard warning=false ] {figures/literature/C3S_28d_area_growth.csv};
+
+            \addplot [fill=orange, fill opacity=0.2,forget plot] fill between [of=A and B];
+
+            \addplot [ mark=none, orange, opacity=0.5 ] table [x index=9, y index=7, col sep=comma, filter discard warning=false] {figures/literature/C3S_28d_area_growth.csv};
+            %\addlegendentry{alite};
+        \end{axis}
+      \end{tikzpicture}
+      \caption{Phase composition.}
+      \label{fig:lit_box_growth_a}
+    \end{subfigure}
+    \hfill%
+    \begin{subfigure}[t]{0.49\linewidth}
+      \begin{tikzpicture}
+		\begin{axis}[%red,
+            xmin=0, xmax=1,
+            ymin=0, ymax=10,
+            width=\linewidth,
+            legend style={at={(.98,.98)},anchor=north east},
+            %axis y line=right,
+            ylabel near ticks, yticklabel pos=right,
+			xlabel={image area in \unit{\square\milli\meter}},
+			ylabel={standard deviation $\sigma$ in \unit{\percent}},
+            xtick={0,0.2,...,1},
+            ytick={2,4,...,10},
+            grid=major,
+            grid style={line width=.1pt, draw=gray!10},
+            xticklabel style={
+                    /pgf/number format/fixed,
+                    /pgf/number format/precision=1,
+                    /pgf/number format/fixed zerofill,
+            },
+		  ]
+          \addplot[black, smooth, tension=0.2, no markers] table [x index=9, col sep=comma,y index=2, filter discard warning=false] {figures/literature/C3S_28d_area_growth.csv};
+
+          \addplot[red, smooth, tension=0.2, no markers] table [x index=9, col sep=comma,y index=4, filter discard warning=false] {figures/literature/C3S_28d_area_growth.csv};
+
+          \addplot[cyan, smooth, tension=0.2, no markers] table [x index=9, col sep=comma,y index=6, filter discard warning=false] {figures/literature/C3S_28d_area_growth.csv};
+
+          \addplot[orange, smooth, tension=0.2, no markers] table [x index=9, col sep=comma,y index=8, filter discard warning=false] {figures/literature/C3S_28d_area_growth.csv};
+
+          \addlegendentry{pores};
+          \addlegendentry{\ac{CSH}};
+          \addlegendentry{\ac{CH}};
+          \addlegendentry{\ac{C3S}};
+
+        \end{axis}
+      \end{tikzpicture}
+      \caption{Standard deviation of the phase composition.}
+      \label{fig:lit_box_growth_b}
+    \end{subfigure}
+    \caption{Example of the results of the box grow method as explained in \cite{bosl.1998,kameda.2006} and the respective standard deviations for 100 random starting points.}
+    \label{fig:lit_box_growth}
+\end{figure}
+
+

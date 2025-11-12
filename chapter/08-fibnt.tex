@@ -1,6 +1,6 @@
 \chapter{\acs*{FIBnt}}
 
-\section{Process optimisation}
+\section{Artefacts of the \ac{FIBnt} process}
 
 Due to the destructive nature of the \ac{FIBnt} process, there are a lot of possible artefacts.
 
@@ -30,10 +30,12 @@ Due to the destructive nature of the \ac{FIBnt} process, there are a lot of poss
 
 As in the \ac{ArBIB} sectioning (see \zcref{sec:bib_pol_fixed}), the cutting process can introduce curtaining.
 It is caused by the cutting process causing vertical line artifacts in the direction of the ion beam (\zcref{fig:fib_artifacts_a}).
-As in images from the stationary \ac{ArBIB} process, these lines can be reduced in post processing using a directional \ac{FFT} based filter \cite{fitschen.2017,schankula.2018}.
+These artefacts can be reduced in post processing using a directional \ac{FFT} based filter as for the curtaining found in the \ac{ArBIB} process \cite{fitschen.2017,schankula.2018}.
+However, this processing reduces image quality and avoiding the artefact in the first place would be preferable.
 
-Vertical shadowing is another typical artifact caused by a loss of signal of the back-scattered electrons due to the trench geometry (see \zcref{fig:fib_artifacts_b}).
+Vertical shadowing is another typical artefact caused by a loss of signal of the back-scattered electrons due to the trench geometry (see \zcref{fig:fib_artifacts_b}).
 This well known effect can be corrected in post processing \cite{holzer.2007, mac.2018, fager.2020}, if the phase contrast is good enough.
+If the signal-to-noise ratio is to low in the darkened areas, this post processing wont help.
 However, there are more severe uncorrectable artifacts caused by the in-place slicing process.
 Since cementitious material is not conductive and the trenches are not coated throughout, charging effects can negatively influence the image quality (e.g. \zcref{fig:fib_artifacts_c} and \zcref{fig:fib_artifacts_a}) or cause uncorrectable image drift during the process.
 The re-deposition of the removed material usually happens within the trenches, which does not cause any problems.
@@ -45,17 +47,17 @@ However, it may also appear on small structures in front of the \ac{ROI} or even
     \centering
 
 	\includegraphics[width=\textwidth]{methods/fib_liftout/image095_colored.pdf}
-    \caption{\qty{20}{\micro\meter} wide specimen ({\color{green}A}).
-	On the left is the needle welded to the specimen ({\color{blue}B}). They are navigated and welded to the copper comb ({\color{red}C}).
+    \caption{\qty{15}{\micro\meter} wide specimen ({\color{green}A}).
+	On the left-hand side is the needle welded to the specimen ({\color{blue}B}). They are navigated and welded to the copper comb ({\color{red}C}).
 	The platinum vapour source ({\color{orange}D}) used for welding is visible on the right. \cite{kleiner.2021c}}
     \label{fig:fib_liftout}
 \end{figure}
 
-To avoid or at least reduce issues caused by slicing within the bulk material, the \ac{ROI} can be completely cut free.
+To avoid or at least reduce issues caused by slicing within the bulk material, the \ac{ROI}  can be completely cut free.
 Then a lift-out process can be applied, which is similar to the preparation process of \ac{TEM} lamellas \cite{overwijk.1993, langford.2001a}.
-To do this, a needle is inserted and welded to the \ac{ROI}-cube using the platinum coating process.
-Afterwards, the cube is complete cut loose from the bulk material, and a copper comb is inserted to the SEM.
-Finally, the cube is transferred and then welded to a finger of the comb as shown in \zcref{fig:fib_liftout}.
+To achieve this, a needle is inserted and welded to the \ac{ROI} cube using the platinum coating process.
+Afterwards, the cube is completely cut loose from the bulk material and a copper comb is inserted into the SEM.
+Finally, the cube is transferred and subsequently welded to a finger of the comb as shown in \zcref{fig:fib_liftout}.
 
 \begin{figure}[htb]
     \centering
@@ -66,28 +68,31 @@ Finally, the cube is transferred and then welded to a finger of the comb as show
 
 	\begin{subfigure}[t]{0.7\textwidth}
 		\includegraphics[height=\desiredheight]{methods/fib_liftout/ion_image.pdf}%
-		\caption{Top view (ion image)}
+		\caption{Top view (\ac{SEM} image using the ion beam.)}
 		\label{fig:fib_liftout_result_a}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[t]{0.29\textwidth}
 		\includegraphics[height=\desiredheight]{methods/fib_liftout/bse_image.pdf}
-		\caption{Front view (\ac{BSE} image)}
+		\caption{Front view (\ac{SEM}-\ac{BSE} image)}
 		\label{fig:fib_liftout_result_b}
 	\end{subfigure}
 
-    \caption{The cement cube (\qtyproduct{20 x 20 x 20}{\micro\meter\cubed}) welded to the copper comb. \cite{kleiner.2025c}}
+    \caption{
+		The cement cube (\qtyproduct{20 x 20 x 20}{\micro\meter\cubed}) welded to the copper comb. \cite{kleiner.2025c}
+	}
     \label{fig:fib_liftout_result}
 \end{figure}
 
-The so prepared and separated cube can now be serial cut as illustrated in \zcref{fig:fib_scheme} with significantly reduced shadowing correlating to the gel pores. and charging effects.
+The prepared and separated cube can now be serially cut as illustrated in \zcref{fig:fib_scheme} with significantly reduced shadowing correlating to the gel pores and charging effects, respectively.
 
-A detailed video tutorial of the \ac{FIBnt}-process, the required parameters, and potential sources of errors for cement-based materials was created and published \cite{kleiner.2025b}.
+A detailed video tutorial of the \ac{FIBnt} process, the required parameters, and potential sources of errors for cement-based materials was created and published \cite{kleiner.2025b}.
 
 \subsection{The laser preparation process}
 
 Issues such as charging, shadowing, and redeposition are primarily due to the geometric constraints of the \ac{FIBnt} process, including the presence of narrow trenches.
-While it is possible to enlarge the trenches, doing so is often impractical and time-consuming. Laser ablation offers an alternative for trench creation.
+While it is possible to enlarge the trenches, doing so is often impractical and time-consuming.
+Laser ablation offers an alternative for trench creation.
 An example of such a prepared specimen is shown in \zcref{fig:laser_prep_tilt_anim}.
 
 \begin{figure}[htb]
@@ -112,13 +117,14 @@ An example of such a prepared specimen is shown in \zcref{fig:laser_prep_tilt_an
 		\qty{7}{\d} hydrated \ac{C3S} specimen, embedded in epoxy resin and prepared using a \ac{fs-laser}.
 		The preparation site has a size of \qtyproduct{.6 x 1.0}{\milli\meter} and the prepared bar is \qty{40}{\micro\meter} wide at the top.
 		The depth of the removed trenches is estimated to be more than \qty{100}{\micro\meter}.
-        The white deposition on the top of the volume is a protective \ce{Pt} coating.
+        The white deposition on the top is a protective \ce{Pt} coating.
     }
     \label{fig:laser_prep}
 \end{figure}
 
-The cross-section (\zcref{fig:fibnt_fresh_slice}) shows minor damage to the bulk material.
+The cross section (\zcref{fig:fibnt_fresh_slice}) shows minor damage to the bulk material.
 Amorphous depositions up to \qty{2}{\micro\meter} and debris-filled pores are visible on the surface sectioned using a \ac{FIB}.
+However, specimens which were not lifted out of the bulk material cannot be analysed using \ac{EBSD} due to geometrical limitations.
 
 
 \section{Evaluation obstacles}
@@ -128,7 +134,7 @@ This complicates the segmentation and therefore the analysis of the pore space, 
 Such small structures are therefore ignored in the segmentation process, especially if \ac{EDX} datasets are available, since they allow distinction between pore and phase due to a reduced signal strength.
 
 Due to the sensitive nature of the hydrate phases (see \zcref{sec:beam_damage}), the operator must pay particular attention when analysing at higher voltages as for \ac{EDX} or \ac{EBSD} samples.
-As shown in \zcref{fig:edx_damage}, an electron beam at \qty{10}{\kilo\volt}, \qty{4}{\pico\ampere} and a long exposure time (\qty{600}{\micro\second}, \num{6} frames) can cause damage in the specimen which could be misinterpreted as porosity.
+As shown in \zcref{fig:edx_damage}, an electron beam at \qty{10}{\kilo\volt}, \qty{4}{\pico\ampere}, and a long exposure time (\qty{600}{\micro\second}, \num{6} frames) can cause damage in the specimen which could be misinterpreted as porosity.
 The exposure time is the sum of the dwell time on each point and the frame count.
 But especially the dwell time increases the risk of specimen damage.
 In the example, pores with a diameter of several \unit{\nano\meter} were induced, which can mostly be identified by comparing the damaged slice (\zcref{fig:edx_damage_a}) with a freshly cut surface (\zcref{fig:edx_damage_b}).
@@ -139,7 +145,7 @@ In this case, the damage was visible in a depth of $\approx$ \qty{350}{\nano\met
 
 	\begin{subfigure}[t]{0.49\textwidth}
 		\includegraphics[width=\textwidth]{methods/edx-damage/a.pdf}%
-		\caption{A undamaged surface slice.}
+		\caption{An undamaged surface slice.}
 		\label{fig:edx_damage_a}
 	\end{subfigure}
 	\hfill
@@ -155,7 +161,8 @@ In this case, the damage was visible in a depth of $\approx$ \qty{350}{\nano\met
     \label{fig:edx_damage}
 \end{figure}
 
-Solutions to this problem are to reduce the scanning duration or the electron beam current, which subsequently will reduce the overall counts, to reduce the electron beam voltage, which will limit the elements which can be analysed or to use more sensitive detectors.
+Solutions to this problem are to reduce energy density.
+This can be done by reducing the scanning duration or the electron beam current, which subsequently will reduce the overall counts, the electron beam voltage, which will limit the elements which can be analysed or to use more sensitive detectors.
 For the presented experiments, a even more reduced electron beam voltage was not applicable.
 Therefore, a very sensitive, windowless \ac{EDX}-detector was used and combined with the counts of a second, less-sensitive \ac{EDX}-detector, which yields only one-fifth of the counts of the windowless detector.
 While a reduction of the accelerating voltage from \num{10} to \qty{6}{\kilo\volt} had no significant effect, a reduced dwell time (reduced from \num{600} to \qty{60}{\micro\second}) and increased frame count (from \num{6} to \num{60}) significantly decreases the damage.
@@ -164,12 +171,12 @@ While these measures result in a good signal-to-noise ratio for the main compone
 However, it still allows the distinction of the different main phases of the material.
 
 
-\section{Postprocessing}
+\section{Post processing following the lift out process}
 
-The so acquired datasets require much less post processing to reduce artefacts.
-However, some problems still remain to be solved.
-For example, the noisy \ac{EDX} dataset has to be denoised with an edge preserving denoising algorithm.
-Since the signal-to noise ratio of the \ac{EDX} element mappings are very low, algorithms like median and \ac{NLM} are not suitable.
+Samples prepared via the lift-out process and their resulting datasets require much less post processing to reduce artefacts.
+However, some issues still remain to be solved.
+For example, noisy \ac{EDX} datasets have to be denoised with an edge preserving denoising algorithm.
+Since the signal-to-noise ratio of the \ac{EDX} element mappings are very low, algorithms like median and \ac{NLM} are not suitable.
 \ac{BM3D} denoising was found to be effective for the noise found in the \ac{EDX} slices and enables to reproducible quantitative analysis across elements.
 
 \begin{figure}[htb]
@@ -183,7 +190,7 @@ Since the signal-to noise ratio of the \ac{EDX} element mappings are very low, a
 	\hfill
 	\begin{subfigure}[t]{0.32\textwidth}
 		\includegraphics[width=\textwidth]{methods/fib_postprocessing/Ca_BM3D.pdf}
-		\caption{Denoised \ce{Ca} mapping (Total Variation)}
+		\caption{\color{red}Denoised \ce{Ca} mapping (Total Variation)}
 		\label{fig:edx_noise_b}
 	\end{subfigure}
 	\hfill
@@ -201,7 +208,7 @@ Since the signal-to noise ratio of the \ac{EDX} element mappings are very low, a
 	\hfill
 	\begin{subfigure}[t]{0.32\textwidth}
 		\includegraphics[width=\textwidth]{methods/fib_postprocessing/S_BM3D.pdf}
-		\caption{Denoised \ce{S} mapping (Total Variation)}
+		\caption{\color{red}Denoised \ce{S} mapping (Total Variation)}
 		\label{fig:edx_noise_e}
 	\end{subfigure}
 	\hfill
@@ -211,17 +218,17 @@ Since the signal-to noise ratio of the \ac{EDX} element mappings are very low, a
 		\label{fig:edx_noise_f}
 	\end{subfigure}
     \caption{
-      Effect of \ac{BM3D} denoising on the \ac{EDX}-mappings of \ce{Ca} (high signal) and \ce{S} (low signal).
+      Effect of denoising on the \ac{EDX}-mappings of \ce{Ca} (high signal) and \ce{S} (low signal).
     }
     \label{fig:edx_noise}
 \end{figure}
 
-The main challenge for the dataset is the precise alignment of the acquired images.
-Drift during acquisition can cause a shift of the observed object between consecutive slices.
-For a single image stack, this issue can be addressed effectively using the \ac{SIFT} algorithm as implemented in \textit{TrakEM2} \cite{cardona.2012}, which allows for automated correction of in-plane translations.
-Furthermore, after the \ac{SIFT}-alignment the stack is often still systematically shifted about \qtyrange{30}{40}{\degree} caused by the geometry within the \ac{SEM} (see \zcref{fig:fib_scheme}).
+The main challenge for many datasets is the precise alignment of the acquired images.
+Spatial drift during acquisition can cause a shift of the observed object between consecutive slices.
+For a single image stack, this issue can be addressed effectively using the \ac{SIFT} algorithm as implemented in \textit{TrakEM2} \cite{cardona.2012}, which allows an automated correction of in-plane translations.
+Furthermore, after the \ac{SIFT} alignment the stack is often still systematically shifted about \qtyrange{30}{40}{\degree} caused by the \ac{SEM} geometry (see \zcref{fig:fib_scheme}).
 
-However, aligning the \ac{EDX} dataset to the corresponding \ac{BSE} dataset is more challenging.
+Aligning the \ac{EDX} dataset to the corresponding \ac{BSE} dataset is challenging.
 Although the correspondence between \ac{BSE} and \ac{EDX} slices is known, the images differ in resolution and field of view.
 If the image shift between the \ac{BSE} and \ac{EDX} images of the same slice is nearly identical, the alignment problem can be solved relatively easily.
 %Otherwise, additional registration steps, such as the use of landmarks or scale-adjusted transformations, are required to achieve accurate overlay of the datasets.

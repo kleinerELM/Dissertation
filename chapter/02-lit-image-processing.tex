@@ -205,7 +205,7 @@ In contrast, the \ac{HLT} around the grain is often overestimated as illustrated
 
 %\begin{wrapfigure}[14]{R}{0.6\linewidth}
 \begin{figure}[htb]
-    \vspace{-\intextsep}
+    %\vspace{-\intextsep}
     \centering
 	\includegraphics[width=.7\linewidth, trim={1.9cm 1.7cm 1.1cm 1.8cm}, clip]{hydrate-rim/sectioning_overestimation.pdf}
 	\caption{
@@ -312,7 +312,7 @@ In the selected publications two main methods were used for this statistical ana
 	\hfill
 	\begin{subfigure}[t]{0.49\textwidth}
 		\includegraphics[width=\textwidth]{literature/area growth_illust.png}
-		\caption{Box grow method.}
+		\caption{\ac{BG} method.}
         \label{fig:lit_box_methods_a}
 	\end{subfigure}
     \caption{
@@ -324,7 +324,7 @@ In the selected publications two main methods were used for this statistical ana
 
 The source code used to compare both methods is publicly available \cite{kleiner.2024b}. %-> https://github.com/kleinerELM/box_count_method
 
-\subsubsection{\Acl*{BC} method} % the method names are not great
+\subsubsection{\Acl*{BC} method}
 
 The \ac{BC} method is a commonly used technique to obtain an indication of the statistical representativeness of the phase composition within an image \cite{mouret.2001, hlavacek.2015, cosenza.2019}.
 This method splits an image or multiple images of the same material into smaller sub-tiles (see \zcref{fig:lit_box_methods_b}).
@@ -332,15 +332,14 @@ Then, a growing number of tiles is randomly selected from this tile pool.
 From this selection, the phase composition is then remeasured.
 If this is repeated multiple times, the standard deviation indicates how much area has to be imaged and analysed to obtain a reasonable phase composition measurement.
 
-\subsubsection{Box growth method} % the method names are not great
+\subsubsection{\Acl*{BG} method}
 \label{sec:box_growth}
 
 A variation of the \ac{BC} method was used by \textcite{kameda.2006} and others \cite{klaver.2012, }. % TODO: at least one more reference
-It works by randomly selecting a growth point in the centre of an image and gradually increasing the box size around this point.
+The \ac{BG} method works by randomly selecting a growth point in the centre of an image and gradually increasing the box size around this point.
 From this point, a box will grow stepwise as illustrated in \zcref{fig:lit_box_methods_a}.
-This method will therefore be called the \textsc{box grow method} from here on.
 The phase composition of these growing boxes is continuously measured.
-To initiate multiple experiments within an image, the growth point has to be selected randomly within a limited window in the centre of the image.
+To initiate multiple experiments within an image, the growth point has to be selected randomly within a limited window (one fifth of the image width/height) in the centre of the image.
 This allows calculation of a standard deviation.
 \textcite{kameda.2006} pointed out, that the data fluctuation of the measured porosity and permeability using this method becomes negligible, when `\textit{the cube size exceeds four grain radii}'.
 

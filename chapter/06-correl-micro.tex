@@ -65,15 +65,9 @@ The areas measured contain all relevant phases, as \ac{C3S}, \ac{C2S}, \ac{C3A},
 \ac{C3S} and \ac{C2S} are easily identifiable in the \ac{BSE} image (\ac{C2S} appears a little darker than \ac{C3S}), but also in the \ac{EDX} mappings.
 The \ce{Ca}, \ce{Si}, \ce{Al} and \ce{Fe} \ac{EDX} element distribution maps marked in \zcref{fig:LAICPMS-EDX}.
 
-\begin{figure}[H]
+\begin{figure}[htb]
   \centering
 
-  \begin{subfigure}[t]{0.32\textwidth}
-    \includegraphics[width=\textwidth]{figures/la-icp-ms/edx/C.jpg}
-    \caption{C mapping (epoxy resin)}
-    \label{fig:LAICPMS-EDX-C}
-  \end{subfigure}
-  \hfill
   \begin{subfigure}[t]{0.32\textwidth}
     \includegraphics[width=\textwidth]{figures/la-icp-ms/edx/Ca.jpg}
     \caption{Ca mapping}
@@ -85,13 +79,13 @@ The \ce{Ca}, \ce{Si}, \ce{Al} and \ce{Fe} \ac{EDX} element distribution maps mar
     \caption{Si mapping}
     \label{fig:LAICPMS-EDX-Si}
   \end{subfigure}
-
+  \hfill
   \begin{subfigure}[t]{0.32\textwidth}
     \includegraphics[width=\textwidth]{figures/la-icp-ms/edx/Al.jpg}
     \caption{Al mapping}
     \label{fig:LAICPMS-EDX-Al}
   \end{subfigure}
-  \hfill
+
   \begin{subfigure}[t]{0.32\textwidth}
     \includegraphics[width=\textwidth]{figures/la-icp-ms/edx/Mg.jpg}
     \caption{Mg mapping}
@@ -102,14 +96,14 @@ The \ce{Ca}, \ce{Si}, \ce{Al} and \ce{Fe} \ac{EDX} element distribution maps mar
     \includegraphics[width=\textwidth]{figures/la-icp-ms/edx/Fe.jpg}
     \caption{Fe mapping}
     \label{fig:LAICPMS-EDX-Fe}
-  \end{subfigure}
-  
+  \end{subfigure}  
+  \hfill
   \begin{subfigure}[t]{0.32\textwidth}
     \includegraphics[width=\textwidth]{figures/la-icp-ms/edx/Na.jpg}
     \caption{Na mapping}
     \label{fig:LAICPMS-EDX-Na}
   \end{subfigure}
-  \hfill
+
   \begin{subfigure}[t]{0.32\textwidth}
     \includegraphics[width=\textwidth]{figures/la-icp-ms/edx/K.jpg}
     \caption{K mapping}
@@ -121,12 +115,17 @@ The \ce{Ca}, \ce{Si}, \ce{Al} and \ce{Fe} \ac{EDX} element distribution maps mar
     \caption{S mapping}
     \label{fig:LAICPMS-EDX-S}
   \end{subfigure}
-  
+  \hfill
+  \begin{subfigure}[t]{0.32\textwidth}
+    \includegraphics[width=\textwidth]{figures/la-icp-ms/edx/C.jpg}
+    \caption{C mapping (epoxy resin)}
+    \label{fig:LAICPMS-EDX-C}
+  \end{subfigure}
 
   \caption{
-    Element distribution maps of \ce{C}, \ce{Ca}, \ce{Si}, \ce{Al}, \ce{Mg}, \ce{Fe}, \ce{Na}, \ce{K} and \ce{S} of the example area.
-    The images have a dimension of \qtyproduct{260 x 179}{\micro\meter}.
-    \cite{kleiner.2022b}, \ac{SI}
+    Element distribution maps of \ce{Ca}, \ce{Si}, \ce{Al}, \ce{Mg}, \ce{Fe}, \ce{Na}, \ce{K}, \ce{S}, and \ce{C}  of the example area.
+    The images have a dimension of \qtyproduct{414 x 285}{\micro\meter\squared}.
+    Data published in the \ac{SI} in \cite{kleiner.2022b}.
   }
   \label{fig:LAICPMS-EDX}
 \end{figure}
@@ -142,14 +141,14 @@ The comparison with the \ce{Si} element distribution map in \zcref{fig:LAICPMS-E
   \includegraphics[width=.7\linewidth]{la-icp-ms/EDX-phase-map.pdf}
   \caption{Phase map based on the \ac{EDX}-dataset (see \zcref{fig:LAICPMS-EDX}). \cite{kleiner.2022b}, \ac{SI}}
   \label{fig:LAICPMS-phasemap}
-  \vspace{-\intextsep}
+  %\vspace{-\intextsep}
 \end{figure}
 %\end{wrapfigure}
 
-The \ac{C2S} can be seen mainly on the left half of the image in three clusters containing less \ce{Ca} and more \ce{Si} than the alite.
-The \ce{Al}-rich interstitial phases can best be seen in the \ac{EDX} mappings, while they usually appear as light (\ac{C4AF}) to medium grey (\ac{C3A}) in the \ac{BSE} image between the alite crystals.
+The \ac{C2S} can be seen mainly on the left half of the image in three clusters containing less \ce{Ca} and more \ce{Si} than the \ac{C3S}.
+The \ce{Al}-rich interstitial phases can best be seen in the \ac{EDX} mappings, while they usually appear as light (\ac{C4AF}) to medium grey (\ac{C3A}) in the \ac{BSE} image between the \ac{C3S} crystals.
 
-The positions of the phases \ce{K2SO4} and \ce{MgO} are indicated in the \ac{EDX} mapping of \ce{Mg} and \ce{S} (\zcref{fig:LAICPMS-EDX-Mg} and \zcref{fig:LAICPMS-EDX-S}).
+The positions of the minor phases \ce{K2SO4} and \ce{MgO} are indicated by the \ce{Mg} and \ce{S} distributions (\zcref{fig:LAICPMS-EDX-Mg} and \zcref{fig:LAICPMS-EDX-S}).
 However, the \ce{MgO} phase positions are not visible in the phase map, due to their small size.
 Elements like \ce{C} and \ce{Cl} cannot be considered for further analysis, since they are contained in the epoxy resin.
 %In contrast, the maps of \ce{Na} and \ce{Ti} are very noisy and difficult to interpret.
@@ -157,8 +156,8 @@ Elements like \ce{C} and \ce{Cl} cannot be considered for further analysis, sinc
 
 %At least for unhydrated clinker, the individual phases seemed to be damaged in a similar fashion, while the epoxy resin was ablated a lot deeper.
 
-The elemental maps of other elements like \ce{Na}, \ce{Ti}, \ce{Cr}, \ce{Cu}, \ce{Mn} and \ce{P} are very noisy and therefore are not shown here.
-Generally, elemental maps can be obtained in good quality if the X-ray count number of the respective mappings is increased by increasing the measurement time.
+The signal of other elements like \ce{Ti}, \ce{Cr}, \ce{Cu}, \ce{Mn} and \ce{P} was too low to generate useful element distribution maps.
+Generally, elemental maps can be obtained in good quality if the X-ray count of the respective mappings is increased by increasing the measurement time.
 However, the \ac{EDX} quality was not the major focus of this study.
 
 \begin{figure}[!htb]
@@ -227,10 +226,11 @@ However, the \ac{EDX} quality was not the major focus of this study.
 To validate the \ac{EDX} results, they were compared to the \ac{ICP}-\ac{OES} measurement (see \zcref{tab:laicpms-clinker}).
 For this purpose, the \ac{EDX} results were averaged over the three mappings and the results were plotted in \zcref{fig:LAICPMS-EDX-chemical}.
 However, the \ac{ICP}-\ac{OES} results are mostly within the range of the \ac{EDX} standard deviations.
-The oxide concentrations show obvious differences.
+The concentrations of \ce{S} and \ce{Mg} and other low concentrated elements show obvious differences.
 This indicates that the area analysed using \ac{EDX} is too small to be representative to obtain a chemical composition close to the \ac{ICP}-\ac{OES} results.
 Concentrations below \qty{0.1}{\wtpercent} oxide are outside the \ac{EDX} detection limit — this concerns the elements \ce{Na}, \ce{P}, \ce{Mn} and \ce{Cr}.
-
+%TODO: MIB: Das "EDX detection limit" ist irgendwie seltsam, weil du ja dann trotzdem Elemente wie P, Mn, Cr mit verhältnismäßig kleinem Fehlerbalken angibst.
+% Das Detektionslimit ist doch sicherlich auch vom Element abhängig oder? Du hast ja hier die "Konzentration" in wg.-% angegeben, wie kommt man da überhaupt auf ein Limit von 0.1 wt.-%. Die Masse des Elements spielt hier doch auch eine Rolle.
 \begin{figure}[htb!]
   \centering
 
@@ -243,7 +243,7 @@ Concentrations below \qty{0.1}{\wtpercent} oxide are outside the \ac{EDX} detect
   \caption{
     Element distribution maps generated by \ac{LAICPMS}.
     The images cover an area of \qtyproduct{483.8 x 343.4}{\micro\meter\squared} using \qtyproduct{80 x 603} measurements.
-    The outlines for \ac{C3S} (black) and \ac{C2S} (white) were derived from the \ac{EDX}-phase map shown in \zcref{fig:LAICPMS-phasemap}. \cite{kleiner.2022b}, \ac{SI}
+    The outlines for \ac{C3S} (black) and \ac{C2S} (white) were derived from the \ac{EDX}-phase map shown in \zcref{fig:LAICPMS-phasemap}. \ac{SI} in \cite{kleiner.2022b}
   }
   \label{fig:LAICPMS-la-maps}
 \end{figure}
@@ -252,17 +252,16 @@ Results in \zcref{fig:LAICPMS-la-maps} show the element distribution maps obtain
 Some elements show regions of very high concentrations, which will be called hotspots from hereon.
 A comparison of the \ce{Al} element distribution maps obtained by both methods (\zcref{fig:LAICPMS-EDX, fig:LAICPMS-la-maps}) reveals that \ac{LAICPMS} does not distinctly resolve the phase boundaries between the finely grained interstitial phases (\ac{C3A} and \ac{C4AF}) and the silicate phases.
 This limitation becomes particularly apparent when the size of the laser ablation spot exceeds that of the individual phases, such as \ac{C3A} and \ac{C4AF}.
-By combining phase segmentation based on the \ac{EDX} maps with the \ac{LAICPMS} data (\zcref{fig:LAICPMS-la-maps}), the relevant phases (alite, belite, \ac{C4AF}, and \ac{C3A}) can be analysed in detail.
+By combining phase segmentation based on the \ac{EDX} maps with the \ac{LAICPMS} data (\zcref{fig:LAICPMS-la-maps}), the relevant phases (\ac{C3S}, \ac{C2S}, \ac{C4AF}, and \ac{C3A}) can be analysed in detail.
 A comparison of the quantification results obtained by \ac{EDX} and \ac{LAICPMS} for the interstitial phase is presented in \zcref{fig:LAICPMS-la-maps, fig:LA-EDX-results-high, fig:LA-EDX-results-low}.
 
-The differences in the element distribution between alite and belite are very noticeable.
-Especially the \ce{Ba}, \ce{Rb} and \ce{V} mappings show a significant concentration variation in both phases.
-For the interstitial phase an enrichment of selected elements is notable.
-While high \ce{Al} concentrations are expected, the mappings also reveal an accumulation of \ce{Mn}, \ce{Rb} and \ce{K}.
-
-As shown by \ac{EDX} element maps (\zcref{fig:LAICPMS-EDX}), \ce{K} is associated with \ce{S}.
-Comparing the locations of high concentrations of \ce{Rb}, \ce{Cr} and \ce{K} in the \ac{LAICPMS} measurements reveals, that these elements are mostly incorporated in \ce{K2SO4}.
-\ce{V}, \ce{Zn} can also be found in higher concentrations within the \ce{K2SO4} phase, while they also occur in other phases.
+The \ce{Al} content measured by \ac{EDX} and \ac{LAICPMS} at identical locations exhibits considerable variation (\zcref{fig:LA-EDX-results-low}).
+For example, \ac{EDX} yielded a concentration of \qty{23.1}{\wtpercent}, whereas \ac{LAICPMS} measured \qty{7.8(4.2)}{\wtpercent}.
+The observed discrepancy may be attributed to several factors, including potential inaccuracies in dataset registration, calibration errors, or, most plausibly, phase heterogeneity caused by differences in the depth of signal generation.
+Nevertheless, the concentrations determined for \ce{Al}, \ce{Mg}, \ce{Ti}, \ce{K}, \ce{Na}, and \ce{Mn} (\zcref{fig:LA-EDX-results-high, fig:LA-EDX-results-low}) consistently remain within the same order of magnitude.
+These findings proof that the laser spot size (\qtyproduct{6x6}{\micro\meter\squared}) is too large to quantitatively analyse the interstitial phases.
+Nevertheless, enrichment of for example \ce{Mn} in the interstitial phase can be proven by \ac{LAICPMS}.
+Furthermore, an inaccurate image registration seems to be a minor problem, as the same trends in major, minor and trace element concentration can be found in all investigated areas (compare \zcref{tab:laicpms1-area1, tab:laicpms2-area1,tab:laicpms1-area2, tab:laicpms2-area2,tab:laicpms1-area3, tab:laicpms2-area3}, as in the \ac{SI} from \cite{kleiner.2022b}).
 
 \begin{figure}[!htb]
   \centering
@@ -317,7 +316,7 @@ Comparing the locations of high concentrations of \ce{Rb}, \ce{Cr} and \ce{K} in
   
       \end{semilogyaxis}
     \end{tikzpicture}
-    \caption{alite}%\ac{C3S}}
+    \caption{\ac{C3S}}
     \label{fig:LA-EDX-results-alite}
   \end{subfigure}
   \hfill
@@ -379,7 +378,7 @@ Comparing the locations of high concentrations of \ce{Rb}, \ce{Cr} and \ce{K} in
   
       \end{semilogyaxis}
     \end{tikzpicture}
-    \caption{belite}%\ac{C2S}}
+    \caption{\ac{C2S}}
     \label{fig:LA-EDX-results-belite}
   \end{subfigure}
   \hfill
@@ -537,17 +536,18 @@ Comparing the locations of high concentrations of \ce{Rb}, \ce{Cr} and \ce{K} in
     Based on \cite{kleiner.2022b}
   }
   \label{fig:LA-EDX-results-low}
-  \vspace{-\intextsep}
+  %\vspace{-\intextsep}
 \end{figure}
 %\end{wrapfigure}
 
-However, the \ce{Al} content measured by \ac{EDX} and \ac{LAICPMS} at identical locations exhibits considerable variation.
-For example, \ac{EDX} yielded a concentration of \qty{23.1}{\wtpercent}, whereas \ac{LAICPMS} measured \qty{7.8(4.2)}{\wtpercent}.
-The observed discrepancy may be attributed to several factors, including potential inaccuracies in dataset registration, calibration errors, or, most plausibly, phase heterogeneity caused by differences in the depth of signal generation.
-Nevertheless, the concentrations determined for \ce{Al}, \ce{Mg}, \ce{Ti}, \ce{K}, \ce{Na}, and \ce{Mn} (\zcref{fig:LA-EDX-results-high, fig:LA-EDX-results-low}) consistently remain within the same order of magnitude.
-These findings proof that the laser spot size is too large to quantitatively analyse the interstitial phases.
-Nevertheless, enrichment of for example \ce{Mn} in the interstitial phase can be proven by \ac{LAICPMS}.
-Furthermore, an inaccurate image registration seems to be a minor problem, as the same trends in major, minor and trace element concentration can be found in all investigated areas (compare Tables~S-1 to S-6).
+Differences in the distribution of trace elements between \ac{C3S} and \ac{C2S} are also visible in \zcref{fig:LAICPMS-la-maps}.
+Especially the \ce{Ba}, \ce{Rb} and \ce{V} mappings show a noticeable concentration variation in both phases and are mostly enriched in \ac{C2S}.
+For the interstitial phase high \ce{Al} concentrations are expected.
+The mappings also reveal an accumulation of \ce{Mn}, and \ce{Ti}.
+
+As shown by \ac{EDX} element maps (\zcref{fig:LAICPMS-EDX}), \ce{K} is associated with \ce{S} via \ce{K2SO4}.
+Comparing these locations with hotspots of \ce{Rb}, \ce{Cr} and \ce{K} in the \ac{LAICPMS} measurements reveals, that these elements are mostly incorporated in \ce{K2SO4}.
+\ce{V}, \ce{Zn} can also be found in higher concentrations within the \ce{K2SO4} phase, while they also occur in other phases.
 
 
 %For the same area the presence of the following trace elements (i.e. <\,\qty{0.1}{\wtpercent}) could be proven by \ac{LAICPMS}: \ce{Ba}, \ce{Zn}, \ce{Cr}, \ce{V}, \ce{Rb} (\zcref{fig:LAICPMS-la-maps, LA-EDX-results-low-all, LA-EDX-results-low}).
@@ -585,9 +585,9 @@ Furthermore, an inaccurate image registration seems to be a minor problem, as th
 
 The data presented in \zcref{fig:LA-EDX-results-high, fig:LA-EDX-results-low} originating from the segmented \ac{LAICPMS} measurements support the semi-quantitative visual observations documented in \zcref{fig:LAICPMS-la-maps}.
 In the following, \ce{Ba} is used as an example to evaluate the data.
-The element distribution maps clearly show that \ce{Ba} is predominantly enriched in belite (\qty{0.0351(0.0145)}{\wtpercent}), while elevated concentrations (\qty{0.0234(0.0139)}{\wtpercent}) are also observed in aluminium-rich regions, which can be identified as interstitial phases (\ac{C3A} and \ac{C4AF}) (see \zcref{fig:LAICPMS-la-maps}).
-For alite, the determined \ce{Ba} concentrations are \qty{0.0187(0.0113)}{\wtpercent}, which is only half the concentration found in belite.
-However, as indicated by the mapping data in \zcref{fig:LAICPMS-la-maps}, the distribution of \ce{Ba} within the interstitial phase is less homogeneous than in belite.
+The element distribution maps clearly show that \ce{Ba} is predominantly enriched in \ac{C2S} (\qty{0.0351(0.0145)}{\wtpercent}) and aluminium-rich regions (\qty{0.0234(0.0139)}{\wtpercent}) , which can be identified as interstitial phases (\ac{C3A} and \ac{C4AF}) (see \zcref{fig:LAICPMS-la-maps}).
+For \ac{C3S}, the determined \ce{Ba} concentrations are \qty{0.0187(0.0113)}{\wtpercent}, which is only half the concentration found in \ac{C2S}.
+However, as indicated by the mapping data in \zcref{fig:LAICPMS-la-maps}, the distribution of \ce{Ba} within the interstitial phase is less homogeneous than in \ac{C2S}.
 To accurately assess the incorporation of \ce{Ba} in the interstitial phase, measurements with higher spatial resolution and an improved dataset-alignment would be required.
 
 \begin{figure}[!htb]
@@ -670,7 +670,7 @@ To accurately assess the incorporation of \ce{Ba} in the interstitial phase, mea
 %A combination of both methods should be considered if major and minor elements are of interest.
 %In a second and third dataset, at a different area on the same polished clinker grain, the described method combination of \ac{LAICPMS} and \ac{SEM}-\ac{EDX} was repeated.
 %All data can be found in the supplementary document.
-These measurements were repeated on two additional areas, demonstrating the reproducibility of the described phase segmentation method.
+To test the reproducibility of the LA-ICP-MS method, the measurements were repeated on two additional areas using the described phase segmentation method.
 The same sample was analysed, and comparable results and trends were observed as previously described.
 The findings are summarised in \zcref{fig:LAICPMS-final-result}.
 This figure visualises the enrichment of elements in \ac{C3S}, \ac{C2S}, and the interstitial phase (\ac{C3A} and \ac{C4AF}).

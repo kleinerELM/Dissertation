@@ -148,20 +148,20 @@ These artefacts can significantly influence the thresholding method in particula
 
 Initially, the individual phases were analysed.
 The images reveal distinct differences in the morphology of the hydration products.
-For example, the \ac{CSH}-needles in hydrated alite are small and form on a dense \ac{CSHi} rim.
-In contrast, hydrated belite produces coarser needles with a less homogeneous, dense \ac{CSH} layer underneath (see \zcref{fig:single_phase_examples}).
+For example, the \ac{CSH}-needles in hydrated \ac{C3S} are small and form on a dense \ac{CSHi} rim.
+In contrast, hydrated \ac{C2S} produces coarser needles with a less homogeneous, dense \ac{CSH} layer underneath (see \zcref{fig:single_phase_examples}).
 Furthermore, a higher number of unhydrated \ac{C2S} particles can be observed in the same area, often shattered into smaller fragments.
 
 \begin{figure}[htb!]
     \centering
 
-	\begin{subfigure}{0.475\textwidth}
+	\begin{subfigure}{0.49\textwidth}
 		\includegraphics[width=\textwidth]{hydrate-rim/single_phase_C3S.pdf}
 		\caption{\ac{C3S}.}
 		\label{fig:single_phase_examples-alite}
 	\end{subfigure}
 	\hfill
-	\begin{subfigure}{0.475\textwidth}
+	\begin{subfigure}{0.49\textwidth}
 		\includegraphics[width=\textwidth]{hydrate-rim/single_phase_C2S.pdf}
 		\caption{\ac{C2S}.}
 		\label{fig:single_phase_examples-belite}
@@ -358,6 +358,7 @@ After \qty{28}{\day}, \ac{C2S} still shows smaller hydration rims than \ac{C3S} 
 
 \FloatBarrier
 \section{Multi phase analysis}
+\label{sec:HLT_multi_phase}
 
 Applying the algorithm to mixtures of \ac{C3S} and \ac{C2S} without distinguishing between clinker phases using a simple threshold-method is also possible.
 
@@ -476,17 +477,29 @@ This uncertainty is caused by the following sources of error:
 	\item and filled Hadley-grains with no contact to the actual hydrate layer around the grain resulting in an overestimation and lower data density.
 \end{itemize}
 
-Manually reviewing the images reveals, that the \textsc{Hadley} grain development is significantly more pronounced around \ac{C2S} grains.
+Manually reviewing the images reveals, that the \textsc{Hadley} grain development is significantly more pronounced in \ac{C3S}:\ac{C2S} mixtures around \ac{C2S} grains (compare \zcref{fig:hadley2}).
 This can cause a reduced \ac{HLT} measurement around \ac{C2S}.
 
-\begin{itemize}
-	\item TODO: C-S-H structure
-\end{itemize}
 
 \FloatBarrier
 \section{Statistical analysis of the representativeness of the 2D images}
 
-\subsection{Acs*{BC} method}
+In this section, the images previously described in \zcref{sec:HLT_multi_phase} were used to assess the minimum area required to obtain a statistically relevant phase composition, using both the \ac{BC} and \ac{BG} methods.
+
+The images were segmented via thresholding into four distinct phases: pores, \ac{CSH}, \ac{CH}, and clinker (see \zcref{fig:segmented_images}).
+Although this segmentation approach produces erroneously segmented layers around clinker grains, which are consequently assigned to \ac{CH} instead of \ac{CSH} or the clinker phase, it is still considered adequate for estimating the overall phase composition.
+
+\begin{figure}[htbp]
+    
+    \centering
+	\includegraphics[height=.98\textheight]{hydrate-rim/segmented/overview.pdf}
+	\caption{
+        Segmented images of \ac{C3S}:\ac{C2S} mixtures after \num{7}, \num{14} and \qty{28}{\day} of hydration. Red: {\color{red}\ac{CSH}}, yellow: {\color{orange}\ac{C3S}}, cyan: {\color{cyan}\ac{CH}}, black: pores.
+    }
+    \label{fig:segmented_images}
+\end{figure}
+
+\subsection{\Acl*{BC} method}
 
 The result of the \ac{BC} method is a graph as shown in \zcref{fig:lit_box_count}.
 The standard deviation $\sigma$ in \zcref{fig:lit_box_count_b} indicates the decreasing uncertainty with a larger area analysed.
@@ -501,7 +514,7 @@ Compared to \zcref{fig:lit_box_growth_b}, $\sigma$ decreases much more continuou
                 xmin=0, xmax=1,
                 ymin=0, ymax=80,
 				xlabel={image area in \unit{\square\milli\meter}},
-				ylabel={phase amount \unit{\percent}},
+				ylabel={area fraction \unit{\percent}},
 				xtick={0,.2,...,1},
                 ytick={20,40,...,80},
                 width=\linewidth,
@@ -593,209 +606,20 @@ Compared to \zcref{fig:lit_box_growth_b}, $\sigma$ decreases much more continuou
       \label{fig:lit_box_count_b}
     \end{subfigure}
     \caption{
-        Example of the results of the box count method as explained in \cite{mouret.2001,hlavacek.2015} and the respective standard deviations after \num{100} random patch selections.
+        Results of the \textbf{\ac{BC}} as explained in \cite{mouret.2001,hlavacek.2015} and the respective standard deviations (right) after the selection of up to \num{100} random tiles.
     }
     \label{fig:lit_box_count}
 \end{figure}
 
-The method is fast and works well for area calculations.
-However, it ignores the influence of larger inhomogeneities, such as the rather large \ac{CH} areas in the example image or occasionally occurring air voids.
+The \ac{BC} method is fast and works well for area calculations.
+Furthermore, it is insensitive to the influence of larger inhomogeneities, such as the rather large \ac{CH} areas or occasionally occurring air voids.
 
-\color{red}
-All image used in the sections above were analysed using the \ac{BC} method.
-The minimum required area for a standard deviation of <\,\qty{2}{\percent} was calculated for each phase (see \zcref{tab:convergence_area_box_cnt}) and was plotted in the following figures.
-
-
-\begin{figure}[htbp]
-    \centering
-    % ---- LINKS: Poren (Box Count) ----
-    \begin{subfigure}[b]{0.49\textwidth}
-        \centering
-        \begin{tikzpicture}
-            \begin{axis}[
-                ybar,
-                ymin=0, ymax=1.3, % NEU: Angepasst an max(0.4, 1.3)
-                ylabel={Min. area in \unit{\milli\meter\squared}},
-                symbolic x coords={1:0, 3:1, 1:1, 1:3, 0:1},
-                xtick=data,
-                xlabel={\ac{C3S}:\ac{C2S} ratio},
-                bar width=8pt,
-                enlarge x limits=0.2,
-                %legend style={legend pos=north, legend columns=1}, % NEU: Legende oben
-                width=\textwidth, % NEU: Füllt die subfigure
-                height=6cm,
-            ]
-                % 7d Pores Data (Reihenfolge: 1:0, 3:1, 1:1, 1:3, 0:1)
-                \addplot[fill=yellow, draw opacity=0, bar shift=-9pt] coordinates { 
-                    (1:0, 0.03165) (3:1, 0.03617) (1:1, 0.02707) (1:3, 0.02110) (0:1, 0.02411) 
-                };
-                \addlegendentry{\qty{7}{\day}}
-                
-                % 14d Pores Data
-                \addplot[fill=orange, draw opacity=0] coordinates { 
-                    (1:0, 0.03165) (3:1, 0.02101) (1:1, 0.15633) (1:3, 0.02261) (0:1, 0.00904) 
-                };
-                \addlegendentry{\qty{14}{\day}}
-                
-                % 28d Pores Data
-                \addplot[fill=red, draw opacity=0, bar shift=9pt] coordinates { 
-                    (1:0, 0.01055) (3:1, 0.07820) (1:1, 0.01808) (1:3, 0.00546) (0:1, 0.01808) 
-                };
-                \addlegendentry{\qty{28}{\day}}
-            \end{axis}
-        \end{tikzpicture}
-        \caption{%
-            Minimum required area for pores (max. \qty{2}{\percent} std. dev.).
-        }
-        \label{fig:convergence_pores}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.49\textwidth}
-        \centering
-        \begin{tikzpicture}
-            \begin{axis}[
-                ybar,
-                ymin=0, ymax=1.3, % (Original ymax)
-                ylabel={Min. area in \unit{\milli\meter\squared}},
-                symbolic x coords={1:0, 3:1, 1:1, 1:3, 0:1},
-                xtick=data,
-                xlabel={\ac{C3S}:\ac{C2S} ratio},
-                bar width=8pt,
-                enlarge x limits=0.2,
-                %legend style={legend pos=north, legend columns=1}, % NEU: Legende oben
-                width=\textwidth, % NEU: Füllt die subfigure
-                height=6cm,
-                ylabel near ticks, yticklabel pos=right,
-            ]
-                % 7d Pores Data (Reihenfolge: 1:0, 3:1, 1:1, 1:3, 0:1)
-                \addplot[fill=green, draw opacity=0, bar shift=-9pt] coordinates { 
-                    (1:0, 0.144934) (3:1, 0.065734) (1:1, 0.101282) (1:3, 0.019552) (0:1, 0.262979)
-                };
-                \addlegendentry{\qty{7}{\day}}
-                
-                % 14d Pores Data
-                \addplot[fill=cyan, draw opacity=0] coordinates { 
-                    (1:0, 0.058000) (3:1, 0.065431) (1:1, 1.248485) (1:3, 0.029220) (0:1, 0.182607)
-                };
-                \addlegendentry{\qty{14}{\day}}
-                
-                % 28d Pores Data
-                \addplot[fill=blue, draw opacity=0, bar shift=9pt] coordinates { 
-                    (1:0, 0.026615) (3:1, 0.466620) (1:1, 0.054304) (1:3, 0.034310) (0:1, 0.031932)
-                };
-                \addlegendentry{\qty{28}{\day}}
-            \end{axis}
-        \end{tikzpicture}
-        \caption{%
-            Box growth for pores for \ac{C3S}:\ac{C2S} mixtures.
-        }
-        \label{fig:areagrowth_pores}
-    \end{subfigure}
-    \caption{Comparison of the \ac{BC} and box growth methods for pores.}
-    \label{fig:combined_pores}
-\end{figure}
-
-
-\begin{figure}[htbp]
-    \centering
-    \begin{subfigure}[b]{0.49\textwidth}
-        \centering
-        \begin{tikzpicture}
-            \begin{axis}[
-                ybar,
-                ymin=0, ymax=1.3, % NEU: Angepasst an max(0.4, 1.1)
-                ylabel={Min. area in \unit{\milli\meter\squared}},
-                symbolic x coords={1:0, 3:1, 1:1, 1:3, 0:1},
-                xtick=data,
-                xlabel={\ac{C3S}:\ac{C2S} ratio},
-                bar width=8pt,
-                enlarge x limits=0.2,
-                %legend style={legend pos=north, legend columns=1}, % NEU
-                width=\textwidth, % NEU
-                height=6cm,
-            ]
-                % 7d clinker Data
-                \addplot[fill=yellow, draw opacity=0, bar shift=-9pt] coordinates { 
-                    (1:0, 0.04522) (3:1, 0.04974) (1:1, 0.04361) (1:3, 0.01356) (0:1, 0.00602) 
-                };
-                \addlegendentry{\qty{7}{\day}}
-                
-                % 14d clinker Data
-                \addplot[fill=orange, draw opacity=0] coordinates { 
-                    (1:0, 0.01356) (3:1, 0.03752) (1:1, 0.15633) (1:3, 0.01808) (0:1, 0.00904) 
-                };
-                \addlegendentry{\qty{14}{\day}}
-                
-                % 28d clinker Data
-                \addplot[fill=red, draw opacity=0, bar shift=9pt] coordinates { 
-                    (1:0, 0.02562) (3:1, 0.30678) (1:1, 0.14470) (1:3, 0.01966) (0:1, 0.01055) 
-                };
-                \addlegendentry{\qty{28}{\day}}
-            \end{axis}
-        \end{tikzpicture}
-        \caption{%
-            Minimum required area for clinker (max. \qty{2}{\percent} std. dev.).
-        }
-        \label{fig:convergence_clinker}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.49\textwidth}
-        \centering
-        \begin{tikzpicture}
-            \begin{axis}[
-                ybar,
-                ymin=0, ymax=1.3, % (Original ymax)
-                ylabel={Min. area in \unit{\milli\meter\squared}},
-                symbolic x coords={1:0, 3:1, 1:1, 1:3, 0:1},
-                xtick=data,
-                xlabel={\ac{C3S}:\ac{C2S} ratio},
-                bar width=8pt,
-                enlarge x limits=0.2,
-                %legend style={legend pos=north, legend columns=1}, % NEU
-                width=\textwidth, % NEU
-                height=6cm,
-                ylabel near ticks, yticklabel pos=right,
-            ]
-                % 7d clinker Data
-                \addplot[fill=green, draw opacity=0, bar shift=-9pt] coordinates { 
-                    (1:0, 0.054324) (3:1, 0.078231) (1:1, 0.188929) (1:3, 0.015454) (0:1, 0.050768)
-                };
-                \addlegendentry{\qty{7}{\day}}
-                
-                % 14d clinker Data
-                \addplot[fill=cyan, draw opacity=0] coordinates { 
-                    (1:0, 0.047315) (3:1, 0.162460) (1:1, 0.138721) (1:3, 0.024144) (0:1, 0.106486)
-                };
-                \addlegendentry{\qty{14}{\day}}
-                
-                % 28d clinker Data
-                \addplot[fill=blue, draw opacity=0, bar shift=9pt] coordinates { 
-                    (1:0, 0.101484) (3:1, 0.810745) (1:1, 1.051917) (1:3, 0.113844) (0:1, 0.024144)
-                };
-                \addlegendentry{\qty{28}{\day}}
-            \end{axis}
-        \end{tikzpicture}
-        \caption{%
-            Box growth for clinker for \ac{C3S}:\ac{C2S} mixtures.
-        }
-        \label{fig:areagrowth_clinker}
-    \end{subfigure}
-    \caption{Comparison of the \ac{BC} and box growth methods for clinker.}
-    \label{fig:combined_clinker}
-\end{figure}
-
-
-
-\color{black}
 
 \subsection{Box growth method}
 
 \zcref{fig:lit_box_growth} shows the result of the box grow method applied to an image of \qty{28}{\day} hydrated \ac{C3S}.
 This image has to be segmented beforehand into pores, unhydrated \ac{C3S}, \ac{CH} and \ac{CSH}.
 The standard deviation in \zcref{fig:lit_box_growth_b} indicates the decreasing uncertainty with a larger area analysed.
-While $\sigma$ decreases unsteadily, the standard deviation is below \qty{2}{\percent} at \qty{0.1}{\square\milli\meter}.
-However, the deviation from the phase measurement of the whole specimen can still be more than \qty{2}{\percent}.
-Since the location of larger phases like pores or \ac{CH} do not change in the image used, even the randomised starting point cannot remove the bias.
 
 \begin{figure}[H]
     \centering
@@ -898,8 +722,227 @@ Since the location of larger phases like pores or \ac{CH} do not change in the i
       \caption{Standard deviation of the phase composition.}
       \label{fig:lit_box_growth_b}
     \end{subfigure}
-    \caption{Example of the results of the box grow method as explained in \cite{bosl.1998,kameda.2006} and the respective standard deviations for 100 random starting points.}
+    \caption{
+        Example of the results of the box grow method as explained in \cite{bosl.1998,kameda.2006} and the respective standard deviations for \num{100} random starting points.
+    }
     \label{fig:lit_box_growth}
 \end{figure}
+
+While $\sigma$ decreases unsteadily, the standard deviation is below \qty{2}{\percent} at \qty{0.1}{\square\milli\meter}.
+However, the deviation from the phase measurement of the whole specimen can still be more than \qty{2}{\percent}.
+Since the location of larger phases like pores or \ac{CH} does not change in the image, even the randomised starting point cannot remove the bias.
+Due to this unsteadiness, the \qty{2}{\percent}-threshold was not directly processed using $\sigma$.
+Instead, the difference between the phase amount of the whole image and the phase amount in the current image area + $\sigma$ was used.
+Instead, the method specific standard deviation $\sigma_{\text{BG}}$ is defined as the absolute difference between the phase amount of the whole image ($\phi_{\text{img}}$) and the phase amount in the current image area ($\phi_{\text{area}}$), plus the absolute value of the standard deviation ($\sigma$):
+
+\begin{equation}
+    \sigma_{\text{BG}} = \lvert\phi_{\text{img}} - \phi_{\text{area}} \rvert + \lvert\sigma\rvert
+    \label{eq:phase_difference}
+\end{equation}
+ 
+\subsection{Evaluation}
+
+The minimum required area for a standard deviation $\sigma$ of <\,\qty{2}{\percent} was calculated for each phase.
+
+The largest minimum required area can be found in the pore and the clinker phases which are plotted in \zcref{fig:box_statistics_pores, fig:box_statistics_clinker}.
+The hydrate phases \ac{CSH} and \ac{CH} showed a significantly lower minimum required area (see \zcref{fig:box_statistics_csh, fig:box_statistics_ch}).
+The results are also listed in \zcref{tab:convergence_area_box_cnt, tab:convergence_area_box_growth}.
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.49\textwidth}
+        \centering
+        \begin{tikzpicture}
+            \begin{axis}[
+                ybar,
+                ymin=0, ymax=1.3,
+                ylabel={Min. area in \unit{\milli\meter\squared}},
+                symbolic x coords={1:0, 3:1, 1:1, 1:3, 0:1},
+                xtick=data,
+                xlabel={\ac{C3S}:\ac{C2S} ratio},
+                bar width=8pt,
+                enlarge x limits=0.2,
+                %legend style={legend pos=north, legend columns=1}, % NEU: Legende oben
+                width=\textwidth,
+                height=6cm,
+            ]
+                % 7d Pores Data (Reihenfolge: 1:0, 3:1, 1:1, 1:3, 0:1)
+                \addplot[fill=yellow, draw opacity=0, bar shift=-9pt] coordinates { 
+                    (1:0, 0.03165) (3:1, 0.03617) (1:1, 0.02707) (1:3, 0.02110) (0:1, 0.02411) 
+                };
+                \addlegendentry{\qty{7}{\day}}
+                
+                % 14d Pores Data
+                \addplot[fill=orange, draw opacity=0] coordinates { 
+                    (1:0, 0.03165) (3:1, 0.02101) (1:1, 0.15633) (1:3, 0.02261) (0:1, 0.00904) 
+                };
+                \addlegendentry{\qty{14}{\day}}
+                
+                % 28d Pores Data
+                \addplot[fill=red, draw opacity=0, bar shift=9pt] coordinates { 
+                    (1:0, 0.01055) (3:1, 0.07820) (1:1, 0.01808) (1:3, 0.00546) (0:1, 0.01808) 
+                };
+                \addlegendentry{\qty{28}{\day}}
+            \end{axis}
+        \end{tikzpicture}
+        \caption{
+            \ac{BC} method.
+        }
+        \label{fig:convergence_pores}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.49\textwidth}
+        \centering
+        \begin{tikzpicture}
+            \begin{axis}[
+                ybar,
+                ymin=0, ymax=1.3,
+                ylabel={Min. area in \unit{\milli\meter\squared}},
+                symbolic x coords={1:0, 3:1, 1:1, 1:3, 0:1},
+                xtick=data,
+                xlabel={\ac{C3S}:\ac{C2S} ratio},
+                bar width=8pt,
+                enlarge x limits=0.2,
+                %legend style={legend pos=north, legend columns=1}, % NEU: Legende oben
+                width=\textwidth,
+                height=6cm,
+                ylabel near ticks, yticklabel pos=right,
+            ]
+                % 7d Pores Data (Reihenfolge: 1:0, 3:1, 1:1, 1:3, 0:1)
+                \addplot[fill=green, draw opacity=0, bar shift=-9pt] coordinates { 
+                    (1:0, 0.144934) (3:1, 0.065734) (1:1, 0.101282) (1:3, 0.019552) (0:1, 0.262979)
+                };
+                \addlegendentry{\qty{7}{\day}}
+                
+                % 14d Pores Data
+                \addplot[fill=cyan, draw opacity=0] coordinates { 
+                    (1:0, 0.058000) (3:1, 0.065431) (1:1, 1.248485) (1:3, 0.029220) (0:1, 0.182607)
+                };
+                \addlegendentry{\qty{14}{\day}}
+                
+                % 28d Pores Data
+                \addplot[fill=blue, draw opacity=0, bar shift=9pt] coordinates { 
+                    (1:0, 0.026615) (3:1, 0.466620) (1:1, 0.054304) (1:3, 0.034310) (0:1, 0.031932)
+                };
+                \addlegendentry{\qty{28}{\day}}
+            \end{axis}
+        \end{tikzpicture}
+        \caption{
+            \ac{BG} method.
+        }
+        \label{fig:areagrowth_pores}
+    \end{subfigure}
+    \caption{
+        Comparison of the minimum required area for to get the \textbf{pore} area fraction with a standard deviation $\sigma$ of <\,\qty{2}{\percent}.
+        The \ac{BC} and \ac{BG} methods were applied to images of \ac{C3S}:\ac{C2S} mixtures, hydrated for \num{7}, \num{14} and \qty{28}{\day}.
+    }
+    \label{fig:box_statistics_pores}
+\end{figure}
+
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.49\textwidth}
+        \centering
+        \begin{tikzpicture}
+            \begin{axis}[
+                ybar,
+                ymin=0, ymax=1.3, % NEU: Angepasst an max(0.4, 1.1)
+                ylabel={Min. area in \unit{\milli\meter\squared}},
+                symbolic x coords={1:0, 3:1, 1:1, 1:3, 0:1},
+                xtick=data,
+                xlabel={\ac{C3S}:\ac{C2S} ratio},
+                bar width=8pt,
+                enlarge x limits=0.2,
+                %legend style={legend pos=north, legend columns=1}, % NEU
+                width=\textwidth, % NEU
+                height=6cm,
+            ]
+                % 7d clinker Data
+                \addplot[fill=yellow, draw opacity=0, bar shift=-9pt] coordinates { 
+                    (1:0, 0.04522) (3:1, 0.04974) (1:1, 0.04361) (1:3, 0.01356) (0:1, 0.00602) 
+                };
+                \addlegendentry{\qty{7}{\day}}
+                
+                % 14d clinker Data
+                \addplot[fill=orange, draw opacity=0] coordinates { 
+                    (1:0, 0.01356) (3:1, 0.03752) (1:1, 0.15633) (1:3, 0.01808) (0:1, 0.00904) 
+                };
+                \addlegendentry{\qty{14}{\day}}
+                
+                % 28d clinker Data
+                \addplot[fill=red, draw opacity=0, bar shift=9pt] coordinates { 
+                    (1:0, 0.02562) (3:1, 0.30678) (1:1, 0.14470) (1:3, 0.01966) (0:1, 0.01055) 
+                };
+                \addlegendentry{\qty{28}{\day}}
+            \end{axis}
+        \end{tikzpicture}
+        \caption{
+            \ac{BC} method.
+        }
+        \label{fig:convergence_clinker}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.49\textwidth}
+        \centering
+        \begin{tikzpicture}
+            \begin{axis}[
+                ybar,
+                ymin=0, ymax=1.3,
+                ylabel={Min. area in \unit{\milli\meter\squared}},
+                symbolic x coords={1:0, 3:1, 1:1, 1:3, 0:1},
+                xtick=data,
+                xlabel={\ac{C3S}:\ac{C2S} ratio},
+                bar width=8pt,
+                enlarge x limits=0.2,
+                %legend style={legend pos=north, legend columns=1}, % NEU
+                width=\textwidth,
+                height=6cm,
+                ylabel near ticks, yticklabel pos=right,
+            ]
+                % 7d clinker Data
+                \addplot[fill=green, draw opacity=0, bar shift=-9pt] coordinates { 
+                    (1:0, 0.054324) (3:1, 0.078231) (1:1, 0.188929) (1:3, 0.015454) (0:1, 0.050768)
+                };
+                \addlegendentry{\qty{7}{\day}}
+                
+                % 14d clinker Data
+                \addplot[fill=cyan, draw opacity=0] coordinates { 
+                    (1:0, 0.047315) (3:1, 0.162460) (1:1, 0.138721) (1:3, 0.024144) (0:1, 0.106486)
+                };
+                \addlegendentry{\qty{14}{\day}}
+                
+                % 28d clinker Data
+                \addplot[fill=blue, draw opacity=0, bar shift=9pt] coordinates { 
+                    (1:0, 0.101484) (3:1, 0.810745) (1:1, 1.051917) (1:3, 0.113844) (0:1, 0.024144)
+                };
+                \addlegendentry{\qty{28}{\day}}
+            \end{axis}
+        \end{tikzpicture}
+        \caption{
+            \ac{BG} method.
+        }
+        \label{fig:areagrowth_clinker}
+    \end{subfigure}
+    \caption{
+        Comparison of the minimum required area for to get the \textbf{clinker} area fraction with a standard deviation $\sigma$ of <\,\qty{2}{\percent}.
+        The \ac{BC} and \ac{BG} methods were applied to images of \ac{C3S}:\ac{C2S} mixtures, hydrated for \num{7}, \num{14} and \qty{28}{\day}.
+    }
+    \label{fig:box_statistics_clinker}
+\end{figure}
+
+The plots indicate no apparent correlation between the minimum required area and either the \ac{C3S}:\ac{C2S} ratio or the hydration time.
+The \ac{BG} method consistently yields a larger required area than the \ac{BC} method.
+
+A visual comparison between the images (\zcref{fig:segmented_images}) and the results reveals that the \ac{BG} method is highly sensitive to irregularities, such as air voids or \ac{CH} patches.
+As these larger features are not uniformly distributed within the image, they can have a significant influence on the standard deviation.
+Furthermore, given that the initial starting area is constrained to one-fifth of the central image area, it is probable that some of these large features are included in all or most of the experiments.
+This directly causes the unsteady decrease observed in \zcref{fig:lit_box_growth_b}.
+
+In summary, images of hydrated \ac{C3S}:\ac{C2S} paste exhibiting considerable inhomogeneities (e.g., air voids) require significantly larger areas (more than \qty{1.4}{\milli\meter\squared}) to achieve statistical representativeness compared to highly homogeneous specimens, for which an area exceeding \qty{0.3}{\milli\meter\squared} is sufficient.
+Moreover, this dependence on feature size (the larger the feature, the larger the image) demonstrates that an analysis of statistical representativeness must be conducted on an image-by-image basis.
+Even to acquire these larger images, the best areas with few pores and irregularities were manually selected from the specimen surface.
+This also demonstrates, that the subjective influence of the \ac{SEM} operator can hardly be avoided.
+%\textcite{kameda.2006} pointed out, that the data fluctuation of the measured porosity and permeability using this method becomes negligible, when `\textit{the cube size exceeds four grain radii}'.
 
 

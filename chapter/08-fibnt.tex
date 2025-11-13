@@ -100,22 +100,22 @@ An example of such a prepared specimen is shown in \zcref{fig:laser_prep_tilt_an
 
     \begin{subfigure}[t]{0.49\textwidth}
 		\ifdefined\PRINTABLE
-			\includegraphics[width=\textwidth]{methods/laser_prep/tilt4.jpg}{0}{4}
+			\includegraphics[width=\textwidth]{methods/laser_prep/tilt6.jpg}
 		\else
-			\animategraphics[palindrome,poster=4,autoplay,width=\textwidth]{5}{methods/laser_prep/tilt}{0}{4}
+			\animategraphics[palindrome,poster=6,autoplay,width=\textwidth]{5}{methods/laser_prep/tilt}{0}{6}
 		\fi
         \caption{Laser-prepared bar and trenches.}
         \label{fig:laser_prep_tilt_anim}
     \end{subfigure}
     \hfill
     \begin{subfigure}[t]{0.49\textwidth}
-        \includegraphics[width=\textwidth]{methods/laser_prep/C3S_7d_Laser_prep_067.jpg}
+        \includegraphics[width=\textwidth]{methods/laser_prep/C3S_7d_Laser_prep_069.pdf}
         \caption{Fresh \ac{FIBnt} slice.}
         \label{fig:fibnt_fresh_slice}
     \end{subfigure}
     \caption{
 		\qty{7}{\d} hydrated \ac{C3S} specimen, embedded in epoxy resin and prepared using a \ac{fs-laser}.
-		The preparation site has a size of \qtyproduct{.6 x 1.0}{\milli\meter} and the prepared bar is \qty{40}{\micro\meter} wide at the top.
+		The preparation site has a size of \qtyproduct{.6 x 1.0}{\milli\meter\squared} and the prepared bar is \qty{40}{\micro\meter} wide at the top.
 		The depth of the removed trenches is estimated to be more than \qty{100}{\micro\meter}.
         The white deposition on the top is a protective \ce{Pt} coating.
     }
@@ -230,11 +230,15 @@ Furthermore, after the \ac{SIFT} alignment the stack is often still systematical
 
 Aligning the \ac{EDX} dataset to the corresponding \ac{BSE} dataset is challenging.
 Although the correspondence between \ac{BSE} and \ac{EDX} slices is known, the images differ in resolution and field of view.
-If the image shift between the \ac{BSE} and \ac{EDX} images of the same slice is nearly identical, the alignment problem can be solved relatively easily.
-%Otherwise, additional registration steps, such as the use of landmarks or scale-adjusted transformations, are required to achieve accurate overlay of the datasets.
+Usually the image shift between the \ac{BSE} and \ac{EDX} images of the same slice should be nearly identical.
+This allows to solve the alignment problem relatively easily.
+Depending on the data acquisition settings it can, however, happen that the \ac{EDX} dataset does not align perfectly with the \ac{BSE} dataset (e.g. due to drift caused by charging).
+Then, additional registration steps, such as the use of landmarks or scale-adjusted transformations, are required to achieve accurate overlay of the datasets.
+
+\subsection{Development of an evaluation workflow}
 
 Therefore, a python tool utilising \textit{napari} \cite{sofroniew.2025}, a graphical user interface to view and edit 2D and 3D image data, was developed.
-This workflow aligns, visualizes, and analyses correlative \ac{BSE} and \ac{EDX} image stacks.
+This workflow denoises, aligns, visualizes, and analyses correlative \ac{BSE} and \ac{EDX} image stacks.
 First, the pre-processed in-plane translation data stored in the \textit{TrakEM2} project are loaded.
 The user must provide the image scale and slice thickness in \unit{\nano\meter\per\px}, unless this information is available in the file metadata.
 
@@ -261,7 +265,7 @@ Following denoising, inter-slice intensity banding ($z$-banding) in the \ac{EDX}
 	\label{fig:sem_z-banding}
 \end{figure}
 
-Subsequently, landmark pairs between the first \ac{BSE} and \ac{EDX} images must be specified.
+Subsequently, at least three (preferably more) landmark pairs between the first \ac{BSE} and \ac{EDX} images must be specified manually.
 These landmarks are utilised to estimate an isotropic scale-and-translation transformation, thereby enabling accurate stack-to-stack alignment.
 
 
@@ -294,20 +298,20 @@ These landmarks are utilised to estimate an isotropic scale-and-translation tran
     \label{fig:sem_postprocessing}
 \end{figure}
 
-Due to the geometry within the \ac{SEM}, the image stacks inherently exhibit a systematic vertical shift following alignment with the \ac{SIFT} algorithm.
-This shift can be compensated by applying a user-defined correction angle.
-The required angle is primarily determined by the device geometry and the orientation at which the specimen cube is welded to the copper comb.
+Since the electron beam of the \ac{SEM} hits the \ac{ROI} under an angle of \qty{38}{\degree}, the image stacks inherently exhibit a systematic vertical shift following alignment with the \ac{SIFT} algorithm.
+This shift can be compensated by applying an user-defined angle for the correction.
+This required angle is primarily determined by the device geometry and the orientation at which the specimen cube is welded to the copper comb.
+The image distortion caused by this geometry effect can and should be corrected for during the recording of the dataset.
 
-
-The registered and corrected \ac{BSE} and \ac{EDX} volumes are visualised using physically meaningful voxel scales.
-The user selects a \ac{ROI}, which is utilised for subsequent processing.
+The co-registered and corrected \ac{BSE} and \ac{EDX} voxel datasets are visualised using physically meaningful scales.
+The user can select a ROI, which is then utilised for the subsequent processing.
 Within the \ac{ROI}, three-dimensional \ac{SLIC}O superpixels are computed on the denoised \ac{EDX} volume (see \zcref{fig:sem_postprocessing_c}).
-Analogous to the approach of Multi\ac{SLIC} \cite{yu.2023}, three principal elements (\ce{Ca}, \ce{Si}, \ce{Al}) are chosen.
-This allows to assign the elements individual RGB colour channels in an image, from which the superpixels are generated.
+In analogy to the approach of Multi\ac{SLIC} \cite{yu.2023}, three principal elements (\ce{Ca}, \ce{Si}, \ce{Al}) are chosen.
+TThis allows to assign specific elements to individual (red-geen-blue) colour channels in an image, from which the superpixels are subsequently generated.
 This enables the use of standard \ac{SLIC}O implementations in \textit{OpenCV}.
-For each superpixel, the mean intensities for each element are calculated from the raw \ac{EDX} data.
-These superpixel-wise vectors are subsequently standardised and clustered using $k$-means in combination with \ac{UMAP}.
-This approach facilitates the identification of material phases, resulting in a three-dimensional phase label volume that is directly overlaid in \textit{napari}.
+For each superpixel, the mean intensity for each element is calculated from the raw \ac{EDX} data.
+These superpixel-based vectors are subsequently normalised and clustered using $k$-means in combination with \ac{UMAP}.
+This approach facilitates the identification of material phases, resulting in a three-dimensional phase label volume that is directly overlaid and visualised in \textit{napari}.
 
 % TODO: compare different ways to get to the goal? - SLIC -> (direct/indirect with umap?) -> labeling; UNET
 % TODO: how good is the data alignment? What does this to the segmentation - see ANtons dataset

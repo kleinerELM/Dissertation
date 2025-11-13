@@ -56,6 +56,8 @@
 	\pdfsuppresswarningpagegroup=1
 \fi
 
+\DeclareMathAlphabet{\mathsf}{T1}{fvs}{m}{n}
+
 \usepackage{pifont} %https://www.physicsread.com/latex-star-symbol/
 \usepackage{textalpha}  % use greek letters in text directly like α -> package textgreek
 \usepackage{textcomp}  % eg. modified € und § symbols
@@ -175,7 +177,6 @@
     \printtext[date]{\printfield{year}}%
   }%
 }
-\DeclareFieldFormat{year}{\textbf{#1}}
 
 % https://tex.stackexchange.com/questions/134191/line-breaks-of-long-urls-in-biblatex-bibliography
 \setcounter{biburllcpenalty}{7000}
@@ -198,10 +199,11 @@
 	per-mode=symbol,
 	separate-uncertainty = true,
 	multi-part-units=single,
+	math-sf=\sffamily,
 	%inline-per-mode=symbol,
 	%display-per-mode=fraction,
 	%unit-mode=text,
-			]{siunitx}  % helpful to show value-unit-pairs in text
+]{siunitx}  % helpful to show value-unit-pairs in text
 
 \addto\extrasngerman{\sisetup{locale = DE}}
 \addto\extrasenglish{\sisetup{locale = US}}
@@ -400,6 +402,7 @@
 % ################################################
 \graphicspath{{figures/}}  % define graphics standard path
 
+\setcounter{tocdepth}{1}
 %%%%%% Hyperref Settings
 %\usepackage{hyperxmp} %https://tex.stackexchange.com/questions/3708/hyperref-enquotes-metadata
 \usepackage[hidelinks,  % hide links in pdf document
@@ -410,7 +413,7 @@
 			%pdfcreator  = {}, %software used
 			breaklinks  = true,
 			bookmarksnumbered,      % nummereiert Lesezeichen
-			bookmarksopenlevel=4,
+			bookmarksdepth=3,
 			]{hyperref}
 
 \renewcommand*{\chapterformat}{%

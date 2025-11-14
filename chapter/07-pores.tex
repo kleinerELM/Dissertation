@@ -1,20 +1,24 @@
 \chapter{Pore analysis}
 
 %\section{Pore analysis using \acs{LTDSC}, \acs{MIP}, \acs{CT} and \acs{SEM}}
+The determination of porosity is fundamental to understanding and predicting the performance and durability of concrete.
+Whilst macroscopic air voids influence properties like freeze-thaw resistance, the gel porosity dictates the material's intrinsic characteristics.
+For example, the transport mechanisms (permeability and diffusion) of water and ions are determined by the pore network caused by the fine structures inherent of the \ac{CSH} phase.
+Accurately quantifying this gel porosity is essential to assess the resistance to chemical attack (e.g. chloride ingress or sulphate attack), and its mechanical performance.
 
 On a macroscopic scale, comparing different pore measurement methods is feasible.
 However, as the pore size decreases, this comparison becomes increasingly challenging due to physical limits and the fractal nature of porosity.
 To address this, a standard material was utilised to test and compare selected methods.
 
 \section{Porous glass standard}
-Two porous glass standards (see \zcref{sec:boraglas}) were evaluated using \ac{SEM}, \ac{LTDSC}, and \ac{HNMR}.
+Two porous glass standards (\textsc{VYCOR} glass with \num{5} and \qty{20}{\nano\meter} diameter, see \zcref{sec:boraglas}) were evaluated using \ac{SEM}, \ac{LTDSC}, and \ac{HNMR} spectroscopy.
 The glass standards were initially defined using \ac{MIP} by the manufacturer (\zcref{fig:vycor-mip}). % or \ce{N2}-ad/absorption.
 % TODO: die Endporosität wird normalerweise eher durch Engstellen (necks) definiert als durch die Bulk-porosität
 
 \subsection{\acs*{SEM}}
 
 To obtain \ac{SEM} images, the glass was fractured and even surfaces were imaged without any coating.
-As the \ac{SEM}-images indicate (\zcref{fig:ltdsc-vycor-glass}), the pores are interconnected, which is plausible due to its intended use as a filter material and the \textsc{VYCOR} manufacturing process used (sintering of glass powder).
+As the \ac{SEM} images indicate (\zcref{fig:ltdsc-vycor-glass}), the pores are interconnected, which is plausible due to its intended use as a filter material and the \textsc{VYCOR} manufacturing process used (sintering of glass powder).
 
 \begin{figure}[htb!]
     \centering
@@ -47,130 +51,292 @@ As the \ac{SEM}-images indicate (\zcref{fig:ltdsc-vycor-glass}), the pores are i
     \label{fig:ltdsc-vycor-glass}
 \end{figure}
 
-The pores can be segmented using a traditional thresholding method and the pore size distribution can be calculated. %  (see \zcref{sec:segmentation})
-However, areas with obvious damages due to the fracture process were excluded from the analysis.
+The pores can be segmented using an established thresholding method and the pore size distribution can be determined. %  (see \zcref{sec:segmentation})
+Areas with obvious damages due to the fracture process were excluded from the analysis.
 The results are shown in \zcref{fig:vicor-SEM}.
-As indicated by the inhomogeneous distribution of the segmented pores (see \zcref{fig:ltdsc-vycor-glass-c} and \zcref{fig:ltdsc-vycor-glass-d}), the selected threshold value is not producing a uniform thresholding result.
+As indicated by the inhomogeneous distribution of the segmented pores (see \zcref{fig:ltdsc-vycor-glass-c} and \zcref{fig:ltdsc-vycor-glass-d}), the selected threshold value is not producing an uniform thresholding result.
 
+
+% \begin{figure}[!htb]
+%     \centering
+
+%  	\begin{subfigure}{.495\textwidth}
+% 	  \centering
+
+%       \begin{tikzpicture}
+%         \begin{semilogxaxis}[
+% 				legend style={at={(0.05,.7)},anchor=west},
+%                 legend cell align={left},
+% 				xmin=.64, xmax=160,
+% 				ymin=0, ymax=1.1,
+% 				width=1.1\linewidth,
+% 				height=6cm,
+% 				grid=major,
+% 				xlabel={pore radius $r_\text{P}$ \unit{\nano\meter}},
+% 				ylabel={normalised frequency},
+% 				grid style={line width=.1pt, draw=gray!10},
+% 				yticklabel style={
+% 						/pgf/number format/fixed,
+% 						/pgf/number format/precision=3
+% 				},
+% 				xticklabels={1, 2.5,5,10,25,50,100},
+% 				xtick={1, 2.5,5,10,25,50,100},
+% 				ymajorticks=false,
+% 				scaled y ticks=false,
+% 				scaled x ticks=false,
+%             ]
+
+% 			\addplot [ no marks, blue ] table [x=x, y=y_norm] {
+% 				x      y       y_norm
+% 				2.5    0       0
+% 				5      536     0.2902
+% 				10     1847    1
+% 				20     1502    0.8134
+% 				40     51      0.0276
+% 				80     0       0
+% 			};
+% 			\addlegendentry{image \num{1}}
+
+% 			\addplot [ no marks, blue, dashed ] table [x=x, y=y_norm] {
+% 				x      y       y_norm
+% 				0.64   0       0
+% 				1.25   3       0.0045
+% 				2.5    132     0.1959
+% 				5      110     0.1633
+% 				10     442     0.6567
+% 				20     674     1
+% 				40     90      0.1336
+% 				80     1       0.0015
+% 				160    0       0
+% 			};
+% 			\addlegendentry{image \num{2}}
+
+%         \end{semilogxaxis}
+% 	  \end{tikzpicture}
+% 	  \caption{\qty{5}{\nano\meter} porous \textsc{VYCOR}-glass.}
+
+% 	\end{subfigure}
+% 	\hfill
+% 	\begin{subfigure}{.495\textwidth}
+% 		\centering
+
+% 		\begin{tikzpicture}
+% 		  \begin{semilogxaxis}[
+%                 legend style={at={(0.05,.8)},anchor=west},
+%                 legend cell align={left},
+% 				xmin=.64, xmax=160,
+% 				ymin=0, ymax=1.1,
+% 				width=1.1\linewidth,
+% 				height=6cm,
+% 				grid=major,
+% 				xlabel={pore radius $r_\text{P}$ \unit{\nano\meter}},
+% 				ylabel={normalised frequency},
+% 				grid style={line width=.1pt, draw=gray!10},
+% 				yticklabel style={
+% 						/pgf/number format/fixed,
+% 						/pgf/number format/precision=3
+% 				},
+% 				xticklabels={1, 2.5,5,10,25,50,100},
+% 				xtick={1, 2.5,5,10,25,50,100},
+% 				ymajorticks=false,
+% 				scaled y ticks=false,
+% 				scaled x ticks=false,
+% 				yticklabel pos=right,
+% 			]
+% 			\addplot [ no marks, orange ] table [x=x, y=y_norm] {
+% 				x      y       y_norm
+% 				1.25   0       0
+% 				2.5    35      0.0429
+% 				5      116     0.1422
+% 				10     349     0.4272
+% 				20     816     1
+% 				40     136     0.1667
+% 				80     0       0
+% 			};
+% 			\addlegendentry{image \num{1}}
+
+% 			\addplot [ no marks, orange, dashed ] table [x=x, y=y_norm] {
+% 				x      y       y_norm
+% 				1.25   0       0
+% 				2.5    1       0.0004
+% 				5      314     0.1180
+% 				10     1244    0.4675
+% 				20     2661    1
+% 				40     336     0.1263
+% 				80     0       0
+% 			};
+% 			\addlegendentry{image \num{2}}
+
+% 		  \end{semilogxaxis}
+% 		\end{tikzpicture}
+% 		\caption{\qty{20}{\nano\meter} porous \textsc{VYCOR}-glass.}
+
+% 	\end{subfigure}
+%     \caption{Pore size distribution of two \textsc{VYCOR}-glass samples. The pore size was determined using two segmented \ac{SEM} image for each glass type.}
+%     \label{fig:vicor-SEM}
+% \end{figure}
 
 \begin{figure}[!htb]
     \centering
-
- 	\begin{subfigure}{.495\textwidth}
-	  \centering
-
+    \begin{subfigure}{.495\textwidth}
+      \centering
       \begin{tikzpicture}
         \begin{semilogxaxis}[
-				legend style={at={(0.95,.7)},anchor=east},
-                legend cell align={left},
-				xmin=.64, xmax=160,
-				ymin=0, ymax=1.1,
-				width=1.1\linewidth,
-				height=6cm,
-				grid=major,
-				xlabel={pore radius $r_\text{P}$ \unit{\nano\meter}},
-				ylabel={normalised frequency},
-				grid style={line width=.1pt, draw=gray!10},
-				yticklabel style={
-						/pgf/number format/fixed,
-						/pgf/number format/precision=3
-				},
-				xticklabels={1, 2.5,5,10,25,50,100},
-				xtick={1, 2.5,5,10,25,50,100},
-				ymajorticks=false,
-				scaled y ticks=false,
-				scaled x ticks=false,
+                legend style={
+                    at={(0.05,.8)},
+                    anchor=west,
+                    cells={align=left}
+                },
+                xmin=.64, xmax=160,
+                ymin=0, ymax=1.1,
+                width=1.1\linewidth,
+                height=6cm,
+                grid=major,
+                xlabel={pore radius $r_\text{P}$ in \unit{\nano\meter}},
+                ylabel={normalised frequency},
+                grid style={line width=.1pt, draw=gray!10},
+                yticklabel style={
+                        /pgf/number format/fixed,
+                        /pgf/number format/precision=3
+                },
+                xticklabels={1.25, 2.5,5,10,20,40,80,160},
+                xtick={1.25, 2.5,5,10,20,40,80,160},
+                ymajorticks=false,
+                scaled y ticks=false,
+                scaled x ticks=false,
             ]
 
-			\addplot+ [ no marks, blue ] table [x=x, y=y_norm] {
-				x      y       y_norm
-				2.5    0       0
-				5      536     0.2902
-				10     1847    1
-				20     1502    0.8134
-				40     51      0.0276
-				80     0       0
-			};
+            % --- ANGEPASSTER PLOT ---
+            \addplot [
+				no marks, 
+                ybar, 
+                fill=blue, 
+                draw=blue, 
+                bar width=10pt, 
+                bar shift=-5pt,
+                area legend
+            ] table [x=x, y=y_norm] {
+                x      y       y_norm
+                2.5    0       0
+                5      536     0.2902
+                10     1847    1
+                20     1502    0.8134
+                40     51      0.0276
+                80     0       0
+            };
+			\addlegendentry{image \num{1}};
 
-			\addplot+ [ no marks, blue, dashed ] table [x=x, y=y_norm] {
-				x      y       y_norm
-				0.64   0       0
-				1.25   3       0.0045
-				2.5    132     0.1959
-				5      110     0.1633
-				10     442     0.6567
-				20     674     1
-				40     90      0.1336
-				80     1       0.0015
-				160    0       0
-			};
-
+            % --- ANGEPASSTER PLOT (statt dashed) ---
+            \addplot [
+				no marks, 
+                ybar,
+                pattern=north east lines,
+                pattern color=blue,
+                draw=blue,
+                bar width=10pt,
+                bar shift=5pt,
+                area legend
+            ] table [x=x, y=y_norm] {
+                x      y       y_norm
+                0.64   0       0
+                1.25   3       0.0045
+                2.5    132     0.1959
+                5      110     0.1633
+                10     442     0.6567
+                20     674     1
+                40     90      0.1336
+                80     1       0.0015
+                160    0       0
+            };
+			\addlegendentry{image \num{2}};
         \end{semilogxaxis}
-	  \end{tikzpicture}
-	  \caption{\qty{5}{\nano\meter} porous \textsc{VYCOR}-glass.}
+      \end{tikzpicture}
+      \caption{\qty{5}{\nano\meter} porous \textsc{VYCOR}-glass.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{.495\textwidth}
+        \centering
+        \begin{tikzpicture}
+          \begin{semilogxaxis}[
+                legend style={
+                    at={(0.05,.8)},
+                    anchor=west,
+                    cells={align=left}
+                },
+                xmin=.64, xmax=160,
+                ymin=0, ymax=1.1,
+                width=1.1\linewidth,
+                height=6cm,
+                grid=major,
+                xlabel={pore radius $r_\text{P}$ in \unit{\nano\meter}},
+                ylabel={normalised frequency},
+                grid style={line width=.1pt, draw=gray!10},
+                yticklabel style={
+                        /pgf/number format/fixed,
+                        /pgf/number format/precision=3
+                },
+                xticklabels={1.25, 2.5,5,10,20,40,80,160},
+                xtick={1.25, 2.5,5,10,20,40,80,160},
+                ymajorticks=false,
+                scaled y ticks=false,
+                scaled x ticks=false,
+                yticklabel pos=right,
+            ]
+            % --- ANGEPASSTER PLOT ---
+            \addplot+ [
+				no marks, 
+                ybar, 
+                fill=orange, 
+                draw=orange, 
+                bar width=10pt, 
+                bar shift=-5pt,
+                area legend
+            ] table [x=x, y=y_norm] {
+                x      y       y_norm
+                1.25   0       0
+                2.5    35      0.0429
+                5      116     0.1422
+                10     349     0.4272
+                20     816     1
+                40     136     0.1667
+                80     0       0
+            };
+			\addlegendentry{image \num{1}};
 
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}{.495\textwidth}
-		\centering
+            % --- ANGEPASSTER PLOT (statt dashed) ---
+            \addplot+ [
+				no marks, 
+                ybar,
+                pattern=north east lines,
+                pattern color=orange,
+                draw=orange,
+                bar width=10pt,
+                bar shift=5pt,
+                area legend
+            ] table [x=x, y=y_norm] {
+                x      y       y_norm
+                1.25   0       0
+                2.5    1       0.0004
+                5      314     0.1180
+                10     1244    0.4675
+                20     2661    1
+                40     336     0.1263
+                80     0       0
+            };
+			\addlegendentry{image \num{2}};
 
-		\begin{tikzpicture}
-		  \begin{semilogxaxis}[
-				legend style={
-					at={(0.95,.7)},
-					anchor=east,
-					cells={align=left}
-				},
-				legend cell align={left},
-				xmin=.64, xmax=160,
-				ymin=0, ymax=1.1,
-				width=1.1\linewidth,
-				height=6cm,
-				grid=major,
-				xlabel={pore radius $r_\text{P}$ \unit{\nano\meter}},
-				ylabel={normalised frequency},
-				grid style={line width=.1pt, draw=gray!10},
-				yticklabel style={
-						/pgf/number format/fixed,
-						/pgf/number format/precision=3
-				},
-				xticklabels={1, 2.5,5,10,25,50,100},
-				xtick={1, 2.5,5,10,25,50,100},
-				ymajorticks=false,
-				scaled y ticks=false,
-				scaled x ticks=false,
-				yticklabel pos=right,
-			]
-			\addplot+ [ no marks, orange ] table [x=x, y=y_norm] {
-				x      y       y_norm
-				1.25   0       0
-				2.5    35      0.0429
-				5      116     0.1422
-				10     349     0.4272
-				20     816     1
-				40     136     0.1667
-				80     0       0
-			};
 
-			\addplot+ [ no marks, orange, dashed ] table [x=x, y=y_norm] {
-				x      y       y_norm
-				1.25   0       0
-				2.5    1       0.0004
-				5      314     0.1180
-				10     1244    0.4675
-				20     2661    1
-				40     336     0.1263
-				80     0       0
-			};
-
-		  \end{semilogxaxis}
-		\end{tikzpicture}
-		\caption{\qty{20}{\nano\meter} porous \textsc{VYCOR}-glass.}
-
-	\end{subfigure}
-    \caption{Pore size distribution of two \textsc{VYCOR}-glass samples. The pore size was determined using two segmented \ac{SEM} image for each glass type.}
+          \end{semilogxaxis}
+        \end{tikzpicture}
+        \caption{\qty{20}{\nano\meter} porous \textsc{VYCOR} glass.}
+    \end{subfigure}
+    \caption{
+		Pore size distribution of two \textsc{VYCOR} glass samples.
+		The pore size was determined using two segmented \ac{SEM} image for each glass type.
+	}
     \label{fig:vicor-SEM}
 \end{figure}
+
 % das sollte eigentlich im Histogram style sein
 % TODO: prüfe, ob tatsächlich Porenradien gemessen wurden!
 
@@ -212,7 +378,7 @@ The measured pore radii measured using a traditional thresholding method are off
 				] {figures/mip/vycor5nm.crop.csv}; % Path to your CSV file
 			\end{axis}
 		\end{tikzpicture}
-		\caption{\qty{5}{\nano\meter} porous \textsc{VYCOR}-glass.}
+		\caption{\qty{5}{\nano\meter} porous \textsc{VYCOR} glass.}
 		\label{fig:mip_heatmap_vycor5nm}
 
 	\end{subfigure}
@@ -255,12 +421,12 @@ The measured pore radii measured using a traditional thresholding method are off
 				] {figures/mip/vycor20nm.crop.csv};
 			\end{axis}
 		\end{tikzpicture}
-		\caption{\qty{20}{\nano\meter} porous \textsc{VYCOR}-glass.}
+		\caption{\qty{20}{\nano\meter} porous \textsc{VYCOR} glass.}
 		\label{fig:mheatmap_vycor20nm}
 
 	\end{subfigure}
 	\caption{
-		A heatmap indicating the influence of the 'blocksize' option using 'adaptive threshold' on the measured median \textsc{Feret} diameter of the \textsc{VYCOR}-glass.
+		Heatmaps indicating the influence of the `blocksize' option using `adaptive threshold' on the measured median \textsc{Feret} diameter of the \textsc{VYCOR} glass.
 		The frequency is normalised per blocksize.
 		The blocksize is the size of the sliding window used for the adaptive thresholding.
 	}
@@ -272,7 +438,7 @@ The measured pore radii measured using a traditional thresholding method are off
 {\color{red}
 Adaptive thresholding is a segmentation method that adjusts the threshold value dynamically based on the local properties of the image, such as the intensity within a sliding window (blocksize).
 Depending on the blocksize used, very different results were obtained, as shown in \zcref{fig:heatmap_vycor}.
-For each so segmented pore, the \textsc{Feret} diameter was calculated in all directions and the median \textsc{Feret} diameter for the pore.
+For each segmented pore, the \textsc{Feret} diameter was calculated in all directions and the median \textsc{Feret} diameter for the pore.
 The median \textsc{Feret} diameter distribution for each blocksize was then normalised to the maximum value for each blocksize.
 
 For \textsc{VYCOR}-glass with a given porosity of \qty{20}{\nano\meter}, using a blocksize larger than \qty{50}{\nano\meter} produced reliable results, with the main median \textsc{Feret} diameter around \qty{20}{\nano\meter}.
@@ -308,7 +474,7 @@ For the measurement, the water saturated specimen was then cooled down to \qty{-
 				height=6cm,
 				grid=none,
 				xlabel={temperature in \unit{\celsius}},
-				xticklabels={-51.2, -25.3, -12.4, -4.6, -2.0},
+				xticklabels={\num{-51.2}, \num{-25.3}, \num{-12.4}, \num{-4.6}, \num{-2.0}},
 				xtick={2.5,5,10,25,50},
 				ytick=\empty,
 				scaled y ticks=false,
@@ -319,9 +485,10 @@ For the measurement, the water saturated specimen was then cooled down to \qty{-
         \end{semilogxaxis}
         \begin{semilogxaxis}[
 				legend style={
-					at={(0.95,.7)},
-					anchor=east,
+					at={(0.015,.8)},
+					anchor=west,
 					cells={align=left},
+					font=\footnotesize
 				},
 				xmin=1.5, xmax=60,
 				ymin=-.20, ymax=0,
@@ -329,7 +496,7 @@ For the measurement, the water saturated specimen was then cooled down to \qty{-
 				width=\linewidth,
 				height=6cm,
 				grid=major,
-				xlabel={pore radius $r_\text{P}$ \unit{\nano\meter}},
+				xlabel={pore radius $r_\text{P}$ in \unit{\nano\meter}},
 				ylabel={heat flow $\dot{Q}$ in \unit{\watt\per\gram}},
 				grid style={line width=.1pt, draw=gray!10},
 				yticklabel style={
@@ -346,11 +513,13 @@ For the measurement, the water saturated specimen was then cooled down to \qty{-
 			  \node[darkgrey, rotate=90, anchor=west] at (axis cs: 2.6,-.06) {\scriptsize <\,\qty{-40}{\celsius}!};
 
 			\addplot [ no marks, blue] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/glass/ExpDat_2.1-5nm_freeze_segment_18.csv};
-			\addplot [ no marks, blue,forget plot, dashed] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/glass/ExpDat_2.2-5nm_freeze_segment_18.csv};
+			\addlegendentry{specimen 1};
+			\addplot [ no marks, blue, dashed] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/glass/ExpDat_2.2-5nm_freeze_segment_18.csv};
+			\addlegendentry{specimen 2};
 
         \end{semilogxaxis}
 	  \end{tikzpicture}
-	  \caption{\qty{5}{\nano\meter} porous \textsc{VYCOR}-glass.}
+	  \caption{\qty{5}{\nano\meter} porous \textsc{VYCOR} glass.}
 
 	\end{subfigure}
 	\hfill
@@ -367,7 +536,7 @@ For the measurement, the water saturated specimen was then cooled down to \qty{-
 					height=6cm,
 					grid=none,
 					xlabel={temperature in \unit{\celsius}},
-					xticklabels={-51.2, -25.3, -12.4, -4.6, -2.0},
+					xticklabels={\num{-51.2}, \num{-25.3}, \num{-12.4}, \num{-4.6}, \num{-2.0}},
 					xtick={2.5,5,10,25,50},
 					ytick=\empty,
 					scaled y ticks=false,
@@ -377,15 +546,19 @@ For the measurement, the water saturated specimen was then cooled down to \qty{-
 
 		  \end{semilogxaxis}
 		  \begin{semilogxaxis}[
-				legend style={at={(0.95,.7)},anchor=east},
-				legend cell align={left},
+				legend style={
+					at={(0.015,.8)},
+					anchor=west,
+					cells={align=left},
+					font=\footnotesize
+				},
 				xmin=1.5, xmax=60,
 				ymin=-.20, ymax=0,
 				y dir=reverse,
 				width=\linewidth,
 				height=6cm,
 				grid=major,
-				xlabel={pore radius $r_\text{P}$ \unit{\nano\meter}},
+				xlabel={pore radius $r_\text{P}$ in \unit{\nano\meter}},
 				ylabel={heat flow $\dot{Q}$ in \unit{\watt\per\gram}},
 				grid style={line width=.1pt, draw=gray!10},
 				yticklabel style={
@@ -402,15 +575,20 @@ For the measurement, the water saturated specimen was then cooled down to \qty{-
 			  \addplot[dotted, thick, samples=2, darkgrey,forget plot] coordinates {(3.19,-.2)(3.19,0)};
 			  \node[darkgrey, rotate=90, anchor=west] at (axis cs: 2.6,-.06) {\scriptsize <\,\qty{-40}{\celsius}!};
 
-			  \addplot [ no marks, orange,forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/glass/ExpDat_1.1-20nm_freeze_segment_18.csv};
-			  \addplot [ no marks, orange,forget plot, dashed] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/glass/ExpDat_1.2-20nm_freeze_segment_18.csv};
+			  \addplot [ no marks, orange ] table [ each nth point=4, filter discard warning=false, unbounded coords=discard, x index=2, y index=1, col sep=comma ] {figures/ltdsc/glass/ExpDat_1.1-20nm_freeze_segment_18.csv};
+			  \addlegendentry{specimen 1};
+			  \addplot [ no marks, orange, dashed ] table [ each nth point=4, filter discard warning=false, unbounded coords=discard, x index=2, y index=1, col sep=comma ] {figures/ltdsc/glass/ExpDat_1.2-20nm_freeze_segment_18.csv};
+			  \addlegendentry{specimen 2};
 
-			\end{semilogxaxis}
+		  \end{semilogxaxis}
 		\end{tikzpicture}
-		\caption{\qty{20}{\nano\meter} porous \textsc{VYCOR}-glass.}
+		\caption{\qty{20}{\nano\meter} porous \textsc{VYCOR} glass.}
 
 	\end{subfigure}
-    \caption{These curves show the freezing curve of \ac{LTDSC}-measurements of two nano-porous glass types. Each type was measured using two specimens. Note that pore sizes below \qty{3.19}{\nano\meter} are undefined as noted in \zcref{eq:brun_freeze}.}
+    \caption{
+		\ac{LTDSC}-measurements of two nano-porous glass types.
+		Each type was measured using two specimens. Note that pore sizes below \qty{3.19}{\nano\meter} are undefined as noted in \zcref{eq:brun_freeze}.
+	}
     \label{fig:ltdsc_result_glass_freeze}
 \end{figure}
 
@@ -418,12 +596,12 @@ This resulted in the following freeze curves as plotted in \zcref{fig:ltdsc_resu
 The glass type specified with a pore diameter of \qty{5}{\nano\meter} has two peaks in the heat-flow signal.
 According to \zcref{eq:brun_freeze} \cite{brun.1977}, a heat flow signal was measured in the pore radius range of \qtyrange{3}{8}{\nano\meter} (pore diameter of \num{6} and \qty{16}{\nano\meter}) with peaks at \num{4} and \qty{6.5}{\nano\meter} (pore diameter of \num{8} and \qty{13}{\nano\meter}).
 
-A heat flow signal was observed for the glass with a specified pore diameter of \qty{20}{\nano\meter} between \num{5} and \qty{12}{\nano\meter} (pore diameter of \num{10} and \qty{24}{\nano\meter}), with peaks at pore radii of \num{7} and \qty{10}{\nano\meter} (pore diameter of \num{14} and \qty{20}{\nano\meter}).
+A heat flow signal was observed for the glass with a specified pore radius of \qty{10}{\nano\meter} for temperatures which can be converted to radii of \num{5} and \qty{12}{\nano\meter}, with peaks at pore radii of \num{7} and \qty{10}{\nano\meter}.
 
 These results show, that the pore diameter is overestimated by a factor of up to \num{2} for the \qty{5}{\nano\meter} glass compared to the \ac{MIP} results (see \zcref{fig:vycor-mip}), while the \qty{20}{\nano\meter} glass shows a good fit for its main peak.
 Despite this deviation, the difference in the pore size is still observable.
 Compared to the \ac{SEM} results (see \zcref{fig:vicor-SEM}), the \ac{LTDSC} results fit better to the \ac{MIP} results.
-Similar to the \ac{SEM} data, the \qty{5}{\nano\meter} glass also exhibited a shift towards larger pore sizes compared to the \ac{MIP} results.
+Similar to the \ac{SEM} data, the \qty{5}{\nano\meter} glass also exhibits a shift towards larger pore sizes compared to the \ac{MIP} results.
 
 
 \subsection{\acs*{HNMR}}
@@ -437,12 +615,12 @@ Similar to the \ac{SEM} data, the \qty{5}{\nano\meter} glass also exhibited a sh
 In contrast to porous glass, the generation of fracture surfaces in hydrated \ac{C2S} and \ac{C3S} is not sufficient for a pore analysis using \ac{SEM}-\ac{BSE} images.
 Therefore, a good specimen preparation is important  to obtain a usable pore analysis.
 
-\subsection{\acs*{ArBIB}-preparation}
+\subsection{\acs*{ArBIB} preparation}
 
-If the specimen is mechanically polished (\zcref{sec:mech_pol}), there is a danger of smearing the material in the pores or introducing scratches hindering a pore segmentation.
-As detailed in \zcref{sec:bib_pol_moving}, mechanically prepared surfaces of hydrated cements can be improved using \ac{ArBIB}-polishing.
+If the specimen is mechanically polished (\zcref{sec:mech_pol}), there is a risk of smearing the material into the pores or introducing scratches hindering a pore segmentation.
+As detailed in \zcref{sec:bib_pol_moving}, mechanically prepared surfaces of hydrated cements can be improved using \ac{ArBIB} polishing.
 However, this still does not allow a close-to-native imaging.
-In contrast, \ac{ArBIB}-sectioning allows to cut cross-sections (see \zcref{sec:bib_pol_fixed}) of \ac{CSH}-needles of hydrated \ac{C3S} (see \zcref{fig:csh-arbib-a} and \zcref{fig:csh-arbib-b}).
+In contrast, \ac{ArBIB} sectioning allows to cut cross-sections (see \zcref{sec:bib_pol_fixed}) of \ac{CSH} needles of hydrated \ac{C3S} (see \zcref{fig:csh-arbib-a} and \zcref{fig:csh-arbib-b}).
 
 \begin{figure}[htb!]
     \centering
@@ -497,7 +675,9 @@ This allows to create a 3D reconstruction of a hydrated \ac{C3S} grain covered i
 		\label{fig:csh-arbib-d}
 	 \end{subfigure}
 
-    \caption{Fractured surface showing the stems of \ac{CSH}-needles and an artistic three-dimensional reconstruction of \ac{CSH}-fibres covering a \ac{C3S}-particle based on a \ac{ArBIB} cross section of hydrated alite. \cite{rossler.2023}}
+    \caption{
+		Fractured surface showing the stems of \ac{CSH} needles and an artistic three-dimensional reconstruction of \ac{CSH} fibres covering a \ac{C3S}-particle based on a \ac{ArBIB} cross-section of hydrated alite. \cite{rossler.2023}
+	}
     \label{fig:csh-arbib-ART}
 \end{figure}
 
@@ -505,191 +685,15 @@ This allows to create a 3D reconstruction of a hydrated \ac{C3S} grain covered i
 \FloatBarrier
 \subsection{\acs{LTDSC}}
 
-The \ac{LTDSC} curves of the second freezing pass P2 of \ac{C2S} from \qtyrange{1}{28}{\day} of hydration are shown in \zcref{fig:ltdsc_result_c2s_freeze} (top).
+The \ac{LTDSC} curves of the second freezing pass of \ac{C3S} and \ac{C2S} from \qtyrange{1}{28}{\day} of hydration are shown in \zcref{fig:ltdsc_result_freeze} (upper graphs \ac{C3S}, lower graphs \ac{C2S}).
 Three measurements were made for each specimen age.
-It was not possible to measure \ac{C2S} after \qty{1}{\day} of hydration, since the material was not hard enough to be handled and transferred into the \ac{LTDSC} crucible.
+It was not possible to measure \ac{C2S} after \qty{1}{\day} of hydration, since the material was not hardened enough to be handled and transferred into the \ac{LTDSC} crucible.
 
 % \ifdefined\EXTERNALIZE
 % 	\tikzexternaldisable
 % \fi
 \begin{figure}[!htb]
     \centering
- 	\begin{subfigure}{.47\textwidth}
-
-      \begin{tikzpicture}[remember picture]
-        \begin{semilogxaxis}[
-				blue,
-				axis line style={black},
-				xmin=1.5, xmax=60,
-				ymin=-.20, ymax=0,
-				y dir=reverse,
-				width=\linewidth,
-				height=6cm,
-				grid=none,
-				xlabel={temperature in \unit{\celsius}},
-				xticklabels={-51.2, -25.3, -12.4, -4.6, -2.0},
-				xtick={2.5,5,10,25,50},
-				ytick=\empty,
-				scaled y ticks=false,
-				scaled x ticks=false,,
-				axis x line*=top
-            ]
-
-        \end{semilogxaxis}
-        \begin{semilogxaxis}[
-				legend style={at={(0.95,.7)},anchor=east},
-                legend cell align={left},
-				xmin=1.5, xmax=60,
-				ymin=-.20, ymax=0.07,
-				y dir=reverse,
-				width=\linewidth,
-				height=6cm,
-				grid=major,
-				xlabel={pore radius $r_\text{P}$ \unit{\nano\meter}},
-				ylabel={heat flow $\dot{Q}$ in \unit{\watt\per\gram}},
-				grid style={line width=.1pt, draw=gray!10},
-				yticklabel style={
-						/pgf/number format/fixed,
-						/pgf/number format/fixed zerofill,
-						/pgf/number format/precision=1
-				},
-				xticklabels={2.5,5,10,25,50},
-				xtick={2.5,5,10,25,50},
-				scaled y ticks=false,
-				scaled x ticks=false,
-            ]
-			\addplot[dotted, thick, samples=2, darkgrey,forget plot] coordinates {(3.19,-.2)(3.19,.2)};
-			\node[darkgrey, rotate=90, anchor=west] at (axis cs: 2.51,-.105) {\scriptsize <\,\qty{-40}{\celsius}};
-
-			% std dev of 7d C2S
-            \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=3, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}] {figures/ltdsc/reduced/C2S_7d_mean_freeze_segment.csv};
-            \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=3, col sep=comma,y expr={\thisrowno{1}+\thisrowno{2}}] {figures/ltdsc/reduced/C2S_7d_mean_freeze_segment.csv};
-            \addplot [fill=orange, fill opacity=0.2,forget plot] fill between [of=A and B];
-
-			% std dev of 14d C2S
-            \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=3, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}] {figures/ltdsc/reduced/C2S_14d_mean_freeze_segment.csv};
-            \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=3, col sep=comma,y expr={\thisrowno{1}+\thisrowno{2}}] {figures/ltdsc/reduced/C2S_14d_mean_freeze_segment.csv};
-            \addplot [fill=red, fill opacity=0.2,forget plot] fill between [of=A and B];
-
-			% std dev of 21d C2S
-            \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=3, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}] {figures/ltdsc/reduced/C2S_21d_mean_freeze_segment.csv};
-            \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=3, col sep=comma,y expr={\thisrowno{1}+\thisrowno{2}}] {figures/ltdsc/reduced/C2S_21d_mean_freeze_segment.csv};
-            \addplot [fill=green, fill opacity=0.2,forget plot] fill between [of=A and B];
-
-			% std dev of 28d C2S
-            \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=3, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}] {figures/ltdsc/reduced/C2S_28d_mean_freeze_segment.csv};
-            \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=3, col sep=comma,y expr={\thisrowno{1}+\thisrowno{2}}] {figures/ltdsc/reduced/C2S_28d_mean_freeze_segment.csv};
-            \addplot [fill=blue, fill opacity=0.2,forget plot] fill between [of=A and B];
-
-
-            \addplot [ no marks, orange] table [x index=3, y index=1, col sep=comma] {figures/ltdsc/reduced/C2S_7d_mean_freeze_segment.csv};
-            %\addlegendentry{\ac{C2S}, \qty{7}{\day}};
-            \addplot [ no marks, red] table [x index=3, y index=1, col sep=comma] {figures/ltdsc/reduced/C2S_14d_mean_freeze_segment.csv};
-            %\addlegendentry{\ac{C2S}, \qty{14}{\day}};
-            \addplot [ no marks, green] table [x index=3, y index=1, col sep=comma] {figures/ltdsc/reduced/C2S_21d_mean_freeze_segment.csv};
-            %\addlegendentry{\ac{C2S}, \qty{21}{\day}};
-            \addplot [ no marks, blue] table [x index=3, y index=1, col sep=comma] {figures/ltdsc/reduced/C2S_28d_mean_freeze_segment.csv};
-            %\addlegendentry{\ac{C2S}, \qty{28}{\day}};
-
-			\draw[draw=black, densely dotted] (2.75,-.11) rectangle (1.75,-0.03);
-			\node[draw=none] (top-1) at (axis cs:2.75,-.11) {};
-			\node[draw=none] (bottom-1) at (axis cs:2.75,-.03) {};
-        \end{semilogxaxis}
-	  \end{tikzpicture}
-
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}{.47\textwidth}
-
-	  \begin{tikzpicture}[remember picture]
-        \begin{axis}[
-			blue,
-			axis line style={black},
-			xmin=1.75, xmax=2.75,
-			ymin=-.11, ymax=-0.03,
-			y dir=reverse,
-			width=.9\linewidth,
-			height=6cm,
-			grid=none,
-			xlabel={temperature in \unit{\celsius}},
-			xticklabels={-73.3, -64.1, -56.9, -51.2, -46.5},
-			xtick={1.75,2.00,2.25,2.50,2.75},
-			ytick=\empty,
-			scaled y ticks=false,
-			scaled x ticks=false,,
-			axis x line*=top
-		]
-
-		\end{axis}
-		\begin{axis}[
-				legend style={at={(0.97,.97)},anchor=north east},
-				legend cell align={left},
-				xmin=1.75, xmax=2.75,
-				ymin=-.11, ymax=-0.03,
-				y dir=reverse,
-				width=.9\linewidth,
-				height=6cm,
-				grid=major,
-				xlabel={pore radius $r_\text{P}$ \unit{\nano\meter}},
-				ylabel={heat flow $\dot{Q}$ in \unit{\watt\per\gram}},
-				grid style={line width=.1pt, draw=gray!10},
-				xticklabels={1.75,2.00,2.25,2.50,2.75},
-				xtick={1.75,2.00,2.25,2.50,2.75},
-				yticklabel style={
-						/pgf/number format/fixed,
-						/pgf/number format/precision=2,
-						/pgf/number format/fixed zerofill,
-				},
-				scaled y ticks=false,
-				scaled x ticks=false,
-				yticklabel pos=right,
-			]
-			% std dev of 7d C2S
-            \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=3, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}] {figures/ltdsc/reduced/zoom/C2S_7d_mean_freeze_segment.csv};
-            \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=3, col sep=comma,y expr={\thisrowno{1}+\thisrowno{2}}] {figures/ltdsc/reduced/zoom/C2S_7d_mean_freeze_segment.csv};
-            \addplot [fill=orange, fill opacity=0.2,forget plot] fill between [of=A and B];
-
-			% std dev of 14d C2S
-            \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=3, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}] {figures/ltdsc/reduced/zoom/C2S_14d_mean_freeze_segment.csv};
-            \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=3, col sep=comma,y expr={\thisrowno{1}+\thisrowno{2}}] {figures/ltdsc/reduced/zoom/C2S_14d_mean_freeze_segment.csv};
-            \addplot [fill=red, fill opacity=0.2,forget plot] fill between [of=A and B];
-
-			% std dev of 21d C2S
-            \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=3, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}] {figures/ltdsc/reduced/zoom/C2S_21d_mean_freeze_segment.csv};
-            \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=3, col sep=comma,y expr={\thisrowno{1}+\thisrowno{2}}] {figures/ltdsc/reduced/zoom/C2S_21d_mean_freeze_segment.csv};
-            \addplot [fill=green, fill opacity=0.2,forget plot] fill between [of=A and B];
-
-			% std dev of 28d C2S
-            \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=3, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}] {figures/ltdsc/reduced/zoom/C2S_28d_mean_freeze_segment.csv};
-            \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=3, col sep=comma,y expr={\thisrowno{1}+\thisrowno{2}}] {figures/ltdsc/reduced/zoom/C2S_28d_mean_freeze_segment.csv};
-            \addplot [fill=blue, fill opacity=0.2,forget plot] fill between [of=A and B];
-
-			% mean values of the 7d C2S
-			\addplot+[no marks, orange] table [each nth point=3, filter discard warning=false, unbounded coords=discard, x index=3, y index=1, col sep=comma] {figures/ltdsc/reduced/zoom/C2S_7d_mean_freeze_segment.csv};
-			\addlegendentry{\qty{7}{\day}};
-			% mean values of the 14d C2S
-			\addplot+[no marks, red] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=3, y index=1, col sep=comma] {figures/ltdsc/reduced/zoom/C2S_14d_mean_freeze_segment.csv};
-			\addlegendentry{\qty{14}{\day}};
-			% mean values of the 21d C2S
-			\addplot+[no marks, green] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=3, y index=1, col sep=comma] {figures/ltdsc/reduced/zoom/C2S_21d_mean_freeze_segment.csv};
-			\addlegendentry{\qty{21}{\day}};
-			% mean values of the 28d C2S
-			\addplot+[no marks, blue] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=3, y index=1, col sep=comma] {figures/ltdsc/reduced/zoom/C2S_28d_mean_freeze_segment.csv};
-			\addlegendentry{\qty{28}{\day}};
-
-            \node[anchor=west, align=left] at (axis cs:2,-0.09) {\ac{C2S}};
-
-			\node[draw=none] (top-2) at (axis cs:1.75,-.11) {};
-			\node[draw=none] (bottom-2) at (axis cs:1.75,-.03) {};
-		\end{axis}
-	  \end{tikzpicture}
-	\end{subfigure}
-    \begin{tikzpicture}[remember picture,overlay]
-        \draw[dashed,grey] (top-1) -- (top-2);
-        \draw[dashed,grey] (bottom-1) -- (bottom-2);
-    \end{tikzpicture}
-
-	\vspace{1\baselineskip}
 
  	\begin{subfigure}{.47\textwidth}
       \begin{tikzpicture}[remember picture]
@@ -703,7 +707,7 @@ It was not possible to measure \ac{C2S} after \qty{1}{\day} of hydration, since 
 				height=6cm,
 				grid=none,
 				xlabel={temperature in \unit{\celsius}},
-				xticklabels={-51.2, -25.3, -12.4, -4.6, -2.0},
+				xticklabels={\num{-51.2}, \num{-25.3}, \num{-12.4}, \num{-4.6}, \num{-2.0}},
 				xtick={2.5,5,10,25,50},
 				ytick=\empty,
 				scaled y ticks=false,
@@ -733,8 +737,9 @@ It was not possible to measure \ac{C2S} after \qty{1}{\day} of hydration, since 
 				xtick={2.5,5,10,25,50},
 				scaled y ticks=false,
 				scaled x ticks=false,
+				clip=false,
             ]
-			\addplot[dotted, thick, samples=2, darkgrey,forget plot] coordinates {(3.19,-.2)(3.19,.2)};
+			\addplot[dotted, thick, samples=2, darkgrey,forget plot] coordinates {(3.19,-.2)(3.19,0.07)};
 			\node[darkgrey, rotate=90, anchor=west] at (axis cs: 2.51,-.105) {\scriptsize <\,\qty{-40}{\celsius}};
 
 			% std dev of 1d C3S
@@ -777,6 +782,8 @@ It was not possible to measure \ac{C2S} after \qty{1}{\day} of hydration, since 
 			\draw[draw=black, densely dotted] (2.75,-.11) rectangle (1.75,-0.03);
 			\node[draw=none] (top-3) at (axis cs:2.75,-.11) {};
 			\node[draw=none] (bottom-3) at (axis cs:2.75,-.03) {};
+
+            \node[anchor=west, align=left] at (.9,-0.25) {\textbf{\ac{C3S}}};
         \end{semilogxaxis}
 	  \end{tikzpicture}
 
@@ -795,7 +802,7 @@ It was not possible to measure \ac{C2S} after \qty{1}{\day} of hydration, since 
 			height=6cm,
 			grid=none,
 			xlabel={temperature in \unit{\celsius}},
-			xticklabels={-73.3, -64.1, -56.9, -51.2, -46.5},
+			xticklabels={\num{-73.3}, \num{-64.1}, \num{-56.9}, \num{-51.2}, \num{-46.5}},
 			xtick={1.75,2.00,2.25,2.50,2.75},
 			ytick=\empty,
 			scaled y ticks=false,
@@ -869,7 +876,7 @@ It was not possible to measure \ac{C2S} after \qty{1}{\day} of hydration, since 
 			\addplot+[no marks, blue] table [x index=3, y index=1, col sep=comma] {figures/ltdsc/reduced/zoom/C3S_28d_mean_freeze_segment.csv};
 			\addlegendentry{\qty{28}{\day}};
 
-            \node[anchor=west, align=left] at (axis cs:2,-0.09) {\ac{C3S}};
+            %\node[anchor=west, align=left] at (axis cs:2,-0.09) {\ac{C3S}};
 
 			\node[draw=none] (top-4) at (axis cs:1.75,-.11) {};
 			\node[draw=none] (bottom-4) at (axis cs:1.75,-.03) {};
@@ -881,21 +888,200 @@ It was not possible to measure \ac{C2S} after \qty{1}{\day} of hydration, since 
         \draw[dashed,grey] (bottom-3) -- (bottom-4);
     \end{tikzpicture}
 
+	\vspace{1\baselineskip}
+
+ 	\begin{subfigure}{.47\textwidth}
+      \begin{tikzpicture}[remember picture]
+        \begin{semilogxaxis}[
+				blue,
+				axis line style={black},
+				xmin=1.5, xmax=60,
+				ymin=-.20, ymax=0,
+				y dir=reverse,
+				width=\linewidth,
+				height=6cm,
+				grid=none,
+				xlabel={temperature in \unit{\celsius}},
+				xticklabels={\num{-51.2}, \num{-25.3}, \num{-12.4}, \num{-4.6}, \num{-2.0}},
+				xtick={2.5,5,10,25,50},
+				ytick=\empty,
+				scaled y ticks=false,
+				scaled x ticks=false,,
+				axis x line*=top
+            ]
+
+        \end{semilogxaxis}
+        \begin{semilogxaxis}[
+				legend style={at={(0.95,.7)},anchor=east},
+                legend cell align={left},
+				xmin=1.5, xmax=60,
+				ymin=-.20, ymax=0.07,
+				y dir=reverse,
+				width=\linewidth,
+				height=6cm,
+				grid=major,
+				xlabel={pore radius $r_\text{P}$ \unit{\nano\meter}},
+				ylabel={heat flow $\dot{Q}$ in \unit{\watt\per\gram}},
+				grid style={line width=.1pt, draw=gray!10},
+				yticklabel style={
+						/pgf/number format/fixed,
+						/pgf/number format/fixed zerofill,
+						/pgf/number format/precision=1
+				},
+				xticklabels={2.5,5,10,25,50},
+				xtick={2.5,5,10,25,50},
+				scaled y ticks=false,
+				scaled x ticks=false,
+				clip=false,
+            ]
+			\addplot[dotted, thick, samples=2, darkgrey,forget plot] coordinates {(3.19,-.2)(3.19,0.07)};
+			\node[darkgrey, rotate=90, anchor=west] at (axis cs: 2.51,-.105) {\scriptsize <\,\qty{-40}{\celsius}};
+
+			% std dev of 7d C2S
+            \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=3, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}] {figures/ltdsc/reduced/C2S_7d_mean_freeze_segment.csv};
+            \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=3, col sep=comma,y expr={\thisrowno{1}+\thisrowno{2}}] {figures/ltdsc/reduced/C2S_7d_mean_freeze_segment.csv};
+            \addplot [fill=orange, fill opacity=0.2,forget plot] fill between [of=A and B];
+
+			% std dev of 14d C2S
+            \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=3, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}] {figures/ltdsc/reduced/C2S_14d_mean_freeze_segment.csv};
+            \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=3, col sep=comma,y expr={\thisrowno{1}+\thisrowno{2}}] {figures/ltdsc/reduced/C2S_14d_mean_freeze_segment.csv};
+            \addplot [fill=red, fill opacity=0.2,forget plot] fill between [of=A and B];
+
+			% std dev of 21d C2S
+            \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=3, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}] {figures/ltdsc/reduced/C2S_21d_mean_freeze_segment.csv};
+            \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=3, col sep=comma,y expr={\thisrowno{1}+\thisrowno{2}}] {figures/ltdsc/reduced/C2S_21d_mean_freeze_segment.csv};
+            \addplot [fill=green, fill opacity=0.2,forget plot] fill between [of=A and B];
+
+			% std dev of 28d C2S
+            \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=3, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}] {figures/ltdsc/reduced/C2S_28d_mean_freeze_segment.csv};
+            \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=3, col sep=comma,y expr={\thisrowno{1}+\thisrowno{2}}] {figures/ltdsc/reduced/C2S_28d_mean_freeze_segment.csv};
+            \addplot [fill=blue, fill opacity=0.2,forget plot] fill between [of=A and B];
+
+
+            \addplot [ no marks, orange] table [x index=3, y index=1, col sep=comma] {figures/ltdsc/reduced/C2S_7d_mean_freeze_segment.csv};
+            %\addlegendentry{\ac{C2S}, \qty{7}{\day}};
+            \addplot [ no marks, red] table [x index=3, y index=1, col sep=comma] {figures/ltdsc/reduced/C2S_14d_mean_freeze_segment.csv};
+            %\addlegendentry{\ac{C2S}, \qty{14}{\day}};
+            \addplot [ no marks, green] table [x index=3, y index=1, col sep=comma] {figures/ltdsc/reduced/C2S_21d_mean_freeze_segment.csv};
+            %\addlegendentry{\ac{C2S}, \qty{21}{\day}};
+            \addplot [ no marks, blue] table [x index=3, y index=1, col sep=comma] {figures/ltdsc/reduced/C2S_28d_mean_freeze_segment.csv};
+            %\addlegendentry{\ac{C2S}, \qty{28}{\day}};
+
+			\draw[draw=black, densely dotted] (2.75,-.11) rectangle (1.75,-0.03);
+			\node[draw=none] (top-1) at (axis cs:2.75,-.11) {};
+			\node[draw=none] (bottom-1) at (axis cs:2.75,-.03) {};
+			
+            \node[anchor=west, align=left] at (.9,-0.25) {\textbf{\ac{C2S}}};
+
+        \end{semilogxaxis}
+	  \end{tikzpicture}
+
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{.47\textwidth}
+
+	  \begin{tikzpicture}[remember picture]
+        \begin{axis}[
+			blue,
+			axis line style={black},
+			xmin=1.75, xmax=2.75,
+			ymin=-.11, ymax=-0.03,
+			y dir=reverse,
+			width=.9\linewidth,
+			height=6cm,
+			grid=none,
+			xlabel={temperature in \unit{\celsius}},
+			xticklabels={\num{-73.3}, \num{-64.1}, \num{-56.9}, \num{-51.2}, \num{-46.5}},
+			xtick={1.75,2.00,2.25,2.50,2.75},
+			ytick=\empty,
+			scaled y ticks=false,
+			scaled x ticks=false,,
+			axis x line*=top
+		]
+
+		\end{axis}
+		\begin{axis}[
+				legend style={at={(0.97,.97)},anchor=north east},
+				legend cell align={left},
+				xmin=1.75, xmax=2.75,
+				ymin=-.11, ymax=-0.03,
+				y dir=reverse,
+				width=.9\linewidth,
+				height=6cm,
+				grid=major,
+				xlabel={pore radius $r_\text{P}$ \unit{\nano\meter}},
+				ylabel={heat flow $\dot{Q}$ in \unit{\watt\per\gram}},
+				grid style={line width=.1pt, draw=gray!10},
+				xticklabels={1.75,2.00,2.25,2.50,2.75},
+				xtick={1.75,2.00,2.25,2.50,2.75},
+				yticklabel style={
+						/pgf/number format/fixed,
+						/pgf/number format/precision=2,
+						/pgf/number format/fixed zerofill,
+				},
+				scaled y ticks=false,
+				scaled x ticks=false,
+				yticklabel pos=right,
+			]
+			% std dev of 7d C2S
+            \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=3, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}] {figures/ltdsc/reduced/zoom/C2S_7d_mean_freeze_segment.csv};
+            \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=3, col sep=comma,y expr={\thisrowno{1}+\thisrowno{2}}] {figures/ltdsc/reduced/zoom/C2S_7d_mean_freeze_segment.csv};
+            \addplot [fill=orange, fill opacity=0.2,forget plot] fill between [of=A and B];
+
+			% std dev of 14d C2S
+            \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=3, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}] {figures/ltdsc/reduced/zoom/C2S_14d_mean_freeze_segment.csv};
+            \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=3, col sep=comma,y expr={\thisrowno{1}+\thisrowno{2}}] {figures/ltdsc/reduced/zoom/C2S_14d_mean_freeze_segment.csv};
+            \addplot [fill=red, fill opacity=0.2,forget plot] fill between [of=A and B];
+
+			% std dev of 21d C2S
+            \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=3, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}] {figures/ltdsc/reduced/zoom/C2S_21d_mean_freeze_segment.csv};
+            \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=3, col sep=comma,y expr={\thisrowno{1}+\thisrowno{2}}] {figures/ltdsc/reduced/zoom/C2S_21d_mean_freeze_segment.csv};
+            \addplot [fill=green, fill opacity=0.2,forget plot] fill between [of=A and B];
+
+			% std dev of 28d C2S
+            \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=3, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}] {figures/ltdsc/reduced/zoom/C2S_28d_mean_freeze_segment.csv};
+            \addplot+ [draw=none, no markers, name path=B,forget plot] table [x index=3, col sep=comma,y expr={\thisrowno{1}+\thisrowno{2}}] {figures/ltdsc/reduced/zoom/C2S_28d_mean_freeze_segment.csv};
+            \addplot [fill=blue, fill opacity=0.2,forget plot] fill between [of=A and B];
+
+			% mean values of the 7d C2S
+			\addplot+[no marks, orange] table [each nth point=3, filter discard warning=false, unbounded coords=discard, x index=3, y index=1, col sep=comma] {figures/ltdsc/reduced/zoom/C2S_7d_mean_freeze_segment.csv};
+			\addlegendentry{\qty{7}{\day}};
+			% mean values of the 14d C2S
+			\addplot+[no marks, red] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=3, y index=1, col sep=comma] {figures/ltdsc/reduced/zoom/C2S_14d_mean_freeze_segment.csv};
+			\addlegendentry{\qty{14}{\day}};
+			% mean values of the 21d C2S
+			\addplot+[no marks, green] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=3, y index=1, col sep=comma] {figures/ltdsc/reduced/zoom/C2S_21d_mean_freeze_segment.csv};
+			\addlegendentry{\qty{21}{\day}};
+			% mean values of the 28d C2S
+			\addplot+[no marks, blue] table [each nth point=3, filter discard warning=false, unbounded coords=discard,x index=3, y index=1, col sep=comma] {figures/ltdsc/reduced/zoom/C2S_28d_mean_freeze_segment.csv};
+			\addlegendentry{\qty{28}{\day}};
+
+
+			\node[draw=none] (top-2) at (axis cs:1.75,-.11) {};
+			\node[draw=none] (bottom-2) at (axis cs:1.75,-.03) {};
+		\end{axis}
+	  \end{tikzpicture}
+	\end{subfigure}
+    \begin{tikzpicture}[remember picture,overlay]
+        \draw[dashed,grey] (top-1) -- (top-2);
+        \draw[dashed,grey] (bottom-1) -- (bottom-2);
+    \end{tikzpicture}
+
     \caption{
 		\ac{LTDSC} measurements (mean of three measurements) for the second freezing pass of \ac{C2S} (top) and \ac{C3S} (bottom) from \qtyrange{7}{28}{\day} of hydration.
 		Every specimen age was measured using three specimens.
-		On the left, the full measurement is plotted (pore radius and temperature is logarithmic).
-		On the right is a magnified section, highlighting the data correlating to the gel pores.
+		On the left-hand side, the full measurement is plotted (pore radius and temperature is logarithmic).
+		On the right-hand side is a magnified section (linear plot), highlighting the data correlating to the gel pores.
 		Note that pore sizes below \qty{3.19}{\nano\meter} (<\,\qty{-40}{\celsius}) are undefined as noted in \zcref{eq:brun_freeze}.
 	}
-    \label{fig:ltdsc_result_c2s_freeze}
+    \label{fig:ltdsc_result_freeze}
 \end{figure}
 
-The graph on the right is a magnified section of the left graph, showing the data correlating to the gel pores (\num{2.00} to \qty{2.25}{\nano\meter} pore radius according to \zcref{eq:brun_freeze}).
+The graph on the right is a magnified section of the left graph, showing the peaks correlating to the gel pores.
+Applying \zcref{eq:brun_freeze}, a pore radius of \qtyrange{2.00}{2.25}{\nano\meter} can be calculated.
+However, according to \textcite{brun.1977} this equation is not valid for temperatures below \qty{-40}{\celsius}.
 The figure shows that the heat flow signal of the gel pores is increasing with the age of the specimen, which indicates an increase in the gel pore volume with increasing specimen age.
 
-\ac{C3S} was measured from \num{1} to \qty{28}{\day} of hydration.
-The \ac{LTDSC} measurements from the second freezing pass (P2) are plotted in \zcref{fig:ltdsc_result_c2s_freeze} (bottom).
 
 % \begin{figure}[!htb]
 %     \centering
@@ -1104,14 +1290,15 @@ However, they have a lower signal response in the temperature range correspondin
 This indicates a lower gel pore volume for \ac{C3S} compared to \ac{C2S}.
 Furthermore, the peaks are slightly shifted to smaller pore radii indicating smaller gel pores.
 
-However, the freezing curve can't be used to calculate the volume of the gel pores.
-In order to calculate the ice mass of the gel pores and thus also their volume, the heat flow signal of the two melting curves of every experiment was integrated over the measured temperature ranges and subtracted from each other as shown in \zcref{eq:ltdsc_ice, eq:ltdsc_ice2}.
+However, the freezing curve cannot be used to determine the volume of the gel pores.
+In order to calculate the ice mass within the gel pores and thus also their volume, the heat flow signal of the two melting curves of every experiment was integrated over the measured temperature ranges and subtracted from each other as shown in \zcref{eq:ltdsc_ice, eq:ltdsc_ice2}.
 In order to do that, a base line correction was applied to the raw data.
 \zcref{fig:ltdsc_result_c2s_melt} illustrates this process for the results of \qty{28}{\day} hydrated \ac{C2S}.
 %{\color{red}The detailed procedure is published on github \cite{kleiner.2025} %\url{https://github.com/kleinerELM/Kalorimeterauswertung}
 %}
 
-The raw data are plotted as dashed lines, while the corrected data are plotted as solid lines.
+The raw data are plotted as dashed lines, while the baseline corrected data are plotted as solid lines.
+The baseline functions $\dot{Q}_\text{B, P1}(T)$ and $\dot{Q}_\text{B, P2}(T)$ are plotted in the graph.
 The areas under the solid curves are marked in red and yellow.
 The red area represents the gel pore volume, while the yellow area represents the capillary pore volume.
 
@@ -1129,7 +1316,7 @@ The red area represents the gel pore volume, while the yellow area represents th
 				grid=major,
 				xlabel={temperature $\vartheta$ in \unit{\celsius}},
 				ylabel={heat flow $\dot{Q}$ in \unit{\watt\per\gram}},
-				yticklabels={-60, -50,...,10},
+				xtick={-60, -50,...,10},
 				grid style={line width=.1pt, draw=gray!10},
 				yticklabel style={
 						/pgf/number format/fixed,
@@ -1152,10 +1339,13 @@ The red area represents the gel pore volume, while the yellow area represents th
                 (9, 0) (10,0) (10, 0.6) (9,0.6) (9,0)
             };
 
-            \node[anchor=west, align=left, font=\tiny]
-                at (axis cs:-50,0.225) {
-					$\dot{Q}_\text{B, P1}(T) = 0.00091x + 0.04939$\\
-					$\dot{Q}_\text{B, P2}(T) = 0.00073x + 0.04064$};
+            \node[anchor=west, align=left, font=\footnotesize]
+                at (axis cs:-53,0.225) {
+					$\dot{Q}_\text{B, P1}(T) = 0.00091T + 0.04939$\\
+					$\dot{Q}_\text{B, P2}(T) = 0.00073T + 0.04064$};
+
+            \node[anchor=west, align=left] at (axis cs:-4,0.5) {A};
+            \node[anchor=west, align=left] at (axis cs:3.5,0.55) {B};
 
             \addplot [ no marks, green, dashed] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=0, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_28d-1_melt_segment_8.csv};
             \addlegendentry{P1, raw data};
@@ -1170,10 +1360,10 @@ The red area represents the gel pore volume, while the yellow area represents th
 
 
             \addplot [thick, no marks, green] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=0, y index=2, col sep=comma] {figures/ltdsc/ExpDat_C2S_28d-1_melt_segment_8.csv};
-            \addlegendentry{P1, corrected};
+            \addlegendentry{P1, baseline corrected};
 
             \addplot [thick, no marks, blue] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=0, y index=2, col sep=comma] {figures/ltdsc/ExpDat_C2S_28d-1_melt_segment_16.csv};
-            \addlegendentry{P2, corrected};
+            \addlegendentry{P2, baseline corrected};
 
         \end{axis}
 	\end{tikzpicture}
@@ -1181,17 +1371,17 @@ The red area represents the gel pore volume, while the yellow area represents th
     \caption{
 		\ac{LTDSC} curves for the first and second melting pass of \qty{28}{\day} hydrated \ac{C2S}.
 		The red area correlate to the capillary porosity, while the yellow area correlates to the gel porosity.
-		The marked areas between \qtyrange{-57}{-56}{\celsius} (P2) or \qtyrange{-21.5}{-20.5}{\celsius} (P1) and \qtyrange{9}{10}{\celsius} (P1 and P2) determine the value range used for the linear baseline regression.
+		The value range used for the linear baseline regression is marked red between \qtyrange{-57}{-56}{\celsius} (P2) or \qtyrange{-21.5}{-20.5}{\celsius} (P1) and \qtyrange{9}{10}{\celsius} (P1 and P2) determine .
 	}
     \label{fig:ltdsc_result_c2s_melt}
 \end{figure}
 
 
 
-The melting curve shows two distinctive peaks, one at \qty{0}{\celsius} and one at \qty{2}{\celsius}.
+The melting curve shows two distinctive peaks, one at \qty{0}{\celsius} (A) and one at \qty{2}{\celsius} (B).
 This indicates, that the heating rate of \qty{2}{\kelvin\per\minute} was higher than the inertia of the melting process, as the ice should melt at or before \qty{0}{\celsius}, but is delayed due to the fast temperature change (\qty{2}{\kelvin\per\minute}).
 
-Therefore, an experiment comparing a slower heating rate (\qty{0.5}{\kelvin\per\minute}) was carried out (\zcref{fig:ltdsc_result_heating_rate_a}).
+Therefore, an experiment comparing with a slower heating rate (\qty{0.5}{\kelvin\per\minute}) was carried out (\zcref{fig:ltdsc_result_heating_rate_a}).
 This results in a shift of the melting peak in the direction of \qty{0}{\celsius} and a seemingly smaller heat output.
 However, difference in peak height is caused by a change in the measuring interval.
 To mitigate this, the dashed curve indicates the heat flow $\dot{Q}$ of the \qty{0.5}{\kelvin\per\minute} heat rate, corrected for the interval difference . %TODO: ist das legitim?
@@ -1241,37 +1431,21 @@ To mitigate this, the dashed curve indicates the heat flow $\dot{Q}$ of the \qty
 	\hfill
 	\begin{subfigure}{.49\textwidth}
 
-	  \begin{tikzpicture}[
-		% precise pin/.style args={#1:#2}{
-		% 	pin={[
-		% 		inner sep=0pt,
-		% 		label={[
-		% 			append after command={
-		% 				node [
-		% 					inner sep=0pt,
-		% 					at=(\tikzlastnode.#1),
-		% 					anchor=#1+180
-		% 				] {#2}
-		% 			}
-		% 		]center:{}}
-		% 	]#1:{}}
-		% }
-	  ]
+	  \begin{tikzpicture}[]
 		\begin{axis}[
 				legend style={at={(0.05,.95)},anchor=north west,font=\footnotesize},
 				legend cell align={left},
 				xmin=-50, xmax=10,
-				ymin=-.01, ymax=0.18,
+				ymin=-10, ymax=180,
 				width=\linewidth,
 				height=7cm,
 				grid=major,
 				xlabel={temperature $\vartheta$ in \unit{\celsius}},
-				ylabel={cumulative ice volume in \unit{\milli\liter\per\gram}},
+				ylabel={cum. ice volume in \unit{\micro\liter\per\gram}},
 				grid style={line width=.1pt, draw=gray!10},
 				yticklabel style={
-						/pgf/number format/fixed,
-						/pgf/number format/fixed zerofill,
-						/pgf/number format/precision=2
+					/pgf/number format/fixed,
+					/pgf/number format/precision=0 
 				},
 				scaled y ticks=false,
 				scaled x ticks=false,
@@ -1279,76 +1453,30 @@ To mitigate this, the dashed curve indicates the heat flow $\dot{Q}$ of the \qty
 			]
 			\addplot[samples=2, darkgrey,forget plot] coordinates {(15,0)(-60,0)};
 
-            % \addplot [thick, no marks, blue] table [each nth point=10, filter discard warning=false, unbounded coords=discard,x index=0, y index=2, col sep=comma] {figures/ltdsc/ExpDat_M28n2-28d_ice_man_9.csv};
-            % \addlegendentry{M: \qty{0.5}{\kelvin\per\minute}};
-
-            % \addplot [thick, no marks, red] table [each nth point=10, filter discard warning=false, unbounded coords=discard,x index=0, y index=2, col sep=comma] {figures/ltdsc/ExpDat_M28n2-28d_ice_man_18.csv};
-            % \addlegendentry{M. \qty{2.0}{\kelvin\per\minute}};
-
-            \addplot [no marks, cyan] table [each nth point=10, filter discard warning=false, unbounded coords=discard,x index=0, y index=4, col sep=comma] {figures/ltdsc/ExpDat_M28n2-28d_ice_9.csv};
+            \addplot [no marks, cyan] table [each nth point=10, filter discard warning=false, unbounded coords=discard,x index=0, y expr={\thisrowno{4}*1000}, col sep=comma] {figures/ltdsc/ExpDat_M28n2-28d_ice_9.csv};
             \addlegendentry{\qty{0.5}{\kelvin\per\minute}};
 
-            \addplot [no marks, orange] table [each nth point=10, filter discard warning=false, unbounded coords=discard,x index=0, y index=4, col sep=comma] {figures/ltdsc/ExpDat_M28n2-28d_ice_18.csv};
+            \addplot [no marks, orange] table [each nth point=10, filter discard warning=false, unbounded coords=discard,x index=0,y expr={\thisrowno{4}*1000}, col sep=comma] {figures/ltdsc/ExpDat_M28n2-28d_ice_18.csv};
             \addlegendentry{\qty{2.0}{\kelvin\per\minute}};
 
-
-			% \draw[draw=black, densely dotted] (-49,0.0015) rectangle (-37,-.0005);
-			% \coordinate (pt) at (axis cs:-30.9,0.06);
-
 		\end{axis}
-		% https://tex.stackexchange.com/questions/42585/plot-within-a-plot-zoom-into-a-plot-so-that-the-magnified-part-is-framed-by-axi
-		% https://tex.stackexchange.com/questions/49632/tikz-node-pin-angle-in-2d-plot
-	% 	\node[] at (pt) {%
-	% 	\begin{tikzpicture}[every pin/.style={fill=white}]
-	% 		\begin{axis}[
-	% 				font=\tiny,
-	% 				xmin=-49, xmax=-37,
-	% 				ymin=-.0005, ymax=0.0015,
-	% 				grid=major,
-	% 				grid style={line width=.1pt, draw=gray!10},
-	% 				yticklabel style={
-	% 						/pgf/number format/fixed,
-	% 						/pgf/number format/fixed zerofill,
-	% 						/pgf/number format/precision=3
-	% 				},
-	% 				scaled y ticks=false,
-	% 				scaled x ticks=false,
-	% 				yticklabel pos=right,
-	% 				width=.52\linewidth,
-	% 				height=3.4cm,
-	% 				xtick={-48,-43,-38},
-	% 				ytick={0,0.0005},
-	% 			]
-	% 			\addplot[samples=2, darkgrey,forget plot] coordinates {(15,0)(-60,0)};
-
-	% 			% \addplot [restrict x to domain=-47:-27,thick, no marks, blue] table [each nth point=5, filter discard warning=false, unbounded coords=discard,x index=0, y index=2, col sep=comma] {figures/ltdsc/ExpDat_M28n2-28d_ice_man_9.csv};
-
-	% 			% \addplot [restrict x to domain=-47:-27,thick, no marks, red] table [each nth point=5, filter discard warning=false, unbounded coords=discard,x index=0, y index=2, col sep=comma] {figures/ltdsc/ExpDat_M28n2-28d_ice_man_18.csv};
-
-	% 			\addplot [restrict x to domain=-47:-27,no marks, cyan] table [each nth point=5, filter discard warning=false, unbounded coords=discard,x index=0, y index=2, col sep=comma] {figures/ltdsc/ExpDat_M28n2-28d_ice_9.csv};
-
-	% 			\addplot [restrict x to domain=-47:-27,no marks, orange] table [each nth point=5, filter discard warning=false, unbounded coords=discard,x index=0, y index=2, col sep=comma] {figures/ltdsc/ExpDat_M28n2-28d_ice_18.csv};
-
-	% 		\end{axis}
-	% 	\end{tikzpicture}
-	% };
 	  \end{tikzpicture}
 	  \caption{Cumulative ice volume}
 	  \label{fig:ltdsc_result_heating_rate_b}
 
 	\end{subfigure}
 
-    \caption{\ac{LTDSC} curves and the cumulative ice volume for a slow (\qty{0.5}{\kelvin\per\minute}) and fast (\qty{2}{\kelvin\per\minute}) heating curves from \qtyrange{-50}{15}{\celsius} of \qty{28}{\day} hydrated cement (\ac{wb} = \num{0.5}).}
+    \caption{\ac{LTDSC} curves and the cumulative ice volume per specimen weight for a slow (\qty{0.5}{\kelvin\per\minute}) and fast (\qty{2}{\kelvin\per\minute}) heating curves from \qtyrange{-50}{15}{\celsius} of \qty{28}{\day} hydrated cement (\ac{wb} = \num{0.5}).}
     \label{fig:ltdsc_result_heating_rate}
 \end{figure}
 
-The calculated ice mass should not be affected by the heating rate.
-A simplified approach to calculate the ice volume as used by \textcite{mueller.2021,unbehau.2025} gives an ice volume of \num{168.2} (\qty{0.5}{\kelvin\per\minute}) and \qty{154.8}{\micro\liter\per\gram} (\qty{2}{\kelvin\per\minute}) respectively.
+The ice mass should not be affected by the heating rate.
+The simplified approach to calculate the ice volume as used by \textcite{mueller.2021,unbehau.2025} (\zcref{eq:ltdsc_ice_integral}) gives an ice volume of \qty{168.2}{\micro\liter\per\gram} (\qty{0.5}{\kelvin\per\minute}) and \qty{154.8}{\micro\liter\per\gram} (\qty{2}{\kelvin\per\minute}), respectively.
 However, the calculation of the ice mass is heavily influenced by the way, this baseline of the heat flow $Q_\text{B}$ is determined.
 Since the temperature ranges to process the baseline correction are selected manually, results from this approach may differ depending on the person processing the data.
 \zcref{fig:basle_line_ice_vol} illustrates the influence on the calculated ice volume, which can differ $\pm$\qty{10}{\micro\liter\per\gram} due to different selected temperature ranges to obtain the baseline function.
 Therefore, the temperature ranges used for this correction were held constant for all further calculations.
-This should still enable comparability between different measurements, run with the same heating rates.
+This keeps different measurements, run with the same heating rate, comparable.
 
 % The cumulative ice mass calculated using both methods is shown in \zcref{fig:ltdsc_result_heating_rate_b}.
 % As can be seen in the zoomed in section, the manual approach gives more plausible curves, starting at roughly \qty{-47}{\celsius}, while the automatic approach seems to loose ice mass until \num{-38} ore \qty{-34}{\celsius}.
@@ -1359,7 +1487,7 @@ While a slower heating rate causes improved results, the time required for a sin
 Since the specimens are still wet and still hydrating, the repeated measurements had to be carried out in a timely manner.
 Therefore, it has been decided to use a faster heating rate of \qty{2}{\kelvin\per\minute}. % and the automatic approach, which should cause a comparable error within the same measurement regime.
 
-\begin{figure}[!htb]
+\begin{figure}[htb]
     \centering
 	%\tikzsetnextfilename{ltdsc_result_C2S_melt_bar} % Gibt den Dateinamen der externen Grafik vor
 	\begin{subfigure}[t]{.49\textwidth}
@@ -1372,7 +1500,7 @@ Therefore, it has been decided to use a faster heating rate of \qty{2}{\kelvin\p
 			ymin=0, ymax=370,
 			bar width=12pt,
 			ymajorgrids = true,
-			ylabel = {ice volume in \unit{\micro\liter\per\gram}},
+			ylabel = {cum. ice volume in \unit{\micro\liter\per\gram}},
 			xticklabels={
 				\qty{7}{\day},
 				\qty{14}{\day},
@@ -1498,18 +1626,73 @@ Therefore, it has been decided to use a faster heating rate of \qty{2}{\kelvin\p
 	\end{subfigure}
 
     \caption{
-		Ice volume for the two pore types and total pore amount of \ac{C3S} and \ac{C3S} from 1 to \qty{28}{\day} of hydration.
+		Ice volume per specimen weight for gel and capillary pores of \ac{C3S} and \ac{C3S} from \qtyrange{1}{28}{\day} of hydration.
 		The data were calculated from three \ac{LTDSC}-measurements for each value.
 		The baseline correction was done using temperature range from a lower range of \qtyrange{-21.5}{-20.5}{\celsius} (capillary pores) and \qtyrange{-57}{-56}{\celsius} (gel pores) and \qtyrange{9}{10}{\celsius} in the upper range.
 	}
 	\label{fig:ltdsc_result_melt_bar}
 \end{figure}
 
+
+\begin{figure}[htb]
+    \centering
+
+	\begin{tikzpicture}
+		\begin{axis}[
+			ylabel={gel pores (\unit{\micro\liter\per\gram})},
+			xlabel={capillary pores (\unit{\micro\liter\per\gram})},
+			ymin=0,
+			xmin=100,
+			width=.8\textwidth,
+			height=7cm,
+			grid=major,
+			enlarge x limits=0.15,
+			enlarge y limits=0.15,
+			colorbar, 
+			colorbar style={
+				ylabel=hydration time in \unit{\day}
+			},
+			colormap/viridis,
+			point meta min=1,
+			point meta max=28,
+		]
+		
+		% --- PLOT 1: C3S (Kreise) ---
+		\addplot [
+			scatter, only marks, mark=*, mark size=4pt,
+			scatter/use mapped color={fill=mapped color, stroke=mapped color}
+		] table [
+			y=pores_a_mean, x=pores_b_mean, col sep=comma,
+			point meta=\thisrow{a}
+		] {figures/ltdsc/C3S_ice_vol_dev.csv};
+		\addlegendentry{\ac{C3S}}
+
+		% --- PLOT 2: C2S (Quadrate) ---
+		\addplot [
+			scatter, only marks, mark=square*, mark size=4pt, % Anderer Marker
+			scatter/use mapped color={fill=mapped color, stroke=mapped color}
+		] table [
+			y=pores_a_mean, x=pores_b_mean, col sep=comma,
+			point meta=\thisrow{a}
+		] {figures/ltdsc/C2S_ice_vol_dev.csv};
+		\addlegendentry{\ac{C2S}}
+			
+		\end{axis}
+	\end{tikzpicture}
+
+    \caption{
+		Correlation between gel and capillary pore volume in \ac{C3S} and \ac{C2S} up to a hydration time of \qty{28}{\day}.
+	}
+	\label{fig:ltdsc_result_melt_bar}
+\end{figure}
+
+
+
 As shown in \zcref{fig:ltdsc_result_C2S_melt_bar}, for \ac{C2S} the ice volume of the gel pores was calculated to be \qty{1.2}{\micro\liter\per\gram} at \qty{7}{\day} up to \qty{18.3}{\micro\liter\per\gram} after \qty{28}{\day} of hydration, while the capillary pores were reduced from \num{290} to \qty{233}{\micro\liter\per\gram} in the same time.
 In contrast, \ac{C3S} has a higher ice volume accountable to the gel pores (\zcref{fig:ltdsc_result_C3S_melt_bar}).
 The gel pore ice volume was increasing from from \qty{6.6}{\micro\liter\per\gram} at an age of \qty{1}{\day} to \qty{30.3}{\micro\liter\per\gram} after \qty{28}{\day} of hydration.
 In comparison to \ac{C2S}, less than half of the ice volume corresponding to capillary pores was detected in \ac{C3S} is after \qty{7}{\day} of hydration.
-The capillary pore space was reduced from \qty{208}{\micro\liter\per\gram} (\qty{1}{\day}) to \qty{109}{\micro\liter\per\gram} (\qty{28}{\day}).
+The capillary pore space was reduced by approximatly  \qty{50}{\percent} from \qty{208}{\micro\liter\per\gram} (\qty{1}{\day}) to \qty{109}{\micro\liter\per\gram} (\qty{28}{\day}).
 Furthermore, a significant slow down of gel pore development and reduction in capillary pores can be seen in \ac{C3S} after \qty{14}{\day} of hydration.
 
 As expected from the freezing curves, the overall ice volume and the ice volume correlated to the gel pores is lower for \ac{C3S} compared to \ac{C2S}.
@@ -1527,11 +1710,10 @@ These observations fit well to the microstructural development visible in \ac{SE
 \end{itemize}
 
 \FloatBarrier
-\subsection{\acs{MIP}}
+\subsection{\Acl*{MIP} measurements}
 
 \zcref{fig:mip_c2s, fig:mip_c3s} illustrate the \ac{MIP} results for \ac{C2S} and \ac{C3S} after up to \qty{28}{\day} of hydration in comparison to the second freezing curves of the \ac{LTDSC}-measurements.
-For these diagrams, the freeze curves were base line corrected.
-This was done by calculating the linear regression of the data between \numrange{-55}{-50} and \qtyrange{-27}{-23}{\celsius} and subtracting this regression function from the mean data shown in \zcref{fig:ltdsc_result_c2s_melt}.
+For these diagrams, the freeze curves were baseline corrected, which was performed by by calculating the linear regression of the data between \numrange{-55}{-50} and \qtyrange{-27}{-23}{\celsius} and subtracting this regression function from the mean data as shown in \zcref{fig:ltdsc_result_c2s_melt}.
 
 \begin{figure}[!htb]
     \centering
@@ -1554,7 +1736,7 @@ This was done by calculating the linear regression of the data between \numrange
 			height=6cm,
 			grid=major,
 			xlabel={temperature in \unit{\celsius}},
-			xticklabels={-51.2, -25.3, -12.4, -4.6, -2.0},
+			xticklabels={\num{-51.2}, \num{-25.3}, \num{-12.4}, \num{-4.6}, \num{-2.0}},
 			xtick={2.5,5,10,25,50},
 			ylabel={heat flow $\dot{Q}$ in \unit{\watt\per\gram}},
 			scaled y ticks=false,
@@ -1603,7 +1785,7 @@ This was done by calculating the linear regression of the data between \numrange
 			width=.85\linewidth,
 			height=6cm,
 			grid=none,
-			xlabel={pore radius $r_\text{P}$ \unit{\nano\meter}},
+			xlabel={\color{black} pore radius $r_\text{P}$ in \unit{\nano\meter}},
 			ylabel style={align=center},
 			ylabel={$dV/dlogR$\\pore volume in \unit{\milli\liter\per\gram}},
 			grid style={line width=.1pt, draw=gray!10},
@@ -1661,7 +1843,7 @@ This was done by calculating the linear regression of the data between \numrange
 				height=6cm,
 				grid=major,
 				xlabel={temperature in \unit{\celsius}},
-				xticklabels={-51.2, -25.3, -12.4, -4.6, -2.0},
+				xticklabels={\num{-51.2}, \num{-25.3}, \num{-12.4}, \num{-4.6}, \num{-2.0}},
 				xtick={2.5,5,10,25,50},
 				ylabel={heat flow $\dot{Q}$ in \unit{\watt\per\gram}},
 				scaled y ticks=false,
@@ -1753,7 +1935,7 @@ This was done by calculating the linear regression of the data between \numrange
     \label{fig:mip_c3s}
 \end{figure}
 
-The \ac{LTDSC} curves above \qty{-12.4}{\celsius} / \qty{10}{\nano\meter} are not reliable due to system inertia.
+The \ac{LTDSC} curves above \qty{-12.4}{\celsius} ($r_P$=\qty{10}{\nano\meter}) are not reliable due to system inertia.
 This is because the rapid freezing rate shifts the capillary pore space and larger pores become indistinguishable.
 However, \ac{MIP} is considered fairly reliable above \qty{10}{\nano\meter}, while smaller pores are hardly detectable.
 Therefore, both methods cover different pore space ranges.
@@ -1762,18 +1944,34 @@ Therefore, both methods cover different pore space ranges.
 The \ac{MIP} curves show a significant reduction in the pore size distribution for both materials from the first reliable measurable age (\ac{C2S}: \qty{14}{\day}; \ac{C3S}: \qty{7}{\day}) up to \qty{28}{\day} of hydration.
 As already indicated by \ac{LTDSC}, the capillary pore space of \ac{C2S} is significantly higher than that of \ac{C3S} (not the scale difference of both diagrams).
 
-%\color{black}
+\section{Discussion}
+\color{red}
+TODO: compare results of the methods
+\color{black}
 
-\section{Particle distance measurement using cryo-\acs*{FIB}-\acs*{SEM}}
+\section{Particle distance measurement}
 \label{sec:cryo_fib_sem}
 
-High-pressure frozen samples of cement pastes were prepared according to \zcref{sec:cryofibnt}.
-The freezing curve of the \ac{C3S} paste is shown in \zcref{fig:cryo-fib-freeze-curve}.
+To determine the particle distance in fresh cement pastes using a \ac{SEM}, the paste has to be frozen.
+The specimen has to be flash frozen at high pressures to avoid artefacts due to the formation of ice crystals.
+Therefore, the high-pressure frozen samples of cement pastes were prepared according to \zcref{sec:cryofibnt}.
+The pastes were cooled down to \qty{-150}{\celsius} within \qty{0.8}{\second} (compare \zcref{fig:cryo-fib-freeze-curve}).
 The frozen sample was coated with \ce{Pt} to prevent charging effects during the \ac{SEM} imaging.
 Similar to the \ac{FIBnt} method (\zcref{sec:lit_fib}), a trench through the whole specimen thickness was cut to obtain a fresh vertical cross-section.
 Due to the low temperature, the \ce{Pt} layer thickness exceeded the intended thickness of \qty{.5}{\micro\meter} significantly (see \zcref{fig:cryo_site}).
+
+\begin{figure}[H]
+    \centering
+	\includegraphics[width=.8\textwidth]{particle-dist/cryo_site.pdf}
+
+    \caption{
+		Overview over the \ac{FIBnt} site of the pressure-frozen \ac{C3S} paste. A: \ce{Pt} deposition, B: \ce{C3S} paste, C: brass sample holder.
+	}
+    \label{fig:cryo_site}
+\end{figure}
+
 Also, the redepositioning of the removed material during the cutting process was much more pronounced compared to the \ac{FIBnt} at room temperature due to the low temperature.
-\ac{SEM}-\ac{BSE} images as shown in \zcref{fig:cryo-fib} were made from the cross-section.
+\ac{SEM}-\ac{BSE} images as shown in \zcref{fig:cryo-fib} were taken from the cross-section.
 
 \begin{figure}[htb!]
     \centering
@@ -1798,12 +1996,14 @@ A comparison of the \ac{PSD} measured using laser diffraction and the image base
 As expected from the small and therefore not representative image area and sectioning effects (see \zcref{subsec:sectioning-effect}), the \ac{PSD} of the \ac{FIB}-\ac{SEM} image is shifted to smaller particle sizes.
 To evaluate the distance between the particles within \zcref{fig:cryo-fib}, the image evaluation method used in \zcref{chap:hydrate-rim} was adapted.
 Instead of measuring the distance between the particle surface and the hydrate layer surface, the distance to the next particles was measured.
+Similar to the \ac{HLT} measurement, the centre of gravity of the particle was used.
+The image of the centered particle was the converted to polar coordinates and the distance to the next particle was determined.
 
 %\begin{wrapfigure}{R}{0.6\linewidth}
 \begin{figure}[htb]
     %\vspace{-\intextsep}
     \centering
-	\includegraphics[width=.5\linewidth, trim={.8cm 0.3cm 0.5cm 0.5cm}, clip]{particle-dist/dis_histogram.pdf}
+	\includegraphics[width=.65\linewidth, trim={.8cm 0.3cm 0.5cm 0.5cm}, clip]{particle-dist/dis_histogram.pdf}
 
     \caption{
 		Particle distance to particle diameter distribution of \qty{20}{\min} old \ac{C3S} paste (\ac{wb}=\num{0.5}).
@@ -1904,8 +2104,8 @@ This fits to the subjective appearance of the particle distribution.
 				},
 				legend columns = 1,
 				ymajorticks=false,
-				xlabel={particle distance \unit{\micro\meter}},
-				ylabel={normed intensity},
+				xlabel={particle distance in \unit{\micro\meter}},
+				ylabel={normalised intensity},
 				grid=both,
 				grid style={line width=.1pt, draw=gray!10},
 				legend cell align={left},
@@ -1918,7 +2118,7 @@ This fits to the subjective appearance of the particle distribution.
 				\addlegendentry{ \ac{LC3}+\ac{PUS}};
 
 				\draw[->, thick, black] (axis cs:1.2,0.4) -- ++(-0.1,-0.1)
-				node[anchor=south west, font=\footnotesize, yshift=10pt] {\begin{tabular}{@{}l@{}}higher distances \\ are more prevalent \\ in untreated specimen
+				node[anchor=south west, font=\footnotesize, yshift=10pt] {\begin{tabular}{@{}l@{}}larger distances \\ are more prevalent \\ in untreated specimen
 				\end{tabular}};
 			\end{axis}
 		\end{tikzpicture}
@@ -1942,8 +2142,8 @@ This fits to the subjective appearance of the particle distribution.
 				},
 				legend columns = 1,
 				ymajorticks=false,
-				xlabel={particle distance \unit{\micro\meter}},
-				ylabel={normed intensity},
+				xlabel={particle distance in \unit{\micro\meter}},
+				ylabel={normalised intensity},
 				grid=both,
 				grid style={line width=.1pt, draw=gray!10},
 				yticklabel pos=right,
@@ -1957,7 +2157,7 @@ This fits to the subjective appearance of the particle distribution.
 				\addlegendentry{ \acs*{OPC}, \acs*{PCE}};
 
 				\draw[->, thick, black] (axis cs:1.2,0.48) -- ++(-0.1,-0.1)
-				node[anchor=south west, font=\footnotesize, yshift=10pt] {\begin{tabular}{@{}l@{}}higher distances \\ are more prevalent \\ in untreated specimen\end{tabular}};
+				node[anchor=south west, font=\footnotesize, yshift=10pt] {\begin{tabular}{@{}l@{}}larger distances \\ are more prevalent \\ in untreated specimen\end{tabular}};
 			\end{axis}
 		\end{tikzpicture}
 		\caption{Fresh \ac{OPC} paste without (cyan) and with (dark red) the addition of \acs*{PCE}.

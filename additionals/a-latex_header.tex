@@ -56,8 +56,6 @@
 	\pdfsuppresswarningpagegroup=1
 \fi
 
-\DeclareMathAlphabet{\mathsf}{T1}{fvs}{m}{n}
-
 \usepackage{pifont} %https://www.physicsread.com/latex-star-symbol/
 \usepackage{textalpha}  % use greek letters in text directly like α -> package textgreek
 \usepackage{textcomp}  % eg. modified € und § symbols
@@ -280,7 +278,11 @@
 	compat = newest
 }
 \tikzset{every mark/.append style={solid}}
-\usetikzlibrary{spy,backgrounds}
+\usetikzlibrary{
+	spy,
+	backgrounds,
+	patterns
+}
 
 \usepackage[export]{adjustbox} % to crop images in figures
 \usepackage{array} %,tabularx

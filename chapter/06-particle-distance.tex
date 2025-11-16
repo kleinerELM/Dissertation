@@ -1,0 +1,258 @@
+\chapter{Particle distance measurement}
+\label{sec:cryo_fib_sem}
+
+The inter-particle distance in fresh cement paste is crucial as it directly governs the rheology of the paste and the formation of the initial microstructure.
+Tracking changes in this distance allows to quantify the effectiveness of \ac{PUS} in dispersing the cement particles.
+
+To determine the particle distance in fresh (\qty{20}{\minute}) cement pastes using a \ac{SEM}, the paste has to be frozen.
+The specimen has to be flash frozen at high pressures to avoid artefacts due to the formation of ice crystals.
+Therefore, the high-pressure frozen samples of cement pastes were prepared according to \zcref{sec:cryofibnt}.
+The pastes were cooled down to \qty{-150}{\celsius} within \qty{0.8}{\second} (compare \zcref{fig:cryo-fib-freeze-curve}).
+The frozen sample was coated with \ce{Pt} to prevent charging effects during the \ac{SEM} imaging.
+Similar to the \ac{FIBnt} method (\zcref{sec:lit_fib}), a trench through the whole specimen thickness was cut to obtain a fresh vertical cross-section.
+Due to the low temperature, the \ce{Pt} layer thickness exceeded the intended thickness of \qty{0.5}{\micro\meter} significantly (see \zcref{fig:cryo_site}).
+
+\begin{figure}[H]
+    \centering
+	\includegraphics[width=.9\textwidth]{particle-dist/cryo_site.pdf}
+
+    \caption{
+		Overview over the \ac{FIBnt} site of the pressure-frozen \ac{C3S} paste. A: \ce{Pt} deposition, B: \ce{C3S} paste, C: brass sample holder.
+	}
+    \label{fig:cryo_site}
+\end{figure}
+
+Also, the redepositioning of the removed material during the cutting process was much more pronounced compared to the \ac{FIBnt} at room temperature due to the low temperature.
+\ac{SEM}-\ac{BSE} images as shown in \zcref{fig:cryo-fib} were taken from the cross-section.
+
+\begin{figure}[htb!]
+    \centering
+
+	% area: \qty{10683.3}{\micro\meter\squared}}
+	\begin{subfigure}{0.49\textwidth}
+		\includegraphics[width=\textwidth]{particle-dist/raw.pdf}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.49\textwidth}
+		\includegraphics[width=\textwidth]{particle-dist/segmented.png}
+	\end{subfigure}
+
+    \caption{
+		\ac{FIB}-section of fresh \ac{C3S}-paste, \ac{wb}\,=\,\num{0.5}, \qty{2}{\hour}.
+		Denoised \ac{BSE}-image (left-hand side) and segmented image (right-hand side, {\color{red}red}: \ac{C3S}; {\color{blue}blue}: \ce{Pt}; black: ice).
+	}
+    \label{fig:cryo-fib}
+\end{figure}
+
+A comparison of the \ac{PSD} measured using laser diffraction and the image based analysis can be found in \zcref{fig:psd_cryo_C3S_lt20mum}.
+As expected from the small and therefore not representative image area and sectioning effects (see \zcref{subsec:sectioning-effect}), the \ac{PSD} of the \ac{FIB}-\ac{SEM} image is shifted to smaller particle sizes.
+To evaluate the distance between the particles within \zcref{fig:cryo-fib}, the image evaluation method used in \zcref{chap:hydrate-rim} was adapted.
+Instead of measuring the distance between the particle surface and the hydrate layer surface, the distance to the next particles was measured.
+Similar to the \ac{HLT} measurement, the centre of gravity of the particle was used.
+The image of the centered particle was the converted to polar coordinates and the distance to the next particle was determined.
+
+%\begin{wrapfigure}{R}{0.6\linewidth}
+\begin{figure}[htb]
+    %\vspace{-\intextsep}
+    \centering
+	\includegraphics[width=.65\linewidth, trim={.8cm 0.3cm 0.5cm 0.5cm}, clip]{particle-dist/dis_histogram.pdf}
+
+    \caption{
+		Particle distance to particle diameter distribution of \qty{20}{\minute} old \ac{C3S} paste (\ac{wb}\,=\,\num{0.5}).
+	}
+    \label{fig:cryo-fib-results}
+    %\vspace{-\intextsep}
+\end{figure}
+%\end{wrapfigure}
+
+% \Uni\WdB\Cryo-LC3-PUS\Segmentierung LC3+PUS\
+Another application of the method was used to measure the distance between particles of \ac{LC3} with and without the application of \ac{PUS}.
+While the measurement of the particle size distribution based on the segmented image was already done \cite{rossler.2023,rossler.2023a} (see \zcref{fig:psd_cryo_LC3}), the distance between the particles was not measured until now.
+The images have a similar size (untreated: \qty{1095.9}{\micro\meter\squared}, \ac{PUS}: \qty{1049.9}{\micro\meter\squared}) and were taken from the same sample.
+As the \ac{PSD} in \zcref{fig:psd_cryo_LC3} shows, the \ac{PUS} seems to disperse the particles as expected.
+The images themselves, also give the impression that the \ac{PUS} has a significant effect on the particle distance due to the more homogenous particle distribution within the area.
+
+\begin{figure}[htb!]
+    \centering
+
+	% area: \qty{1095.9}{\micro\meter\squared}}
+	\begin{subfigure}{0.49\textwidth}
+		\includegraphics[width=\textwidth]{particle-dist/LC3/noPUS/raw.pdf}
+        \caption{\ac{BSE}-image of untreated \ac{LC3}-paste.}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.49\textwidth}
+		\includegraphics[width=\textwidth]{particle-dist/LC3/noPUS/segmented.pdf}
+        \caption{Segmented image of untreated \ac{LC3}-paste.}
+	\end{subfigure}
+
+%     \caption{
+% 		\ac{FIB}-sections of fresh \ac{LC3}-paste, reference (no \ac{PUS}), \ac{wb}\,=\,\num{0.5}, \qty{20}{\minute}.
+% 		Denoised \ac{BSE}-image (left-hand side) and segmented image (right-hand side, white: ignored particles; yellow: particles used for the analysis; red: pore space included in measurements; black: ignored pore space).
+% 	}
+%     \label{fig:cryo-fib-lc3a}
+% \end{figure}
+
+% \begin{figure}[htb!]
+%     \centering
+%
+	% area: \qty{1049.9}{\micro\meter\squared}}
+	\begin{subfigure}{0.49\textwidth}
+		\includegraphics[width=\textwidth]{particle-dist/LC3/PUS/raw.pdf}
+        \caption{\ac{BSE}-image of sonicated \ac{LC3}-paste.}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.49\textwidth}
+		\includegraphics[width=\textwidth]{particle-dist/LC3/PUS/segmented.pdf}
+        \caption{Segmented image of sonicated \ac{LC3}-paste.}
+	\end{subfigure}
+
+    \caption{
+		\ac{FIB}-sections of fresh \ac{LC3}-paste, untreated (top) and sonicated with \ac{PUS} (bottom), \ac{wb}\,=\,\num{0.5}, hydrated for \qty{20}{\minute}.
+        Denois
+		Denoised \ac{BSE}-image (left-hand side) and segmented image (right-hand side, white: ignored particles; {\color{orange}yellow}: particles used for the analysis; {\color{red}red}: pore space included in measurements; black: ignored pore space).
+	}
+    \label{fig:cryo-fib-lc3}
+\end{figure}
+
+The images have a very low evaluable particle count (untreated: \num{633}, \ac{PUS}: \num{436}), which is due to the small area of the \ac{FIB}-\ac{SEM} images.
+This also included particles that would usually considered to be too close to the image border.
+However, some particles were excluded from the analysis due to their unfavorable particle shape.
+This particularly affects the \ac{PUS}-treated sample as can be seen in \zcref{fig:cryo-fib-lc3}.
+The low particle count is reflected in the low data density of the histograms in \zcref{fig:cryo-fib-lc3-results}.
+
+\begin{figure}[htb!]
+    \centering
+
+	\begin{subfigure}{0.495\textwidth}
+		\includegraphics[width=\textwidth]{particle-dist/LC3/noPUS/histogram_border.pdf}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.495\textwidth}
+		\includegraphics[width=\textwidth]{particle-dist/LC3/PUS/histogram_border.pdf}
+	\end{subfigure}
+
+    \caption{
+		Particle distance to particle diameter distribution of \qty{20}{\minute} old \ac{LC3} paste without (left-hand side) and with (right-hand side) the application of \ac{PUS}.
+        The mean distance between particles decreased from \qty{0.31(0.16)}{\micro\meter} and \qty{0.27(0.14)}{\micro\meter}, which is insignificant.
+        The orange histograms are directly compared in \zcref{fig:cryo-fib-results_2a}.
+	}
+    \label{fig:cryo-fib-lc3-results}
+\end{figure}
+
+As it can be seen in \zcref{fig:cryo-fib-results_2a}, especially the less narrow particle distribution in the untreated specimen is visible in the data of the untreated specimen.
+This becomes especially clear by the higher amount of larger particle distances above \qty{1}{\micro\meter}.
+This fits to the subjective appearance of the particle distribution.
+
+\begin{figure}[H]
+    \centering
+
+	\begin{subfigure}[t]{0.495\textwidth}
+		\begin{tikzpicture}
+			\begin{axis}[
+				width  = 1.1\textwidth,
+				height = .3\textheight,
+				ybar,
+				bar width=.0193, % pixel width of the raw image
+				xmin=0, xmax=3,
+				ymin=0, ymax=1,
+				legend style={
+					at={(.99,.98)},
+					anchor=north east,
+					style={column sep=4pt}
+				},
+				legend columns = 1,
+				ymajorticks=false,
+				xlabel={particle distance in \unit{\micro\meter}},
+				ylabel={normalised intensity},
+				grid=both,
+				grid style={line width=.1pt, draw=gray!10},
+				legend cell align={left},
+			]
+
+				\addplot[fill=blue, draw=none, mark=none, opacity=0.5, draw opacity=0] table [x=X_center,y=S, col sep=comma] {figures/particle-dist/LC3/LC3_border.csv};
+				\addlegendentry{ \ac{LC3} };
+
+				\addplot[fill=red, draw=none, mark=none, opacity=0.5, draw opacity=0] table [x=X_center,y=S, col sep=comma] {figures/particle-dist/LC3/LC3+PUS_border.csv};
+				\addlegendentry{ \ac{LC3}+\ac{PUS}};
+
+				\draw[->, thick, black] (axis cs:1.2,0.4) -- ++(-0.1,-0.1)
+				node[anchor=south west, font=\footnotesize, yshift=10pt] {\begin{tabular}{@{}l@{}}larger distances \\ are more prevalent \\ in untreated specimen
+				\end{tabular}};
+			\end{axis}
+		\end{tikzpicture}
+		\caption{
+            \qty{20}{\minute} old \ac{LC3} paste {\color{blue}without} (blue) and {\color{red}with} (red) the application of \ac{PUS}.
+        } %  The mean distance between particles decreased from \qty{0.33(0.17)}{\micro\meter} and \qty{0.24(0.15)}{\micro\meter}.
+		\label{fig:cryo-fib-results_2a}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{0.495\textwidth}
+		\begin{tikzpicture}
+			\begin{axis}[
+				width  = 1.1\textwidth,
+				height = .3\textheight,
+				ybar,
+				bar width=.030304, % pixel width of the raw image
+				xmin=0, xmax=3,
+				ymin=0, ymax=1,
+				legend style={
+					at={(.99,.98)},
+					anchor=north east,
+					style={column sep=4pt}
+				},
+				legend columns = 1,
+				ymajorticks=false,
+				xlabel={particle distance in \unit{\micro\meter}},
+				ylabel={normalised intensity},
+				grid=both,
+				grid style={line width=.1pt, draw=gray!10},
+				yticklabel pos=right,
+				legend cell align={left},
+			]
+
+				\addplot[fill=blue, draw=none, mark=none, opacity=0.5, draw opacity=0] table [x=X_center,y=S, col sep=comma] {figures/particle-dist/zing.2008a/f5_histogram.csv};
+				\addlegendentry{ \acs*{OPC}, no \acs*{PCE}};
+
+				\addplot[fill=red, draw=none, mark=none, opacity=0.5, draw opacity=0] table [x=X_center,y=S, col sep=comma] {figures/particle-dist/zing.2008a/f7_histogram.csv};
+				\addlegendentry{ \acs*{OPC}, \acs*{PCE}};
+
+				\draw[->, thick, black] (axis cs:1.2,0.48) -- ++(-0.1,-0.1)
+				node[anchor=south west, font=\footnotesize, yshift=10pt] {\begin{tabular}{@{}l@{}}larger distances \\ are more prevalent \\ in untreated specimen\end{tabular}};
+			\end{axis}
+		\end{tikzpicture}
+		\caption{
+            Fresh \ac{OPC} paste {\color{blue}without} (blue) and {\color{red}with} (red) the addition of \acs*{PCE}.
+		    Source images from \cite{zingg.2008a}.
+        }
+		\label{fig:cryo-fib-results_2b}
+	\end{subfigure}
+
+    \caption{
+		Particle distance distributions of \acs*{LC3} and \acs*{OPC} paste comparing the influence of \acs*{PUS} and \acs*{PCE} respectively.
+		Both methods shift the particle distance distribution to smaller distances, which means they have a dispersing effect.
+    }
+    \label{fig:cryo-fib-results_2}
+\end{figure}
+
+These data illustrate, that the \ac{PUS} is able to disperse the particles of the \ac{LC3} more homogeneously.
+However, a side effect ot the still agglomerated particles is their reduced number.
+Furthermore, the image data acquired by cryo-\ac{FIBnt} is not very significant due to its small imaged area and therefore limited representativeness.
+
+Due to the expensive experiments, two figures published by \textcite{zingg.2008a} (Figures~\num{5} and \num{7}) were also used to test the method.
+They used cryo-\ac{FIB}-\ac{SEM} to image the influence of \ac{PCE} on the fine fraction of \ac{OPC} in fresh cement pastes (\ac{wb}\,=\,\num{0.5}).
+The resulting images show a distinct difference in the particle distribution.
+The images were processed similar to the \ac{LC3} specimens.
+
+The particle distance distributions for the \ac{OPC}+\ac{PCE} experiments from \textcite{zingg.2008a} are shown in \zcref{fig:cryo-fib-results_2b} and show a more significant difference in the particle distribution.
+The untreated \ac{OPC} shows more large particle distances than the specimen mixed with \ac{PCE}.
+The segmentation results can be found in \zcref{fig:cryo-fib-zingg-results} and the particle distance to particle diameter distributions in \zcref{fig:cryo-fib-zingg-results2}.
+
+The results of both test series show that \ac{PUS} and \ac{PCE} have as expected a dispersing effect on the particles in fresh cement pastes, which can be visualised and evaluated objectively by means of cryo-\ac{FIB}-\ac{SEM}. % SRC
+
+
+% image preparation for images from \cite{zingg.2008a}:
+% -> manual background removal (shadowing)
+% -> denoising (despecle) using ImageJ
+% -> segmentation using ImageJ (thresholding+watershed)
+% -> application of the particle distance measurement method from \zcref{chap:hydrate-rim} (see \zcref{sec:cryo_fib_sem}) to the segmented image

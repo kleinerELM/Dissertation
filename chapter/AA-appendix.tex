@@ -107,8 +107,8 @@ The particle size distribution of the \ac{C3S} powder sieved to <\,\qty{20}{\mic
 			extra x ticks={0.05,0.06,...,0.09,0.2,0.3,...,0.9,2,3,...,9,20,30,...,90,200,300,...,900},
 			extra x tick labels={},
 			ymajorticks=false,
-			xlabel={particle diameter \unit{\micro\meter}},
-			ylabel={normed intensity},
+			xlabel={particle diameter in \unit{\micro\meter}},
+			ylabel={normalised intensity},
             grid=both,
             grid style={line width=.1pt, draw=gray!10}
 		  ]
@@ -125,7 +125,7 @@ The particle size distribution of the \ac{C3S} powder sieved to <\,\qty{20}{\mic
 			ymin=0, ymax=100,
 			axis y line*=right,
 			axis x line=none,
-			ylabel={Cumulative in \unit{\volpercent}},
+			ylabel={cum. volume in \unit{\volpercent}},
 			width=.95\linewidth,
 			height=.25\textheight,
             legend style={at={(.5,1.03)},anchor=south, style={column sep=4pt},text=black},
@@ -134,10 +134,10 @@ The particle size distribution of the \ac{C3S} powder sieved to <\,\qty{20}{\mic
 			grid=none
 		]
 			\addlegendimage{red, mark=none}
-			\addlegendentry{Density distribution};
+			\addlegendentry{density distribution};
 
 			\addplot[blue, mark=none] table [x=diameter, y=cumulative, col sep=comma] {figures/particle-dist/psd_lasergran_C3S_lt20mum.csv};
-			\addlegendentry{Cumulative distribution};
+			\addlegendentry{cumulative distribution};
 
 			\addlegendimage{darkgreen, mark=x}
 			\addlegendentry{\textsc{Feret} diameter};
@@ -146,7 +146,8 @@ The particle size distribution of the \ac{C3S} powder sieved to <\,\qty{20}{\mic
 	\end{tikzpicture}
 
     \caption{
-		\ac{PSD} of a \ac{C3S} powder (sieved to <\,\qty{20}{\micro\meter}), measured using laser diffraction analysis compared to the \textsc{Feret} diameter from the image analysis of \zcref{fig:cryo-fib}.
+		\ac{PSD} of a \ac{C3S} powder (sieved to <\,\qty{20}{\micro\meter}) measured by laser diffraction analysis.
+		Additionally compared to the \textsc{Feret} diameter from the image analysis of \zcref{fig:cryo-fib}.
 	}
     \label{fig:psd_cryo_C3S_lt20mum}
 \end{figure}
@@ -458,8 +459,8 @@ For this, a ultrasound processor and generator \textit{UIP1000hd} connected to a
 			extra x ticks={0.05,0.06,...,0.09,0.2,0.3,...,0.9,2,3,...,9,20,30,...,90,200,300,...,900},
 			extra x tick labels={},
 			ymajorticks=false,
-			xlabel={particle diameter \unit{\micro\meter}},
-			ylabel={normed intensity},
+			xlabel={particle diameter in \unit{\micro\meter}},
+			ylabel={normalised intensity},
             grid=both,
             grid style={line width=.1pt, draw=gray!10}
 		  ]
@@ -478,7 +479,7 @@ For this, a ultrasound processor and generator \textit{UIP1000hd} connected to a
 			ymin=0, ymax=100,
 			axis y line*=right,
 			axis x line=none,
-			ylabel={Cumulative in \unit{\volpercent}},
+			ylabel={cum. volume in \unit{\volpercent}},
 			width=.95\linewidth,
 			height=.25\textheight,
             legend style={at={(.5,1.03)},anchor=south, style={column sep=4pt},text=black},
@@ -487,16 +488,16 @@ For this, a ultrasound processor and generator \textit{UIP1000hd} connected to a
 			grid=none
 		]
 			\addlegendimage{red, mark=none}
-			\addlegendentry{Density distribution};
+			\addlegendentry{density distribution};
 
 			\addplot[blue, mark=none] table [x=diameter, y=cumulative, col sep=comma] {figures/particle-dist/psd_lasergran_LC3.csv};
-			\addlegendentry{Cumulative distribution};
+			\addlegendentry{cumulative distribution};
 
 			\addlegendimage{darkgreen, mark=x}
 			\addlegendentry{\textsc{Feret} diameter, no \acs{PUS}};
 
 			\addlegendimage{green, dashed, mark=x}
-			\addlegendentry{\textsc{Feret} diameter, after \acs{PUS}};
+			\addlegendentry{\textsc{Feret} diameter, with \acs{PUS}};
 
 		\end{semilogxaxis}
 	\end{tikzpicture}
@@ -549,7 +550,7 @@ The phase compositon measured using \ac{XRD} is listed in \zcref{tab:phase-compo
 		\ce{CaO}	& \tablenum{64.81}	& -					& \ce{SrO}	& \tablenum{0.15}	& \tablenum{0.1254} \\
 		\ce{SiO2}	& \tablenum{22.44}	& -					& \ce{P2O5}	& \tablenum{0.15}	& -      \\
 		\ce{Al2O3}	& \tablenum{4.67}	& -					& \ce{ZnO}	& \tablenum{0.04}	& -      \\
-		\ce{Fe2O3}	& \tablenum{2.59}	& -					& \ce{MnO}	& \tablenum{0.04}	& \tablenum{0.0275} \\
+		\ce{Fe2O3}	& \tablenum{2.59}	& -					& \ce{Mn2O3}	& \tablenum{0.04}	& \tablenum{0.0275} \\
 		\ce{MgO}	& \tablenum{1.36}	& -					& \ce{V2O5}	& \tablenum{0.01}	& \tablenum{0.0053} \\
 		\ce{K2O}	& \tablenum{1.26}	& -					& \ce{ZnO}	& \tablenum{0.04}	& \tablenum{0.0294} \\
 		\ce{SO3}	& \tablenum{1.01}	& -					& \ce{Cr2O3}& \tablenum{0.01}	& \tablenum{0.0067} \\
@@ -569,7 +570,7 @@ The measurement positions on the grain are marked in \zcref{fig:LAICPMS-specimen
 \begin{figure}[htbp]
 	\centerline{\includegraphics[width=.6\textwidth]{figures/la-icp-ms/positions.pdf}}
 	\caption{
-		Positions of the \ac{LAICPMS} measurements.
+		The black spots marked with arrows are the positions of the \ac{LAICPMS} measurements on the resin embedded and polished CEM~I clinker grain.
 	}
 	\label{fig:LAICPMS-specimen}
 \end{figure}
@@ -590,26 +591,27 @@ A revalidation of the \ac{MIP} results was omitted, due to the high material cos
 \begin{figure}[htb!]
 	\centering
 
-	\begin{subfigure}{0.49\textwidth}
+	\begin{subfigure}{0.495\textwidth}
 		\includegraphics[width=\textwidth]{mip/vycor_glass_5.png}
-		\caption{\qty{5}{\nano\meter} porous \textsc{VYCOR}-glass.}
+		\caption{\qty{5}{\nano\meter} porous \textsc{VYCOR} glass.}
 		\label{fig:vycor-mip-5}
 	\end{subfigure}
 	\hfill
-	\begin{subfigure}{0.49\textwidth}
+	\begin{subfigure}{0.495\textwidth}
 		\includegraphics[width=\textwidth]{mip/vycor_glass_20.png}
-		\caption{\qty{20}{\nano\meter} porous \textsc{VYCOR}-glass.}
+		\caption{\qty{20}{\nano\meter} porous \textsc{VYCOR} glass.}
 		\label{fig:vycor-mip-20}
 	\end{subfigure}
 
     \caption{
-		\ac{PSD} of the \textsc{VYCOR}-glass measured using \ac{MIP} according to the test certificate of the manufacturer; University of Leipzig; ICT, February 2020.
+		\ac{PSD} of two \textsc{VYCOR} glass samples measured using \ac{MIP} by the manufacturer.
+		Graphs originate from the test certificate of the manufacturer, measured by the University of Leipzig; ICT, February 2020.
 	}
     \label{fig:vycor-mip}
 \end{figure}
 
+\FloatBarrier
 \section{\acs*{SEM} - \acs*{BSE} + \acs*{EDX} + \acs*{LAICPMS} }
-
 
 \begin{table}[!htb]
 	\caption{
@@ -760,8 +762,8 @@ A revalidation of the \ac{MIP} results was omitted, due to the high material cos
 \begin{figure}[htbp]
 	\centerline{\includegraphics[width=\textwidth]{hydrate-rim/histogram_segmentation2.pdf}}
 	\caption{
-		Histograms of the hydration layers of \qty{14}{\day} hydrated alite. Segmentation result by thresholding ($l_\text{max}$ = \qty{1.85}{\micro\meter}), pixel classification with ($l_\text{max}$ = \qty{1.94}{\micro\meter}) and without respecting \ac{CSHo} ($l_\text{max}$ = \qty{1.52}{\micro\meter}) and manual segmentation ($l_\text{max}$ = \qty{1.52}{\micro\meter})
-		Same diagram type as in \zcref{fig:results2d_alite}.
+		Histograms of the hydration layers of \qty{14}{\day} hydrated \ac{C3S}. Segmentation result by thresholding ($l_\text{max}$ = \qty{1.85}{\micro\meter}), pixel classification with ($l_\text{max}$ = \qty{1.94}{\micro\meter}) and without respecting \ac{CSHo} ($l_\text{max}$ = \qty{1.52}{\micro\meter}) and manual segmentation ($l_\text{max}$ = \qty{1.52}{\micro\meter})
+		%Same diagram type as in \zcref{fig:results2d_alite}.
 	}
 	\label{fig:hlt_segmentation_influence}
 \end{figure}
@@ -769,8 +771,8 @@ A revalidation of the \ac{MIP} results was omitted, due to the high material cos
 \begin{figure}[htbp]
 	\centerline{\includegraphics[width=\textwidth]{hydrate-rim/supplementary/mixture_overview.pdf}}
 	\caption{
-		Normalised distributions of the \ac{HLT} of hydrated alite, belite and mixtures (aged \num{7}, \num{14}, and \qty{28}{\day}) depending on the particle diameter.
-		Same diagram type as in \zcref{fig:results2d_alite}.
+		Normalised distributions of the \ac{HLT} of hydrated \ac{C3S}, \ac{C2S} and mixtures (aged \num{7}, \num{14}, and \qty{28}{\day}) depending on the particle diameter.
+		%Same diagram type as in \zcref{fig:results2d_alite}.
 	}
 	\label{fig:results2d_mixture}
 \end{figure}
@@ -960,7 +962,7 @@ A revalidation of the \ac{MIP} results was omitted, due to the high material cos
 				height=7cm,
 				grid=none,
 				xlabel={temperature in \unit{\celsius}},
-				xticklabels={-51.2, -25.3, -12.4, -4.6, -2.0},
+				xticklabels={\num{-51.2}, \num{-25.3}, \num{-12.4}, \num{-4.6}, \num{-2.0}},
 				xtick={2.5,5,10,25,50},
 				ytick=\empty,
 				scaled y ticks=false,
@@ -1039,7 +1041,7 @@ A revalidation of the \ac{MIP} results was omitted, due to the high material cos
 			height=7cm,
 			grid=none,
 			xlabel={temperature in \unit{\celsius}},
-			xticklabels={-73.3, -64.1, -56.9, -51.2, -46.5},
+			xticklabels={\num{-73.3}, \num{-64.1}, \num{-56.9}, \num{-51.2}, \num{-46.5}},
 			xtick={1.75,2.00,2.25,2.50,2.75},
 			ytick=\empty,
 			scaled y ticks=false,
@@ -1107,9 +1109,11 @@ A revalidation of the \ac{MIP} results was omitted, due to the high material cos
     \end{tikzpicture}
 
     \caption{
-		Raw \ac{LTDSC} curves for the second freezing pass of \ac{C2S} from 7 to \qty{28}{\day} of hydration.
-		Every specimen age was measured using three specimens. The graph on the right is a zoomed in section of the left graph, showing the data correlating to the gel pores.
-		Note, that the pore radius is undefined below \qty{-40}{\celsius} according to \textcite{brun.1977}.
+		Individual \ac{LTDSC} measurements for the second freezing pass of \ac{C2S} from \qtyrange{7}{28}{\day} of hydration.
+		Every specimen age was measured using three specimens.
+		On the left-hand side, the full measurement is plotted (pore radius and temperature is plotted logarithmic).
+		On the right-hand side is a magnified section (linear plot), highlighting the data correlating to the gel pores.
+		Note that pore sizes below \qty{3.19}{\nano\meter} (<\,\qty{-40}{\celsius}) are undefined as noted in \zcref{eq:brun_freeze}.
 	}
     \label{fig:ltdsc_result_c2s_freeze_raw}
 \end{figure}
@@ -1129,7 +1133,7 @@ A revalidation of the \ac{MIP} results was omitted, due to the high material cos
 				height=7cm,
 				grid=none,
 				xlabel={temperature in \unit{\celsius}},
-				xticklabels={-51.2, -25.3, -12.4, -4.6, -2.0},
+				xticklabels={\num{-51.2}, \num{-25.3}, \num{-12.4}, \num{-4.6}, \num{-2.0}},
 				xtick={2.5,5,10,25,50},
 				ytick=\empty,
 				scaled y ticks=false,
@@ -1208,7 +1212,7 @@ A revalidation of the \ac{MIP} results was omitted, due to the high material cos
 			height=7cm,
 			grid=none,
 			xlabel={temperature in \unit{\celsius}},
-			xticklabels={-73.3, -64.1, -56.9, -51.2, -46.5},
+			xticklabels={\num{-73.3}, \num{-64.1}, \num{-56.9}, \num{-51.2}, \num{-46.5}},
 			xtick={1.75,2.00,2.25,2.50,2.75},
 			ytick=\empty,
 			scaled y ticks=false,
@@ -1280,9 +1284,10 @@ A revalidation of the \ac{MIP} results was omitted, due to the high material cos
     \end{tikzpicture}
 
     \caption{
-		Raw \ac{LTDSC} curves for the second freezing pass of \ac{C3S} from \num{1} to \qty{28}{\day} of hydration. Every specimen age was measured using three specimens.
-		On the right is a magnified section, highlighting the data correlating to the gel pores.
-		Note, that the pore radius is undefined below \qty{-40}{\celsius} according to \textcite{brun.1977}.
+		Individual \ac{LTDSC} measurements for the second freezing pass of \ac{C3S} from \qtyrange{1}{28}{\day} of hydration. Every specimen age was measured using three specimens.
+		On the left-hand side, the full measurement is plotted (pore radius and temperature is plotted logarithmic).
+		On the right-hand side is a magnified section (linear plot), highlighting the data correlating to the gel pores.
+		Note that pore sizes below \qty{3.19}{\nano\meter} (<\,\qty{-40}{\celsius}) are undefined as noted in \zcref{eq:brun_freeze}.
 	}
     \label{fig:ltdsc_result_C3S_freeze_raw}
 \end{figure}
@@ -1351,19 +1356,19 @@ A revalidation of the \ac{MIP} results was omitted, due to the high material cos
 	\caption{
 		Metadata of the \ac{SEM}-images used for the particle distance measurements.
 		$A_\text{unusable}$ is the area of the image containing other phases or artifacts, which were manually excluded.
-		$A_\text{sol}$ and $A_\text{solids}$ are the areas of the solution and solid phases, respectively.
+		$A_\text{solv}$ and $A_\text{solids}$ are the areas of the solution and solid phases, respectively.
 		$n$ represents the corresponding particle count.
 	}
 	\begin{tabularx}{\linewidth}{Xcccccc}
 		\toprule
-		Figure & Scaling & $A_\text{usable}$ & $A_\text{sol}$ & $A_\text{solids}$ & $A_\text{unusable}$ & $n$ \\
+		Figure & Scaling & $A_\text{usable}$ & $A_\text{solv}$ & $A_\text{solids}$ & $A_\text{unusable}$ & $N$ \\
 			& \unit{\nano\meter\per\px} & \unit{\micro\meter\squared} & \unit{\percent} & \unit{\percent} & \unit{\percent} & \\
 			\midrule
 			\zcref{fig:cryo-fib}, \acs{C3S}   & \tablenum{26.9789}           & \tablenum{10683.3}                  & \tablenum{36.3}            & \tablenum{48.8}             & \tablenum{14.9}                & \tablenum{1500} \\
-			\zcref{fig:cryo-fib-lc3a}, \acs{LC3} & \tablenum{19.2712}          & \tablenum{1095.9}                   & \tablenum{46.0}            & \tablenum{54.0}             & -                & \tablenum{723} \\
-			\zcref{fig:cryo-fib-lc3b}, \acs{LC3}+\acs{PUS}     & \tablenum{9.6355}           & \tablenum{1049.9}                   & \tablenum{43.9}            & \tablenum{56.1}             & -                & \tablenum{888} \\
-			5 in \cite{zingg.2008a}, no \acs{PCE}     & \tablenum{30.0303}           & \tablenum{314.8}                   & \tablenum{62.1}            & \tablenum{37.9}             & -                & \tablenum{266} \\
-			7 in \cite{zingg.2008a}, with \acs{PCE}     & \tablenum{30.0303}           & \tablenum{314.9}                   & \tablenum{52.3}            & \tablenum{47.7}             & -                & \tablenum{737} \\
+			\zcref{fig:cryo-fib-lc3}, \acs{LC3} & \tablenum{19.2712}          & \tablenum{1095.9}                   & \tablenum{46.0}            & \tablenum{54.0}             & -                & \tablenum{723} \\
+			\zcref{fig:cryo-fib-lc3}, \acs{LC3}+\acs{PUS}     & \tablenum{9.6355}           & \tablenum{1049.9}                   & \tablenum{43.9}            & \tablenum{56.1}             & -                & \tablenum{888} \\
+			Figure~5 in \cite{zingg.2008a}, no \acs{PCE}     & \tablenum{30.0303}           & \tablenum{314.8}                   & \tablenum{62.1}            & \tablenum{37.9}             & -                & \tablenum{266} \\
+			Figure~7 in \cite{zingg.2008a}, with \acs{PCE}     & \tablenum{30.0303}           & \tablenum{314.9}                   & \tablenum{52.3}            & \tablenum{47.7}             & -                & \tablenum{737} \\
 			\bottomrule
 	\end{tabularx}
 	\label{tab:part_dist_metadata}
@@ -1401,8 +1406,8 @@ A revalidation of the \ac{MIP} results was omitted, due to the high material cos
 	\end{subfigure}
 
     \caption{
-		Particle distance measurement of cryo-\ac{FIB} sections of the fine fraction of an \ac{OPC} (\ac{wb}=\num{0.5}) with and without \acs{PCE} from Figures~\num{5} (left) and \num{7} (right) by \textcite{zingg.2008a}.
-		White: unprocessed clinker particles; yellow: clinker particles used for the analysis, red: included measurements, black: unprocessed pore space.
+		Particle distance measurement of cryo-\ac{FIB} sections of the fine fraction of an sieved \ac{OPC} (\ac{wb}\,=\,\num{0.5}) with and without \acs{PCE} from Figures~\num{5} (left-hand side) and \num{7} (right-hand side) by \textcite{zingg.2008a}.
+		White: unprocessed clinker particles; yellow: clinker particles used for the analysis, red: included measurements, black: excluded pore space.
 	}
     \label{fig:cryo-fib-zingg-results}
 \end{figure}
@@ -1419,7 +1424,7 @@ A revalidation of the \ac{MIP} results was omitted, due to the high material cos
 	\end{subfigure}
 
     \caption{
-		Particle distance measurement of cryo-\ac{FIB} sections of the fine fraction of an \ac{OPC} (\ac{wb}=\num{0.5}) with and without \acs{PCE} from Figures~\num{5} (left) and \num{7} (right) by \textcite{zingg.2008a}.
+		Particle distance measurement of cryo-\ac{FIB} sections of the fine fraction of an \ac{OPC} (\ac{wb}\,=\,\num{0.5}) with and without \acs{PCE} from \zcref{fig:cryo-fib-zingg-results}.
 	}
     \label{fig:cryo-fib-zingg-results2}
 \end{figure}

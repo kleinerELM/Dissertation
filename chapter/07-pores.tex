@@ -8,7 +8,7 @@ Accurately quantifying this gel porosity is essential to assess the resistance t
 
 On a macroscopic scale, comparing different pore measurement methods is feasible.
 However, as the pore size decreases, this comparison becomes increasingly challenging due to physical limits and the fractal nature of porosity.
-To address this, a standard material was utilised to test and compare selected methods.
+To address this, a standard material was utilised to benchmark and compare selected methods.
 
 \section{Porous glass standard}
 Two porous glass standards (\textsc{VYCOR} glass with \num{5} and \qty{20}{\nano\meter} diameter, see \zcref{sec:boraglas}) were evaluated using \ac{SEM}, \ac{LTDSC}, and \ac{HNMR} spectroscopy.
@@ -36,18 +36,20 @@ As the \ac{SEM} images indicate (\zcref{fig:ltdsc-vycor-glass}), the pores are i
 	\end{subfigure}
 
 	\begin{subfigure}{0.49\textwidth}
-		\includegraphics[width=\textwidth]{ltdsc/glass/segmentation/5nm_s.pdf}
+		\includegraphics[width=\textwidth]{ltdsc/glass/segmentation/5nm_s_.pdf}
 		\caption{Segmented, pore size \qty{5}{\nano\meter} (diameter)}
 		\label{fig:ltdsc-vycor-glass-c}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}{0.49\textwidth}
-		\includegraphics[width=\textwidth]{ltdsc/glass/segmentation/20nm_s.pdf}
+		\includegraphics[width=\textwidth]{ltdsc/glass/segmentation/20nm_s_.pdf}
 		\caption{Segmented, pore size \qty{20}{\nano\meter} (diameter)}
 		\label{fig:ltdsc-vycor-glass-d}
 	\end{subfigure}
 
-    \caption{\ac{SEM} images of two \textsc{VYCOR}-glass samples and their segmentation result.} % Probenbilder-rodaten vmtl vertauscht.
+    \caption{
+		\ac{SEM}-\ac{SE} images of two \textsc{VYCOR}-glass samples and their respective segmentation result.
+	} % Probenbilder-rodaten vmtl vertauscht.
     \label{fig:ltdsc-vycor-glass}
 \end{figure}
 
@@ -210,8 +212,8 @@ As indicated by the inhomogeneous distribution of the segmented pores (see \zcre
             \addplot [
 				no marks, 
                 ybar, 
-                fill=blue, 
-                draw=blue, 
+                fill=darkgreen, 
+                draw=darkgreen, 
                 bar width=10pt, 
                 bar shift=-5pt,
                 area legend
@@ -231,8 +233,8 @@ As indicated by the inhomogeneous distribution of the segmented pores (see \zcre
 				no marks, 
                 ybar,
                 pattern=north east lines,
-                pattern color=blue,
-                draw=blue,
+                pattern color=darkgreen,
+                draw=darkgreen,
                 bar width=10pt,
                 bar shift=5pt,
                 area legend
@@ -497,7 +499,7 @@ For the measurement, the water saturated specimen was then cooled down to \qty{-
 				height=6cm,
 				grid=major,
 				xlabel={pore radius $r_\text{P}$ in \unit{\nano\meter}},
-				ylabel={heat flow $\dot{Q}$ in \unit{\watt\per\gram}},
+				ylabel={heat flow $\dot{Q}$ in \unit{\joule\per\second\per\gram}},
 				grid style={line width=.1pt, draw=gray!10},
 				yticklabel style={
 						/pgf/number format/fixed,
@@ -512,9 +514,9 @@ For the measurement, the water saturated specimen was then cooled down to \qty{-
 			  \addplot[dotted, thick, samples=2, darkgrey,forget plot] coordinates {(3.19,-.2)(3.19,.2)};
 			  \node[darkgrey, rotate=90, anchor=west] at (axis cs: 2.6,-.06) {\scriptsize <\,\qty{-40}{\celsius}!};
 
-			\addplot [ no marks, blue] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/glass/ExpDat_2.1-5nm_freeze_segment_18.csv};
+			\addplot [ no marks, darkgreen] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/glass/ExpDat_2.1-5nm_freeze_segment_18.csv};
 			\addlegendentry{specimen 1};
-			\addplot [ no marks, blue, dashed] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/glass/ExpDat_2.2-5nm_freeze_segment_18.csv};
+			\addplot [ no marks, darkgreen, dashed] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/glass/ExpDat_2.2-5nm_freeze_segment_18.csv};
 			\addlegendentry{specimen 2};
 
         \end{semilogxaxis}
@@ -559,7 +561,7 @@ For the measurement, the water saturated specimen was then cooled down to \qty{-
 				height=6cm,
 				grid=major,
 				xlabel={pore radius $r_\text{P}$ in \unit{\nano\meter}},
-				ylabel={heat flow $\dot{Q}$ in \unit{\watt\per\gram}},
+				ylabel={heat flow $\dot{Q}$ in \unit{\joule\per\second\per\gram}},
 				grid style={line width=.1pt, draw=gray!10},
 				yticklabel style={
 						/pgf/number format/fixed,
@@ -685,8 +687,9 @@ This allows to create a 3D reconstruction of a hydrated \ac{C3S} grain covered i
 \FloatBarrier
 \subsection{\acs{LTDSC}}
 
-The \ac{LTDSC} curves of the second freezing pass of \ac{C3S} and \ac{C2S} from \qtyrange{1}{28}{\day} of hydration are shown in \zcref{fig:ltdsc_result_freeze} (upper graphs \ac{C3S}, lower graphs \ac{C2S}).
-Three measurements were made for each specimen age.
+The \ac{LTDSC} measurements of the second freezing pass of \ac{C3S} and \ac{C2S} from \qtyrange{1}{28}{\day} of hydration are shown in \zcref{fig:ltdsc_result_freeze} (upper graphs \ac{C3S}, lower graphs \ac{C2S}).
+The graph shows the mean curve from three individual measurements for each specimen age.
+The individual measurements can be found in \zcref{fig:ltdsc_result_freeze_raw}.
 It was not possible to measure \ac{C2S} after \qty{1}{\day} of hydration, since the material was not hardened enough to be handled and transferred into the \ac{LTDSC} crucible.
 
 % \ifdefined\EXTERNALIZE
@@ -726,7 +729,7 @@ It was not possible to measure \ac{C2S} after \qty{1}{\day} of hydration, since 
 				height=6cm,
 				grid=major,
 				xlabel={pore radius $r_\text{P}$ \unit{\nano\meter}},
-				ylabel={heat flow $\dot{Q}$ in \unit{\watt\per\gram}},
+				ylabel={heat flow $\dot{Q}$ in \unit{\joule\per\second\per\gram}},
 				grid style={line width=.1pt, draw=gray!10},
 				yticklabel style={
 						/pgf/number format/fixed,
@@ -821,7 +824,7 @@ It was not possible to measure \ac{C2S} after \qty{1}{\day} of hydration, since 
 				height=6cm,
 				grid=major,
 				xlabel={pore radius $r_\text{P}$ \unit{\nano\meter}},
-				ylabel={heat flow $\dot{Q}$ in \unit{\watt\per\gram}},
+				ylabel={heat flow $\dot{Q}$ in \unit{\joule\per\second\per\gram}},
 				grid style={line width=.1pt, draw=gray!10},
 				xticklabels={1.75,2.00,2.25,2.50,2.75},
 				xtick={1.75,2.00,2.25,2.50,2.75},
@@ -921,7 +924,7 @@ It was not possible to measure \ac{C2S} after \qty{1}{\day} of hydration, since 
 				height=6cm,
 				grid=major,
 				xlabel={pore radius $r_\text{P}$ \unit{\nano\meter}},
-				ylabel={heat flow $\dot{Q}$ in \unit{\watt\per\gram}},
+				ylabel={heat flow $\dot{Q}$ in \unit{\joule\per\second\per\gram}},
 				grid style={line width=.1pt, draw=gray!10},
 				yticklabel style={
 						/pgf/number format/fixed,
@@ -1010,7 +1013,7 @@ It was not possible to measure \ac{C2S} after \qty{1}{\day} of hydration, since 
 				height=6cm,
 				grid=major,
 				xlabel={pore radius $r_\text{P}$ \unit{\nano\meter}},
-				ylabel={heat flow $\dot{Q}$ in \unit{\watt\per\gram}},
+				ylabel={heat flow $\dot{Q}$ in \unit{\joule\per\second\per\gram}},
 				grid style={line width=.1pt, draw=gray!10},
 				xticklabels={1.75,2.00,2.25,2.50,2.75},
 				xtick={1.75,2.00,2.25,2.50,2.75},
@@ -1112,7 +1115,7 @@ The red area represents the gel pore volume, while the yellow area represents th
 				height=7cm,
 				grid=major,
 				xlabel={temperature $\vartheta$ in \unit{\celsius}},
-				ylabel={heat flow $\dot{Q}$ in \unit{\watt\per\gram}},
+				ylabel={heat flow $\dot{Q}$ in \unit{\joule\per\second\per\gram}},
 				xtick={-60, -50,...,10},
 				grid style={line width=.1pt, draw=gray!10},
 				yticklabel style={
@@ -1196,7 +1199,7 @@ To mitigate this, the dashed curve indicates the heat flow $\dot{Q}$ of the \qty
 				height=7cm,
 				grid=major,
 				xlabel={temperature $\vartheta$ in \unit{\celsius}},
-				ylabel={heat flow $\dot{Q}$ in \unit{\watt\per\gram}},
+				ylabel={heat flow $\dot{Q}$ in \unit{\joule\per\second\per\gram}},
 				grid style={line width=.1pt, draw=gray!10},
 				yticklabel style={
 						/pgf/number format/fixed,
@@ -1535,7 +1538,7 @@ For these diagrams, the freeze curves were baseline corrected, which was perform
 			xlabel={temperature in \unit{\celsius}},
 			xticklabels={\num{-51.2}, \num{-25.3}, \num{-12.4}, \num{-4.6}, \num{-2.0}},
 			xtick={2.5,5,10,25,50},
-			ylabel={heat flow $\dot{Q}$ in \unit{\watt\per\gram}},
+			ylabel={heat flow $\dot{Q}$ in \unit{\joule\per\second\per\gram}},
 			scaled y ticks=false,
 			scaled x ticks=false,
 			axis x line*=top,
@@ -1642,7 +1645,7 @@ For these diagrams, the freeze curves were baseline corrected, which was perform
 				xlabel={temperature in \unit{\celsius}},
 				xticklabels={\num{-51.2}, \num{-25.3}, \num{-12.4}, \num{-4.6}, \num{-2.0}},
 				xtick={2.5,5,10,25,50},
-				ylabel={heat flow $\dot{Q}$ in \unit{\watt\per\gram}},
+				ylabel={heat flow $\dot{Q}$ in \unit{\joule\per\second\per\gram}},
 				scaled y ticks=false,
 				scaled x ticks=false,
 				axis x line*=top,

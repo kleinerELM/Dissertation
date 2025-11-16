@@ -1459,9 +1459,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.71175"
-     inkscape:cx="180.51702"
-     inkscape:cy="254.418"
+     inkscape:zoom="4.8415601"
+     inkscape:cx="213.98061"
+     inkscape:cy="263.03505"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -1470,10 +1470,10 @@
      fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0"
-     inkscape:window-width="2560"
-     inkscape:window-height="1387"
-     inkscape:window-x="3832"
-     inkscape:window-y="-8"
+     inkscape:window-width="3840"
+     inkscape:window-height="2054"
+     inkscape:window-x="-11"
+     inkscape:window-y="-11"
      inkscape:window-maximized="1"
      inkscape:document-rotation="0"
      inkscape:showpageshadow="2"
@@ -2482,6 +2482,6 @@
          id="tspan39"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:2.11667px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman,  Bold';fill:#ffffff;stroke-width:0.264583"
          x="92.644989"
-         y="123.50496">PCXT</tspan></text>
+         y="123.50496">PXCT</tspan></text>
   </g>
 </svg>

@@ -84,11 +84,12 @@ To safely determine the most frequent \ac{HLT}, a function was fitted to the his
 	%l_\text{max}	&	most frequent \ac{HLT}.
 \end{conditions}
 
-{\color{red}
-\textsc{Hadley} grains (\zcref{subsec:hadley}) cannot be measured as described above, since the pore space of the \textsc{Hadley} grain would stop the measurement.
-However, with a slight modification of the algorithm, the seam thickness and the \textsc{Hadley} grain gap can be measured.
-To obtain these data, the \textsc{Hadley} grains have to be identified and segmented beforehand.
-}
+\textsc{Hadley} grains (\zcref{subsec:hadley}) can distort the results, since the gap between the clinker grain and the hydrate layer would stop the measurement.
+The result would be a very small \ac{HLT}, since the transition zone between clinker and gap will probably be identified as \ac{CSH}.
+With a modification of the algorithm, the seam thickness and the \textsc{Hadley} grain gap could be measured.
+However, to obtain these data, the \textsc{Hadley} grains have to be identified and segmented beforehand.
+This probably has to be done manually or a significant training effort has to be done to do this automatically.
+
 
 \subsubsection{Particle distance measurements}
 
@@ -99,7 +100,7 @@ However, this is not feasible to obtain a true particle distance of a fresh past
 A possible solution is the cryo-\ac{FIB}-\ac{SEM}-preparation method, even if the resulting image area is very small.
 
 Nevertheless, the source image also has to be segmented into two phases (pore / water and clinker).
-The difference in the algorithms is the measured distance as shown in \zcref{fig:hlt-method}C, where the measurement excludes hydrates and does stop at the neighbouring particle instead of pore space.
+The difference in the algorithms is the measured distance as shown in \zcref{fig:hlt-method}C, where the measurement excludes hydrates and does stop at neighbouring particles instead of pore space.
 
 
 %\subsection{Representative area}

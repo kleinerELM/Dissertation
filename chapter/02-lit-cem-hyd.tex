@@ -21,7 +21,7 @@ On contact with water, these phases dissolve and new phases such as \ac{CSH}, \a
                 grid style={line width=.1pt, draw=gray!10},
                 xlabel={hydration time},
                 xtick={0, 11.26, 19.35, 28},
-                xticklabels={\qty{0}{\min},\qty{60}{\min},\qty{24}{\hour},\qty{28}{\day}},
+                xticklabels={\qty{0}{\minute},\qty{60}{\minute},\qty{24}{\hour},\qty{28}{\day}},
                 ylabel={proportional\\phase development},
                 ylabel style={align=center},
                 ytick=\empty,
@@ -229,7 +229,7 @@ This preparation often leads to a significant change in the morphology of the \a
     \end{subfigure}
 
     \caption{
-        Influence of carbon coating (\qty{30}{\nano\meter}) on the appearance of the tobermorite crystalites.
+        Influence of carbon coating (\qty{30}{\nano\meter}) on the appearance of tobermorite crystalites.
         The tips of the crystalites deformed due to temperature exposure during the coating and details of the morphology are lost.
         The images were made at \qty{2.5}{\kilo\volt} and \qty{15}{\kilo\volt}, respectively.
         \cite{moser.1998}
@@ -310,8 +310,8 @@ However, the publication is not clear if `dimension'
                 legend cell align={left},
 				xmin=14, xmax=29,%270,
 				ymin=0, ymax=7,
-				width=0.7\linewidth,
-				height=5cm,
+				width=0.8\linewidth,
+				height=5.5cm,
 				grid=major,
 				xlabel={mean particle `dimension' (diameter) in \unit{\micro\meter}},
 				ylabel={$l_{\text{CSH}}$ in \unit{\micro\meter}},
@@ -322,7 +322,7 @@ However, the publication is not clear if `dimension'
             \addplot+ [ only marks, mark=x, orange ] table [skip first n=1, x index=0, y index=3, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_andregg/gsd-PCA.csv};
             \addplot [ draw=none, forget plot ] table [skip first n=1, col sep=comma, x index=0, y={create col/linear regression={y=[index]3}}, filter discard warning=false ] {figures/hydrate-rim/data_andregg/gsd-PCA.csv};
             \addplot[update limits=false, no markers, orange, domain=15:28, samples=2, forget plot] {\pgfplotstableregressionb + x*\pgfplotstableregressiona};
-            \addlegendentry{\qty{7}{\day}, \acs*{OPC}};
+            \addlegendentry{\qty{7}{\day}};
 
             % \addplot+ [ only marks, mark=o, orange ] table [skip first n=1, x index=0, y index=3, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_andregg/gsd-PCA+CaSO4.csv};
             % \addplot [ draw=none, forget plot ] table [skip first n=1, col sep=comma, x index=0, y={create col/linear regression={y=[index]3}}, filter discard warning=false ] {figures/hydrate-rim/data_andregg/gsd-PCA+CaSO4.csv};
@@ -335,7 +335,7 @@ However, the publication is not clear if `dimension'
             \addplot+ [ only marks, mark=o, cyan ] table [skip first n=1, x index=0, y index=4, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_andregg/gsd-PCA.csv};
             \addplot [ draw=none, forget plot ] table [skip first n=1, col sep=comma, x index=0, y={create col/linear regression={y=[index]4}}, filter discard warning=false ] {figures/hydrate-rim/data_andregg/gsd-PCA.csv};
             \addplot[update limits=false, no markers, cyan, domain=15:28, samples=2, forget plot] {\pgfplotstableregressionb + x*\pgfplotstableregressiona};
-            \addlegendentry{\qty{28}{\day}, \acs*{OPC}};
+            \addlegendentry{\qty{28}{\day}};
 
             % \addplot+ [ only marks, mark=o, cyan ] table [skip first n=1, x index=0, y index=4, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_andregg/gsd-PCA+CaSO4.csv};
             % \addplot [ draw=none, forget plot ] table [skip first n=1, col sep=comma, x index=0, y={create col/linear regression={y=[index]4}}, filter discard warning=false ] {figures/hydrate-rim/data_andregg/gsd-PCA+CaSO4.csv};
@@ -348,7 +348,7 @@ However, the publication is not clear if `dimension'
             \addplot+ [ only marks, mark=+, red ] table [skip first n=1, x index=0, y index=5, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_andregg/gsd-PCA.csv};
             \addplot [ draw=none, forget plot ] table [skip first n=1, col sep=comma, x index=0, y={create col/linear regression={y=[index]5}}, filter discard warning=false ] {figures/hydrate-rim/data_andregg/gsd-PCA.csv};
             \addplot[update limits=false, no markers, red, domain=15:28, samples=2, forget plot] {\pgfplotstableregressionb + x*\pgfplotstableregressiona};
-            \addlegendentry{\qty{90}{\day}, \acs*{OPC}};
+            \addlegendentry{\qty{90}{\day}};
 
             % \addplot+ [ only marks, mark=o, red ] table [skip first n=1, x index=0, y index=5, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_andregg/gsd-PCA+CaSO4.csv};
             % \addplot [ draw=none, forget plot ] table [skip first n=1, col sep=comma, x index=0, y={create col/linear regression={y=[index]5}}, filter discard warning=false ] {figures/hydrate-rim/data_andregg/gsd-PCA+CaSO4.csv};
@@ -426,7 +426,7 @@ In contrast to the \ac{OPC} experiments, these consisted only out of very few se
 
 \textcite{garrault.2006} dissolved \qty{4}{\gram} \ac{C3S} grains with different median diameters (7, 10, 11, 12.5, \qty{14}{\micro\meter}) for up to one day in a concentrated lime solution and measured the development of the resulting \ac{CSH} concentration.
 They estimated the thickness of \ac{CSHi} (replacing \ac{C3S}) and \ac{CSHo} (on top of the grain) at the time, when the \ac{CSH} precipitation became limited by diffusion (see \zcref{fig:garrault-distribution}) (beginning of the second deceleration period in \zcref{fig:opc_dca}).
-For a particle diameter of \qty{7}{\micro\meter} the diffusion was limited after $\approx$ \qty{600}{\min} (\qty{10}{\hour}), for \qty{14}{\micro\meter} after $\approx$ \qty{700}{\min} (\qty{12}{\hour}).
+For a particle diameter of \qty{7}{\micro\meter} the diffusion was limited after $\approx$ \qty{600}{\minute} (\qty{10}{\hour}), for \qty{14}{\micro\meter} after $\approx$ \qty{700}{\minute} (\qty{12}{\hour}).
 % TODO: Christiane: determined by which method? <- im Paper steht keine Methode, aber ich nehme an, dass ICP verwendet wurde.
 The estimation is based on the \ac{CSH}-concentration (the measurement method was not mentioned), the mean diameter and that the particles are spherical.
 \textcite{garrault.2006} included a measurement of a single \ac{TEM}-image from  of a hydrated \ac{C3S} grain with a diameter of \qty{3}{\micro\meter}. % made by \textsc{Lachowski} and \textsc{Courault} in 1998.
@@ -595,7 +595,7 @@ The results are plotted in \zcref{fig:suess_CSH_C3S} (\ac{C3S}) and \zcref{fig:s
         \nextgroupplot[
             xmin=0, xmax=700,
             ymin=0, ymax=1.250,
-            xlabel={time $t$ in \unit{\min}},
+            xlabel={time $t$ in \unit{\minute}},
             xtick={0,0,130,300,600},
             ytick={0,.250,...,3.000},
             restrict x to domain=0:700,
@@ -871,7 +871,7 @@ They used a relatively high \ac{wb} value of \num{3.0} to obtain a suspension, w
     \caption{
         \textsc{Hadley} grains of \qty{20}{\hour} hydrated \ac{C3S} (white) in a dataset measured using \ac{PXCT} \cite{neubauer.2022}.
         elongated fibres: \ac{CH}, medium grey: \ac{CSH}, dark grey: resin, black: pores
-        The segmentation was done for this work, the \ac{CSH} shell (red) around the \ac{C3S} grain (orange) in the centre was cut open for visualisation purposes.
+        The segmentation was done for this work, the \ac{CSH} shell ({\color{red}red}) around the \ac{C3S} grain ({\color{orange}orange}) in the centre was cut open for visualisation purposes.
     }
     \label{fig:hadley}
 \end{figure}

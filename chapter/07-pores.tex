@@ -18,7 +18,7 @@ The glass standards were initially defined using \ac{MIP} by the manufacturer (\
 \subsection{\acs*{SEM}}
 
 To obtain \ac{SEM} images, the glass was fractured and even surfaces were imaged without any coating.
-As the \ac{SEM} images indicate (\zcref{fig:ltdsc-vycor-glass}), the pores are interconnected, which is plausible due to its intended use as a filter material and the \textsc{VYCOR} manufacturing process used (sintering of glass powder).
+As the \ac{SEM} images indicate (\zcref{fig:ltdsc-vycor-glass-a, fig:ltdsc-vycor-glass-b}), the pores are interconnected, which is plausible due to its intended use as a filter material and the \textsc{VYCOR} manufacturing process used (sintering of glass powder).
 
 \begin{figure}[htb!]
     \centering
@@ -47,139 +47,7 @@ As the \ac{SEM} images indicate (\zcref{fig:ltdsc-vycor-glass}), the pores are i
 		\label{fig:ltdsc-vycor-glass-d}
 	\end{subfigure}
 
-    \caption{
-		\ac{SEM}-\ac{SE} images of two \textsc{VYCOR}-glass samples and their respective segmentation result.
-	} % Probenbilder-rodaten vmtl vertauscht.
-    \label{fig:ltdsc-vycor-glass}
-\end{figure}
 
-The pores can be segmented using an established thresholding method and the pore size distribution can be determined. %  (see \zcref{sec:segmentation})
-Areas with obvious damages due to the fracture process were excluded from the analysis.
-The results are shown in \zcref{fig:vicor-SEM}.
-As indicated by the inhomogeneous distribution of the segmented pores (see \zcref{fig:ltdsc-vycor-glass-c} and \zcref{fig:ltdsc-vycor-glass-d}), the selected threshold value is not producing an uniform thresholding result.
-
-
-% \begin{figure}[!htb]
-%     \centering
-
-%  	\begin{subfigure}{.495\textwidth}
-% 	  \centering
-
-%       \begin{tikzpicture}
-%         \begin{semilogxaxis}[
-% 				legend style={at={(0.05,.7)},anchor=west},
-%                 legend cell align={left},
-% 				xmin=.64, xmax=160,
-% 				ymin=0, ymax=1.1,
-% 				width=1.1\linewidth,
-% 				height=6cm,
-% 				grid=major,
-% 				xlabel={pore radius $r_\text{P}$ \unit{\nano\meter}},
-% 				ylabel={normalised frequency},
-% 				grid style={line width=.1pt, draw=gray!10},
-% 				yticklabel style={
-% 						/pgf/number format/fixed,
-% 						/pgf/number format/precision=3
-% 				},
-% 				xticklabels={1, 2.5,5,10,25,50,100},
-% 				xtick={1, 2.5,5,10,25,50,100},
-% 				ymajorticks=false,
-% 				scaled y ticks=false,
-% 				scaled x ticks=false,
-%             ]
-
-% 			\addplot [ no marks, blue ] table [x=x, y=y_norm] {
-% 				x      y       y_norm
-% 				2.5    0       0
-% 				5      536     0.2902
-% 				10     1847    1
-% 				20     1502    0.8134
-% 				40     51      0.0276
-% 				80     0       0
-% 			};
-% 			\addlegendentry{image \num{1}}
-
-% 			\addplot [ no marks, blue, dashed ] table [x=x, y=y_norm] {
-% 				x      y       y_norm
-% 				0.64   0       0
-% 				1.25   3       0.0045
-% 				2.5    132     0.1959
-% 				5      110     0.1633
-% 				10     442     0.6567
-% 				20     674     1
-% 				40     90      0.1336
-% 				80     1       0.0015
-% 				160    0       0
-% 			};
-% 			\addlegendentry{image \num{2}}
-
-%         \end{semilogxaxis}
-% 	  \end{tikzpicture}
-% 	  \caption{\qty{5}{\nano\meter} porous \textsc{VYCOR}-glass.}
-
-% 	\end{subfigure}
-% 	\hfill
-% 	\begin{subfigure}{.495\textwidth}
-% 		\centering
-
-% 		\begin{tikzpicture}
-% 		  \begin{semilogxaxis}[
-%                 legend style={at={(0.05,.8)},anchor=west},
-%                 legend cell align={left},
-% 				xmin=.64, xmax=160,
-% 				ymin=0, ymax=1.1,
-% 				width=1.1\linewidth,
-% 				height=6cm,
-% 				grid=major,
-% 				xlabel={pore radius $r_\text{P}$ \unit{\nano\meter}},
-% 				ylabel={normalised frequency},
-% 				grid style={line width=.1pt, draw=gray!10},
-% 				yticklabel style={
-% 						/pgf/number format/fixed,
-% 						/pgf/number format/precision=3
-% 				},
-% 				xticklabels={1, 2.5,5,10,25,50,100},
-% 				xtick={1, 2.5,5,10,25,50,100},
-% 				ymajorticks=false,
-% 				scaled y ticks=false,
-% 				scaled x ticks=false,
-% 				yticklabel pos=right,
-% 			]
-% 			\addplot [ no marks, orange ] table [x=x, y=y_norm] {
-% 				x      y       y_norm
-% 				1.25   0       0
-% 				2.5    35      0.0429
-% 				5      116     0.1422
-% 				10     349     0.4272
-% 				20     816     1
-% 				40     136     0.1667
-% 				80     0       0
-% 			};
-% 			\addlegendentry{image \num{1}}
-
-% 			\addplot [ no marks, orange, dashed ] table [x=x, y=y_norm] {
-% 				x      y       y_norm
-% 				1.25   0       0
-% 				2.5    1       0.0004
-% 				5      314     0.1180
-% 				10     1244    0.4675
-% 				20     2661    1
-% 				40     336     0.1263
-% 				80     0       0
-% 			};
-% 			\addlegendentry{image \num{2}}
-
-% 		  \end{semilogxaxis}
-% 		\end{tikzpicture}
-% 		\caption{\qty{20}{\nano\meter} porous \textsc{VYCOR}-glass.}
-
-% 	\end{subfigure}
-%     \caption{Pore size distribution of two \textsc{VYCOR}-glass samples. The pore size was determined using two segmented \ac{SEM} image for each glass type.}
-%     \label{fig:vicor-SEM}
-% \end{figure}
-
-\begin{figure}[!htb]
-    \centering
     \begin{subfigure}{.495\textwidth}
       \centering
       \begin{tikzpicture}
@@ -194,14 +62,14 @@ As indicated by the inhomogeneous distribution of the segmented pores (see \zcre
                 width=1.1\linewidth,
                 height=6cm,
                 grid=major,
-                xlabel={pore radius $r_\text{P}$ in \unit{\nano\meter}},
+                xlabel={pore diameter in \unit{\nano\meter}},
                 ylabel={normalised frequency},
                 grid style={line width=.1pt, draw=gray!10},
                 yticklabel style={
                         /pgf/number format/fixed,
                         /pgf/number format/precision=3
                 },
-                xticklabels={1.25, 2.5,5,10,20,40,80,160},
+                xticklabels={2.5,5,10,20,40,80,160,320},
                 xtick={1.25, 2.5,5,10,20,40,80,160},
                 ymajorticks=false,
                 scaled y ticks=false,
@@ -253,7 +121,10 @@ As indicated by the inhomogeneous distribution of the segmented pores (see \zcre
 			\addlegendentry{image \num{2}};
         \end{semilogxaxis}
       \end{tikzpicture}
-      \caption{\qty{5}{\nano\meter} porous \textsc{VYCOR}-glass.}
+      \caption{
+		Pore size distribution \qty{5}{\nano\meter} porous \textsc{VYCOR}-glass.
+	  }
+	  \label{fig:ltdsc-vycor-glass-e}
     \end{subfigure}
     \hfill
     \begin{subfigure}{.495\textwidth}
@@ -270,14 +141,14 @@ As indicated by the inhomogeneous distribution of the segmented pores (see \zcre
                 width=1.1\linewidth,
                 height=6cm,
                 grid=major,
-                xlabel={pore radius $r_\text{P}$ in \unit{\nano\meter}},
+                xlabel={pore diameter in \unit{\nano\meter}},
                 ylabel={normalised frequency},
                 grid style={line width=.1pt, draw=gray!10},
                 yticklabel style={
                         /pgf/number format/fixed,
                         /pgf/number format/precision=3
                 },
-                xticklabels={1.25, 2.5,5,10,20,40,80,160},
+                xticklabels={2.5,5,10,20,40,80,160,320},
                 xtick={1.25, 2.5,5,10,20,40,80,160},
                 ymajorticks=false,
                 scaled y ticks=false,
@@ -330,21 +201,30 @@ As indicated by the inhomogeneous distribution of the segmented pores (see \zcre
 
           \end{semilogxaxis}
         \end{tikzpicture}
-        \caption{\qty{20}{\nano\meter} porous \textsc{VYCOR} glass.}
+        \caption{
+			Pore size distribution of \qty{20}{\nano\meter} porous \textsc{VYCOR} glass.
+		}
+		\label{fig:ltdsc-vycor-glass-f}
     \end{subfigure}
+
     \caption{
-		Pore size distribution of two \textsc{VYCOR} glass samples.
-		The pore size was determined using two segmented \ac{SEM} image for each glass type.
-	}
-    \label{fig:vicor-SEM}
+		\ac{SEM}-\ac{SE} images of two \textsc{VYCOR}-glass samples, their respective segmentation result and the pore size distribution.
+		The pore size was determined using two segmented \ac{SEM} image for each glass type..
+	} % Probenbilder-rodaten vmtl vertauscht.
+    \label{fig:ltdsc-vycor-glass}
 \end{figure}
 
-% das sollte eigentlich im Histogram style sein
+% C:\Users\Florian Kleiner\Nextcloud\Uni\WdB\Paper\2024 LT-DSC-XRD-BSE Alit-Belit Paper\5. REM+EDX\Nanoporöses Glas\2022_02_08 Poröses Glas
+
+The pores can be segmented using thresholding and the pore size distribution can be determined (see \zcref{fig:ltdsc-vycor-glass-c,fig:ltdsc-vycor-glass-d}). %  (see \zcref{sec:segmentation})
+Areas with obvious damages due to the fracture process were excluded from the analysis.
+The resulting pore size distributions of two images per specimen are shown in \zcref{fig:ltdsc-vycor-glass-e, fig:ltdsc-vycor-glass-f}.
+As indicated by the inhomogeneous distribution of the segmented pores (\zcref{fig:ltdsc-vycor-glass-c}), the selected threshold value is not producing an uniform result.
+
+Furthermore, the measured pore radii measured using this traditional thresholding method are off by a factor of \num{4} and more (\qty{5}{\nano\meter} glass) and \num{2} (\qty{20}{\nano\meter} glass) compared to the \ac{MIP} measurements provided by the manufacturer (\zcref{fig:vycor-mip}).
+
 % TODO: prüfe, ob tatsächlich Porenradien gemessen wurden!
 
-{\color{red} % Die abweichungen besonders bei der 5nm Probe sind sehr hoch.
-The measured pore radii measured using a traditional thresholding method are off by a factor of \num{4} and more (\qty{5}{\nano\meter}) and \num{2} (\qty{20}{\nano\meter}) compared to the \ac{MIP} measurements provided by the manufacturer (\zcref{fig:vycor-mip}).
-}
 
 \begin{figure}[htbp]
 	\centering
@@ -436,21 +316,22 @@ The measured pore radii measured using a traditional thresholding method are off
 \end{figure}
 
 
-% C:\Users\Florian Kleiner\Nextcloud\Uni\WdB\Paper\2024 LT-DSC-XRD-BSE Alit-Belit Paper\5. REM+EDX\Nanoporöses Glas\2022_02_08 Poröses Glas
-{\color{red}
-Adaptive thresholding is a segmentation method that adjusts the threshold value dynamically based on the local properties of the image, such as the intensity within a sliding window (blocksize).
+Since \ac{SEM}-\ac{SE} images tend to have brightness variations from one side to the other due to slightly tilted surfaces, adaptive thresholding was applied.
+Adaptive thresholding is a segmentation method that adjusts the threshold value dynamically based on the local properties of the image, such as the intensity within a sliding window.
+The size of this window is a variable called blocksize which has to be set manually.
+For each segmented pore, the median \textsc{Feret} diameter was calculated.
+The resulting median \textsc{Feret} diameter distribution was then normalised to the maximum value within the distribution.
 Depending on the blocksize used, very different results were obtained, as shown in \zcref{fig:heatmap_vycor}.
-For each segmented pore, the \textsc{Feret} diameter was calculated in all directions and the median \textsc{Feret} diameter for the pore.
-The median \textsc{Feret} diameter distribution for each blocksize was then normalised to the maximum value for each blocksize.
 
 For \textsc{VYCOR}-glass with a given porosity of \qty{20}{\nano\meter}, using a blocksize larger than \qty{50}{\nano\meter} produced reliable results, with the main median \textsc{Feret} diameter around \qty{20}{\nano\meter}.
 However, for \qty{5}{\nano\meter} glass, the porosity was overestimated by a factor of \num{2.5}, with a median \textsc{Feret} diameter around \qty{15}{\nano\meter} (see \zcref{fig:mip_heatmap_vycor5nm}).
 For block sizes smaller than \qty{50}{\nano\meter}, the segmentation result was very noisy, and the \textsc{Feret} diameter was underestimated and unreliable.
 It is recommended to use a blocksize that is at least three times larger than the expected feature size to achieve accurate segmentation results.
 
-Grund: Bruchfläche - unklare Kanten, subjektiv is 5 nm deutlich kleiner\dots
-Mehr als ein Bild analysieren, um die Reproduzierbarkeit zu prüfen.
-}
+% TODO: Median pore size eintragen ins Diagram
+% TODO: normales thresholding auf eines der identischen Bilder anwenden zum Vergleich.
+% TODO: Denoising erwähnen
+% TODO: neues Bild mit Auswirkung von Blocksize
 
 
 
@@ -459,7 +340,7 @@ Mehr als ein Bild analysieren, um die Reproduzierbarkeit zu prüfen.
 
 The glass standards were measured using a simplified temperature regimen.
 It also experienced ice crystal-inducing freeze-thaw cycles before the actual measurement.
-For the measurement, the water saturated specimen was then cooled down to \qty{-60}{\celsius} and heated up to \qty{20}{\celsius} at a cooling and heating rate of $\pm$\,\qty{2}{\kelvin\per\min}.
+For the measurement, the water saturated specimen was then cooled down to \qty{-60}{\celsius} and heated up to \qty{20}{\celsius} at a cooling and heating rate of $\pm$\,\qty{2}{\kelvin\per\minute}.
 
 \begin{figure}[!htb]
     \centering
@@ -1091,7 +972,7 @@ This indicates a lower gel pore volume for \ac{C3S} compared to \ac{C2S}.
 Furthermore, the peaks are slightly shifted to smaller pore radii indicating smaller gel pores.
 
 However, the freezing curve cannot be used to determine the volume of the gel pores.
-In order to calculate the ice mass within the gel pores and thus also their volume, the heat flow signal of the two melting curves of every experiment was integrated over the measured temperature ranges and subtracted from each other as shown in \zcref{eq:ltdsc_ice, eq:ltdsc_ice2}.
+In order to calculate the ice mass within the gel pores and thus also their volume, the heat flow signal of the two melting curves of every experiment was integrated over the measured temperature ranges and subtracted from each other as shown in \zcref{eq:ltdsc_ice_integral, eq:ltdsc_ice2}.
 In order to do that, a base line correction was applied to the raw data.
 \zcref{fig:ltdsc_result_c2s_melt} illustrates this process for the results of \qty{28}{\day} hydrated \ac{C2S}.
 %{\color{red}The detailed procedure is published on github \cite{kleiner.2025} %\url{https://github.com/kleinerELM/Kalorimeterauswertung}

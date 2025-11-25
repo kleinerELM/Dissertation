@@ -36,187 +36,269 @@ As the \ac{SEM} images indicate (\zcref{fig:ltdsc-vycor-glass-a, fig:ltdsc-vycor
 	\end{subfigure}
 
 	\begin{subfigure}{0.49\textwidth}
-		\includegraphics[width=\textwidth]{ltdsc/glass/segmentation/5nm_s_.pdf}
+		\includegraphics[width=\textwidth]{ltdsc/glass/20nm_005old_otsu.png}
 		\caption{Segmented, pore size \qty{5}{\nano\meter} (diameter)}
 		\label{fig:ltdsc-vycor-glass-c}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}{0.49\textwidth}
-		\includegraphics[width=\textwidth]{ltdsc/glass/segmentation/20nm_s_.pdf}
+		\includegraphics[width=\textwidth]{ltdsc/glass/5nm_004old_otsu.png}
 		\caption{Segmented, pore size \qty{20}{\nano\meter} (diameter)}
 		\label{fig:ltdsc-vycor-glass-d}
 	\end{subfigure}
 
 
-    \begin{subfigure}{.495\textwidth}
-      \centering
+    % \begin{subfigure}{.495\textwidth}
+    %   \centering
+    %   \begin{tikzpicture}
+    %     \begin{semilogxaxis}[
+    %             legend style={
+    %                 at={(0.05,.8)},
+    %                 anchor=west,
+    %                 cells={align=left}
+    %             },
+    %             xmin=.64, xmax=160,
+    %             ymin=0, ymax=1.1,
+    %             width=1.1\linewidth,
+    %             height=6cm,
+    %             grid=major,
+    %             xlabel={pore diameter in \unit{\nano\meter}},
+    %             ylabel={normalised frequency},
+    %             grid style={line width=.1pt, draw=gray!10},
+    %             yticklabel style={
+    %                     /pgf/number format/fixed,
+    %                     /pgf/number format/precision=3
+    %             },
+    %             xticklabels={2.5,5,10,20,40,80,160,320},
+    %             xtick={1.25, 2.5,5,10,20,40,80,160},
+    %             ymajorticks=false,
+    %             scaled y ticks=false,
+    %             scaled x ticks=false,
+    %         ]
+
+    %         % --- ANGEPASSTER PLOT ---
+    %         \addplot [
+	% 			no marks, 
+    %             ybar, 
+    %             fill=darkgreen, 
+    %             draw=darkgreen, 
+    %             bar width=10pt, 
+    %             bar shift=-5pt,
+    %             area legend
+    %         ] table [x=x, y=y_norm] {
+    %             x      y       y_norm
+    %             2.5    0       0
+    %             5      536     0.2902
+    %             10     1847    1
+    %             20     1502    0.8134
+    %             40     51      0.0276
+    %             80     0       0
+    %         };
+	% 		\addlegendentry{image \num{1}};
+
+    %         % --- ANGEPASSTER PLOT (statt dashed) ---
+    %         \addplot [
+	% 			no marks, 
+    %             ybar,
+    %             pattern=north east lines,
+    %             pattern color=darkgreen,
+    %             draw=darkgreen,
+    %             bar width=10pt,
+    %             bar shift=5pt,
+    %             area legend
+    %         ] table [x=x, y=y_norm] {
+    %             x      y       y_norm
+    %             0.64   0       0
+    %             1.25   3       0.0045
+    %             2.5    132     0.1959
+    %             5      110     0.1633
+    %             10     442     0.6567
+    %             20     674     1
+    %             40     90      0.1336
+    %             80     1       0.0015
+    %             160    0       0
+    %         };
+	% 		\addlegendentry{image \num{2}};
+    %     \end{semilogxaxis}
+    %   \end{tikzpicture}
+    %   \caption{
+	% 	Pore size distribution \qty{5}{\nano\meter} porous \textsc{VYCOR}-glass.
+	%   }
+	%   \label{fig:ltdsc-vycor-glass-e}
+    % \end{subfigure}
+    % \hfill
+    % \begin{subfigure}{.495\textwidth}
+    %     \centering
+    %     \begin{tikzpicture}
+    %       \begin{semilogxaxis}[
+    %             legend style={
+    %                 at={(0.05,.8)},
+    %                 anchor=west,
+    %                 cells={align=left}
+    %             },
+    %             xmin=.64, xmax=160,
+    %             ymin=0, ymax=1.1,
+    %             width=1.1\linewidth,
+    %             height=6cm,
+    %             grid=major,
+    %             xlabel={pore diameter in \unit{\nano\meter}},
+    %             ylabel={normalised frequency},
+    %             grid style={line width=.1pt, draw=gray!10},
+    %             yticklabel style={
+    %                     /pgf/number format/fixed,
+    %                     /pgf/number format/precision=3
+    %             },
+    %             xticklabels={2.5,5,10,20,40,80,160,320},
+    %             xtick={1.25, 2.5,5,10,20,40,80,160},
+    %             ymajorticks=false,
+    %             scaled y ticks=false,
+    %             scaled x ticks=false,
+    %             yticklabel pos=right,
+    %         ]
+    %         % --- ANGEPASSTER PLOT ---
+    %         \addplot+ [
+	% 			no marks, 
+    %             ybar, 
+    %             fill=orange, 
+    %             draw=orange, 
+    %             bar width=10pt, 
+    %             bar shift=-5pt,
+    %             area legend
+    %         ] table [x=x, y=y_norm] {
+    %             x      y       y_norm
+    %             1.25   0       0
+    %             2.5    35      0.0429
+    %             5      116     0.1422
+    %             10     349     0.4272
+    %             20     816     1
+    %             40     136     0.1667
+    %             80     0       0
+    %         };
+	% 		\addlegendentry{image \num{1}};
+
+    %         % --- ANGEPASSTER PLOT (statt dashed) ---
+    %         \addplot+ [
+	% 			no marks, 
+    %             ybar,
+    %             pattern=north east lines,
+    %             pattern color=orange,
+    %             draw=orange,
+    %             bar width=10pt,
+    %             bar shift=5pt,
+    %             area legend
+    %         ] table [x=x, y=y_norm] {
+    %             x      y       y_norm
+    %             1.25   0       0
+    %             2.5    1       0.0004
+    %             5      314     0.1180
+    %             10     1244    0.4675
+    %             20     2661    1
+    %             40     336     0.1263
+    %             80     0       0
+    %         };
+	% 		\addlegendentry{image \num{2}};
+
+
+    %       \end{semilogxaxis}
+    %     \end{tikzpicture}
+    %     \caption{
+	% 		Pore size distribution of \qty{20}{\nano\meter} porous \textsc{VYCOR} glass.
+	% 	}
+	% 	\label{fig:ltdsc-vycor-glass-f}
+    % \end{subfigure}
+
+ 	\begin{subfigure}{.495\textwidth}
       \begin{tikzpicture}
         \begin{semilogxaxis}[
-                legend style={
-                    at={(0.05,.8)},
-                    anchor=west,
-                    cells={align=left}
-                },
-                xmin=.64, xmax=160,
-                ymin=0, ymax=1.1,
-                width=1.1\linewidth,
-                height=6cm,
-                grid=major,
-                xlabel={pore diameter in \unit{\nano\meter}},
-                ylabel={normalised frequency},
-                grid style={line width=.1pt, draw=gray!10},
-                yticklabel style={
-                        /pgf/number format/fixed,
-                        /pgf/number format/precision=3
-                },
-                xticklabels={2.5,5,10,20,40,80,160,320},
-                xtick={1.25, 2.5,5,10,20,40,80,160},
-                ymajorticks=false,
-                scaled y ticks=false,
-                scaled x ticks=false,
+				legend style={
+					at={(0.015,.8)},
+					anchor=west,
+					cells={align=left},
+					font=\footnotesize
+				},
+				xmin=3, xmax=41,
+				ymin=0, ymax=1,
+				width=\linewidth,
+				height=6cm,
+				grid=major,
+				xlabel={pore diameter $d_\text{P}$ in \unit{\nano\meter}},
+				ylabel={normalised frequency},
+				grid style={line width=.1pt, draw=gray!10},
+				yticklabel style={
+						/pgf/number format/fixed,
+						/pgf/number format/precision=3
+				},
+				xticklabels={2.5,5,10,20,40},
+				xtick={2.5,5,10,20,40},
+				ytick={0,-0.1,-0.2},
+				scaled y ticks=false,
+				scaled x ticks=false,
             ]
 
-            % --- ANGEPASSTER PLOT ---
-            \addplot [
-				no marks, 
-                ybar, 
-                fill=darkgreen, 
-                draw=darkgreen, 
-                bar width=10pt, 
-                bar shift=-5pt,
-                area legend
-            ] table [x=x, y=y_norm] {
-                x      y       y_norm
-                2.5    0       0
-                5      536     0.2902
-                10     1847    1
-                20     1502    0.8134
-                40     51      0.0276
-                80     0       0
-            };
-			\addlegendentry{image \num{1}};
+			  \addplot [ no marks, orange ] table [x index=0, y index=1, col sep=comma ] {figures/ltdsc/glass/20nm_005old_otsu.csv};
+			  \addlegendentry{specimen 1};
 
-            % --- ANGEPASSTER PLOT (statt dashed) ---
-            \addplot [
-				no marks, 
-                ybar,
-                pattern=north east lines,
-                pattern color=darkgreen,
-                draw=darkgreen,
-                bar width=10pt,
-                bar shift=5pt,
-                area legend
-            ] table [x=x, y=y_norm] {
-                x      y       y_norm
-                0.64   0       0
-                1.25   3       0.0045
-                2.5    132     0.1959
-                5      110     0.1633
-                10     442     0.6567
-                20     674     1
-                40     90      0.1336
-                80     1       0.0015
-                160    0       0
-            };
-			\addlegendentry{image \num{2}};
         \end{semilogxaxis}
-      \end{tikzpicture}
-      \caption{
-		Pore size distribution \qty{5}{\nano\meter} porous \textsc{VYCOR}-glass.
-	  }
+	  \end{tikzpicture}
+	  \caption{Pore size distribution of \qty{5}{\nano\meter} porous \textsc{VYCOR} glass.}
 	  \label{fig:ltdsc-vycor-glass-e}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}{.495\textwidth}
-        \centering
-        \begin{tikzpicture}
-          \begin{semilogxaxis}[
-                legend style={
-                    at={(0.05,.8)},
-                    anchor=west,
-                    cells={align=left}
-                },
-                xmin=.64, xmax=160,
-                ymin=0, ymax=1.1,
-                width=1.1\linewidth,
-                height=6cm,
-                grid=major,
-                xlabel={pore diameter in \unit{\nano\meter}},
-                ylabel={normalised frequency},
-                grid style={line width=.1pt, draw=gray!10},
-                yticklabel style={
-                        /pgf/number format/fixed,
-                        /pgf/number format/precision=3
-                },
-                xticklabels={2.5,5,10,20,40,80,160,320},
-                xtick={1.25, 2.5,5,10,20,40,80,160},
-                ymajorticks=false,
-                scaled y ticks=false,
-                scaled x ticks=false,
-                yticklabel pos=right,
-            ]
-            % --- ANGEPASSTER PLOT ---
-            \addplot+ [
-				no marks, 
-                ybar, 
-                fill=orange, 
-                draw=orange, 
-                bar width=10pt, 
-                bar shift=-5pt,
-                area legend
-            ] table [x=x, y=y_norm] {
-                x      y       y_norm
-                1.25   0       0
-                2.5    35      0.0429
-                5      116     0.1422
-                10     349     0.4272
-                20     816     1
-                40     136     0.1667
-                80     0       0
-            };
-			\addlegendentry{image \num{1}};
 
-            % --- ANGEPASSTER PLOT (statt dashed) ---
-            \addplot+ [
-				no marks, 
-                ybar,
-                pattern=north east lines,
-                pattern color=orange,
-                draw=orange,
-                bar width=10pt,
-                bar shift=5pt,
-                area legend
-            ] table [x=x, y=y_norm] {
-                x      y       y_norm
-                1.25   0       0
-                2.5    1       0.0004
-                5      314     0.1180
-                10     1244    0.4675
-                20     2661    1
-                40     336     0.1263
-                80     0       0
-            };
-			\addlegendentry{image \num{2}};
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{.495\textwidth}
 
+		\begin{tikzpicture}
+		  \begin{semilogxaxis}[
+				legend style={
+					at={(0.985,.8)},
+					anchor=east,
+					cells={align=left},
+					font=\footnotesize
+				},
+				xmin=3, xmax=41,
+				ymin=0, ymax=1,
+				width=\linewidth,
+				height=6cm,
+				grid=major,
+				xlabel={pore diameter $d_\text{P}$ in \unit{\nano\meter}},
+				ylabel={normalised frequency},
+				grid style={line width=.1pt, draw=gray!10},
+				yticklabel style={
+						/pgf/number format/fixed,
+						/pgf/number format/precision=3
+				},
+				xticklabels={2.5,5,10,20,40},
+				xtick={2.5,5,10,20,40},
+				ytick={0,-0.1,-0.2},
+				scaled y ticks=false,
+				scaled x ticks=false,
+				yticklabel pos=right,
+			]
 
-          \end{semilogxaxis}
-        \end{tikzpicture}
-        \caption{
-			Pore size distribution of \qty{20}{\nano\meter} porous \textsc{VYCOR} glass.
-		}
-		\label{fig:ltdsc-vycor-glass-f}
-    \end{subfigure}
+			\addplot [ no marks, darkgreen] table [x index=0, y index=1, col sep=comma] {figures/ltdsc/glass/5nm_004old_otsu.csv};
+			\addlegendentry{specimen 1};
+			  
 
+		  \end{semilogxaxis}
+		\end{tikzpicture}
+		\caption{Pore size distribution of \qty{20}{\nano\meter} porous \textsc{VYCOR} glass.}
+	  	\label{fig:ltdsc-vycor-glass-f}
+
+	\end{subfigure}
     \caption{
 		\ac{SEM}-\ac{SE} images of two \textsc{VYCOR}-glass samples, their respective segmentation result and the pore size distribution.
-		The pore size was determined using two segmented \ac{SEM} image for each glass type..
+		The pore size was determined using two segmented \ac{SEM} image for each glass type.
 	} % Probenbilder-rodaten vmtl vertauscht.
     \label{fig:ltdsc-vycor-glass}
 \end{figure}
 
+
 % C:\Users\Florian Kleiner\Nextcloud\Uni\WdB\Paper\2024 LT-DSC-XRD-BSE Alit-Belit Paper\5. REM+EDX\Nanoporöses Glas\2022_02_08 Poröses Glas
 
-The pores can be segmented using thresholding and the pore size distribution can be determined (see \zcref{fig:ltdsc-vycor-glass-c,fig:ltdsc-vycor-glass-d}). %  (see \zcref{sec:segmentation})
+Since the dwell-time has to be chosen as short as possible to avoid charging, the images became very noisy and were denoised using a median blur filter using a \numproduct{3x3} kernel.
+
+The pores can be segmented using thresholding to determine the pore size distribution (see \zcref{fig:ltdsc-vycor-glass-c,fig:ltdsc-vycor-glass-d}). %  (see \zcref{sec:segmentation})
+
 Areas with obvious damages due to the fracture process were excluded from the analysis.
 The resulting pore size distributions of two images per specimen are shown in \zcref{fig:ltdsc-vycor-glass-e, fig:ltdsc-vycor-glass-f}.
 As indicated by the inhomogeneous distribution of the segmented pores (\zcref{fig:ltdsc-vycor-glass-c}), the selected threshold value is not producing an uniform result.
@@ -316,7 +398,7 @@ Furthermore, the measured pore radii measured using this traditional thresholdin
 \end{figure}
 
 
-Since \ac{SEM}-\ac{SE} images tend to have brightness variations from one side to the other due to slightly tilted surfaces, adaptive thresholding was applied.
+Since \ac{SEM}-\ac{SE} images tend to have brightness variations from one side to the other e.g. due to slightly tilted surfaces, adaptive thresholding was applied.
 Adaptive thresholding is a segmentation method that adjusts the threshold value dynamically based on the local properties of the image, such as the intensity within a sliding window.
 The size of this window is a variable called blocksize which has to be set manually.
 For each segmented pore, the median \textsc{Feret} diameter was calculated.
@@ -474,6 +556,7 @@ For the measurement, the water saturated specimen was then cooled down to \qty{-
 	}
     \label{fig:ltdsc_result_glass_freeze}
 \end{figure}
+
 
 This resulted in the following freeze curves as plotted in \zcref{fig:ltdsc_result_glass_freeze}.
 The glass type specified with a pore diameter of \qty{5}{\nano\meter} has two peaks in the heat-flow signal.

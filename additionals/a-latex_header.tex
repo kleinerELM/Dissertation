@@ -100,7 +100,7 @@
 \usepackage{todonotes}  % creates to-do items and figures
 \usepackage{graphicx}  % include graphics
 
-\usepackage[style = numeric-comp,
+\usepackage[style = ext-numeric-comp,
 			backend=biber,%backend = bibtex,
 			maxbibnames = 99, % arbitrary high value to ensure that all authors are listet in the bibliography
 			maxcitenames = 2, % truncate nameslist for citations
@@ -108,9 +108,13 @@
 			date = year, % controls the basic format of printed date specifications
 			uniquelist = false, % This feature allows ambiguous labelname list --> unique dateformat (e.g. 2020a, 2020b)
 			defernumbers=true,
-			sorting=none
+			sorting=none, 
+			articlein=false %Suppress "In:" biblatex
 			]{biblatex}  % use biblatex for bibliography
 
+			
+\DeclareDelimFormat[bib]{nametitledelim}{\addcomma\space} %overwrites the delimiter which is placed after the authors name and year.
+%renewbibmacro{in:}{} %Suppress "In:" biblatex
 
 % Treiber für den Eintragstyp "video"
 \DeclareBibliographyDriver{video}{%

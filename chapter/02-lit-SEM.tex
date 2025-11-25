@@ -44,10 +44,10 @@ They allow to measure and visualise the chemical composition, the crystallograph
 Therefore, their detection is highly sensitive to the surface topography of the sample.
 Edges and surfaces facing the detector emit more electrons than surfaces facing away from the detector, causing a good topographical contrast.
 
-Especially improvements in low-\unit{\kilo\volt} \ac{SE} imaging significantly improved the resolution, contrast, and topographic representation of specimens \cite{pawley.1984,moser.1998}.
+Especially improvements \ac{SE} imaging using low voltages (below \qty{3}{\kilo\volt}) have significantly improved the resolution, contrast, and topographic representation of specimens (\zcref{fig:kV-influence}) \cite{pawley.1984,moser.1998}.
 This is in contrast to the relatively long electron wavelength of \qty{38.8}{\pico\meter} at \qty{1}{\kilo\volt} compared to \qty{12.2}{\pico\meter} at \qty{10}{\kilo\volt}.
 The improvements are instead caused by the reduced penetration depth of the electrons, less pronounced charging artefacts and reduced beam damage \cite{pawley.1984}.
-The voltage reduction also allows to omit conductive coatings \cite{pawley.1984,moser.1996}.
+The voltage reduction also allows to omit conductive coatings, which alter the surface appearance at high magnifications (\zcref{fig:coating-influence}) \cite{pawley.1984,moser.1996}.
 While the advantages of low-\unit{\kilo\volt} imaging were known early on \cite{vonardenne.1940}, it took until the late 1970s and early 1980s until problems like chromatic aberration and low source brightness were addressed in the first widely available \ac{SEM}s.
 These were equipped with field emission guns and more sensitive detectors \cite{pawley.1984,moser.1996}.
 
@@ -63,6 +63,7 @@ The higher the voltage and the lower the material density, the larger the intera
 
 \begin{figure}[!htb]
     \centering
+
 
 	\begin{subfigure}[t]{0.48\textwidth}
 		\includegraphics[width=\textwidth]{literature/pen_depth/pen_depth.pdf}
@@ -110,13 +111,17 @@ The higher the voltage and the lower the material density, the larger the intera
 
 	\end{subfigure}
 
-    \caption{Visualization of the penetration depth of the electron beam using \textsc{Monte-Carlo}-simulations. The interaction volume increases with increasing voltage and decreasing material density.}
+    \caption{
+        Visualization of the penetration depth of the electron beam using \textsc{Monte-Carlo}-simulations.
+        The colour of the electrons in the simulation on the left side indicates their remaining energy at a specific position (compare rainbow-coloured bar on the right).
+        The graph on the right shows that the interaction volume increases with increasing voltage and decreasing material density.
+    }
     \label{fig:penetration_depth}
 \end{figure}
-
-In a polished cross-section of hardened cement paste, \ac{BSE} imaging allows therefore the differentiation of phases: unhydrated clinker particles (higher average $Z$ ($\bar{Z}$)) appear bright, hydrates (intermediate $\bar{Z}$) appears as a grey phase, and porosity (e.g. filled with epoxy resin) appears darkest (black).
-
-However, especially hydrate phases like calcite, \ac{CH}, ettringite, \ac{CSH} and \ac{AFm} can in some cases be difficult to distinguish from each other.
+therees
+In a polished cross-section of hardened cement paste, \ac{BSE} imaging allows therefore the differentiation of phases such as: unhydrated clinker particles (higher average $Z$ ($\bar{Z}$)) appear bright, hydrates (intermediate $\bar{Z}$) appears as a grey phase, and porosity (e.g. filled with epoxy resin) appears darkest (black).
+ especially
+However, especially phases like calcite, \ac{CH}, ettringite, \ac{CSH} and \ac{AFm} can in some cases be difficult to distinguish from each other.
 This is caused by a low difference in the backscatter coefficient ($\eta$) of these phases.
 This coefficient can be directly calculated from the atomic number $Z$ of the elements in the material \cite{reuter.1972,goldstein.1992a}.
 
@@ -125,7 +130,7 @@ This coefficient can be directly calculated from the atomic number $Z$ of the el
     \eta = -0.0254 + 0.016Z - 1.86 \cdot 10^{-4}Z^2 + 8.3 \cdot 10^{-7}Z^3
 \end{equation}
 
-For materials composed from multiple elements, the backscatter coefficient can be calculated as a weighted sum of the individual backscatter coefficients:
+For materials composed of multiple elements, the backscatter coefficient can be calculated as a weighted sum of the individual backscatter coefficients:
 \begin{equation}
     \eta = \sum_{i} c_i \eta_i ~, 
 \end{equation}
@@ -167,9 +172,9 @@ Furthermore, these datapoints and \zcref{eq:bse_eta} are plotted in \zcref{fig:b
         \begin{axis}[
             width=0.7\linewidth,
             height=6cm,
-            xlabel={Atomic number $Z$},
+            xlabel={Mean atomic number $\bar{Z}$},
             ylabel={Backscatter coefficient $\eta$},
-            xmin=0, xmax=20,
+            xmin=1, xmax=20,
             ymin=0, ymax=0.25,
             grid=major,
             grid style={line width=.1pt, draw=gray!10},
@@ -184,35 +189,50 @@ Furthermore, these datapoints and \zcref{eq:bse_eta} are plotted in \zcref{fig:b
             \addplot[black, domain=0:20, samples=26, smooth] {-0.0254 + 0.016*x - 1.86e-4*x^2 + 8.3e-7*x^3};
             \addlegendentry{\zcref{eq:bse_eta}}
             
-            \addplot[only marks, mark=star, orange] coordinates {(15.06, 0.1716)};
+            \addplot[only marks, mark=star, mark options={scale=2}, orange] coordinates {(15.06, 0.1716)};
             \addlegendentry{Alite};
-            \addplot[only marks, mark=x, darkred] coordinates {(14.56, 0.1662)};
+            \addplot[only marks, mark=x, mark options={scale=2}, darkred] coordinates {(14.56, 0.1662)};
             \addlegendentry{Belite};
-            \addplot[only marks, mark=triangle*, green] coordinates {(14.30, 0.1617)};
+            \addplot[only marks, mark=triangle*, mark options={scale=2}, green] coordinates {(14.30, 0.1617)};
             \addlegendentry{Portlandite};
-            \addplot[only marks, mark=+, blue] coordinates {(13.16, 0.1539)};
+            \addplot[only marks, mark=+, mark options={scale=2}, blue] coordinates {(13.16, 0.1539)};
             \addlegendentry{Tobermorite};
-            \addplot[only marks, mark=x, red] coordinates {(12.56, 0.1422)};
+            \addplot[only marks, mark=x, mark options={scale=2}, red] coordinates {(12.56, 0.1422)};
             \addlegendentry{Calcite};
-            \addplot[only marks, mark=pentagon*, yellow] coordinates {(10.79, 0.1222)};
+            \addplot[only marks, mark=pentagon*, mark options={scale=2}, darkgreen] coordinates {(10.79, 0.1222)};
             \addlegendentry{Ettringite};
-            \addplot[only marks, mark=o, purple] coordinates {(10.80, 0.1254)};
+            \addplot[only marks, mark=o, mark options={scale=2}, purple] coordinates {(10.80, 0.1254)};
             \addlegendentry{Quartz};
 
         \end{axis}
     \end{tikzpicture}
     \caption{
-        Backscatter coefficient $\eta$ as a function of the atomic number $Z$ according to \zcref{eq:bse_eta}. \cite{reuter.1972,goldstein.1992a, walker.2006}
+        Backscatter coefficient $\eta$ as a function of the mean atomic number $\bar{Z}$ according to \zcref{eq:bse_eta}. \cite{reuter.1972, goldstein.1992a, walker.2006}
     }
     \label{fig:bse_eta_plot}
 \end{figure}
 
-Since the $\eta$ values for these compositions are very similar in most cases, it can be expected, that resulting contrast is low.
+Since the $\eta$ values for these compositions are very similar in most cases, it can be expected, that the resulting contrast between these phases is low.
 However, the calculated contrast does not always correlate perfectly with the order of grey levels in a typical \ac{BSE} image.
 For instance, portlandite produces a significantly less intense signal than alite or belite, which are nearly indistinguishable from each other.
+The contrast is additionally reduced at low voltages as shown in \zcref{fig:BSE_ArBIB_CEMI}.
+
+\begin{figure*}[htb]
+    \centering
+
+	\includegraphics[width=\textwidth]{literature/ArBIB-CEMI-BSE.pdf}
+    \caption{
+       \ac{SEM} image of \qty{28}{\day} hydrated CEM~I.
+       The larger left grain consists of multiple clinker phases, which can hardly be differentiated from each other.
+       The surface was polished using \acl*{ArBIB} and was captured using a through the lens detector in \ac{BSE} mode at \qty{2.0}{\kilo\volt} and \qty{0.1}{\nano\ampere}.
+       The contrast was increased in post processing.
+    } 
+    \label{fig:BSE_ArBIB_CEMI}
+\end{figure*}
 
 
-\FloatBarrier
+
+%\FloatBarrier
 
 \subsection{\Acl*{EDX} (\acs*{EDX})}
 \label{sec:edx}
@@ -412,7 +432,8 @@ While mechanical polishing still can be good enough for many applications like \
 \Ac{ArBIB} sectioning is an alternative method to polish specimen surfaces \cite{harper.1983,grunewald.1987}.
 In a broad ion beam device, accelerated ions (e.g. \ce{Ar+}) are used to clean and polish the specimen surface.
 Surfaces prepared this way show limited damage to the nanoscale features of interest \cite{desbois.2009,desbois.2010}.
-Furthermore, small pores are not filled with debris \cite{desbois.2009,desbois.2010}, which eliminates the need for resin intrusion \cite{desbois.2009}, while it is still possible to do so \cite{rossler.2017} and advisable for later segmentation purposes.
+Furthermore, small pores are not filled with debris (see \zcref{fig:BSE_ArBIB_CEMI}) \cite{desbois.2009,desbois.2010}, which eliminates the need for resin intrusion \cite{desbois.2009}.
+However, it is still possible to do so \cite{rossler.2017} and advisable for later segmentation purposes.
 
 \Ac{ArBIB} allows to polish large areas in the range of several \unit{\milli\meter\squared} \cite{hauffe.2003,desbois.2013}.
 Therefore, some authors utilised the broad ion beam polishing as a tool for tomography \cite{desbois.2013,mac.2018}.

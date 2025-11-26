@@ -237,28 +237,30 @@ The contrast is additionally reduced at low voltages as shown in \zcref{fig:BSE_
 \subsection{\Acl*{EDX} (\acs*{EDX})}
 \label{sec:edx}
 
-\ac{EDX} is a widely used technology available even on smaller \ac{SEM}-devices.
-It is based on the interaction of the electron beam with the atoms with the sample surface.
-When the high-energy beam electrons strike the sample, they can knock out inner-shell electrons (\textsc{Auger} electrons) from the sample atoms.
-The outer-shell electrons will fall back to the energy level of the knocked out electrons, emitting electrons in the energy range of X-rays.
+\ac{EDX} is a widely used technology available on most modern \ac{SEM}-devices.
+It is based on the interaction of the electron beam with the atoms of the sample.
+When the high-energy beam electrons penetrate the sample, they can knock out inner shell electrons (\textsc{Auger} electrons) from the sample atoms.
+The electrons of the outer-shell will fall back to the energy level of the knocked-out electrons, emitting the excess energy in the form of X-rays.
 The energy of these X-rays is a unique fingerprint of a specific element.
 An \ac{EDX} detector measures the energy and intensity (counts) of the emitted X-rays.
-This allows for qualitative identification for elements with a concentration of at least \qty{0.1}{\wtpercent} \cite{kleiner.2022b} and quantitative analysis. 
+This allows for qualitative identification for elements in cement-based materialswith a concentration of at least \qty{0.1}{\wtpercent} \cite{kleiner.2022b} and quantitative analysis. 
 Point analyses and elemental maps can show the spatial distribution of these elements and thus, the associated phases.
 
 The excitation voltage has to be about \numrange{2}{3} times as high as the expected X-ray energies of the elements of interest to collect enough counts to be able identify and quantify the concentration of the elements. % \acs{Ka}  or \acs{Kb}
 This results in a minimal required electron beam voltage of \qty{10}{\kilo\volt} to measure, e.g. \ce{Ca} with a \ac{Ka} of \qty{3.69}{\kilo\electronvolt} \cite{hudson.2003}.
-Using low voltages will result in lower X-ray counts, which can only be countered by using a very sensitive detector, which has a large detection area and/or has no window \cite{yamamoto.2016}.
-Window-less detectors also allow to detect light elements like \ce{Li}, \ce{Be}, and \ce{B} \cite{yamamoto.2016}.
+For sensitive phases, an electron dose like this can already alter its appearance.
+However, using low voltages will result in lower X-ray counts, which can only be countered by using a very sensitive detector, which has a large detection area and/or has no window \cite{yamamoto.2016}.
+Window-less detectors \cite{tamura.2013} also allow to detect light elements like \ce{Li}, \ce{Be}, and \ce{B} \cite{yamamoto.2016}.
 However, these elements still are challenging to differentiate in most specimens with a more complex composition due to the overlap of X-ray energies \cite{hudson.2003}.
 
-The lateral resolution of the \ac{EDX} analysis is limited by the applied electron beam voltage.
+The lateral resolution of the \ac{EDX} analysis is limited by the applied electron beam voltage and current.
 Similar to the \ac{BSE}, the higher the voltage, the larger the interaction volume and depth (see \zcref{fig:penetration_depth}), and therefore the larger the area from which X-rays are emitted \cite{rossen.2017}.
 Depending on the beam voltage required, the interaction volume and therefore the resolution can be below \qty{1}{\micro\meter} \cite{jiang.2022}.
 Furthermore, a larger interaction volume will cause subsurface information being included in the measured spectra.
 
 % TODO: Wäre es hier nicht auch noch sinnvoll zu erwähnen, dass man ggf. seine Probe mit den hohen Energien kaputt macht? Das ist doch ein eindeutiger Nachteil.
 % TODO: und dann sollte bei EDX schon was über phase maps stehen, also die methode von \cite{stutzman.2004}, vs \cite{georget.2021} vs. unser aachen ansatz \cite{jiang.2022} und vs die blackbox aus aztec \cite{aztec.2004} o.ä software.
+% TODO: auch hier kannst du zB unsere high resolution EDX erfolge zitieren, zb in dem paper moeini.2021 und auch im EBSD klinkerpaper rossler.2022 haben wir gezeigt, dass im mapping eine sub mikron auflösung (feature size of 300nm) möglich ist, trotz theoretischer limitation der auflösung bei modelliertem wechselwirkungsvolumen. diese diskrepanz fällt mir verständnisweise auch manchmal schwer, aber ist halt so wenn man einfach die step size auf 100nm im mapping setzt. ich habe auch noch nicht ausprobiert wo wirklich die grenze ist..
 
 \FloatBarrier
 
@@ -266,22 +268,25 @@ Furthermore, a larger interaction volume will cause subsurface information being
 \label{sec:ebsd}
 
 \ac{EBSD} is a technique used in the \ac{SEM}, which allows to spatially resolve the crystallographic structure and orientation of crystalline materials on the sample surface.
-The electron beam interacts with a tilted crystalline sample.
+The electron beam interacts is diffracted, normally on a tilted crystalline sample.
 The term \ac{EBSD} was introduced in 1973 by \textcite{venables.1973}.
 The first commercial \ac{EBSD} system was introduced in 1984 by \textsc{Moon} and \textsc{Harris} based on the work of \textsc{Dingley} \cite{wright.2000} and has since become a standard tool in materials science.
 Often it is used simultaneously with \ac{EDX} to provide a comprehensive analysis of the sample \cite{wright.2000}.
 
-Some electrons are diffracted according to \textsc{Bragg}'s Law \cite{bragg.1913} by the crystal lattice planes within the crystals.
+The electrons are diffracted according to \textsc{Bragg}'s Law \cite{bragg.1913} by the crystal lattice planes within the crystals.
 These diffracted electrons form \textcite{kikuchi.1928} patterns on a phosphor screen, which are captured by a camera.
 By indexing these patterns, \ac{EBSD} can be used to identify the crystal (e.g., distinguish between \ac{C3S} and \ac{C2S}) as pioneered in 1954 by \textcite{alam.1954}.
 This allows to determine the precise crystallographic orientation at that point on the sample.
 Scanning across the sample generates maps of phase distribution, crystal orientation, grain boundaries, and texture.
 
 \ac{EBSD} relies on the principle of \textsc{Bragg} diffraction, which mandates the presence of a sufficiently well-ordered crystal lattice.
-Consequently, highly disordered materials (as in \ac{C2S} or \ac{CSH}) cannot be reliably analysed.
-Additionally, the technique generally requires a minimum crystallite size (a few tens of nanometres or more) to generate a discernible \textsc{Kikuchi} pattern.
+Consequently, highly disordered materials (as in \ac{CSH} or many \ac{C2S} variations) cannot be reliably analysed.
+The technique generally requires a minimum crystallite size (a few tens of nanometres or more) to generate a discernible \textsc{Kikuchi} pattern.
+Additionally, mechanical surface polishing is not sufficient to analyse most materials.
+Therefore, ion polishing is a necessary preparation step for \ac{EBSD} analysis on cement based materials.
 Furthermore, to obtain a good pattern, \ac{EBSD} requires high voltages and currents, which can potentially damage electron beam sensitive specimens.
 
+% TODO: einen absatz zu phase maps (eine zusammenfassung von georget.2021) und munch.2015
 
 % TODO: ein paar quellen
 % TODO: Christiane: ich hoffe in deiner arbeit wirds ein paar ebsd ergebnisse geben, zb dickenmessung des hydratsaums in abhängigkeit von der kristallorientierung? in 2d an C3S auch schnell gemacht.
@@ -305,7 +310,6 @@ For example, \textcite{sakalli.2017} used a \ce{Ga+}-\ac{FIB} to prepare a \ac{T
 \ac{PFIB} devices utilising \ce{Xe+} ions are broadly available since the 2010s \cite{hrncir.2012}.
 \ce{Xe+}-\ac{FIB} devices have much higher milling rates and have the advantage to not incorporate \ce{Ga} ions in the specimen \cite{burnett.2016}.
 While they have found to be even suitable for \ac{TEM}-lamella preparation \cite{zhong.2021}, \ce{Ga+}-\ac{FIB} devices still have a slight advantage in their spatial resolution due to lower possible currents \cite{zhong.2021}.
-
 
 While the first \ac{FIB}s were single-beam devices, today's combined \ac{FIB}-\ac{SEM} dual-beam systems are the standard configuration.
 In a dual-beam device, the ion and electron beams are arranged at an angle of \qtyrange{50}{55}{\degree}\cite{taillon.2018}, while the ion beam strikes the specimen at an angle of \qty{90}{\degree}, as shown in \zcref{fig:fib_scheme}.
@@ -359,10 +363,10 @@ However, these systems are not yet widely available.
 The have mainly been applied to alloys and other fairly stable materials to obtain cross-sections or volumes \cite{gholinia.2024}.
 To obtain artefact free nano scale resolutions, the specimens still have to be polished using \ac{ArBIB} or \ac{FIB}.
 
-However, the especially time-consuming site preparation using a \ac{fs-laser} can also be carried out with more universal standalone preparation devices.
+However, the especially time-consuming site preparation using a \ac{fs-laser} can also be carried out with more universal standalone preparation devices \cite{hoche.2015}.
 This preparation method can be utilised for the preparation of \ac{mCT} volumes \cite{krause.2023} and \ac{TEM} lamellae \cite{tkadletz.2024}.
 This allows removal of material volumes impractical to achieve using the \ac{FIB} process, and may even eliminate the need for the complicated lift-out process for \ac{TEM} lamellae \cite{tkadletz.2024}.
-According to \textcite{}, the surface irradiation damage of the \ac{fs-laser} is limited to a few \unit{\micro\meter}.
+According to \textcite{hoche.2015}, the surface irradiation damage of the \ac{fs-laser} is limited to a few \unit{\micro\meter}.
 
 %More technical details of the method will be further described in \zcref{sec:fib}.
 

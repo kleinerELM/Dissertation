@@ -1,0 +1,1 @@
+X:\Mitarbeiter\Florian Kleiner\Einzelbilder\2025_11_28 CEM I Voltage differences BSE

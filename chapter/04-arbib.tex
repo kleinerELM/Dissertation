@@ -1,13 +1,13 @@
-\chapter{\ac{ArBIB}}
+\chapter[\Acl*{ArBIB}]{\Acl*{ArBIB}}
 \label{sec:arbib-chapter}
 
-While \ac{ArBIB} preparation is often used for the surface cleaning of specimens for \ac{EBSD} measurements, it is mostly known and used for materials other than cement.% and clay \cite{desbois.2017}.
-For the preparation of cementitious specimens it is rarely applied. 
+While \ac{ArBIB} preparation is often used for the surface cleaning of specimens for \ac{EBSD} measurements, it is mostly known and used for materials other than cement. % and clay \cite{desbois.2017}.
+For the preparation of cementitious specimens it is rarely applied.
 
-\subsection{\acs*{ArBIB} polishing}
-\label{sec:bib_pol_moving}
+\section{\acs*{ArBIB} polishing}
+\label{sec:bib_pol_moving_result}
 
-While the ion polishing is mostly used to enable \ac{EBSD}-measurements, it can also allow imaging a cementitious specimen using the \ac{BSE} mode at low voltages.
+While the ion polishing is mostly used to enable \ac{EBSD}-measurements, it can also allow artefact free imaging of cementitious materials using the \ac{BSE} mode at low voltages (e.g., \qty{2}{\kilo\volt}).
 This is demonstrated in \zcref{fig:BSE_CEMI_voltages} using a three year old hydrated CEM~I sample, which was first carbon coated and then cleaned using \ac{ArBIB} (\qty{6}{\kilo\volt} at \qty{2}{\milli\ampere} for \qty{20}{\minute}).
 There is a significant difference in phase contrast, detail and susceptibility to charging artefacts at different voltages and with and without a carbon coating.
 All images were recorded at \qty{16}{\bit} color depth.
@@ -17,85 +17,40 @@ All images were recorded at \qty{16}{\bit} color depth.
 
 	\includegraphics[width=\textwidth]{methods/bse-voltages/marked.pdf}
     \caption{
-    	\ac{SEM} image of CEM~I hydrated for three years with a carbon coating (top) and after a subsequent \ac{ArBIB} polishing (middle) recorded using different voltages and at \qty{0.8}{\nano\ampere}.
-		On the bottom, a comparison of the phase contrast between \ac{CH} and \ac{CSH} at \num{2.0} and \qty{10}{\kilo\volt} is illustrated.       
-    } 
+    	\ac{SEM} images of CEM~I hydrated for three years. With a carbon coating (top row) and after a subsequent \ac{ArBIB} polishing (middle row).Recorded using different voltages and at \qty{0.8}{\nano\ampere}.
+		On the bottom, a comparison of the phase contrast between \ac{CH} and \ac{CSH} at \num{2.0} and \qty{10}{\kilo\volt} is illustrated.
+    }
     \label{fig:BSE_CEMI_voltages}
 \end{figure*}
 
-The grey value a phase in a \ac{BSE}-image can reach is not fixed and can be manipulated in device not only by changing the voltage and current, but also by changing brightness, gamma and contrast values either automatically or manually.
+There is no fixed grey value for a phase in \ac{BSE} imaging.
+It can be manipulated in device not only by changing the voltage and current, but also by changing brightness, gamma and contrast values either automatically or manually.
 Therefore, the contrast of the images was normalised, which in some instances significantly changed the appearance of the images.
 
-At \qty{2.5}{\kilo\volt} the \ac{BSE} image mostly shows the carbon surface and the chemical contrast is only slightly visible.
-The carbon coated specimens and still show artefacts at \qty{4.0}{\kilo\volt}.
-At \qty{10}{\kilo\volt}, an artefact free image can be produced, allowing to distinguish between \ac{CH} and \ac{CSH} and between \ac{C3S} and \ac{C2S}.
+The \ac{BSE} image of a carbon coated specimen mostly shows the coating surface at \qty{2.5}{\kilo\volt} and the chemical contrast is only slightly visible.
+At \qty{4.0}{\kilo\volt} artefacts are still very prominent, making the image unusable for any segmentation task.
+An artefact free image can be produced at \qty{10}{\kilo\volt}, allowing to distinguish between \ac{CH} and \ac{CSH} and between \ac{C3S} and \ac{C2S}.
 
-The \ac{ArBIB} cleaned surface suffers from charging artefacts beginning at \qty{4.0}{\kilo\volt}, \qty{0.8}{\nano\ampere}.
+An \ac{ArBIB} cleaned surface can be imaged at voltages as low as \qty{2.0}{\kilo\volt} (at \qty{0.8}{\nano\ampere}), resulting in an usable image.
+The microstructure also appears more detailed than in images of the coated surface at \qty{10}{\kilo\volt}.
+This is caused by the smaller interaction volume at lower voltages (see \zcref{fig:penetration_depth})
+However, the phase contrast between \ac{CH} and \ac{CSH} is diminished compared to the carbon coated specimens at \qty{15}{\kilo\volt}.
+
+The images of the cleaned surfaces suffer from charging artefacts starting at \qty{4.0}{\kilo\volt}, \qty{0.8}{\nano\ampere}.
 At \qty{10}{\kilo\volt}, \qty{0.8}{\nano\ampere}, the image becomes unusable.
 While current reduction to \qty{50}{\pico\ampere} eliminates the visible charging, the signal becomes very noisy.
-Therefore, much longer frame integration times are required, which makes it difficult to obtain sharp details, since images becomes unstable and blurry.
-
-At voltages as low as \qty{2.0}{\kilo\volt} (at \qty{0.8}{\nano\ampere}), still a usable image can be produced.
-However, the phase contrast between \ac{CH} and \ac{CSH} is diminished compared to the carbon coated specimens at \qty{15}{\kilo\volt}.
+Therefore, much longer frame integration times are required, which makes it difficult to obtain sharp details, since images easily become unstable and blurry due to the charging.
 
 Furthermore, the \ac{ArBIB} cleaned surface shows more cracks due to dry-shrinking caused either by the heat from the ion beam or the prolonged vacuum exposure.
 
-If a sample is not coated in the first place, \ac{ArBIB} polishing removes oil residue and reduces scratches as visible in \zcref{fig:fig:mech_polishing_damage}.
+If a sample is not coated in the first place, \ac{ArBIB} polishing removes oil residue and reduces scratches as visible in \zcref{fig:mech_polishing_damage}.
 
-\subsection{\acs*{ArBIB} sectioning}
-\label{sec:bib_pol_fixed}
+\section{\acs*{ArBIB} sectioning}
+\label{sec:bib_pol_fixed_results}
 
-
-The sectioning mode requires a smaller pre-cut sample (e.g.,\qtyproduct{5 x 3 x 10}{\cubic\milli\meter}) in a fixed sample holder.
-The three argon ion beams intersect at a sharp edged tungsten mask forming a horizontal milling sector of $\approx$ \qty{100}{\degree} (\zcref{fig:bib_device}).
-The mask and the specimen surface are arranged in a way that only \qtyrange{20}{100}{\micro\meter} of the sample are exposed to the ion beam above the mask (\zcref{fig:bib_scheme}).
-
-\begin{figure}[!ht]
-    \centering
-
-	\begin{subfigure}{0.4\textwidth}
-		\includegraphics[width=\textwidth]{methods/bib_device.pdf}
-		\caption{Photo of the specimen camber of the \ac{ArBIB} polishing device.}
-		\label{fig:bib_device}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}{0.58\textwidth}
-		\ifdefined\PRINTABLE
-			\includegraphics[width=\textwidth]{methods/bib_scheme/bib_scheme6.pdf}
-		\else
-			\animategraphics[loop,poster=last,autoplay,width=\textwidth]{3}{methods/bib_scheme/bib_scheme}{1}{6}
-		\fi
-		\caption{Principle of \ac{ArBIB} sectioning of a stationary specimen using a tungsten blade, side view. Image based on \cite{kleiner.2021a}}
-		\label{fig:bib_scheme}
-	\end{subfigure}
-    \caption{Illustration of the \ac{ArBIB} sectioning principle for a stationary specimen.}
-    \label{fig:bib}
-\end{figure}
-
-This process causes some artifacts, which affect the evaluation of the resulting images.
-However, the resulting surface quality still exceeds any mechanical preparation.
-
-As indicated in \zcref{fig:bib_scheme} as `irradiation area', the ion beam can induce heat in the surface of the specimen during milling and polishing.
-Therefore, the ion beam device used, allows to cool the specimen below \qty{-140}{\celsius} using liquid nitrogen.
-This helps to avoid that the specimen is heated above damaging temperature (\qty{60}{\celsius} for \ac{CSH} \cite{he.2018}).
-
-
-
-
-%{\color{orange}
-
-%To determine the influence of the ion beam during the regular milling process on hydrated cement specimens, it was compared with a milling process while cooling the specimen (see section~\ref{}). %Kapitelplatz finden
-%The comparison was made using hydrated alite, hydrated \ac{OPC} and \ac{LC3}.
-%}
-Due to variations in hardness among the phases within a material, the ion beam can also induce an artefact called the `curtaining effect' \cite{desbois.2013}, which is also known in the context of \ac{SEM}-\ac{FIB} \cite{cantoni.2014}.
-These stripes align with the direction of the ion beams, as harder phases or pores create `shadows' of the material in their wake.
-While these can be reduced in the \ac{SEM}-\ac{FIB} process using coatings \cite{cantoni.2014}, this is not possible in the \ac{ArBIB} process.
-These artefacts can be significantly reduced in a subsequent image processing step by applying a \ac{FFT} \cite{kleiner.2021a}, as demonstrated for images from a \ac{SEM}-\ac{FIB} process \cite{fitschen.2017,schankula.2018}.
-This removes the stripes in one direction, however, this filter can also soften the image.
-This is especially apparent when artefacts are present in more than one direction in the image \cite{kleiner.2021a}.
-
-% bad paper about ArBIB \cite{sammer.2024}
-
+\ac{ArBIB} milling allows to image porous specimens without the requirement to embed them in epoxy resin (see \zcref{fig:BSE_ArBIB_CEMI}).
+This is especially useful for specimens with pronounced capillary porosity.
+Mechanical polishing would damage this not stabilized microstructure and the pores would be filled with debris.
 
 \begin{figure*}[htb]
     \centering
@@ -106,24 +61,24 @@ This is especially apparent when artefacts are present in more than one directio
        The larger left grain consists of multiple clinker phases, which can hardly be differentiated from each other.
        The surface was polished using \acl*{ArBIB} and was captured using a through the lens detector in \ac{BSE} mode at \qty{2.0}{\kilo\volt} and \qty{0.1}{\nano\ampere}.
        The contrast was increased in post processing.
-    } 
+    }
     \label{fig:BSE_ArBIB_CEMI}
 \end{figure*}
 
-For instance, portlandite produces a significantly less intense signal than alite or belite, which are nearly indistinguishable from each other.
-The contrast is additionally reduced at low voltages as shown in \zcref{fig:BSE_ArBIB_CEMI}.
 
+The ion beam milled specimens have to be imaged using low voltages, since the so prepared surface is intrinsically non conductive and a consecutive coating would also alter the microstructure (see \zcref{fig:coating-influence}).
+As demonstrated in the previous section, low voltages also result in a limited contrast between phases like \ac{CH} and \ac{CSH} or \ac{C3S} and \ac{C2S}.
 
+Nevertheless, this method of preparation allows a close-to-native imaging of cementitous materials and results in a very flat and clean surface.
 
-
-
+% TODO: hier auf die Nanoporosität eingehen, die freigelegt wird.
 
 \section{\acs{ArBIB} preparation for nanoindentation combined with \ac{SEM} - \ac{BSE} and other techniques}
 
-Nanoindentation requires very flat surfaces.
-While mechanical polishing can work if done with an oil-based polishing process, \ac{ArBIB} is a promising preparation method, since it does not require resin embedding, avoids chemical contamination and minimises mechanical damage.
+Nanoindentation is a technique which requires very flat surfaces.
+While mechanical polishing can work if done with an oil-based polishing process, \ac{ArBIB} is a promising preparation method, since it does not require resin embedding, avoids chemical contamination and minimises mechanical damage as demonstrated in the section above.
 
-As shown in \zcref{fig:lm_ni}, an usable area of \qty{7.5}{\milli\meter\squared} was prepared using \ac{ArBIB} sectioning. 
+As shown in \zcref{fig:lm_ni}, an usable area of \qty{7.5}{\milli\meter\squared} was prepared using \ac{ArBIB} sectioning.
 The polishing was done at \qty{6}{\kilo\volt}, \qty{2}{\milli\ampere} in multiple sessions for a total of $\approx$ \qty{3}{\day}.
 Between the sessions, the specimen had to be repositioned causing a damaged front area.
 
@@ -155,7 +110,7 @@ For example by first applying denoising and edge detection algorithms.
 
 
 
-This significantly helps to 
+This significantly helps to
 
 
 

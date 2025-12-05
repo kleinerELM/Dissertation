@@ -41,15 +41,15 @@ The evaluation is described using one mapping position as an example.
         \animategraphics[loop,autoplay,width=\linewidth]{.5}{figures/la-icp-ms/position2-anim/Animation}{0}{4}
       \fi
     \caption{Data positioning}
-    \label{fig:LAICPMS-EDX-Ca}
+    \label{fig:LAICPMS-positions}
   \end{subfigure}
   \hfill
   \begin{subfigure}[t]{0.49\textwidth}
     \includegraphics[width=\textwidth]{la-icp-ms/LA-BSE.pdf}
     \caption{\ac{BSE} image of the \ac{LAICPMS}-induced damage.}
-    \label{fig:LAICPMS-EDX-Si}
+    \label{fig:LAICPMS-site-damage}
   \end{subfigure}
-  
+
   \caption{
     Position of the \ce{Si}-\ac{EDX}- ({\color{red}red}) and \ce{Ba}-\ac{LAICPMS}-mapping ({\color{orange}yellow}). \cite{kleiner.2021d}
   }
@@ -91,7 +91,7 @@ The \ce{Ca}, \ce{Si}, \ce{Al} and \ce{Fe} \ac{EDX} element distribution maps mar
     \includegraphics[width=\textwidth]{figures/la-icp-ms/edx/Fe.jpg}
     \caption{Fe mapping}
     \label{fig:LAICPMS-EDX-Fe}
-  \end{subfigure}  
+  \end{subfigure}
   \hfill
   \begin{subfigure}[t]{0.32\textwidth}
     \includegraphics[width=\textwidth]{figures/la-icp-ms/edx/Na.jpg}
@@ -295,7 +295,7 @@ Furthermore, an inaccurate image registration seems to be a minor problem, as th
           y error=La_map_err_C3S,
           col sep=comma
         ] {figures/la-icp-ms/element_analysis_EDX_La.csv};
-  
+
         \addplot[
           red,fill=red,
           error bars/.cd,
@@ -309,7 +309,7 @@ Furthermore, an inaccurate image registration seems to be a minor problem, as th
 
         \draw [darkred, thick, dashed] (axis cs:Al, 0.1) -- (axis cs:Ti, 0.1);
         \node[above, font=\footnotesize, xshift=-4pt] at (axis cs:K, 2) {*};
-  
+
       \end{semilogyaxis}
     \end{tikzpicture}
     \caption{\ac{C3S}}
@@ -357,7 +357,7 @@ Furthermore, an inaccurate image registration seems to be a minor problem, as th
           col sep=comma
         ] {figures/la-icp-ms/element_analysis_EDX_La.csv};
         \addlegendentry{\ac{LAICPMS}};
-  
+
         \addplot[
           red,fill=red,
           error bars/.cd,
@@ -369,9 +369,9 @@ Furthermore, an inaccurate image registration seems to be a minor problem, as th
           col sep=comma
         ] {figures/la-icp-ms/element_analysis_EDX_La.csv};
         \addlegendentry{\ac{EDX}};
-        
+
         \draw [darkred, thick, dashed] (axis cs:Al, 0.1) -- (axis cs:Ti, 0.1);
-  
+
       \end{semilogyaxis}
     \end{tikzpicture}
     \caption{\ac{C2S}}
@@ -399,7 +399,7 @@ Furthermore, an inaccurate image registration seems to be a minor problem, as th
           error bars/y dir=both,
           error bars/y explicit,
           scaled y ticks = false,
-          yticklabel pos=right, 
+          yticklabel pos=right,
       ]
         \addplot[
           cyan,fill=cyan,
@@ -411,7 +411,7 @@ Furthermore, an inaccurate image registration seems to be a minor problem, as th
           y error=La_map_err_C4AF,
           col sep=comma
         ] {figures/la-icp-ms/element_analysis_EDX_La.csv};
-  
+
         \addplot[
           red,fill=red,
           error bars/.cd,
@@ -422,7 +422,7 @@ Furthermore, an inaccurate image registration seems to be a minor problem, as th
           y error=EDX_map_err_C4AF,
           col sep=comma
         ] {figures/la-icp-ms/element_analysis_EDX_La.csv};
-  
+
         \draw [darkred, thick, dashed] (axis cs:Al, 0.1) -- (axis cs:Ti, 0.1);
         \node[above, font=\footnotesize, xshift=-4pt] at (axis cs:K, 2) {*};
 
@@ -431,7 +431,7 @@ Furthermore, an inaccurate image registration seems to be a minor problem, as th
     \caption{interstitial phase}
     \label{fig:LA-EDX-results-C4AF}
   \end{subfigure}
-  
+
   \caption{
     Mean main element concentrations for \ac{C3S}, \ac{C2S} and the interstitial phase, determined by segmented \ac{LAICPMS} mappings.
     The \ac{EDX} detection limit of \qty{0.1}{\wtpercent} is marked as dashed line.
@@ -483,7 +483,7 @@ Furthermore, an inaccurate image registration seems to be a minor problem, as th
       y error=La_map_err_C3S,
       col sep=comma
     ] {figures/la-icp-ms/element_analysis_LA.csv};
-    
+
     \addplot[
       blue,fill=red,
       error bars/.cd,
@@ -524,7 +524,7 @@ Furthermore, an inaccurate image registration seems to be a minor problem, as th
 
     \end{semilogyaxis}
   \end{tikzpicture}
-  
+
   \caption{
     Mean trace element concentrations for \ac{C3S}, \ac{C2S} and the interstitial phase, determined by segmented \ac{LAICPMS} mappings.
     Bars marked with an asterisk (*) have a standard deviation exceeding the $x$-axis.

@@ -1,4 +1,4 @@
-\chapter{Hydrate rim measurements}
+\chapter{Hydrate layer measurements}
 \label{chap:hydrate-rim}
 
 The method presented in \zcref{subsec:algo_hlm} was applied to pure hydrated \ac{C3S} and \ac{C2S} specimens and mixtures of both phases at different ages, which were embedded, polished and coated with carbon.
@@ -73,7 +73,7 @@ An overview of the influence of the segmentation method on the results can be fo
 	\begin{tabularx}{\textwidth}{@{}l*{4}{>{\centering\arraybackslash}X}@{}}
 		\toprule
 		\multirow{3}{*}{segmentation method} & 1. & 2.a & 2.b & 3. \\
-		
+
 			& threshold		& \multicolumn{2}{c}{pixel classification} & manual\\
 		 & - & w. \ac{CSHo} & wo. \ac{CSHo} & - \\ \midrule
 		time required & $\approx$\,\qty{5}{\minute} & \multicolumn{2}{c}{$\approx$\,\qty{4}{\hour}} & $\approx$\,\qty{2}{weeks} \\\midrule
@@ -201,7 +201,7 @@ An overview of some basic statistics of the images analysed is listed in \zcref{
     pores in \unit{\areapercent} 	 	& 46.2 	& 43.2 	& 31.4 	& 15.9 	& - 	& - 	\\
     hydrates in \unit{\areapercent} & 15.4 	& 27.0 	& 44.5 	& 63.4 	& - 	& - 	\\
     clinker in \unit{\areapercent} 	 	& 38.4 	& 30.1 	& 21.1 	& 20.6 	& - 	& - 	\\[5pt] \midrule
-	
+
 	\multicolumn{7}{c}{\textbf{\ac{C3S} 3:1 \ac{C2S}}} \\ \midrule
 	particles per \unit{\milli\meter\squared}		& - & \num{73380}	& \num{22228} & \num{41577} & - & - \\[2pt] %\midrule
 	pores in \unit{\areapercent}					& - & 27.8	& 16.9	& 13.9 & - & - \\
@@ -276,7 +276,7 @@ In \ac{C2S} only \qty{75.5}{\percent} hydrates can be found after \qty{28}{\day}
 				(1,53.0) (7,70.0) (14,0) (28,84.3) (84,0) (365,0)
 			};
 			\addlegendentry{\ac{C3S} hydrate, \cite{goni.2010}}
-			
+
 			\addplot[fill=blue, opacity=0.35, draw opacity=0, bar shift=+16pt, bar width=5pt] coordinates {
 				(1,0) (7,18.5) (14,0) (28,49.7) (84,0) (365,0)
 			};
@@ -491,7 +491,7 @@ The images were segmented via thresholding into four distinct phases: pores, \ac
 Although this segmentation approach produces erroneously segmented layers around clinker grains, which are consequently assigned to \ac{CH} instead of \ac{CSH} or the clinker phase, it is still considered adequate for estimating the overall phase composition.
 
 \begin{figure}[htbp]
-    
+
     \centering
 	\includegraphics[height=.98\textheight]{hydrate-rim/segmented/overview.pdf}
 	\caption{
@@ -740,7 +740,7 @@ Instead, the method specific standard deviation $\sigma_{\text{BG}}$ is defined 
     \sigma_{\text{BG}} = \lvert\phi_{\text{img}} - \phi_{\text{area}} \rvert + \lvert\sigma\rvert
     \label{eq:phase_difference}
 \end{equation}
- 
+
 \subsection{Evaluation}
 
 The minimum required area for a standard deviation $\sigma$ of <\,\qty{2}{\percent} was calculated for each phase.
@@ -768,20 +768,20 @@ The results are also listed in \zcref{tab:convergence_area_box_cnt, tab:converge
                 height=6cm,
             ]
                 % 7d Pores Data (Reihenfolge: 1:0, 3:1, 1:1, 1:3, 0:1)
-                \addplot[fill=yellow, draw opacity=0, bar shift=-9pt] coordinates { 
-                    (1:0, 0.03165) (3:1, 0.03617) (1:1, 0.02707) (1:3, 0.02110) (0:1, 0.02411) 
+                \addplot[fill=yellow, draw opacity=0, bar shift=-9pt] coordinates {
+                    (1:0, 0.03165) (3:1, 0.03617) (1:1, 0.02707) (1:3, 0.02110) (0:1, 0.02411)
                 };
                 \addlegendentry{\qty{7}{\day}}
-                
+
                 % 14d Pores Data
-                \addplot[fill=orange, draw opacity=0] coordinates { 
-                    (1:0, 0.03165) (3:1, 0.02101) (1:1, 0.15633) (1:3, 0.02261) (0:1, 0.00904) 
+                \addplot[fill=orange, draw opacity=0] coordinates {
+                    (1:0, 0.03165) (3:1, 0.02101) (1:1, 0.15633) (1:3, 0.02261) (0:1, 0.00904)
                 };
                 \addlegendentry{\qty{14}{\day}}
-                
+
                 % 28d Pores Data
-                \addplot[fill=red, draw opacity=0, bar shift=9pt] coordinates { 
-                    (1:0, 0.01055) (3:1, 0.07820) (1:1, 0.01808) (1:3, 0.00546) (0:1, 0.01808) 
+                \addplot[fill=red, draw opacity=0, bar shift=9pt] coordinates {
+                    (1:0, 0.01055) (3:1, 0.07820) (1:1, 0.01808) (1:3, 0.00546) (0:1, 0.01808)
                 };
                 \addlegendentry{\qty{28}{\day}}
             \end{axis}
@@ -810,19 +810,19 @@ The results are also listed in \zcref{tab:convergence_area_box_cnt, tab:converge
                 ylabel near ticks, yticklabel pos=right,
             ]
                 % 7d Pores Data (Reihenfolge: 1:0, 3:1, 1:1, 1:3, 0:1)
-                \addplot[fill=green, draw opacity=0, bar shift=-9pt] coordinates { 
+                \addplot[fill=green, draw opacity=0, bar shift=-9pt] coordinates {
                     (1:0, 0.144934) (3:1, 0.065734) (1:1, 0.101282) (1:3, 0.019552) (0:1, 0.262979)
                 };
                 \addlegendentry{\qty{7}{\day}}
-                
+
                 % 14d Pores Data
-                \addplot[fill=cyan, draw opacity=0] coordinates { 
+                \addplot[fill=cyan, draw opacity=0] coordinates {
                     (1:0, 0.058000) (3:1, 0.065431) (1:1, 1.248485) (1:3, 0.029220) (0:1, 0.182607)
                 };
                 \addlegendentry{\qty{14}{\day}}
-                
+
                 % 28d Pores Data
-                \addplot[fill=blue, draw opacity=0, bar shift=9pt] coordinates { 
+                \addplot[fill=blue, draw opacity=0, bar shift=9pt] coordinates {
                     (1:0, 0.026615) (3:1, 0.466620) (1:1, 0.054304) (1:3, 0.034310) (0:1, 0.031932)
                 };
                 \addlegendentry{\qty{28}{\day}}
@@ -860,20 +860,20 @@ The results are also listed in \zcref{tab:convergence_area_box_cnt, tab:converge
                 height=6cm,
             ]
                 % 7d clinker Data
-                \addplot[fill=yellow, draw opacity=0, bar shift=-9pt] coordinates { 
-                    (1:0, 0.04522) (3:1, 0.04974) (1:1, 0.04361) (1:3, 0.01356) (0:1, 0.00602) 
+                \addplot[fill=yellow, draw opacity=0, bar shift=-9pt] coordinates {
+                    (1:0, 0.04522) (3:1, 0.04974) (1:1, 0.04361) (1:3, 0.01356) (0:1, 0.00602)
                 };
                 \addlegendentry{\qty{7}{\day}}
-                
+
                 % 14d clinker Data
-                \addplot[fill=orange, draw opacity=0] coordinates { 
-                    (1:0, 0.01356) (3:1, 0.03752) (1:1, 0.15633) (1:3, 0.01808) (0:1, 0.00904) 
+                \addplot[fill=orange, draw opacity=0] coordinates {
+                    (1:0, 0.01356) (3:1, 0.03752) (1:1, 0.15633) (1:3, 0.01808) (0:1, 0.00904)
                 };
                 \addlegendentry{\qty{14}{\day}}
-                
+
                 % 28d clinker Data
-                \addplot[fill=red, draw opacity=0, bar shift=9pt] coordinates { 
-                    (1:0, 0.02562) (3:1, 0.30678) (1:1, 0.14470) (1:3, 0.01966) (0:1, 0.01055) 
+                \addplot[fill=red, draw opacity=0, bar shift=9pt] coordinates {
+                    (1:0, 0.02562) (3:1, 0.30678) (1:1, 0.14470) (1:3, 0.01966) (0:1, 0.01055)
                 };
                 \addlegendentry{\qty{28}{\day}}
             \end{axis}
@@ -902,19 +902,19 @@ The results are also listed in \zcref{tab:convergence_area_box_cnt, tab:converge
                 ylabel near ticks, yticklabel pos=right,
             ]
                 % 7d clinker Data
-                \addplot[fill=green, draw opacity=0, bar shift=-9pt] coordinates { 
+                \addplot[fill=green, draw opacity=0, bar shift=-9pt] coordinates {
                     (1:0, 0.054324) (3:1, 0.078231) (1:1, 0.188929) (1:3, 0.015454) (0:1, 0.050768)
                 };
                 \addlegendentry{\qty{7}{\day}}
-                
+
                 % 14d clinker Data
-                \addplot[fill=cyan, draw opacity=0] coordinates { 
+                \addplot[fill=cyan, draw opacity=0] coordinates {
                     (1:0, 0.047315) (3:1, 0.162460) (1:1, 0.138721) (1:3, 0.024144) (0:1, 0.106486)
                 };
                 \addlegendentry{\qty{14}{\day}}
-                
+
                 % 28d clinker Data
-                \addplot[fill=blue, draw opacity=0, bar shift=9pt] coordinates { 
+                \addplot[fill=blue, draw opacity=0, bar shift=9pt] coordinates {
                     (1:0, 0.101484) (3:1, 0.810745) (1:1, 1.051917) (1:3, 0.113844) (0:1, 0.024144)
                 };
                 \addlegendentry{\qty{28}{\day}}

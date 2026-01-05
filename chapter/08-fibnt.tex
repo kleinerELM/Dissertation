@@ -126,6 +126,44 @@ The cross-section (\zcref{fig:fibnt_fresh_slice}) shows minor damage to the bulk
 Amorphous depositions up to \qty{2}{\micro\meter} and debris-filled pores are visible on the surface sectioned using a \ac{FIB}.
 However, specimens which were not lifted out of the bulk material cannot be analysed using \ac{EBSD} due to geometrical limitations.
 
+The laser preparation also facilitates the easy preparation of larger cross-sections of \ac{ROI}s.
+For example, it enables preparation of mortar samples to analyse the \ac{ITZ} between binder and aggregate.
+\zcref{fig:laser_prep_itz} shows that the cement binder is ablated much faster than the aggregates.
+
+\begin{figure}[htb]
+    \centering
+
+	\includegraphics[width=\textwidth]{methods/laser_prep/fib-zylinder.pdf}
+    \caption{
+		 Mortar sample prepared using a \ac{fs-laser}.
+    The higher ablation rate of cement binder compared to the quartz aggregate is clearly visible.
+    }
+    \label{fig:laser_prep_itz}
+\end{figure}
+
+Nevertheless, the prepared trenches enable the preparation of very large \ac{FIB}-polished areas of the \ac{ITZ}, which also allows acquisition of \ac{EDX} datasets (\zcref{fig:laser_prep_itz_fib}).
+
+\begin{figure}[htb]
+    \centering
+
+	\includegraphics[width=\textwidth]{methods/laser_prep/itz_fib_edx.pdf}
+    \caption{
+		\ac{FIB} polished section of an \ac{ITZ} of a mortar. \ac{BSE} image of a section with few artefacts (left).
+		\ce{Ca}-\ac{EDX} mapping overlaid on top of the \ac{BSE} of the same section.
+		The binder matrix can be found in both images on the left side, the quartz aggregate on the right.
+    }
+    \label{fig:laser_prep_itz_fib}
+\end{figure}
+
+This allows measurement of the \ac{ITZ} thickness using the \ce{Ca} signal (\zcref{fig:laser_prep_itz_fib}), which ranges from \qtyrange{2}{3}{\micro\meter}.
+
+However, large-scale surface polishing using \ac{FIB} still introduces typical artefacts.
+Protruding edges cast shadows on the \ac{BSE} image (\zcref{fig:laser_prep_itz_fib_a}; note the aggregate on the right side).
+The \ac{EDX} mapping also suffers from significant signal attenuation with increasing distance from the surface.
+For example, the \ac{EDX} mapping \zcref{fig:laser_prep_itz_fib} has been brightened in the lower portions to compensate for this effect.
+Furthermore, the softer cementitious binder tends to be more prone for curtaining artefacts, while the quartz grain appears to be nicely polished.
+Finally, since a very large area of an non-conductive material is exposed to the electron beam, charging effects occur even on low voltage and current combinations with low dwell times.
+Therefore, the reachable chemical contrast in the \ac{BSE} images is very limited at \qty{5}{\kilo\volt}, \qty{0.1}{\nano\ampere} at  \qty{50}{\nano\seconds} dwell time.
 
 \section{Evaluation obstacles}
 
@@ -163,9 +201,9 @@ In this case, the damage was visible in a depth of $\approx$ \qty{350}{\nano\met
 
 Solutions to this problem are to reduce energy density.
 This can be done by reducing the scanning duration or the electron beam current, which subsequently will reduce the overall counts, the electron beam voltage, which will limit the elements which can be analysed or to use more sensitive detectors.
-For the presented experiments, a even more reduced electron beam voltage was not applicable.
+For the presented experiments, an even more reduced electron beam voltage was not applicable.
 Therefore, a very sensitive, windowless \ac{EDX}-detector was used and combined with the counts of a second, less-sensitive \ac{EDX}-detector, which yields only one-fifth of the counts of the windowless detector.
-While a reduction of the accelerating voltage from \num{10} to \qty{6}{\kilo\volt} had no significant effect, a reduced dwell time (reduced from \num{600} to \qty{60}{\micro\second}) and increased frame count (from \num{6} to \num{60}) significantly decreases the damage.
+While a reduction of the accelerating voltage from \num{10} to \qty{6}{\kilo\volt} had no significant effect, a reduced dwell time (reduced from \num{600} to \qty{60}{\micro\second}) and increased frame count (from \num{6} to \num{60}) significantly decreased the damage.
 
 While these measures result in a good signal-to-noise ratio for the main components, especially the less abundant elements have a fairly noisy mapping.
 However, it still allows the distinction of the different main phases of the material.
@@ -173,9 +211,9 @@ However, it still allows the distinction of the different main phases of the mat
 
 \section{Post processing following the lift out process}
 
-Samples prepared via the lift-out process and their resulting datasets require much less post processing to reduce artefacts.
+Samples prepared via the lift-out process and their resulting datasets require much less post-processing to reduce artefacts.
 However, some issues still remain to be solved.
-For example, noisy \ac{EDX} datasets have to be denoised with an edge preserving denoising algorithm.
+For example, noisy \ac{EDX} datasets have to be denoised with an edge-preserving denoising algorithm.
 Since the signal-to-noise ratio of the \ac{EDX} element mappings are very low, algorithms like median and \ac{NLM} are not suitable.
 \ac{BM3D} denoising was found to be effective for the noise found in the \ac{EDX} slices and enables to reproducible quantitative analysis across elements.
 
@@ -237,8 +275,8 @@ Then, additional registration steps, such as the use of landmarks or scale-adjus
 
 \subsection{Development of an evaluation workflow}
 
-Therefore, a python tool utilising \textit{napari} \cite{sofroniew.2025}, a graphical user interface to view and edit 2D and 3D image data, was developed.
-This workflow denoises, aligns, visualizes, and analyses correlative \ac{BSE} and \ac{EDX} image stacks.
+Therefore, a Python tool utilising \textit{napari} \cite{sofroniew.2025}, a graphical user interface to view and edit 2D and 3D image data, was developed.
+This workflow denoises, aligns, visualises, and analyses correlative \ac{BSE} and \ac{EDX} image stacks.
 First, the pre-processed in-plane translation data stored in the \textit{TrakEM2} project are loaded.
 The user must provide the image scale and slice thickness in \unit{\nano\meter\per\px}, unless this information is available in the file metadata.
 
@@ -299,7 +337,7 @@ These landmarks are utilised to estimate an isotropic scale-and-translation tran
 \end{figure}
 
 Since the electron beam of the \ac{SEM} hits the \ac{ROI} under an angle of \qty{38}{\degree}, the image stacks inherently exhibit a systematic vertical shift following alignment with the \ac{SIFT} algorithm.
-This shift can be compensated by applying an user-defined angle for the correction.
+This shift can be compensated by applying a user-defined angle for the correction.
 This required angle is primarily determined by the device geometry and the orientation at which the specimen cube is welded to the copper comb.
 The image distortion caused by this geometry effect can and should be corrected for during the recording of the dataset.
 
@@ -307,7 +345,7 @@ The co-registered and corrected \ac{BSE} and \ac{EDX} voxel datasets are visuali
 The user can select a ROI, which is then utilised for the subsequent processing.
 Within the \ac{ROI}, three-dimensional \ac{SLIC}O superpixels are computed on the denoised \ac{EDX} volume (see \zcref{fig:sem_postprocessing_c}).
 In analogy to the approach of Multi\ac{SLIC} \cite{yu.2023}, three principal elements (\ce{Ca}, \ce{Si}, \ce{Al}) are chosen.
-TThis allows to assign specific elements to individual (red-geen-blue) colour channels in an image, from which the superpixels are subsequently generated.
+This allows to assign specific elements to individual (red-green-blue) colour channels in an image, from which the superpixels are subsequently generated.
 This enables the use of standard \ac{SLIC}O implementations in \textit{OpenCV}.
 For each superpixel, the mean intensity for each element is calculated from the raw \ac{EDX} data.
 These superpixel-based vectors are subsequently normalised and clustered using $k$-means in combination with \ac{UMAP}.

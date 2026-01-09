@@ -88,83 +88,7 @@ The prepared and separated cube can now be serially cut as illustrated in \zcref
 
 A detailed video tutorial of the \ac{FIBnt} process, the required parameters, and potential sources of errors for cement-based materials was created and published \cite{kleiner.2025b}.
 
-\subsection{The laser preparation process}
-
-Issues such as charging, shadowing, and redeposition are primarily due to the geometric constraints of the \ac{FIBnt} process, including the presence of narrow trenches.
-While it is possible to enlarge the trenches, doing so is often impractical and time-consuming.
-Laser ablation offers an alternative for trench creation.
-An example of such a prepared specimen is shown in \zcref{fig:laser_prep_tilt_anim}.
-
-\begin{figure}[htb]
-    \centering
-
-    \begin{subfigure}[t]{0.49\textwidth}
-		\ifdefined\PRINTABLE
-			\includegraphics[width=\textwidth]{methods/laser_prep/tilt6.jpg}
-		\else
-			\animategraphics[palindrome,poster=6,autoplay,width=\textwidth]{5}{methods/laser_prep/tilt}{0}{6}
-		\fi
-        \caption{Laser-prepared bar and trenches.}
-        \label{fig:laser_prep_tilt_anim}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[t]{0.49\textwidth}
-        \includegraphics[width=\textwidth]{methods/laser_prep/C3S_7d_Laser_prep_069.pdf}
-        \caption{Fresh \ac{FIBnt} slice.}
-        \label{fig:fibnt_fresh_slice}
-    \end{subfigure}
-    \caption{
-		\qty{7}{\d} hydrated \ac{C3S} specimen, embedded in epoxy resin and prepared using a \ac{fs-laser}.
-		The preparation site has a size of \qtyproduct{.6 x 1.0}{\milli\meter\squared} and the prepared bar is \qty{40}{\micro\meter} wide at the top.
-		The depth of the removed trenches is estimated to be more than \qty{100}{\micro\meter}.
-        The white deposition on the top is a protective \ce{Pt} coating.
-    }
-    \label{fig:laser_prep}
-\end{figure}
-
-The cross-section (\zcref{fig:fibnt_fresh_slice}) shows minor damage to the bulk material.
-Amorphous depositions up to \qty{2}{\micro\meter} and debris-filled pores are visible on the surface sectioned using a \ac{FIB}.
-However, specimens which were not lifted out of the bulk material cannot be analysed using \ac{EBSD} due to geometrical limitations.
-
-The laser preparation also facilitates the easy preparation of larger cross-sections of \ac{ROI}s.
-For example, it enables preparation of mortar samples to analyse the \ac{ITZ} between binder and aggregate.
-\zcref{fig:laser_prep_itz} shows that the cement binder is ablated much faster than the aggregates.
-
-\begin{figure}[htb]
-    \centering
-
-	\includegraphics[width=\textwidth]{methods/laser_prep/fib-zylinder.pdf}
-    \caption{
-		 Mortar sample prepared using a \ac{fs-laser}.
-    The higher ablation rate of cement binder compared to the quartz aggregate is clearly visible.
-    }
-    \label{fig:laser_prep_itz}
-\end{figure}
-
-Nevertheless, the prepared trenches enable the preparation of very large \ac{FIB}-polished areas of the \ac{ITZ}, which also allows acquisition of \ac{EDX} datasets (\zcref{fig:laser_prep_itz_fib}).
-
-\begin{figure}[htb]
-    \centering
-
-	\includegraphics[width=\textwidth]{methods/laser_prep/itz_fib_edx.pdf}
-    \caption{
-		\ac{FIB} polished section of an \ac{ITZ} of a mortar. \ac{BSE} image of a section with few artefacts (left).
-		\ce{Ca}-\ac{EDX} mapping overlaid on top of the \ac{BSE} of the same section.
-		The binder matrix can be found in both images on the left side, the quartz aggregate on the right.
-    }
-    \label{fig:laser_prep_itz_fib}
-\end{figure}
-
-This allows measurement of the \ac{ITZ} thickness using the \ce{Ca} signal (\zcref{fig:laser_prep_itz_fib}), which ranges from \qtyrange{2}{3}{\micro\meter}.
-
-However, large-scale surface polishing using \ac{FIB} still introduces typical artefacts.
-Protruding edges cast shadows on the \ac{BSE} image (\zcref{fig:laser_prep_itz_fib_a}; note the aggregate on the right side).
-The \ac{EDX} mapping also suffers from significant signal attenuation with increasing distance from the surface.
-For example, the \ac{EDX} mapping \zcref{fig:laser_prep_itz_fib} has been brightened in the lower portions to compensate for this effect.
-Furthermore, the softer cementitious binder tends to be more prone for curtaining artefacts, while the quartz grain appears to be nicely polished.
-Finally, since a very large area of an non-conductive material is exposed to the electron beam, charging effects occur even on low voltage and current combinations with low dwell times.
-Therefore, the reachable chemical contrast in the \ac{BSE} images is very limited at \qty{5}{\kilo\volt}, \qty{0.1}{\nano\ampere} at \qty{50}{\nano\second} dwell time.
-
+\FloatBarrier
 \section{Evaluation obstacles}
 
 While the specimen is vacuum-infused with a low-viscosity resin, it often occurs that some larger pores are not completely filled.
@@ -176,7 +100,7 @@ As shown in \zcref{fig:edx_damage}, an electron beam at \qty{10}{\kilo\volt}, \q
 The exposure time is the sum of the dwell time on each point and the frame count.
 But especially the dwell time increases the risk of specimen damage.
 In the example, pores with a diameter of several \unit{\nano\meter} were induced, which can mostly be identified by comparing the damaged slice (\zcref{fig:edx_damage_a}) with a freshly cut surface (\zcref{fig:edx_damage_b}).
-In this case, the damage was visible in a depth of $\approx$ \qty{350}{\nano\meter}
+In this case, the damage was visible in a depth of $\approx$ \qty{350}{\nano\meter}.
 
 \begin{figure}[htb]
     \centering
@@ -355,3 +279,89 @@ This approach facilitates the identification of material phases, resulting in a 
 % TODO: how good is the data alignment? What does this to the segmentation - see ANtons dataset
 % Wie ist das mit der Reliefstruktur und der Abschattung während EDX?
 
+
+
+
+
+\section{The laser preparation process}
+
+Using \ac{FIBnt} alone, practically limits the size of the \ac{ROI} due to the machine time required.
+Furthermore, issues such as redeposition, charging and shadowing are primarily caused by geometric constraints of the \ac{FIBnt} process, including the presence of narrow trenches.
+While it is possible to enlarge the trenches using \ac{FIB}, doing so is often impractical and time-consuming.
+Laser ablation offers an alternative for rapid, high-volume trench creation.
+An example of such a prepared specimen is shown in \zcref{fig:laser_prep_tilt_anim}.
+
+\begin{figure}[htb]
+    \centering
+
+    \begin{subfigure}[t]{0.49\textwidth}
+		\ifdefined\PRINTABLE
+			\includegraphics[width=\textwidth]{methods/laser_prep/tilt6.jpg}
+		\else
+			\animategraphics[palindrome,poster=6,autoplay,width=\textwidth]{5}{methods/laser_prep/tilt}{0}{6}
+		\fi
+        \caption{Laser-prepared bar and trenches.}
+        \label{fig:laser_prep_tilt_anim}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{methods/laser_prep/C3S_7d_Laser_prep_069.pdf}
+        \caption{Fresh \ac{FIBnt} slice.}
+        \label{fig:fibnt_fresh_slice}
+    \end{subfigure}
+    \caption{
+		\qty{7}{\d} hydrated \ac{C3S} specimen, embedded in epoxy resin and prepared using a \ac{fs-laser}.
+		The preparation site has a size of \qtyproduct{.6 x 1.0}{\milli\meter\squared} and the prepared bar is \qty{40}{\micro\meter} wide at the top.
+		The depth of the removed trenches is estimated to be more than \qty{100}{\micro\meter}.
+        The white deposition on the top is a protective \ce{Pt} coating.
+    }
+    \label{fig:laser_prep}
+\end{figure}
+
+The cross-section (\zcref{fig:fibnt_fresh_slice}) shows minor damage to the bulk material.
+Amorphous depositions up to \qty{2}{\micro\meter} and debris-filled pores are visible on the surface sectioned using a \ac{FIB}.
+However, specimens which were not lifted out of the bulk material cannot be analysed using \ac{EBSD} due to geometrical limitations.
+
+% TODO volume
+
+
+The laser preparation also facilitates the easy preparation of larger cross-sections of \ac{ROI}s.
+For example, it enables preparation of mortar samples to analyse the \ac{ITZ} between binder and aggregate.
+\zcref{fig:laser_prep_itz} shows that the cement binder is ablated much faster than the aggregates.
+
+\begin{figure}[htb]
+    \centering
+
+	\includegraphics[width=\textwidth]{methods/laser_prep/fib-zylinder.pdf}
+    \caption{
+		 Mortar sample prepared using a \ac{fs-laser}.
+    	The higher ablation rate of cement binder compared to the quartz aggregate is clearly visible.
+		In the red rectangle, the area of the \ac{FIB} preparation site containing the \ac{ITZ}is highlighted.
+    }
+    \label{fig:laser_prep_itz}
+\end{figure}
+Nevertheless, the laser prepared trenches enable the creation of very large \ac{FIB}-polished areas of the \ac{ITZ}, which also allows acquisition of \ac{EDX} datasets (\zcref{fig:laser_prep_itz_fib}).
+
+\begin{figure}[htb]
+    \centering
+
+	\includegraphics[width=\textwidth]{methods/laser_prep/itz_fib_edx.pdf}
+    \caption{
+		\ac{FIB} polished section of an \ac{ITZ} of a mortar.
+		\ac{BSE} image of a section with few artefacts (left).
+		\ce{Ca}-\ac{EDX} mapping overlaid on top of the \ac{BSE} of the same section.
+		The binder matrix can be found in both images on the left side, the quartz aggregate on the right.
+    }
+    \label{fig:laser_prep_itz_fib}
+\end{figure}
+
+However, due to the orientation of the beam, the large-scale surface polishing using \ac{FIB} still introduces typical artefacts.
+For example, protruding edges cast shadows on the \ac{BSE} image (\zcref{fig:laser_prep_itz_fib}, left; note the shadow on the homogeneous grey value of the aggregate on the right side).
+Furthermore, the softer cementitious binder tends to be more prone for curtaining artefacts, while the quartz grain appears to be nicely polished.
+Finally, since a very large area of an non-conductive material is exposed to the electron beam, charging effects occur even on low voltage and current combinations (\qty{5}{\kilo\volt}, \qty{0.1}{\nano\ampere}) with low dwell times (\qty{50}{\nano\second}).
+Therefore, the reachable chemical contrast in the \ac{BSE} images is very limited.
+
+The \ac{EDX} mapping also suffers from significant signal attenuation with increasing distance from the surface.
+For example, the \ac{EDX} mapping \zcref{fig:laser_prep_itz_fib} has been brightened in the lower portions to compensate for this effect, which also increases the noise in these areas.
+Nevertheless, a zone of higher \ce{Ca} concentrations adjacent to the quartz grain becomes visible.
+This allows measurement of the \ac{ITZ} thickness using this \ce{Ca} signal, which ranges from \qtyrange{2}{3}{\micro\meter}.

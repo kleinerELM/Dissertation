@@ -94,10 +94,64 @@ Between the sessions, the specimen had to be repositioned causing a damaged fron
   \label{fig:lm_ni}
 \end{figure}
 
-The goal was to get a clean \ac{ITZ} between the binder and the quartz grain in the image centre.
+The objective was to obtain a clean and smooth \ac{ITZ} between the binder and the quartz grain in the centre of the image.
+To test the surface quality, a height map was measured using a confocal laser scanning microscope (\textsc{Keyence VK-X3050}).
+The phase segmentation was enabled by an element mapping using \ac{mXRF}.
+The quartz grains were segmented based on the \ce{Si} signal.
+Furthermore, a \ac{BSE} image was acquired to find a suitable \ac{ROI} for the \ac{EDX} analysis and the nanoindentation sites.
+\zcref{fig:arbib-experiment-positions} illustrates the position of the different areas measured by these methods.
 
-A large scale \ac{SEM}-\ac{BSE} image was made to find suitable nanoindentation areas and to estimate the porosity of the \ac{ITZ}.
-Furthermore, a \ac{XRF} mapping was created to identify the \ac{ITZ} using the \ce{Ca} signal.
+\begin{figure}[htb!]
+  \centering
+  \includegraphics[width=\linewidth]{nanoindentation/measurement_overview.pdf}
+  \caption{
+    Illustration of the measurement positions of the different methods.
+    The coloured area indicates the acquired height map (here aligned to the unpolished black surface) and the ROI which is referenced later (white dashed rectangle).
+    {\color{cyan}Cyan}: \ac{BSE} image; {\color{red}red}: \ac{EDX} and nanoindentation area; thin black outlines: Quartz grains based on the \ac{mXRF} segmentation.
+  }
+  \label{fig:arbib-experiment-positions}
+\end{figure}
+
+The raw height map in \zcref{fig:arbib-experiment-positions} was aligned to the black, unpolished surface (compare \zcref{fig:lm_ni}) using three points.
+This plane was defined as the zero level.
+The aligned height map indicates that the ion beam milled the sample at an angle of \qtyrange{5}{6}{\degree} relative to the top surface.
+Defining the polished surface as a reference plane using three points reveals the unevenness caused by the three beams (see \zcref{fig:arbib-topography}).
+The central area was milled deeper than the lateral areas, creating a V-shaped pattern.
+The polished area in the selected \ac{ROI} has a total height difference of approximately \qty{75}{\micro\meter}, whereas local variations are significantly smaller.
+
+\begin{figure}[htb!]
+  \centering
+
+  \includegraphics[width=.8\linewidth]{nanoindentation/topography.pdf}
+  \caption{\ac{ROI} of the height map, aligned to the \ac{ArBIB} polished surface.}
+  \label{fig:arbib-topography}
+\end{figure}
+
+\textsc{ISO 25178} \cite{ISO25178-2:2022} defines roughness parameters like $S_{dr}$.
+The developed area ratio $S_{dr}$ is the percentage increase in surface area due to texture compared to a perfectly flat surface.
+It is \num{0} for perfectly smooth surfaces and increases with increasing roughness.
+This parameter was calculated within a \qtyproduct{20 x 20}{px} sliding window for the whole \ac{ROI}.
+The result is shown in \zcref{fig:arbib-rough}.
+Combined with the segmentation results from the \ac{mXRF} dataset, this allows the surface roughness to be attributed to different phases.
+
+\begin{figure}[htb!]
+  \centering
+  
+  \includegraphics[width=.8\linewidth]{nanoindentation/local-roughness-Sdr.pdf}
+  \caption{Developed area ratio $S_{dr}$ (right) with overlaid quartz aggregate positions determined by \ac{mXRF}.}
+  \label{fig:arbib-rough}
+\end{figure}
+
+Calculating the mean developed area ratio for the aggregate area and the binder area results in \qty{59.7(33.5)}{\percent}, and \qty{87.8(41.5)}{\percent} respectively.
+In other words, the the quartz grains have a smoother surfaces than the cement binder phase.
+This is caused by the homogeneous composition of and the few phase boundaries (e.g. pores) within the quartz grains.
+The mean developed area ratios calculated for the aggregate and binder areas were \qty{59.7(33.5)}{\percent} and \qty{87.8(41.5)}{\percent}, respectively.
+In other words, the quartz grains exhibit a smoother surface than the cement binder phase.
+This can be attributed to the homogeneous composition and the scarcity of phase boundaries (e.g., pores) within the quartz grains, while the binder matrix is full of small phase boundaries and incorporates lots of porosity.
+
+A large scale \ac{SEM}-\ac{BSE} image was made to find suitable \ac{EDX} and nanoindentation areas and to estimate the porosity of the \ac{ITZ}.
+
+
 
 
 Aligning these images from multiple modalities can be helpful to find a fitting measurement position but also to evaluate the results in a later stage.

@@ -73,9 +73,9 @@ Nevertheless, this method of preparation allows a close-to-native imaging of cem
 
 % TODO: hier auf die Nanoporosität eingehen, die freigelegt wird.
 
-\section{\acs{ArBIB} preparation for nanoindentation combined with \ac{SEM} - \ac{BSE} and other techniques}
+\section{\acs{ArBIB} preparation for \ac{NI} combined with \ac{SEM} - \ac{BSE} and other techniques}
 
-Nanoindentation is a technique which requires very flat surfaces.
+\ac{NI} is a technique which requires very flat surfaces.
 While mechanical polishing can work if done with an oil-based polishing process, \ac{ArBIB} is a promising preparation method, since it does not require resin embedding, avoids chemical contamination and minimises mechanical damage as demonstrated in the section above.
 
 As shown in \zcref{fig:lm_ni}, an usable area of \qty{7.5}{\milli\meter\squared} was prepared using \ac{ArBIB} sectioning.
@@ -95,10 +95,12 @@ Between the sessions, the specimen had to be repositioned causing a damaged fron
 \end{figure}
 
 The objective was to obtain a clean and smooth \ac{ITZ} between the binder and the quartz grain in the centre of the image.
-To test the surface quality, a height map was measured using a confocal laser scanning microscope (\textsc{Keyence VK-X3050}).
+To test the surface quality, a height map was measured using a confocal laser scanning microscope (\textit{VK-X3050} by \textsc{Keyence}).
 The phase segmentation was enabled by an element mapping using \ac{mXRF}.
-The quartz grains were segmented based on the \ce{Si} signal.
-Furthermore, a \ac{BSE} image was acquired to find a suitable \ac{ROI} for the \ac{EDX} analysis and the nanoindentation sites.
+The quartz grains were segmented based on the subsequent \ce{Si} signal.
+Furthermore, a \ac{BSE} image was acquired to find a suitable \ac{ROI} for the \ac{EDX} analysis and the \ac{NI} sites.
+The 2D datasets were manually aligned by identifying matching points between these datasets using \textit{QGIS 3.42} \cite{QGIS_software}.
+
 \zcref{fig:arbib-experiment-positions} illustrates the position of the different areas measured by these methods.
 
 \begin{figure}[htb!]
@@ -107,7 +109,7 @@ Furthermore, a \ac{BSE} image was acquired to find a suitable \ac{ROI} for the \
   \caption{
     Illustration of the measurement positions of the different methods.
     The coloured area indicates the acquired height map (here aligned to the unpolished black surface) and the ROI which is referenced later (white dashed rectangle).
-    {\color{cyan}Cyan}: \ac{BSE} image; {\color{red}red}: \ac{EDX} and nanoindentation area; thin black outlines: Quartz grains based on the \ac{mXRF} segmentation.
+    {\color{cyan}Cyan}: \ac{BSE} image; {\color{red}red}: \ac{EDX} and \ac{NI} area; thin black outlines: Quartz grains based on the \ac{mXRF} segmentation.
   }
   \label{fig:arbib-experiment-positions}
 \end{figure}
@@ -142,31 +144,208 @@ Combined with the segmentation results from the \ac{mXRF} dataset, this allows t
   \label{fig:arbib-rough}
 \end{figure}
 
-Calculating the mean developed area ratio for the aggregate area and the binder area results in \qty{59.7(33.5)}{\percent}, and \qty{87.8(41.5)}{\percent} respectively.
+Calculating the mean $S_{dr}$ value for the aggregate area and the binder area results in \qty{59.7(33.5)}{\percent}, and \qty{87.8(41.5)}{\percent} respectively.
 In other words, the the quartz grains have a smoother surfaces than the cement binder phase.
 This is caused by the homogeneous composition of and the few phase boundaries (e.g. pores) within the quartz grains.
 The mean developed area ratios calculated for the aggregate and binder areas were \qty{59.7(33.5)}{\percent} and \qty{87.8(41.5)}{\percent}, respectively.
 In other words, the quartz grains exhibit a smoother surface than the cement binder phase.
-This can be attributed to the homogeneous composition and the scarcity of phase boundaries (e.g., pores) within the quartz grains, while the binder matrix is full of small phase boundaries and incorporates lots of porosity.
+This can be attributed to the homogeneous composition and the scarcity of phase boundaries (e.g., pores) within the quartz grains, while the binder matrix contains numerous small phase boundaries and incorporates significant porosity.
 
-A large scale \ac{SEM}-\ac{BSE} image was made to find suitable \ac{EDX} and nanoindentation areas and to estimate the porosity of the \ac{ITZ}.
+A large scale \ac{SEM}-\ac{BSE} image was acquired to find suitable \ac{EDX} and \ac{NI} areas and to estimate the porosity of the \ac{ITZ}.
+A straight phase boundary between quartz and the hydrated cement binder was identified (see \zcref{fig:arbib-EDX-NI}). 
+
+\begin{figure}[htb!]
+  \centering
+  
+  \includegraphics[width=.8\linewidth]{nanoindentation/EDX_positions2.pdf}
+  \caption{
+    \ac{EDX} phase mapping overlaid on the \ac{BSE} image at the position of the \ac{NI} site.
+    The \ac{NI} site extends beyond the area analysed using \ac{EDX}.
+  }
+  \label{fig:arbib-EDX-NI}
+\end{figure}
+
+After the indentation process (\numproduct{20 x 65} indents, \qty{5}{\micro\meter} spacing) at the marked area was completed, another \ac{BSE} image was acquired.
+Overlaying a grid, as shown in \zcref{fig:BSE-indents}, indicates that the indent positions deviated a few \unit{\micro\meter} from the planned ones.
+
+\begin{figure}[htb!]
+  \centering
+  
+  \includegraphics[width=\linewidth]{nanoindentation/indents_BSE.pdf}
+  \caption{
+    \ac{BSE} image of the \ac{NI} site after indentation.
+    The grid (\numproduct{20 x 65}) represents the planned grid.
+    On the left side, two \ac{NI} measurements were performed, resulting in an apparently irregular pattern.
+    The overlapping area of the \ac{EDX} measurement is highlighted in red.
+  }
+  \label{fig:BSE-indents}
+\end{figure}
+
+The \ac{NI} measurements allow to calculate the hardness $H$ and the reduced \textsc{Young}'s modulus $E_r$.
+Visualising the values, results in The images shown in \zcref{fig:ni2D-results}.
+In both, the position of the quartz, clinker and slag phases can be identified by their high hardness and modulus.
+In the modulus map, the course of the cracks can also be determined.
+
+\begin{figure}[htb!]
+  \centering
+  \begin{subfigure}{0.49\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{nanoindentation/NI2D_results_H.pdf}
+    \caption{
+      Hardness $H$ mapping.
+    }
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}{0.49\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{nanoindentation/NI2D_results_Er.pdf}
+    \caption{
+      Reduced \textsc{Young}'s modulus $E_r$.
+    }
+  \end{subfigure}
+
+  \begin{subfigure}{0.49\linewidth}
+    \flushleft
+    \includegraphics[width=0.877\linewidth]{nanoindentation/EDX_raw.pdf}
+    \caption{
+      Raw \ac{EDX} phase mapping.
+    }
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}{0.49\linewidth}
+    \flushleft
+    \includegraphics[width=0.877\linewidth]{nanoindentation/EDX_pixelated.pdf}
+    \caption{
+      Resolution fitted \ac{EDX} phase mapping.
+    }
+  \end{subfigure}
+  \caption{
+    Mappings of the \ac{NI} measurements in \unit{\giga\pascal} and \ac{EDX} phase mappings before and after the resolution reduction.
+    The reduced mapping shows the dominant phase for each pixel.
+    For the \ac{EDX} phase map color legend, refer to \zcref{fig:arbib-EDX-NI}.
+  }
+  \label{fig:ni2D-results}
+\end{figure}
+
+Combining the \ac{NI} measurements and the \ac{EDX} phase mapping, allows to assign the hardness and the modulus to the different phases.
+To do this, the high-resolution \ac{EDX} map was subdivided using a grid as indicated in \zcref{fig:BSE-indents}.
+Only \ac{NI} measurements were used, where within each grid cell more than \qty{50}{\percent} of a phase was present.
+This resulted in \qty{76.1}{\percent} (\num{868} of \num{1140}) assigned indents within the overlapping area.
+\zcref{tab:ni-results} and \zcref{fig:ni-boxplot-raw} show these results.
+
+
+\begin{table}[htb]
+	\centering
+	\caption{Nanoindentation results: hardness $H$ and modulus $E_r$ in \unit{\giga\pascal}.}
+	\begin{tabularx}{\linewidth}{XS[table-format=3.0]S[table-format=2.2]S[table-format=2.2]S[table-format=1.2]S[table-format=3.2]S[table-format=3.2]S[table-format=2.2]}
+		\toprule
+		Phase & $N$ & \multicolumn{3}{c}{$H$} & \multicolumn{3}{c}{$E_r$} \\ 
+     & & {Median} & {Mean} & {Std. Dev.} & {Median} & {Mean} & {Std. Dev.} \\
+		\midrule
+		Quartz & 44 & 11.77 & 11.01 & 2.29 & 88.36 & 83.97 & 13.96 \\
+		\acs{C3S}/\acs{C2S} & 39 & 9.08 & 7.63 & 3.12 & 105.43 & 92.03 & 24.07 \\
+		Slag & 7 & 7.72 & 7.10 & 1.35 & 86.27 & 81.05 & 11.36 \\
+		\acs{CH} & 25 & 1.73 & 1.82 & 0.77 & 34.62 & 36.07 & 9.46 \\
+		\acs{CSH} & 93 & 1.26 & 1.38 & 0.97 & 28.09 & 29.61 & 11.93 \\
+		\acs{C3A}/\acs{C4AF} & 1 & 1.36 & 1.36 & 0.00 & 28.76 & 28.76 & 0.00 \\
+		Mg-C-A-S-H & 30 & 0.93 & 1.22 & 1.30 & 25.86 & 28.73 & 14.80 \\
+		C-A-S-H & 20 & 1.10 & 1.21 & 0.62 & 26.95 & 27.44 & 8.23 \\
+		\acs{AFm}/AFt & 11 & 1.22 & 1.13 & 0.48 & 24.67 & 25.08 & 6.71 \\
+		Matrix & 580 & 1.00 & 1.06 & 0.53 & 23.16 & 23.46 & 7.94 \\
+		Pores & 18 & 0.62 & 1.00 & 1.15 & 20.81 & 21.20 & 14.13 \\
+		\bottomrule
+	\end{tabularx}
+	\label{tab:ni-results}
+\end{table}
+
+\begin{figure}[htb]
+	\centering
+	\pgfplotstableread[col sep=comma]{figures/nanoindentation/nanoindent_export_H_raw.csv}\nihardnessdata
+	\pgfplotstableread[col sep=comma]{figures/nanoindentation/nanoindent_export_Er_raw.csv}\nierdata
+	\begin{subfigure}[T]{0.48\linewidth}
+	  \flushleft
+		\begin{tikzpicture}
+			\begin{axis}[
+				boxplot/draw direction=x,
+				xlabel={Hardness $H$ in \unit{\giga\pascal}},
+				ytick={1,2,3,4,5,6,7,8,9,10,11},
+				yticklabels={Pores, Matrix, \acs{AFm}/AFt, C-A-S-H, Mg-C-A-S-H, \acs{C3A}/\acs{C4AF}, \acs{CSH}, \acs{CH}, Slag, \acs{C3S}/\acs{C2S}, Quartz},
+				width=\linewidth,
+				unbounded coords=discard,
+				height=10cm,
+				xmin=0,
+			]
+				\foreach \pos/\pid in {1/10, 2/9, 3/1, 4/2, 5/6, 6/4, 7/3, 8/5, 9/7, 10/8, 11/11} {
+					\edef\temp{
+						\noexpand\addplot+[
+							boxplot={draw position=\pos},
+							mark=*,
+							mark size=1.5pt,
+							mark options={fill=black, draw=none},
+							fill=blue!20,
+							draw=black,
+							solid
+						] table [
+							y expr={\noexpand\thisrow{phase_index}==\pid ? \noexpand\thisrow{value} : nan}
+						] {\noexpand\nihardnessdata};
+					}
+					\temp
+				}
+			\end{axis}
+		\end{tikzpicture}
+		%\caption{Hardness $H$}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[T]{0.50\linewidth}
+	  \flushright
+		\begin{tikzpicture}
+			\begin{axis}[
+				boxplot/draw direction=x,
+				xlabel={Reduced modulus $E_r$ in \unit{\giga\pascal}},
+				ytick={1,2,3,4,5,6,7,8,9,10,11},
+				yticklabels={},
+				width=\linewidth,
+				unbounded coords=discard,
+				height=10cm,
+				xmin=0,
+			]
+				\foreach \pos/\pid in {1/10, 2/9, 3/1, 4/2, 5/6, 6/4, 7/3, 8/5, 9/7, 10/8, 11/11} {
+					\edef\temp{
+						\noexpand\addplot+[
+							boxplot={draw position=\pos},
+							mark=*,
+							mark size=1.5pt,
+							mark options={fill=black, draw=none},
+							fill=blue!20,
+							draw=black,
+							solid
+						] table [
+							y expr={\noexpand\thisrow{phase_index}==\pid ? \noexpand\thisrow{value} : nan}
+						] {\noexpand\nierdata};
+					}
+					\temp
+				}
+			\end{axis}
+		\end{tikzpicture}
+		%\caption{Reduced modulus $E_r$}
+	\end{subfigure}
+	\caption{Boxplots of hardness $H$ (left) and reduced modulus $E_r$ (right) including outliers.}
+	\label{fig:ni-boxplot-raw}
+\end{figure}
 
 
 
 
-Aligning these images from multiple modalities can be helpful to find a fitting measurement position but also to evaluate the results in a later stage.
-The alignment can be done manually as discussed in the previous section by finding at least three or more matching point pairs or by manually transforming the images until the remaining error is acceptable.
-However, a more automatic method would be preferred.
-Multimodal image matching is a known but difficult problem in computer vision.
-Widley used algorithms like \ac{SIFT} usually expect images of the same modality and often fail if the modality changes.
-One possible solution is to bring all images in a similar modality.
-For example by first applying denoising and edge detection algorithms.
+% \color{orange}
+% Aligning these images from multiple modalities can be helpful to find a fitting measurement position but also to evaluate the results in a later stage.
+% The alignment can be done manually as discussed in the previous section by finding at least three or more matching point pairs or by manually transforming the images until the remaining error is acceptable.
+% However, a more automatic method would be preferred.
+% Multimodal image matching is a known but difficult problem in computer vision.
+% Widley used algorithms like \ac{SIFT} usually expect images of the same modality and often fail if the modality changes.
+% One possible solution is to bring all images in a similar modality.
+% For example by first applying denoising and edge detection algorithms.
 
+% This significantly helps to
 
-
-This significantly helps to
-
-
-
-
-nanoindentation: \cite{li.2025, li.2026}
+% \ac{NI}: \cite{li.2025, li.2026}
+% \color{black}

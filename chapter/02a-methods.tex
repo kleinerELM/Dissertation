@@ -104,7 +104,6 @@ Therefore, the ion beam device used, allows to cool the specimen below \qty{-140
 This helps to avoid that the specimen is heated above damaging temperature (\qty{60}{\celsius} for \ac{CSH} \cite{he.2018}).
 
 %{\color{orange}
-
 %To determine the influence of the ion beam during the regular milling process on hydrated cement specimens, it was compared with a milling process while cooling the specimen (see section~\ref{}). %Kapitelplatz finden
 %The comparison was made using hydrated alite, hydrated \ac{OPC} and \ac{LC3}.
 %}
@@ -114,8 +113,11 @@ While these can be reduced in the \ac{SEM}-\ac{FIB} process using coatings \cite
 These artefacts can be significantly reduced in a subsequent image processing step by applying a \ac{FFT} \cite{kleiner.2021a}, as demonstrated for images from a \ac{SEM}-\ac{FIB} process \cite{fitschen.2017,schankula.2018}.
 This removes the stripes in one direction, however, this filter can also soften the image.
 This is especially apparent when artefacts are present in more than one direction in the image \cite{kleiner.2021a}.
+However, the areas analysed were fairly small (\qtyproduct{20 x 20}{\micro\meter\squared})
 
-% bad paper about ArBIB \cite{sammer.2024}
+\textcite{sammer.2024} also pointed out, that the overall roughness of \ac{ArBIB} polishing is higher (\qty{388(101)}{\nano\meter}) than for mechanical polishing \qty{156(114)}{\nano\meter}.   
+
+
 \section{Tomography utilizing ion beams and laser milling}
 
 Since the 2000s, multiple slice-based tomography methods were developed to obtain microscopical 3D volumes of a sample.
@@ -216,6 +218,26 @@ Conveniently, this damage can be use for cross-method alignment purposes.
 
 It has to be noted that the specimen surface was pre-ablated using a coarser resolution and a larger area (see \zcref{fig:laicpms-pre-ablation}) to remove surface contaminations.
 However, this has to be taken into account to correctly align the final ablation result to the \ac{SEM} image.
+
+\FloatBarrier
+\section[Micro X-ray fluorescence spectroscopy \\ (\acs*{mXRF})]{Micro X-ray fluorescence spectroscopy \\ (\acs*{mXRF})}
+
+For the \ac{mXRF} mapping, an \textit{ORBIS-PC} instrument (\textsc{EDAX}) was used. 
+The X-ray source was operated at \qty{35}{\kilo\volt} and \qty{300}{\micro\ampere}, with a dwell time of \qty{200}{\milli\second} per pixel.
+An \qty{25}{\micro\meter} \ce{Al}-filter was used to reduce the background signal.
+
+\FloatBarrier
+\section[Nanoindentation \\ (\acs*{NI})]{Nanoindentation \\ (\acs*{NI})}
+
+The \ac{NI} experiments were done using a \textit{Hysitron TS 77 Select} by \textsc{Bruker}.
+It was equipped with a \textsc{Berkovich} tip which was calibrated on a standardised quartz surface.
+%The tip has a radius of \qty{150}{\nano\meter}, limiting the indentation depth to \qty{50}{\nano\meter}.
+Each indent was performed under load control.
+The maximum loading force used for the study was set to \qty{1.2}{\milli\newton} within \qty{4}{\second}.
+The maximum load was held for \qty{1}{\second}, to reduce creep.
+
+The hardness $H$ and the reduced \textsc{Young}'s modulus $E_r$ were calculated from the load-displacement curves using the \textsc{Oliver-Pharr} method \cite{oliver.1992}.
+Individual outliers (curves with significant pop-in) were manually removed from the data prior to analysis.
 
 \FloatBarrier
 \section{Pore size measurement}

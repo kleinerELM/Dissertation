@@ -1,8 +1,8 @@
-\chapter[\Acl*{ArBIB}]{\Acl*{ArBIB}}
+\chapter[Argon broad ion beam preparation techniques]{\Acl*{ArBIB} preparation techniques}
 \label{sec:arbib-chapter}
 
 While \ac{ArBIB} preparation is often used for the surface cleaning of specimens for \ac{EBSD} measurements, it is mostly known and used for materials other than cement. % and clay \cite{desbois.2017}.
-For the preparation of cementitious specimens it is rarely applied.
+For the preparation of cementitious specimens it is still rarely applied.
 
 \section{\acs*{ArBIB} polishing}
 \label{sec:bib_pol_moving_result}
@@ -25,13 +25,14 @@ All images were recorded at \qty{16}{\bit} color depth.
 
 There is no fixed grey value for a phase in \ac{BSE} imaging.
 It can be manipulated in device not only by changing the voltage and current, but also by changing brightness, gamma and contrast values either automatically or manually.
-Therefore, the contrast of the images was normalised, which in some instances significantly changed the appearance of the images.
+Therefore, the contrast of the \qty{16}{bit} images was normalised using the \textit{Enhance Contrast} function available in \textsc{ImageJ}.
+In some instances this significantly changed the appearance of the images.
 
 The \ac{BSE} image of a carbon coated specimen mostly shows the coating surface at \qty{2.5}{\kilo\volt} and the chemical contrast is only slightly visible.
 At \qty{4.0}{\kilo\volt} artefacts are still very prominent, making the image unusable for any segmentation task.
 An artefact free image can be produced at \qty{10}{\kilo\volt}, allowing to distinguish between \ac{CH} and \ac{CSH} and between \ac{C3S} and \ac{C2S}.
 
-An \ac{ArBIB} cleaned surface can be imaged at voltages as low as \qty{2.0}{\kilo\volt} (at \qty{0.8}{\nano\ampere}), resulting in an usable image.
+An \ac{ArBIB} cleaned surface can be imaged at voltages as low as \qty{2.0}{\kilo\volt} (at \qty{0.8}{\nano\ampere}), resulting in an segmentable image.
 The microstructure also appears more detailed than in images of the coated surface at \qty{10}{\kilo\volt}.
 This is caused by the smaller interaction volume at lower voltages (see \zcref{fig:penetration_depth})
 However, the phase contrast between \ac{CH} and \ac{CSH} is diminished compared to the carbon coated specimens at \qty{15}{\kilo\volt}.
@@ -48,7 +49,7 @@ If a sample is not coated in the first place, \ac{ArBIB} polishing removes oil r
 \section{\acs*{ArBIB} sectioning}
 \label{sec:bib_pol_fixed_results}
 
-\ac{ArBIB} milling allows to image porous specimens without the requirement to embed them in epoxy resin (see \zcref{fig:BSE_ArBIB_CEMI}).
+\ac{ArBIB} milling allows to section and subsequently image porous specimens without the requirement to embed them in epoxy resin (see \zcref{fig:BSE_ArBIB_CEMI}).
 This is especially useful for specimens with pronounced capillary porosity.
 Mechanical polishing would damage this not stabilized microstructure and the pores would be filled with debris.
 
@@ -65,21 +66,23 @@ Mechanical polishing would damage this not stabilized microstructure and the por
     \label{fig:BSE_ArBIB_CEMI}
 \end{figure*}
 
-
 The ion beam milled specimens have to be imaged using low voltages, since the so prepared surface is intrinsically non conductive and a consecutive coating would also alter the microstructure (see \zcref{fig:coating-influence}).
 As demonstrated in the previous section, low voltages also result in a limited contrast between phases like \ac{CH} and \ac{CSH} or \ac{C3S} and \ac{C2S}.
 
-Nevertheless, this method of preparation allows a close-to-native imaging of cementitous materials and results in a very flat and clean surface.
+Nevertheless, this method of preparation allows a close-to-native imaging of cementitious materials and results in a very flat and clean surface.
+This furthermore enables the analysis of very fine porosity, using primarily the \ac{SEM}-\ac{SE} mode \cite{desbois.2014, kleiner.2021a}.
+This will be discussed and demonstrated in more detail in \zcref{subsec:arb-porosity}.
 
-% TODO: hier auf die Nanoporosität eingehen, die freigelegt wird.
 
-\section{\acs*{ArBIB} preparation for \acs*{NI} combined with \acs*{SEM} - \acs*{BSE} and \acs*{mXRF}}
+\section{\acs*{ArBIB} preparation for \acl*{NI} combined with \acs*{SEM} - \acs*{BSE} and \acs*{mXRF}}
 
 \ac{NI} is a technique which requires very flat surfaces.
-While mechanical polishing can work if done with an oil-based polishing process, \ac{ArBIB} is a promising preparation method, since it does not require resin embedding, avoids chemical contamination and minimises mechanical damage as demonstrated in the section above.
+While mechanical polishing can work if done with an oil-based polishing process \cite{gao.2012}, \ac{ArBIB} is a promising preparation method, since it does not require resin embedding, avoids chemical contamination and minimises mechanical damage as demonstrated in the section above.
+Furthermore, it avoids the formation of a pronounced relief at the interface of hard (eg. quartz grains) and soft (eg. hydrated cement) materials.
+For example, the imaging of microstructures of claystone was challenging until the upcoming of \ac{ArBIB} polishing \cite{yven.2007,houben.2014}.
 
 The objective was to obtain a clean and smooth \ac{ITZ} between the binder and a large quartz grain.
-In this case, a sample of a concrete was used (\qty{20.8}{\wtpercent} binder: CEM~I 42.5R, \ac{wb}=\num{0.55}, \qty{79,2}{\wtpercent} aggregates: \qty{70}{\volpercent} fine \qtyrange{0}{4}{\milli\meter}, \qty{30}{\volpercent} coarse \qtyrange{4}{16}{\milli\meter}) \cite{li.2026}.
+In this case, a sample of a concrete was used (\qty{20.8}{\wtpercent} binder: CEM~I \num{42.5}R, \ac{wb}=\num{0.55}, \qty{79,2}{\wtpercent} aggregates: \qty{70}{\volpercent} fine \qtyrange{0}{4}{\milli\meter}, \qty{30}{\volpercent} coarse \qtyrange{4}{16}{\milli\meter}) \cite{li.2026}.
 The hydration was stopped after \qty{91}{\day} by immersing a small sawn piece of the concrete in isopropanol and subsequently drying it in a vacuum chamber.
 The specimen was then cut into a suitable shape by sawing the specimen under a constant flow of \qty{99}{\volpercent} ethanol.
 Finally the specimen was mounted in the ion mill device.
@@ -125,11 +128,17 @@ The aligned height map indicates that the ion beam milled the sample at an angle
 Defining the polished surface as a reference plane using three points reveals the unevenness caused by the three beams (see \zcref{fig:arbib-topography}).
 The central area was milled deeper than the lateral areas, creating a V-shaped pattern.
 The polished area in the selected \ac{ROI} has a total height difference of approximately \qty{75}{\micro\meter}, whereas local variations are significantly smaller.
+This seems to be in accordance to the observations from \textcite{sammer.2024}, where the overall roughness was seemingly worse than in mechanical polishing, while locally smoother surfaces were achieved.
 
 \begin{figure}[htb!]
   \centering
 
-  \includegraphics[width=.8\linewidth]{nanoindentation/topography.pdf}
+	\ifdefined\PRINTABLE
+		\includegraphics[width=\linewidth]{nanoindentation/topography00.pdf}
+	\else
+		\animategraphics[palindrome,autoplay,width=\linewidth]{1}{nanoindentation/topography}{00}{01}
+	\fi
+
   \caption{\ac{ROI} of the height map, aligned to the \ac{ArBIB} polished surface.}
   \label{fig:arbib-topography}
 \end{figure}
@@ -137,13 +146,18 @@ The polished area in the selected \ac{ROI} has a total height difference of appr
 \textsc{ISO 25178} \cite{ISO25178-2:2022} defines roughness parameters like $S_{dr}$.
 The developed area ratio $S_{dr}$ is the percentage increase in surface area due to texture compared to a perfectly flat surface.
 It is \num{0} for perfectly smooth surfaces and increases with increasing roughness.
-This parameter was calculated within a \qtyproduct{20 x 20}{px} sliding window for the whole \ac{ROI} (see \zcref{fig:arbib-rough}).
+This parameter was calculated within a \qtyproduct{20 x 20}{\px} sliding window for the whole \ac{ROI} (see \zcref{fig:arbib-rough}).
 Combined with the segmentation results from the \ac{mXRF} dataset, this allows the surface roughness to be attributed to different phases.
 
 \begin{figure}[htb!]
   \centering
-  
-  \includegraphics[width=.8\linewidth]{nanoindentation/local-roughness-Sdr.pdf}
+	
+	\ifdefined\PRINTABLE
+		\includegraphics[width=\linewidth]{nanoindentation/local-roughness-Sdr01.pdf}
+	\else
+		\animategraphics[palindrome,autoplay,width=\linewidth]{1}{nanoindentation/local-roughness-Sdr}{00}{01}
+	\fi
+
   \caption{Developed area ratio $S_{dr}$ (right) with overlaid quartz aggregate positions determined by \ac{mXRF}.}
   \label{fig:arbib-rough}
 \end{figure}
@@ -160,7 +174,7 @@ A straight phase boundary between quartz and hydrated cement binder was identifi
 \begin{figure}[htb!]
   \centering
   
-  \includegraphics[width=.85\linewidth]{nanoindentation/EDX_positions.pdf}
+  \includegraphics[width=.9\linewidth]{nanoindentation/EDX_positions.pdf}
   \caption{
     \ac{EDX} phase mapping overlaid on the \ac{BSE} image at the position of the \ac{NI} site.
     The \ac{NI} site extends beyond the area analysed using \ac{EDX}.
@@ -168,13 +182,11 @@ A straight phase boundary between quartz and hydrated cement binder was identifi
   \label{fig:arbib-EDX-NI}
 \end{figure}
 
-Despite using a CEM~I as binder, a slag grain can be identified.
+Despite using a CEM~I as binder, a slag grain can be identified, which might originate from the \qty{5}{\percent} of allowed other components according to \textcite{dinen197-1.2011}.
 The phase map does not distinguish between \ac{C3S} and \ac{C2S} phases, but divides the hydrate phases granularly into \ac{CSH}, \ac{CASH}, Mg-\ac{CASH}, \ac{CH} and \ac{AFm}/\ac{AFt} phases.
 Hydrate phases that could not be unambiguously assigned were classified as matrix.
 
-The \ac{NI} was done using a \textit{Hysitron TS 77 Select} by \textsc{Bruker} using a \textsc{Berkovich} tip calibrated on a standardised quartz surface.
-The $\approx$ \qtyproduct{100 x 325}{\micro\meter\squared} area was measured with \numproduct{20 x 65} indents at a \qty{5}{\micro\meter} spacing.
-
+The \ac{NI} was done on a $\approx$ \qtyproduct{100 x 325}{\micro\meter\squared} area with \numproduct{20 x 65} indents at a \qty{5}{\micro\meter} spacing.
 
 After the indentation process at the marked area was completed, another \ac{BSE} image was acquired.
 Overlaying a grid, as shown in \zcref{fig:BSE-indents}, indicates that the indent positions deviated a few \unit{\micro\meter} from the planned ones.
@@ -192,7 +204,7 @@ Overlaying a grid, as shown in \zcref{fig:BSE-indents}, indicates that the inden
   \label{fig:BSE-indents}
 \end{figure}
 
-The \ac{NI} measurements allow to calculate the hardness $H$ and the reduced \textsc{Young}'s modulus $E_r$ using the \textsc{Oliver-Pharr} method \cite{oliver.1992} from the load-displacement curve.
+The \ac{NI} measurements allow to calculate the hardness $H$ and the reduced \textsc{Young}'s modulus $E_r$.
 Visualising the values, results in the images shown in \zcref{fig:ni2D-results}.
 In both, the position of the quartz, clinker and slag phases can be identified by their high hardness and modulus.
 In the modulus map, the course of the cracks can also be determined.
@@ -203,7 +215,7 @@ In the modulus map, the course of the cracks can also be determined.
     \centering
     \includegraphics[height=27.011mm]{nanoindentation/NI2D_results_H.pdf}
     \caption{
-      Hardness $H$ mapping.
+      Hardness $H$ map.
     }
     \label{fig:ni2D-results-a}
   \end{subfigure}
@@ -212,32 +224,45 @@ In the modulus map, the course of the cracks can also be determined.
     \centering
     \includegraphics[height=27.011mm]{nanoindentation/NI2D_results_Er.pdf}
     \caption{
-      Reduced \textsc{Young}'s modulus $E_r$.
+      Reduced \textsc{Young}'s modulus $E_r$ map.
     }
     \label{fig:ni2D-results-b}
   \end{subfigure}
 
   \begin{subfigure}{0.49\linewidth}
     \flushleft
-    \includegraphics[height=23.369mm]{nanoindentation/EDX_raw.pdf}
+	
+	\ifdefined\PRINTABLE
+		\includegraphics[height=23.369mm]{nanoindentation/EDX_pixelated_01.pdf}
+	\else
+		\animategraphics[palindrome,autoplay,height=23.369mm]{1}{nanoindentation/EDX_pixelated_}{00}{01}
+	\fi
+
     \caption{
-      Raw \ac{EDX} phase mapping.
+      Resolution fitted \ac{EDX} phase map.
     }
     \label{fig:ni2D-results-c}
   \end{subfigure}
   \hfill
   \begin{subfigure}{0.49\linewidth}
     \flushleft
-    \includegraphics[height=23.369mm]{nanoindentation/EDX_pixelated.pdf}
+	
+	\ifdefined\PRINTABLE
+		\includegraphics[width=\textwidth]{nanoindentation/EDX_pixelated_02.pdf}
+	\else
+		\animategraphics[palindrome,autoplay,height=23.369mm]{1}{nanoindentation/EDX_pixelated_}{01}{02}
+	\fi
+
     \caption{
-      Resolution fitted \ac{EDX} phase mapping.
+      Used indents \ac{EDX} phase mapping are colored.
     }
     \label{fig:ni2D-results-d}
   \end{subfigure}
   \caption{
     Mappings of the \ac{NI} measurements in \unit{\giga\pascal} and \ac{EDX} phase mappings before and after the resolution reduction.
     The reduced mapping shows the dominant phase for each pixel.
-    For the \ac{EDX} phase map color legend, refer to \zcref{fig:arbib-EDX-NI}.
+    For the color legend of the \ac{EDX} phase map, refer to \zcref{fig:arbib-EDX-NI}.
+	White areas were filtered and not used for statistical evaluation.
   }
   \label{fig:ni2D-results}
 \end{figure}
@@ -254,7 +279,7 @@ This resulted in \qty{76.1}{\percent} (\num{868} of \num{1140}) assigned indents
 	\caption{Phase dependent nanoindentation results: hardness $H$ and modulus $E_r$ in \unit{\giga\pascal} and the amount $N$ of indents assigned to each phase.}
 	\begin{tabularx}{\linewidth}{XS[table-format=3.0]S[table-format=2.2]S[table-format=2.2]S[table-format=1.2]S[table-format=3.1]S[table-format=3.1]S[table-format=2.1]}
 		\toprule
-		Phase & $N$ & \multicolumn{3}{c}{hardness $H$} & \multicolumn{3}{c}{Reduced \textsc{Young}'s modulus $E_r$} \\ 
+		Phase & $N$ & \multicolumn{3}{c}{Hardness $H$} & \multicolumn{3}{c}{Reduced \textsc{Young}'s modulus $E_r$} \\ 
      & & {Median} & {Mean} & {Std. Dev.} & {Median} & {Mean} & {Std. Dev.} \\
 		\midrule
 		Quartz & 44 & 11.77 & 11.01 & 2.29 & 88.36 & 83.97 & 13.96 \\
@@ -286,7 +311,7 @@ This is likely due to the interaction volume of the indentation including materi
 However, these results are still above manually assigned values in \cite{li.2025,li.2026}, where the pores were filled with epoxy resin.
 This discrepancy may be attributed to direct contact with the material beneath the pore or at the edges, in contrast to the intermediate contact with epoxy resin, or to imperfect phase assignment.
 
-The quartz aggregate shows the highest median hardness of \qty{11.8}{\giga\pascal} and a modulus of \qty{88.4}{\giga\pascal} in good accordance with \cite{li.2025,li.2026}.
+The quartz aggregate shows the highest hardness of \qty{11.0(2.3)}{\giga\pascal} and a modulus of \qty{84.0(14.0)}{\giga\pascal} in good accordance with \cite{li.2025,li.2026}.
 
 The boxplot in \zcref{fig:ni-boxplot-raw} visualises these distributions, showing the median, the lowest and highest datapoints (whiskers) excluding the outliers (dots) and the first and third quartile of the datapoints (coloured box).
 
@@ -377,7 +402,7 @@ The boxplot in \zcref{fig:ni-boxplot-raw} visualises these distributions, showin
 	\label{fig:ni-boxplot-raw}
 \end{figure}
 
-Since the measurement area was chosen so that the quartz grain boundary is parallel to the $y$-axis (orientation as shown in \zcref{fig:ni2D-results-a,fig:ni2D-results-b}), a profile can be plotted to visualise the hardness and moduli depending on the distance to the quartz grain.
+Since the measurement area was chosen so that the quartz grain boundary is parallel to the $y$-axis (orientation as shown in \zcref{fig:ni2D-results-a,fig:ni2D-results-b}), a profile can be plotted to visualise the hardness and moduli depending on the distance to the quartz grain (\zcref{fig:ni-profiles}).
 Since the hydrate phase is the primary focus, cutoff values of \num{6} and \qty{80}{\giga\pascal} were chosen, respectively, to remove phases like quartz, clinker and slag, which have a high hardness.
 
 \begin{figure}[htb]
@@ -391,11 +416,11 @@ Since the hydrate phase is the primary focus, cutoff values of \num{6} and \qty{
 				grid=major,
         xmin=0, xmax=320,
 				ymin=0, ymax=6,
-				axis on top,
 			]
-        \addplot[fill=gray, fill opacity=0.25, draw=none] coordinates {
-            (20, 0) (100,0) (100, 6) (20,6) (20, 0)
-        };
+				\addplot[fill=gray, fill opacity=0.25, draw=none] coordinates {
+					(20, 0) (100,0) (100, 6) (20,6) (20, 0)
+				};
+				\node[black, anchor=west] at (axis cs: 30,4) {\small ITZ};
 
 				\addplot [name path=upper, draw=none, forget plot] table [skip first n=2, header=false, col sep=comma, x index=0, y expr=\thisrowno{1}+\thisrowno{2}] {figures/nanoindentation/profile_HGPa.csv};
 				\addplot [name path=lower, draw=none, forget plot] table [skip first n=2, header=false, col sep=comma, x index=0, y expr=\thisrowno{1}-\thisrowno{2}] {figures/nanoindentation/profile_HGPa.csv};
@@ -415,13 +440,13 @@ Since the hydrate phase is the primary focus, cutoff values of \num{6} and \qty{
 				grid=major,
         xmin=0, xmax=320,
 				ymin=0, ymax=80,
-				axis on top,
 				yticklabel pos=right,
 			]
 
-        \addplot[fill=gray, fill opacity=0.25, draw=none] coordinates {
-            (20, 0) (100,0) (100, 80) (20,80) (20, 0)
-        };
+				\addplot[fill=gray, fill opacity=0.25, draw=none] coordinates {
+					(20, 0) (100,0) (100, 80) (20,80) (20, 0)
+				};
+				\node[black, anchor=west] at (axis cs: 30,55) {\small ITZ};
       
 				\addplot [name path=upper, draw=none, forget plot] table [skip first n=2, header=false, col sep=comma, x index=0, y expr=\thisrowno{1}+\thisrowno{2}] {figures/nanoindentation/profile_ErGPa.csv};
 				\addplot [name path=lower, draw=none, forget plot] table [skip first n=2, header=false, col sep=comma, x index=0, y expr=\thisrowno{1}-\thisrowno{2}] {figures/nanoindentation/profile_ErGPa.csv};
@@ -441,8 +466,12 @@ Since the hydrate phase is the primary focus, cutoff values of \num{6} and \qty{
 
 Both diagrams show that the values directly at the interface are slightly lower than in the bulk material.
 However, the \ac{ITZ} width cannot be clearly defined or measured.
-The \ac{ITZ} is expected to be located in the region \qtyrange{30}{80}{\micro\meter}, based on the slope attributed to the quartz grain interface.
-Comparing the graphs to the \ac{BSE} and \ac{EDX} data indicates a small crack in the interface zone of the grain.
+The \ac{ITZ} is expected to be \qtyrange{30}{80}{\micro\meter} wide, based on the slope attributed to the quartz grain interface.
+Comparing the graphs to the \ac{BSE} and \ac{EDX} data indicates a small crack in the interface zone between the binder and the grain.
+Therefore, a porosity analysis is also not suitable, since the majority of the segmentable pores in the \ac{BSE} image originate from cracks, most probably caused by the preparation.
+For example, the specimen was dried in vacuum within the polishing device and within the \ac{SEM} and the \ac{ArBIB} preparation also induces heat and therefore can cause cracks.
+This can also be seen in the lower two images in \zcref{fig:BSE_CEMI_voltages}, where the carbon coating was removed using \ac{ArBIB} polishing and new cracks appeared.
+
 
 
 

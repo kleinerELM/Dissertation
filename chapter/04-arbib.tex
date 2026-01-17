@@ -83,6 +83,7 @@ For example, the imaging of microstructures of claystone was challenging until t
 
 The objective was to obtain a clean and smooth \ac{ITZ} between the binder and a large quartz grain.
 In this case, a sample of a concrete was used (\qty{20.8}{\wtpercent} binder: CEM~I \num{42.5}R, \ac{wb}=\num{0.55}, \qty{79,2}{\wtpercent} aggregates: \qty{70}{\volpercent} fine \qtyrange{0}{4}{\milli\meter}, \qty{30}{\volpercent} coarse \qtyrange{4}{16}{\milli\meter}) \cite{li.2026}.
+The chemical and phase composition of the cement is listed in \zcref{tab:chemical-composition-ni, tab:phase-composition-ni}.
 The hydration was stopped after \qty{91}{\day} by immersing a small sawn piece of the concrete in isopropanol and subsequently drying it in a vacuum chamber.
 The specimen was then cut into a suitable shape by sawing the specimen under a constant flow of \qty{99}{\volpercent} ethanol.
 Finally the specimen was mounted in the ion mill device.
@@ -103,7 +104,7 @@ Between the sessions, the specimen had to be repositioned causing a damaged fron
   \label{fig:lm_ni}
 \end{figure}
 
-To test the surface quality, a height map was measured using a confocal laser scanning microscope (\textit{VK-X3050} by \textsc{Keyence}).
+To test the surface quality, a height map was measured using a confocal laser scanning microscope (\textit{VK-X3050} by \textsc{Keyence}) with a resolution of \qty{1.373}{\micro\meter\per\px}.
 The phase segmentation (quartz-binder) was enabled by an element mapping using \ac{mXRF}.
 The quartz grains were segmented based on the subsequent \ce{Si} signal.
 Furthermore, a \ac{BSE} image was acquired to find a suitable \ac{ROI} for the \ac{EDX} analysis and the \ac{NI} site.
@@ -155,7 +156,7 @@ Combined with the segmentation results from the \ac{mXRF} dataset, this allows t
 	\ifdefined\PRINTABLE
 		\includegraphics[width=\linewidth]{nanoindentation/local-roughness-Sdr01.pdf}
 	\else
-		\animategraphics[palindrome,autoplay,width=\linewidth]{1}{nanoindentation/local-roughness-Sdr}{00}{01}
+		\animategraphics[palindrome,autoplay,poster=01,width=\linewidth]{1}{nanoindentation/local-roughness-Sdr}{00}{01}
 	\fi
 
   \caption{Developed area ratio $S_{dr}$ (right) with overlaid quartz aggregate positions determined by \ac{mXRF}.}
@@ -183,8 +184,8 @@ A straight phase boundary between quartz and hydrated cement binder was identifi
 \end{figure}
 
 Despite using a CEM~I as binder, a slag grain can be identified, which might originate from the \qty{5}{\percent} of allowed other components according to \textcite{dinen197-1.2011}.
-The phase map does not distinguish between \ac{C3S} and \ac{C2S} phases, but divides the hydrate phases granularly into \ac{CSH}, \ac{CASH}, Mg-\ac{CASH}, \ac{CH} and \ac{AFm}/\ac{AFt} phases.
-Hydrate phases that could not be unambiguously assigned were classified as matrix.
+The phase map does not distinguish between \ac{C3S} and \ac{C2S} phases, but divides the hydrate phases granularly into \ac{CSHi} (\ac{HD}), \ac{CASH}, Mg-\ac{CASH}, \ac{CH} and \ac{AFm}/\ac{AFt} phases.
+Hydrate phases that could not be unambiguously assigned were classified as \ac{CSHo} (\ac{LD}).
 
 The \ac{NI} was done on a $\approx$ \qtyproduct{100 x 325}{\micro\meter\squared} area with \numproduct{20 x 65} indents at a \qty{5}{\micro\meter} spacing.
 
@@ -276,22 +277,22 @@ This resulted in \qty{76.1}{\percent} (\num{868} of \num{1140}) assigned indents
 
 \begin{table}[htb]
 	\centering
-	\caption{Phase dependent nanoindentation results: hardness $H$ and modulus $E_r$ in \unit{\giga\pascal} and the amount $N$ of indents assigned to each phase.}
+	\caption{Phase dependent nanoindentation results: hardness $H$ and reduced \textsc{Young}'s modulus $E_r$ in \unit{\giga\pascal} and the amount $N$ of indents assigned to each phase.}
 	\begin{tabularx}{\linewidth}{XS[table-format=3.0]S[table-format=2.2]S[table-format=2.2]S[table-format=1.2]S[table-format=3.1]S[table-format=3.1]S[table-format=2.1]}
 		\toprule
-		Phase & $N$ & \multicolumn{3}{c}{Hardness $H$} & \multicolumn{3}{c}{Reduced \textsc{Young}'s modulus $E_r$} \\ 
+		Phase & $N$ & \multicolumn{3}{c}{Hardness $H$} & \multicolumn{3}{c}{Reduced modulus $E_r$} \\ 
      & & {Median} & {Mean} & {Std. Dev.} & {Median} & {Mean} & {Std. Dev.} \\
 		\midrule
 		Quartz & 44 & 11.77 & 11.01 & 2.29 & 88.36 & 83.97 & 13.96 \\
 		\acs{C3S}/\acs{C2S} & 39 & 9.08 & 7.63 & 3.12 & 105.43 & 92.03 & 24.07 \\
 		Slag & 7 & 7.72 & 7.10 & 1.35 & 86.27 & 81.05 & 11.36 \\
 		\acs{CH} & 25 & 1.73 & 1.82 & 0.77 & 34.62 & 36.07 & 9.46 \\
-		\acs{CSH} & 93 & 1.26 & 1.38 & 0.97 & 28.09 & 29.61 & 11.93 \\
+		\acs{CSHi} & 93 & 1.26 & 1.38 & 0.97 & 28.09 & 29.61 & 11.93 \\
 		\acs{C3A}/\acs{C4AF} & 1 & 1.36 & 1.36 & 0.00 & 28.76 & 28.76 & 0.00 \\
 		Mg-\ac{CASH} & 30 & 0.93 & 1.22 & 1.30 & 25.86 & 28.73 & 14.80 \\
 		\ac{CASH} & 20 & 1.10 & 1.21 & 0.62 & 26.95 & 27.44 & 8.23 \\
 		\acs{AFm}/\ac{AFt} & 11 & 1.22 & 1.13 & 0.48 & 24.67 & 25.08 & 6.71 \\
-		Matrix & 580 & 1.00 & 1.06 & 0.53 & 23.16 & 23.46 & 7.94 \\
+		\acs{CSHo} & 580 & 1.00 & 1.06 & 0.53 & 23.16 & 23.46 & 7.94 \\
 		Pores & 18 & 0.62 & 1.00 & 1.15 & 20.81 & 21.20 & 14.13 \\
 		\bottomrule
 	\end{tabularx}
@@ -299,19 +300,30 @@ This resulted in \qty{76.1}{\percent} (\num{868} of \num{1140}) assigned indents
 \end{table}
 
 The results summarised in \zcref{tab:ni-results} indicate distinct differences between unhydrated and hydrated phases.
-Unhydrated materials such as \acs{C3S}/\acs{C2S} and slag exhibit superior mechanical properties.
-\acs{C3S}/\acs{C2S} shows a mean hardness of \qty{7.63(3.12)}{\giga\pascal} and a reduced modulus of \qty{92.0(24.1)}{\giga\pascal}, while slag has a hardness of \qty{7.10(1.35)}{\giga\pascal} and a modulus of \qty{81.1(11.4)}{\giga\pascal}.
+Unhydrated materials such as \ac{C3S}/\ac{C2S} and slag exhibit superior mechanical properties.
+\ac{C3S}/\ac{C2S} shows a mean hardness of \qty{7.63(3.12)}{\giga\pascal} and a reduced modulus of \qty{92.0(24.1)}{\giga\pascal}, while slag has a hardness of \qty{7.10(1.35)}{\giga\pascal} and a modulus of \qty{81.1(11.4)}{\giga\pascal}.
 In contrast, the hydrated phases exhibit much more similar mechanical properties.
-\acs{CH} exhibits a mean hardness of \qty{1.82(0.77)}{\giga\pascal} and a modulus of \qty{36.1(9.46)}{\giga\pascal}, which is slightly lower than in \cite{li.2025,li.2026}.
-\acs{CSH} shows slightly lower values with a hardness of \qty{1.38(0.97)}{\giga\pascal} and a modulus of \qty{29.6(11.9)}{\giga\pascal}.
+\ac{CH} exhibits a mean hardness of \qty{1.82(0.77)}{\giga\pascal} and a modulus of \qty{36.1(9.46)}{\giga\pascal}, which is slightly lower than in \cite{li.2025,li.2026}.
+\ac{CSHi} shows values with a hardness of \qty{1.38(0.97)}{\giga\pascal} and a modulus of \qty{29.6(11.9)}{\giga\pascal}, while \ac{CSHo} is slightly lower with a hardness of \qty{1.06(0.53)}{\giga\pascal} and a modulus of \qty{23.5(7.94)}{\giga\pascal}.
+
+
 \ac{CASH} and \ce{Mg}-\ac{CASH} display comparable properties, with hardness values of \qty{1.21(0.62)}{\giga\pascal} and \qty{1.22(1.30)}{\giga\pascal}, and moduli of \qty{27.4(8.2)}{\giga\pascal} and \qty{28.7(14.8)}{\giga\pascal}, respectively.
-The \acs{C3A}/\acs{C4AF} phase is represented by only a single measurement, preventing a reliable evaluation.
+The \ac{C3A}/\ac{C4AF} phase is represented by only a single measurement, preventing a reliable evaluation.
 Although pores should theoretically yield values of zero, low values are recorded (mean hardness \qty{1.00(1.15)}{\giga\pascal}).
 This is likely due to the interaction volume of the indentation including material directly at the crack edges or beneath the shallow pores.
 However, these results are still above manually assigned values in \cite{li.2025,li.2026}, where the pores were filled with epoxy resin.
 This discrepancy may be attributed to direct contact with the material beneath the pore or at the edges, in contrast to the intermediate contact with epoxy resin, or to imperfect phase assignment.
 
 The quartz aggregate shows the highest hardness of \qty{11.0(2.3)}{\giga\pascal} and a modulus of \qty{84.0(14.0)}{\giga\pascal} in good accordance with \cite{li.2025,li.2026}.
+
+%sebastiani.2016: w/z 0.35, CEM I 52.5R; E_r: CSHi 39.3+-2.8; CSHo 30.1+-2.3 GPa (significantly higher, but more performant concrete mixture)
+%han.2012: overview table
+% xu.2017: w/z 0.45, CEM I 42.5; E_r: CSHi 29.45+-1.87; CSHo 20.96+-1.35 GPa
+In the literature, hardness values for \ac{CSHi} are reported between \qtyrange{0.9}{1.7}{\giga\pascal} with moduli between \qtyrange{21}{30}{\giga\pascal}, whereas for \ac{CSHo}, hardness values range from \qtyrange{0.3}{1.0}{\giga\pascal} and moduli from \qtyrange{11}{20}{\giga\pascal} \cite{han.2012,xu.2017}.
+However, these properties depend on the \ac{wb} value, with higher \ac{wb} values resulting in lower hardness and modulus \cite{xu.2017}.
+The values measured in this experiment align with the ranges found in the literature, although the standard deviations observed here are generally higher.
+One of the reasons might be the value based deconvolution of phases in te literature.
+While previous studies typically only distinguish between \ac{CSHo} and \ac{CH} using this technique, the use of \ac{EDX} in this study enabled the identification of additional hydrate phases and to attribute their respective hardness and moduli values.
 
 The boxplot in \zcref{fig:ni-boxplot-raw} visualises these distributions, showing the median, the lowest and highest datapoints (whiskers) excluding the outliers (dots) and the first and third quartile of the datapoints (coloured box).
 
@@ -338,11 +350,13 @@ The boxplot in \zcref{fig:ni-boxplot-raw} visualises these distributions, showin
 				boxplot/draw direction=x,
 				xlabel={Hardness $H$ in \unit{\giga\pascal}},
 				ytick={1,2,3,4,5,6,7,8,9,10,11},
-				yticklabels={Pores, Matrix, \acs{AFm}/\ac{AFt}, \ac{CASH}, Mg-\ac{CASH}, \acs{C3A}/\acs{C4AF}, \acs{CSH}, \acs{CH}, Slag, \acs{C3S}/\acs{C2S}, Quartz},
+				yticklabels={Pores, \acs{CSHo}, \acs{AFm}/\ac{AFt}, \ac{CASH}, Mg-\ac{CASH}, \acs{C3A}/\acs{C4AF}, \acs{CSHi}, \acs{CH}, Slag, \acs{C3S}/\acs{C2S}, Quartz},
+				xtick={0,2.5,...,12.5},
 				width=\linewidth,
 				unbounded coords=discard,
-				height=10cm,
+				height=9.5cm,
 				xmin=0,
+				ymin=0.25, ymax=11.75,
 			]
 				\foreach \pos/\pid/\pcolor in {1/10/colorPores, 2/9/colorMatrix, 3/1/colorAFmAFt, 4/2/colorCASH, 5/6/colorMgCASH, 6/4/colorC3AC4AF, 7/3/colorCSH, 8/5/colorCH, 9/7/colorSlag, 10/8/colorAliteBelite, 11/11/colorQuartz} {
 					\edef\temp{
@@ -373,10 +387,12 @@ The boxplot in \zcref{fig:ni-boxplot-raw} visualises these distributions, showin
 				xlabel={Reduced modulus $E_r$ in \unit{\giga\pascal}},
 				ytick={1,2,3,4,5,6,7,8,9,10,11},
 				yticklabels={},
+				xtick={0,25,...,125},
 				width=\linewidth,
 				unbounded coords=discard,
-				height=10cm,
+				height=9.5cm,
 				xmin=0,
+				ymin=0.25, ymax=11.75,
 			]
 				\foreach \pos/\pid/\pcolor in {1/10/colorPores, 2/9/colorMatrix, 3/1/colorAFmAFt, 4/2/colorCASH, 5/6/colorMgCASH, 6/4/colorC3AC4AF, 7/3/colorCSH, 8/5/colorCH, 9/7/colorSlag, 10/8/colorAliteBelite, 11/11/colorQuartz} {
 					\edef\temp{
@@ -488,3 +504,14 @@ This can also be seen in the lower two images in \zcref{fig:BSE_CEMI_voltages}, 
 
 % \ac{NI}: \cite{li.2025, li.2026}
 % \color{black}
+
+\section{Conclusion}
+
+\ac{ArBIB} milling has proven to be a valuable preparation technique for the microstructural characterisation of hydrated cementitious materials.
+\ac{ArBIB} polishing effectively removes surface contaminants and mechanical preparation artefacts, enabling high-resolution \ac{BSE} imaging at low accelerating voltages without the need for conductive coatings.
+However, this approach is limited by potential charging effects and reduced phase contrast compared to high-voltage imaging of coated specimens.
+\ac{ArBIB} sectioning offers the distinct advantage of preparing porous samples without resin embedding, thus preserving the native pore structure, especially nano pores.
+Furthermore, for micromechanical investigations such as \ac{NI}, \ac{ArBIB} preparation reduces the topographic relief between phases of different hardness, such as aggregates and the cement paste matrix.
+Although the technique can introduce specific surface textures like curtaining, correlative microscopy combining \ac{SEM}-\ac{BSE}, \ac{EDX} spectroscopy, and \ac{NI} on \ac{ArBIB}-prepared surfaces successfully facilitated the phase-specific determination of mechanical properties.
+This approach highlighted significant differences between anhydrous clinker phases and hydration products, although the precise characterisation of the \ac{ITZ} remained constrained by preparation-induced microcracking.
+Furthermore, pores are assigned higher hardness values than in resin embedded specimens, since the nanonindenter will mostly measure pore backgrounds or crack edges.

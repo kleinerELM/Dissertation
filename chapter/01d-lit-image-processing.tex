@@ -316,7 +316,7 @@ In the selected publications two main methods were used for this statistical ana
         \label{fig:lit_box_methods_a}
 	\end{subfigure}
     \caption{
-        Example of the \acs*{BC} and box grow method applied to a segmented image of \qty{28}{\day} hydrated \ac{C3S}.
+        Example of the \acs*{BC} and \ac{BG} method applied to a segmented image of \qty{28}{\day} hydrated \ac{C3S}.
         Red: {\color{red}\ac{CSH}}, yellow: {\color{orange}\ac{C3S}}, cyan: {\color{cyan}\ac{CH}}, black: pores.
     }
     \label{fig:lit_box_methods}
@@ -336,7 +336,7 @@ If this is repeated multiple times, the standard deviation indicates how much ar
 \label{sec:box_growth}
 
 A variation of the \ac{BC} method was used by \textcite{kameda.2006} and others \cite{klaver.2012, }. % TODO: at least one more reference
-The \ac{BG} method works by randomly selecting a growth point in the centre of an image and gradually increasing the box size around this point.
+The \ac{BG} method works by randomly selecting a growth point near the centre of an image and gradually increasing the box size around this point.
 From this point, a box will grow stepwise as illustrated in \zcref{fig:lit_box_methods_a}.
 The phase composition of these growing boxes is continuously measured.
 To initiate multiple experiments within an image, the growth point has to be selected randomly within a limited window (one fifth of the image width/height) in the centre of the image.
@@ -345,7 +345,7 @@ This allows calculation of a standard deviation.
 
 % relativer Fehler von hlavacek übernehmen
 
-% \cite{cosenza.2019} -> describes REA, box counting method, the statistical method (term from zhang.2000, here called box grow method)
+% \cite{cosenza.2019} -> describes REA, box counting method, the statistical method (term from zhang.2000, here called \ac{BG} method)
 % \cite{yeong.1998} -> two points correlation function, implemented in Python in: https://github.com/pourion/simulated_annealing/commit/f018edd5e0580d1621826cd3e1afb8f5283a61fa
 % variogram (concenza.2019) https://scikit-gstat.readthedocs.io/en/latest/userguide/variogram.html
 

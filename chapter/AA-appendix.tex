@@ -178,7 +178,7 @@ For some \ac{CT} and \ac{FIBnt} experiments, a commercially available \ac{OPC} (
 		\ac{C3S}		& \tablenum{60.2} & Anhydrite		& \tablenum{2.08} \\
 		$\beta$-\ac{C2S}& \tablenum{10.1} & Bassanite		& \tablenum{0.842} \\
 		\textcolor{darkgrey}{\ac{C3A} cub.}	& \textcolor{darkgrey}{\tablenum{7.88}} & Quartz			& \tablenum{0.745} \\
-		\textcolor{darkgrey}{\ac{C3A} ort.}	& \textcolor{darkgrey}{\tablenum{2.11}} & Portlandite		& \tablenum{0.708} \\
+		\textcolor{darkgrey}{\ac{C3A} ort.}	& \textcolor{darkgrey}{\tablenum{2.11}} & \ac{CH}		& \tablenum{0.708} \\
 		\ac{C3A} total	& \tablenum{9.99} & Dolomite		& \tablenum{0.520} \\
 		\ac{C4AF}		& \tablenum{7.70} & Arcanite		& \tablenum{0.432} \\
 		Calcite			& \tablenum{3.86} & \ce{CaO}		& \tablenum{0.156} \\
@@ -192,189 +192,56 @@ For some \ac{CT} and \ac{FIBnt} experiments, a commercially available \ac{OPC} (
 	\label{tab:phase-composition}
 \end{table}
 
+\FloatBarrier
+For the \ac{NI} experiments, a CEM~I 42.5R was used to cast the concrete.
+Its composition is listed in the tables below:
 
+\begin{table}[H]
+	\centering
+	\caption{
+		Chemical composition of the CEM~I used for \ac{NI} experiments, determined by \ac{XRF}.
+		All results are presented in \unit{\wtpercent}.
+	}
+	\begin{tabularx}{\linewidth}{l>{\centering\arraybackslash}Xl>{\centering\arraybackslash}X}
+		\toprule
+		Oxide & CEM I & Oxide & CEM I (cont.)\\
+		\midrule
+		\ce{SiO2} & \tablenum{18.99} & \ce{SrO} & \tablenum{0.28} \\
+		\ce{TiO2} & \tablenum{0.28} & \ce{K2O} & \tablenum{0.94} \\
+		\ce{Al2O3} & \tablenum{5.33} & \ce{Na2O} & \tablenum{0.26} \\
+		\ce{Fe2O3} & \tablenum{3.08} & \ce{SO3} & \tablenum{3.56} \\
+		\ce{Cr2O3} & \tablenum{0.01} & \ce{P2O5} & \tablenum{0.38} \\
+		\ce{MgO} & \tablenum{1.87} & \ce{ZnO} & \tablenum{0.04} \\
+		\ce{CaO} & \tablenum{61.45} & \ce{MnO} & \tablenum{0.06} \\
+		\midrule
+		Sum & & & \tablenum{100.26} \\
+		\acs{LOI}			&  & & \tablenum{3.73} \\
+		\bottomrule
+	\end{tabularx}
+	\label{tab:chemical-composition-ni}
+\end{table}
 
-\begin{figure}[htbp]
-    \centering
-    % ---- LINKS: CSH (Box Count) ----
-    \begin{subfigure}[b]{0.49\textwidth}
-        \centering
-        \begin{tikzpicture}
-            \begin{axis}[
-                ybar,
-                ymin=0, ymax=1.3, % NEU: Angepasst an max(0.4, 0.9)
-                ylabel={Min. area in \unit{\milli\meter\squared}},
-                symbolic x coords={1:0, 3:1, 1:1, 1:3, 0:1},
-                xtick=data,
-                xlabel={\ac{C3S}:\ac{C2S} ratio},
-                bar width=8pt,
-                enlarge x limits=0.2,
-                %legend style={legend pos=north, legend columns=1}, % NEU
-                width=\textwidth, % NEU
-                height=6cm,
-            ]
-                % 7d CSH Data
-                \addplot[fill=yellow, draw opacity=0, bar shift=-9pt] coordinates { 
-                    (1:0, 0.00753) (3:1, 0.00904) (1:1, 0.00752) (1:3, 0.00150) (0:1, 0.00150) 
-                };
-                \addlegendentry{\qty{7}{\day}}
-                
-                % 14d CSH Data
-                \addplot[fill=orange, draw opacity=0] coordinates { 
-                    (1:0, 0.00753) (3:1, 0.02101) (1:1, 0.06614) (1:3, 0.00452) (0:1, 0.00452) 
-                };
-                \addlegendentry{\qty{14}{\day}}
-                
-                % 28d CSH Data
-                \addplot[fill=red, draw opacity=0, bar shift=9pt] coordinates { 
-                    (1:0, 0.01808) (3:1, 0.23460) (1:1, 0.12661) (1:3, 0.01201) (0:1, 0.01658) 
-                };
-                \addlegendentry{\qty{28}{\day}}
-            \end{axis}
-        \end{tikzpicture}
-        \caption{%
-            Minimum required area for \ac{CSH} (max. \qty{2}{\percent} std. dev.).
-        }
-        \label{fig:convergence_csh}
-    \end{subfigure}
-    \hfill
-    % ---- RECHTS: CSH (Area Growth) ----
-    \begin{subfigure}[b]{0.49\textwidth}
-        \centering
-        \begin{tikzpicture}
-            \begin{axis}[
-                ybar,
-                ymin=0, ymax=1.3, % (Original ymax)
-                ylabel={Min. area in \unit{\milli\meter\squared}},
-                symbolic x coords={1:0, 3:1, 1:1, 1:3, 0:1},
-                xtick=data,
-                xlabel={\ac{C3S}:\ac{C2S} ratio},
-                bar width=8pt,
-                enlarge x limits=0.2,
-                %legend style={legend pos=north, legend columns=1}, % NEU
-                width=\textwidth, % NEU
-                height=6cm,
-                ylabel near ticks, yticklabel pos=right,
-            ]
-                % 7d CSH Data
-                \addplot[fill=green, draw opacity=0, bar shift=-9pt] coordinates { 
-                    (1:0, 0.040807) (3:1, 0.021794) (1:1, 0.010180) (1:3, 0.002957) (0:1, 0.001507)
-                };
-                \addlegendentry{\qty{7}{\day}}
-                
-                % 14d CSH Data
-                \addplot[fill=cyan, draw opacity=0] coordinates { 
-                    (1:0, 0.008687) (3:1, 0.209158) (1:1, 0.047172) (1:3, 0.010202) (0:1, 0.024144)
-                };
-                \addlegendentry{\qty{14}{\day}}
-                
-                % 28d CSH Data
-                \addplot[fill=blue, draw opacity=0, bar shift=9pt] coordinates { 
-                    (1:0, 0.065734) (3:1, 0.578724) (1:1, 0.840497) (1:3, 0.070039) (0:1, 0.021794)
-                };
-                \addlegendentry{\qty{28}{\day}}
-            \end{axis}
-        \end{tikzpicture}
-        \caption{%
-            Area growth for \textbf{\ac{CSH}} for \ac{C3S}:\ac{C2S} mixtures.
-        }
-        \label{fig:areagrowth_csh}
-    \end{subfigure}
-    \caption{Comparison of the \ac{BC} and box growth methods for clinker \ac{CSH}.}
-    \label{fig:combined_csh}
-\end{figure}
-
-
-\begin{figure}[htbp]
-    \centering
-    % ---- LINKS: CH (Box Count) ----
-    \begin{subfigure}[b]{0.49\textwidth}
-        \centering
-        \begin{tikzpicture}
-            \begin{axis}[
-                ybar,
-                ymin=0, ymax=1.3, % (Original ymax), passt zu max(0.4, 0.3)
-                ylabel={Min. area in \unit{\milli\meter\squared}},
-                symbolic x coords={1:0, 3:1, 1:1, 1:3, 0:1},
-                xtick=data,
-                xlabel={\ac{C3S}:\ac{C2S} ratio},
-                bar width=8pt,
-                enlarge x limits=0.2,
-                %legend style={legend pos=north, legend columns=1},
-                width=\textwidth,
-                height=6cm,
-            ]
-                % 7d CH Data
-                \addplot[fill=yellow, draw opacity=0, bar shift=-9pt] coordinates { 
-                    (1:0, 0.00602) (3:1, 0.00452) (1:1, 0.00902) (1:3, 0.00904) (0:1, 0.01356) 
-                };
-                \addlegendentry{\qty{7}{\day}}
-                
-                % 14d CH Data
-                \addplot[fill=orange, draw opacity=0] coordinates { 
-                    (1:0, 0.00602) (3:1, 0.00900) (1:1, 0.03607) (1:3, 0.01055) (0:1, 0.00452) 
-                };
-                \addlegendentry{\qty{14}{\day}}
-                
-                % 28d CH Data
-                \addplot[fill=red, draw opacity=0, bar shift=9pt] coordinates { 
-                    (1:0, 0.00452) (3:1, 0.03007) (1:1, 0.04823) (1:3, 0.00436) (0:1, 0.00753) 
-                };
-                \addlegendentry{\qty{28}{\day}}
-            \end{axis}
-        \end{tikzpicture}
-        \caption{%
-            Minimum required area for \ac{CH} (max. \qty{2}{\percent} std. dev.).
-        }
-        \label{fig:convergence_ch}
-    \end{subfigure}
-    \hfill
-    % ---- RECHTS: CH (Area Growth) ----
-    \begin{subfigure}[b]{0.49\textwidth}
-        \centering
-        \begin{tikzpicture}
-            \begin{axis}[
-                ybar,
-                ymin=0, ymax=1.3, % NEU: Angepasst an max(0.4, 0.3)
-                ylabel={Min. area in \unit{\milli\meter\squared}},
-                symbolic x coords={1:0, 3:1, 1:1, 1:3, 0:1},
-                xtick=data,
-                xlabel={\ac{C3S}:\ac{C2S} ratio},
-                bar width=8pt,
-                enlarge x limits=0.2,
-                %legend style={legend pos=north, legend columns=1}, % NEU
-                width=\textwidth, % NEU
-                height=6cm,
-                ylabel near ticks, yticklabel pos=right,
-            ]
-                % 7d CH Data
-                \addplot[fill=green, draw opacity=0, bar shift=-9pt] coordinates { 
-                    (1:0, 0.029220) (3:1, 0.008687) (1:1, 0.010180) (1:3, 0.010202) (0:1, 0.203073)
-                };
-                \addlegendentry{\qty{7}{\day}}
-                
-                % 14d CH Data
-                \addplot[fill=cyan, draw opacity=0] coordinates { 
-                    (1:0, 0.008687) (3:1, 0.086764) (1:1, 0.054157) (1:3, 0.015454) (0:1, 0.061817)
-                };
-                \addlegendentry{\qty{14}{\day}}
-                
-                % 28d CH Data
-                \addplot[fill=blue, draw opacity=0, bar shift=9pt] coordinates { 
-                    (1:0, 0.010202) (3:1, 0.175651) (1:1, 0.231999) (1:3, 0.021188) (0:1, 0.021794)
-                };
-                \addlegendentry{\qty{28}{\day}}
-            \end{axis}
-        \end{tikzpicture}
-        \caption{%
-            Area growth for \ac{CH} for \ac{C3S}:\ac{C2S} mixtures.
-        }
-        \label{fig:areagrowth_ch}
-    \end{subfigure}
-    \caption{Comparison of the \ac{BC} and box growth methods for \ac{CH}.}
-    \label{fig:combined_ch}
-\end{figure}
-
+\begin{table}[H]
+	\centering
+	\caption{
+		Phase composition of the CEM I used for \ac{NI} experiments, determined by \ac{XRD}.
+		All results are presented in \unit{\wtpercent}.
+	}
+	\begin{tabularx}{\linewidth}{l>{\centering\arraybackslash}Xl>{\centering\arraybackslash}X}
+		\toprule
+		Phase & CEM I & Phase & CEM I (cont.)\\
+		\midrule
+		\ac{C3S} & \tablenum{62.1} & \ac{CH} & \tablenum{1.1} \\
+		\ac{C4AF} & \tablenum{10.3} & Arcanite & <\,1 \\
+		\ac{C3A} & \tablenum{8.9} & Bassanite & <\,1 \\
+		$\beta$-\ac{C2S} & \tablenum{4.9} & \ce{CaO} & <\,1 \\
+		Anhydrite & \tablenum{4.1} & Dolomite & <\,1 \\
+		Gypsum & \tablenum{3.4} & Periclase & <\,1 \\
+		Calcite & \tablenum{3.3} & Quartz & <\,1 \\
+		\bottomrule
+	\end{tabularx}
+	\label{tab:phase-composition-ni}
+\end{table}
 
 
 \begin{figure}[H]
@@ -900,6 +767,190 @@ A revalidation of the \ac{MIP} results was omitted, due to the high material cos
         \bottomrule
     \end{tabularx}
 \end{table}
+
+
+\begin{figure}[htbp]
+    \centering
+    % ---- LINKS: CSH (Box Count) ----
+    \begin{subfigure}[b]{0.49\textwidth}
+        \centering
+        \begin{tikzpicture}
+            \begin{axis}[
+                ybar,
+                ymin=0, ymax=1.3, % NEU: Angepasst an max(0.4, 0.9)
+                ylabel={Min. area in \unit{\milli\meter\squared}},
+                symbolic x coords={1:0, 3:1, 1:1, 1:3, 0:1},
+                xtick=data,
+                xlabel={\ac{C3S}:\ac{C2S} ratio},
+                bar width=8pt,
+                enlarge x limits=0.2,
+                %legend style={legend pos=north, legend columns=1}, % NEU
+                width=\textwidth, % NEU
+                height=6cm,
+            ]
+                % 7d CSH Data
+                \addplot[fill=yellow, draw opacity=0, bar shift=-9pt] coordinates { 
+                    (1:0, 0.00753) (3:1, 0.00904) (1:1, 0.00752) (1:3, 0.00150) (0:1, 0.00150) 
+                };
+                \addlegendentry{\qty{7}{\day}}
+                
+                % 14d CSH Data
+                \addplot[fill=orange, draw opacity=0] coordinates { 
+                    (1:0, 0.00753) (3:1, 0.02101) (1:1, 0.06614) (1:3, 0.00452) (0:1, 0.00452) 
+                };
+                \addlegendentry{\qty{14}{\day}}
+                
+                % 28d CSH Data
+                \addplot[fill=red, draw opacity=0, bar shift=9pt] coordinates { 
+                    (1:0, 0.01808) (3:1, 0.23460) (1:1, 0.12661) (1:3, 0.01201) (0:1, 0.01658) 
+                };
+                \addlegendentry{\qty{28}{\day}}
+            \end{axis}
+        \end{tikzpicture}
+        \caption{%
+            Minimum required area for \ac{CSH} (max. \qty{2}{\percent} std. dev.).
+        }
+        \label{fig:convergence_csh}
+    \end{subfigure}
+    \hfill
+    % ---- RECHTS: CSH (Area Growth) ----
+    \begin{subfigure}[b]{0.49\textwidth}
+        \centering
+        \begin{tikzpicture}
+            \begin{axis}[
+                ybar,
+                ymin=0, ymax=1.3, % (Original ymax)
+                ylabel={Min. area in \unit{\milli\meter\squared}},
+                symbolic x coords={1:0, 3:1, 1:1, 1:3, 0:1},
+                xtick=data,
+                xlabel={\ac{C3S}:\ac{C2S} ratio},
+                bar width=8pt,
+                enlarge x limits=0.2,
+                %legend style={legend pos=north, legend columns=1}, % NEU
+                width=\textwidth, % NEU
+                height=6cm,
+                ylabel near ticks, yticklabel pos=right,
+            ]
+                % 7d CSH Data
+                \addplot[fill=green, draw opacity=0, bar shift=-9pt] coordinates { 
+                    (1:0, 0.040807) (3:1, 0.021794) (1:1, 0.010180) (1:3, 0.002957) (0:1, 0.001507)
+                };
+                \addlegendentry{\qty{7}{\day}}
+                
+                % 14d CSH Data
+                \addplot[fill=cyan, draw opacity=0] coordinates { 
+                    (1:0, 0.008687) (3:1, 0.209158) (1:1, 0.047172) (1:3, 0.010202) (0:1, 0.024144)
+                };
+                \addlegendentry{\qty{14}{\day}}
+                
+                % 28d CSH Data
+                \addplot[fill=blue, draw opacity=0, bar shift=9pt] coordinates { 
+                    (1:0, 0.065734) (3:1, 0.578724) (1:1, 0.840497) (1:3, 0.070039) (0:1, 0.021794)
+                };
+                \addlegendentry{\qty{28}{\day}}
+            \end{axis}
+        \end{tikzpicture}
+        \caption{%
+            Area growth for \textbf{\ac{CSH}} for \ac{C3S}:\ac{C2S} mixtures.
+        }
+        \label{fig:areagrowth_csh}
+    \end{subfigure}
+    \caption{Comparison of the \ac{BC} and \ac{BG} methods for clinker \ac{CSH}.}
+    \label{fig:combined_csh}
+\end{figure}
+
+
+\begin{figure}[htbp]
+    \centering
+    % ---- LINKS: CH (Box Count) ----
+    \begin{subfigure}[b]{0.49\textwidth}
+        \centering
+        \begin{tikzpicture}
+            \begin{axis}[
+                ybar,
+                ymin=0, ymax=1.3, % (Original ymax), passt zu max(0.4, 0.3)
+                ylabel={Min. area in \unit{\milli\meter\squared}},
+                symbolic x coords={1:0, 3:1, 1:1, 1:3, 0:1},
+                xtick=data,
+                xlabel={\ac{C3S}:\ac{C2S} ratio},
+                bar width=8pt,
+                enlarge x limits=0.2,
+                %legend style={legend pos=north, legend columns=1},
+                width=\textwidth,
+                height=6cm,
+            ]
+                % 7d CH Data
+                \addplot[fill=yellow, draw opacity=0, bar shift=-9pt] coordinates { 
+                    (1:0, 0.00602) (3:1, 0.00452) (1:1, 0.00902) (1:3, 0.00904) (0:1, 0.01356) 
+                };
+                \addlegendentry{\qty{7}{\day}}
+                
+                % 14d CH Data
+                \addplot[fill=orange, draw opacity=0] coordinates { 
+                    (1:0, 0.00602) (3:1, 0.00900) (1:1, 0.03607) (1:3, 0.01055) (0:1, 0.00452) 
+                };
+                \addlegendentry{\qty{14}{\day}}
+                
+                % 28d CH Data
+                \addplot[fill=red, draw opacity=0, bar shift=9pt] coordinates { 
+                    (1:0, 0.00452) (3:1, 0.03007) (1:1, 0.04823) (1:3, 0.00436) (0:1, 0.00753) 
+                };
+                \addlegendentry{\qty{28}{\day}}
+            \end{axis}
+        \end{tikzpicture}
+        \caption{%
+            Minimum required area for \ac{CH} (max. \qty{2}{\percent} std. dev.).
+        }
+        \label{fig:convergence_ch}
+    \end{subfigure}
+    \hfill
+    % ---- RECHTS: CH (Area Growth) ----
+    \begin{subfigure}[b]{0.49\textwidth}
+        \centering
+        \begin{tikzpicture}
+            \begin{axis}[
+                ybar,
+                ymin=0, ymax=1.3, % NEU: Angepasst an max(0.4, 0.3)
+                ylabel={Min. area in \unit{\milli\meter\squared}},
+                symbolic x coords={1:0, 3:1, 1:1, 1:3, 0:1},
+                xtick=data,
+                xlabel={\ac{C3S}:\ac{C2S} ratio},
+                bar width=8pt,
+                enlarge x limits=0.2,
+                %legend style={legend pos=north, legend columns=1}, % NEU
+                width=\textwidth, % NEU
+                height=6cm,
+                ylabel near ticks, yticklabel pos=right,
+            ]
+                % 7d CH Data
+                \addplot[fill=green, draw opacity=0, bar shift=-9pt] coordinates { 
+                    (1:0, 0.029220) (3:1, 0.008687) (1:1, 0.010180) (1:3, 0.010202) (0:1, 0.203073)
+                };
+                \addlegendentry{\qty{7}{\day}}
+                
+                % 14d CH Data
+                \addplot[fill=cyan, draw opacity=0] coordinates { 
+                    (1:0, 0.008687) (3:1, 0.086764) (1:1, 0.054157) (1:3, 0.015454) (0:1, 0.061817)
+                };
+                \addlegendentry{\qty{14}{\day}}
+                
+                % 28d CH Data
+                \addplot[fill=blue, draw opacity=0, bar shift=9pt] coordinates { 
+                    (1:0, 0.010202) (3:1, 0.175651) (1:1, 0.231999) (1:3, 0.021188) (0:1, 0.021794)
+                };
+                \addlegendentry{\qty{28}{\day}}
+            \end{axis}
+        \end{tikzpicture}
+        \caption{%
+            Area growth for \ac{CH} for \ac{C3S}:\ac{C2S} mixtures.
+        }
+        \label{fig:areagrowth_ch}
+    \end{subfigure}
+    \caption{Comparison of the \ac{BC} and \ac{BG} methods for \ac{CH}.}
+    \label{fig:combined_ch}
+\end{figure}
+
+
 
 \FloatBarrier
 \section{Pore size distribution}

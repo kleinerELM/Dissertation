@@ -618,7 +618,7 @@ Furthermore, it is insensitive to the influence of larger inhomogeneities, such 
 
 \subsection{Box growth method}
 
-\zcref{fig:lit_box_growth} shows the result of the box grow method applied to an image of \qty{28}{\day} hydrated \ac{C3S}.
+\zcref{fig:lit_box_growth} shows the result of the \ac{BG} method applied to an image of \qty{28}{\day} hydrated \ac{C3S}.
 This image has to be segmented beforehand into pores, unhydrated \ac{C3S}, \ac{CH} and \ac{CSH}.
 The standard deviation in \zcref{fig:lit_box_growth_b} indicates the decreasing uncertainty with a larger area analysed.
 
@@ -724,7 +724,7 @@ The standard deviation in \zcref{fig:lit_box_growth_b} indicates the decreasing 
       \label{fig:lit_box_growth_b}
     \end{subfigure}
     \caption{
-        Example of the results of the box grow method as explained in \cite{bosl.1998,kameda.2006} and the respective standard deviations for \num{100} random starting points.
+        Example of the results of the \ac{BG} method as explained in \cite{bosl.1998,kameda.2006} and the respective standard deviations for \num{100} random starting points.
     }
     \label{fig:lit_box_growth}
 \end{figure}
@@ -946,4 +946,17 @@ Even to acquire these larger images, the best areas with few pores and irregular
 This also demonstrates, that the subjective influence of the \ac{SEM} operator can hardly be avoided.
 %\textcite{kameda.2006} pointed out, that the data fluctuation of the measured porosity and permeability using this method becomes negligible, when `\textit{the cube size exceeds four grain radii}'.
 
+\section{Conclusion}
 
+The quantitative analysis of \ac{HLT} and phase composition in hydrated \ac{C3S}, \ac{C2S}, and their mixtures demonstrated the possibilities of image processing beyond pure segmentation.
+The method can be utilised to determine the \ac{HLT} development of \ac{C3S}, \ac{C2S} and \ac{C3S}:\ac{C2S} mixtures up to \qty{28}{\day} of hydration.
+The quantitative analysis of \ac{HLT} and phase composition in hydrated \ac{C3S}, \ac{C2S}, and their mixtures demonstrated the potential of image processing beyond mere segmentation.
+The method can be utilised to determine the \ac{HLT} development in \ac{C3S}, \ac{C2S} and \ac{C3S}:\ac{C2S} mixtures up to \qty{28}{\day} of hydration.
+The study confirmed the faster hydration of \ac{C3S} and revealed a slight retardation of \ac{C3S} hydration in mixtures with high \ac{C2S} content.
+Furthermore, the formation of \textsc{Hadley} grains was observed in mixtures with higher \ac{C2S} contents.
+Finally, the assessment of statistical representativeness indicated that the required analysis area is dictated by microstructural heterogeneity, ranging from \qty{0.3}{\milli\meter\squared} for homogeneous samples to over \qty{1.4}{\milli\meter\squared} for those with significant irregularities like air voids or inconsistent \ac{CH} growth.
+Furthermore, the formation of \textsc{Hadley} grains was observed in mixtures with higher \ac{C2S} content.
+Finally, the assessment of statistical representativeness indicated that the required analysis area is depending on the microstructural heterogeneity. It is ranging from \qty{0.3}{\milli\meter\squared} for homogeneous samples to over \qty{1.4}{\milli\meter\squared} for those with significant irregularities such as air voids or inconsistent \ac{CH} growth.
+
+
+%Machine learning-based pixel classification proved superior to thresholding, providing accuracy comparable to manual segmentation.

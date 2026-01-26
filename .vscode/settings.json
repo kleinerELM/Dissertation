@@ -127,6 +127,7 @@
             "env": {}
         }
 	],
+	"cSpell.language": "en-GB",
 	"cSpell.words": [
 		"alite",
 		"Anderegg",
@@ -138,6 +139,7 @@
 		"cementitious",
 		"Courault",
 		"cryo",
+		"cryoscopic",
 		"crystallinity",
 		"Denoised",
 		"denoising",
@@ -151,6 +153,7 @@
 		"Lachowski",
 		"ltdsc",
 		"microprobing",
+		"molality",
 		"nanoindentation",
 		"nanonindenter",
 		"napari",

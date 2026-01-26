@@ -87,8 +87,8 @@ The hydration process can be subdivided into five phases as indicated in \zcref{
                 width=.95\linewidth,
                 height=.38\linewidth,
                 grid=major,
-                xlabel={Time in \unit{\hour}},
-                ylabel={$dQ/dt$ in \unit{\joule\per\gram\per\hour}},
+                xlabel={time $t$ in \unit{\hour}},
+                ylabel={heat flow $\dot{Q}$ in \unit{\joule\per\hour\per\gram}},
                 xtick={0,6,12,24,48},
                 ytick={},
                 grid style={line width=.1pt, draw=gray!10}
@@ -317,7 +317,7 @@ However, the publication is not clear if the term `dimension' is equal to the pa
 				height=5.5cm,
 				grid=major,
 				xlabel={mean particle `dimension' (diameter) in \unit{\micro\meter}},
-				ylabel={$l_{\text{CSH}}$ in \unit{\micro\meter}},
+				ylabel={$l_{\mathrm{CSH}}$ in \unit{\micro\meter}},
 				ytick={0,1,...,7},
 				grid style={line width=.1pt, draw=gray!10}
             ]
@@ -363,7 +363,7 @@ However, the publication is not clear if the term `dimension' is equal to the pa
         \end{axis}
     \end{tikzpicture}
     \caption{
-        Mean hydration rim of \ac{OPC} determined by optical light microscopy experiments of \textsc{Anderegg} and \textsc{Hubbell} \cite{anderegg.1929,anderegg.1930} in dependence of the mean particle `dimension' of \num{150} measured grains.
+        Mean hydrate layer thickness $l_{\mathrm{CSH}}$ of \ac{OPC} determined by optical light microscopy experiments of \textsc{Anderegg} and \textsc{Hubbell} \cite{anderegg.1929,anderegg.1930} in dependence of the mean particle `dimension' of \num{150} measured grains.
         %The lack or addition of \qty{0.8}{\percent} \ce{CaSO4} in the experiments is marked with $\times$ and $\circ$ respectively.
     }
     \label{fig:anderegg-hubbel-distribution}
@@ -398,7 +398,7 @@ The derived mean layer thickness was \qty{400}{\nano\meter}, which was found to 
 				height=5cm,
 				grid=major,
 				xlabel={mean particle diameter in \unit{\micro\meter}},
-				ylabel={$l_{\text{CSH}}$ in \unit{\micro\meter}},
+				ylabel={$l_{\mathrm{CSH}}$ in \unit{\micro\meter}},
 				ytick={0.1,0.2,...,0.7},
 				grid style={line width=.1pt, draw=gray!10},
             ]
@@ -424,9 +424,9 @@ The derived mean layer thickness was \qty{400}{\nano\meter}, which was found to 
         \end{axis}
     \end{tikzpicture}
     \caption{
-        Mean hydration layer on \ac{C3S} mixed with concentrated lime solution for roughly \qtyrange{10}{12}{\hour}.
+        Mean hydrate layer thickness $l_{\mathrm{CSH}}$ on \ac{C3S} mixed with concentrated lime solution for roughly \qtyrange{10}{12}{\hour}.
         The data are an estimation based on conductivity experiments by \textcite{garrault.2006} in dependence of the mean particle diameter.
-        The \ac{CSHo} data were calculated by $l_{\text{CSHo}}=l_{\text{CSH}}-l_{\text{CSHi}}$.
+        The \ac{CSHo} data were calculated by $l_{\mathrm{CSHo}}=l_{\mathrm{CSH}}-l_{\mathrm{CSHi}}$.
     }
     \label{fig:garrault-distribution}
 \end{figure}

@@ -83,28 +83,78 @@
 
 \chapter{List of Symbols}
 
+
 \begin{longtable}[l]{p{2cm}p{3cm}p{0.6\linewidth}}
-	\caption{Mathematical symbols used in this thesis}
-	\label{tab:symbols} \\
-	\toprule
-	Symbol	& Unit &	Name \\
-	\midrule
-	$A$ 					& area-\unit{\percent}, \unit{\min} & area \\
-	$t$ 					& \unit{\s}, \unit{\min} & time \\
-	$\vartheta$ 			& \unit{\celsius}		& temperature / melting point \\
-	$T$						& \unit{\kelvin}		& temperature \\
-	$T_\mathrm{m}$ 			& \unit{\kelvin}		& theoretical freezing point \\
-	$l$						& \unit{\micro\meter} &	\ac*{HLT} \\
-	$l_\mathrm{max}$			& \unit{\micro\meter} &	most frequent \acs*{HLT} \\
-	$l_{33\,\%, \mathrm{l}}$	& \unit{\micro\meter} &	\qty{33}{\percent} of the smaller than below $l_\mathrm{max}$ \\
-	$l_{33\,\%, \mathrm{h}}$	& \unit{\micro\meter} &	\qty{33}{\percent} of the area larger than $l_\mathrm{max}$ \\
-	$r_\mathrm{P}$ 			& \unit{\nano\meter}	& pore radius \\
-	$\sigma_\mathrm{hydrate}$		& \unit{\wtpercent}	& amount of hydrate phase \\
-	$w/b$ & - & water / binder ratio \\
-	$Z$		& -	& atomic number \\
-	%$w/c$ & - & water / cement ratio \\
-	\bottomrule
-\end{longtable}%
+    \caption{Mathematical symbols used in this thesis.}
+    \label{tab:symbols} \\
+    \toprule
+    Symbol  & Unit &    Name \\
+    \midrule
+    \endfirsthead
+
+    \caption[]{Mathematical symbols used in this thesis \textit{(continued)}.} \\
+    \toprule
+    Symbol  & Unit &    Name \\
+    \midrule
+    \endhead
+
+    \bottomrule
+	\multicolumn{3}{r@{}}{\footnotesize\sffamily \textit{Continues on the next page ...}} \endfoot
+	\bottomrule \endlastfoot
+
+	$A$                         & area-\unit{\percent} & Area \\
+	$\alpha$, $\beta$, $\gamma$, $\delta$          & -- & Fit paramters \\
+	$C$                         & -- & Relative \acs*{BSE} image contrast \\
+	$c$                         & -- & Backscatter coefficient \\
+    $d$, $d_i$                  & \unit{\meter}                     & (Pore) diameter \\
+    $\Delta H_{\mathrm{fus}}$   & \unit{\joule\per\gram}            & Enthalpy of fusion \\
+    $\Delta T$                  & \unit{\kelvin}                    & Temperature difference / freezing point depression \\
+    $\Delta T_{\mathrm{fus}}$   & \unit{\kelvin}                    & Temperature difference from the freezing point \\
+	$\eta$	& -- & Backscatter coefficient \\
+    $E_r$                       & \unit{\giga\pascal}               & Reduced \textsc{Young}'s modulus \\
+    %$F$                         & \unit{\newton}                    & loading force \\
+    $f$ & --                  & Frequency \\
+    $F_{\mathrm{norm, hydrate}}$ & \unit{\percent}                  & Normalised hydrate content \\
+    $H$                         & \unit{\giga\pascal}               & Hardness \\
+    $H_{\mathrm{fus}}$          & \unit{\joule\per\gram}            & Enthalpy of fusion \\
+    $i$                         & --                                & Counter / index \\
+    $i_{\mathrm{vH}}$           & --                                & \textsc{Van 't-Hoff} factor \\
+    $K_f$                       & \unit{\celsius\kilo\gram\per\mole} & Cryoscopic constant \\
+    $K_{sp}$                    & --                                & Solubility product \\
+    %$l$                         & \unit{\micro\meter}               & \acs*{HLT} \\
+	$l_{\mathrm{CSH}}$          & \unit{\micro\meter}               & Hydration layer thickness (\acs*{HLT}) \\
+    $l_{\mathrm{CSH}_{\mathrm{o}}}$ & \unit{\micro\meter}           & Length of \acs*{CSHo} needles \\
+    $l_{\mathrm{max}}$          & \unit{\micro\meter}               & Most frequent \acs*{HLT} \\
+    $l_{33\,\%,\, \mathrm{l}}$  & \unit{\micro\meter}               & \qty{33}{\percent} of the smaller than below $l_{\mathrm{max}}$ \\
+    $l_{33\,\%,\, \mathrm{h}}$  & \unit{\micro\meter}               & \qty{33}{\percent} of the area larger than $l_{\mathrm{max}}$ \\
+    $m$                         & \unit{\mole\per\kilo\gram}        & Molality \\
+    $m_{\mathrm{ice}}$          & \unit{\gram}                      & Mass of ice \\
+    $n$                         & \unit{\mole}                      & Amount of substance \\
+    $N$                         & --                                & Number of indents \\
+    $p$, $p_i$                  & \unit{\mega\pascal}               & Pressure \\
+    $\dot{Q}$                   & \unit{\joule\per\second\per\gram}, \unit{\joule\per\hour\per\gram} & Heat flow \\
+    $\dot{Q}_{\mathrm{B}}$      & \unit{\joule\per\second\per\gram} & Baseline heat flow \\
+    $\dot{Q}_{\mathrm{raw}}$    & \unit{\joule\per\second\per\gram} & Raw heat flow signal \\
+    $r_{\mathrm{P}}$            & \unit{\nano\meter}                & Pore radius \\
+    $r_{\mathrm{particle}}$     & \unit{\nano\meter}                & Particle radius \\
+    $r_{\mathrm{p-hyd}}$        & \unit{\nano\meter}                & Potential hydration radius \\
+    $r_{\mathrm{ROI}}$          & \unit{\nano\meter}                & Radius of the region of interest \\
+    $\rho_{\mathrm{ice}}$       & \unit{\gram\per\centi\meter\cubed} & Density of ice \\
+    $S$                         & \unit{\mole\per\liter}            & Molar solubility \\
+    $S_{dr}$                    & \unit{\percent}                   & Developed area ratio \\
+    $\sigma_{\mathrm{hydrate}}$ & \unit{\wtpercent}                 & Amount of hydrate phase \\
+    $t$                         & \unit{\s}, \unit{\min}, \unit{\hour} & Time \\
+    $T$                         & \unit{\kelvin}                    & Temperature \\
+    $T2$                        & \unit{\milli\second}              & Transverse relaxation time \\
+    $T_f$                       & \unit{\kelvin}                    & Freezing temperature \\
+    $T_{\mathrm{m}}$            & \unit{\kelvin}                    & Theoretical freezing point \\
+    $\vartheta$                 & \unit{\celsius}                   & Temperature \\
+    $V$, $V_i$                  & \unit{\cubic\meter} or \unit{\liter} & Volume \\
+    %$w/b$                       & --                                & water / binder ratio \\
+    $x, y, z$                   & --                                & Coordinate indices \\
+    $Z$                         & --                                & Atomic number \\
+	$\bar{Z}$					& --                                & Average atomic number \\
+\end{longtable}
 
 
 
@@ -113,7 +163,7 @@ Please note, that this work uses the cement chemist notation for most chemical e
 
 \begin{table}[b!]
 	%\centering
-	\caption{Cement chemist notation (CCN)}
+	\caption{Cement chemist notation (CCN).}
 	\begin{tabular}{p{2cm}p{3cm}p{0.6\linewidth}}
 		\toprule
 		CCN	& Actual formula &	Name \\

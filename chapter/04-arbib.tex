@@ -82,7 +82,7 @@ Furthermore, it avoids the formation of a pronounced relief at the interface of 
 For example, the imaging of microstructures of claystone was challenging until the upcoming of \ac{ArBIB} polishing \cite{yven.2007,houben.2014}.
 
 The objective was to obtain a clean and smooth \ac{ITZ} between the binder and a large quartz grain.
-In this case, a sample of a concrete was used (\qty{20.8}{\wtpercent} binder: CEM~I \num{42.5}R, \ac{wb}=\num{0.55}, \qty{79,2}{\wtpercent} aggregates: \qty{70}{\volpercent} fine \qtyrange{0}{4}{\milli\meter}, \qty{30}{\volpercent} coarse \qtyrange{4}{16}{\milli\meter}) \cite{li.2026}.
+In this case, a sample of a concrete was used (\qty{20.8}{\wtpercent} binder: CEM~I \num{42.5} R, \ac{wb}=\num{0.55}, \qty{79,2}{\wtpercent} aggregates: \qty{70}{\volpercent} fine \qtyrange{0}{4}{\milli\meter}, \qty{30}{\volpercent} coarse \qtyrange{4}{16}{\milli\meter}) \cite{li.2026}.
 The chemical and phase composition of the cement is listed in \zcref{tab:chemical-composition-ni, tab:phase-composition-ni}.
 The hydration was stopped after \qty{91}{\day} by immersing a small sawn piece of the concrete in isopropanol and subsequently drying it in a vacuum chamber.
 The specimen was then cut into a suitable shape by sawing the specimen under a constant flow of \qty{99}{\volpercent} ethanol.
@@ -144,7 +144,7 @@ This seems to be in accordance to the observations from \textcite{sammer.2024}, 
   \label{fig:arbib-topography}
 \end{figure}
 
-\textsc{ISO 25178} \cite{ISO25178-2:2022} defines roughness parameters like $S_{dr}$.
+\textcite{ISO25178-2:2022} defines roughness parameters like $S_{dr}$.
 The developed area ratio $S_{dr}$ is the percentage increase in surface area due to texture compared to a perfectly flat surface.
 It is \num{0} for perfectly smooth surfaces and increases with increasing roughness.
 This parameter was calculated within a \qtyproduct{20 x 20}{\px} sliding window for the whole \ac{ROI} (see \zcref{fig:arbib-rough}).
@@ -278,7 +278,16 @@ This resulted in \qty{76.1}{\percent} (\num{868} of \num{1140}) assigned indents
 \begin{table}[htb]
 	\centering
 	\caption{Phase dependent nanoindentation results: hardness $H$ and reduced \textsc{Young}'s modulus $E_r$ in \unit{\giga\pascal} and the amount $N$ of indents assigned to each phase.}
-	\begin{tabularx}{\linewidth}{XS[table-format=3.0]S[table-format=2.2]S[table-format=2.2]S[table-format=1.2]S[table-format=3.1]S[table-format=3.1]S[table-format=2.1]}
+	\begin{tabularx}{\linewidth}{
+		X
+		S[table-format=3.0]
+		S[table-format=2.1, round-mode=places, round-precision=1] % Hardness Median
+		S[table-format=2.1, round-mode=places, round-precision=1] % Hardness Mean
+		S[table-format=1.1, round-mode=places, round-precision=1] % Hardness Std. Dev.
+		S[table-format=3.1, round-mode=places, round-precision=1] % Modulus Median
+		S[table-format=3.1, round-mode=places, round-precision=1] % Modulus Mean
+		S[table-format=2.1, round-mode=places, round-precision=1] % Modulus Std. Dev.
+	}
 		\toprule
 		Phase & $N$ & \multicolumn{3}{c}{Hardness $H$} & \multicolumn{3}{c}{Reduced modulus $E_r$} \\ 
      & & {Median} & {Mean} & {Std. Dev.} & {Median} & {Mean} & {Std. Dev.} \\
@@ -288,7 +297,7 @@ This resulted in \qty{76.1}{\percent} (\num{868} of \num{1140}) assigned indents
 		Slag & 7 & 7.72 & 7.10 & 1.35 & 86.27 & 81.05 & 11.36 \\
 		\acs{CH} & 25 & 1.73 & 1.82 & 0.77 & 34.62 & 36.07 & 9.46 \\
 		\acs{CSHi} & 93 & 1.26 & 1.38 & 0.97 & 28.09 & 29.61 & 11.93 \\
-		\acs{C3A}/\acs{C4AF} & 1 & 1.36 & 1.36 & 0.00 & 28.76 & 28.76 & 0.00 \\
+		\acs{C3A}/\acs{C4AF} & 1 & 1.36 & 1.36 & {--} & 28.76 & 28.76 & {--} \\
 		Mg-\ac{CASH} & 30 & 0.93 & 1.22 & 1.30 & 25.86 & 28.73 & 14.80 \\
 		\ac{CASH} & 20 & 1.10 & 1.21 & 0.62 & 26.95 & 27.44 & 8.23 \\
 		\acs{AFm}/\ac{AFt} & 11 & 1.22 & 1.13 & 0.48 & 24.67 & 25.08 & 6.71 \\
@@ -301,13 +310,13 @@ This resulted in \qty{76.1}{\percent} (\num{868} of \num{1140}) assigned indents
 
 The results summarised in \zcref{tab:ni-results} indicate distinct differences between unhydrated and hydrated phases.
 Unhydrated materials such as \ac{C3S}/\ac{C2S} and slag exhibit superior mechanical properties.
-\ac{C3S}/\ac{C2S} shows a mean hardness of \qty{7.63(3.12)}{\giga\pascal} and a reduced modulus of \qty{92.0(24.1)}{\giga\pascal}, while slag has a hardness of \qty{7.10(1.35)}{\giga\pascal} and a modulus of \qty{81.1(11.4)}{\giga\pascal}.
+\ac{C3S}/\ac{C2S} shows a mean hardness of \qty{7.6(3.1)}{\giga\pascal} and a reduced modulus of \qty{92.0(24.1)}{\giga\pascal}, while slag has a hardness of \qty{7.1(1.4)}{\giga\pascal} and a modulus of \qty{81.1(11.4)}{\giga\pascal}.
 In contrast, the hydrated phases exhibit much more similar mechanical properties.
-\ac{CH} exhibits a mean hardness of \qty{1.82(0.77)}{\giga\pascal} and a modulus of \qty{36.1(9.46)}{\giga\pascal}, which is slightly lower than in \cite{li.2025,li.2026}.
-\ac{CSHi} shows values with a hardness of \qty{1.38(0.97)}{\giga\pascal} and a modulus of \qty{29.6(11.9)}{\giga\pascal}, while \ac{CSHo} is slightly lower with a hardness of \qty{1.06(0.53)}{\giga\pascal} and a modulus of \qty{23.5(7.94)}{\giga\pascal}.
+\ac{CH} exhibits a mean hardness of \qty{1.8(0.8)}{\giga\pascal} and a modulus of \qty{36.1(9.5)}{\giga\pascal}, which is slightly lower than in \cite{li.2025,li.2026}.
+\ac{CSHi} shows values with a hardness of \qty{1.4(1.0)}{\giga\pascal} and a modulus of \qty{29.6(11.9)}{\giga\pascal}, while \ac{CSHo} is slightly lower with a hardness of \qty{1.1(0.5)}{\giga\pascal} and a modulus of \qty{23.5(8.0)}{\giga\pascal}.
 
 
-\ac{CASH} and \ce{Mg}-\ac{CASH} display comparable properties, with hardness values of \qty{1.21(0.62)}{\giga\pascal} and \qty{1.22(1.30)}{\giga\pascal}, and moduli of \qty{27.4(8.2)}{\giga\pascal} and \qty{28.7(14.8)}{\giga\pascal}, respectively.
+\ac{CASH} and \ce{Mg}-\ac{CASH} display comparable properties, with hardness values of \qty{1.2(0.6)}{\giga\pascal} and \qty{1.2(1.3)}{\giga\pascal}, and moduli of \qty{27.4(8.2)}{\giga\pascal} and \qty{28.7(14.8)}{\giga\pascal}, respectively.
 The \ac{C3A}/\ac{C4AF} phase is represented by only a single measurement, preventing a reliable evaluation.
 Although pores should theoretically yield values of zero, low values are recorded (mean hardness \qty{1.00(1.15)}{\giga\pascal}).
 This is likely due to the interaction volume of the indentation including material directly at the crack edges or beneath the shallow pores.

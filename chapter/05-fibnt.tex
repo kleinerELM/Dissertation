@@ -138,9 +138,15 @@ However, it still allows the distinction of the different main phases of the mat
 Samples prepared via the lift-out process and their resulting datasets require much less post-processing to reduce artefacts.
 However, some issues still remain to be solved.
 For example, noisy \ac{EDX} datasets have to be denoised with an edge-preserving denoising algorithm.
-Since the signal-to-noise ratio of the \ac{EDX} element mappings are very low, algorithms like median and \ac{NLM} are not suitable.
-\ac{BM3D} denoising was found to be effective for the noise found in the \ac{EDX} slices and enables to reproducible quantitative analysis across elements.
+Since the signal-to-noise ratio of the \ac{EDX} element mappings are very low, algorithms like median filtering and \ac{NLM} are not suitable.
+In contrast, \ac{BM3D} and \ac{TV} (using the split \textsc{Bregman} optimisation-based denoising) were found to be effective for the noise found in the \ac{EDX} slices and enable reproducible quantitative analysis across elements.
+The parameters employed for \ac{BM3D} were: $h$=40, \texttt{templateWindowSize}=4, \texttt{searchWindowSize}=8, \texttt{groupSize}=32, and \texttt{slidingStep}=3.
+For \ac{TV} using the split \textsc{Bregman} method, the parameters were: \texttt{weight}=\num{20.0}, \texttt{max\_num\_iter}=500, $\epsilon$=\num{0.0001}.
+The \ac{BM3D} results seemed to be slightly sharper and more consistent, especially for low-signal elements like \ce{S}, when using the same denoising parameters for the whole dataset (see \zcref{fig:edx_noise}).
+For example, the \ac{TV} filter introduces circular artefacts in the \ce{S} mapping as shown in \zcref{fig:edx_noise_e}.
+However, the processing time for \ac{BM3D} is significantly higher than for the \ac{TV} method.
 
+%D:\2025_01_07 FIB-Zylinder\EDX\Ca\Slice 1151-Ca K_alpha_1EDS - SliceImage - 1151 118.tif
 \begin{figure}[htb]
     \centering
 
@@ -151,8 +157,8 @@ Since the signal-to-noise ratio of the \ac{EDX} element mappings are very low, a
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[t]{0.32\textwidth}
-		\includegraphics[width=\textwidth]{methods/fib_postprocessing/Ca_BM3D.pdf}
-		\caption{\color{red}Denoised \ce{Ca} mapping (Total Variation)}
+		\includegraphics[width=\textwidth]{methods/fib_postprocessing/Ca_TV_B.pdf}
+		\caption{Denoised \ce{Ca} mapping (\ac{TV})}
 		\label{fig:edx_noise_b}
 	\end{subfigure}
 	\hfill
@@ -169,8 +175,8 @@ Since the signal-to-noise ratio of the \ac{EDX} element mappings are very low, a
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[t]{0.32\textwidth}
-		\includegraphics[width=\textwidth]{methods/fib_postprocessing/S_BM3D.pdf}
-		\caption{\color{red}Denoised \ce{S} mapping (Total Variation)}
+		\includegraphics[width=\textwidth]{methods/fib_postprocessing/S_TV_B.pdf}
+		\caption{Denoised \ce{S} mapping (\ac{TV})}
 		\label{fig:edx_noise_e}
 	\end{subfigure}
 	\hfill
@@ -180,7 +186,7 @@ Since the signal-to-noise ratio of the \ac{EDX} element mappings are very low, a
 		\label{fig:edx_noise_f}
 	\end{subfigure}
     \caption{
-      Effect of denoising on the \ac{EDX}-mappings of \ce{Ca} (high signal) and \ce{S} (low signal).
+      Effect of denoising using the \ac{TV} (split \textsc{Bregman} optimisation) and \ac{BM3D} filters on the raw\ac{EDX}-mappings of \ce{Ca} (high signal) and \ce{S} (low signal).
     }
     \label{fig:edx_noise}
 \end{figure}
@@ -204,7 +210,7 @@ This workflow denoises, aligns, visualises, and analyses correlative \ac{BSE} an
 First, the pre-processed in-plane translation data stored in the \textit{TrakEM2} project are loaded.
 The user must provide the image scale and slice thickness in \unit{\nano\meter\per\px}, unless this information is available in the file metadata.
 
-Following denoising, inter-slice intensity banding ($z$-banding) in the \ac{EDX} dataset and brightness fluctuations in the \ac{BSE} dataset are mitigated by normalisation based on the mean brightness value of the entire stack (see \zcref{fig:sem_z-banding}).
+Following denoising, inter-slice intensity banding ($z$-banding) in the 3D-\ac{EDX} dataset and brightness fluctuations in the 3D-\ac{BSE} dataset are mitigated by normalisation of each slice, based on the mean brightness value of the entire stack (see \zcref{fig:sem_z-banding}).
 
 \begin{figure}[htb]
 	\centering
@@ -266,14 +272,14 @@ This required angle is primarily determined by the device geometry and the orien
 The image distortion caused by this geometry effect can and should be corrected for during the recording of the dataset.
 
 The co-registered and corrected \ac{BSE} and \ac{EDX} voxel datasets are visualised using physically meaningful scales.
-The user can select a ROI, which is then utilised for the subsequent processing.
+The user can select a \ac{ROI}, which is then utilised for the subsequent processing.
 Within the \ac{ROI}, three-dimensional \ac{SLIC}O superpixels are computed on the denoised \ac{EDX} volume (see \zcref{fig:sem_postprocessing_c}).
 In analogy to the approach of Multi\ac{SLIC} \cite{yu.2023}, three principal elements (\ce{Ca}, \ce{Si}, \ce{Al}) are chosen.
 This allows to assign specific elements to individual (red-green-blue) colour channels in an image, from which the superpixels are subsequently generated.
-This enables the use of standard \ac{SLIC}O implementations in \textit{OpenCV}.
+This enables the use of standard \ac{SLIC}O implementations implemented in the \textit{OpenCV} \cite{bradski.2000} library.
 For each superpixel, the mean intensity for each element is calculated from the raw \ac{EDX} data.
 These superpixel-based vectors are subsequently normalised and clustered using $k$-means in combination with \ac{UMAP}.
-This approach facilitates the identification of material phases, resulting in a three-dimensional phase label volume that is directly overlaid and visualised in \textit{napari}.
+This approach facilitates the identification of material phases, resulting in a three-dimensional phase label volume that is directly overlaid and visualised in \textit{napari} \cite{sofroniew.2025}.
 
 % TODO: compare different ways to get to the goal? - SLIC -> (direct/indirect with umap?) -> labeling; UNET
 % TODO: how good is the data alignment? What does this to the segmentation - see ANtons dataset

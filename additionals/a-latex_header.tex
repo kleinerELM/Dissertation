@@ -141,10 +141,14 @@
 }
 
 % Treiber für den Eintragstyp "standard"
+% Vor Finalexport das Autorenfeld bei Normen prüfen, damit \textcite korrekte ausgabe liefert! Bsp.:
+% @standard{dinen197-1.2011,
+%   author = {{DIN EN 197-1}},  % Doppelte Klammern!
+% }
 \DeclareBibliographyDriver{standard}{%
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
-  \printfield[number]{number}%
+  \printfield{number}%
   \newunit\newblock
   \printfield[title]{title}%
   \iffieldundef{subtitle}

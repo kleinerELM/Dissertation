@@ -27,7 +27,12 @@ However, they also struggle with more complex noise patterns (e.g. low count \ac
 
 Transform techniques decompose the image into frequency components, allowing for selective noise reduction in specific domains like high-frequency noise (shot noise) or low-frequency, directional patterns (banding noise).
 One important representative filter is \ac{BM3D} \cite{dabov.2007}, which is a two-stage filtering method and an extension of the \ac{NLM} filter.
-These methods often provide good performance but can be computationally expensive and require a careful selection of parameters.
+\ac{NLM}-based methods often provide good performance but can be computationally expensive and require a careful selection of parameters.
+For this work, the \ac{BM3D} implementation in the extended photo processing module of \textit{OpenCV} \cite{bradski.2000} was used.
+
+\ac{TV} \cite{rudin.1992} filters also deliver good edge preserving results even for low signal images by reducing the total variation of the image signal.
+A fast variant of \ac{TV} filters is the split \textsc{Bregman} optimisation-based method \cite{goldstein.2009, getreuer.2012}.
+In this work, the implementation provided by the \textit{scikit-image} \cite{vanderwalt.2014} library was used.
 
 More recently, \ac{CNN}-based denoising methods were introduced.
 They attempt to learn complex noise patterns directly from degraded-clean image pairs.
@@ -277,7 +282,7 @@ A question coming up often, especially in \ac{SEM}, where the field of view is o
 However, to evaluate that a measurement is representative can be a rather complicated challenge.
 This is especially true for inhomogeneous materials consisting of multiple phases and wide ranges of particle sizes.
 The problem starts with sampling and sample preparation.
-This process is standardised for granular or powdery samples in multiple fields (e.g. DIN 52101 \cite{din52101.2013} and DIN EN 932-1 \cite{dinen932-1.1996}).
+This process is standardised for granular or powdery samples in multiple fields (e.g. \textcite{din52101.2013} and \textcite{dinen932-1.1996}).
 Although this solution is very helpful for analysing loose particles, for the analysis of a monolithic sample the only option is to analyse the largest possible volume or surface area.
 This raises the question of what the minimum resolution and the size of the analysed area must be in order to obtain a statistically meaningful result.
 

@@ -567,11 +567,11 @@ A heat flow signal was observed for the glass with a specified pore radius of \q
 
 These results show, that the pore diameter is overestimated by a factor of up to \num{2} for the \qty{5}{\nano\meter} glass compared to the \ac{MIP} results (see \zcref{fig:vycor-mip}), while the \qty{20}{\nano\meter} glass shows a good fit for its main peak.
 Despite this deviation, the difference in the pore size is still observable.
-Compared to the \ac{SEM} results (see \zcref{fig:vicor-SEM}), the \ac{LTDSC} results fit better to the \ac{MIP} results.
+Compared to the \ac{SEM} results (see \zcref{fig:ltdsc-vycor-glass}), the \ac{LTDSC} results fit better to the \ac{MIP} results.
 Similar to the \ac{SEM} data, the \qty{5}{\nano\meter} glass also exhibits a shift towards larger pore sizes compared to the \ac{MIP} results.
 
 
-\subsection{\acs*{HNMR}}
+%\subsection{\acs*{HNMR}}
 
 %TODO: -> Franz + naber!
 
@@ -581,114 +581,18 @@ Similar to the \ac{SEM} data, the \qty{5}{\nano\meter} glass also exhibits a shi
 
 In contrast to porous glass, the generation of fracture surfaces in hydrated \ac{C2S} and \ac{C3S} is not sufficient for a pore analysis using \ac{SEM}-\ac{BSE} images.
 Therefore, a good specimen preparation is important  to obtain a usable pore analysis.
-
-\subsection{\acs*{ArBIB} preparation}
-\label{subsec:arb-porosity}
-
-
-If the specimen is mechanically polished (\zcref{sec:mech_pol}), there is a risk of smearing the material into the pores or introducing scratches hindering a pore segmentation.
-As detailed in \zcref{sec:bib_pol_moving}, mechanically prepared surfaces of hydrated cements can be improved using \ac{ArBIB} polishing.
-However, this still does not allow a close-to-native imaging.
-In contrast, \ac{ArBIB} sectioning allows to cut cross-sections (see \zcref{sec:bib_pol_fixed}) of \ac{CSH} needles of hydrated \ac{C3S} (see \zcref{fig:csh-arbib-a} and \zcref{fig:csh-arbib-b}).
-
-\begin{figure}[htb!]
-    \centering
-
-	\begin{subfigure}{0.49\textwidth}
-		%X:\Mitarbeiter\Florian Kleiner\Einzelbilder\2020_05_19 C3S 28d BIB 6KV 6h\C3S 28d BIB 6KV 6h_006.tif
-		\includegraphics[width=\textwidth]{methods/artistic-csh-anim/CSH-cross-section1.pdf}
-		\caption{Not embedded specimen. \ac{SE} mode, \qty{2}{\kilo\volt}.}
-		\label{fig:csh-arbib-a}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}{0.49\textwidth}
-		%X:\Mitarbeiter\Florian Kleiner\Einzelbilder\selected BIB\Cryo+Harz_055.tif
-		\includegraphics[width=\textwidth]{methods/artistic-csh-anim/CSH-cross-section2.pdf}
-		\caption{Epoxy resin embedded specimen. \ac{BSE} mode, \qty{1}{\kilo\volt}.}
-		\label{fig:csh-arbib-b}
-	\end{subfigure}
-
-    \caption{
-		\ac{SEM}-images of \ac{ArBIB} cross-sections under cryo conditions of \qty{7}{\day} hydrated \ac{C3S} revealing the cross-section of \ac{CSH}-needles, resembling a star like shape ({\color{blue}blue}).
-		Through the lens detector.%
-	}
-    \label{fig:csh-arbib-SEM}
-\end{figure}
-
-These images of a section of a \ac{CSH}-needle illustrate, that the needles are indeed not hollow as suggested by \textcite{double.1976, double.1978} in the 1970s.
-
-As mentioned in \zcref{fig:bib_scheme}, an irradiation volume is expected during the \ac{ArBIB} sectioning.
-Since hydrate phases are easily damaged by electron radiation as demonstrated in \zcref{fig:ebeam_damage}, the same could be expected during the ion beam preparation.
-To determine the damage induced by this method, a CEM~I was polished at \num{-140} or \qty{20}{\degreeCelsius}.
-Comparig images of cryo-prepared (\zcref{fig:csh-arbib-SEM}) areas and areas prepared at room temperature (\zcref{fig:csh-arbib-SEM2}) indicate, that there is no visible damage caused by the ion beam without cooling.
-
-% X:\Mitarbeiter\Florian Kleiner\Einzelbilder\2020_04_29 C3S 28d RT BIB
-\begin{figure}[htb!]
-    \centering
-
-	\begin{subfigure}{0.49\textwidth}
-		\includegraphics[width=\textwidth]{methods/arbib-c3s-rt/fibres.pdf}
-		\caption{\ac{CSHo}, open porosity.}
-		\label{fig:csh-arbib-c}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}{0.49\textwidth}
-		\includegraphics[width=\textwidth]{methods/arbib-c3s-rt/CHSi_pores.pdf}
-		\caption{Close-up of \ac{CSHi} and its porosity.}
-		\label{fig:csh-arbib-d}
-	\end{subfigure}
-
-    \caption{
-		\ac{SEM}-images of cross-sections prepared by \ac{ArBIB} at room temperature of \qty{28}{\day} hydrated \ac{C3S} without epoxy resin intrusion.
-		The cross-sections reveal the \ac{CSH}-needle filled capillary pore space (left) and the porosity within \ac{CSHi}.
-		Through the lens detector in \ac{SE} mode, \qty{2}{\kilo\volt}.
-		}
-    \label{fig:csh-arbib-SEM2}
-\end{figure}
-
-Similar to the \ac{SEM}-\ac{SE} images of the \textsc{Vycor} samples, the segmentation cannot be done using a global threshold value.
-While in \ac{BSE} image a rather distinct grey value range represents a single phase, this is not true for \ac{SE} images.
-Therefore, also for these images a local threshold method was applied.
-% TODO: results from the ArBIB Paper -> phansalkar thresholding to segment the pores in CSHi
+Therefore, \ac{ArBIB} sectioned specimens were used (see \zcref{sec:bib_pol_fixed_results}).
 
 \subsection{\acs*{SEM}}
 
-These images reveal the porosity within \ac{CSHi} and the porosity caused by the interpenetrating network of \ac{CSH}-fibres.
+% TODO: results from the ArBIB Paper -> phansalkar thresholding to segment the pores in CSHi
+
+The images obtained from this preparation (see \zcref{fig:csh-arbib-SEM2, fig:csh-arbib-SEM}) reveal the porosity within \ac{CSHi} and the porosity caused by the interpenetrating network of \ac{CSH}-fibres.
 While it is not necessary from a physical point of view, these images also illustrate the advantage of epoxy resin intrusion (\zcref{fig:csh-arbib-b}) into the pore space between the needle structure for image segmentation.
 In \zcref{fig:csh-arbib-a, fig:csh-arbib-c} the full pore background and not only a section is visible, making a useful segmentation and evaluation of the pore space unfeasible.
 However, the image quality of the nano-scale porosity within \ac{CSHi} is not affected by the epoxy intrusion.
 Therefore a segmentation can be done for both preparation variants.
 
-Furthermore, the \ac{SEM}-images show the cross-section of \ac{CSH}-needles, which are star-shaped (\zcref{fig:csh-arbib-b}).
-However, this can mainly be observed at the stem of the needle as foils radiate from the centre of the needle, resembling plank roots (buttress roots) of shallowly rooting trees found in tropical forests. % baumhinweis drin lassen ?
-
-This structure can also be found in cracked surfaces of the same material (\zcref{fig:csh-fracture}).
-This allows to create a 3D reconstruction of a hydrated \ac{C3S} grain covered in \ac{CSH}-fibres (\zcref{fig:csh-animation}).
-
-\begin{figure}[htb!]
-	\centering
-
-	 \begin{subfigure}{0.49\textwidth}
-		\includegraphics[width=\textwidth]{methods/artistic-csh-anim/CSH-cross-section.pdf}
-	 	\caption{Fractured surface of \qty{28}{\day} hydrated \ac{C3S}.}
-	 	\label{fig:csh-fracture}
-	 \end{subfigure}
-	 \hfill
-	 \begin{subfigure}{0.49\textwidth}
-		\ifdefined\PRINTABLE
-			\includegraphics[width=\textwidth]{methods/artistic-csh-anim/still.png}
-		\else
-			\animategraphics[palindrome,autoplay,width=\textwidth]{12}{methods/artistic-csh-anim/Test00}{01}{30}
-		\fi
-		\caption{Artistic 3D reconstruction of \ac{CSHo}.}
-		\label{fig:csh-animation}
-	 \end{subfigure}
-
-    \caption{
-		Fractured surface showing the stems of \ac{CSH} needles and an artistic three-dimensional reconstruction of \ac{CSH} fibres covering a \ac{C3S}-particle based on a \ac{ArBIB} cross-section of hydrated \ac{C3S}. \cite{rossler.2023}
-	}
-    \label{fig:csh-arbib-ART}
-\end{figure}
 
 
 \FloatBarrier

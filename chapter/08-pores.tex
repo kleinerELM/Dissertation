@@ -594,6 +594,110 @@ However, the image quality of the nano-scale porosity within \ac{CSHi} is not af
 Therefore a segmentation can be done for both preparation variants.
 
 
+\subsection{\acs*{FIBnt}}
+
+To obtain data on the nano porosity of \ac{CSHi} of \qty{28}{\day} hydrated \ac{C3S}, a high-resolution \ac{BSE}-stack was created using \ac{FIBnt}.
+The dataset has a volume of \qtyproduct{3.7 x 3.1 x 0.7}{\micro\meter\cubed} and a voxel size \qtyproduct{1.6 x 1.6 x 10}{\nano\meter\cubed}.
+\zcref{fig:fib_highres_pores} illustrates the porosity within the \ac{CSHi}.
+
+% E:\Mitarbeiter\Florian Kleiner\FIB-Data\C3S 1Tag-10Monate\2019_11_01 C3S High Resolution Training RT
+\begin{figure}[H]
+    \centering
+
+	\begin{subfigure}[t]{0.47\textwidth}
+		\ifdefined\PRINTABLE
+			\includegraphics[width=\textwidth]{fibnt-datasets/high-res-ani/06.pdf}
+		\else
+			\animategraphics[palindrome,autoplay,poster=6,width=\textwidth]{4}{fibnt-datasets/high-res-ani/high-res-}{1}{8}
+		\fi
+		\caption{\ac{BSE} slice of the stack.}
+		\label{fig:fib_artifacts_b}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{0.52\textwidth}
+		\includegraphics[width=\textwidth]{fibnt-datasets/pores-high-res.png}
+		\caption{3D-reconstruction.}
+		\label{fig:fib_artifacts_c}
+	\end{subfigure}
+	\caption{
+		\ac{FIBnt} dataset (\qtyproduct{3.7 x 3.1 x 0.7}{\micro\meter\cubed}) of a \qty{28}{\day} hydrated \ac{C3S} specimen and its 3D-reconstruction. Porosity (solid, grey) within \ac{CSHi} (semi-transparent, {\color{red}red}).
+	}
+	\label{fig:fib_highres_pores}
+\end{figure}
+
+While the energy density introduced in the specimen surface by imaging at \qty{2}{\kilo\volt} and \qty{0.1}{\nano\ampere} was fairly low, it is still possible that the pores observed were an artefact introduced by the image acquisition. 
+
+The volume of the segmented pores was then measured.
+Assuming spherical porosity, the pore radius $r_\text{P}$ was calculated and the histograms shown in \zcref{fig:fib_highres_hist} were created.
+
+%X:\Mitarbeiter\Florian Kleiner\FIB-Data\C3S 1Tag-10Monate\2019_11_01 C3S High Resolution Training RT\Export-porosity\histogram generation.ipynb
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[t]{0.49\textwidth}
+		\begin{tikzpicture}
+			\begin{axis}[
+				width=\textwidth,
+				height=6cm,
+				xlabel={pore radius $r_\text{P}$ in \unit{\nano\meter}},
+				ylabel={frequency},
+				grid=major,
+				xmin=0, xmax=55,
+				xtick={0,10,...,60},
+				ymin=0,
+				grid style={line width=.1pt, draw=gray!10},
+				legend style={at={(0.98,0.98)}, anchor=north east},
+				axis on top,
+			]
+			\addplot [ybar, bar width=1.2742, bar shift=0pt, fill=cyan, draw=none, area legend] table [x=Radius_Center, y=Frequency, col sep=comma] {figures/fibnt-datasets/pores-high-res_radius_histogram.csv};
+			\addlegendentry{frequency}
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Frequency distribution.}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{0.49\textwidth}
+		\begin{tikzpicture}
+			\begin{axis}[
+				width=\textwidth,
+				height=6cm,
+				xlabel={pore radius $r_\text{P}$ in \unit{\nano\meter}},
+				ylabel={normalised pore volume},
+				grid=major,
+				xmin=0, xmax=55,
+				xticklabels={0,10.8,20,30,...,60},
+				xtick={0,10.8,20,30,...,60},
+				ymin=0,
+				ytick=\empty,
+				grid style={line width=.1pt, draw=gray!10},
+				yticklabel pos=right,
+				legend style={at={(0.98,0.98)}, anchor=north east},
+				axis on top,
+			]
+			\addplot [ybar, bar width=1.2742, bar shift=0pt, fill=orange, draw=none, area legend] table [x=Radius_Center, y=Total_Pore_Volume_nm3, col sep=comma] {figures/fibnt-datasets/pores-high-res_bin_volumes.csv};
+			\addlegendentry{volume}
+			\addplot [red, smooth, domain=0:50, samples=50] {1007122.79 * exp(-((x-10.8777)^2)/(2*7.7655^2))};
+			\addlegendentry{\textsc{Gaussian} fit}
+			\addplot [gray, dashed, thick, update limits=false] coordinates {(7.8109,0) (7.8109, 1200000)};
+			\addlegendentry{\qty{50}{\percent} interval}
+			\addplot [gray, dashed, thick, update limits=false, forget plot] coordinates {(20.5116,0) (20.5116, 1200000)};
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Volume distribution.}
+	\end{subfigure}
+	\caption{Pore radius distribution of the segmented dataset.}
+	\label{fig:fib_highres_hist}
+\end{figure}
+
+As expected, the smaller the pores, the more can be found.
+However, representing the pore radius against the total volume of the respective pore radius reveals a maximum of the pore volume at $r_\text{P}$ of \qty{10.83}{\nano\meter}, with \qty{50}{\percent} of the volume between $r_\text{P}$ of \qtyrange{7.8}{20.5}{\nano\meter}.
+The large $z$-slice thickness of \qty{10}{\nano\meter} versus the $x-y$-resolution means there is a significant anisotropy in the voxel geometry.
+This causes larger uncertainty in the measurement of pore radii below \qty{5}{\nano\meter}, since they cannot be resolved reliably in $z$-direction.
+{\color{red}
+Therefore, a volumetric approach is difficult....}
+
+%TODO: Auswertung der reinen 2D Slices
+
+
 
 \FloatBarrier
 \subsection{\acs{LTDSC}}

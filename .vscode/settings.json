@@ -19,6 +19,7 @@
 			"name": "xelatexmk",
 			"command": "latexmk",
 			"args": [
+				"-shell-escape",
 				"-synctex=1",
 				"-interaction=nonstopmode",
 				"-file-line-error",
@@ -125,6 +126,16 @@
             "command": "${@command:latex-workshop.refresh-viewer}" ,
             "args": [],
             "env": {}
+        },
+        {
+            "name": "clean",
+            "command": "latexmk",
+            "args": [
+                "-c",
+                "-outdir=%OUTDIR%",
+                "%DOC%"
+            ],
+            "env": {}
         }
 	],
 	"cSpell.language": "en-GB",
@@ -182,9 +193,7 @@
 		"Xerogel"
 	],
 	"latex-workshop.latex.build.forceRecipeUsage": false,
-	"github.copilot.chat.codeGeneration.instructions": [
 
-	],
 	"latex-workshop.intellisense.citation.backend": "biblatex",
 	"todo-tree.tree.scanMode": "workspace",
     "latex-workshop.latex.clean.fileTypes": [
@@ -223,6 +232,13 @@
 	"latex-workshop.latex.recipe.default": "lastUsed",
 	"latex-workshop.latex.recipes": [
 
+		{
+			"name": "Clean & Build (xelatex)",
+			"tools": [
+				"clean",
+				"xelatexmk"
+			]
+		},
 		{
 			"name": "latexmk (xelatex)",
 			"tools": [

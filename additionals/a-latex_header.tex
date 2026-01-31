@@ -2,7 +2,7 @@
 % ########################
 % Load necessary packages
 % ########################
-\tracinglostchars=0 %declutter the log file
+\tracinglostchars=2 %declutter the log file
 \usepackage[%
 			%headsepline,  % plotted line under each headline
 			%plainheadsepline,  % plotted line over each headline even on plain pages (chapter beginning)
@@ -70,7 +70,6 @@
 \usepackage{xcolor}  % makes latex more colorful
 
 \usepackage{microtype}  % Better results in line breaks and overfull boxes
-%error
 
 \usepackage[labelsep=quad,  % Add a \quad after caption label
 			format=hang,  % Captionlabels with multiple lines are hanging
@@ -83,7 +82,7 @@
 
 \usepackage{subcaption}  % includes subfigure environment
 
-\usepackage{wrapfig2}
+
 \usepackage{amssymb}
 \usepackage{amsmath}  % highly improves math mode
 \usepackage{booktabs}  % beautify tables
@@ -92,7 +91,6 @@
 \usepackage{pdfpages}  % include multiple pages of pdf documents
 \usepackage{lscape}  % introduced the landscape environment to turn tables landscape
 
-\usepackage{booktabs}  % beautify tables
 \usepackage{multicol}
 \usepackage{multirow}
 
@@ -261,7 +259,6 @@
 \usepackage{float}
 \usepackage{etoolbox}
 \makeatletter
-\expandafter\patchcmd\csname AC@\AC@prefix{}@acro\endcsname{{#3}}{{\MakeUppercase #3}}{}{}
 \expandafter\patchcmd\csname AC@\AC@prefix{}@acro\endcsname{{#3}}{{\MakeUppercase #3}}{}{}
 \makeatother
 

@@ -15,7 +15,7 @@ Due to the destructive nature of the \ac{FIBnt} process, there are a lot of poss
 	\hfill
 	\begin{subfigure}[t]{0.32\textwidth}
 		\includegraphics[width=\textwidth]{methods/fib_artifacts_c.pdf}
-		\caption{Charging effects in form of drift artifacts and redepositioning.}
+		\caption{Charging effects in form of drift artefacts and redepositioning.}
 		\label{fig:fib_artifacts_c}
 	\end{subfigure}
 	\hfill
@@ -29,14 +29,14 @@ Due to the destructive nature of the \ac{FIBnt} process, there are a lot of poss
 \end{figure}
 
 As in the \ac{ArBIB} sectioning (see \zcref{sec:bib_pol_fixed}), the cutting process can introduce curtaining.
-It is caused by the cutting process causing vertical line artifacts in the direction of the ion beam (\zcref{fig:fib_artifacts_a}).
+It is caused by the cutting process causing vertical line artefacts in the direction of the ion beam (\zcref{fig:fib_artifacts_a}).
 These artefacts can be reduced in post processing using a directional \ac{FFT} based filter as for the curtaining found in the \ac{ArBIB} process \cite{fitschen.2017,schankula.2018}.
 However, this processing reduces image quality and avoiding the artefact in the first place would be preferable.
 
 Vertical shadowing is another typical artefact caused by a loss of signal of the back-scattered electrons due to the trench geometry (see \zcref{fig:fib_artifacts_b}).
 This well known effect can be corrected in post processing \cite{holzer.2007, mac.2018, fager.2020}, if the phase contrast is good enough.
 If the signal-to-noise ratio is to low in the darkened areas, this post processing wont help.
-However, there are more severe uncorrectable artifacts caused by the in-place slicing process.
+However, there are more severe uncorrectable artefacts caused by the in-place slicing process.
 Since cementitious material is not conductive and the trenches are not coated throughout, charging effects can negatively influence the image quality (e.g. \zcref{fig:fib_artifacts_c} and \zcref{fig:fib_artifacts_a}) or cause uncorrectable image drift during the process.
 The re-deposition of the removed material usually happens within the trenches, which does not cause any problems.
 However, it may also appear on small structures in front of the \ac{ROI} or even on the specimen surface after longer imaging periods as shown in \zcref{fig:fib_artifacts_b} and \zcref{fig:fib_artifacts_c}.
@@ -90,6 +90,7 @@ A detailed video tutorial of the \ac{FIBnt} process, the required parameters, an
 
 \FloatBarrier
 \section{Evaluation obstacles}
+\label{sec:fib_evaluation_obstacles}
 
 While the specimen is vacuum-infused with a low-viscosity resin, it often occurs that some larger pores are not completely filled.
 This complicates the segmentation and therefore the analysis of the pore space, since needle-like structures tend to move and the pore background is constantly visible.
@@ -261,7 +262,7 @@ These landmarks are utilised to estimate an isotropic scale-and-translation tran
 	\end{subfigure}
     \caption{
       Postprocessing of the dataset illustrated on a single slice of the \ac{FIBnt} volume.
-	  The \ac{SLIC}O superpixel segmentation (small multicolored areas) is half transparently overlaid with an automatic clustering of these superpixels (larger similar colored areas). \cite{kleiner.2025b}
+	  The \ac{SLIC}O superpixel segmentation (small multicoloured areas) is half transparently overlaid with an automatic clustering of these superpixels (larger similar coloured areas). \cite{kleiner.2025b}
     }
     \label{fig:sem_postprocessing}
 \end{figure}

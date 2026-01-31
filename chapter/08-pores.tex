@@ -598,7 +598,8 @@ Therefore a segmentation can be done for both preparation variants.
 
 To obtain data on the nano porosity of \ac{CSHi} of \qty{28}{\day} hydrated \ac{C3S}, a high-resolution \ac{BSE}-stack was created using \ac{FIBnt}.
 The dataset has a volume of \qtyproduct{3.7 x 3.1 x 0.7}{\micro\meter\cubed} and a voxel size \qtyproduct{1.6 x 1.6 x 10}{\nano\meter\cubed}.
-\zcref{fig:fib_highres_pores} illustrates the porosity within the \ac{CSHi}.
+It contains a block of \ac{CSHi} which is surrounded by \ac{CSH} needles and includes a \textsc{Hadley} grain with an unhydrated \ac{C3S} particle in its centre.
+\zcref{fig:fib_highres_pores} illustrates the dataset and the porosity within the \ac{CSHi}.
 
 % E:\Mitarbeiter\Florian Kleiner\FIB-Data\C3S 1Tag-10Monate\2019_11_01 C3S High Resolution Training RT
 \begin{figure}[H]
@@ -606,90 +607,41 @@ The dataset has a volume of \qtyproduct{3.7 x 3.1 x 0.7}{\micro\meter\cubed} and
 
 	\begin{subfigure}[t]{0.45\textwidth}
 		\ifdefined\PRINTABLE
-			\includegraphics[width=\textwidth]{fibnt-datasets/high-res-ani/06.pdf}
+			\includegraphics[width=\textwidth]{fibnt-datasets/high-res-ani/high-res-12.pdf}
 		\else
-			\animategraphics[palindrome,autoplay,poster=6,width=\textwidth]{4}{fibnt-datasets/high-res-ani/high-res-}{1}{8}
+			\animategraphics[palindrome,autoplay,poster=12,width=\textwidth]{10}{fibnt-datasets/high-res-ani/high-res-}{01}{24}
 		\fi
 		\caption{\ac{BSE} slice of the stack.}
-		\label{fig:fib_artifacts_b}
+		\label{fig:fib_highres_pores_a}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[t]{0.54\textwidth}
-		\includegraphics[width=\textwidth]{fibnt-datasets/pores-high-res.png}
-		\caption{3D-reconstruction.}
-		\label{fig:fib_artifacts_c}
+		\ifdefined\PRINTABLE
+			\includegraphics[width=\textwidth]{fibnt-datasets/vol_ani/volume_01.pdf}
+		\else
+			\animategraphics[palindrome,autoplay,poster=01,width=\textwidth]{10}{fibnt-datasets/vol_ani/volume_}{01}{15}
+		\fi
+		\caption{3D-reconstruction of the pore space.}
 	\end{subfigure}
 	\caption{
-		\ac{FIBnt} dataset (\qtyproduct{3.7 x 3.1 x 0.7}{\micro\meter\cubed}) of a \qty{28}{\day} hydrated \ac{C3S} specimen and its 3D-reconstruction. Porosity (solid, grey) within \ac{CSHi} (semi-transparent, {\color{red}red}).
+		\ac{FIBnt} dataset (\qtyproduct{3.7 x 3.1 x 0.7}{\micro\meter\cubed}) of a \qty{28}{\day} hydrated \ac{C3S} specimen and its 3D-reconstruction.
+		Porosity (solid, grey) within \ac{CSHi} (semi-transparent, {\color{red}red}).
 	}
 	\label{fig:fib_highres_pores}
 \end{figure}
 
-While the energy density introduced in the specimen surface by imaging at \qty{2}{\kilo\volt} and \qty{0.1}{\nano\ampere} was fairly low, it is still possible that the pores observed were an artefact introduced by the image acquisition. 
-
-The volume of the segmented pores was then measured.
-Assuming spherical porosity, the pore radius $r_\text{P}$ was calculated and the histograms shown in \zcref{fig:fib_highres_hist_2D} were created.
-
-% %X:\Mitarbeiter\Florian Kleiner\FIB-Data\C3S 1Tag-10Monate\2019_11_01 C3S High Resolution Training RT\Export-porosity\histogram generation.ipynb
-% \begin{figure}[H]
-% 	\centering
-% 	\begin{subfigure}[t]{0.49\textwidth}
-% 		\begin{tikzpicture}
-% 			\begin{axis}[
-% 				width=\textwidth,
-% 				height=6cm,
-% 				xlabel={pore radius $r_\text{P}$ in \unit{\nano\meter}},
-% 				ylabel={frequency},
-% 				grid=major,
-% 				xmin=0, xmax=55,
-% 				xtick={0,10,...,60},
-% 				ymin=0,
-% 				grid style={line width=.1pt, draw=gray!10},
-% 				legend style={at={(0.98,0.98)}, anchor=north east},
-% 				axis on top,
-% 			]
-% 			\addplot [ybar, bar width=1.2742, bar shift=0pt, fill=blue, draw=none, area legend] table [x=Radius_Center, y=Frequency, col sep=comma] {figures/fibnt-datasets/pores-high-res_radius_histogram_3D.csv};
-% 			\addlegendentry{frequency}
-% 			\end{axis}
-% 		\end{tikzpicture}
-% 		\caption{Frequency distribution.}
-% 	\end{subfigure}
-% 	\hfill
-% 	\begin{subfigure}[t]{0.49\textwidth}
-% 		\begin{tikzpicture}
-% 			\begin{axis}[
-% 				width=\textwidth,
-% 				height=6cm,
-% 				xlabel={pore radius $r_\text{P}$ in \unit{\nano\meter}},
-% 				ylabel={normalised pore volume},
-% 				grid=major,
-% 				xmin=0, xmax=55,
-% 				xticklabels={0,10.8,20,30,...,60},
-% 				xtick={0,10.8,20,30,...,60},
-% 				ymin=0,
-% 				ytick=\empty,
-% 				grid style={line width=.1pt, draw=gray!10},
-% 				yticklabel pos=right,
-% 				legend style={at={(0.98,0.98)}, anchor=north east},
-% 				axis on top,
-% 			]
-% 			\addplot [ybar, bar width=1.2742, bar shift=0pt, fill=red, draw=none, area legend] table [x=Radius_Center, y=Total_Pore_Volume_nm3, col sep=comma] {figures/fibnt-datasets/pores-high-res_bin_volumes_3D.csv};
-% 			\addlegendentry{volume}
-% 			%\addplot [red, smooth, domain=0:50, samples=50] {1007122.79 * exp(-((x-10.8777)^2)/(2*7.7655^2))};
-% 			%\addlegendentry{\textsc{Gaussian} fit}
-% 			%\addplot [gray, dashed, thick, update limits=false] coordinates {(7.8109,0) (7.8109, 1200000)};
-% 			%\addlegendentry{\qty{50}{\percent} interval}
-% 			%\addplot [gray, dashed, thick, update limits=false, forget plot] coordinates {(20.5116,0) (20.5116, 1200000)};
-% 			\end{axis}
-% 		\end{tikzpicture}
-% 		\caption{Volume distribution.}
-% 	\end{subfigure}
-% 	\caption{Pore radius distribution of the segmented dataset based on the segmented 3D volume.}
-% 	\label{fig:fib_highres_hist_3D}
-% \end{figure}
+While the energy density introduced in the specimen surface by imaging at \qty{2}{\kilo\volt} and \qty{0.1}{\nano\ampere} was fairly low, it is still possible that the nano-porosity observed within the bulk were induced or at enlarged by the image acquisition as discussed in \zcref{sec:fib_evaluation_obstacles}.
+While the energy density introduced in the specimen surface by imaging at \qty{2}{\kilo\volt} and \qty{0.1}{\nano\ampere} was fairly low, it is still possible that the nano-porosity observed within the bulk was induced or at least enlarged by the image acquisition as discussed in \zcref{sec:fib_evaluation_obstacles}.
 
 
-%X:\Mitarbeiter\Florian Kleiner\FIB-Data\C3S 1Tag-10Monate\2019_11_01 C3S High Resolution Training RT\Export-porosity\histogram generation.ipynb
+The volume was segmented using a global threshold value.
+The so segmented pores were the evaluated.
+Assuming spherical porosity, the pore radius $r_\text{P}$ was calculated for the segmented volume and for comparison for the segmented 2D-slices.
+The volume was segmented using a global threshold value. The segmented pores were then evaluated.
+Assuming spherical porosity, the pore radius $r_\text{P}$ was calculated for the segmented volume and, for comparison, for the segmented 2D-slices.
+The respective histograms are shown in \zcref{fig:fib_highres_hist_2D}.
+
+%X:\Mitarbeiter\Florian Kleiner\FIB-Data\C3S 1Tag-10Monate\2019_11_01 C3S High Resolution Training RT\Export-porosity\
 \begin{figure}[H]
 	\centering
 	\begin{subfigure}[t]{0.49\textwidth}
@@ -706,11 +658,11 @@ Assuming spherical porosity, the pore radius $r_\text{P}$ was calculated and the
 				ytick=\empty,
 				grid style={line width=.1pt, draw=gray!10},
 				legend style={at={(0.98,0.98)}, anchor=north east},
-				axis on top,
+				%axis on top,
 			]
-			\addplot [ybar, bar width=0.9097, bar shift=0pt, fill=cyan, draw=none, area legend] table [x=Radius_Center, y expr=\thisrow{Frequency}/5448, col sep=comma] {figures/fibnt-datasets/pores-high-res_radius_histogram_2D.csv};
+			\addplot [ybar, bar width=0.9097, bar shift=0pt, fill=blue, fill opacity=.5, draw=none, area legend] table [x=Radius_Center, y expr=\thisrow{Frequency}/5448, col sep=comma] {figures/fibnt-datasets/pores-high-res_radius_histogram_2D.csv};
 			\addlegendentry{frequency (2D)}
-			\addplot [ybar, bar width=1.2742, bar shift=0pt, fill=red, fill opacity=.7, draw=none, area legend] table [x=Radius_Center, y expr=\thisrow{Frequency}/4352, col sep=comma] {figures/fibnt-datasets/pores-high-res_radius_histogram_3D.csv};
+			\addplot [ybar, bar width=1.2742, bar shift=0pt, fill=red, fill opacity=.5, draw=none, area legend] table [x=Radius_Center, y expr=\thisrow{Frequency}/4352, col sep=comma] {figures/fibnt-datasets/pores-high-res_radius_histogram_3D.csv};
 			\addlegendentry{frequency (3D)}
 			\end{axis}
 		\end{tikzpicture}
@@ -726,36 +678,36 @@ Assuming spherical porosity, the pore radius $r_\text{P}$ was calculated and the
 				ylabel={normalised pore volume},
 				grid=major,
 				xmin=0, xmax=55,
-				xticklabels={0,8.6,20,30,...,60},
-				xtick={0,8.64,20,30,...,60},
+				xticklabels={0,10,20,30,...,60},
+				xtick={0,10,20,30,...,60},
 				ymin=0,
 				ytick=\empty,
 				grid style={line width=.1pt, draw=gray!10},
 				yticklabel pos=right,
 				legend style={at={(0.98,0.98)}, anchor=north east},
-				axis on top,
+				%axis on top,
 			]
-			\addplot [ybar, bar width=0.9097, bar shift=0pt, fill=cyan, draw=none, area legend] table [x=Radius_Center, y expr=\thisrow{Total_Pore_Volume_nm3}/1241608.71, col sep=comma] {figures/fibnt-datasets/pores-high-res_bin_volumes_2D.csv};
+			\addplot [ybar, bar width=0.9097, bar shift=0pt, fill=blue, fill opacity=.5, draw=none, area legend] table [x=Radius_Center, y expr=\thisrow{Total_Pore_Volume_nm3}/1241608.71, col sep=comma] {figures/fibnt-datasets/pores-high-res_bin_volumes_2D.csv};
 			\addlegendentry{volume (2D)}
-			\addplot [ybar, bar width=1.2742, bar shift=0pt, fill=red, fill opacity=.7, draw=none, area legend] table [x=Radius_Center, y expr=\thisrow{Total_Pore_Volume_nm3}/1113228.25, col sep=comma] {figures/fibnt-datasets/pores-high-res_bin_volumes_3D.csv};
+			\addplot [ybar, bar width=1.2742, bar shift=0pt, fill=red, fill opacity=.5, draw=none, area legend] table [x=Radius_Center, y expr=\thisrow{Total_Pore_Volume_nm3}/1113228.25, col sep=comma] {figures/fibnt-datasets/pores-high-res_bin_volumes_3D.csv};
 			\addlegendentry{volume (3D)}
 			\end{axis}
 		\end{tikzpicture}
 		\caption{Volume distribution.}
 	\end{subfigure}
-	\caption{Pore radius distribution of the segmented dataset based on the segmented 3D volume ({\color{cyan}cyan}) and the 2D slices ({\color{red}red}).}
+	\caption{Pore radius distribution of the segmented dataset based on the segmented 3D volume ({\color{blue}blue}) and the 2D slices ({\color{red}red}).}
 	\label{fig:fib_highres_hist_2D}
 \end{figure}
 
-As anticipated, the frequency of pores increases inversely with the pore radius, with the smallest detectable pores being the most abundant.
+The frequency of pores increases inversely with the pore radius, with the smallest detectable pores being the most abundant.
 However, when analysing the contribution to the total pore volume, the distribution changes.
-The maximum pore volume is observed at a pore radius $r_\text{P}$ of \qty{10.83}{\nano\meter} in the 3D analysis.
+The maximum pore volume is observed at a pore radius $r_\text{P}$ of \qty{10.8}{\nano\meter} in the 3D analysis.
 It should be noted that the voxel geometry exhibits significant anisotropy, with a slice thickness ($z$) of \qty{10}{\nano\meter} compared to a lateral resolution ($x, y$) of \qty{1.6}{\nano\meter}.
 This discrepancy introduces considerable uncertainty in the measurement of pore radii below \qty{5}{\nano\meter}, as these features cannot be reliably resolved in the $z$-direction.
 
 Consequently, a purely volumetric approach for such an anisotropic dataset presents challenges.
-Evaluating the dataset based on the segmented 2D slices yields a maximum pore volume at a radius of \qty{8.64}{\nano\meter}.
-As 2D sections typically underestimate the true maximum dimensions of 3D objects, the actual dominant pore radius is likely located between the values obtained from the 2D (\qty{8.64}{\nano\meter}) and 3D (\qty{10.83}{\nano\meter}) evaluations.
+Evaluating the dataset based on the segmented 2D slices yields a maximum pore volume at a radius of \qty{8.6}{\nano\meter}.
+As 2D sections typically underestimate the true maximum dimensions of 3D objects, the actual dominant pore radius is likely located between the values obtained from the 2D (\qty{8.6}{\nano\meter}) and 3D (\qty{10.8}{\nano\meter}) evaluations.
 Despite this shift in the peak value, the overall distribution of pore radii remains comparable between the two methods.
 
 
@@ -1511,49 +1463,94 @@ Therefore, it has been decided to use a faster heating rate of \qty{2}{\kelvin\p
 	\label{fig:ltdsc_result_melt_bar}
 \end{figure}
 
+As shown in \zcref{fig:ltdsc_result_C2S_melt_bar}, for \ac{C2S} the ice volume of the gel pores was calculated to be \qty{1.2}{\micro\liter\per\gram} at \qty{7}{\day} up to \qty{18.3}{\micro\liter\per\gram} after \qty{28}{\day} of hydration, while the capillary pores were reduced from \num{290} to \qty{233}{\micro\liter\per\gram} in the same time.
+In contrast, \ac{C3S} has a higher ice volume accountable to the gel pores (\zcref{fig:ltdsc_result_C3S_melt_bar}).
+The gel pore ice volume was increasing from from \qty{6.6}{\micro\liter\per\gram} at an age of \qty{1}{\day} to \qty{30.3}{\micro\liter\per\gram} after \qty{28}{\day} of hydration.
+In comparison to \ac{C2S}, less than half of the ice volume corresponding to capillary pores was detected in \ac{C3S} is after \qty{7}{\day} of hydration.
+The capillary pore space was reduced by approximately  \qty{50}{\percent} from \qty{208}{\micro\liter\per\gram} (\qty{1}{\day}) to \qty{109}{\micro\liter\per\gram} (\qty{28}{\day}).
+Furthermore, a significant slow down of gel pore development and reduction in capillary pores can be seen in \ac{C3S} after \qty{14}{\day} of hydration.
+
+As expected from the freezing curves, the overall ice volume and the ice volume correlated to the gel pores is lower for \ac{C3S} compared to \ac{C2S}.
+Both materials indicate a steady increase in the gel pore and a reduction of capillary ice volume over time.
+\zcref{fig:ltdsc_result_melt_correlation} indicates a roughly linear correlation of the increase of the gel pore volume and the decrease in capillary pore volume until the \qty{28}{\day} mark.
 
 \begin{figure}[htb]
     \centering
 
 	\begin{tikzpicture}
 		\begin{axis}[
-			ylabel={gel pores (\unit{\micro\liter\per\gram})},
-			xlabel={capillary pores (\unit{\micro\liter\per\gram})},
-			ymin=0,
-			xmin=100,
+			xlabel={gel pore volume in \unit{\micro\liter\per\gram}},
+			ylabel={capillary pore volume in \unit{\micro\liter\per\gram}},
+			xmin=0,xmax=35,
+			ymin=0,ymax=350,
 			width=.8\textwidth,
-			height=7cm,
+			height=6.5cm,
 			grid=major,
-			enlarge x limits=0.15,
-			enlarge y limits=0.15,
-			colorbar,
-			colorbar style={
-				ylabel=hydration time in \unit{\day}
+			scatter/classes={
+				1={yellow},
+				7={orange},
+				14={red},
+				21={green},
+				28={cyan}
 			},
-			colormap/viridis,
-			point meta min=1,
-			point meta max=28,
+			legend style={at={(1.02,0.02)}, anchor=south west},
 		]
 
-		% --- PLOT 1: C3S (Kreise) ---
+		% C3S linear fit
+		\addplot [draw=none, forget plot] table [
+			x=pores_a_mean, y=pores_b_mean, col sep=comma,
+			y={create col/linear regression={y=pores_b_mean, x=pores_a_mean}}
+		] {figures/ltdsc/C3S_ice_vol_dev.csv};
+		\addplot [grey, thin, domain=0:30.3, forget plot] {\pgfplotstableregressiona*x + \pgfplotstableregressionb};
+
+		% C2S linear fit
+		\addplot [draw=none, forget plot] table [
+			x=pores_a_mean, y=pores_b_mean, col sep=comma,
+			y={create col/linear regression={y=pores_b_mean, x=pores_a_mean}}
+		] {figures/ltdsc/C2S_ice_vol_dev.csv};
+		\addplot [grey, thin, dashed, domain=0:18.3, forget plot] {\pgfplotstableregressiona*x + \pgfplotstableregressionb};
+
+		% C3S (circles)
 		\addplot [
 			scatter, only marks, mark=*, mark size=4pt,
-			scatter/use mapped color={fill=mapped color, stroke=mapped color}
+			scatter src=explicit symbolic,
 		] table [
-			y=pores_a_mean, x=pores_b_mean, col sep=comma,
-			point meta=\thisrow{a}
+			x=pores_a_mean, y=pores_b_mean, col sep=comma,
+			meta=a
 		] {figures/ltdsc/C3S_ice_vol_dev.csv};
-		\addlegendentry{\ac{C3S}}
 
-		% --- PLOT 2: C2S (Quadrate) ---
+		% C2S (squares)
 		\addplot [
-			scatter, only marks, mark=square*, mark size=4pt, % Anderer Marker
-			scatter/use mapped color={fill=mapped color, stroke=mapped color}
+			scatter, only marks, mark=square*, mark size=4pt,
+			scatter src=explicit symbolic
 		] table [
-			y=pores_a_mean, x=pores_b_mean, col sep=comma,
-			point meta=\thisrow{a}
+			x=pores_a_mean, y=pores_b_mean, col sep=comma,
+			meta=a
 		] {figures/ltdsc/C2S_ice_vol_dev.csv};
+
+		% a little stupid, but this axis returns the color classes as labels
+		\addlegendentry{\qty{1}{\day}}
+		\addlegendentry{\qty{7}{\day}}
+		\addlegendentry{\qty{14}{\day}}
+		\addlegendentry{\qty{21}{\day}}
+		\addlegendentry{\qty{28}{\day}}
+
+		\end{axis}
+
+		% second axis for phase legend
+		\begin{axis}[
+			width=.8\textwidth,
+			height=6.5cm,
+			hide axis,
+			xmin=0,xmax=1,ymin=0,ymax=1,
+			legend style={at={(1.02,0.98)}, anchor=north west},
+		]
+
+		\addlegendimage{only marks, mark=square*, mark size=4pt, grey}
 		\addlegendentry{\ac{C2S}}
+
+		\addlegendimage{only marks, mark=*, mark size=4pt, grey}
+		\addlegendentry{\ac{C3S}}
 
 		\end{axis}
 	\end{tikzpicture}
@@ -1564,21 +1561,7 @@ Therefore, it has been decided to use a faster heating rate of \qty{2}{\kelvin\p
 	\label{fig:ltdsc_result_melt_correlation}
 \end{figure}
 
-
-
-As shown in \zcref{fig:ltdsc_result_C2S_melt_bar}, for \ac{C2S} the ice volume of the gel pores was calculated to be \qty{1.2}{\micro\liter\per\gram} at \qty{7}{\day} up to \qty{18.3}{\micro\liter\per\gram} after \qty{28}{\day} of hydration, while the capillary pores were reduced from \num{290} to \qty{233}{\micro\liter\per\gram} in the same time.
-In contrast, \ac{C3S} has a higher ice volume accountable to the gel pores (\zcref{fig:ltdsc_result_C3S_melt_bar}).
-The gel pore ice volume was increasing from from \qty{6.6}{\micro\liter\per\gram} at an age of \qty{1}{\day} to \qty{30.3}{\micro\liter\per\gram} after \qty{28}{\day} of hydration.
-In comparison to \ac{C2S}, less than half of the ice volume corresponding to capillary pores was detected in \ac{C3S} is after \qty{7}{\day} of hydration.
-The capillary pore space was reduced by approximately  \qty{50}{\percent} from \qty{208}{\micro\liter\per\gram} (\qty{1}{\day}) to \qty{109}{\micro\liter\per\gram} (\qty{28}{\day}).
-Furthermore, a significant slow down of gel pore development and reduction in capillary pores can be seen in \ac{C3S} after \qty{14}{\day} of hydration.
-
-As expected from the freezing curves, the overall ice volume and the ice volume correlated to the gel pores is lower for \ac{C3S} compared to \ac{C2S}.
-Both materials indicate a steady increase in the gel pore and a reduction of capillary ice volume over time.
-%As already demonstrated in \zcref{fig:hyd-rim-belite}, the hydrate layer increases in size, filling up the capillary pores.
-%At the same time, the growth of \ac{CSH} creates new gel porosity.
-
-These observations fit well to the microstructural development visible in \ac{SEM}-\ac{BSE} images of both materials, where the porosity is reduced, since the hydrate phases grow into them causing new gel porosity (see \zcref{fig:hydration-rim-results}).
+These observations fit well to the microstructural development visible in \ac{SEM}-\ac{BSE} images of both materials, where the capillary porosity is reduced, since the hydrate phases grow into these larger pore spaces, causing new gel porosity (see \zcref{fig:hydration-rim-results}).
 
 \begin{itemize}
 	\color{red}

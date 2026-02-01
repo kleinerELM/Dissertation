@@ -25,6 +25,7 @@
 				"-file-line-error",
 				"-xelatex",
 				"-outdir=%OUTDIR%",
+				"-jobname=%DOCFILE%",
 				"%DOC%"
 			],
 			"env": {}
@@ -33,6 +34,23 @@
 			"name": "latexmk_rconly",
 			"command": "latexmk",
 			"args": [
+				"%DOC%"
+			],
+			"env": {}
+		},
+		{
+			"name": "xelatexmk_print",
+			"command": "latexmk",
+			"args": [
+				"-shell-escape",
+				"-synctex=1",
+				"-interaction=nonstopmode",
+				"-file-line-error",
+				"-xelatex",
+				"-outdir=%OUTDIR%",
+				"-jobname=%DOCFILE%_print",
+				"-e",
+				"$xelatex = 'xelatex %O \\def\\PRINTABLE{} \\input{%S}'",
 				"%DOC%"
 			],
 			"env": {}
@@ -52,7 +70,7 @@
 			"name": "bibtex",
 			"command": "bibtex",
 			"args": [
-				"%DOCFILE%"
+				"%DOCFILE%*"
 			],
 			"env": {}
 		},
@@ -60,7 +78,7 @@
 			"name": "biber",
 			"command": "biber",
 			"args": [
-				"%DOCFILE%"
+				"%DOCFILE%*"
 			],
 			"env": {}
 		},
@@ -136,6 +154,18 @@
                 "%DOC%"
             ],
             "env": {}
+        },
+        {
+            "name": "build_parallel_script",
+            "command": "powershell",
+            "args": [
+                "-ExecutionPolicy",
+                "Bypass",
+                "-File",
+                "build_parallel.ps1",
+                "%DOCFILE%"
+            ],
+            "env": {}
         }
 	],
 	"cSpell.language": "en-GB",
@@ -197,67 +227,74 @@
 	"latex-workshop.intellisense.citation.backend": "biblatex",
 	"todo-tree.tree.scanMode": "workspace",
     "latex-workshop.latex.clean.fileTypes": [
-        "%DOCFILE%.aux",
-        "%DOCFILE%.bbl",
-        "%DOCFILE%.blg",
-        "%DOCFILE%.idx",
-        "%DOCFILE%.ind",
-        "%DOCFILE%.lof",
-        "%DOCFILE%.lot",
-        "%DOCFILE%.out",
-        "%DOCFILE%.toc",
-        "%DOCFILE%.acn",
-        "%DOCFILE%.acr",
-        "%DOCFILE%.alg",
-        "%DOCFILE%.glg",
-        "%DOCFILE%.glo",
-        "%DOCFILE%.gls",
-        "%DOCFILE%.fls",
-        "%DOCFILE%.log",
-        "%DOCFILE%.fdb_latexmk",
-        "%DOCFILE%.snm",
-        "%DOCFILE%.synctex(busy)",
-        "%DOCFILE%.synctex.gz(busy)",
-        "%DOCFILE%.synctex.gz",
-        "%DOCFILE%.nav",
-        "%DOCFILE%.vrb",
-        "%DOCFILE%.tex.bak",
-        "%DOCFILE%-blx.bib",
-        "%DOCFILE%.bcf",
-        "%DOCFILE%.bcf-SAVE-ERROR",
-        "%DOCFILE%.run.xml",
-        "%DOCFILE%.xdv"
+        "%DOCFILE%*.aux",
+        "%DOCFILE%*.bbl",
+        "%DOCFILE%*.blg",
+        "%DOCFILE%*.idx",
+        "%DOCFILE%*.ind",
+        "%DOCFILE%*.lof",
+        "%DOCFILE%*.lot",
+        "%DOCFILE%*.out",
+        "%DOCFILE%*.toc",
+        "%DOCFILE%*.acn",
+        "%DOCFILE%*.acr",
+        "%DOCFILE%*.alg",
+        "%DOCFILE%*.glg",
+        "%DOCFILE%*.glo",
+        "%DOCFILE%*.gls",
+        "%DOCFILE%*.fls",
+        "%DOCFILE%*.log",
+        "%DOCFILE%*.fdb_latexmk",
+        "%DOCFILE%*.snm",
+        "%DOCFILE%*.synctex(busy)",
+        "%DOCFILE%*.synctex.gz(busy)",
+        "%DOCFILE%*.synctex.gz",
+        "%DOCFILE%*.nav",
+        "%DOCFILE%*.vrb",
+        "%DOCFILE%*.tex.bak",
+        "%DOCFILE%*-blx.bib",
+        "%DOCFILE%*.bcf",
+        "%DOCFILE%*.bcf-SAVE-ERROR",
+        "%DOCFILE%*.run.xml",
+        "%DOCFILE%*.upa",
+        "%DOCFILE%*.xdv"
     ],
 	"latex-workshop.latex.autoBuild.run": "onSave",
 	"latex-workshop.latex.recipe.default": "lastUsed",
 	"latex-workshop.latex.recipes": [
 
 		{
-			"name": "Clean & Build (xelatex)",
+			"name": "Build Digital",
+			"tools": [
+				"xelatexmk"
+			]
+		},
+		{
+			"name": "Build Print",
+			"tools": [
+				"xelatexmk_print"
+			]
+		},
+		{
+			"name": "Clean & Build Digital",
 			"tools": [
 				"clean",
 				"xelatexmk"
 			]
 		},
 		{
-			"name": "latexmk (xelatex)",
+			"name": "Print & Digital",
 			"tools": [
-				"xelatexmk"
+				"clean",
+				"xelatexmk_print",
+				"xelatexmk",
+				"clean"
 			]
 		},
 		{
-			"name": "bibtex only",
+			"name": "Parallel Print & Digital",
 			"tools": [
-				"bibtex"
-			]
-		},
-		{
-			"name": "pdflatex -> bibtex -> pdflatex * 2",
-			"tools": [
-				"pdflatex",
-				"bibtex",
-				"pdflatex",
-				"pdflatex"
+				"build_parallel_script"
 			]
 		}
 	]

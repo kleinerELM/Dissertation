@@ -1,18 +1,17 @@
-\section{Algorithms}
-\label{sec:algorithms}
-
-This chapter describes the algorithms used to process and evaluate the image data.
-The code used in this chapter is publicly available and was written for \textit{Python 3.x}.
-
-\subsection{Hydrate layer measurement}
+%\section{Algorithms}
+%\label{sec:algorithms}
+\section{Hydrate layer measurement}
 \label{subsec:algo_hlm}
 
+%This chapter describes the algorithms used to process and evaluate the image data.
+%The code used in this chapter is publicly available and was written for \textit{Python 3}.
+
+To measure the \ac{HLT} of hydrated clinker grains, the \ac{SEM}-\ac{BSE} images were processed in \textit{Python 3} \cite{kleiner.2024}.
 First, the image contrast is logarithmically enhanced using the \textit{scikit-image} \cite{vanderwalt.2014} library.
-For most images, a denoising step is recommended using algorithms like `Non Local Means' \cite{buades.2011}.
+For most images, a denoising step is recommended using algorithms like \ac{NLM} \cite{buades.2011}.
 The script uses the implementation provided by the \textit{OpenCV} \cite{bradski.2000} library.
 
 %% actual algorithm description
-This algorithm was published in \cite{kleiner.2024}.
 As for many image processing tasks, the segmentation is one of the most important steps.
 The \ac{BSE} images have to be segmented into at least three phases: ($i$) pores, ($ii$) hydration products (($a$) \ac{CH}, ($b$) ac{CSHi} and ($c$) \ac{CSHo}), and ($iii$) unhydrated clinker.
 
@@ -91,7 +90,7 @@ However, to obtain these data, the \textsc{Hadley} grains have to be identified 
 This probably has to be done manually or a significant training effort has to be done to do this automatically.
 
 
-\subsubsection{Particle distance measurements}
+\section{Particle distance measurements}
 
 The algorithm described in the previous section can also be adapted to measure the particle distance from a 2D image.
 
@@ -101,6 +100,3 @@ A possible solution is the cryo-\ac{FIB}-\ac{SEM}-preparation method, even if th
 
 Nevertheless, the source image also has to be segmented into two phases (pore / water and clinker).
 The difference in the algorithms is the measured distance as shown in \zcref{fig:hlt-method}C, where the measurement excludes hydrates and does stop at neighbouring particles instead of pore space.
-
-
-%\subsection{Representative area}

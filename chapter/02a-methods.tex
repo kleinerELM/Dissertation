@@ -263,71 +263,6 @@ To obtain data about the capillary and gel porosity, an \ac{LTDSC} system (\text
 The hardened specimens were sliced to fit the small aluminum crucibles with a inner volume of $\approx$ \qty{60}{\micro\litre}.
 These crucibles sealed air tight by cold-welding a lid under pressure and measured against an empty reference crucible.
 
-% \begin{figure}[!htb]
-%     \centering
-%     \begin{tikzpicture}
-% 		\pgfplotsset{every axis/.style={xmin=0, xmax=150,
-% 		ymin=-65, ymax=25,
-% 		width=0.8\linewidth,
-% 		height=0.4\linewidth
-% 		}}
-%         \begin{axis}[
-% 				legend style={at={(.97,.94)},anchor=north east},
-% 				axis y line*=left,
-% 				grid=major,
-% 				xlabel={time $t$ in \unit{\minute}},
-% 				ylabel={temperature $\vartheta$ in \unit{\celsius}},
-% 				xtick={0,20,...,150},
-% 				ytick={-60,-40,...,20},
-% 				grid style={line width=.1pt, draw=gray!10}
-% 				%axis lines=middle
-%             ]
-% 			\addplot[mark=none, gray!40] coordinates {(0,0) (150,0)};
-% 			\addplot [green, dashed,mark=.] coordinates {
-% 				(0,20) (20,-20) (22,-20) (40,20) (48,-20) (49,-20) (50,-5) (60,0) (75,0)};
-% 				\addplot [green, dashed,mark=.] coordinates {
-% 					(95,-40) (105,-60) (110,-60) (120,-40)};
-% 				\addplot [green, dashed,mark=.] coordinates {
-% 					(140,0) (150,20) };
-
-% 			\addplot[mark=none, gray] coordinates {(75,30) (75,-70)};
-
-% 			%\node[black,right] at (axis cs:8010){\small{$W=0$}};
-% 			\node[right] at (axis cs:78,10)  {$\rightarrow$ measurement};
-% 			\node[right] at (axis cs:5,-40) {$\rightarrow$ inducing of ice nuclei};
-
-%         \end{axis}
-% 		% 3rd ordinate right
-% 		\begin{axis}[blue,
-% 			axis y line*=right,
-% 			axis x line=none,
-% 			ylabel={pore radius $r_\text{P}$ in \unit{\nano\meter}},
-% 			xtick={0,20,...,150},
-% 			ytick      ={ -40, -30, -20, -10,  -1},
-% 			yticklabels={2.19,2.27,3.80,7.04,65.2},
-% 			ylabel style=black,
-% 		  ]
-% 		  \pgfplotsset{every outer y axis line/.style={xshift=1.25cm}, every tick/.style={xshift=1.25cm}, every y tick label/.style={xshift=1.25cm} }
-% 		  \addplot [blue, dashed] coordinates {
-% 			   (75,0) (95,-40)};
-
-%         \end{axis}
-% 		% 2nd ordinate right
-% 		\begin{axis}[red,
-% 			axis y line*=right,
-% 			axis x line=none,
-% 			xtick={0,20,...,150},
-% 			ytick      ={ -40, -30, -20, -10,  -1},
-% 			yticklabels={1.49,1.76,2.30,3.91,33.0},
-% 		  ]
-% 		  \addplot [red, dashed] coordinates {
-% 			(120,-40) (140,0)};
-%         \end{axis}
-%     \end{tikzpicture}
-%     \caption{Temperature regime of a \ac{LTDSC}-measurement, based on \textcite{sun.2010} and Müller \cite{mueller.2021}. theoretical pore radii after \textcite{brun.1977} - Red axis:  on melting (\zcref{eq:brun_melt}); blue axis: pore radius on freezing (\zcref{eq:brun_freeze}). The top value is the pore radius at \qty{-1}{\celsius}.}
-%     \label{fig:ltdc_regime}
-% \end{figure}
-
 \begin{figure}[!htb]
     \centering
     \begin{tikzpicture}
@@ -540,3 +475,59 @@ The source code of the procedure which was used for this analysis can be found i
 % \texttt{auto\textunderscore select\textunderscore baseline} within the \texttt{ltdsc\textunderscore measurement}-class \cite{kleiner.2025}.
 % } %\url{https://github.com/kleinerELM/Kalorimeterauswertung}
 % % TODO: bild?
+
+
+
+\subsection{\Acl*{PSD} (\acs*{PSD}) of \ac*{SEM}-\ac*{SE} images of \acs*{CSHi}}
+\label{subsec:algo_psd}
+
+Quantifying nano-pores within \ac{CSHi} based on \ac{SEM}-\ac{SE} images requires the analysis of multiple images to ensure statistical relevance.
+Manual segmentation is neither repeatable nor efficient for this task.
+Consequently, a semi-automated image analysis workflow was developed \cite{kleiner.2021}.
+Initially, the images of hydrated \ac{C3S} cross-sections are denoised using \ac{NLM} filtering \cite{buades.2011}.
+
+To accurately assign segmented pores to the \ac{CSHi} phase, the surrounding phases must be identified and excluded.
+However, in \ac{SEM}-\ac{SE} images, the grey values of solid phases such as \ac{CSH}, \ac{CH}, and \ac{C3S} are often similar or overlapping.
+This is caused by local intensity variations due to topography and charging.
+Therefore, global thresholding is generally unsuitable for \ac{SE} images, since it would lead to significant over- or under-segmentation, particularly if other phases or large pores are present.
+The inadequacy of global thresholding for the pore segmentation in \ac{SE} images of \ac{CSHi} is demonstrated in \zcref{fig:fixed_threshold}.
+Since areas to be excluded from the analysis, such as other phases, large pores, or imaging and preparation artefacts, are easily identified, they were segmented manually.
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.32\linewidth}
+        \includegraphics[width=\linewidth]{methods/arbib-c3s-pores/BIB_6KV_6h_016_cut-1.jpg}
+        \caption{Source image}
+        \label{fig:fixed_threshold_a}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\linewidth}
+        \includegraphics[width=\linewidth]{methods/arbib-c3s-pores/BIB_6KV_6h_016_cut-2.jpg}
+        \caption{Enhanced contrast}
+        \label{fig:fixed_threshold_b}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\linewidth}
+        \includegraphics[width=\linewidth]{methods/arbib-c3s-pores/BIB_6KV_6h_016_cut-3.jpg}
+        \caption{Resulting segmentation ({\color{red}red})}
+        \label{fig:fixed_threshold_d}
+    \end{subfigure}
+    \caption{
+		Illustration of the usage of a global threshold value (here: \num{108}) on the image of \ac{CSHi} of \qty{28}{\day} hydrated \ac{C3S} prepared using \ac{ArBIB} at \qty{20}{\celsius}. \ac{SE}, \qty{2}{\kilo\volt}, \qty{89}{\pico\ampere}.
+	}
+    
+    \label{fig:fixed_threshold}
+\end{figure}
+
+To address the pore segmentation issue, pores within the \ac{CSHi} are segmented using the local thresholding algorithm proposed by \textcite{phansalkar.2011}.
+This algorithm is a modification of the \textsc{Sauvola} method \cite{sauvola.2000}, specifically optimised for low-contrast images.
+It calculates a threshold value for each pixel based on the local neighbourhood defined by a window radius (e.g. \qty{20}{\px}).
+The \textsc{Phansalkar} thresholding is implemented in \textsc{Python} \cite{kleiner.2021}, but comparable results can be achieved using the \textit{Auto Local Threshold} function in \textsc{Fiji}/\textsc{ImageJ} \cite{schindelin.2012} with parameters $k = \num{0.15}$ and $r = \num{0.3}$.
+
+Following segmentation, morphological operators are applied to remove noise from the binary images.
+Subsequently, the \ac{PSD} is calculated relative to the surrounding phase or the total image area.
+As individual images often contain a limited number of pores, the resulting \ac{PSD} can be noisy.
+To improve data density, the \ac{CDF} \cite{torquato.2002} is also calculated.
+The \ac{CDF} is derived by measuring chord lengths across pores in both $x$- and $y$-directions for every pixel row and column.
+These chord lengths are then compiled into a histogram.
+For all calculations, the pores are assumed to be circular.

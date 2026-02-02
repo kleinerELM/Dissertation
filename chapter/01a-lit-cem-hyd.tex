@@ -160,7 +160,7 @@ Their definition and terms vary between publications and may sometimes not mean 
 \begin{itemize}
     \item inner / outer product \cite{scrivener.1986, richardson.1993}
     %\item phenograins and groundmass \cite{diamond.1993} % somehow this seems to be something else - read!
-    \item \ac{LD} / \ac{HD} \ac{CSH} \cite{jennings.2000}
+    \item \ac{LD} / \ac{HD} \ac{CSH} \cite{tennis.2000, jennings.2000}
     \item low stiffness / high stiffness \ac{CSH} \cite{constantinides.2004}
 \end{itemize}
 
@@ -683,7 +683,6 @@ The results are plotted in \zcref{fig:suess_CSH_C3S} (\ac{C3S}) and \zcref{fig:s
             \addplot [color=red, mark=star, dotted] table [skip first n=3, x index=1, y index=9, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
             \addlegendentry[]{\acs*{C3S} \qty{60}{\celsius} \cite{suss.2001}}
 
-
             \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=1, y index=11, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
             \addplot+ [draw=none, no markers, name path=B,forget plot] table [skip first n=3, x index=1, y index=13, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
             \addplot [fill=orange, fill opacity=0.2,forget plot] fill between [of=A and B];
@@ -716,7 +715,7 @@ The results are plotted in \zcref{fig:suess_CSH_C3S} (\ac{C3S}) and \zcref{fig:s
 The formation of \ac{CSH} begins earlier at increasing temperatures.
 This also causes a significant increase in the overall fibre length.
 At the same temperature, \ac{C2S} demonstrates a slower \ac{CSH} growth.
-The \ac{CSH} growth of \ac{C3S} (\ac{wb}=\num{0.5}) stagnates after 5 months according to \textcite{voland.2000}, \textcite{suss.2001}, \textsc{Stark} and \textsc{Möser} et al. \cite{stark.2001,moser.2002}.
+The \ac{CSH} growth of \ac{C3S} (\ac{wb}=\num{0.5}) stagnates after \num{5} months according to \textcite{voland.2000}, \textcite{suss.2001}, \textsc{Stark} and \textsc{Möser} et al. \cite{stark.2001,moser.2002}.
 \textcite{bazzoni.2014} observed this stagnation already after a day, depending on the \ac{wb} value.
 A higher \ac{wb} value (\num{0.8} compared to \num{0.4}) led to longer \ac{CSH} needles.
 

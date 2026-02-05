@@ -531,3 +531,9 @@ To improve data density, the \ac{CDF} \cite{torquato.2002} is also calculated.
 The \ac{CDF} is derived by measuring chord lengths across pores in both $x$- and $y$-directions for every pixel row and column.
 These chord lengths are then compiled into a histogram.
 For all calculations, the pores are assumed to be circular.
+To calculate the most dominant pore radius $r_\text{P, max}$, the date were fitted using the following log-normal equation:
+
+\begin{equation}
+    f(r_\text{P}) = \frac{a}{r_\text{P}} \cdot \exp\left( -0.5 \cdot \left( \frac{\ln(r_\text{P}) - \mu}{\sigma} \right)^2 \right)
+    \label{eq:lognormal_fit}
+\end{equation}

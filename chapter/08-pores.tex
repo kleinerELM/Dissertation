@@ -585,16 +585,20 @@ Therefore, \ac{ArBIB} sectioned specimens were used (see \zcref{sec:bib_pol_fixe
 
 \subsection{\acs*{SEM}}
 
-\textit{The results of this section are mostly published in \textcite{kleiner.2021a}.}
+\textit{This section is partially published in \textcite{kleiner.2021a}, but the dataset was reevaluated.}
 
 The images obtained from the \ac{ArBIB} sectioned specimens (see \zcref{fig:csh-arbib-SEM2, fig:csh-arbib-SEM}) reveal the porosity within \ac{CSHi} and the porosity caused by the interpenetrating network of \ac{CSH}-fibres.
-Thiss also illustrates the advantage of the epoxy resin intrusion (\zcref{fig:csh-arbib-b}) into the pore space between the needle structure for image segmentation.
+This also illustrates the advantage of the epoxy resin intrusion (\zcref{fig:csh-arbib-b}) into the pore space between the needle structure for image segmentation.
 In \zcref{fig:csh-arbib-a, fig:csh-arbib-c} the full pore background is visible, making a useful segmentation and evaluation of the pore space unfeasible.
 However, the image quality of the nano-scale porosity within \ac{CSHi} is not affected by the epoxy intrusion.
 Therefore a segmentation proposed in \zcref{subsec:algo_psd} can be applied for both preparation variants.
 
-To determine the damage induced due to thermal stress during the \ac{ArBIB} process at room temperature, it was compared against Cryo-\ac{ArBIB}.
-Since subjectively no alteration of \ac{CSH} structures in high resolution images after both preparation methods could be found, a pore analysis for the \ac{CSHi} was carried out.
+To assess potential damage induced by thermal stress during the \ac{ArBIB} process at room temperature, the results were compared with those obtained using Cryo-\ac{ArBIB}.
+As no subjective alteration of the \ac{CSH} structures was observed in high-resolution images following either preparation method, a pore analysis of the \ac{CSHi} was conducted.
+A total of \num{11} images (total image area: \qty{29.8}{\micro\meter\squared}, of which \qty{23.2}{\micro\meter\squared} was \ac{CSHi}) were analysed for specimens prepared at \qty{20}{\celsius}, and \num{15} images (total image area: \qty{25.2}{\micro\meter\squared}, of which \qty{24.0}{\micro\meter\squared} was \ac{CSHi}) for those prepared at \qty{-140}{\celsius}.
+These images, along with the corresponding segmentation results, are provided in \zcref{subsec:appendix_PSD_arbib} and \cite{kleiner.2021g,kleiner.2021h}.
+\zcref{fig:compare_images} presents two example images alongside their respective pore segmentations.
+Additional image examples, indicating the excluded areas, are shown in \zcref{fig:compare_rt_1,fig:compare_cryo_1}.
 
 \begin{figure}[htbp]
     \centering
@@ -629,6 +633,17 @@ Since subjectively no alteration of \ac{CSH} structures in high resolution image
     \label{fig:compare_images}
 \end{figure}
 
+The \ac{PSD} and \ac{CDF} were calculated for each image.
+As the pixel sizes and image areas differed, these results subsequently summarised in two datasets.
+For each dataset, the area-weighted \ac{PSD} and the corresponding \ac{CDF} were calculated and plotted in \zcref{fig:compare_graphs}.
+To account for the physical significance of larger pores, the distribution was weighted by the pore volume within each bin and normalised to its maximum value:
+\begin{equation}
+    f_\text{v,n}(r) = \frac{N(r) \cdot V_\text{pore}(r)}{\max(N(r) \cdot V_\text{pore}(r))}
+	\label{eq:weig_norm_pore_frequency}
+\end{equation}
+Here, $N(r)$ denotes the frequency of pores with radius $r$, and $V_\text{pore}(r)$ represents the volume of a sphere with radius $r$.
+To achieve this for the \ac{CDF}, the measured chord lengths were extrapolated to volumes, assuming spherical pores.
+
 \begin{figure}[htbp]
     \centering
     % RT Graph
@@ -640,20 +655,35 @@ Since subjectively no alteration of \ac{CSH} structures in high resolution image
                 height=6cm,
                 grid=major,
                 xlabel={pore radius in \unit{\nano\meter}},
-                ylabel={norm. cum. pore diameter or area},
+                ylabel={weighted frequency $f_\text{v,n}$},
 				ytick=\empty,
-                xmin=0, xmax=29,
+                xmin=0, xmax=54,
                 ymin=0, ymax=1.2,
                 grid style={line width=.1pt, draw=gray!10},
-                legend style={at={(1,1)},anchor=north east, font=\scriptsize},
+                legend style={at={(0.98,0.98)},anchor=north east, font=\scriptsize},
                 legend columns=1,
             ]
-                \addplot[ybar, bar width=3pt, fill opacity=0.5, draw opacity=0, area legend, fill=red] table[x expr=\thisrow{size}/2,y=diameter,col sep=semicolon] {figures/methods/arbib-c3s-pores/figure16c_CDF.csv};
-                \addplot[ybar, bar width=3pt, fill opacity=0.5, draw opacity=0, area legend, fill=blue] table[x expr=\thisrow{size}/2,y=area,col sep=semicolon] {figures/methods/arbib-c3s-pores/figure16c_CDF.csv};
-                \addplot[black] table[x expr=\thisrow{size}/2,y=area,col sep=semicolon] {figures/methods/arbib-c3s-pores/figure16c_PSD.csv};
+                \addplot[ybar, bar width=1.523, fill opacity=0.5, draw opacity=0, area legend, fill=red] table[x=bin_center,y expr=\thisrow{count_per_um2}/1468932,col sep=comma] {figures/methods/arbib-c3s-pores/rt_CLD_volume.csv};
+                \addlegendentry{\acs*{CDF}};
+
+                \addplot[ybar, bar width=1.05, fill opacity=0.5, draw opacity=0, area legend, fill=blue] table[x=bin_center,y expr=\thisrow{count_per_um2}/43273,col sep=comma] {figures/methods/arbib-c3s-pores/rt_PSD_volume.csv};
+                \addlegendentry{\acs*{PSD}};
+
+				%\addplot [no markers, orange, domain=0:55, samples=100] {1142970 / 1468932 * exp(-0.5 * ((x - 17.4412) / 9.1613)^2)};
+
+				%\addplot [no markers, cyan, domain=0:55, samples=100] {31149 / 43273 * exp(-0.5 * ((x - 17.8718) / 9.2256)^2)};
+
+				\addplot [no markers, red, domain=0.01:55, samples=100] {(20042957.1493 / x * exp(-0.5 * ((ln(x) - 2.9845) / 0.5814)^2)) / 1468932};
+				\addlegendentry{\acs*{CDF} fit}
+				% max value at x=14.1038
+
+				\addplot [no markers, blue, domain=0.01:55, samples=100] {(564085.0450 / x * exp(-0.5 * ((ln(x) - 3.0072) / 0.5615)^2)) / 43273};
+				\addlegendentry{\acs*{PSD} fit}
+				% max value at x=14.7599
+
             \end{axis}
         \end{tikzpicture}
-        \caption{RT (\qty{20}{\celsius})}
+        \caption{room temperature (\qty{20}{\celsius})}
         \label{fig:compare_rt_c}
     \end{subfigure}
     \hfill
@@ -666,48 +696,62 @@ Since subjectively no alteration of \ac{CSH} structures in high resolution image
                 height=6cm,
                 grid=major,
                 xlabel={pore radius in \unit{\nano\meter}},
-                ylabel={norm. cum. pore diameter or area},
+                ylabel={weighted frequency $f_\text{v,n}$},
                 yticklabel pos=right,
 				ytick=\empty,
-                xmin=0, xmax=29,
+                xmin=0, xmax=54,
                 ymin=0, ymax=1.2,
                 grid style={line width=.1pt, draw=gray!10},
                 legend style={at={(0.98,0.98)},anchor=north east, font=\scriptsize},
             ]
-                \addplot[ybar, bar width=3pt, fill opacity=0.5, draw opacity=0, area legend, fill=red] table[x expr=\thisrow{size}/2,y=diameter,col sep=semicolon] {figures/methods/arbib-c3s-pores/figure15c_CDF.csv};
-                \addlegendentry{\ac{CDF} (diameter)};
-                \addplot[ybar, bar width=3pt, fill opacity=0.5, draw opacity=0, area legend, fill=blue] table[x expr=\thisrow{size}/2,y=area,col sep=semicolon] {figures/methods/arbib-c3s-pores/figure15c_CDF.csv};
-                \addlegendentry{\ac{CDF} (area)};
-                \addplot[black] table[x expr=\thisrow{size}/2,y=area,col sep=semicolon] {figures/methods/arbib-c3s-pores/figure15c_PSD.csv};
-                \addlegendentry{\ac{PSD} (area)};
+                \addplot[ybar, bar width=1.023, fill opacity=0.5, draw opacity=0, area legend, fill=red] table[x=bin_center,y expr=\thisrow{count_per_um2}/470539,col sep=comma] {figures/methods/arbib-c3s-pores/cryo_CLD_volume.csv};
+                \addlegendentry{\acs*{CDF}};
+
+                \addplot[ybar, bar width=0.574, fill opacity=0.5, draw opacity=0, area legend, fill=blue] table[x=bin_center,y expr=\thisrow{count_per_um2}/9464,col sep=comma] {figures/methods/arbib-c3s-pores/cryo_PSD_volume.csv};
+                \addlegendentry{\acs*{PSD}};
+
+				%\addplot [no markers, orange, domain=0:40, samples=100] {386465/470539 * exp(-0.5 * ((x - 10.6056) / 5.0324)^2)};
+
+				%\addplot [no markers, cyan, domain=0:40, samples=100] {7179/9464 * exp(-0.5 * ((x - 10.5568) / 4.5719)^2)};
+
+				\addplot [no markers, red, domain=0.01:55, samples=100] {(4085894.9164 / x * exp(-0.5 * ((ln(x) - 2.4277) / 0.4976)^2))/470539.9};
+				\addlegendentry{\acs*{CDF} fit}
+				% max value at x=8.8474
+
+				\addplot [no markers, blue, domain=0.01:55, samples=100] {(76152.7696 / x * exp(-0.5 * ((ln(x) - 2.4129) / 0.4371)^2))/9464};
+				\addlegendentry{\acs*{PSD} fit}
+				% max value at x=9.2243
+
             \end{axis}
         \end{tikzpicture}
         \caption{Cryo (\qty{-140}{\celsius})}
         \label{fig:compare_cryo_c}
     \end{subfigure}
 	\caption{
-		\ac{PSD} and \ac{CDF} of \ac{CSHi} (\qty{28}{\day} hydrated \ac{C3S}) prepared at \qty{20}{\celsius} and \qty{-140}{\celsius}, obtained from \num{7} \ac{SE} images for each temperature step.
+		\ac{PSD} and \ac{CDF} of \ac{CSHi} (\qty{28}{\day} hydrated \ac{C3S}) prepared at \qty{20}{\celsius} and \qty{-140}{\celsius}, obtained from \ac{SE} images (\qty{20}{\celsius}: analysed \qty{23.2}{\micro\meter\squared}; \qty{-140}{\celsius}: analysed \qty{24.0}{\micro\meter\squared}) for each temperature step.
 	}
     \label{fig:compare_graphs}
 \end{figure}
 
-\zcref{fig:compare_images} shows nano-size pores of a sample sectioned using \ac{ArBIB} at \qty{-140}{\celsius} and \qty{20}{\celsius}.
-Pores with a diameter of \qty{5}{\nano\meter} can be clearly distinguished and analysed in the \ac{SE}-images (resolution: \qty{0.9}{\nano\meter\per\px}, \qtyproduct{2022 x 1650}{\px}).
-Manual verification of the segmentation results is essential to exclude erroneously segmented areas, as false detection of microstructural features remains a possibility.
+\zcref{fig:compare_images} shows nano-sized pores in a sample sectioned using \ac{ArBIB} at \qty{-140}{\celsius} and \qty{20}{\celsius}.
+Pores with a diameter of \qty{5}{\nano\meter} can be clearly distinguished and analysed in the \ac{SE} images (resolution: \qty{0.9}{\nano\meter\per\px}, \qtyproduct{2022 x 1650}{\px}).
+Manual verification of the segmentation results is essential to exclude erroneously segmented areas, as the false detection of microstructural features remains a possibility.
 
-As illustrated in \zcref{fig:compare_cryo_c,fig:compare_rt_c}, the \ac{CDF} (converted from chord to area, blue) exhibits a distribution distinct from the \ac{PSD} determined by the analysis of pore areas (black line).
-However, the data density of the \ac{PSD} is very low, causing significant fluctuations.
-Therefore, is unsuitable for further evaluation. 
-Furthermore, it is sensitive to the background noise of the image (compare \zcref{fig:compare_cryo_c,fig:compare_rt_c}), whereas the \ac{CDF} yields more robust results.
-The \ac{CDF} analysis indicates that the pores within the \ac{CSH} predominantly possess diameters in the range of \qtyrange{10}{30}{\nano\meter}.
-However, these results are based on only \num{7} images for each preparation method and serve primarily to illustrate their respective quality.
+As illustrated in \zcref{fig:compare_cryo_c,fig:compare_rt_c}, the \ac{CDF} (converted from chord to volume, red) exhibits a distribution remarkably similar to the \ac{PSD} determined by pore area analysis (blue).
+However, the data density of the \ac{PSD} is relatively low, resulting in significant fluctuations.
+The data density of the \ac{PSD} is also insufficient for evaluating individual images, as previously demonstrated in \cite{kleiner.2021a}. 
+Furthermore, the \ac{PSD} appears to be more sensitive to image background noise (compare \zcref{fig:compare_cryo_c,fig:compare_rt_c}), whereas the \ac{CDF} yields more robust results due to its higher data density.
+The analysis indicates that the pores within \ac{CSHi} predominantly possess diameters in the range of \qtyrange{10}{30}{\nano\meter}.
 
-These images and the corresponding segmentation results can be found in \zcref{subsec:appendix_PSD_arbib} and \cite{kleiner.2021g,kleiner.2021h}.
-As the pixel size and image areas differed slightly, the images were analysed individually.
-The position of the mean peak value of the \ac{CDF} was utilised to compare both methods.
-The mean peak pore radius was determined to be \qty{8.7(1.4)}{\nano\meter} for \ac{ArBIB} at \qty{-140}{\celsius} and \qty{11.4(2.7)}{\nano\meter} for \ac{ArBIB} at \qty{20}{\celsius}.
-Furthermore, \zcref{fig:compare_cryo_a,fig:compare_rt_a} reveal no apparent differences in pore structure.
-The observed variation in the \ac{CDF} between the two methods is negligible and likely attributable to variations in the positioning and quality of the acquired images.
+The position of the most dominant pore radius, $r_\text{P, max}$, determined by the fit function (\zcref{eq:lognormal_fit}) of the \ac{PSD} in the range $r_\text{P}=\qtyrange{0}{55}{\nano\meter}$, was utilised to compare both methods.
+The fit parameters are listed in \zcref{tab:rP_fit_parameters}.
+It was determined to be \qty{9.2}{\nano\meter} for \ac{ArBIB} at \qty{-140}{\celsius} and \qty{14.8}{\nano\meter} for \ac{ArBIB} at \qty{20}{\celsius}.
+Furthermore, a larger pore area fraction was measured at room temperature compared to cryo conditions (\qty{4.1}{\percent} vs. \qty{1.28}{\percent}).
+While a trend towards larger nano-porosity in the \ac{CSHi} prepared at room temperature is measurable, it must be noted that the analysed area was relatively small, and only a small portion contained segmented porosity.
+
+Finally, \zcref{fig:compare_cryo_a,fig:compare_rt_a} reveal no apparent differences in the pore structure.
+However, it appears that the curtaining artefacts visible in some images may affect the measured pore sizes.
+%The observed variation in the \ac{CDF} between the two methods is negligible and likely attributable to variations in the positioning and quality of the acquired images.
 
 
 
@@ -752,7 +796,7 @@ While the energy density introduced in the specimen surface by imaging at \qty{2
 The volume was denoised using \ac{NLM} and segmented using a global threshold value.
 The so segmented pores were then evaluated.
 Assuming spherical porosity, the pore radius $r_\text{P}$ was calculated for the segmented volume.
-The respective pore size distribution histograms are shown in \zcref{fig:fib_highres_hist_2D}.
+The respective pore size distribution histograms are shown in \zcref{fig:fib_highres_hist_3D}.
 
 %X:\Mitarbeiter\Florian Kleiner\FIB-Data\C3S 1Tag-10Monate\2019_11_01 C3S High Resolution Training RT\Export-porosity\
 \begin{figure}[H]
@@ -776,11 +820,12 @@ The respective pore size distribution histograms are shown in \zcref{fig:fib_hig
 			]
 			% \addplot [ybar, bar width=1.4492, bar shift=0pt, fill=blue, fill opacity=.5, draw=none, area legend] table [x=Radius_Center, y expr=\thisrow{Frequency}/10929, col sep=comma] {figures/fibnt-datasets/pores-high-res_radius_histogram_2D.csv};
 			% \addlegendentry{2D}
-			\addplot [ybar, bar width=1.3795, bar shift=0pt, fill=red, fill opacity=.5, draw=none, area legend] table [x=Radius_Center, y expr=\thisrow{Frequency}/2964, col sep=comma] {figures/fibnt-datasets/pores-high-res_radius_histogram_3D.csv};
+			\addplot [ybar, bar width=1.3795, bar shift=0pt, fill=blue, fill opacity=.5, draw=none, area legend] table [x=Radius_Center, y expr=\thisrow{Frequency}/2964, col sep=comma] {figures/fibnt-datasets/pores-high-res_radius_histogram_3D.csv};
 			\addlegendentry{\ac{CSHi} porosity}
 			\end{axis}
 		\end{tikzpicture}
 		\caption{Normalised frequency distribution.}
+		\label{fig:fib_highres_hist_3D-a}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[t]{0.49\textwidth}
@@ -790,12 +835,12 @@ The respective pore size distribution histograms are shown in \zcref{fig:fib_hig
 				width=1.1\textwidth,
 				height=6cm,
 				xlabel={pore radius $r_\text{P}$ in \unit{\nano\meter}},
-				ylabel={norm. total pore volume},
+				ylabel={weighted frequency $f_\text{v,n}$},
 				grid=major,
 				xmin=0, xmax=95,
 				xticklabels={0,20,...,100},
 				xtick={0,20,...,100},
-				ymin=0,
+				ymin=0,ymax=1.2,
 				ytick=\empty,
 				grid style={line width=.1pt, draw=gray!10},
 				yticklabel pos=right,
@@ -804,27 +849,43 @@ The respective pore size distribution histograms are shown in \zcref{fig:fib_hig
 			]
 			% \addplot [ybar, bar width=1.4492, bar shift=0pt, fill=blue, fill opacity=.5, draw=none, area legend] table [x=Radius_Center, y expr=\thisrow{Total_per_bin}/5011792.00, col sep=comma] {figures/fibnt-datasets/pores-high-res_bin_volumes_2D.csv};
 			% \addlegendentry{2D}
-			\addplot [ybar, bar width=1.3795, bar shift=0pt, fill=red, fill opacity=.5, draw=none, area legend] table [x=Radius_Center, y expr=\thisrow{Total_per_bin}/1396002.62, col sep=comma] {figures/fibnt-datasets/pores-high-res_bin_volumes_3D.csv};
+			\addplot [ybar, bar width=1.3795, bar shift=0pt, fill=red, fill opacity=.5, draw=none, area legend, restrict x to domain=7:95] table [x=Radius_Center, y expr=\thisrow{Total_per_bin} / 1396002.62, col sep=comma] {figures/fibnt-datasets/pores-high-res_bin_volumes_3D.csv};
 			\addlegendentry{volume porosity}
+
+			% the normalisation of the fit is not correct for some reason
+			%\addplot [no markers, red, domain=0.01:95, samples=100] {(23763476.64 / x * exp(-0.5 * ((ln(x) - 2.6867) / 0.5548)^2)) / 1396002.62};
+			\addplot [no markers, red, domain=6.89:95, samples=100] { ((17087615.93 / x) * exp(-0.5 * ((ln(x) - 2.6867) / 0.5548)^2)) / 1357352.69 };
+			\addlegendentry{fit}
+
+			\addplot [ybar, bar width=1.3795, bar shift=0pt, fill=black, fill opacity=.3, draw=none, area legend, restrict x to domain=0:7] table [x=Radius_Center, y expr=\thisrow{Total_per_bin} / 1396002.62, col sep=comma] {figures/fibnt-datasets/pores-high-res_bin_volumes_3D.csv};
+
 			\end{axis}
 		\end{tikzpicture}
-		\caption{\ac{CSHi} distribution.}
-		\label{fig:fib_highres_hist_2D-b}
+		\caption{\ac{PSD} within \ac{CSHi}.}
+		\label{fig:fib_highres_hist_3D-b}
 	\end{subfigure}
 	\caption{
-		Pore radius distribution of the segmented dataset based on the segmented 3D volume ({\color{blue}blue}) and the 2D slices ({\color{red}red}).
+		Normalised frequency distribution of the pores ({\color{blue}blue}) and the \ac{PSD} of the segmented dataset based on a segmented 3D volume of of \ac{CSHi} ({\color{red}red}).
+		% and the 2D slices ({\color{red}red}).
+		The first three bins ({\color{darkgrey}grey}) were not used to for the fit
 	}
-	\label{fig:fib_highres_hist_2D}
+	\label{fig:fib_highres_hist_3D}
 \end{figure}
 
-The frequency of pores increases inversely with the pore radius, with the smallest detectable pores being the most abundant.
-However, when analysing the contribution to the total pore volume, the distribution changes.
-The maximum pore volume is observed at a pore radius $r_\text{P}$ of \qty{11.7}{\nano\meter} in the 3D analysis.
-It should be noted that the voxel geometry exhibits significant anisotropy, with a slice thickness ($z$) of \qty{10}{\nano\meter} compared to a lateral resolution ($x, y$) of \qtyproduct{1.6 x 2.0}{\nano\meter}.
-This discrepancy introduces considerable uncertainty in the measurement of pore diameter below \qty{10}{\nano\meter}, as these features cannot be reliably resolved in the $z$-direction.
 
-Considering this, and the possibility, that the pores could be enlarged by the method itself, it has to be assumed, that the distribution is probably shifted to a larger porosity.
-Therefore, the real peak of the distribution should be expected below \qty{11.7}{\nano\meter}.
+The weighted and normalised frequency $f_\text{v,n}$ (see \zcref{eq:weig_norm_pore_frequency}) of pores increases with decreasing pore radius, with the smallest detectable pores being the most abundant.
+However, the distribution differs when analysing the contribution to the total pore volume.
+The peak of the pore volume distribution was determined using a log-normal fit function (\zcref{eq:lognormal_fit}) and was found at a pore radius $r_\text{P}$ of \qty{10.8}{\nano\meter}.
+The fit parameters are listed in \zcref{tab:rP_fit_parameters}.
+For this fit, only radii larger than \qty{6.5}{\nano\meter} were considered, as the three excluded smaller bins (shown in grey) are likely attributable to data noise.
+Notably, the voxel geometry exhibits significant anisotropy, with a slice thickness ($z$) of \qty{10}{\nano\meter} compared to a lateral resolution ($x, y$) of \qtyproduct{1.6 x 2.0}{\nano\meter}.
+This anisotropy introduces considerable uncertainty in measuring pore diameters below \qty{10}{\nano\meter}, as these features cannot be reliably resolved in the $z$-direction.
+
+Considering these factors and the potential for pore enlargement caused by the preparation method, the measured distribution is likely shifted towards larger pore radii.
+Consequently, the true peak of the distribution is expected to be lower than the determined \qty{10.8}{\nano\meter}.
+
+Comparing this value with the results from the \ac{ArBIB}-prepared samples in the previous section, it falls between the values measured for the two temperature conditions: \qty{9.2}{\nano\meter} at \qty{-140}{\celsius} and \qty{14.8}{\nano\meter} at room temperature.
+
 % Consequently, a purely volumetric approach for such an anisotropic dataset presents challenges.
 % Evaluating the dataset based on the segmented 2D slices yields a maximum pore volume at a radius of \qty{10.7}{\nano\meter}.
 % However, the histogram extrapolated to volume data from 2D slice data also demonstrates, that a direct comparison is not directly possible (see \zcref{fig:fib_highres_hist_2D-b})

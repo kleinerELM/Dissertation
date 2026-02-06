@@ -226,7 +226,7 @@ When the high-energy beam electrons penetrate the sample, they can knock out inn
 The electrons of the outer-shell will fall back to the energy level of the knocked-out electrons, emitting the excess energy in the form of X-rays.
 The energy of these X-rays is a unique fingerprint of a specific element.
 An \ac{EDX} detector measures the energy and intensity (counts) of the emitted X-rays.
-This allows for qualitative identification for elements in cement-based materials with a concentration of at least \qty{0.1}{\wtpercent} \cite{kleiner.2022b} and quantitative analysis. 
+This allows for qualitative identification for elements in cement-based materials with a concentration of down to \qty{0.1}{\wtpercent} \cite{kleiner.2022b} and quantitative analysis. 
 Point analyses and elemental maps can show the spatial distribution of these elements and thus, the associated phases.
 
 The excitation voltage has to be about \numrange{2}{3} times as high as the expected X-ray energies of the elements of interest to collect enough counts to be able identify and quantify the concentration of the elements. % \acs{Ka}  or \acs{Kb}
@@ -237,13 +237,19 @@ Window-less detectors \cite{tamura.2013} also allow to detect light elements lik
 However, these elements still are challenging to differentiate in most specimens with a more complex composition due to the overlap of X-ray energies \cite{hudson.2003}.
 
 The lateral resolution of the \ac{EDX} analysis is limited by the applied electron beam voltage and current.
-Similar to the \ac{BSE}, the higher the voltage, the larger the interaction volume and depth (see \zcref{fig:penetration_depth}), and therefore the larger the area from which X-rays are emitted \cite{rossen.2017}.
+Similar to the \ac{BSE}, the higher the voltage, the larger the interaction volume and depth (see \zcref{fig:penetration_depth}), and therefore the larger the area from which X-rays are emitted \cite{rossen.2017}, reducing the feature resolution.
 Depending on the beam voltage required, the interaction volume and therefore the resolution can be below \qty{1}{\micro\meter} \cite{jiang.2022}.
-Furthermore, a larger interaction volume will cause subsurface information being included in the measured spectra.
+This was also shown by \textcite{rossler.2022}, who managed to reveal microstructural features below \qty{400}{\nano\meter} within cement clinkers at \qty{25}{\kilo\volt}.
+\textcite{moeini.2021} even demonstrated \ac{EDX} element mappings from an \ce{Al}-\ce{Si}10\ce{Mg} alloy, revealing intergranular spaces with a thickness between \qtyrange{100}{200}{\nano\meter}.
+
+% DONE: auch hier kannst du zB unsere high resolution EDX erfolge zitieren, zb in dem paper moeini.2021 und auch im EBSD klinkerpaper rossler.2022 haben wir gezeigt, dass im mapping eine sub mikron auflösung (feature size of 300nm) möglich ist, trotz theoretischer limitation der auflösung bei modelliertem wechselwirkungsvolumen. diese diskrepanz fällt mir verständnisweise auch manchmal schwer, aber ist halt so wenn man einfach die step size auf 100nm im mapping setzt. ich habe auch noch nicht ausprobiert wo wirklich die grenze ist..
+
+
 
 % TODO: Wäre es hier nicht auch noch sinnvoll zu erwähnen, dass man ggf. seine Probe mit den hohen Energien kaputt macht? Das ist doch ein eindeutiger Nachteil.
 % TODO: und dann sollte bei EDX schon was über phase maps stehen, also die methode von \cite{stutzman.2004}, vs \cite{georget.2021} vs. unser aachen ansatz \cite{jiang.2022} und vs die blackbox aus aztec \cite{aztec.2004} o.ä software.
-% TODO: auch hier kannst du zB unsere high resolution EDX erfolge zitieren, zb in dem paper moeini.2021 und auch im EBSD klinkerpaper rossler.2022 haben wir gezeigt, dass im mapping eine sub mikron auflösung (feature size of 300nm) möglich ist, trotz theoretischer limitation der auflösung bei modelliertem wechselwirkungsvolumen. diese diskrepanz fällt mir verständnisweise auch manchmal schwer, aber ist halt so wenn man einfach die step size auf 100nm im mapping setzt. ich habe auch noch nicht ausprobiert wo wirklich die grenze ist..
+% \cite{reed.2025} used a method based on QGIS (see mail from Christiane/Nikkola Paavo, 08.10.2025)
+
 
 \FloatBarrier
 
@@ -336,7 +342,7 @@ This can usually be reduced by applying conductive coatings (e.g., \ce{Pt}) with
 
 \textcite{holzer.2006, munch.2006} analysed the particle distribution of cement powder embedded in a matrix of \textsc{Wood}'s metal and resin using \ac{FIB} serial sectioning.
 Improved low-keV \ac{BSE} detectors made it possible to image highly detailed datasets of hydrated cement for a \qtyproduct{14 x 14 x 14}{\cubic\micro\meter} volume with a voxel size of \qtyproduct{20 x 20 x 20}{\nano\meter\cubed} \cite{trtik.2011}.
-\textcite{munch.2006, holzer.2006a} also demonstrated early on that a \ce{Ga}-\ac{FIBnt} can be used to cut larger volumes (\numproduct{65 x 46 x 34} and \qtyproduct{46 x 32 x 25}{\cubic\micro\meter}) of a cement powder and a hydrated cement paste sample.
+\textcite{munch.2006, holzer.2006a} also demonstrated early on that a \ce{Ga}-\ac{FIBnt} can be used to cut larger volumes (\qtyproduct{65 x 46 x 34}{\cubic\micro\meter} and \qtyproduct{46 x 32 x 25}{\cubic\micro\meter}) of a cement powder and a hydrated cement paste sample.
 However, this came at the cost of a reduction in resolution, with the achieved non-cubic voxel sizes being \qtyrange{74}{170}{\nano\meter}.
 Utilising a \ac{PFIB}, \textcite{dong.2022} were able to image a very large volume (\qtyproduct{80 x 90.5 x 63.1}{\cubic\micro\meter}) of a hydrated \ac{OPC} at an improved voxel size of \qtyproduct{25 x 25 x 100}{\nano\meter\cubed}.
 

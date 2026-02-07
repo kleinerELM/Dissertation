@@ -605,32 +605,32 @@ Additional image examples, indicating the excluded areas, are shown in \zcref{fi
     % RT Images
 	% C3S 28d BIB 6KV 6h_019.tif
     \begin{subfigure}{0.49\textwidth}
-        \includegraphics[width=\textwidth]{methods/arbib-c3s-pores/figure16a.jpg}
-        \caption{Raw image, \ac{ArBIB} at \qty{20}{\celsius}}
+        \includegraphics[width=\textwidth]{methods/arbib-c3s-pores/C3S 28d BIB 6KV 6h_019-1.pdf}
+        \caption{\ac{SEM}-\ac{SE} image, \ac{ArBIB} at \qty{20}{\celsius}.}
         \label{fig:compare_rt_a}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.49\textwidth}
-        \includegraphics[width=\textwidth]{methods/arbib-c3s-pores/figure16b.png}
-        \caption{Segmented pores}
+        \includegraphics[width=\textwidth]{methods/arbib-c3s-pores/C3S 28d BIB 6KV 6h_019-1_pores.pdf}
+        \caption{Segmented pores.}
         \label{fig:compare_rt_b}
     \end{subfigure}
 
     % Cryo Images
 	% C3S 28d cryo BIB 6h_016.tif
     \begin{subfigure}{0.49\textwidth}
-        \includegraphics[width=\textwidth]{methods/arbib-c3s-pores/figure15a.jpg}
-        \caption{Raw image, \ac{ArBIB} at \qty{-140}{\celsius}}
+        \includegraphics[width=\textwidth]{methods/arbib-c3s-pores/C3S 28d cryo BIB 6h_015-1.pdf}
+        \caption{\ac{SEM}-\ac{SE} image, \ac{ArBIB} at \qty{-140}{\celsius}.}
         \label{fig:compare_cryo_a}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.49\textwidth}
-        \includegraphics[width=\textwidth]{methods/arbib-c3s-pores/figure15b.png}
-        \caption{Segmented pores}
+        \includegraphics[width=\textwidth]{methods/arbib-c3s-pores/C3S 28d cryo BIB 6h_015-1_pores.pdf}
+        \caption{Segmented pores.}
         \label{fig:compare_cryo_b}
     \end{subfigure}
     \caption{
-		Comparison of the segmentation of pores within \ac{CSHi} of \ac{SEM}-\ac{SE} images sectioned using \ac{ArBIB} prepared at \num{20} and \qty{-140}{\celsius}.
+		Comparison of contrast enhanced \ac{SEM}-\ac{SE} images and the segmentation of pores within \ac{CSHi}, sectioned using \ac{ArBIB} prepared at \num{20} and \qty{-140}{\celsius}.
 	}
     \label{fig:compare_images}
 \end{figure}
@@ -665,10 +665,10 @@ To achieve this for the \ac{CDF}, the measured chord lengths were extrapolated t
                 legend style={at={(0.98,0.98)},anchor=north east, font=\scriptsize},
                 legend columns=1,
             ]
-                \addplot[ybar, bar width=1.523, fill opacity=0.5, draw opacity=0, area legend, fill=red] table[x=bin_center,y expr=\thisrow{count_per_um2}/1468932,col sep=comma] {figures/methods/arbib-c3s-pores/rt_CLD_volume.csv};
+                \addplot[ybar, bar width=1.523, fill opacity=0.5, draw=none, area legend, fill=red] table[x=bin_center,y expr=\thisrow{count_per_um2}/1468932,col sep=comma] {figures/methods/arbib-c3s-pores/rt_CLD_volume.csv};
                 \addlegendentry{\acs*{CDF}};
 
-                \addplot[ybar, bar width=1.05, fill opacity=0.5, draw opacity=0, area legend, fill=blue] table[x=bin_center,y expr=\thisrow{count_per_um2}/43273,col sep=comma] {figures/methods/arbib-c3s-pores/rt_PSD_volume.csv};
+                \addplot[ybar, bar width=1.05, fill opacity=0.5, draw=none, area legend, fill=blue] table[x=bin_center,y expr=\thisrow{count_per_um2}/43273,col sep=comma] {figures/methods/arbib-c3s-pores/rt_PSD_volume.csv};
                 \addlegendentry{\acs*{PSD}};
 
 				%\addplot [no markers, orange, domain=0:55, samples=100] {1142970 / 1468932 * exp(-0.5 * ((x - 17.4412) / 9.1613)^2)};
@@ -685,7 +685,7 @@ To achieve this for the \ac{CDF}, the measured chord lengths were extrapolated t
 
             \end{axis}
         \end{tikzpicture}
-        \caption{room temperature (\qty{20}{\celsius})}
+        \caption{Room temperature (\qty{20}{\celsius}).}
         \label{fig:compare_rt_c}
     \end{subfigure}
     \hfill
@@ -706,10 +706,10 @@ To achieve this for the \ac{CDF}, the measured chord lengths were extrapolated t
                 grid style={line width=.1pt, draw=gray!10},
                 legend style={at={(0.98,0.98)},anchor=north east, font=\scriptsize},
             ]
-                \addplot[ybar, bar width=1.023, fill opacity=0.5, draw opacity=0, area legend, fill=red] table[x=bin_center,y expr=\thisrow{count_per_um2}/470539,col sep=comma] {figures/methods/arbib-c3s-pores/cryo_CLD_volume.csv};
+                \addplot[ybar, bar width=1.023, fill opacity=0.5, draw=none, area legend, fill=red] table[x=bin_center,y expr=\thisrow{count_per_um2}/470539,col sep=comma] {figures/methods/arbib-c3s-pores/cryo_CLD_volume.csv};
                 \addlegendentry{\acs*{CDF}};
 
-                \addplot[ybar, bar width=0.574, fill opacity=0.5, draw opacity=0, area legend, fill=blue] table[x=bin_center,y expr=\thisrow{count_per_um2}/9464,col sep=comma] {figures/methods/arbib-c3s-pores/cryo_PSD_volume.csv};
+                \addplot[ybar, bar width=0.574, fill opacity=0.5, draw=none, area legend, fill=blue] table[x=bin_center,y expr=\thisrow{count_per_um2}/9464,col sep=comma] {figures/methods/arbib-c3s-pores/cryo_PSD_volume.csv};
                 \addlegendentry{\acs*{PSD}};
 
 				%\addplot [no markers, orange, domain=0:40, samples=100] {386465/470539 * exp(-0.5 * ((x - 10.6056) / 5.0324)^2)};
@@ -726,11 +726,11 @@ To achieve this for the \ac{CDF}, the measured chord lengths were extrapolated t
 
             \end{axis}
         \end{tikzpicture}
-        \caption{Cryo (\qty{-140}{\celsius})}
+        \caption{Cryo conditions (\qty{-140}{\celsius}).}
         \label{fig:compare_cryo_c}
     \end{subfigure}
 	\caption{
-		\ac{PSD} and \ac{CDF} of \ac{CSHi} (\qty{28}{\day} hydrated \ac{C3S}) prepared at \qty{20}{\celsius} and \qty{-140}{\celsius}, obtained from \ac{SE} images (\qty{20}{\celsius}: analysed \qty{23.2}{\micro\meter\squared}; \qty{-140}{\celsius}: analysed \qty{24.0}{\micro\meter\squared}) for each temperature step.
+		\ac{PSD} and \ac{CDF} of \ac{CSHi} (\qty{28}{\day} hydrated \ac{C3S}) prepared at \qty{20}{\celsius} and \qty{-140}{\celsius}, obtained from \ac{SE} images (\qty{20}{\celsius}: analysed \qty{23.2}{\micro\meter\squared}; \qty{-140}{\celsius}: analysed \qty{24.0}{\micro\meter\squared}).
 	}
     \label{fig:compare_graphs}
 \end{figure}
@@ -1382,7 +1382,7 @@ The red area represents the gel pore volume, while the yellow area represents th
     \caption{
 		\ac{LTDSC} curves for the first and second melting pass of \qty{28}{\day} hydrated \ac{C2S}.
 		The red area correlate to the capillary porosity, while the yellow area correlates to the gel porosity.
-		The value range used for the linear baseline regression is marked red between \qtyrange{-57}{-56}{\celsius} (P2) or \qtyrange{-21.5}{-20.5}{\celsius} (P1) and \qtyrange{9}{10}{\celsius} (P1 and P2) determine .
+		The value range used for the linear baseline regression is marked red between \qtyrange{-57}{-56}{\celsius} (P2) or \qtyrange{-21.5}{-20.5}{\celsius} (P1) and \qtyrange{9}{10}{\celsius} (P1 and P2).
 	}
     \label{fig:ltdsc_result_c2s_melt}
 \end{figure}
@@ -1395,7 +1395,7 @@ This indicates, that the heating rate of \qty{2}{\kelvin\per\minute} was higher 
 Therefore, an experiment comparing with a slower heating rate (\qty{0.5}{\kelvin\per\minute}) was carried out (\zcref{fig:ltdsc_result_heating_rate_a}).
 This results in a shift of the melting peak in the direction of \qty{0}{\celsius} and a seemingly smaller heat output.
 However, difference in peak height is caused by a change in the measuring interval.
-To mitigate this, the dashed curve indicates the heat flow $\dot{Q}$ of the \qty{0.5}{\kelvin\per\minute} heat rate, corrected for the interval difference . %TODO: ist das legitim?
+To mitigate this, the dashed curve indicates the heat flow $\dot{Q}$ of the \qty{0.5}{\kelvin\per\minute} heat rate, corrected for the interval difference. %TODO: ist das legitim?
 
 \begin{figure}[!htb]
     \centering
@@ -1993,15 +1993,33 @@ As already indicated by \ac{LTDSC}, the capillary pore space of \ac{C2S} is sign
 
 \section{Conclusion}
 
-The characterisation of porosity in cementitious materials necessitates a multi-method approach to cover the full range of pore sizes.
-Benchmarking against porous glass standards revealed that \ac{SEM}-based pore size analysis is highly sensitive to segmentation parameters.
-In contrast, \ac{LTDSC} offers reliable data for the overall porosity, which can also be distinguished between gel and capillary pores.
+The characterisation of porosity in cementitious materials necessitates a multi-method approach to cover the full range of pore sizes and to validate the results.
+Benchmarking against porous glass standards revealed that \ac{SEM}-based pore size analysis is highly sensitive to segmentation parameters, like the block size of adaptive thresholding algorithms.
+\ac{LTDSC} was able to distinguish between the two pore sizes of the glass standards.
 However, the assignment to an actual pore size using the approximation by \textcite{brun.1977} seems to be unsuitable, since the water in the gel pores freezes significantly below the boundary temperature \qty{-40}{\degreeCelsius} of the equation.
+ 
+For hydrated \ac{C3S} and \ac{C2S}, the combination of \ac{SEM}, \ac{FIBnt}, \ac{LTDSC}, and \ac{MIP} provided a comprehensive view of the pore structure development.
+High-resolution \ac{SEM} and \ac{FIBnt} imaging of \ac{ArBIB}-prepared cross-sections allowed for the direct observation and quantification of the nano-porosity within \ac{CSHi}.
+Both 2D and 3D image analysis yielded comparable pore size distributions with a dominant pore radius in the range of \qtyrange{9}{15}{\nano\meter}.
+Comparison of \ac{ArBIB} preparation at room temperature and cryogenic conditions showed only minor differences in the measured pore structure, suggesting that thermal damage during preparation is small.
+However, larger image areas of polished \ac*{CSHi} would be required to verify this assumption.
+ 
 
-In terms of microstructural imaging, \ac{ArBIB} sectioning was found to be superior to mechanical polishing.
-It revealed the solid, star-shaped cross-section of \ac{CSH} needles and preserved the native pore structure without requiring resin embedding or cryo-cooling.
-Regarding the hydration of \ac{C3S} and \ac{C2S}, both \ac{LTDSC} and \ac{MIP} measurements consistently indicated a densification of the microstructure over time, characterised by an increase in gel porosity and a reduction in capillary porosity.
-In accordance with the results based on image analysis shown in \zcref{chap:hydrate-rim}, \ac{C3S} showed a significantly higher volume of gel pores and a lower volume of capillary pores compared to \ac{C2S} at the same hydration age, reflecting its faster reaction kinetics.
+% In terms of microstructural imaging, \ac{ArBIB} sectioning was found to be superior to mechanical polishing.
+% It revealed the solid, star-shaped cross-section of \ac{CSH} needles and preserved the native pore structure without requiring resin embedding or cryo-cooling.
+% Regarding the hydration of \ac{C3S} and \ac{C2S}, both \ac{LTDSC} and \ac{MIP} measurements consistently indicated a densification of the microstructure over time, characterised by an increase in gel porosity and a reduction in capillary porosity.
+% 
 
-However, none of the methods reliably covers the entire pore range.
-Furthermore, the results of the methods examined are hardly comparable with each other.
+\ac{LTDSC} and \ac{MIP} measurements provided complementary volumetric data.
++While \ac{MIP} is mostly limited to capillary pores (>\,\qty{10}{\nano\meter}), \ac{LTDSC} successfully distinguished between capillary and gel porosity.
+The freezing curves in \ac{LTDSC} indicated the presence of gel pores, although the derived pore sizes (approx. \qty{2}{\nano\meter}) using the \textcite{brun.1977} relation differed from the image-based findings, likely due to the aforementioned limitations of the thermodynamic model at low temperatures.
+However, the evaluation of the melting enthalpy in \ac{LTDSC} allowed for a quantitative assessment of pore volumes.
+
+Comparing the methods regarding the hydration of \ac{C3S} and \ac{C2S}, these techniques consistently indicated a densification of the microstructure over time.
+\ac{LTDSC} revealed a linear correlation between the formation of gel porosity and the reduction of capillary porosity.
+Specifically, \ac{C3S} exhibited a significantly higher volume of gel pores and a lower volume of capillary pores compared to \ac{C2S} at the same hydration age.
+This aligns with the faster reaction kinetics of \ac{C3S} observed in other experiments.
+\ac{MIP} confirmed the higher capillary porosity in \ac{C2S} pastes.
+Consequently, while no single method can fully characterise the entire pore space, the combination of direct imaging (\ac{ArBIB} combined with \ac{SEM} and \ac{FIBnt}) give a good idea for the gel pore morphology within \ac*{CSHi}.
+More indirect methods like \ac{LTDSC} and \ac{MIP} for volumetric quantification provide a robust description of the evolving pore structure, which are in accordance with the results based on image analysis shown in \zcref{chap:hydrate-rim}.
+% TODO:  in \zcref{chap:hydrate-rim}, try to perform some kind of CLD image analysis of the porosity, remove large pores using a filter?

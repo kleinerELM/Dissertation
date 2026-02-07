@@ -437,7 +437,7 @@ The measurement positions on the grain are marked in \zcref{fig:LAICPMS-specimen
 
 
 \begin{figure}[htbp]
-	\centerline{\includegraphics[width=.6\textwidth]{figures/la-icp-ms/positions.pdf}}
+	\centerline{\includegraphics[width=.7\textwidth]{figures/la-icp-ms/positions.pdf}}
 	\caption{
 		The black spots marked with arrows are the positions of the \ac{LAICPMS} measurements on the resin embedded and polished CEM~I clinker grain.
 	}
@@ -808,7 +808,7 @@ A revalidation of the \ac{MIP} results was omitted, due to the high material cos
             \end{axis}
         \end{tikzpicture}
         \caption{%
-            Minimum required area for \ac{CSH} (max. \qty{2}{\percent} std. dev.).
+            \ac{BC} method.
         }
         \label{fig:convergence_csh}
     \end{subfigure}
@@ -850,12 +850,15 @@ A revalidation of the \ac{MIP} results was omitted, due to the high material cos
                 \addlegendentry{\qty{28}{\day}}
             \end{axis}
         \end{tikzpicture}
-        \caption{%
-            Area growth for \textbf{\ac{CSH}} for \ac{C3S}:\ac{C2S} mixtures.
+        \caption{
+			\ac{BG} method
         }
         \label{fig:areagrowth_csh}
     \end{subfigure}
-    \caption{Comparison of the \ac{BC} and \ac{BG} methods for clinker \ac{CSH}.}
+    \caption{
+		Comparison of the minimum required area for to get the \textbf{\ac{CSH}} area fraction with a standard deviation $\sigma$ of <\,\qty{2}{\percent}.
+        The \ac{BC} and \ac{BG} methods were applied to images of \ac{C3S}:\ac{C2S} mixtures, hydrated for \num{7}, \num{14} and \qty{28}{\day}.
+	}
     \label{fig:box_statistics_csh}
 \end{figure}
 
@@ -898,7 +901,7 @@ A revalidation of the \ac{MIP} results was omitted, due to the high material cos
             \end{axis}
         \end{tikzpicture}
         \caption{%
-            Minimum required area for \ac{CH} (max. \qty{2}{\percent} std. dev.).
+            \ac{BC} method.
         }
         \label{fig:convergence_ch}
     \end{subfigure}
@@ -941,11 +944,14 @@ A revalidation of the \ac{MIP} results was omitted, due to the high material cos
             \end{axis}
         \end{tikzpicture}
         \caption{%
-            Area growth for \ac{CH} for \ac{C3S}:\ac{C2S} mixtures.
+            \ac{BG} method.
         }
         \label{fig:areagrowth_ch}
     \end{subfigure}
-    \caption{Comparison of the \ac{BC} and \ac{BG} methods for \ac{CH}.}
+	\caption{
+		Comparison of the minimum required area for to get the \textbf{\ac{CH}} area fraction with a standard deviation $\sigma$ of <\,\qty{2}{\percent}.
+        The \ac{BC} and \ac{BG} methods were applied to images of \ac{C3S}:\ac{C2S} mixtures, hydrated for \num{7}, \num{14} and \qty{28}{\day}.
+	}
     \label{fig:box_statistics_ch}
 \end{figure}
 
@@ -958,7 +964,7 @@ A revalidation of the \ac{MIP} results was omitted, due to the high material cos
 \label{subsec:appendix_PSD_arbib}
 
 The following images were acquired as described in \zcref{sec:bib_pol_fixed}.
-\zcref{fig:compare_cryo_1,fig:compare_cryo_2,fig:compare_rt_1,fig:compare_rt_2} show images of (\ac{CSHi}), which were prepared using Cryo-\ac{ArBIB}.
+\zcref{fig:compare_cryo_1,fig:compare_rt_1} show images of (\ac{CSHi}), which were prepared using Cryo-\ac{ArBIB}.
 The specimens shown in \zcref{fig:compare_cryo_1} were prepared at \qty{-140}{\celsius} (raw images can be found at \cite{kleiner.2021g}), while the specimens presented in \zcref{fig:compare_rt_1} were prepared at \qty{20}{\celsius} (raw images can be found at \cite{kleiner.2021h}).
 On the left side the raw unedited images are shown, while on the right side, the denoised result image with the result of the semi-automatic segmentation \cite{kleiner.2021h} is presented.
 The areas with a green overlay show the pores, while the blue overlay represents areas manually segmented.

@@ -87,13 +87,14 @@ These algorithms can help to segment very noisy datasets like from \ac{EDX} \cit
 Extensions such as Multi\ac{SLIC} \cite{yu.2023} further enable segmentation across multiple data modalities or data layers resulting in more robust and informative representations.
 % TODO: add details from jiang.2022 in the result section
 
-{
-\color{red}
+After simplifying the image using superpixel segmentation, the phase assignment must be carried out.
+Initial orientation can be achieved through clustering.
+This can be supported by \ac{UMAP} \cite{mcinnes.2018}, which allows to reduce the dimensionality of a multidimensional dataset as found in a multi-element mapping or multiple data sources.
 
-clustering can be supported by \ac{UMAP} \cite{mcinnes.2018}, which allows to reduce the dimensionality of a multidimensional dataset as found in a multi-element mapping or multiple data sources.
-
-Utilizing machine learning methods for segmentation is a promising approach to automate the process and improve the accuracy of the results \cite{}.
-}
+% {
+% \color{red}
+%Utilizing machine learning methods for segmentation is a promising approach to automate the process and improve the accuracy of the results \cite{}.
+% }
 
 \FloatBarrier
 \subsection{Sectioning effect}

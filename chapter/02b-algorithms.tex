@@ -22,9 +22,20 @@ Nevertheless, the hydration products cannot be separated using a simple threshol
 However, the software can be used to process pre-segmented images (e.g. manually segmented or segmented by machine learning algorithms).
 
 \begin{figure}[h]
-	\centerline{\includegraphics[width=\columnwidth]{hydrate-rim/fig1.horizontal.png}}
+	\centering
+    \begin{subfigure}[t]{0.49\textwidth}
+		\includegraphics[width=\textwidth]{hydrate-rim/BSE_C3S_7d.pdf}
+        \caption{\ac*{C3S} \qty{7}{\day}.}
+        \label{fig:hlt_contrast_C3S_7d}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{hydrate-rim/BSE_C3S_28d.pdf}
+        \caption{\ac*{C3S} \qty{28}{\day}.}
+        \label{fig:hlt_contrast_C3S_28d}
+    \end{subfigure}
 	\caption{
-		Detail of the unprocessed \ac{BSE} images of embedded and polished \ac{C3S} sections after 7 (A) and 28 days (B) of hydration.
+		Detail of the unprocessed \ac{BSE} images of embedded and polished \ac{C3S} sections after \num{7} and \qty{28}{\day} of hydration.
 		Identifiable phases from dark to light grey: resin/pores, \ac{CSH}, \ac{CH}, \ac{C3S}.
 		The images also show a typical deviation in image contrast, even after using identical imaging parameters (\qty{12}{\kilo\volt}, \qty{12}{\nano\ampere}).
 		\cite{kleiner.2025e} \label{fig:hlt_contrast}

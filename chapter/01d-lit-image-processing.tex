@@ -22,6 +22,8 @@ The following paragraphs are intended to provide a brief overview of the most im
 Classical methods remove noise in the spatial domain.
 Linear filters (e.g. mean filtering) can easily lead to blurring of fine detail and edges in very noisy images.
 Non-linear filters like the \textit{median} \cite{huang.1979} and \textit{bilateral} \cite{tomasi.1998} filter provide edge-preserving noise reduction.
+\textcite{stutzman.2015} proposed the use of a \textit{thresholded blur} algorithm \cite{schmid.2007}, to preserve edges.
+However, this requires the manual selection of a minimum grey value difference to distinguish between phases, which limits its use to images with a significant phase contrast difference.
 More advanced classical filters like \ac{NLM} \cite{buades.2005} or total variation \cite{rudin.1992} are better at preserving edges.
 However, they also struggle with more complex noise patterns (e.g. low count \ac{EDX}) and can introduce artefacts.
 
@@ -54,7 +56,7 @@ Finally, \ac{MSE} quantifies the average squared difference between the original
 They came to the conclusion, that the \ac{CNN} significantly outperforms (\ac{PSNR} of \qty{26.35}{\decibel}) the median (\ac{PSNR} of \qty{23.20}{\decibel}) and wavelet filter (\ac{PSNR} of \qty{18.25}{\decibel}).
 
 \FloatBarrier
-\subsection{Segmentation of \acs{SEM} images}
+\subsection{Segmentation of \acs{SEM} and \ac{EDX} images}
 \label{sec:lit_segmentation}
 
 Segmentation is the process of partitioning an image into multiple segments (sets of pixels or objects).
@@ -74,8 +76,8 @@ However, low-count \ac{EDX} datasets remain challenging.
 Segmentation by applying threshold values to distinguish phases is still a commonly used technique since it is fast and easy to apply \cite{hlobil.2022}.
 There are multiple thresholding methods available, such as \textsc{Otsu}'s method \cite{otsu.1979} or \textsc{Kapur}'s method \cite{kapur.1985} to automatically find a threshold to binarise an image.
 However, these methods are rarely suitable, since many \ac{SEM} images contain more than two phases or show low contrast.
-Additionally, often a specific grey value or range does not represent a specific phase throughout the entire dataset as border regions can appear darker than the image centre.
-This is can especially occur in \ac{SEM}-\ac{SE} images, \ac{SEM}-\ac{FIB} datasets or \ac{mCT} datasets.
+Additionally, sometimes a specific grey value or range does not represent a specific phase throughout the entire dataset as border regions can appear darker than the image centre.
+This is can especially occur in \ac{SEM}-\ac{SE} images, \ac{SEM}-\ac{FIB} or \ac{mCT} datasets.
 In those cases, adaptive thresholding methods can be used to find a threshold value for each pixel based on the surrounding pixels \cite{sauvola.2000, phansalkar.2011}.
 For example, the method proposed by \textcite{phansalkar.2011} is a good choice for low contrast \ac{SEM}-\ac{SE} images \cite{kleiner.2021a}.
 Nevertheless, these methods still require a lot of manual work and subjective decisions to find the right parameters for the specific dataset.
@@ -89,7 +91,17 @@ Extensions such as Multi\ac{SLIC} \cite{yu.2023} further enable segmentation acr
 
 After simplifying the image using superpixel segmentation, the phase assignment must be carried out.
 Initial orientation can be achieved through clustering.
-This can be supported by \ac{UMAP} \cite{mcinnes.2018}, which allows to reduce the dimensionality of a multidimensional dataset as found in a multi-element mapping or multiple data sources.
+Multiple approaches to do this were proposed in recent years. 
+Initial orientation can be achieved through clustering using $k$-means.
+This can either be done on a per-pixel basis \cite{munch.2015} or on a per-superpixel basis \cite{jiang.2022}.
+While not it could not yet applied in the cement context, clustering can be supported by \ac{UMAP} \cite{mcinnes.2018}, which allows to reduce the dimensionality of a multidimensional dataset as found in a multi-element mapping or multiple data sources.
+The clustering allows to find similar phase compositions.
+The phase assignment for each pixel or superpixel can be done manually or automatically.
+
+using a decision tree model, utilising known compositions of different phases \cite{jiang.2022}.
+
+%\cite{stutzman.2004}, vs \cite{georget.2021} vs. unser aachen ansatz \cite{jiang.2022} und vs die blackbox aus aztec \cite{aztec.2004} o.ä software.
+% \cite{reed.2025} used a method based on QGIS (see mail from Christiane/Nikkola Paavo, 08.10.2025)
 
 % {
 % \color{red}

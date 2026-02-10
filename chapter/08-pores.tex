@@ -21,6 +21,9 @@ The glass standards were initially defined using \ac{MIP} by the manufacturer (\
 To obtain \ac{SEM} images, the glass was fractured and even surfaces were imaged without any coating.
 As the \ac{SEM} images indicate (\zcref{fig:ltdsc-vycor-glass-a, fig:ltdsc-vycor-glass-b}), the pores are interconnected, which is plausible due to its intended use as a filter material and the \textsc{VYCOR} manufacturing process used (sintering of glass powder).
 
+% OLD: C:\Users\Florian Kleiner\Nextcloud\Uni\WdB\Paper\2024 LT-DSC-XRD-BSE Alit-Belit Paper\5. REM+EDX\Nanoporöses Glas\2022_02_08 Poröses Glas
+% NEW: X:\Mitarbeiter\Florian Kleiner\Einzelbilder\2025 Vycor Auswertung\
+% 3 * 5.18x3.45 µm² = 3 * 17.871 µm² = 53.61 µm²
 \begin{figure}[htb!]
     \centering
 
@@ -37,15 +40,27 @@ As the \ac{SEM} images indicate (\zcref{fig:ltdsc-vycor-glass-a, fig:ltdsc-vycor
 	\end{subfigure}
 
 	\begin{subfigure}{0.49\textwidth}
-		\includegraphics[width=\textwidth]{ltdsc/glass/20nm_005old_otsu.png}
+		\includegraphics[width=\textwidth]{ltdsc/glass/segmentation/20nm_pores.pdf}
 		\caption{Segmented, pore size \qty{5}{\nano\meter} (diameter)}
 		\label{fig:ltdsc-vycor-glass-c}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}{0.49\textwidth}
-		\includegraphics[width=\textwidth]{ltdsc/glass/5nm_004old_otsu.png}
+		\includegraphics[width=\textwidth]{ltdsc/glass/segmentation/20nm_pores.pdf}
 		\caption{Segmented, pore size \qty{20}{\nano\meter} (diameter)}
 		\label{fig:ltdsc-vycor-glass-d}
+	\end{subfigure}
+
+	\begin{subfigure}{0.49\textwidth}
+		\includegraphics[width=\textwidth]{ltdsc/glass/segmentation/20nm_pores_ws.pdf}
+		\caption{Segmented, watershed, pore size \qty{5}{\nano\meter} (diameter)}
+		\label{fig:ltdsc-vycor-glass-e}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.49\textwidth}
+		\includegraphics[width=\textwidth]{ltdsc/glass/segmentation/20nm_pores_ws.pdf}
+		\caption{Segmented, watershed, pore size \qty{20}{\nano\meter} (diameter)}
+		\label{fig:ltdsc-vycor-glass-f}
 	\end{subfigure}
 
 
@@ -208,208 +223,319 @@ As the \ac{SEM} images indicate (\zcref{fig:ltdsc-vycor-glass-a, fig:ltdsc-vycor
 	% 	\label{fig:ltdsc-vycor-glass-f}
     % \end{subfigure}
 
- 	\begin{subfigure}{.495\textwidth}
-      \begin{tikzpicture}
-        \begin{semilogxaxis}[
-				legend style={
-					at={(0.985,.8)},
-					anchor=east,
-					cells={align=left},
-					font=\footnotesize
-				},
-				xmin=3, xmax=41,
-				ymin=0, ymax=1,
-				width=\linewidth,
-				height=6cm,
-				grid=major,
-				xlabel={pore diameter $d_\text{P}$ in \unit{\nano\meter}},
-				ylabel={normalised frequency},
-				grid style={line width=.1pt, draw=gray!10},
-				yticklabel style={
-						/pgf/number format/fixed,
-						/pgf/number format/precision=3
-				},
-				xticklabels={2.5,5,10,20,40},
-				xtick={2.5,5,10,20,40},
-				ytick={0,-0.1,-0.2},
-				scaled y ticks=false,
-				scaled x ticks=false,
-            ]
+ 	% \begin{subfigure}{.495\textwidth}
+    %   \begin{tikzpicture}
+    %     \begin{semilogxaxis}[
+	% 			legend style={
+	% 				at={(0.985,.8)},
+	% 				anchor=east,
+	% 				cells={align=left},
+	% 				font=\footnotesize
+	% 			},
+	% 			xmin=3, xmax=41,
+	% 			ymin=0, ymax=1,
+	% 			width=\linewidth,
+	% 			height=6cm,
+	% 			grid=major,
+	% 			xlabel={pore diameter $d_\text{P}$ in \unit{\nano\meter}},
+	% 			ylabel={normalised frequency},
+	% 			grid style={line width=.1pt, draw=gray!10},
+	% 			yticklabel style={
+	% 					/pgf/number format/fixed,
+	% 					/pgf/number format/precision=3
+	% 			},
+	% 			xticklabels={2.5,5,10,20,40},
+	% 			xtick={2.5,5,10,20,40},
+	% 			ytick={0,-0.1,-0.2},
+	% 			scaled y ticks=false,
+	% 			scaled x ticks=false,
+    %         ]
 
-			  \addplot [ no marks, orange ] table [x index=0, y index=1, col sep=comma ] {figures/ltdsc/glass/20nm_005old_otsu.csv};
-			  \addlegendentry{specimen 1};
+	% 		  \addplot [ no marks, orange ] table [x index=0, y index=1, col sep=comma ] {figures/ltdsc/glass/20nm_005old_otsu.csv};
+	% 		  \addlegendentry{specimen 1};
 
-        \end{semilogxaxis}
-	  \end{tikzpicture}
-	  \caption{Pore size distribution of \qty{5}{\nano\meter} porous \textsc{VYCOR} glass.}
-	  \label{fig:ltdsc-vycor-glass-e}
+    %     \end{semilogxaxis}
+	%   \end{tikzpicture}
+	%   \caption{Pore size distribution of \qty{5}{\nano\meter} porous \textsc{VYCOR} glass.}
+	%   \label{fig:ltdsc-vycor-glass-e}
 
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}{.495\textwidth}
+	% \end{subfigure}
+	% \hfill
+	% \begin{subfigure}{.495\textwidth}
 
-		\begin{tikzpicture}
-		  \begin{semilogxaxis}[
-				legend style={
-					at={(0.015,.8)},
-					anchor=west,
-					cells={align=left},
-					font=\footnotesize
-				},
-				xmin=3, xmax=41,
-				ymin=0, ymax=1,
-				width=\linewidth,
-				height=6cm,
-				grid=major,
-				xlabel={pore diameter $d_\text{P}$ in \unit{\nano\meter}},
-				ylabel={normalised frequency},
-				grid style={line width=.1pt, draw=gray!10},
-				yticklabel style={
-						/pgf/number format/fixed,
-						/pgf/number format/precision=3
-				},
-				xticklabels={2.5,5,10,20,40},
-				xtick={2.5,5,10,20,40},
-				ytick={0,-0.1,-0.2},
-				scaled y ticks=false,
-				scaled x ticks=false,
-				yticklabel pos=right,
-			]
+	% 	\begin{tikzpicture}
+	% 	  \begin{semilogxaxis}[
+	% 			legend style={
+	% 				at={(0.015,.8)},
+	% 				anchor=west,
+	% 				cells={align=left},
+	% 				font=\footnotesize
+	% 			},
+	% 			xmin=3, xmax=41,
+	% 			ymin=0, ymax=1,
+	% 			width=\linewidth,
+	% 			height=6cm,
+	% 			grid=major,
+	% 			xlabel={pore diameter $d_\text{P}$ in \unit{\nano\meter}},
+	% 			ylabel={normalised frequency},
+	% 			grid style={line width=.1pt, draw=gray!10},
+	% 			yticklabel style={
+	% 					/pgf/number format/fixed,
+	% 					/pgf/number format/precision=3
+	% 			},
+	% 			xticklabels={2.5,5,10,20,40},
+	% 			xtick={2.5,5,10,20,40},
+	% 			ytick={0,-0.1,-0.2},
+	% 			scaled y ticks=false,
+	% 			scaled x ticks=false,
+	% 			yticklabel pos=right,
+	% 		]
 
-			\addplot [ no marks, darkgreen] table [x index=0, y index=1, col sep=comma] {figures/ltdsc/glass/5nm_004old_otsu.csv};
-			\addlegendentry{specimen 1};
+	% 		\addplot [ no marks, darkgreen] table [x index=0, y index=1, col sep=comma] {figures/ltdsc/glass/5nm_004old_otsu.csv};
+	% 		\addlegendentry{specimen 1};
 
 
-		  \end{semilogxaxis}
-		\end{tikzpicture}
-		\caption{Pore size distribution of \qty{20}{\nano\meter} porous \textsc{VYCOR} glass.}
-	  	\label{fig:ltdsc-vycor-glass-f}
+	% 	  \end{semilogxaxis}
+	% 	\end{tikzpicture}
+	% 	\caption{Pore size distribution of \qty{20}{\nano\meter} porous \textsc{VYCOR} glass.}
+	%   	\label{fig:ltdsc-vycor-glass-f}
 
-	\end{subfigure}
+	% \end{subfigure}
     \caption{
-		\ac{SEM}-\ac{SE} images of two \textsc{VYCOR}-glass samples, their respective segmentation result and the pore size distribution.
+		Enlarged sections of \ac{SEM}-\ac{SE} images of two \textsc{VYCOR}-glass samples and their respective segmentation results.
 		The pore size was determined using two segmented \ac{SEM} image for each glass type.
 	} % Probenbilder-rodaten vmtl vertauscht.
     \label{fig:ltdsc-vycor-glass}
 \end{figure}
 
 
-% C:\Users\Florian Kleiner\Nextcloud\Uni\WdB\Paper\2024 LT-DSC-XRD-BSE Alit-Belit Paper\5. REM+EDX\Nanoporöses Glas\2022_02_08 Poröses Glas
-
 Since the dwell-time has to be chosen as short as possible to avoid charging, the images became very noisy and were denoised using a median blur filter using a \numproduct{3x3} kernel.
 
-The pores can be segmented using thresholding to determine the pore size distribution (see \zcref{fig:ltdsc-vycor-glass-c,fig:ltdsc-vycor-glass-d}). %  (see \zcref{sec:segmentation})
+The pores can be segmented using adaptive thresholding to determine the pore size distribution (see \zcref{fig:ltdsc-vycor-glass-c,fig:ltdsc-vycor-glass-d}). %  (see \zcref{sec:segmentation})
+It provides a `blocksize' parameter given in \unit{\px}, which sets the area within brightness differences are ignored and the threshold is applied.
+For \textsc{VYCOR}-glass with a given porosity of \qty{20}{\nano\meter}, using a blocksize between than \qtyrange{50}{100}{\nano\meter} produced reliable results.
+Threfore, a blocksize parameter was chosen which corresponds to approximately \qty{80}{\nano\meter}.
+The binary result was then morphologically cleaned (dilate-erode).
 
-Areas with obvious damages due to the fracture process were excluded from the analysis.
-The resulting pore size distributions of two images per specimen are shown in \zcref{fig:ltdsc-vycor-glass-e, fig:ltdsc-vycor-glass-f}.
-As indicated by the inhomogeneous distribution of the segmented pores (\zcref{fig:ltdsc-vycor-glass-c}), the selected threshold value is not producing an uniform result.
+Since the glass is engineered as a filter by fusing glass powder, a tunnel like pore structure is formed.
+Thus, the segmented pores in the \ac{SEM}-\ac{SE} images appear often connected, which can lead to a significant overestimation of the pore sizes.
+Therefore, a watershed-based separation was applied for comparison.
+To do this, the \textsc{Euclidean} distance transform of the pore mask is computed and a minimum spacing between the maxima of \qty{3.5}{\nano\meter} was set.
+This parameter was chosen, since it resulted in a subjectively good pore separation with fairly compact pores.However, changing this parameter, has a significant influence on the final result.
+Finally, the resulting labelled regions were combined with the original binary mask, to obtain a mask with separated pores.
 
-Furthermore, the measured pore radii measured using this traditional thresholding method are off by a factor of \num{4} and more (\qty{5}{\nano\meter} glass) and \num{2} (\qty{20}{\nano\meter} glass) compared to the \ac{MIP} measurements provided by the manufacturer (\zcref{fig:vycor-mip}).
+From the optionally watershed-separated pore segmentation, a \ac{PSD} is calculated.
+To account for the physical significance of larger pores, the distribution was weighted by the pore volume within each bin and normalised to its maximum value:
+\begin{equation}
+    f_\text{v,n}(r) = \frac{f_\text{pore} \cdot V_\text{pore}(r)}{\max(f_\text{pore}(r) \cdot V_\text{pore}(r))}
+	\label{eq:weig_norm_pore_frequency}
+\end{equation}
+Here, $f_\text{pore}(r)$ denotes the frequency of pores with radius $r$, and $V_\text{pore}(r)$ represents the volume of a sphere with radius $r$.
+To achieve this for the \ac{CDF}, the measured chord lengths were extrapolated to volumes, assuming spherical pores.
+The resulting \ac{PSD} of three image per specimen are shown in \zcref{fig:compare_psd_vycor}.
+%As indicated by the inhomogeneous distribution of the segmented pores (\zcref{fig:ltdsc-vycor-glass-c}), the selected threshold value is not producing an uniform result.
+
+%Furthermore, the measured pore radii measured using this traditional thresholding method are off by a factor of \num{4} and more (\qty{5}{\nano\meter} glass) and \num{2} (\qty{20}{\nano\meter} glass) compared to the \ac{MIP} measurements provided by the manufacturer (\zcref{fig:vycor-mip}).
 
 % TODO: prüfe, ob tatsächlich Porenradien gemessen wurden!
 
 
+% \begin{figure}[htbp]
+% 	\centering
+% 	\begin{subfigure}[b]{0.46\textwidth}
+
+% 		\begin{tikzpicture}
+% 			\begin{axis}[
+% 				xlabel={Median \textsc{Feret} diameter in \unit{\nano\meter}},
+% 				ylabel={blocksize in \unit{\nano\meter}},
+% 				colormap name=buw, 		 % Choose a colormap (others: hot, cool, jet, etc.)
+% 				colorbar=false,                       % Display the color bar
+% 				view={0}{90},                   % Set view angles for a 2D top-down view
+% 				enlargelimits=false,            % Fit plot tightly to data range
+% 				axis on top,
+% 				point meta min=0,
+% 				xmin=0, xmax=40,
+% 				ymin=0, ymax=190,
+% 				width=7.2cm,
+% 				height=6cm,
+% 			]
+% 				\addplot [
+% 					matrix plot*,         % Use matrix plot for heatmaps (starred version often better for coordinate input)
+% 					point meta=explicit,  % Color data is explicitly given in the 'meta' column
+% 					shader=flat,
+% 					mesh/cols=49,% 50, %118
+% 				]
+% 				table [
+% 					x={Feret diameter [nm]}, % Column name for X coordinate
+% 					y={Blocksize (nm)},      % Column name for Y coordinate
+% 					meta={Normalized Frequency},        % Column name for the color value
+% 					col sep=comma,           % Specify comma as the column separator
+% 					header=true              % Indicate that the CSV file has a header row
+% 				] {figures/mip/vycor5nm.crop.csv}; % Path to your CSV file
+% 				\draw [grey, thick] (axis cs:0,80) -- (axis cs:40,80);
+% 			\end{axis}
+% 		\end{tikzpicture}
+% 		\caption{\qty{5}{\nano\meter} porous \textsc{VYCOR} glass.}
+% 		\label{fig:mip_heatmap_vycor5nm}
+
+% 	\end{subfigure}
+% 	\hfill
+% 	\begin{subfigure}[b]{0.52\textwidth}
+
+% 		\begin{tikzpicture}
+% 			\begin{axis}[
+% 				xlabel={Median \textsc{Feret} diameter in \unit{\nano\meter}},
+% 				%ylabel={blocksize in \unit{\nano\meter}},
+% 				colorbar,                       % Display the color bar
+% 				colorbar style={
+% 					ylabel={normalised frequency},
+% 					ytick=\empty,
+% 				}, % Label for the color bar
+% 				colormap name=buw, 		 % Choose a colormap (others: hot, cool, jet, etc.)
+% 				view={0}{90},                   % Set view angles for a 2D top-down view
+% 				enlargelimits=false,            % Fit plot tightly to data range
+% 				point meta min=0,               % Optional: Set minimum value for the color axis
+% 				axis on top,
+% 				xmin=0, xmax=40,
+% 				ymin=0, ymax=190,
+% 				yticklabel pos=right,
+% 				width=7.2cm,
+% 				height=6cm,
+% 				ytick=\empty,
+% 			]
+% 				\addplot [
+% 					matrix plot*,
+% 					point meta=explicit,
+% 					shader=flat,
+% 					mesh/cols=49,
+% 				]
+% 				table [
+% 					x={Feret diameter [nm]},
+% 					y={Blocksize (nm)},
+% 					meta={Normalized Frequency},
+% 					col sep=comma,
+% 					header=true
+% 				] {figures/mip/vycor20nm.crop.csv};
+% 				\draw [grey, thick] (axis cs:0,80) -- (axis cs:40,80);
+% 			\end{axis}
+% 		\end{tikzpicture}
+% 		\caption{\qty{20}{\nano\meter} porous \textsc{VYCOR} glass.}
+% 		\label{fig:mheatmap_vycor20nm}
+
+% 	\end{subfigure}
+% 	\caption{
+% 		Heatmaps indicating the influence of the `blocksize' option using `adaptive threshold' on the measured median \textsc{Feret} diameter of the \textsc{VYCOR} glass.
+% 		The frequency is normalised per blocksize.
+% 		The blocksize is the size of the sliding window used for the adaptive thresholding.
+% 	}
+% 	\label{fig:heatmap_vycor}
+% \end{figure}
+
 \begin{figure}[htbp]
-	\centering
-	\begin{subfigure}[b]{0.46\textwidth}
-
-		\begin{tikzpicture}
-			\begin{axis}[
-				xlabel={Median \textsc{Feret} diameter in \unit{\nano\meter}},
-				ylabel={blocksize in \unit{\nano\meter}},
-				colormap name=buw, 		 % Choose a colormap (others: hot, cool, jet, etc.)
-				colorbar=false,                       % Display the color bar
-				view={0}{90},                   % Set view angles for a 2D top-down view
-				enlargelimits=false,            % Fit plot tightly to data range
-				axis on top,
-				point meta min=0,
-				xmin=0, xmax=40,
-				ymin=0, ymax=190,
-				width=7.2cm,
-				height=6cm,
-			]
-				\addplot [
-					matrix plot*,         % Use matrix plot for heatmaps (starred version often better for coordinate input)
-					point meta=explicit,  % Color data is explicitly given in the 'meta' column
-					shader=flat,
-					mesh/cols=49,% 50, %118
-				]
-				table [
-					x={Feret diameter [nm]}, % Column name for X coordinate
-					y={Blocksize (nm)},      % Column name for Y coordinate
-					meta={Normalized Frequency},        % Column name for the color value
-					col sep=comma,           % Specify comma as the column separator
-					header=true              % Indicate that the CSV file has a header row
-				] {figures/mip/vycor5nm.crop.csv}; % Path to your CSV file
-			\end{axis}
-		\end{tikzpicture}
-		\caption{\qty{5}{\nano\meter} porous \textsc{VYCOR} glass.}
-		\label{fig:mip_heatmap_vycor5nm}
-
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[b]{0.52\textwidth}
-
-		\begin{tikzpicture}
-			\begin{axis}[
-				xlabel={Median \textsc{Feret} diameter in \unit{\nano\meter}},
-				%ylabel={blocksize in \unit{\nano\meter}},
-				colorbar,                       % Display the color bar
-				colorbar style={
-					ylabel={normalised frequency},
-					ytick=\empty,
-				}, % Label for the color bar
-				colormap name=buw, 		 % Choose a colormap (others: hot, cool, jet, etc.)
-				view={0}{90},                   % Set view angles for a 2D top-down view
-				enlargelimits=false,            % Fit plot tightly to data range
-				point meta min=0,               % Optional: Set minimum value for the color axis
-				axis on top,
-				xmin=0, xmax=40,
-				ymin=0, ymax=190,
-				yticklabel pos=right,
-				width=7.2cm,
-				height=6cm,
+    \centering
+    % 5nm Graph
+    \begin{subfigure}{0.49\textwidth}
+        \flushright
+        \begin{tikzpicture}
+            \begin{axis}[
+                width=1.1\linewidth,
+                height=6cm,
+                grid=major,
+                xlabel={pore radius in \unit{\nano\meter}},
+                ylabel={weighted frequency $f_\text{v,n}$},
 				ytick=\empty,
-			]
-				\addplot [
-					matrix plot*,
-					point meta=explicit,
-					shader=flat,
-					mesh/cols=49,
-				]
-				table [
-					x={Feret diameter [nm]},
-					y={Blocksize (nm)},
-					meta={Normalized Frequency},
-					col sep=comma,
-					header=true
-				] {figures/mip/vycor20nm.crop.csv};
-			\end{axis}
-		\end{tikzpicture}
-		\caption{\qty{20}{\nano\meter} porous \textsc{VYCOR} glass.}
-		\label{fig:mheatmap_vycor20nm}
+                xmin=0, xmax=54,
+                ymin=0, ymax=1.2,
+                grid style={line width=.1pt, draw=gray!10},
+                legend style={at={(0.98,0.98)},anchor=north east, font=\scriptsize},
+                legend columns=1,
+            ]
 
-	\end{subfigure}
+                \addplot[ybar, bar width=1.6, fill opacity=0.5, draw=none, area legend, fill=blue] table[x=bin_center,y expr=\thisrow{count_per_um2}/510161.7,col sep=comma] {figures/ltdsc/glass/segmentation/5nm_PSD_volume.csv};
+                \addlegendentry{\acs*{PSD}};
+
+                \addplot[ybar, bar width=1.6, fill opacity=0.5, draw=none, area legend, fill=red] table[x=bin_center,y expr=\thisrow{count_per_um2}/663987.5,col sep=comma] {figures/ltdsc/glass/segmentation/5nm_PSD_volume_ws.csv};
+                \addlegendentry{\acs*{PSD} ws};
+
+				\addplot [no markers, blue, domain=0.01:55, samples=100] {(6861582.0403 / x * exp(-0.5 * ((ln(x) - 2.6318) / 0.3063)^2))/510161.7};
+				\addlegendentry{\acs*{PSD} fit}
+				% max value at x=12.6538
+
+				\addplot [no markers, red, domain=0.01:55, samples=100] {(5695958.6516 / x * exp(-0.5 * ((ln(x) - 2.1651) / 0.2530)^2)) / 663987.5};
+				\addlegendentry{\acs*{PSD} ws fit}
+				% max value at x=8.1751
+
+				%--- Fit Result for PSD_volume_weighted.png ---
+				% Peak: 517409.3924 at x=12.6538; max at 
+				% \addplot [no markers, red, domain=0.01:55, samples=100] {6861582.0403 / x * exp(-0.5 * ((ln(x) - 2.6318) / 0.3063)^2)};
+
+
+            \end{axis}
+        \end{tikzpicture}
+        \caption{\qty{5}{\nano\meter} porous \textsc{VYCOR} glass.}
+        \label{fig:compare_psd_5nm}
+    \end{subfigure}
+    \hfill
+    % 20nm Graph
+    \begin{subfigure}{0.49\textwidth}
+        \flushleft
+        \begin{tikzpicture}
+            \begin{axis}[
+                width=1.1\linewidth,
+                height=6cm,
+                grid=major,
+                xlabel={pore radius in \unit{\nano\meter}},
+                ylabel={weighted frequency $f_\text{v,n}$},
+                yticklabel pos=right,
+				ytick=\empty,
+                xmin=0, xmax=54,
+                ymin=0, ymax=1.2,
+                grid style={line width=.1pt, draw=gray!10},
+                legend style={at={(0.98,0.98)},anchor=north east, font=\scriptsize},
+            ]
+
+                \addplot[ybar, bar width=1.6, fill opacity=0.5, draw=none, area legend, fill=blue] table[x=bin_center,y expr=\thisrow{count_per_um2}/597423.3,col sep=comma] {figures/ltdsc/glass/segmentation/20nm_PSD_volume.csv};
+                \addlegendentry{\acs*{PSD}};
+
+                \addplot[ybar, bar width=1.6, fill opacity=0.5, draw=none, area legend, fill=red] table[x=bin_center,y expr=\thisrow{count_per_um2}/791589.7,col sep=comma] {figures/ltdsc/glass/segmentation/20nm_PSD_volume_ws.csv};
+                \addlegendentry{\acs*{PSD} ws};
+
+				\addplot [no markers, blue, domain=0.01:55, samples=100] {(12245826.5777 / x * exp(-0.5 * ((ln(x) - 3.1318) / 0.3456)^2)) / 597423.3};
+				\addlegendentry{\acs*{PSD} fit}
+				% max value at x=20.3357
+
+				\addplot [no markers, red, domain=0.01:55, samples=100] {(9220842.0696 / x * exp(-0.5 * ((ln(x) - 2.4632) / 0.2785)^2))/791589.7};
+				\addlegendentry{\acs*{PSD} ws fit}
+				% max value at x=10.8658
+
+            \end{axis}
+        \end{tikzpicture}
+        \caption{\qty{20}{\nano\meter} porous \textsc{VYCOR} glass.}
+        \label{fig:compare_psd_5nm}
+    \end{subfigure}
 	\caption{
-		Heatmaps indicating the influence of the `blocksize' option using `adaptive threshold' on the measured median \textsc{Feret} diameter of the \textsc{VYCOR} glass.
-		The frequency is normalised per blocksize.
-		The blocksize is the size of the sliding window used for the adaptive thresholding.
+		\ac{PSD} of \num{5} and \qty{20}{\nano\meter} \textsc{VYCOR} glass, obtained from segmented \ac{SE} images (\num{3} images, \qty{53.61}{\micro\meter\squared} in total for each glass).
+		Graphs marked with `ws' were filtered using the watershed algorithm \cite{beucher.1992}.
 	}
-	\label{fig:heatmap_vycor}
+    \label{fig:compare_psd_vycor}
 \end{figure}
 
+% Since \ac{SEM}-\ac{SE} images tend to have brightness variations from one side to the other e.g. due to slightly tilted surfaces, adaptive thresholding was applied.
+% Adaptive thresholding is a segmentation method that adjusts the threshold value dynamically based on the local properties of the image, such as the intensity within a sliding window.
+% The size of this window is a variable called blocksize which has to be set manually.
+% For each segmented pore, the median \textsc{Feret} diameter was calculated.
+% The resulting median \textsc{Feret} diameter distribution was then normalised to the maximum value within the distribution.
+% Depending on the blocksize used, very different results were obtained, as shown in \zcref{fig:heatmap_vycor}.
 
-Since \ac{SEM}-\ac{SE} images tend to have brightness variations from one side to the other e.g. due to slightly tilted surfaces, adaptive thresholding was applied.
-Adaptive thresholding is a segmentation method that adjusts the threshold value dynamically based on the local properties of the image, such as the intensity within a sliding window.
-The size of this window is a variable called blocksize which has to be set manually.
-For each segmented pore, the median \textsc{Feret} diameter was calculated.
-The resulting median \textsc{Feret} diameter distribution was then normalised to the maximum value within the distribution.
-Depending on the blocksize used, very different results were obtained, as shown in \zcref{fig:heatmap_vycor}.
+For \textsc{VYCOR}-glass with a nominal pore size of \qty{5}{\nano\meter}, a main radius of approximately \qty{12.7}{\nano\meter} was calculated. Applying the watershed filter reduced this radius to \qty{8.2}{\nano\meter}.
+For the \qty{20}{\nano\meter} glass, radii of \qty{20.3}{\nano\meter} and \qty{10.9}{\nano\meter} were determined, respectively.
+In both cases, the calculated main radii overestimates the manufacturer's specifications.
+For the \qty{5}{\nano\meter} glass, the calculated values exceed the manufacturer's median pore radius of \qty{2.4}{\nano\meter} by a factor of \numrange{3.5}{5.4}.
+For the \qty{20}{\nano\meter} glass, the overestimation is lower, exceeding the reference radius of \qty{9.2}{\nano\meter} (measured via \ac{MIP}, see \zcref{fig:vycor-mip}) by a factor of \numrange{1.2}{2.2}.
 
-For \textsc{VYCOR}-glass with a given porosity of \qty{20}{\nano\meter}, using a blocksize larger than \qty{50}{\nano\meter} produced reliable results, with the main median \textsc{Feret} diameter around \qty{20}{\nano\meter}.
-However, for \qty{5}{\nano\meter} glass, the porosity was overestimated by a factor of \num{2.5}, with a median \textsc{Feret} diameter around \qty{15}{\nano\meter} (see \zcref{fig:mip_heatmap_vycor5nm}).
-For block sizes smaller than \qty{50}{\nano\meter}, the segmentation result was very noisy, and the \textsc{Feret} diameter was underestimated and unreliable.
-It is recommended to use a blocksize that is at least three times larger than the expected feature size to achieve accurate segmentation results.
+% the porosity was overestimated by a factor of \num{2.5}, with a median \textsc{Feret} diameter around \qty{15}{\nano\meter} (see \zcref{fig:mip_heatmap_vycor5nm}).
+% For block sizes smaller than \qty{50}{\nano\meter}, the segmentation result was very noisy, and the \textsc{Feret} diameter was underestimated and unreliable.
+% It is recommended to use a blocksize that is at least three times larger than the expected feature size to achieve accurate segmentation results.
 
 % TODO: Median pore size eintragen ins Diagram
 % TODO: normales thresholding auf eines der identischen Bilder anwenden zum Vergleich.
@@ -566,9 +692,12 @@ According to \zcref{eq:brun_freeze} \cite{brun.1977}, a heat flow signal was mea
 A heat flow signal was observed for the glass with a specified pore radius of \qty{10}{\nano\meter} for temperatures which can be converted to radii of \num{5} and \qty{12}{\nano\meter}, with peaks at pore radii of \num{7} and \qty{10}{\nano\meter}.
 
 These results show, that the pore diameter is overestimated by a factor of up to \num{2} for the \qty{5}{\nano\meter} glass compared to the \ac{MIP} results (see \zcref{fig:vycor-mip}), while the \qty{20}{\nano\meter} glass shows a good fit for its main peak.
+This result is similar to the image based results with the applied watershed filter shown before.
 Despite this deviation, the difference in the pore size is still observable.
-Compared to the \ac{SEM} results (see \zcref{fig:ltdsc-vycor-glass}), the \ac{LTDSC} results fit better to the \ac{MIP} results.
+Compared to the \ac{SEM} results (see \zcref{fig:ltdsc-vycor-glass}), the \ac{LTDSC} results fit slightly better to the \ac{MIP} results.
 Similar to the \ac{SEM} data, the \qty{5}{\nano\meter} glass also exhibits a shift towards larger pore sizes compared to the \ac{MIP} results.
+
+
 
 
 %\subsection{\acs*{HNMR}}
@@ -610,12 +739,6 @@ Additional image examples, indicating the excluded areas, are shown in \zcref{fi
         \label{fig:compare_rt_a}
     \end{subfigure}
     \hfill
-    \begin{subfigure}{0.49\textwidth}
-        \includegraphics[width=\textwidth]{methods/arbib-c3s-pores/C3S 28d BIB 6KV 6h_019-1_pores.pdf}
-        \caption{Segmented pores.}
-        \label{fig:compare_rt_b}
-    \end{subfigure}
-
     % Cryo Images
 	% C3S 28d cryo BIB 6h_016.tif
     \begin{subfigure}{0.49\textwidth}
@@ -623,10 +746,16 @@ Additional image examples, indicating the excluded areas, are shown in \zcref{fi
         \caption{\ac{SEM}-\ac{SE} image, \ac{ArBIB} at \qty{-140}{\celsius}.}
         \label{fig:compare_cryo_a}
     \end{subfigure}
+
+    \begin{subfigure}{0.49\textwidth}
+        \includegraphics[width=\textwidth]{methods/arbib-c3s-pores/C3S 28d BIB 6KV 6h_019-1_pores.pdf}
+        \caption{Segmented pores, \ac{ArBIB} at \qty{20}{\celsius}.}
+        \label{fig:compare_rt_b}
+    \end{subfigure}
     \hfill
     \begin{subfigure}{0.49\textwidth}
         \includegraphics[width=\textwidth]{methods/arbib-c3s-pores/C3S 28d cryo BIB 6h_015-1_pores.pdf}
-        \caption{Segmented pores.}
+        \caption{Segmented pores, \ac{ArBIB} at \qty{-140}{\celsius}.}
         \label{fig:compare_cryo_b}
     \end{subfigure}
     \caption{
@@ -637,14 +766,7 @@ Additional image examples, indicating the excluded areas, are shown in \zcref{fi
 
 The \ac{PSD} and \ac{CDF} were calculated for each image.
 As the pixel sizes and image areas differed, these results subsequently summarised in two datasets.
-For each dataset, the area-weighted \ac{PSD} and the corresponding \ac{CDF} were calculated and plotted in \zcref{fig:compare_graphs}.
-To account for the physical significance of larger pores, the distribution was weighted by the pore volume within each bin and normalised to its maximum value:
-\begin{equation}
-    f_\text{v,n}(r) = \frac{N(r) \cdot V_\text{pore}(r)}{\max(N(r) \cdot V_\text{pore}(r))}
-	\label{eq:weig_norm_pore_frequency}
-\end{equation}
-Here, $N(r)$ denotes the frequency of pores with radius $r$, and $V_\text{pore}(r)$ represents the volume of a sphere with radius $r$.
-To achieve this for the \ac{CDF}, the measured chord lengths were extrapolated to volumes, assuming spherical pores.
+For each dataset, the area-weighted \ac{PSD} and the corresponding \ac{CDF} were calculated using \zcref{eq:weig_norm_pore_frequency} and plotted in \zcref{fig:compare_graphs}.
 
 \begin{figure}[htbp]
     \centering
@@ -1994,9 +2116,9 @@ As already indicated by \ac{LTDSC}, the capillary pore space of \ac{C2S} is sign
 \section{Conclusion}
 
 The characterisation of porosity in cementitious materials necessitates a multi-method approach to cover the full range of pore sizes and to validate the results.
-Benchmarking against porous glass standards revealed that \ac{SEM}-based pore size analysis is highly sensitive to segmentation parameters, like the block size of adaptive thresholding algorithms.
-\ac{LTDSC} was able to distinguish between the two pore sizes of the glass standards.
-However, the assignment to an actual pore size using the approximation by \textcite{brun.1977} seems to be unsuitable, since the water in the gel pores freezes significantly below the boundary temperature \qty{-40}{\degreeCelsius} of the equation.
+The experiments using porous glass standards yielded promising results, serving as a successful benchmark for the \ac{LTDSC} method.
+It was demonstrated that \ac{LTDSC} is capable of distinguishing between different pore sizes, validating its applicability for the subsequent analysis of cement-based materials.
+Furthermore, the \ac{SEM}-based pore size analysis is highly sensitive to segmentation parameters, such as the blocksize of the adaptive thresholding algorithm and the wathershed minimum-distance parameter.
  
 For hydrated \ac{C3S} and \ac{C2S}, the combination of \ac{SEM}, \ac{FIBnt}, \ac{LTDSC}, and \ac{MIP} provided a comprehensive view of the pore structure development.
 High-resolution \ac{SEM} and \ac{FIBnt} imaging of \ac{ArBIB}-prepared cross-sections allowed for the direct observation and quantification of the nano-porosity within \ac{CSHi}.
@@ -2012,7 +2134,9 @@ However, larger image areas of polished \ac*{CSHi} would be required to verify t
 
 \ac{LTDSC} and \ac{MIP} measurements provided complementary volumetric data.
 +While \ac{MIP} is mostly limited to capillary pores (>\,\qty{10}{\nano\meter}), \ac{LTDSC} successfully distinguished between capillary and gel porosity.
-The freezing curves in \ac{LTDSC} indicated the presence of gel pores, although the derived pore sizes (approx. \qty{2}{\nano\meter}) using the \textcite{brun.1977} relation differed from the image-based findings, likely due to the aforementioned limitations of the thermodynamic model at low temperatures.
+However, the assignment to an absolute pore size using the approximation by \textcite{brun.1977} showed limitations, as the water in small gel pores freezes significantly below the boundary temperature of \qty{-40}{\degreeCelsius}.
+Using the \textcite{brun.1977} relation indicated the presence of gel pores with derived pore sizes of approx. \qty{2}{\nano\meter}, which differed from the image-based findings.
+This is likely caused by the aforementioned limitations of the thermodynamic model at low temperatures.
 However, the evaluation of the melting enthalpy in \ac{LTDSC} allowed for a quantitative assessment of pore volumes.
 
 Comparing the methods regarding the hydration of \ac{C3S} and \ac{C2S}, these techniques consistently indicated a densification of the microstructure over time.
@@ -2023,3 +2147,4 @@ This aligns with the faster reaction kinetics of \ac{C3S} observed in other expe
 Consequently, while no single method can fully characterise the entire pore space, the combination of direct imaging (\ac{ArBIB} combined with \ac{SEM} and \ac{FIBnt}) give a good idea for the gel pore morphology within \ac*{CSHi}.
 More indirect methods like \ac{LTDSC} and \ac{MIP} for volumetric quantification provide a robust description of the evolving pore structure, which are in accordance with the results based on image analysis shown in \zcref{chap:hydrate-rim}.
 % TODO:  in \zcref{chap:hydrate-rim}, try to perform some kind of CLD image analysis of the porosity, remove large pores using a filter?
+% TODO: warum konnte ein porendurchmesser von 3 NM mit MIP beim Glas gemessen werden, beim Zement aber nicht? Gibt es da ein Range-Problem?

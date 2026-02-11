@@ -960,6 +960,33 @@ A revalidation of the \ac{MIP} results was omitted, due to the high material cos
 \FloatBarrier
 \section{Pore size distribution}
 
+\begin{table}[htbp]
+    \centering
+    \caption{
+		Fit parameters $a, \mu, \sigma$ for the log-normal distribution (see \zcref{eq:lognormal_fit}) used in \zcref{fig:compare_graphs,fig:fib_highres_hist_3D, fig:compare_psd_vycor} and the resulting dominant pore radius $r_\text{P, max}$.
+		$a_\text{norm}$ is the normalised parameter $a$ and is calculated by dividing it by the $f(r_\text{P, max})$.
+		Graphs marked with `ws' were filtered using the watershed algorithm \cite{beucher.1992}.
+	}
+	\label{tab:rP_fit_parameters}
+    \begin{tabularx}{\linewidth}{l X l S[table-format=2.2] S[table-format=1.4] S[table-format=1.4] S[table-format=2.2]}
+        \toprule
+        Figure & Dataset & Type & {$a_\text{norm}$} & {$\mu$} & {$\sigma$} & {$r_\text{P, max}$} \\
+         &  &  & {\unit{\nano\meter}} &  &  & {\unit{\nano\meter}} \\
+        \midrule
+        \zcref{fig:compare_psd_5nm} & \qty{5}{\nano\meter} \textsc{VYCOR}-glass & \ac{PSD} & 13.45 & 2.6318 & 0.3063 & 12.7 \\
+        \zcref{fig:compare_psd_5nm} & \qty{5}{\nano\meter} \textsc{VYCOR}-glass & \ac{PSD} ws & 8.58 & 2.1651 & 0.2530 & 8.2 \\
+        \zcref{fig:compare_psd_20nm} & \qty{20}{\nano\meter} \textsc{VYCOR}-glass & \ac{PSD} & 20.50 & 3.1318 & 0.3456 & 20.3 \\
+        \zcref{fig:compare_psd_20nm} & \qty{20}{\nano\meter} \textsc{VYCOR}-glass & \ac{PSD} ws & 11.65 & 2.4632 & 0.2785 & 10.9 \\
+        \midrule
+        \zcref{fig:compare_rt_c} & RT (\qty{20}{\celsius}) & \ac{CDF} & 13.64 & 2.9845 & 0.5814 & 14.1 \\
+        \zcref{fig:compare_rt_c} & RT (\qty{20}{\celsius}) & \ac{PSD} & 13.04 & 3.0072 & 0.5615 & 14.8 \\
+        \zcref{fig:compare_cryo_c} & Cryo (\qty{-140}{\celsius}) & \ac{CDF} & 8.68 & 2.4277 & 0.4976 & 8.9 \\
+        \zcref{fig:compare_cryo_c} & Cryo (\qty{-140}{\celsius}) & \ac{PSD} & 8.05 & 2.4129 & 0.4371 & 9.2 \\
+        \zcref{fig:fib_highres_hist_3D-b} & \ac{FIBnt} & Volume & 12.59 & 2.6867 & 0.5548 & 10.8 \\
+        \bottomrule
+    \end{tabularx}
+\end{table}
+
 \subsection{Additional segmented images}
 \label{subsec:appendix_PSD_arbib}
 
@@ -1127,23 +1154,6 @@ The latter were excluded from the pore segmentation since these areas contain la
 \end{figure}
 
 
-\begin{table}[htbp]
-    \centering
-    \caption{Fit parameters $a, \mu, \sigma$ for the log-normal distribution (see \zcref{eq:lognormal_fit}) used in \zcref{fig:compare_graphs,fig:fib_highres_hist_3D} and the resulting dominant pore radius $r_\text{P, max}$.}
-	\label{tab:rP_fit_parameters}
-    \begin{tabularx}{\linewidth}{l X l S[table-format=2.2] S[table-format=1.4] S[table-format=1.4] S[table-format=2.2]}
-        \toprule
-        Figure & Dataset & Type & {$a$} & {$\mu$} & {$\sigma$} & {$r_\text{P, max}$} \\
-         &  &  & {\unit{\nano\meter}} &  &  & {\unit{\nano\meter}} \\
-        \midrule
-        \zcref{fig:compare_rt_c} & RT (\qty{20}{\celsius}) & \ac{CDF} & 13.64 & 2.9845 & 0.5814 & 14.1 \\
-        \zcref{fig:compare_rt_c} & RT (\qty{20}{\celsius}) & \ac{PSD} & 13.04 & 3.0072 & 0.5615 & 14.8 \\
-        \zcref{fig:compare_cryo_c} & Cryo (\qty{-140}{\celsius}) & \ac{CDF} & 8.68 & 2.4277 & 0.4976 & 8.9 \\
-        \zcref{fig:compare_cryo_c} & Cryo (\qty{-140}{\celsius}) & \ac{PSD} & 8.05 & 2.4129 & 0.4371 & 9.2 \\
-        \zcref{fig:fib_highres_hist_3D-b} & \ac{FIBnt} & Volume & 12.59 & 2.6867 & 0.5548 & 10.8 \\
-        \bottomrule
-    \end{tabularx}
-\end{table}
 
 \FloatBarrier
 \subsubsection{\acs*{LTDSC}}

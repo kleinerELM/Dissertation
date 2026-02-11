@@ -524,15 +524,35 @@ It calculates a threshold value for each pixel based on the local neighbourhood 
 The \textsc{Phansalkar} thresholding is implemented in \textsc{Python} \cite{kleiner.2021}, but comparable results can be achieved using the \textit{Auto Local Threshold} function in \textsc{Fiji}/\textsc{ImageJ} \cite{schindelin.2012} with parameters $k = \num{0.15}$ and $r = \num{0.3}$.
 
 Following segmentation, morphological operators are applied to remove noise from the binary images.
-Subsequently, the \ac{PSD} is calculated relative to the surrounding phase or the total image area.
+Depending on the imaged specimen, the pores can be connected.
+To separate them, the watershed algorithm is applied \cite{beucher.1992}.
+First, the \textsc{Euclidean} distance transform of the pore mask is computed.
+One important value to be set is the minimum spacing between the maxima, which determines how granular the pores are separated.
+The larger the value, the larger the resulting pores in the final mask, significantly influencing the resulting \ac{PSD}.
+Therefore, this algorithm should only applied when strictly necessary.
+
 As individual images often contain a limited number of pores, the resulting \ac{PSD} can be noisy.
 To improve data density, the \ac{CDF} \cite{torquato.2002} is also calculated.
 The \ac{CDF} is derived by measuring chord lengths across pores in both $x$- and $y$-directions for every pixel row and column.
-These chord lengths are then compiled into a histogram.
-For all calculations, the pores are assumed to be circular.
-To calculate the most dominant pore radius $r_\text{P, max}$, the date were fitted using the following log-normal equation:
+Although this results in a much higher data density, the CDF is also strongly influenced by sectioning effects, causing an underestimation of pore sizes.
+
+The \ac{PSD} and \ac{CDF} are then compiled into a histogram.
+For the following calculations, the pores are assumed to be circular.
+To account for the physical significance of larger pores, the distribution was weighted by the pore volume within each bin and normalised to its maximum value:
+
+\begin{equation}
+    f_\text{v,n}(r) = \frac{f_\text{pore} \cdot V_\text{pore}(r)}{\max(f_\text{pore}(r) \cdot V_\text{pore}(r))}
+	\label{eq:weig_norm_pore_frequency}
+\end{equation}
+
+Here, $f_\text{pore}(r)$ denotes the frequency of pores with radius $r$, and $V_\text{pore}(r)$ represents the volume of a sphere with radius $r$.
+To achieve this for the \ac{CDF}, the measured chord lengths is extrapolated to volumes, assuming the chord length to be equivalent to the pore diameter.
+
+To calculate the most dominant pore radius $r_\text{P, max}$, the data is fitted using the following log-normal equation:
 
 \begin{equation}
     f(r_\text{P}) = \frac{a}{r_\text{P}} \cdot \exp\left( -0.5 \cdot \left( \frac{\ln(r_\text{P}) - \mu}{\sigma} \right)^2 \right)
     \label{eq:lognormal_fit}
 \end{equation}
+
+

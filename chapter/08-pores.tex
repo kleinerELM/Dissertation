@@ -311,34 +311,22 @@ As the \ac{SEM} images indicate (\zcref{fig:ltdsc-vycor-glass-a, fig:ltdsc-vycor
 
 Since the dwell-time has to be chosen as short as possible to avoid charging, the images became very noisy and were denoised using a median blur filter using a \numproduct{3x3} kernel.
 
-The pores can be segmented using adaptive thresholding to determine the pore size distribution (see \zcref{fig:ltdsc-vycor-glass-c,fig:ltdsc-vycor-glass-d}). %  (see \zcref{sec:segmentation})
-It provides a `blocksize' parameter given in \unit{\px}, which sets the area within brightness differences are ignored and the threshold is applied.
-For \textsc{VYCOR}-glass with a given porosity of \qty{20}{\nano\meter}, using a blocksize between than \qtyrange{50}{100}{\nano\meter} produced reliable results.
-Threfore, a blocksize parameter was chosen which corresponds to approximately \qty{80}{\nano\meter}.
-The binary result was then morphologically cleaned (dilate-erode).
+The pores were segmented using adaptive thresholding to determine the pore size distribution (see \zcref{fig:ltdsc-vycor-glass-c,fig:ltdsc-vycor-glass-d}).
+This method utilizes a `blocksize' parameter (in \unit{\px}), which defines the local neighbourhood size for calculating the threshold.
+For \textsc{VYCOR} glass with a nominal pore diameter of \qty{20}{\nano\meter}, a blocksize corresponding to \qtyrange{50}{100}{\nano\meter} yielded reliable results.
+Consequently, a blocksize parameter corresponding to approximately \qty{80}{\nano\meter} was selected.
+The resulting binary images were morphologically cleaned using dilation and erosion operations.
 
-Since the glass is engineered as a filter by fusing glass powder, a tunnel like pore structure is formed.
-Thus, the segmented pores in the \ac{SEM}-\ac{SE} images appear often connected, which can lead to a significant overestimation of the pore sizes.
-Therefore, a watershed-based separation was applied for comparison.
-To do this, the \textsc{Euclidean} distance transform of the pore mask is computed and a minimum spacing between the maxima of \qty{3.5}{\nano\meter} was set.
-This parameter was chosen, since it resulted in a subjectively good pore separation with fairly compact pores.However, changing this parameter, has a significant influence on the final result.
-Finally, the resulting labelled regions were combined with the original binary mask, to obtain a mask with separated pores.
+As the glass is manufactured as a filter material by sintering glass powder, a tunnel-like pore network is formed.
+Consequently, the segmented pores in the \ac{SEM}-\ac{SE} images often appear interconnected, potentially leading to a significant overestimation of pore sizes.
+To address this, a watershed-based separation algorithm was applied for comparison.
+The minimum spacing between the maxima was set to \qty{3.5}{\nano\meter}.
+This parameter was selected as it resulted in a subjectively adequate separation of pores into fairly compact shapes.
+However, it should be noted that variations in this parameter significantly influence the final result.
 
-From the optionally watershed-separated pore segmentation, a \ac{PSD} is calculated.
-To account for the physical significance of larger pores, the distribution was weighted by the pore volume within each bin and normalised to its maximum value:
-\begin{equation}
-    f_\text{v,n}(r) = \frac{f_\text{pore} \cdot V_\text{pore}(r)}{\max(f_\text{pore}(r) \cdot V_\text{pore}(r))}
-	\label{eq:weig_norm_pore_frequency}
-\end{equation}
-Here, $f_\text{pore}(r)$ denotes the frequency of pores with radius $r$, and $V_\text{pore}(r)$ represents the volume of a sphere with radius $r$.
-To achieve this for the \ac{CDF}, the measured chord lengths were extrapolated to volumes, assuming spherical pores.
-The resulting \ac{PSD} of three image per specimen are shown in \zcref{fig:compare_psd_vycor}.
-%As indicated by the inhomogeneous distribution of the segmented pores (\zcref{fig:ltdsc-vycor-glass-c}), the selected threshold value is not producing an uniform result.
-
-%Furthermore, the measured pore radii measured using this traditional thresholding method are off by a factor of \num{4} and more (\qty{5}{\nano\meter} glass) and \num{2} (\qty{20}{\nano\meter} glass) compared to the \ac{MIP} measurements provided by the manufacturer (\zcref{fig:vycor-mip}).
-
-% TODO: prüfe, ob tatsächlich Porenradien gemessen wurden!
-
+The resulting \ac{PSD}s, derived from three images per specimen, are presented in \zcref{fig:compare_psd_vycor}.
+To determine the dominant pore radius, the histograms were fitted using \zcref{eq:weig_norm_pore_frequency}.
+The fit parameters are listed in \zcref{tab:rP_fit_parameters}.
 
 % \begin{figure}[htbp]
 % 	\centering
@@ -348,7 +336,7 @@ The resulting \ac{PSD} of three image per specimen are shown in \zcref{fig:compa
 % 			\begin{axis}[
 % 				xlabel={Median \textsc{Feret} diameter in \unit{\nano\meter}},
 % 				ylabel={blocksize in \unit{\nano\meter}},
-% 				colormap name=buw, 		 % Choose a colormap (others: hot, cool, jet, etc.)
+% 				colormap name=buw,
 % 				colorbar=false,                       % Display the color bar
 % 				view={0}{90},                   % Set view angles for a 2D top-down view
 % 				enlargelimits=false,            % Fit plot tightly to data range
@@ -511,11 +499,12 @@ The resulting \ac{PSD} of three image per specimen are shown in \zcref{fig:compa
             \end{axis}
         \end{tikzpicture}
         \caption{\qty{20}{\nano\meter} porous \textsc{VYCOR} glass.}
-        \label{fig:compare_psd_5nm}
+        \label{fig:compare_psd_20nm}
     \end{subfigure}
 	\caption{
 		\ac{PSD} of \num{5} and \qty{20}{\nano\meter} \textsc{VYCOR} glass, obtained from segmented \ac{SE} images (\num{3} images, \qty{53.61}{\micro\meter\squared} in total for each glass).
 		Graphs marked with `ws' were filtered using the watershed algorithm \cite{beucher.1992}.
+		The fit parameters are listed in \zcref{tab:rP_fit_parameters}.
 	}
     \label{fig:compare_psd_vycor}
 \end{figure}
@@ -2108,10 +2097,194 @@ Therefore, both methods cover different pore space ranges.
 The \ac{MIP} curves show a significant reduction in the pore size distribution for both materials from the first reliable measurable age (\ac{C2S}: \qty{14}{\day}; \ac{C3S}: \qty{7}{\day}) up to \qty{28}{\day} of hydration.
 As already indicated by \ac{LTDSC}, the capillary pore space of \ac{C2S} is significantly higher than that of \ac{C3S} (not the scale difference of both diagrams).
 
-%\section{Discussion}
-%\color{red}
-%TODO: compare results of the methods
-%\color{black}
+
+% \section{pore analysis C3S-C2S polsihed sections}
+% %\section{Discussion}
+% %\color{red}
+% %TODO: compare results of the methods
+% %\color{black}
+
+% % D:\GIT\measure_hydrate_layer2\pore_analysis.py
+% %Fits of CLD histograms, weighted by volume.
+% \begin{figure}[htbp]
+%     \centering
+%     \begin{subfigure}{0.49\textwidth}
+%         \flushright
+%         \begin{tikzpicture}
+%             \begin{axis}[
+%                 width=1.1\linewidth,
+%                 height=6cm,
+%                 grid=major,
+%                 xlabel={\ac{CDF} in \unit{\nano\meter}},
+%                 ylabel={weighted frequency $f_\text{v,n}$},
+% 				ytick=\empty,
+%                 xmin=0, xmax=50000,
+%                 ymin=0, ymax=1.2,
+%                 grid style={line width=.1pt, draw=gray!10},
+%                 legend style={at={(0.98,0.98)},anchor=north east, font=\scriptsize},
+%                 legend columns=1,
+%             ]
+
+%  %\addplot [no markers, darkgreen, domain=84.3:5e+04, samples=200] {(11725.2 / x * exp(-0.5 * ((ln(x) - 9.59244) / 0.633547)^2))/0.978};
+% 				%\addlegendentry{\qty{1}{\day}}
+
+% \addplot [no markers, blue, domain=0:5e+04, samples=200] {(1425.95 / x * exp(-0.5 * ((ln(x) - 9.86742) / 0.764025)^2))/0.099};
+% 				\addlegendentry{\qty{7}{\day}}
+
+% \addplot [no markers, red, domain=0:5e+04, samples=200] {(1378.65 / x * exp(-0.5 * ((ln(x) - 9.32843) / 0.60828)^2))/0.147};
+% 				\addlegendentry{\qty{14}{\day}}
+
+% \addplot [no markers, cyan, domain=0:5e+04, samples=200] {(1255.28 / x * exp(-0.5 * ((ln(x) - 9.37811) / 0.821683)^2))/0.149};
+% 				\addlegendentry{\qty{28}{\day}}
+
+%             \end{axis}
+%         \end{tikzpicture}
+%         \caption{C2S.}
+%         %\label{fig:compare_psd_5nm}
+%     \end{subfigure}
+%     \hfill
+%     \begin{subfigure}{0.49\textwidth}
+%         \flushleft
+%         \begin{tikzpicture}
+%             \begin{axis}[
+%                 width=1.1\linewidth,
+%                 height=6cm,
+%                 grid=major,
+%                 xlabel={\ac{CDF} in \unit{\nano\meter}},
+%                 ylabel={weighted frequency $f_\text{v,n}$},
+%                 yticklabel pos=right,
+% 				ytick=\empty,
+%                 xmin=0, xmax=50000,
+%                 ymin=0, ymax=1.2,
+%                 grid style={line width=.1pt, draw=gray!10},
+%                 legend style={at={(0.98,0.98)},anchor=north east, font=\scriptsize},
+%             ]
+
+% %\addplot [no markers, darkgreen, domain=34.9:5e+04, samples=200] {(9627.24 / x * exp(-0.5 * ((ln(x) - 9.35667) / 0.550321)^2))/0.968};
+% 				%\addlegendentry{\qty{1}{\day}}
+
+% \addplot [no markers, blue, domain=84.3:5e+04, samples=200] {(11140.4 / x * exp(-0.5 * ((ln(x) - 9.53458) / 0.632492)^2))/0.984};
+% 				\addlegendentry{\qty{7}{\day}}
+
+% \addplot [no markers, red, domain=0:5e+04, samples=200] {(3919.13 / x * exp(-0.5 * ((ln(x) - 9.77162) / 0.615526)^2))/0.270};
+% 				\addlegendentry{\qty{14}{\day}}
+
+% \addplot [no markers, cyan, domain=84.3:5e+04, samples=200] {(7118.42 / x * exp(-0.5 * ((ln(x) - 9.01048) / 0.58745)^2))/1.033};
+% 				\addlegendentry{\qty{28}{\day}}
+
+
+%             \end{axis}
+%         \end{tikzpicture}
+%         \caption{C3S.}
+%         %\label{fig:}
+%     \end{subfigure}
+	
+%     \begin{subfigure}{0.49\textwidth}
+%         \flushright
+%         \begin{tikzpicture}
+%             \begin{axis}[
+%                 width=1.1\linewidth,
+%                 height=6cm,
+%                 grid=major,
+%                 xlabel={\ac{CDF} in \unit{\nano\meter}},
+%                 ylabel={weighted frequency $f_\text{v,n}$},
+% 				ytick=\empty,
+%                 xmin=0, xmax=50000,
+%                 ymin=0, ymax=1.2,
+%                 grid style={line width=.1pt, draw=gray!10},
+%                 legend style={at={(0.98,0.98)},anchor=north east, font=\scriptsize},
+%                 legend columns=1,
+%             ]
+
+% \addplot [no markers, blue, domain=0:5e+04, samples=200] {(9762.15 / x * exp(-0.5 * ((ln(x) - 9.43305) / 0.636828)^2))/0.957};
+% 				\addlegendentry{\qty{7}{\day}}
+
+% \addplot [no markers, red, domain=0:5e+04, samples=200] {(2950.69 / x * exp(-0.5 * ((ln(x) - 8.99182) / 0.596089)^2))/0.439};
+% 				\addlegendentry{\qty{14}{\day}}
+
+% \addplot [no markers, cyan, domain=0:5e+04, samples=200] {(8511.09 / x * exp(-0.5 * ((ln(x) - 9.24333) / 0.608233)^2))/0.991};
+% 				\addlegendentry{\qty{28}{\day}}
+
+%             \end{axis}
+%         \end{tikzpicture}
+%         \caption{C2S:C3S 3:1.}
+%         %\label{fig:}
+%     \end{subfigure}
+%     \hfill
+%     \begin{subfigure}{0.49\textwidth}
+%         \flushleft
+%         \begin{tikzpicture}
+%             \begin{axis}[
+%                 width=1.1\linewidth,
+%                 height=6cm,
+%                 grid=major,
+%                 xlabel={\ac{CDF} in \unit{\nano\meter}},
+%                 ylabel={weighted frequency $f_\text{v,n}$},
+%                 yticklabel pos=right,
+% 				ytick=\empty,
+%                 xmin=0, xmax=50000,
+%                 ymin=0, ymax=1.2,
+%                 grid style={line width=.1pt, draw=gray!10},
+%                 legend style={at={(0.98,0.98)},anchor=north east, font=\scriptsize},
+%             ]
+
+
+% \addplot [no markers, blue, domain=84.3:5e+04, samples=200] {(10262.9 / x * exp(-0.5 * ((ln(x) - 9.56347) / 0.628798)^2))/0.879};
+% 				\addlegendentry{\qty{7}{\day}}
+
+% \addplot [no markers, red, domain=0:5e+04, samples=200] {(10404.5 / x * exp(-0.5 * ((ln(x) - 9.66021) / 0.660892)^2))/0.825};
+% 				\addlegendentry{\qty{14}{\day}}
+
+% \addplot [no markers, cyan, domain=84.3:5e+04, samples=200] {(1692.61 / x * exp(-0.5 * ((ln(x) - 9.05212) / 0.646871)^2))/0.244};
+% 				\addlegendentry{\qty{28}{\day}}
+
+
+%             \end{axis}
+%         \end{tikzpicture}
+%         \caption{C2S:C3S 1:3.}
+%         %\label{fig:}
+%     \end{subfigure}
+
+%     \begin{subfigure}{0.49\textwidth}
+%         \flushleft
+%         \begin{tikzpicture}
+%             \begin{axis}[
+%                 width=1.1\linewidth,
+%                 height=6cm,
+%                 grid=major,
+%                 xlabel={\ac{CDF} in \unit{\nano\meter}},
+%                 ylabel={weighted frequency $f_\text{v,n}$},
+%                 yticklabel pos=right,
+% 				ytick=\empty,
+%                 xmin=0, xmax=50000,
+%                 ymin=0, ymax=1.2,
+%                 grid style={line width=.1pt, draw=gray!10},
+%                 legend style={at={(0.98,0.98)},anchor=north east, font=\scriptsize},
+%             ]
+
+
+% \addplot [no markers, blue, domain=84.3:5e+04, samples=200] {(9876.31 / x * exp(-0.5 * ((ln(x) - 9.3894) / 0.580006)^2))/0.977};
+% 				\addlegendentry{\qty{7}{\day}}
+
+% \addplot [no markers, red, domain=0:5e+04, samples=200] {(1084.3 / x * exp(-0.5 * ((ln(x) - 9.34666) / 0.625007)^2))/0.115};
+% 				\addlegendentry{\qty{14}{\day}}
+
+% \addplot [no markers, cyan, domain=84.3:5e+04, samples=200] {(4341.06 / x * exp(-0.5 * ((ln(x) - 8.84684) / 0.59184)^2))/0.744};
+% 				\addlegendentry{\qty{28}{\day}}
+
+
+%             \end{axis}
+%         \end{tikzpicture}
+%         \caption{C2S:C3S 1:3.}
+%         %\label{fig:}
+%     \end{subfigure}
+% 	\caption{
+% 		C2S:C3S mix
+% 	}
+%     %\label{fig:}
+% \end{figure}
+% - there is no consistent patter in the pore development. There is only a trend for \qty{28}{\day} hydrated specimens to have a slightly smaller main porosity than younger specimens.
+
 
 \section{Conclusion}
 

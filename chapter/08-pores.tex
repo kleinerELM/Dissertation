@@ -980,7 +980,7 @@ The respective pore size distribution histograms are shown in \zcref{fig:fib_hig
 	\caption{
 		Normalised frequency distribution of the pores ({\color{blue}blue}) and the \ac{PSD} of the segmented dataset based on a segmented 3D volume of of \ac{CSHi} ({\color{red}red}).
 		% and the 2D slices ({\color{red}red}).
-		The first three bins ({\color{darkgrey}grey}) were not used to for the fit
+		The first three bins ({\color{darkgrey}grey}) were not used to for the fit.
 	}
 	\label{fig:fib_highres_hist_3D}
 \end{figure}
@@ -1123,7 +1123,7 @@ It was not possible to measure \ac{C2S} after \qty{1}{\day} of hydration, since 
 			xmin=1.75, xmax=2.75,
 			ymin=-.11, ymax=-0.03,
 			y dir=reverse,
-			width=.9\linewidth,
+			width=.85\linewidth,
 			height=6cm,
 			grid=none,
 			xlabel={temperature in \unit{\celsius}},
@@ -1142,7 +1142,7 @@ It was not possible to measure \ac{C2S} after \qty{1}{\day} of hydration, since 
 				xmin=1.75, xmax=2.75,
 				ymin=-.11, ymax=-0.03,
 				y dir=reverse,
-				width=.9\linewidth,
+				width=.85\linewidth,
 				height=6cm,
 				grid=major,
 				xlabel={pore radius $r_\text{P}$ \unit{\nano\meter}},
@@ -1312,7 +1312,7 @@ It was not possible to measure \ac{C2S} after \qty{1}{\day} of hydration, since 
 			xmin=1.75, xmax=2.75,
 			ymin=-.11, ymax=-0.03,
 			y dir=reverse,
-			width=.9\linewidth,
+			width=.85\linewidth,
 			height=6cm,
 			grid=none,
 			xlabel={temperature in \unit{\celsius}},
@@ -1331,7 +1331,7 @@ It was not possible to measure \ac{C2S} after \qty{1}{\day} of hydration, since 
 				xmin=1.75, xmax=2.75,
 				ymin=-.11, ymax=-0.03,
 				y dir=reverse,
-				width=.9\linewidth,
+				width=.85\linewidth,
 				height=6cm,
 				grid=major,
 				xlabel={pore radius $r_\text{P}$ \unit{\nano\meter}},
@@ -1775,17 +1775,18 @@ Both materials indicate a steady increase in the gel pore and a reduction of cap
 			ylabel={capillary pore volume in \unit{\micro\liter\per\gram}},
 			xmin=0,xmax=35,
 			ymin=0,ymax=350,
-			width=.8\textwidth,
+			width=.85\textwidth,
 			height=6.5cm,
 			grid=major,
 			scatter/classes={
-				1={yellow},
-				7={orange},
-				14={red},
-				21={green},
-				28={cyan}
+				1={mark=diamond*},
+				7={mark=triangle*},
+				14={mark=pentagon*},
+				21={mark=*},
+				28={mark=square*}
 			},
 			legend style={at={(1.02,0.02)}, anchor=south west},
+            legend cell align={left},
 		]
 
 		% C3S linear fit
@@ -1802,47 +1803,63 @@ Both materials indicate a steady increase in the gel pore and a reduction of cap
 		] {figures/ltdsc/C2S_ice_vol_dev.csv};
 		\addplot [grey, thin, dashed, domain=0:18.3, forget plot] {\pgfplotstableregressiona*x + \pgfplotstableregressionb};
 
-		% C3S (circles)
+		% C3S
 		\addplot [
-			scatter, only marks, mark=*, mark size=4pt,
+			scatter, only marks, red, mark size=4pt,
 			scatter src=explicit symbolic,
 		] table [
 			x=pores_a_mean, y=pores_b_mean, col sep=comma,
 			meta=a
 		] {figures/ltdsc/C3S_ice_vol_dev.csv};
 
-		% C2S (squares)
+		% C2S
 		\addplot [
-			scatter, only marks, mark=square*, mark size=4pt,
+			scatter, only marks, orange, mark size=4pt,
 			scatter src=explicit symbolic
 		] table [
 			x=pores_a_mean, y=pores_b_mean, col sep=comma,
 			meta=a
 		] {figures/ltdsc/C2S_ice_vol_dev.csv};
 
-		% a little stupid, but this axis returns the color classes as labels
-		\addlegendentry{\qty{1}{\day}}
-		\addlegendentry{\qty{7}{\day}}
-		\addlegendentry{\qty{14}{\day}}
-		\addlegendentry{\qty{21}{\day}}
-		\addlegendentry{\qty{28}{\day}}
-
 		\end{axis}
 
 		% second axis for phase legend
 		\begin{axis}[
-			width=.8\textwidth,
+			width=.85\textwidth,
 			height=6.5cm,
 			hide axis,
 			xmin=0,xmax=1,ymin=0,ymax=1,
 			legend style={at={(1.02,0.98)}, anchor=north west},
+            legend cell align={left},
 		]
 
-		\addlegendimage{only marks, mark=square*, mark size=4pt, grey}
+		\addlegendimage{only marks, mark=square*, mark size=4pt, red}
 		\addlegendentry{\ac{C2S}}
-
-		\addlegendimage{only marks, mark=*, mark size=4pt, grey}
+		\addlegendimage{only marks, mark=square*, mark size=4pt, orange}
 		\addlegendentry{\ac{C3S}}
+
+		\end{axis}
+
+		% third axis for age legend
+		\begin{axis}[
+			width=.85\textwidth,
+			height=6.5cm,
+			hide axis,
+			xmin=0,xmax=1,ymin=0,ymax=1,
+			legend style={at={(1.02,0.02)}, anchor=south west},
+            legend cell align={left},
+		]
+
+		\addlegendimage{only marks, mark=diamond*, mark size=4pt, grey}
+		\addlegendentry{\qty{1}{\day}}
+		\addlegendimage{only marks, mark=triangle*, mark size=4pt, grey}
+		\addlegendentry{\qty{7}{\day}}
+		\addlegendimage{only marks, mark=pentagon*, mark size=4pt, grey}
+		\addlegendentry{\qty{14}{\day}}
+		\addlegendimage{only marks, mark=*, mark size=4pt, grey}
+		\addlegendentry{\qty{21}{\day}}
+		\addlegendimage{only marks, mark=square*, mark size=4pt, grey}
+		\addlegendentry{\qty{28}{\day}}
 
 		\end{axis}
 	\end{tikzpicture}
@@ -1855,40 +1872,41 @@ Both materials indicate a steady increase in the gel pore and a reduction of cap
 
 These observations fit well to the microstructural development visible in \ac{SEM}-\ac{BSE} images of both materials, where the capillary porosity is reduced, since the hydrate phases grow into these larger pore spaces, causing new gel porosity (see \zcref{fig:hydration-rim-results}).
 
-\begin{itemize}
-	\color{red}
-	\item difficult to calculate the pore volume fraction (in contrast to the pore volume per mass)
-	\item volume fraction of hydrate phase and unhydrated phase not fully known
-	\item can be assumed using Area fraction from SEM images as described in \cite{kleiner.2024a} and \zcref{eq:}.
-\end{itemize}
+% I have decided to remove this, but leave it as a comment as a reminder, if the question arises.
+% \begin{itemize}
+% 	\color{red}
+% 	\item difficult to calculate the pore volume fraction (in contrast to the pore volume per mass) % while this concern is true, since the actual volume of the specimen measured is unknown, I think it does not really matter, since this also was not done for the image analysis and is also unusual for MIP
+% 	\item volume fraction of hydrate phase and unhydrated phase not fully known
+% 	\item can be assumed using Area fraction from SEM images as described in \cite{kleiner.2024a} and \zcref{eq:}.
+% \end{itemize}
 
 \FloatBarrier
 \subsection{\Acl*{MIP} measurements}
 
-\zcref{fig:mip_c2s, fig:mip_c3s} illustrate the \ac{MIP} results for \ac{C2S} and \ac{C3S} after up to \qty{28}{\day} of hydration in comparison to the second freezing curves of the \ac{LTDSC}-measurements.
+\zcref{fig:mip_c2s_c3s} illustrate the \ac{MIP} results for \ac{C2S} and \ac{C3S} after up to \qty{28}{\day} of hydration in comparison to the second freezing curves of the \ac{LTDSC}-measurements.
 For these diagrams, the freeze curves were baseline corrected, which was performed by by calculating the linear regression of the data between \numrange{-55}{-50} and \qtyrange{-27}{-23}{\celsius} and subtracting this regression function from the mean data as shown in \zcref{fig:ltdsc_result_c2s_melt}.
 
 \begin{figure}[!htb]
     \centering
 
-	\begin{tikzpicture}
+    \begin{subfigure}[t]{\linewidth}
+	  \begin{tikzpicture}
 		\begin{semilogxaxis}[
-			blue,
-			axis line style={black},
 			legend style={
-				at={(.03,.95)},
+				at={(.02,.96)},
 				anchor=north west,
-				text=black,
 			},
 			legend cell align={left},
 			legend columns=2,
 			xmin=1.5, xmax=5000,
 			ymin=-.12, ymax=0,
 			y dir=reverse,
-			width=.85\linewidth,
+			width=.83\linewidth,
 			height=6cm,
 			grid=major,
 			xlabel={temperature in \unit{\celsius}},
+			xlabel style={blue},
+			xticklabel style={blue},
 			xticklabels={\num{-51.2}, \num{-25.3}, \num{-12.4}, \num{-4.6}, \num{-2.0}},
 			xtick={2.5,5,10,25,50},
 			ylabel={heat flow $\dot{Q}$ in \unit{\joule\per\second\per\gram}},
@@ -1898,9 +1916,9 @@ For these diagrams, the freeze curves were baseline corrected, which was perform
 			axis y line*=left,
 			ytick={0,-0.05,-0.1,-0.15,-0.2},
 			yticklabel style={
-					/pgf/number format/fixed,
-					/pgf/number format/precision=2,
-					/pgf/number format/fixed zerofill,
+				/pgf/number format/fixed,
+				/pgf/number format/precision=2,
+				/pgf/number format/fixed zerofill,
 			},
 		]
 
@@ -1913,42 +1931,42 @@ For these diagrams, the freeze curves were baseline corrected, which was perform
 			\addplot [ no marks, blue, forget plot, opacity=0.5] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=3, y index=4, col sep=comma] {figures/ltdsc/C2S_28d_mean_freeze_segment.csv};
 
 			% the color legend is universal for all experiments. The linestyle in addlegendentry however, could not be changed for some reason.
-            \addplot [ no marks, orange ]  coordinates {(0.1,0) (.9,0)};
+            \addplot [ no marks, orange, thick ]  coordinates {(0.1,0) (.9,0)};
             \addlegendentry{\qty{7}{\day}};
-            \addplot [ no marks, red ]  coordinates {(0.1,0) (.9,0)};
+            \addplot [ no marks, red, thick ]  coordinates {(0.1,0) (.9,0)};
             \addlegendentry{\qty{14}{\day}};
-            \addplot [ no marks, green ]  coordinates {(0.1,0) (.9,0)};
+            \addplot [ no marks, green, thick ]  coordinates {(0.1,0) (.9,0)};
             \addlegendentry{\qty{21}{\day}};
-            \addplot [ no marks, blue ]  coordinates {(0.1,0) (.9,0)};
+            \addplot [ no marks, blue, thick ]  coordinates {(0.1,0) (.9,0)};
             \addlegendentry{\qty{28}{\day}};
 
 		\end{semilogxaxis}
 		\begin{semilogxaxis}[
-			orange,
-			axis line style={black},
 			legend style={
-				at={(.97,.95)},
+				at={(.98,.96)},
 				anchor=north east,
-				text=black,
 			},
 			legend columns=-1,
 			legend cell align={right},
 			xmin=1.5, xmax=5000,
 			ymin=0, ymax=1.6,
-			width=.85\linewidth,
+			width=.83\linewidth,
 			height=6cm,
 			grid=none,
-			xlabel={\color{black} pore radius $r_\text{P}$ in \unit{\nano\meter}},
-			ylabel style={align=center},
+			xlabel={pore radius $r_\text{P}$ in \unit{\nano\meter}},
+			xlabel style={black},
+			xticklabel style={black},
 			ylabel={$dV/dlogR$\\pore volume in \unit{\milli\liter\per\gram}},
-			grid style={line width=.1pt, draw=gray!10},
+			ylabel style={align=center, darkgreen},
 			yticklabel style={
-					/pgf/number format/fixed,
-					/pgf/number format/precision=1,
-					/pgf/number format/fixed zerofill,
+				darkgreen,
+				/pgf/number format/fixed,
+				/pgf/number format/precision=1,
+				/pgf/number format/fixed zerofill,
 			},
-			xticklabels={1.5,2.5,5,10,25,50, 100, 1000, 10000},
-			xtick={1.5,2.5,5,10,25,50, 100, 1000, 10000},
+			grid style={line width=.1pt, draw=gray!10},
+			xticklabels={1,2.5,5,10,25,50, 100, 1000, 10000},
+			xtick={1,2.5,5,10,25,50, 100, 1000, 10000},
 			ytick={},
 			scaled y ticks=false,
 			scaled x ticks=false,
@@ -1971,31 +1989,36 @@ For these diagrams, the freeze curves were baseline corrected, which was perform
 			\addlegendentry{\acs*{MIP}};
 
 		\end{semilogxaxis}
-	\end{tikzpicture}
-	\caption{{\color{orange}\ac{MIP}-analysis} of \ac{C2S} after \num{14} and \qty{28}{\day} of hydration compared with selected {\color{blue}\ac{LTDSC}-curves}. Note that pore sizes below \qty{3.19}{\nano\meter} are undefined as noted in \zcref{eq:brun_freeze}.}
-    \label{fig:mip_c2s}
-\end{figure}
+	  \end{tikzpicture}
+	  \caption{\ac{C2S} after \num{14} and \qty{28}{\day} of hydration.}
+	  \label{fig:mip_c2s}
+    \end{subfigure}
+    \begin{subfigure}[t]{\linewidth}
+% 	\caption{
+% 		\ac{MIP}-analysis of \ac{C2S} after \num{14} and \qty{28}{\day} of hydration ({\color{orange}right axis}) compared with selected \ac{LTDSC}-curves (left axis).
+% 		Note that pore sizes below \qty{3.19}{\nano\meter} are undefined as noted in \zcref{eq:brun_freeze}.}
+%     \label{fig:mip_c2s}
+% \end{figure}
 
-\begin{figure}[!htb]
-    \centering
-	\begin{tikzpicture}
+% \begin{figure}[!htb]
+%     \centering
+	  \begin{tikzpicture}
 		\begin{semilogxaxis}[
-				blue,
-				axis line style={black},
 				legend style={
 					at={(.02,.96)},
 					anchor=north west,
-					text=black,
 				},
 				legend cell align={left},
 				legend columns=2,
 				xmin=1.5, xmax=5000,
 				ymin=-.12, ymax=0,
 				y dir=reverse,
-				width=.85\linewidth,
+				width=.83\linewidth,
 				height=6cm,
 				grid=major,
 				xlabel={temperature in \unit{\celsius}},
+				xlabel style={blue},
+				xticklabel style={blue},
 				xticklabels={\num{-51.2}, \num{-25.3}, \num{-12.4}, \num{-4.6}, \num{-2.0}},
 				xtick={2.5,5,10,25,50},
 				ylabel={heat flow $\dot{Q}$ in \unit{\joule\per\second\per\gram}},
@@ -2005,9 +2028,9 @@ For these diagrams, the freeze curves were baseline corrected, which was perform
 				axis y line*=left,
 				ytick={0,-0.05,-0.1,-0.15,-0.2},
 				yticklabel style={
-						/pgf/number format/fixed,
-						/pgf/number format/precision=2,
-						/pgf/number format/fixed zerofill,
+					/pgf/number format/fixed,
+					/pgf/number format/precision=2,
+					/pgf/number format/fixed zerofill,
 				},
 			]
 
@@ -2021,41 +2044,39 @@ For these diagrams, the freeze curves were baseline corrected, which was perform
             \addplot [ no marks, blue, opacity=0.5, forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=3, y index=4, col sep=comma] {figures/ltdsc/C3S_28d_mean_freeze_segment.csv};
 
 			% the color legend is universal for all experiments. The linestyle in addlegendentry however, could not be changed for some reason.
-            \addplot [ no marks, yellow ]  coordinates {(0.1,0) (.9,0)};
+            \addplot [ no marks, yellow, thick ]  coordinates {(0.1,0) (.9,0)};
             \addlegendentry{\qty{1}{\day}};
-            \addplot [ no marks, orange ]  coordinates {(0.1,0) (.9,0)};
+            \addplot [ no marks, orange, thick ]  coordinates {(0.1,0) (.9,0)};
             \addlegendentry{\qty{7}{\day}};
-            \addplot [ no marks, red ]  coordinates {(0.1,0) (.9,0)};
+            \addplot [ no marks, red, thick ]  coordinates {(0.1,0) (.9,0)};
             \addlegendentry{\qty{14}{\day}};
-            \addplot [ no marks, green ]  coordinates {(0.1,0) (.9,0)};
+            \addplot [ no marks, green, thick ]  coordinates {(0.1,0) (.9,0)};
             \addlegendentry{\qty{21}{\day}};
-            \addplot [ no marks, blue ]  coordinates {(0.1,0) (.9,0)};
+            \addplot [ no marks, blue, thick ]  coordinates {(0.1,0) (.9,0)};
             \addlegendentry{\qty{28}{\day}};
 
 		\end{semilogxaxis}
 		\begin{semilogxaxis}[
-			orange,
-			axis line style={black},
 			legend style={
 				at={(.98,.96)},
 				anchor=north east,
-				text=black,
 			},
 			legend columns=2,
 			legend cell align={right},
 			xmin=1.5, xmax=5000,
 			ymin=0, ymax=.45,
-			width=.85\linewidth,
+			width=.83\linewidth,
 			height=6cm,
 			grid=none,
 			xlabel={pore radius $r_\text{P}$ \unit{\nano\meter}},
-			ylabel style={align=center},
 			ylabel={$dV/dlogR$\\pore volume in \unit{\milli\liter\per\gram}},
+			ylabel style={darkgreen, align=center},
 			grid style={line width=.1pt, draw=gray!10},
 			yticklabel style={
-					/pgf/number format/fixed,
-					/pgf/number format/precision=1,
-					/pgf/number format/fixed zerofill,
+				darkgreen,
+				/pgf/number format/fixed,
+				/pgf/number format/precision=1,
+				/pgf/number format/fixed zerofill,
 			},
 			xticklabels={1,2.5,5,10,25,50, 100, 1000, 10000},
 			xtick={1,2.5,5,10,25,50, 100, 1000, 10000},
@@ -2080,12 +2101,15 @@ For these diagrams, the freeze curves were baseline corrected, which was perform
 			\addlegendentry{\acs{MIP}};
 
 		\end{semilogxaxis}
-	\end{tikzpicture}
+	  \end{tikzpicture}
+	  \caption{\ac{C3S} after \num{7} and \qty{28}{\day} of hydration.}
+	  \label{fig:mip_c3s}
+    \end{subfigure}%
 	\caption{
-		{\color{orange}\ac{MIP}-analysis} of \ac{C3S} after \num{7} and \qty{28}{\day} of hydration compared with selected {\color{blue}\ac{LTDSC}-curves}.
+		\ac{MIP}-analysis of \ac{C2S} after \num{14} and \qty{28}{\day} and \ac{C3S} after \num{7} and \qty{28}{\day} of hydration ({\color{darkgreen}right axis}) compared with selected \ac{LTDSC}-curves (left axis).
 		Note that pore sizes below \qty{3.19}{\nano\meter} are undefined as noted in \zcref{eq:brun_freeze}.
 	}
-    \label{fig:mip_c3s}
+    \label{fig:mip_c2s_c3s}
 \end{figure}
 
 The \ac{LTDSC} curves above \qty{-12.4}{\celsius} ($r_P$=\qty{10}{\nano\meter}) are not reliable due to system inertia.
@@ -2100,9 +2124,6 @@ As already indicated by \ac{LTDSC}, the capillary pore space of \ac{C2S} is sign
 
 % \section{pore analysis C3S-C2S polsihed sections}
 % %\section{Discussion}
-% %\color{red}
-% %TODO: compare results of the methods
-% %\color{black}
 
 % % D:\GIT\measure_hydrate_layer2\pore_analysis.py
 % %Fits of CLD histograms, weighted by volume.

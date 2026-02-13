@@ -454,7 +454,7 @@ The hydration was stopped after \qty{91}{\day} by immersing a small sawn piece o
 The specimen was then cut into a suitable shape by sawing the specimen under a constant flow of \qty{99}{\volpercent} ethanol.
 % Finally the specimen was mounted in the ion mill device.
 
-\newpage
+\FloatBarrier
 \subsection{Porous glass standard}
 \label{sec:boraglas}
 
@@ -547,26 +547,26 @@ A revalidation of the \ac{MIP} results was omitted, due to the high material cos
 	Al      & 4.3003 ± 2.8827 & 4.0728 ± 3.1809 & 7.7839 ± 4.1541       \\
 	Mg      & 1.5404 ± 0.4104 & 1.0529 ± 0.5557 & 1.8790 ± 0.5041       \\
 	Ti      & 0.2466 ± 0.0902 & 0.2561 ± 0.0888 & 0.3316 ± 0.1260       \\
-	Cu      & -               & -               & -                     \\
+	%Cu      & -               & -               & -                     \\
 	K       & 0.6987 ± 1.2532 & 1.6182 ± 1.8668 & 0.7786 ± 0.9907       \\
-	P       & -               & -               & -                     \\
+	%P       & -               & -               & -                     \\
 	Na      & 0.3116 ± 0.1728 & 0.4867 ± 0.2536 & 0.3923 ± 0.2042       \\
 	Mn      & 0.0446 ± 0.0246 & 0.0380 ± 0.0229 & 0.0676 ± 0.0381       \\
-	Sr      & -               & -               & -                     \\
+	%Sr      & -               & -               & -                     \\
 	Ba      & 0.0187 ± 0.0113 & 0.0351 ± 0.0145 & 0.0234 ± 0.0139       \\
 	Zn      & 0.0319 ± 0.0295 & 0.0269 ± 0.0307 & 0.0361 ± 0.0266       \\
 	Cr      & 0.0162 ± 0.0102 & 0.0180 ± 0.0119 & 0.0148 ± 0.0082       \\
 	V       & 0.0085 ± 0.0030 & 0.0152 ± 0.0056 & 0.0091 ± 0.0039       \\
-	Ni      & -               & -               & -                     \\
-	As      & -               & -               & -                     \\
-	Rb      & 0.0018 ± 0.0009 & 0.0030 ± 0.0016 & 0.0019 ± 0.0009       \\
-	Pb      & -               & -               & -                    \\ \bottomrule 
+	%Ni      & -               & -               & -                     \\
+	%As      & -               & -               & -                     \\
+	Rb      & 0.0018 ± 0.0009 & 0.0030 ± 0.0016 & 0.0019 ± 0.0009       \\ \bottomrule 
+	%Pb      & -               & -               & -                    \\ \bottomrule 
 	\end{tabular*}
 \end{table}
 
 \begin{table}[!htb]
 	\caption{
-		Oxide concentrations in \unit{\wtpercent} for \ac{C3S}, \ac{C2S} and \ac{C4AF} + \ac{C3A} determined by \ac{EDX} analysis; mapping area~2.
+		Oxide concentrations in \unit{\wtpercent} for \ac{C3S}, \ac{C2S} and \ac{C4AF} + \ac{C3A} determined by \ac{EDX} analysis; mapping area \num{2}.
 	}
 	\label{tab:laicpms1-area2}
 	\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}} lrrr}
@@ -589,7 +589,7 @@ A revalidation of the \ac{MIP} results was omitted, due to the high material cos
 
 \begin{table}[!htb]
 	\caption{
-		Oxide concentrations in \unit{\wtpercent} for \ac{C3S}, \ac{C2S} and \ac{C4AF} + \ac{C3A} determined by \ac{LAICPMS} analysis; mapping area~2.
+		Oxide concentrations in \unit{\wtpercent} for \ac{C3S}, \ac{C2S} and \ac{C4AF} + \ac{C3A} determined by \ac{LAICPMS} analysis; mapping area \num{2}.
 	}
 	\label{tab:laicpms2-area2}
 	\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}} lrrr}
@@ -610,7 +610,7 @@ A revalidation of the \ac{MIP} results was omitted, due to the high material cos
 
 \begin{table}[!htb]
 	\caption{
-		Oxide concentrations in \unit{\wtpercent} for \ac{C3S}, \ac{C2S} and \ac{C4AF} + \ac{C3A} determined by \ac{EDX} analysis; mapping area 3.
+		Oxide concentrations in \unit{\wtpercent} for \ac{C3S}, \ac{C2S} and \ac{C4AF} + \ac{C3A} determined by \ac{EDX} analysis; mapping area \num{3}.
 	}
 	\label{tab:laicpms1-area3}
 	\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}} lrrr}
@@ -633,31 +633,65 @@ A revalidation of the \ac{MIP} results was omitted, due to the high material cos
 
 \begin{table}[!htb]
 	\caption{
-		Oxide concentrations in \unit{\wtpercent} for \ac{C3S}, \ac{C2S} and \ac{C4AF} + \ac{C3A} determined by \ac{LAICPMS} analysis; mapping area~3.
+		Oxide concentrations in \unit{\wtpercent} for \ac{C3S}, \ac{C2S} and \ac{C4AF} + \ac{C3A} determined by \ac{LAICPMS} analysis; mapping area \num{3}.
 	}
 	\label{tab:laicpms2-area3}
 	\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}} lrrr}
 	\toprule
 	Element & \ac{C3S} mapping & \ac{C2S} mapping & \ac{C4AF} + \ac{C3A} mapping \\ \midrule
-	Ca & 68.7           & 62.6           & 53.9           \\
-	Si & 25.3           & 31.3           & 11.9           \\
-	Al & 2.0            & 1.9            & 17.8           \\
-	Mg & 1.4            & 0.8            & 3.7            \\
-	Fe & 1.1            & 1.1            & 9.9            \\
-	Ti & 0.2            & 0.2            & 0.6            \\
-	K  & 0.4            & 1.1            & 1.4            \\
-	S  & 0.2            & 0.4            & 0.4            \\
-	P  & 0.3            & 0.3            & 0.2            \\
-	Na & <\,0.1 & 0.1            & 0.1            \\
-	Mn & <\,0.1 & <\,0.1 & <\,0.1 \\
-	Cr & 0.2            & 0.2            & <\,0.1 \\ \bottomrule 
+	Ca & 76.360 ± 26.219 & 64.626 ± 23.556 & 68.407 ± 23.569 \\
+	Si & 25.292 ± 11.799 & 27.949 ± 12.441 & 20.343 ± 11.513 \\
+	Al & 4.0374 ± 3.6805 & 3.5186 ± 3.0795 & 9.4629 ± 5.7081 \\
+	Mg & 1.5172 ± 0.6540 & 0.8843 ± 0.5698 & 2.0275 ± 0.9192 \\
+	Ti & 0.2301 ± 0.1766 & 0.2537 ± 0.1838 & 0.3593 ± 0.2338 \\
+	%Cu & - & - & - \\
+	K & 0.9785 ± 1.8486 & 1.5812 ± 1.5035 & 1.5569 ± 1.9779 \\
+	%P & - & - & - \\
+	Na & 0.3643 ± 0.2927 & 0.4446 ± 0.2687 & 0.3643 ± 0.2927 \\
+	Mn & 0.0409 ± 0.0324 & 0.0390 ± 0.0318 & 0.0409 ± 0.0324 \\
+	%Sr & - & - & - \\
+	Ba & 0.0157 ± 0.0315 & 0.0364 ± 0.0459 & 0.0270 ± 0.0414 \\
+	Zn & 0.0361 ± 0.0659 & 0.0404 ± 0.0726 & 0.0362 ± 0.0663 \\
+	Cr & 0.0094 ± 0.0110 & 0.0107 ± 0.0116 & 0.0096 ± 0.0111 \\
+	V & 0.0085 ± 0.0088 & 0.0153 ± 0.0123 & 0.0105 ± 0.0106 \\
+	%Ni & - & - & - \\
+	%As & - & - & - \\
+	Rb & 0.0022 ± 0.0022 & 0.0037 ± 0.0028 & 0.0027 ± 0.0025 \\ \bottomrule 
+	%Pb & - & - & - \\ 
 	\end{tabular*}
 \end{table}
 
 
 \FloatBarrier
+\section{\ac{ArBIB} preparation for \ac{NI}}
+
+\zcref{fig:arbib-tilt-c} shows the effect of pores on the \ac{ArBIB} sectioning process.
+They cause significant trenches behind them. However, the material hardness does not seem to have any influence on the height profile.
+
+\begin{figure}[htb!]
+  \centering
+
+	\ifdefined\PRINTABLE
+		\includegraphics[width=.9\linewidth]{nanoindentation/tilt3/07.pdf}
+	\else
+		\animategraphics[palindrome,autoplay,width=.9\linewidth,poster=7]{7}{nanoindentation/tilt3/0}{1}{9}
+	\fi
+
+	\caption{
+		\ac{ArBIB} result of \ac{CSHo} interfacing a pore (here a hollow \textsc{Hadley} grain) and an unhydrated clinker grain.
+		\ifdefined\PRINTABLE
+			The \ac{SEM}-\ac{SE} image depicts the polished surface tilted to an angle of \qty{30}{\degree}.
+		\else
+			The \ac{SEM}-\ac{SE} image depicts the polished surface tilted to an angle between \qtyrange{0}{40}{\degree}.
+		\fi
+	}
+  \label{fig:arbib-tilt-c}
+\end{figure}
+
+\newpage
 \section{Hydrate rim measurements}
 
+The diagrams in \zcref{fig:hlt_segmentation_influence} compare the influence of different segmentation methods on the \ac{HLT} measurement results.
 
 \begin{figure}[htbp]
 	\centerline{\includegraphics[width=\textwidth]{hydrate-rim/histogram_segmentation2.pdf}}
@@ -667,6 +701,8 @@ A revalidation of the \ac{MIP} results was omitted, due to the high material cos
 	}
 	\label{fig:hlt_segmentation_influence}
 \end{figure}
+
+\zcref{fig:results2d_mixture} lists and compares all result diagrams of the \ac{HLT} measurement for all \ac{C3S}:\ac{C2S} mixtures.
 
 \begin{figure}[htbp]
 	\centerline{\includegraphics[width=\textwidth]{hydrate-rim/supplementary/mixture_overview.pdf}}
@@ -1166,7 +1202,9 @@ The latter were excluded from the pore segmentation since these areas contain la
 
 
 \FloatBarrier
-\subsubsection{\acs*{LTDSC}}
+\subsection{\acs*{LTDSC}}
+
+\zcref{fig:basle_line_ice_vol} illustrates the influence of the manually selected temperature ranges to process the baseline on the calculated ice volume.
 
 \begin{figure}[!htb]
     \centering
@@ -1327,7 +1365,7 @@ The latter were excluded from the pore segmentation since these areas contain la
 			xmin=1.75, xmax=2.75,
 			ymin=-.11, ymax=-0.03,
 			y dir=reverse,
-			width=.9\linewidth,
+			width=.85\linewidth,
 			height=7cm,
 			grid=none,
 			xlabel={temperature in \unit{\celsius}},
@@ -1346,7 +1384,7 @@ The latter were excluded from the pore segmentation since these areas contain la
 				xmin=1.75, xmax=2.75,
 				ymin=-.11, ymax=-0.03,
 				y dir=reverse,
-				width=.9\linewidth,
+				width=.85\linewidth,
 				height=7cm,
 				grid=major,
 				xlabel={pore radius $r_\text{P}$ \unit{\nano\meter}},
@@ -1396,6 +1434,8 @@ The latter were excluded from the pore segmentation since these areas contain la
 			\node[draw=none] (bottom-4) at (axis cs:1.75,-.03) {};
 		\end{axis}
 	  \end{tikzpicture}
+	  
+	  \caption{\ac{C3S} after \qtyrange{1}{28}{\day} of hydration.}
 	\end{subfigure}
     \begin{tikzpicture}[remember picture,overlay]
         \draw[dashed,grey] (top-3) -- (top-4);
@@ -1501,7 +1541,7 @@ The latter were excluded from the pore segmentation since these areas contain la
 			xmin=1.75, xmax=2.75,
 			ymin=-.11, ymax=-0.03,
 			y dir=reverse,
-			width=.9\linewidth,
+			width=.85\linewidth,
 			height=7cm,
 			grid=none,
 			xlabel={temperature in \unit{\celsius}},
@@ -1520,7 +1560,7 @@ The latter were excluded from the pore segmentation since these areas contain la
 				xmin=1.75, xmax=2.75,
 				ymin=-.11, ymax=-0.03,
 				y dir=reverse,
-				width=.9\linewidth,
+				width=.85\linewidth,
 				height=7cm,
 				grid=major,
 				xlabel={pore radius $r_\text{P}$ \unit{\nano\meter}},
@@ -1566,6 +1606,7 @@ The latter were excluded from the pore segmentation since these areas contain la
 			\node[draw=none] (bottom-2) at (axis cs:1.75,-.03) {};
 		\end{axis}
 	  \end{tikzpicture}
+	  \caption{\ac{C2S} after \qtyrange{7}{28}{\day} of hydration.}
 	\end{subfigure}
     \begin{tikzpicture}[remember picture,overlay]
         \draw[dashed,grey] (top-1) -- (top-2);
@@ -1696,7 +1737,7 @@ The latter were excluded from the pore segmentation since these areas contain la
 	\end{subfigure}
 
     \caption{
-		Particle distance measurement of cryo-\ac{FIB} sections of the fine fraction of an sieved \ac{OPC} (\ac{wb}\,=\,\num{0.5}) with and without \acs{PCE} from Figures~\num{5} (left-hand side) and \num{7} (right-hand side) by \textcite{zingg.2008a}.
+		Particle distance measurement of cryo-\ac{FIB} sections of the fine fraction of an sieved \ac{OPC} (\ac{wb}\,=\,\num{0.5}) with and without \acs{PCE} from Figures~\num{5} (left-hand side) and \num{7} (right-hand side) published in \cite{zingg.2008a}.
 		White: unprocessed clinker particles; yellow: clinker particles used for the analysis, red: included measurements, black: excluded pore space.
 	}
     \label{fig:cryo-fib-zingg-results}

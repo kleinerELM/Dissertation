@@ -239,7 +239,7 @@ This parameter was calculated within a \qtyproduct{20 x 20}{\px} sliding window 
 Combined with the segmentation results from the \ac{mXRF} dataset, this allows the surface roughness to be attributed to different phases.
 
 \begin{figure}[htb!]
-  \centering
+	\centering
 	
 	\ifdefined\PRINTABLE
 		\includegraphics[width=\linewidth]{nanoindentation/local-roughness-Sdr01.pdf}
@@ -247,8 +247,11 @@ Combined with the segmentation results from the \ac{mXRF} dataset, this allows t
 		\animategraphics[palindrome,autoplay,poster=01,width=\linewidth]{1}{nanoindentation/local-roughness-Sdr}{00}{01}
 	\fi
 
-  \caption{Developed area ratio $S_{dr}$ (right) with overlaid quartz aggregate positions determined by \ac{mXRF}.}
-  \label{fig:arbib-rough}
+	\caption{
+		Developed area ratio $S_{dr}$ (right) with overlaid quartz aggregate positions determined by \ac{mXRF}.
+		The red boxes indicate the rough position of \zcref{ffig:arbib-tilt-a, fig:arbib-tilt-b}.
+	}
+	\label{fig:arbib-rough}
 \end{figure}
 
 Calculating the mean $S_{dr}$ value for the aggregate area and the binder area results in \qty{59.7(33.5)}{\percent}, and \qty{87.8(41.5)}{\percent} respectively.
@@ -256,6 +259,48 @@ In other words, the the quartz grains have smoother surfaces than the cement bin
 This can be attributed to the homogeneous composition and the scarcity of phase boundaries (e.g., pores) within the quartz grains, while the binder matrix contains numerous small phase boundaries and incorporates significant porosity.
 However, especially at the quartz grains it becomes obvious, that irregularities are causing a shadow effect in the direction of the ion beam.
 They cause visible stripes, which are often V-shaped, with the discontinuity at the intersection of the stipes.
+
+Tilted \ac{SEM}-\ac{SE} images illustrate, that there is no visible step between phases of different hardness (see \zcref{fig:arbib-tilt,fig:arbib-tilt-c}).
+However, the curtaining artifacts caused by porosity are clearly visible in \zcref{fig:arbib-tilt-b}.
+In contrast, \zcref{fig:arbib-tilt-a} shows a smooth surface.
+In both cases, the ion beam was from bottom to top.
+As indicated in \zcref{fig:arbib-rough}, quartz grains cause a smoother surface and this also seems to be true for the transition from quartz to hydrated cement binder.
+
+% X:\Mitarbeiter\Florian Kleiner\Einzelbilder\2026_02_13 Tilt NI Probe
+\begin{figure}[htb!]
+  \centering
+
+	\begin{subfigure}{0.49\linewidth}
+		\ifdefined\PRINTABLE
+			\includegraphics[width=\linewidth]{nanoindentation/tilt2/07.pdf}
+		\else
+			\animategraphics[palindrome,autoplay,width=\linewidth,poster=7]{7}{nanoindentation/tilt2/0}{1}{9}
+		\fi
+		\caption{Smooth area.}
+		\label{fig:arbib-tilt-a}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.49\linewidth}
+		\ifdefined\PRINTABLE
+			\includegraphics[width=\linewidth]{nanoindentation/tilt1/07.pdf}
+		\else
+			\animategraphics[palindrome,autoplay,width=\linewidth,poster=7]{7}{nanoindentation/tilt1/0}{1}{9}
+		\fi
+		\caption{\ac{ArBIB} curtaining and \ac{NI} indents.}
+		\label{fig:arbib-tilt-b}
+	\end{subfigure}
+
+	\caption{
+		\ac{ITZ} between quartz and \ac{CSHo}.
+		\ifdefined\PRINTABLE
+			The \ac{SEM}-\ac{SE} images depict the polished surface tilted to an angle of \qty{30}{\degree}.
+		\else
+			The \ac{SEM}-\ac{SE} images depict the polished surface tilted to an angle between \qtyrange{0}{40}{\degree}.
+		\fi
+		Both images indicate that there is no step between \ac{CSHo} and quartz despite their hardness difference.
+	}
+  \label{fig:arbib-tilt}
+\end{figure}
 
 A large scale \ac{SEM}-\ac{BSE} image was acquired to find suitable \ac{EDX} and \ac{NI} areas and to estimate the porosity of the \ac{ITZ}.
 A straight phase boundary between quartz and hydrated cement binder was identified and a \ac{EDX} phase map was created (see \zcref{fig:arbib-EDX-NI}).
@@ -410,7 +455,6 @@ Although pores should theoretically yield values of zero, low values are recorde
 This is likely due to the interaction volume of the indentation including material directly at the crack edges or beneath the shallow pores.
 However, these results are still above manually assigned values in \cite{li.2025, li.2026}, where the pores were filled with epoxy resin.
 This discrepancy may be attributed to direct contact with the material beneath the pore or at the edges, in contrast to the intermediate contact with epoxy resin, or to imperfect phase assignment.
-
 The quartz aggregate shows the highest hardness of \qty{11.0(2.3)}{\giga\pascal} and a modulus of \qty{84.0(14.0)}{\giga\pascal} in good accordance with \cite{li.2025, li.2026}.
 
 %sebastiani.2016: w/z 0.35, CEM I 52.5R; E_r: CSHi 39.3+-2.8; CSHo 30.1+-2.3 GPa (significantly higher, but more performant concrete mixture)
@@ -425,9 +469,11 @@ A few previous studies only distinguish between \ac{CSHi}, \ac{CSHo}, and \ac{CH
 \textcite{wilson.2018} was additionally able to identify and assigning \ac{NI} measurements to \ac{CASH} phases of a hydrated cement (\ac{wb} = \qty{0.4}) utilising a \ac{EDX} mapping.
 They measured hardness values of \qty{1.1(0.35)}{\giga\pascal}, and moduli of \qty{33.5(7.3)}{\giga\pascal}.
 However, as shown in this study, the use of detailed \ac{EDX} phase segmentation enables the identification of additional hydrate phases.
+\pdfcomment[icon=Comment, color=cyan, author=Christane]{% TODO: comment Christane
+	gibt es literatur daten für AFm/Aft (an richtigen zementen nicht reinen phasen, dass würde ich immer unterscheiden).? gibt es nun unterschiede mit und ohne epoxy? ich würde schon eine NI probe mit epoxi mit ranziehen und das diesen ergebnissen direkt gegenüberstellen (weil wir hier dann gleiche probenzusammensetzung und messparameter haben, die daten hat feng doch, oder?)
+}
 
 The boxplot in \zcref{fig:ni-boxplot-raw} visualises these distributions, showing the median, the lowest and highest datapoints (whiskers) excluding the outliers (dots) and the first and third quartile of the datapoints (coloured box).
-Outliers in this plot are identified using the standard Tukey method, where t
 The interquartile range (box) is calculated as the difference between the third and first quartiles.
 Any data point falling more than \num{1.5} times this range above the upper quartile or below the lower quartile is classified as an outlier and visualised individually (\textsc{Tukey}'s method).
 The whiskers extend to the most extreme data points that remain within these calculated boundaries.

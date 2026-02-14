@@ -298,7 +298,7 @@ While it is possible to enlarge the trenches using \ac{FIB}, doing so is often i
 Laser ablation offers an alternative for rapid, high-volume trench creation.
 An example of such a prepared specimen is shown in \zcref{fig:laser_prep_tilt_anim}.
 
-\begin{figure}[htb]
+\begin{figure}[htbp]
     \centering
 
     \begin{subfigure}[t]{0.49\textwidth}
@@ -336,28 +336,44 @@ The laser preparation also facilitates the easy preparation of larger cross-sect
 For example, it enables preparation of mortar samples to analyse the \ac{ITZ} between binder and aggregate.
 \zcref{fig:laser_prep_itz} shows that the cement binder is ablated much faster than the aggregates.
 
-\begin{figure}[htb]
+\begin{figure}[htbp]
     \centering
 
 	\includegraphics[width=\textwidth]{methods/laser_prep/fib-zylinder.pdf}
     \caption{
-		 Mortar sample prepared using a \ac{fs-laser}.
-    	The higher ablation rate of cement binder compared to the quartz aggregate is clearly visible.
-		In the red rectangle, the area of the \ac{FIB} preparation site containing the \ac{ITZ}is highlighted.
+		\ac{SEM}-\ac{SE} image of a tilted (\qty{52}{\degree}) mortar sample prepared using a \ac{fs-laser}.
+    	The higher ablation rate of cement binder ($\approx\qty{165}{\micro\meter}$) compared to the quartz aggregate ($\approx\qty{45}{\micro\meter}$) is clearly visible.
+		In the rectangle ({\color{darkred}red}), the area of the \ac{FIB} preparation site is highlighted.
+		The \ac{ITZ} is marked with the dotted line.
     }
     \label{fig:laser_prep_itz}
 \end{figure}
+
 Nevertheless, the laser prepared trenches enable the creation of very large \ac{FIB}-polished areas of the \ac{ITZ}, which also allows acquisition of \ac{EDX} datasets (\zcref{fig:laser_prep_itz_fib}).
 
-\begin{figure}[htb]
+\begin{figure}[htbp]
     \centering
 
-	\includegraphics[width=\textwidth]{methods/laser_prep/itz_fib_edx.pdf}
+    \begin{subfigure}[t]{0.49\textwidth}
+		\includegraphics[width=\textwidth]{methods/laser_prep/itz_fib_edx_a.pdf}
+
+        \caption{
+			\ac{BSE} image of a section with few artefacts.
+		}
+        \label{fig:laser_prep_itz_fib_a}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.49\textwidth}
+        \includegraphics[width=\textwidth]{methods/laser_prep/itz_fib_edx_b.pdf}
+        \caption{
+			\ce{Ca}-\ac{EDX} mapping overlaid on top of the \ac{BSE} of a later slice.
+		}
+        \label{fig:laser_prep_itz_fib_b}
+    \end{subfigure}
     \caption{
 		\ac{FIB} polished section of an \ac{ITZ} of a mortar.
-		\ac{BSE} image of a section with few artefacts (left).
-		\ce{Ca}-\ac{EDX} mapping overlaid on top of the \ac{BSE} of the same section.
 		The binder matrix can be found in both images on the left side, the quartz aggregate on the right.
+		The \ce{Ca}-rich \ac{ITZ} is marked with dotted white lines.
     }
     \label{fig:laser_prep_itz_fib}
 \end{figure}
@@ -370,5 +386,6 @@ Therefore, the reachable chemical contrast in the \ac{BSE} images is very limite
 
 The \ac{EDX} mapping also suffers from significant signal attenuation with increasing distance from the surface.
 For example, the \ac{EDX} mapping \zcref{fig:laser_prep_itz_fib} has been brightened in the lower portions to compensate for this effect, which also increases the noise in these areas.
-Nevertheless, a zone of higher \ce{Ca} concentrations adjacent to the quartz grain becomes visible.
-This allows measurement of the \ac{ITZ} thickness using this \ce{Ca} signal, which ranges from \qtyrange{2}{3}{\micro\meter}.
+Nevertheless, a zone of higher \ce{Ca} concentrations at the interface to the quartz grain becomes visible.
+The width of this layer ranges from \qtyrange{2}{5}{\micro\meter}, which is smaller, than the expected \ac{ITZ} width (\qtyrange{20}{80}{\micro\meter} \cite{lavrov.2017,torsaeter.2015,zhu.2000}).
+Therefore, this \ce{Ca}-rich zone, which most likely consists of \ac{CH} as shown in \zcref{fig:laser_prep_itz}, is only a part of the \ac{ITZ}.

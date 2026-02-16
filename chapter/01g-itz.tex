@@ -1,0 +1,51 @@
+\FloatBarrier
+\section{\Acl*{ITZ} (\acs*{ITZ})}
+
+Cement based mortars and concrete are a mixture of aggregates and a cement matrix.
+Around the interface of aggregates, walls or reinforcement and the binder a thin shell of a less dense matrix forms, which is called \ac{ITZ}.
+It is caused by the \textit{wall effect}, which causes a depletion of larger cement grains in this area, resulting in a high-porosity zone \cite{gao.2014, torsaeter.2015}.
+This higher porosity influences the mechanical properties \cite{zhu.2000,xiao.2013} and causes increased water permeability \cite{ye.2007} and is therefore the `weak link' in in cement composites \cite{zhu.2000}.
+Therefore, this zone is prone to microcracks \cite{ye.2007}.
+
+The \ac{ITZ} can be measured based on the analysis of the porosity around aggregates using \ac{SEM}-\ac{BSE} images \cite{gao.2014} or \ac{mCT} datasets \cite{lavrov.2017}, by measuring mechanical parameters like hardness or the \textsc{Young}'s modulus using \ac{NI} \cite{zhu.2000,xiao.2013} or by simulating the structure \cite{ye.2007}.
+However, the width of the \ac{ITZ} varies significantly in the literature as the selection in \zcref{tab:ITZ-width} shows.
+
+\begin{table}[htbp]
+	\centering
+		\caption{
+			Overview of \acs*{ITZ} widths reported in literature depending on the method and interface type.
+		}
+		\label{tab:ITZ-width}
+		\begin{tabularx}{\linewidth}{>{\raggedleft\arraybackslash}l>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X>{\centering\arraybackslash}l}
+			\toprule
+			\acs*{ITZ} width & Interface type & Method & Reference \\
+			\midrule
+			\qtyrange{15}{20}{\micro\meter} & natural aggregates & calculated from \acs*{MIP} measurements & \cite{winslow.1994} \\
+			\qtyrange{30}{100}{\micro\meter} & natural aggregates & \ac{SEM}-\ac{BSE} (pores) & \cite{scrivener.1996} \\
+			\qtyrange{40}{50}{\micro\meter} & natural aggregates & \acs{NI} & \cite{xiao.2013} \\
+			\qtyrange{30}{50}{\micro\meter} & natural aggregates & \ac{SEM}-\ac{BSE} (pores) & \cite{skarzynski.2016}\\
+			$\approx$\,\qty{10}{\micro\meter} & natural aggregates & \ac{SEM}-\ac{BSE} (pores) & \cite{branch.2018} \\
+			\qtyrange{38}{42}{\micro\meter} & natural aggregates & \ac{SEM}-\ac{EDX} (\ce{Ca}/\ce{Si} ratio) & \cite{tian.2018} \\
+			\qty{40}{\micro\meter} & recycled aggregates & \acs{NI} & \cite{zhang.2019} \\
+			<\,\qty{50}{\micro\meter} & natural aggregates & \ac{SEM}-\ac{BSE} (pores) & \cite{li.2026} \\
+			\qtyrange{55}{65}{\micro\meter} & recycled aggregates & \acs{NI} & \cite{xiao.2013} \\
+			\qtyrange{50}{60}{\micro\meter} & recycled aggregates & \acs{NI} & \cite{zhang.2019} \\
+			<\,\qty{60}{\micro\meter} & recycled aggregates & \ac{SEM}-\ac{BSE} (pores) & \cite{li.2026} \\
+			\qty{65}{\micro\meter} & recycled brick & \ac{SEM}-\ac{BSE} (pores) & \cite{li.2025} \\
+			<\,\qty{100}{\micro\meter} & steel wall & \ac{SEM}-\ac{BSE} (grain) & \cite{torsaeter.2015} \\
+			<\,\qty{30}{\micro\meter} & steel rebar & \acs{NI} & \cite{zhu.2000} \\
+			<\,\qty{20}{\micro\meter} & wall & simulation (HYMOSTRUC3D) & \cite{ye.2007} \\
+			<\,\qty{15}{\micro\meter} & wall & \ac{SEM}-\ac{BSE} (pores), simulation (HYMOSTRUC3D) & \cite{gao.2014} \\
+			<\,\qty{20}{\micro\meter} & glass tube & \ac{mCT} & \cite{lavrov.2017} \\
+			\bottomrule
+		\end{tabularx}
+\end{table}
+
+The variation of the \ac{ITZ} width seems to be influenced by the interface material and the method used to measure it.
+Using the porosity or the mechanical properties of the material are the most common.
+Using the remaining unhydrated cement particle density as in \cite{torsaeter.2015} seems to overestimate the \ac{ITZ} width and is a unpractical method for real mortars or concretes.
+A consistent observation in literature which compared recycled and natural aggregates was, that recycled aggregates cause a \qtyrange{10}{20}{\micro\meter} wider \ac{ITZ}.
+Furthermore, combined \ac{EDX} analysis revealed a \ce{Ca}-rich layer directly on the interface of the aggregates \cite{li.2012, tian.2018}.
+This points to the crystallisation of \ac{CH} in this area, which is supported by simulations using HYMOSTRUC3D \cite{gao.2014}.
+
+

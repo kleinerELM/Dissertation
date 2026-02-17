@@ -34,8 +34,8 @@ These artefacts can be reduced in post processing using a directional \ac{FFT} b
 However, this processing reduces image quality and avoiding the artefact in the first place would be preferable.
 
 Vertical shadowing is another typical artefact caused by a loss of signal of the back-scattered electrons due to the trench geometry (see \zcref{fig:fib_artifacts_b}).
-This well known effect can be corrected in post processing \cite{holzer.2007, mac.2018, fager.2020}, if the phase contrast is good enough.
-If the signal-to-noise ratio is to low in the darkened areas, this post processing wont help.
+This well-known effect can be corrected in post processing \cite{holzer.2007, mac.2018, fager.2020}, if the phase contrast is good enough.
+If the signal-to-noise ratio is too low in the darkened areas, this post processing won't help.
 However, there are more severe uncorrectable artefacts caused by the in-place slicing process.
 Since cementitious material is not conductive and the trenches are not coated throughout, charging effects can negatively influence the image quality (e.g. \zcref{fig:fib_artifacts_c} and \zcref{fig:fib_artifacts_a}) or cause uncorrectable image drift during the process.
 The re-deposition of the removed material usually happens within the trenches, which does not cause any problems.
@@ -94,14 +94,14 @@ A detailed video tutorial of the \ac{FIBnt} process, the required parameters, an
 
 While the specimen is vacuum-infused with a low-viscosity resin, it often occurs that some larger pores are not completely filled.
 This complicates the segmentation and therefore the analysis of the pore space, since needle-like structures tend to move and the pore background is constantly visible.
-Such small structures are therefore ignored in the segmentation process, especially if \ac{EDX} datasets are available, since they allow distinction between pore and phase due to a reduced signal strength.
+Such small structures are therefore ignored in the segmentation process, especially if \ac{EDX} datasets are available, since they allow distinction between pore and phase due to reduced signal strength.
 
-Due to the sensitive nature of the hydrate phases (see \zcref{sec:beam_damage}), the operator must pay particular attention when analysing at higher voltages as for \ac{EDX} or \ac{EBSD} samples.
+Due to the sensitive nature of the hydrate phases (see \zcref{sec:beam_damage}), the operator must pay particular attention when analysing at higher voltages as required for \ac{EDX} or \ac{EBSD} samples.
 As shown in \zcref{fig:edx_damage}, an electron beam at \qty{10}{\kilo\volt}, \qty{4}{\pico\ampere}, and a long exposure time (\qty{600}{\micro\second}, \num{6} frames) can cause damage in the specimen which could be misinterpreted as porosity.
 The exposure time is the sum of the dwell time on each point and the frame count.
 But especially the dwell time increases the risk of specimen damage.
 In the example, pores with a diameter of several \unit{\nano\meter} were induced, which can mostly be identified by comparing the damaged slice (\zcref{fig:edx_damage_a}) with a freshly cut surface (\zcref{fig:edx_damage_b}).
-In this case, the damage was visible in a depth of $\approx$ \qty{350}{\nano\meter}.
+In this case, the damage was visible at a depth of $\approx$ \qty{350}{\nano\meter}.
 
 \begin{figure}[htb]
     \centering
@@ -124,13 +124,13 @@ In this case, the damage was visible in a depth of $\approx$ \qty{350}{\nano\met
     \label{fig:edx_damage}
 \end{figure}
 
-Solutions to this problem are to reduce energy density.
-This can be done by reducing the scanning duration or the electron beam current, which subsequently will reduce the overall counts, the electron beam voltage, which will limit the elements which can be analysed or to use more sensitive detectors.
-For the presented experiments, an even more reduced electron beam voltage was not applicable.
+Solutions to this problem include reducing the energy density.
+This can be done by reducing the scanning duration or the electron beam current (reducing overall counts), lowering the electron beam voltage (limiting the elements that can be analysed), or using more sensitive detectors.
+For the presented experiments, a further reduced electron beam voltage was not applicable.
 Therefore, a very sensitive, windowless \ac{EDX}-detector was used and combined with the counts of a second, less-sensitive \ac{EDX}-detector, which yields only one-fifth of the counts of the windowless detector.
 While a reduction of the accelerating voltage from \num{10} to \qty{6}{\kilo\volt} had no significant effect, a reduced dwell time (reduced from \num{600} to \qty{60}{\micro\second}) and increased frame count (from \num{6} to \num{60}) significantly decreased the damage.
 
-While these measures result in a good signal-to-noise ratio for the main components, especially the less abundant elements have a fairly noisy mapping.
+While these measures result in a good signal-to-noise ratio for the main components, the mappings for less abundant elements remain fairly noisy.
 However, it still allows the distinction of the different main phases of the material.
 
 
@@ -139,7 +139,7 @@ However, it still allows the distinction of the different main phases of the mat
 Samples prepared via the lift-out process and their resulting datasets require much less post-processing to reduce artefacts.
 However, some issues still remain to be solved.
 For example, noisy \ac{EDX} datasets have to be denoised with an edge-preserving denoising algorithm.
-Since the signal-to-noise ratio of the \ac{EDX} element mappings are very low, algorithms like median filtering and \ac{NLM} are not suitable.
+Since the signal-to-noise ratio of the \ac{EDX} element mappings is very low, algorithms like median filtering and \ac{NLM} are not suitable.
 In contrast, \ac{BM3D} and \ac{TV} (using the split \textsc{Bregman} optimisation-based denoising) were found to be effective for the noise found in the \ac{EDX} slices and enable reproducible quantitative analysis across elements.
 The parameters employed for \ac{BM3D} were: $h$=40, \texttt{templateWindowSize}=4, \texttt{searchWindowSize}=8, \texttt{groupSize}=32, and \texttt{slidingStep}=3.
 For \ac{TV} using the split \textsc{Bregman} method, the parameters were: \texttt{weight}=\num{20.0}, \texttt{max\_num\_iter}=500, $\epsilon$=\num{0.0001}.
@@ -195,14 +195,14 @@ However, the processing time for \ac{BM3D} is significantly higher than for the 
 The main challenge for many datasets is the precise alignment of the acquired images.
 Spatial drift during acquisition can cause a shift of the observed object between consecutive slices.
 For a single image stack, this issue can be addressed effectively using the \ac{SIFT} algorithm as implemented in \textit{TrakEM2} \cite{cardona.2012}, which allows an automated correction of in-plane translations.
-Furthermore, after the \ac{SIFT} alignment the stack is often still systematically shifted about \qtyrange{30}{40}{\degree} caused by the \ac{SEM} geometry (see \zcref{fig:fib_scheme}).
+Furthermore, after the \ac{SIFT} alignment the stack is often still systematically shifted by about \qtyrange{30}{40}{\degree} caused by the \ac{SEM} geometry (see \zcref{fig:fib_scheme}).
 
 Aligning the \ac{EDX} dataset to the corresponding \ac{BSE} dataset is challenging.
 Although the correspondence between \ac{BSE} and \ac{EDX} slices is known, the images differ in resolution and field of view.
 Usually the image shift between the \ac{BSE} and \ac{EDX} images of the same slice should be nearly identical.
-This allows to solve the alignment problem relatively easily.
+This allows the alignment problem to be solved relatively easily.
 Depending on the data acquisition settings it can, however, happen that the \ac{EDX} dataset does not align perfectly with the \ac{BSE} dataset (e.g. due to drift caused by charging).
-Then, additional registration steps, such as the use of landmarks or scale-adjusted transformations, are required to achieve accurate overlay of the datasets.
+Then, additional registration steps, such as the use of landmarks or scale-adjusted transformations, are required to achieve an accurate overlay of the datasets.
 
 \subsection{Development of an evaluation workflow}
 
@@ -237,6 +237,19 @@ Following denoising, inter-slice intensity banding ($z$-banding) in the 3D-\ac{E
 Subsequently, at least three (preferably more) landmark pairs between the first \ac{BSE} and \ac{EDX} images must be specified manually.
 These landmarks are utilised to estimate an isotropic scale-and-translation transformation, thereby enabling accurate stack-to-stack alignment.
 
+Since the electron beam of the \ac{SEM} hits the \ac{ROI} under an angle of \qty{38}{\degree}, the image stacks inherently exhibit a systematic vertical shift.
+This shift remains in the dataset, if the \ac{SIFT} algorithm uses matching points outside of the \ac{ROI} (eg. using a fiducial on the \ce{Cu}-comb).
+This shift can be compensated by applying a user-defined angle for the correction.
+This required angle is primarily determined by the device geometry and the orientation at which the specimen cube is welded to the copper comb.
+The image distortion caused by this geometry effect can and should be corrected for during the recording of the dataset.
+
+The co-registered and corrected \ac{BSE} and \ac{EDX} voxel datasets are visualised using physically meaningful scales (\zcref{fig:sem_postprocessing}).
+The user can select a \ac{ROI}, which is then utilised for the subsequent processing.
+Within the \ac{ROI}, 3D \ac{SLIC}O superpixels are computed on the denoised \ac{EDX} volume (see \zcref{fig:sem_postprocessing_c}).
+In analogy to the approach of Multi\ac{SLIC} \cite{yu.2023}, three principal elements (\ce{Ca}, \ce{Si}, \ce{Al}) are chosen.
+This allows assigning specific elements to individual (red-green-blue) colour channels in an image, from which the superpixels are subsequently generated.
+This enables the use of standard \ac{SLIC}O implementations for 3-channel images as available in the \textit{OpenCV} \cite{bradski.2000} library.
+For each superpixel, the mean intensity for each element is calculated from the raw \ac{EDX} data.
 
 \begin{figure}[htb]
     \centering
@@ -267,20 +280,39 @@ These landmarks are utilised to estimate an isotropic scale-and-translation tran
     \label{fig:sem_postprocessing}
 \end{figure}
 
-Since the electron beam of the \ac{SEM} hits the \ac{ROI} under an angle of \qty{38}{\degree}, the image stacks inherently exhibit a systematic vertical shift following alignment with the \ac{SIFT} algorithm.
-This shift can be compensated by applying a user-defined angle for the correction.
-This required angle is primarily determined by the device geometry and the orientation at which the specimen cube is welded to the copper comb.
-The image distortion caused by this geometry effect can and should be corrected for during the recording of the dataset.
-
-The co-registered and corrected \ac{BSE} and \ac{EDX} voxel datasets are visualised using physically meaningful scales.
-The user can select a \ac{ROI}, which is then utilised for the subsequent processing.
-Within the \ac{ROI}, three-dimensional \ac{SLIC}O superpixels are computed on the denoised \ac{EDX} volume (see \zcref{fig:sem_postprocessing_c}).
-In analogy to the approach of Multi\ac{SLIC} \cite{yu.2023}, three principal elements (\ce{Ca}, \ce{Si}, \ce{Al}) are chosen.
-This allows to assign specific elements to individual (red-green-blue) colour channels in an image, from which the superpixels are subsequently generated.
-This enables the use of standard \ac{SLIC}O implementations implemented in the \textit{OpenCV} \cite{bradski.2000} library.
-For each superpixel, the mean intensity for each element is calculated from the raw \ac{EDX} data.
 These superpixel-based vectors are subsequently normalised and clustered using $k$-means in combination with \ac{UMAP}.
 This approach facilitates the identification of material phases, resulting in a three-dimensional phase label volume that is directly overlaid and visualised in \textit{napari} \cite{sofroniew.2025}.
+
+
+\begin{figure}[htb]
+	\centering
+
+	\begin{subfigure}[t]{0.3\textwidth}
+		\includegraphics[width=\textwidth]{methods/fib_postprocessing/phase_position/Al-EDX.pdf}
+		\caption{3D Visualisation of the \ce{Al} concentration.}
+		\label{fig:clustering_ternary}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{0.3\textwidth}
+		\ifdefined\PRINTABLE
+			\includegraphics[width=\textwidth]{methods/fib_postprocessing/phase_position/05.pdf}
+		\else
+			\animategraphics[loop,autoplay,width=\textwidth,poster=last]{1}{methods/fib_postprocessing/phase_position/0}{1}{5}
+		\fi
+		\caption{Visualisation of the segmented phase position.}
+		\label{fig:fib-sem-visualisation}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[t]{0.38\textwidth}
+		\includegraphics[width=\textwidth]{methods/fib_postprocessing/clustering_ternary.pdf}
+		\caption{Clustering result.}
+		\label{fig:clustering_ternary}
+	\end{subfigure}
+	\caption{
+		Visualisation of the final dataset showing the semi-transparent rendering of the \ce{Al}-concentration in the \ac{EDX}-map (a), an overlaid phase position (b), and the clustering result in a ternary \ce{Ca}-\ce{Si}-\ce{Al}-diagram (c).
+	}
+	\label{fig:sem_z-banding}
+\end{figure}
 
 % TODO: compare different ways to get to the goal? - SLIC -> (direct/indirect with umap?) -> labeling; UNET
 % TODO: how good is the data alignment? What does this to the segmentation - see ANtons dataset
@@ -292,11 +324,10 @@ This approach facilitates the identification of material phases, resulting in a 
 
 \section{The laser preparation process}
 
-Using \ac{FIBnt} alone, practically limits the size of the \ac{ROI} due to the machine time required.
+Using \ac{FIBnt} alone practically limits the size of the \ac{ROI} due to the machine time required.
 Furthermore, issues such as redeposition, charging and shadowing are primarily caused by geometric constraints of the \ac{FIBnt} process, including the presence of narrow trenches.
 While it is possible to enlarge the trenches using \ac{FIB}, doing so is often impractical and time-consuming.
 Laser ablation offers an alternative for rapid, high-volume trench creation.
-An example of such a prepared specimen is shown in \zcref{fig:laser_prep_tilt_anim}.
 
 \begin{figure}[htbp]
     \centering
@@ -329,11 +360,14 @@ The cross-section (\zcref{fig:fibnt_fresh_slice}) shows minor damage to the bulk
 Amorphous depositions up to \qty{2}{\micro\meter} and debris-filled pores are visible on the surface sectioned using a \ac{FIB}.
 However, specimens which were not lifted out of the bulk material cannot be analysed using \ac{EBSD} due to geometrical limitations.
 
-% TODO volume
+\pdfcomment[icon=Insert, color=red]{% TODO: insert!!
+	Der 3D Datensatz sollte in diesem Kapitel noch dargestellt werden.
+}
 
 
 The laser preparation also facilitates the easy preparation of larger cross-sections of \ac{ROI}s.
 For example, it enables preparation of mortar samples to analyse the \ac{ITZ} between binder and aggregate.
+For example, it enables the preparation of mortar samples to analyse the \ac{ITZ} between binder and aggregate.
 \zcref{fig:laser_prep_itz} shows that the cement binder is ablated much faster than the aggregates.
 
 \begin{figure}[htbp]
@@ -349,7 +383,7 @@ For example, it enables preparation of mortar samples to analyse the \ac{ITZ} be
     \label{fig:laser_prep_itz}
 \end{figure}
 
-Nevertheless, the laser prepared trenches enable the creation of very large \ac{FIB}-polished areas of the \ac{ITZ}, which also allows acquisition of \ac{EDX} datasets (\zcref{fig:laser_prep_itz_fib}).
+Nevertheless, the laser prepared trenches enable the creation of very large \ac{FIB}-polished areas of the \ac{ITZ}, which also allows the acquisition of \ac{EDX} datasets (\zcref{fig:laser_prep_itz_fib}).
 
 \begin{figure}[htbp]
     \centering
@@ -380,16 +414,16 @@ Nevertheless, the laser prepared trenches enable the creation of very large \ac{
 
 However, due to the orientation of the beam, the large-scale surface polishing using \ac{FIB} still introduces typical artefacts.
 For example, protruding edges cast shadows on the \ac{BSE} image (\zcref{fig:laser_prep_itz_fib}, left; note the shadow on the homogeneous grey value of the aggregate on the right side).
-Furthermore, the softer cementitious binder tends to be more prone for curtaining artefacts, while the quartz grain appears to be nicely polished.
-Finally, since a very large area of an non-conductive material is exposed to the electron beam, charging effects occur even on low voltage and current combinations (\qty{5}{\kilo\volt}, \qty{0.1}{\nano\ampere}) with low dwell times (\qty{50}{\nano\second}).
+Furthermore, the softer cementitious binder tends to be more prone to curtaining artefacts, while the quartz grain appears to be nicely polished.
+Finally, since a very large area of a non-conductive material is exposed to the electron beam, charging effects occur even on low voltage and current combinations (\qty{5}{\kilo\volt}, \qty{0.1}{\nano\ampere}) with low dwell times (\qty{50}{\nano\second}).
 Therefore, the reachable chemical contrast in the \ac{BSE} images is very limited.
 
 The \ac{EDX} mapping also suffers from significant signal attenuation with increasing distance from the surface.
 For example, the \ac{EDX} mapping \zcref{fig:laser_prep_itz_fib} has been brightened in the lower portions to compensate for this effect, which also increases the noise in these areas.
 Nevertheless, a zone of higher \ce{Ca} concentrations at the interface to the quartz grain becomes visible.
 The width of this layer ranges from \qtyrange{2}{5}{\micro\meter}.
-As already demonstrated in literature \cite{li.2012, tian.2018,gao.2014}, \ce{Ca}-rich zone, which most likely consists of \ac{CH} as shown in \zcref{fig:laser_prep_itz}, is only a part of the \ac{ITZ}.
-However, the small image section does not allow to measure the higher porosity in the vicinity of the aggregate do measure the \ac{ITZ} width with confidence.
+As already demonstrated in literature \cite{li.2012, tian.2018,gao.2014}, the \ce{Ca}-rich zone, which most likely consists of \ac{CH} as shown in \zcref{fig:laser_prep_itz}, is only a part of the \ac{ITZ}.
+However, the small image section does not allow measuring the higher porosity in the vicinity of the aggregate to measure the \ac{ITZ} width with confidence.
 
 \pdfcomment[icon=Note, color=orange]{% TODO: note
 	Sollte das needle-and-heystack-paper hier erwähnung finden?
@@ -398,7 +432,12 @@ However, the small image section does not allow to measure the higher porosity i
 
 \section{Conclusion}
 
-\pdfcomment[icon=Insert, color=red]{% TODO: insert!!
-	Die 3D Datensätze sollten in diesem Kapitel noch dargestellt werden.
-	Es fehlt daher noch eine Zwischenzusammenfassung.
-}
+
+\ac{FIBnt} is a powerful tool for 3D characterisation of cementitious materials at the nanoscale.
+However, the standard trenching method within the bulk material is prone to significant artefacts such as shadowing, redeposition, and charging, which can compromise image quality and quantitative analysis.
+The lift-out technique effectively mitigates these issues by isolating the \ac{ROI}, enabling high-quality acquisition of correlative \ac{BSE} and \ac{EDX} datasets.
+Careful selection of imaging parameters is crucial to avoid beam damage, particularly during \ac{EDX} mapping of hydrate phases.
+A comprehensive post-processing workflow involving advanced denoising, precise alignment, and superpixel-based segmentation was developed to extract meaningful phase information from the noisy and misaligned raw data.
+
+Furthermore, \ac{fs-laser} preparation was introduced as a complementary technique to access larger volumes and specific features like the \ac{ITZ}, although it introduces its own set of challenges related to surface quality and charging on large non-conductive areas.
+Overall, the combination of optimised preparation, careful acquisition, and advanced data processing enables detailed 3D insights into the microstructure of hydrated cement.

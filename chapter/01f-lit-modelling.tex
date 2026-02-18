@@ -38,7 +38,7 @@ The hydration of cement over time can also be simulated using the sheet growth m
     }
     \label{fig:sheet_growth}
 \end{figure*}
-For larger domains, \textcite{nguyen-tuan.2024} utilised the level set-based method, allowing simulation of the growth of low- and high-density \ac{CSH} in 2D based on a segmented image of polished alite after \qty{1}{\day} of hydration (see \zcref{fig:level_set}).
+For larger domains, \textcite{nguyen-tuan.2024} utilised the level set-based method, allowing simulation of the growth of low- and high-density \ac{CSH} in 2D based on a segmented image of polished \ac{C3S} after \qty{1}{\day} of hydration (see \zcref{fig:level_set}).
 
 \begin{figure*}[htb]
     \centering
@@ -59,27 +59,39 @@ For larger domains, \textcite{nguyen-tuan.2024} utilised the level set-based met
         \includegraphics[width=\textwidth]{literature/level_set_anim/ls07.jpg}
     \end{subfigure}
 
-    \caption{Visualisation of the growth of \ac{CSH} (purple) in the low and high density variant on top of \ac{C3S} (yellow) by \textcite{nguyen-tuan.2024}, based on the level set method. The red line indicates the surface of the unhydrated \ac{C3S} particle.}
+    \caption{
+        Visualisation of the growth of \ac{CSH} (purple) in the low and high density variant on top of \ac{C3S} (yellow) by \textcite{nguyen-tuan.2024}, based on the level set method.
+        The red line indicates the surface of the unhydrated \ac{C3S} particle.
+    }
     \label{fig:level_set}
 \end{figure*}
+
 %{\color{red} % erstmal nur so dahin gequatscht
-\textsc{CEMHYD3D} \cite{bentz.2005} is a programme to simulate the hydration of cement in three dimensions using a voxel-based model.
-Models like these (\cite{bentz.2005, nguyen-tuan.2024}) allow simulation of the development of the phase composition over time, which can be validated using various experiments.
+There also exists 3D simulation models.
+\textsc{HYMOSTRUC} \cite{vanbreugel.1995} is a model to simulate the hydration of cement in 2D and has been further developed over the last few decades into \textsc{HYMOSTRUC3D} \cite{ye.2007, liu.2014, gao.2014, qian.2017, gao.2019}.
+It is a vector based model using spherical cement particles, growing shells around them.
+In contrast, \textsc{CEMHYD3D} \cite{bentz.2005} is a voxel-based model to simulate the hydration of cement in 3D allowing irregular shaped particles.
+These models significantly differ in the simulated pore structure, as \textsc{HYMOSTRUC} results in a larger pore connectivity and relative diffusivity than in \textsc{CEMHYD3D}, caused by the simulation method \cite{gao.2013}.
+Another more modern model is \textsc{HydraFE} \cite{nothnagel.2007} which is based on the finite-element-method, using a adaptive instead of a fixed grid as in \textsc{CEMHYD3D}.
+The main advantage of \textsc{CEMHYD3D} is that its code is open source \cite{bentz.2005,gao.2013} in contrast to \textsc{HYMOSTRUC} and \textsc{HydraFE}.
+However, today the code is only publicly accessible through the software package \textsc{SIFEL} \cite{sifel.2001, smilauer.2009}.
 3D-based simulations inherently have a better chance to closely represent reality, since 2D simulations are always missing a lot of information, which can cause distorted results (see \zcref{subsec:sectioning-effect}).
-However, 2D simulations are much faster and allow simulation of larger areas, reflecting a more representative area, which is very important due to the heterogeneity of cement (see \zcref{sec:2D-representativeness}).
+However, 2D simulations are much faster and allow the simulation of larger areas, reflecting a more representative area, which is very important due to the heterogeneity of cement (see \zcref{sec:2D-representativeness}).
+
+%Models like these (\cite{vanbreugel.1995, bentz.2005, nothnagel.2007, nguyen-tuan.2024}) allow simulation of the development of the phase composition over time.
+Nevertheless, the basis for all realistic modelling is a qualitative and quantitative experimental characterisation of the corresponding structures \cite{nguyen-tuan.2019, gobel.2018a}.
+
 % simulationspaper der hydratation \cite{hlobil.2022} which was compared to volumetric \ac{mCT} data of differently aged cement.
 % CEMHYD3D -> Fig 3 anteile der phasen vgl mit Messungen
 % Literatur aus Long übernehmen und Modelle erwähnen
 %}
 
-Nevertheless, the basis for all realistic modelling is a qualitative and quantitative experimental characterisation of the corresponding structures \cite{nguyen-tuan.2019, gobel.2018a}.
-
-
 % Handlungsanweise - wie kann man REM mit Methoden kombinieren um Baustoffe zu beschreiben - welche Techniken gibt es?
 % Einfache Tools, weil sonst machts keener
 
-\pdfcomment[icon=Note, color=orange]{% TODO: note
-    Noch einarbeiten:
-    HYMOSTRUC, HYMOSTRUC3D - vanbreugel.1995, ye.2007, liu.2014, gao.2014, qian.2017, gao.2019
-}
+% \pdfcomment[icon=Note, color=orange]{% TODO: note
+%     Noch einarbeiten:
+%     HYMOSTRUC, HYMOSTRUC3D - vanbreugel.1995, ye.2007, liu.2014, gao.2014, qian.2017, gao.2019
+% }
 
+% weitere Modelle: 2D bishnoi.2009a, bishnoi.2009

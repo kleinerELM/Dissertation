@@ -13,7 +13,7 @@ The script uses the implementation provided by the \textit{OpenCV} \cite{bradski
 
 %% actual algorithm description
 As for many image processing tasks, the segmentation is one of the most important steps.
-The \ac{BSE} images have to be segmented into at least three phases: ($i$) pores, ($ii$) hydration products (($a$) \ac{CH}, ($b$) ac{CSHi} and ($c$) \ac{CSHo}), and ($iii$) unhydrated clinker.
+The \ac{BSE} images have to be segmented into at least three phases: ($i$) pores, ($ii$) hydration products (($a$) \ac{CH}, ($b$) \ac{CSHi} and ($c$) \ac{CSHo}), and ($iii$) unhydrated clinker.
 
 To segment images, a threshold-based segmentation can be used.
 However, raw and pre-processed images have varying contrasts as shown in \zcref{fig:hlt_contrast}.
@@ -70,7 +70,7 @@ To reduce errors, \ang{3} before and after those areas were ignored as well (\zc
 Furthermore, measurements of grains which provided fewer than \num{90} valid measurements (\qty{25}{\percent} of \num{360} possible measurements) are excluded from the statistical analysis.
 
 \begin{figure}[htb]
-\centerline{\includegraphics[width=.85\textwidth]{hydrate-rim/Mechanism_v2.pdf}}
+\centerline{\includegraphics[width=\textwidth]{hydrate-rim/Mechanism_v2.pdf}}
 \caption{
 	Illustration of the processing to measure the \ac{HLT}.
 	In the centre of A, B and E is an unhydrated \ac{C3S} grain \ding{172} within a \qty{7}{\day} hydrated specimen.

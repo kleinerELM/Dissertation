@@ -18,22 +18,23 @@ All images were recorded at \qty{16}{\bit} color depth.
 
 	\includegraphics[width=\textwidth]{methods/bse-voltages/marked.pdf}
     \caption{
-    	\ac{SEM} images of CEM~I hydrated for three years. With a carbon coating (top row) and after a subsequent \ac{ArBIB} polishing (middle row).Recorded using different voltages and at \qty{0.8}{\nano\ampere}.
+    	\ac{SEM} images of CEM~I hydrated for three years. With a carbon coating (top row) and after a subsequent \ac{ArBIB} polishing (middle row).
+		Recorded using different voltages and at \qty{0.8}{\nano\ampere}.
 		On the bottom, a comparison of the phase contrast between \ac{CH} and \ac{CSH} at \num{2.0} (\ac{ArBIB} polished, {\color{cyan}blue}) and \qty{1}{\kilo\volt} (\ce{C} coated, {\color{red}red}) is illustrated.
     }
     \label{fig:BSE_CEMI_voltages}
 \end{figure*}
 
 There is no fixed grey value for a phase in \ac{BSE} imaging.
-It can be manipulated in device not only by changing the voltage and current, but also by changing brightness, gamma and contrast values either automatically or manually.
+It can be manipulated in the device not only by changing the voltage and current, but also by changing brightness, gamma and contrast values either automatically or manually.
 Therefore, the contrast of the \qty{16}{bit} images was normalised using the \textit{Enhance Contrast} function available in \textsc{ImageJ}.
 In some instances this significantly changed the appearance of the images.
 
 The \ac{BSE} image of a carbon coated specimen mostly shows the coating surface at \qty{2.5}{\kilo\volt} and the chemical contrast is only slightly visible.
 At \qty{4.0}{\kilo\volt} artefacts are still very prominent, making the image unusable for any segmentation task.
-An artefact free image can be produced at \qty{10}{\kilo\volt}, allowing to distinguish between \ac{CH} and \ac{CSH} and between \ac{C3S} and \ac{C2S}.
+An artefact-free image can be produced at \qty{10}{\kilo\volt}, allowing to distinguish between \ac{CH} and \ac{CSH} and between \ac{C3S} and \ac{C2S}.
 
-An \ac{ArBIB} cleaned surface can be imaged at voltages as low as \qty{2.0}{\kilo\volt} (at \qty{0.8}{\nano\ampere}), resulting in an segmentable image.
+An \ac{ArBIB} cleaned surface can be imaged at voltages as low as \qty{2.0}{\kilo\volt} (at \qty{0.8}{\nano\ampere}), resulting in a segmentable image.
 The microstructure also appears more detailed than in images of the coated surface at \qty{10}{\kilo\volt}.
 This is caused by the smaller interaction volume at lower voltages (see \zcref{fig:penetration_depth})
 However, the phase contrast between \ac{CH} and \ac{CSH} is diminished compared to the carbon coated specimens at \qty{15}{\kilo\volt}.
@@ -52,7 +53,7 @@ If a sample is not coated in the first place, \ac{ArBIB} polishing removes oil r
 
 \ac{ArBIB} milling allows to section and subsequently image porous specimens without the requirement to embed them in epoxy resin (see \zcref{fig:BSE_ArBIB_CEMI}).
 This is especially useful for specimens with pronounced capillary porosity.
-Mechanical polishing would damage this not stabilized microstructure and the pores would be filled with debris.
+Mechanical polishing would damage this non-stabilised microstructure and the pores would be filled with debris.
 
 \begin{figure*}[htb]
     \centering
@@ -69,7 +70,7 @@ Mechanical polishing would damage this not stabilized microstructure and the por
 
 The ion beam milled specimens have to be imaged using low voltages, since the so prepared surface is intrinsically non conductive and a consecutive coating would also alter the microstructure (see \zcref{fig:coating-influence}).
 As demonstrated in the previous section, low voltages also result in a limited contrast between phases like \ac{CH} and \ac{CSH} or \ac{C3S} and \ac{C2S}.
-However, porosity smaller than large capillary pores are usually still differentiable and therefore segmentable from the solids.
+However, pores that are smaller than large capillary pores are usually still differentiable and therefore segmentable from the solids.
 
 This method of preparation allows a close-to-native imaging of cementitious materials and results in a very flat and clean surface.
 This furthermore enables the analysis of very fine porosity, using primarily the \ac{SEM}-\ac{SE} mode \cite{desbois.2014, kleiner.2021a}.
@@ -106,15 +107,15 @@ The needles within the pore are fully visible and show no obvious morphological 
 However, such a pore cannot be segmented automatically, as not only the material of the cutting plane but also the pore background is visible.
 
 In contrast, the nano porosity shown in \zcref{fig:csh-arbib-d} is segmentable.
-Howeverm similar to \ac{SEM}-\ac{SE} images of other porous samples, the segmentation cannot be done using a global threshold value.
-While in \ac{BSE} image a rather distinct grey value range represents a single phase, this is not true for \ac{SE} images.
+However, similar to \ac{SEM}-\ac{SE} images of other porous samples, the segmentation cannot be done using a global threshold value.
+While in a \ac{BSE} image a rather distinct grey value range represents a single phase, this is not true for \ac{SE} images.
 Therefore, the use of local threshold methods can enable a correct segmentation as will be shown in a later chapter.
 
 
 As mentioned in \zcref{fig:bib_scheme}, an irradiation volume is expected during the \ac{ArBIB} sectioning.
 Since hydrate phases are easily damaged by electron radiation as demonstrated in \zcref{fig:ebeam_damage}, the same could be expected during the ion beam preparation.
-To determine morphological differences, a CEM~I was sectioned at \num{-140}.
-Comparing images of cryo-prepared (\zcref{fig:csh-arbib-SEM}) areas and areas prepared at room temperature (\zcref{fig:csh-arbib-SEM2}) indicate, that there is no visible damage caused by the ion beam without cooling.
+To determine morphological differences, a CEM~I was sectioned at \qty{-140}{\celsius}.
+A comparison of images of cryo-prepared (\zcref{fig:csh-arbib-SEM}) areas and areas prepared at room temperature (\zcref{fig:csh-arbib-SEM2}) indicates that there is no visible damage caused by the ion beam without cooling.
 
 \begin{figure}[htb!]
     \centering
@@ -172,11 +173,11 @@ This allows to create a 3D reconstruction of a hydrated \ac{C3S} grain covered i
 
 \Acl{NI} is a technique which requires very flat surfaces \cite{wilson.2018}.
 While mechanical polishing works well if done with an oil-based polishing process \cite{gao.2012, wilson.2018}, \ac{ArBIB} sectioning is a promising preparation method of hydraulic cement-based materials, since it does not require water-free resin embedding, even for porous materials, avoids chemical contamination and minimises mechanical damage as demonstrated in the section above.
-Furthermore, it avoids the formation of a pronounced relief at the interface of hard (eg. quartz grains) and soft (eg. hydrated cement) materials.
-For example, the imaging of microstructures of claystone was challenging until the upcoming of \ac{ArBIB} polishing and milling \cite{yven.2007,houben.2014}.
+Furthermore, it avoids the formation of a pronounced relief at the interface of hard (e.g., quartz grains) and soft (e.g., hydrated cement) materials.
+For example, the imaging of microstructures of claystone was challenging until the advent of \ac{ArBIB} polishing and milling \cite{yven.2007,houben.2014}.
 
 The objective was to obtain a clean and smooth \ac{ITZ} between the binder and a large quartz grain of a \qty{91}{\day} hydrated CEM~I concrete sample (see \zcref{sec:ni_concrete}).
-As shown in \zcref{fig:lm_ni}, an usable area of $\approx$ \qty{7.5}{\milli\meter\squared} was prepared using \ac{ArBIB} sectioning.
+As shown in \zcref{fig:lm_ni}, a usable area of $\approx$ \qty{7.5}{\milli\meter\squared} was prepared using \ac{ArBIB} sectioning.
 The polishing was done at \qty{6}{\kilo\volt}, \qty{2}{\milli\ampere} in multiple sessions for a total of $\approx$ \qty{72}{\hour}.
 Between the sessions, the specimen had to be repositioned causing a damaged front area.
 
@@ -217,7 +218,7 @@ The aligned height map indicates that the ion beam milled the sample at an angle
 Defining the polished surface as a reference plane using three points reveals the unevenness caused by the three beams (see \zcref{fig:arbib-topography}).
 The central area was milled deeper than the lateral areas, creating a V-shaped pattern.
 The polished area in the selected \ac{ROI} has a total height difference of approximately \qty{75}{\micro\meter}, whereas local variations are significantly smaller.
-This seems to be in accordance to the observations from \textcite{sammer.2024}, where the overall roughness was seemingly worse than in mechanical polishing, while locally smoother surfaces were achieved.
+This seems to be in accordance with the observations from \textcite{sammer.2024}, where the overall roughness was seemingly worse than in mechanical polishing, while locally smoother surfaces were achieved.
 
 \begin{figure}[htb!]
   \centering
@@ -249,19 +250,19 @@ Combined with the segmentation results from the \ac{mXRF} dataset, this allows t
 
 	\caption{
 		Developed area ratio $S_{dr}$ (right) with overlaid quartz aggregate positions determined by \ac{mXRF}.
-		The red boxes indicate the rough position of \zcref{ffig:arbib-tilt-a, fig:arbib-tilt-b}.
+		The red boxes indicate the rough position of \zcref{fig:arbib-tilt-a, fig:arbib-tilt-b}.
 	}
 	\label{fig:arbib-rough}
 \end{figure}
 
 Calculating the mean $S_{dr}$ value for the aggregate area and the binder area results in \qty{59.7(33.5)}{\percent}, and \qty{87.8(41.5)}{\percent} respectively.
-In other words, the the quartz grains have smoother surfaces than the cement binder phase.
+In other words, the quartz grains have smoother surfaces than the cement binder phase.
 This can be attributed to the homogeneous composition and the scarcity of phase boundaries (e.g., pores) within the quartz grains, while the binder matrix contains numerous small phase boundaries and incorporates significant porosity.
 However, especially at the quartz grains it becomes obvious, that irregularities are causing a shadow effect in the direction of the ion beam.
-They cause visible stripes, which are often V-shaped, with the discontinuity at the intersection of the stipes.
+They cause visible stripes, which are often V-shaped, with the discontinuity at the intersection of the stripes.
 
 Tilted \ac{SEM}-\ac{SE} images illustrate, that there is no visible step between phases of different hardness (see \zcref{fig:arbib-tilt,fig:arbib-tilt-c}).
-However, the curtaining artifacts caused by porosity are clearly visible in \zcref{fig:arbib-tilt-b}.
+However, the curtaining artefacts caused by porosity are clearly visible in \zcref{fig:arbib-tilt-b}.
 In contrast, \zcref{fig:arbib-tilt-a} shows a smooth surface.
 In both cases, the ion beam was from bottom to top.
 As indicated in \zcref{fig:arbib-rough}, quartz grains cause a smoother surface and this also seems to be true for the transition from quartz to hydrated cement binder.
@@ -334,14 +335,14 @@ Furthermore, another \ac{NI} measurement was performed within the same area, res
     \ac{BSE} images of the \ac{NI} site after indentation.
     The grid (\numproduct{20 x 65}) on top of the left image represents the planned measurement pattern.
     The overlapping area of the \ac{EDX} measurement is highlighted in {\color{red}red}.
-	On the right, an enlarged area (highlighted in {\color{orange}yellow}) shows the indents on \acs{CSH}/\ce{Mg}-\acs{CASH} (left) and the slag grain (right) indicating the material hardness by the indent depth depending.
+	On the right, an enlarged area (highlighted in {\color{orange}yellow}) shows the indents on \acs{CSH}/\ce{Mg}-\acs{CASH} (left) and the slag grain (right) indicating the material hardness by the indent depth.
   }
   \label{fig:BSE-indents}
 \end{figure}
 
 Visualising the resulting hardness and the reduced \textsc{Young}'s modulus maps, results in the images shown in \zcref{fig:ni2D-results}.
 In both images, the position of the quartz, clinker and slag phases can be identified by their high values.
-In the modulus map, the course of the cracks can also be determined.
+In the modulus map, the distribution of the cracks can also be determined.
 
 \begin{figure}[htb!]
   \centering
@@ -395,7 +396,7 @@ In the modulus map, the course of the cracks can also be determined.
   \caption{
     Mappings of the \ac{NI} measurements in \unit{\giga\pascal} and \ac{EDX} phase mappings before and after the resolution reduction.
     The reduced \ac{EDX} mapping shows the dominant phase for each pixel.
-    For the color legend of the \ac{EDX} phase map, refer to \zcref{fig:arbib-EDX-NI}.
+    For the colour legend of the \ac{EDX} phase map, refer to \zcref{fig:arbib-EDX-NI}.
 	White areas were filtered and not used for statistical evaluation.
   }
   \label{fig:ni2D-results}
@@ -404,7 +405,7 @@ In the modulus map, the course of the cracks can also be determined.
 Combining the \ac{NI} measurements, the \ac{EDX} phase mapping and the \ac{BSE} image, allows to assign the hardness and the modulus to the different phases.
 However, the phase assignment of each of the \num{1140} indents based on the indent positions found in the \ac{BSE} image was unpractical, due to their slight misalignments (see \zcref{fig:ni2D-results}).
 Therefore, the high-resolution \ac{EDX} map was subdivided using a grid as indicated in \zcref{fig:BSE-indents, fig:ni2D-results-c,fig:ni2D-results-d}.
-Within each grid cell, the are phase composition ratio was calculated.
+Within each grid cell, the phase composition ratio was calculated.
 Grid cells in which no single phase exceeded \qty{50}{\percent} were excluded from the \ac{NI} evaluation.
 This resulted in \qty{76.1}{\percent} (\num{868} of \num{1140}) assigned indents within the overlapping area.
 \zcref{tab:ni-results} and \zcref{fig:ni-boxplot-raw} show the detailed results of the phase dependent hardness and modulus.
@@ -466,7 +467,7 @@ However, these properties depend on the \ac{wb} value; typically, a higher \ac{w
 The values measured in this experiment align with the ranges reported in the literature, although the standard deviations observed here are generally higher than in \cite{sebastiani.2016,xu.2017}.
 This might be caused by the different indent assignment, which is usually done in literature by using the deconvolution technique applied to the probability density function of the modulus values \cite{sebastiani.2016,xu.2017}.
 A few previous studies only distinguish between \ac{CSHi}, \ac{CSHo}, and \ac{CH}, even when combined with \ac{EDX} measurements \cite{sebastiani.2016, lahayne.2022}.
-\textcite{wilson.2018} was additionally able to identify and assigning \ac{NI} measurements to \ac{CASH} phases of a hydrated cement (\ac{wb} = \qty{0.4}) utilising a \ac{EDX} mapping.
+\textcite{wilson.2018} was additionally able to identify and assign \ac{NI} measurements to \ac{CASH} phases of a hydrated cement (\ac{wb} = \qty{0.4}) utilising a \ac{EDX} mapping.
 They measured hardness values of \qty{1.1(0.35)}{\giga\pascal}, and moduli of \qty{33.5(7.3)}{\giga\pascal}.
 However, as shown in this study, the use of detailed \ac{EDX} phase segmentation enables the identification of additional hydrate phases.
 \pdfcomment[icon=Comment, color=cyan, author=Christane]{% TODO: comment Christane
@@ -570,8 +571,8 @@ The whiskers extend to the most extreme data points that remain within these cal
 \end{figure}
 
 Since the measurement area was chosen in a way, that the quartz grain boundary is parallel to the $y$-axis (orientation as shown in \zcref{fig:ni2D-results-a,fig:ni2D-results-b}), a profile can be plotted to visualise the hardness and moduli depending on the distance to the quartz grain (\zcref{fig:ni-profiles}).
-Since the hydrate phase is the primary focus in terms of mechanical properties at the \ac{ITZ}, phases like quartz, \ac{C3S}/\ac{C3S} and slag had to be filtered.
-This was done by selecting only indents, with a hardness below \num{6} and a reduced modulus below \qty{80}{\giga\pascal} were selected.
+Since the hydrate phase is the primary focus in terms of mechanical properties at the \ac{ITZ}, phases like quartz, \ac{C3S}/\ac{C2S} and slag had to be filtered.
+This was done by selecting only indents, with a hardness below \num{6} and a reduced modulus below \qty{80}{\giga\pascal}.
 %, respectively, to remove phases like quartz, clinker and slag, which have a high hardness.
 
 \begin{figure}[htb]
@@ -584,10 +585,10 @@ This was done by selecting only indents, with a hardness below \num{6} and a red
 				ylabel={hardness $H$ in \unit{\giga\pascal}},
 				grid=major,
         xmin=0, xmax=320,
-				ymin=0, ymax=6,
+				ymin=0, ymax=5,
 			]
 				\addplot[fill=gray, fill opacity=0.25, draw=none] coordinates {
-					(20, 0) (100,0) (100, 6) (20,6) (20, 0)
+					(30, 0) (90,0) (90, 5) (30,5) (35, 0)
 				};
 				\node[black, anchor=west] at (axis cs: 30,4) {\small ITZ};
 
@@ -608,14 +609,15 @@ This was done by selecting only indents, with a hardness below \num{6} and a red
 				ylabel={reduced modulus $E_r$ in \unit{\giga\pascal}},
 				grid=major,
         xmin=0, xmax=320,
-				ymin=0, ymax=80,
+				ymin=0, ymax=90,
 				yticklabel pos=right,
 			]
 
 				\addplot[fill=gray, fill opacity=0.25, draw=none] coordinates {
-					(20, 0) (100,0) (100, 80) (20,80) (20, 0)
+					(30, 0) (90,0) (90, 90) (30,90) (30, 0)
+					%(20, 0) (100,0) (100, 80) (20,80) (20, 0)
 				};
-				\node[black, anchor=west] at (axis cs: 30,55) {\small ITZ};
+				\node[black, anchor=west] at (axis cs: 35,75) {\small ITZ};
       
 				\addplot [name path=upper, draw=none, forget plot] table [skip first n=2, header=false, col sep=comma, x index=0, y expr=\thisrowno{1}+\thisrowno{2}] {figures/nanoindentation/profile_ErGPa.csv};
 				\addplot [name path=lower, draw=none, forget plot] table [skip first n=2, header=false, col sep=comma, x index=0, y expr=\thisrowno{1}-\thisrowno{2}] {figures/nanoindentation/profile_ErGPa.csv};
@@ -626,15 +628,15 @@ This was done by selecting only indents, with a hardness below \num{6} and a red
 		\caption{Reduced modulus $E_r$.}
 	\end{subfigure}
 	\caption{
-    Mean profile of hardness $H$ and reduced modulus $E_r$ of the hydrate phases orthogonal to the \ac{ITZ}.
-    Phases like quartz, \ac{C3S}/\ac{C2S} and slag were filtered using the cut-off values \num{6} and \qty{80}{\giga\pascal}, respectively, to calculate the mean and median values.
-    Possible \ac{ITZ}-related reduction in hardness and moduli is marked in grey.
-  }
+		Mean profile of hardness $H$ and reduced modulus $E_r$ of the hydrate phases orthogonal to the \ac{ITZ}.
+		Phases like quartz, \ac{C3S}/\ac{C2S} and slag were filtered using the cut-off values \num{6} and \qty{80}{\giga\pascal}, respectively, to calculate the mean and median values.
+		The \ac{ITZ} width known from literature is marked in grey between (\qtyrange{30}{90}{\micro\meter}).
+	}
 	\label{fig:ni-profiles}
 \end{figure}
 
-Both diagrams show that the values directly at the interface are slightly lower than in the bulk material.
-However, based on this data the \ac{ITZ} width cannot be clearly defined or measured.
+Both diagrams show that the values directly at the interface (at \qty{30}{\micro\meter}) are slightly lower than in the bulk material.
+However, based on this data the \ac{ITZ} width cannot be clearly defined, but the typical width known from literature (\qty{60}{\micro\meter}) was marked.
 Nevertheless, it was demonstrated that, as stated in the literature, \ac{CH} accumulated at the \ac{ITZ} \cite{li.2012, tian.2018, gao.2014}.
 %The \ac{ITZ} is expected to be <\,\qty{100}{\micro\meter} wide \cite{lavrov.2017,torsaeter.2015,zhu.2000}, based on the slope attributed to the quartz grain interface.
 Comparing the graphs to the \ac{BSE} and \ac{EDX} data indicates a small crack in the interface zone between the binder and the grain.
@@ -665,7 +667,7 @@ However, this approach is limited by potential charging effects and reduced phas
 Furthermore, for micromechanical investigations such as \ac{NI}, \ac{ArBIB} preparation reduces the topographic relief between phases of different hardness, such as aggregates and the cement paste matrix.
 Although the technique can introduce specific surface textures like curtaining, correlative microscopy combining \ac{SEM}-\ac{BSE}, \ac{EDX} spectroscopy, and \ac{NI} on \ac{ArBIB}-prepared surfaces successfully facilitated the phase-specific determination of mechanical properties.
 This approach highlighted significant differences between anhydrous clinker phases and hydration products, although the precise characterisation of the \ac{ITZ} remained constrained by preparation-induced microcracking.
-Furthermore, pores are assigned higher hardness values than in resin embedded specimens, since the nanonindenter will mostly measure pore backgrounds or crack edges.
+Furthermore, pores are assigned higher hardness values than in resin embedded specimens, since the nanoindenter will mostly measure pore backgrounds or crack edges.
 \pdfcomment[icon=Comment, color=cyan, author=Christane]{% TODO: comment Christane
 	und wie ist es mit C-S-H? besonders C-S_Ho sind da die NI werte mit und ohne harz verschieden (feng meinte ja mal er korrigiert die NI werte der hydrates um die werte des epoxidharzes. ich erinnere mich aber nicht genau wie und ob er das -hoffentlich nicht- auch für quarzt macht.)
 }

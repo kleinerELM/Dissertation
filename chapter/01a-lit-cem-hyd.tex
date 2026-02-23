@@ -187,16 +187,45 @@ In the literature, two main reasons can be found for the classification of \ac{C
 
 Firstly, \ac{CSH} is often referred to as a `gel' due to its X-ray amorphous nature compared to crystalline \ac{CSH} or tobermorite \cite{jennings.1981, garbev.2004}.
 So one may argue that water bound within the layers of the \ac{CSH} is the fluid throughout the unordered `\ac{CSH}-network' instead of bound crystal water.
-However, it was shown by electron diffraction in (cryo-)\ac{TEM} that mature \ac{CSH} phases are (crypto-)crystalline \cite{kurczyk.1960, grudemo.1960, grudemo.1965, melzer.1989, rossler.2006} with a similar structure to the tobermorite group \cite{grudemo.1960,kurczyk.1960,biagioni.2015}.
+However, it was shown by electron diffraction in (cryo-)\ac{TEM} that mature \ac{CSH} phases are (crypto-)crystalline \cite{kurczyk.1960, grudemo.1960, grudemo.1965, melzer.1989, rossler.2006} with a structure close to the tobermorite group \cite{grudemo.1960,kurczyk.1960,biagioni.2015}.
+In particular, \ac{CSH} is very close to the structure of tobermorite \qty{14}{\angstrom} \cite{bonaccorsi.2005} (see \zcref{fig:tobermorite}).
+However, the C/S ratio of tobermorite is \num{0.83} but \numrange{1.5}{1.8} for \ac{CSH} \cite{bonaccorsi.2005, rossler.2006}.
+These extra \ce{Ca}-atoms cannot be included in the tobermorite structure \textcite{rossler.2006}.
 
-%bonaccorsi.2005 tobermorite 14Å
+\begin{figure}[h!]
+    \centering
+
+    \begin{subfigure}[t]{0.6\linewidth} %36
+        \ifdefined\PRINTABLE
+            \includegraphics[width=\textwidth]{literature/tobermorite/ani/tobermorit-14.jpg}
+        \else
+            \animategraphics[palindrome,autoplay,poster=14,width=\textwidth]{12}{literature/tobermorite/ani/tobermorit-}{00}{23}
+        \fi
+        \caption{View along $a$-axis.}
+    \end{subfigure}
+
+    \begin{subfigure}[t]{0.41\linewidth} %31
+        \includegraphics[width=\textwidth,angle=180]{literature/tobermorite/2_.png}
+        \caption{View along $b$-axis.}
+    \end{subfigure}
+    \hfill%
+    \begin{subfigure}[t]{0.41\linewidth} %30
+        \includegraphics[width=\textwidth]{literature/tobermorite/1_.png}
+        \caption{View along $c$-axis.}
+    \end{subfigure}%
+
+    \caption{
+        Crystalstructure of tobermorite \qty{14}{\angstrom} \cite{bonaccorsi.2005} (ICDS 152489).
+        \ce{Ca}: {\color{green}green}; \ce{Si}: grey; \ce{O}: {\color{red}red}, rendered using \textsc{shapeXT} \cite{shapext.2026}.
+    }
+    \label{fig:tobermorite}
+\end{figure}
 
 Also, \textcite{nonat.2004} demonstrated the crystalline nature of \ac{CSH} crystallised on a calcite single crystal using atomic force microscopy.
 However, during its very early development, \ac{CSH} forms water-rich droplets, which then aggregate on top of \ac{C3S} and \ac{C2S} surfaces in an amorphous state \cite{sowoidnich.2023}.
 \textcite{bellmann.2012} claimed that then a thin \qty{2}{\nano\meter} layer is formed, covering the \ac{C3S} grains.
 The forming of this amorphous first layer could be understood as a `gel'.
 According to \textcite{jennings.1986a} and others \cite{bellmann.2015, naber.2019}, this layer can also act as a passivating layer causing the induction periods.
-
 \pdfcomment[icon=Comment, color=cyan, author=Thomas]{% TODO: Comment Thomas
     Im neuen paper (was wir gerade bearbeiten) werden weitere Indizien für die Existenz eines passivating layers gezeigt (Experimente mit Freikalk und Wasserglas); Jennings entnommen aus sowoidnich.2019
     Mail von Thomas vom 04.04.2025:
@@ -278,17 +307,17 @@ This was also demonstrated by \textcite{pawley.1984} comparing low and high volt
     }
     \label{fig:kV-influence}
 \end{figure}
-
 \pdfcomment[icon=Comment, color=cyan, author=Christane]{% TODO: comment Christane
 	evtl noch zwei bilder zur erläuterung (gel SEM und high-resolution SEM von zement??)
     Ich: zum Beispiel ein altes diamond.2004 BSE Bild und ein hochaufgelöstes neues, das die Nadeln zeigt?
 }
+
 However, a gel can also be defined as a substance capable of swelling in the presence of a second component (in this case water) \cite{hermans.1946}.
 This seems to be the case, as evident in the creep, swelling, and shrinkage behaviour of concrete \cite{powers.1958,feldman.1970}, which can be attributed to \ac{CSH} \cite{zhou.2025}.
 
 The colloidal nature of hydration products of cement was proposed more than a century ago, as a lively discussion between \textcite{michaelis.1908} and the editorial of the \textsc{Tonindustrie-Zeitung} in 1907/08 demonstrates.
 However, \textcite{chatelier.1918} disputed the use of the term colloid in cement hardening in 1918.
-The required colloidal nature – i.e. a porous structure between \qty{1}{\nano\meter} and \qty{1}{\micro\meter} – can be applied to water-saturated, low-density \ac{CSHo} and very young \ac{CSH} \cite{sowoidnich.2023}.
+The required colloidal nature, i.e. a porous structure between \qty{1}{\nano\meter} and \qty{1}{\micro\meter}, can be applied to water-saturated, low-density \ac{CSHo} and very young \ac{CSH} \cite{sowoidnich.2023}.
 However, dense \ac{CSHi} as observed in \ac{SEM} images, has a very low porosity and its morphology can hardly be classified as colloidal.
 Therefore, the swelling is often attributed to the interlayer porosity of \ac{CSH} \cite{jennings.2008}, which typically ranges from \qtyrange{0.9}{1.4}{\nano\meter} for tobermorite-like structures.
 According to \textcite{duque-redondo.2022}, a porosity of \qty{1.4}{\nano\meter} seems to be more fitting for \ac{CSH}.
@@ -722,7 +751,6 @@ The results are plotted in \zcref{fig:suess_CSH_C3S} (\ac{C3S}) and \zcref{fig:s
     \caption{Growth of \ac{CSHo} on \ac{C3S} at different temperatures. Based on data from \textcite{voland.2000} and \textcite{suss.2001}.}
     \label{fig:suess_CSH_C3S}
 \end{figure}
-
 \pdfcomment[icon=Note, color=orange]{% TODO: note
     include data from shirani.2023?
     450 - 550 nm shell thickness of csh after 19h (i do not really get why there exist these two numbers? Durchschnitt insgesamt vs hadley grain-shell?)

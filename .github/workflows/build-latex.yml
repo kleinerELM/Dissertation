@@ -31,13 +31,15 @@ jobs:
         with:
           root_file: Dissertation.tex
           compiler: latexmk
-          # Wir übernehmen die Argumente aus deiner VS Code settings.json
+          # Argumente aus der settings.json
           args: -xelatex -shell-escape -synctex=1 -interaction=nonstopmode -file-line-error
           pre_compile: |
             # MiKTeX (dein lokales System) nutzt initexmf für Speicherlimits. TeX Live (GitHub Action) nutzt texmf.cnf.
             # Hiermit erhöhen wir den TeX-Arbeitsspeicher temporär für diesen Build-Vorgang.
-            echo "main_memory = 10000000" > texmf.cnf
-            echo "extra_mem_top = 10000000" >> texmf.cnf
+            # In TeX Live müssen diese Werte in die System-Konfiguration geschrieben und das Format neu generiert werden (analog zu initexmf --dump).
+            tlmgr conf texmf main_memory 10000000
+            tlmgr conf texmf extra_mem_top 10000000
+            fmtutil-sys --byfmt xelatex
 
       - name: Upload PDF as Artifact
         uses: actions/upload-artifact@v4

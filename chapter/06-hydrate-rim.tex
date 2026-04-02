@@ -304,11 +304,13 @@ This plot is accompanied by a frequency plot of the grain size diameter (grey) a
 
 \begin{figure}[htbp]
 	\centerline{\includegraphics[width=\textwidth]{hydrate-rim/HLT_histogram_alit.pdf}}
-	\caption{Normalised distributions of the \ac{HLT} of hydrated \ac{C3S} (aged 1, 7, 14, 28, 84, and \qty{365}{\day}) depending on the particle diameter.
-	The histogram (grey) on top illustrates the logarithmic frequency for each diameter bin in the diagram below.
-	The histogram (orange) on the right illustrates the frequency of \ac{HLT} measurements as sum of the main diagram.
-	The values are thus independent of the frequency of single grain diameters.
-	The yellow markers indicate the confidence interval at a confidence level of \qty{33.3}{\percent} around $l_\text{max}$ (green).}
+	\caption{
+        Normalised distributions of the \ac{HLT} of hydrated \ac{C3S} (aged \num{1}, \num{7}, \num{14}, \num{28}, \num{84}, and \qty{365}{\day}) depending on the particle diameter.
+        The histogram (grey) on top illustrates the logarithmic frequency for each diameter bin in the diagram below.
+        The histogram (orange) on the right illustrates the frequency of \ac{HLT} measurements as sum of the main diagram.
+        The values are thus independent of the frequency of single grain diameters.
+        The yellow markers indicate the confidence interval at a confidence level of \qty{33.3}{\percent} around $l_\text{max}$ (green).
+    }
 	\label{fig:results2d_alite}
 \end{figure}
 
@@ -325,9 +327,11 @@ Furthermore, very small grains seem to have no second \ac{HLT} accumulation, whi
 
 \begin{figure}[htbp]
 	\centerline{\includegraphics[width=\textwidth]{hydrate-rim/HLT_histogram_belit.pdf}}
-	\caption{Normalised distributions of the \ac{HLT} of hydrated \ac{C2S} (aged 1, 7, 14, and \qty{28}{\day}) depending on the particle diameter.
+	\caption{
+        Normalised distributions of the \ac{HLT} of hydrated \ac{C2S} (aged \num{1}, \num{7}, \num{14}, and \qty{28}{\day}) depending on the particle diameter.
 	Same diagram type as in \zcref{fig:results2d_alite}.
-	\label{fig:results2d_belite}}
+	\label{fig:results2d_belite}
+    }
 \end{figure}
 
 \ac{C2S} shows a significant slower hydration, which is also visible in the growth of the \ac{HLT} (\zcref{fig:hydration-rim-results}).
@@ -401,7 +405,7 @@ With increasing \ac{C2S} content, the hydrate content is usually reduced.
 Only the \ac{C3S} 3:1 \ac{C2S} mixture deviates slight from this trend at \num{7} and \qty{14}{\day}.
 However, there is no obvious reason for this deviation and may result from a poor segmentation quality.
 
-\begin{figure}[htb]
+\begin{figure}[!htb]
 	\centering
 	\begin{tikzpicture}
 		\begin{axis}[
@@ -415,7 +419,7 @@ However, there is no obvious reason for this deviation and may result from a poo
 			enlarge x limits=0.25,
 			legend style={at={(1.02,0.5)}, anchor=west, legend columns=1},
 			width=.9\textwidth,
-			height=6cm,
+			height=5.5cm,
 		]
 			\addplot[fill=yellow, draw opacity=0, bar shift=-9pt,] coordinates { (1:0,73.44) (3:1,76.87) (1:1,68.01) (1:3,54.53) (0:1,47.29) };
 			\addlegendentry{\qty{7}{\day}}
@@ -433,8 +437,8 @@ However, there is no obvious reason for this deviation and may result from a poo
 \end{figure}
 
 The raw images of the mixtures (e.g. \zcref{fig:hadley2}) show, that the \ac{CSH} around \ac{C2S} grows much slower, than around \ac{C3S} grains.
-This indicates, that the lower \ac{HLT}-peak stems from \ac{C2S}, while the larger one is caused by the \ac{CSH} around \ac{C3S}.
-
+Especially in older specimens, the orange \ac{HLT} histogram shows two distinct peaks, which can be attributed to \ac{C3S} and \ac{C2S}.
+Hereby, the lower \ac{HLT}-peak most probably originates from \ac{C2S}, while the larger one is caused by the \ac{CSH} around \ac{C3S} (see \zcref{fig:hlt_mixture_peaks}).
 
 \begin{figure}[htb]
 	\centerline{\includegraphics[width=\textwidth]{hydrate-rim/hadley_grains.pdf}}
@@ -445,8 +449,17 @@ This indicates, that the lower \ac{HLT}-peak stems from \ac{C2S}, while the larg
     }
 \end{figure}
 
-However for younger specimens, the later two peaks are not well distinguishable.
-Extracting the peak maxima using \zcref{eq:fitcurve} between peak-minima, the results shown in \zcref{fig:hyd-rim-mix} can be determined.
+\begin{figure}[htb]
+	\centerline{\includegraphics[width=.6\textwidth]{hydrate-rim/HLT_histogram_3-1.pdf}}
+	\caption{
+        Normalised distributions of the \ac{HLT} of a hydrated mixture of \ac{C3S}:\ac{C2S} 3:1 (aged \qty{28}{\day}) depending on the particle diameter.
+        The histogram (orange) on the right illustrates the frequency of \ac{HLT} measurements as sum of the main diagram.
+        The green lines indicate the two distinct peaks in the distribution, which can be attributed to \ac{C3S} and \ac{C2S}. \label{fig:hlt_mixture_peaks}
+    }
+\end{figure}
+
+However, for younger specimens these two peaks are not well distinguishable.
+Extracting the peak-maxima using \zcref{eq:fitcurve} between peak-minima, the results shown in \zcref{fig:hyd-rim-mix} can be determined.
 
 \begin{figure}[ht!]
     \centering
@@ -466,7 +479,7 @@ Extracting the peak maxima using \zcref{eq:fitcurve} between peak-minima, the re
     \label{fig:hydration-rim-mixture-results}
 \end{figure}
 
-Specimens older than 14 or \qty{28}{\day} reliably show two to three distinct \ac{HLT} peaks.
+Specimens older than \num{14} or \qty{28}{\day} reliably show two to three distinct \ac{HLT} peaks.
 The first peak can be attributed to the erroneous segmentation and might overlap the actual \ac{HLT} for younger specimens.
 Based on the \ac{C2S} results younger than \qty{28}{\day} (see \zcref{fig:results2d_belite}), the \ac{HLT} of \ac{C2S} is represented by the the first noise peak and cannot be measured reliably.
 By only comparing specimens with an age of \qty{28}{\day} with three distinct peaks, a mutual dependence of both phases can be identified.
@@ -478,7 +491,7 @@ This uncertainty is caused by the following sources of error:
 	\item and filled Hadley-grains with no contact to the actual hydrate layer around the grain resulting in an overestimation and lower data density.
 \end{itemize}
 
-Manually reviewing the images reveals, that the \textsc{Hadley} grain development is significantly more pronounced in \ac{C3S}:\ac{C2S} mixtures around \ac{C2S} grains (compare \zcref{fig:hadley2}).
+Manually reviewing the images reveals, that the \textsc{Hadley} grain development is significantly more pronounced around \ac{C2S} grains in \ac{C3S}:\ac{C2S} mixtures (compare \zcref{fig:hadley2}).
 This can cause a reduced \ac{HLT} measurement around \ac{C2S}.
 
 
@@ -952,8 +965,6 @@ However, \textcite{kameda.2006} pointed out, that the data fluctuation of the me
 
 \section{Conclusion}
 
-The quantitative analysis of \ac{HLT} and phase composition in hydrated \ac{C3S}, \ac{C2S}, and their mixtures demonstrated the possibilities of image processing beyond pure segmentation.
-The method can be utilised to determine the \ac{HLT} development of \ac{C3S}, \ac{C2S} and \ac{C3S}:\ac{C2S} mixtures up to \qty{28}{\day} of hydration.
 The quantitative analysis of \ac{HLT} and phase composition in hydrated \ac{C3S}, \ac{C2S}, and their mixtures demonstrated the potential of image processing beyond mere segmentation.
 The method can be utilised to determine the \ac{HLT} development in \ac{C3S}, \ac{C2S} and \ac{C3S}:\ac{C2S} mixtures up to \qty{28}{\day} of hydration.
 The study confirmed the faster hydration of \ac{C3S} and revealed a slight retardation of \ac{C3S} hydration in mixtures with high \ac{C2S} content.

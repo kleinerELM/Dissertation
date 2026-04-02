@@ -98,7 +98,7 @@ While not it could not yet applied in the cement context, clustering can be supp
 The clustering allows to find similar phase compositions.
 The phase assignment for each pixel or superpixel can be done manually or automatically.
 
-using a decision tree model, utilising known compositions of different phases \cite{jiang.2022}.
+using a decision-tree-model, utilising known compositions of different phases \cite{jiang.2022}.
 
 %\cite{stutzman.2004}, vs \cite{georget.2021} vs. unser aachen ansatz \cite{jiang.2022} und vs die blackbox aus aztec \cite{aztec.2004} o.ä software.
 % \cite{reed.2025} used a method based on QGIS (see mail from Christiane/Nikkola Paavo, 08.10.2025)
@@ -143,9 +143,9 @@ In contrast, the \ac{HLT} around the grain is often overestimated as illustrated
 					height=0.7\textwidth,
 					grid=major,
 					xlabel={\small sectioning distance from centre point $x$},
-					ylabel={\small radius, \acs*{HLT}},
+					ylabel={\small measured radius / \acs*{HLT}},
 					ytick={.3,1,1.3},
-					xtick={0,.3,1,1.3},
+					xtick={0,.3,.8,1,1.3},
 					grid style={line width=.1pt, draw=gray!10},
 					legend style={	cells={align=left},
 									at={(1.03,.5)},
@@ -202,6 +202,29 @@ In contrast, the \ac{HLT} around the grain is often overestimated as illustrated
 	x	&   sectioning distance from centre point; $0 \leq x \leq r$.
 \end{conditions}
 
+
+% \begin{figure}[htb]
+%     \centering
+%     \begin{tikzpicture}
+%         \begin{axis}[
+%             xmin=0, xmax=1.1,
+%             ymin=0, ymax=1.1,
+%             width=0.7\linewidth,
+%             height=6cm,
+%             width=6cm,
+%             grid=major,
+%             xlabel={sectioning distance $x$},
+%             ylabel={$f(x,r)/r$ ratio},
+%             grid style={line width=.1pt, draw=gray!10},
+%         ]
+%             \addplot[blue, domain=0:1, samples=100, very thick] {sqrt(1 - x^2)};
+% 			\legend
+%         \end{axis}
+%     \end{tikzpicture}
+%     \caption{Ratio of measured radius to actual radius depending on the sectioning distance.}
+%     \label{fig:sectioning_effect_ratio}
+% \end{figure}
+
 \begin{equation}
 	t(x) = f(x, r_\text{outer}) - f(x, r_\text{grain})
 	\label{eq:sectioning_effect_2}
@@ -213,7 +236,7 @@ In contrast, the \ac{HLT} around the grain is often overestimated as illustrated
 \end{conditions}
 
 \begin{equation}
-	M_\text{HLT} = \frac{\int_{0}^{i} t(x) \,dx}{r_\text{grain}}, where 0 < i \leq r_\text{grain}.
+	M_\text{HLT} = \frac{\int_{0}^{i} t(x) \,dx}{r_\text{grain}}, where~0 < i \leq r_\text{grain}.
 	\label{eq:sectioning_effect_3}
 \end{equation}
 \begin{conditions}
@@ -221,30 +244,28 @@ In contrast, the \ac{HLT} around the grain is often overestimated as illustrated
 	r_\text{grain}	&   grain radius, \\
 \end{conditions}
 
-%\begin{wrapfigure}[14]{R}{0.6\linewidth}
-\begin{figure}[htb]
-    %\vspace{-\intextsep}
-    \centering
-	\includegraphics[width=.7\linewidth, trim={1.9cm 1.7cm 1.1cm 1.8cm}, clip]{hydrate-rim/sectioning_overestimation.pdf}
-	\caption{
-        Overestimation of the \ac{HLT} depending on the \ac{HLT} / grain diameter ratio and the integral limit $i$ (see \zcref{eq:sectioning_effect_3}).
-        The blue line indicates the results for \ac{HLT} / grain diameter value of \num{0.3}.
-    }
-	\label{fig:hlt_overestimation}
-\end{figure}
-%\end{wrapfigure}
-
 
 \zcref{fig:sectioning_effect_b} indicates that the \ac{HLT} can be significantly overestimated.
 This becomes more prevalent the closer the cut through a particle is to the particle border.
 % https://www.wolframalpha.com/input?i=integral&assumption=%7B%22F%22%2C+%22Integral%22%2C+%22rangestart%22%7D+-%3E%220%22&assumption=%7B%22C%22%2C+%22integral%22%7D+-%3E+%7B%22Calculator%22%2C+%22dflt%22%7D&assumption=%7B%22F%22%2C+%22Integral%22%2C+%22integrand%22%7D+-%3E%22sqrt%282*1.3*%28x%2B1.3%29+-+%28x%2B1.3%29%5E2%29+-+sqrt%282*1*%28x%2B1%29+-+%28x%2B1%29%5E2%29%22&assumption=%7B%22F%22%2C+%22Integral%22%2C+%22rangeend%22%7D+-%3E%22.9%22
-For example, if a grain has a constant \ac{HLT} of \qty{30}{\percent} of the grain radius (as shown in \zcref{fig:sectioning_effect_b}, blue curve), an overestimation of from \num{0} to \qty{23.8}{\percent} of the \ac{HLT} can be expected. %0,3715/0,33
+For example, if a grain has a constant \ac{HLT} of \qty{30}{\percent} of the grain radius (as shown in \zcref{fig:sectioning_effect_b}, blue curve), an overestimation of from \qtyrange{0}{23.8}{\percent} of the \ac{HLT} can be expected. %0,3715/0,33
+If the grain is cut at a sectioning distance from the centre point of the grain $x$ of \num{0.3}, the grain radius will be underestimated by \qty{4.6}{\percent} of the actual value, while the \ac{HLT} will be overestimated at \qty{1.2}{\percent} of the actual value.
+In contrast, at $x=0.8$, the radius will be underestimated by \qty{40.0}{\percent} and the \ac{HLT} will be overestimated at \qty{11.0}{\percent}.
 
 \zcref{fig:hlt_overestimation} illustrates the overestimation of the measured \ac{HLT} depending on the \ac{HLT} / grain radius ratio and $M_\text{HLT}$ (\zcref{eq:sectioning_effect_3}).
 Since younger specimens have a smaller \ac{HLT}, a greater overestimation is to be expected, while the overestimation of older specimens with larger layers should be significantly lower.
 The dependence on $M_\text{HLT}$ shows that specimens cut at or near the border of the core particle especially increase the error.
 This also means that very small particles, which have a higher probability of originating from particle edges, are prone to larger overestimations and should therefore not be considered for further analysis.
 
+\begin{figure}[htb]
+    \centering
+	\includegraphics[width=.75\linewidth]{hydrate-rim/sectioning_overestimation2.pdf}
+	\caption{
+        Overestimation of the \ac{HLT} depending on the \ac{HLT} / grain diameter ratio and the integral limit $i$ (see \zcref{eq:sectioning_effect_3}).
+        The blue line indicates the results for \ac{HLT} / grain diameter value of \num{0.3}.
+    }
+	\label{fig:hlt_overestimation}
+\end{figure}
 
 \FloatBarrier
 \subsection{Calculating the phase composition based on 2D-\acs*{SEM} images}
@@ -318,8 +339,12 @@ In many cases, a particle size distribution or \ac{PSD} is of interest, which al
 However, this parameter is not easily applicable for interconnected phases or pore spaces.
 
 Often a reliable phase composition measurement is sufficient.
-Therefore, some authors tried to apply a \ac{REA} calculation, to make sure the observed image features are statistically relevant \cite{bosl.1998,kameda.2006,klaver.2012,houben.2014,jiang.2022} .
-In the selected publications two main methods were used for this statistical analysis (see \zcref{fig:lit_box_methods}).
+Therefore, some authors tried to apply a \ac{REA} calculation, to make sure the observed image features are statistically relevant \cite{bosl.1998,kanit.2003,kameda.2006,klaver.2012,houben.2014,jiang.2022}.
+Similarly to the \ac{REA}, the size of therepresentative volume element can be calculated.
+An essential framework for determining its size was defined by \textcite{kanit.2003}.
+%They showed that the required size of the volume element depends directly on the variance of the property under investigation (e.g. phase fraction or porosity) and the desired statistical precision.
+
+In the selected publications to calculate the \ac{REA}, two main methods were used for this statistical analysis (see \zcref{fig:lit_box_methods}).
 
 \begin{figure}[H]
     \centering

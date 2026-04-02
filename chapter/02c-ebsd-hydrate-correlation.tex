@@ -1,0 +1,75 @@
+\section{Correlation of hydrate rim measurements with \acs*{EBSD} orientations}
+\label{sec:ebsd-hydrate}
+
+%The  analysis  yields, for each valid angular step around a clinker grain, a rim length in the plane of the polished section.
+To relate the \ac{HLT} measurements which were measured as described in \zcref{subsec:algo_hlm} to the crystallographic orientation of the same clinker volume, the \ac{BSE} micrographs were combined with \ac{EBSD} data acquired on the identical surface.
+%The following sections summarise how the two datasets were registered, how crystal directions were assigned to each rim measurement, and which limitations arise from the two-dimensional character of both modalities.
+
+The carbon coated specimen is therefore mounted on a pre-tilted specimen holder and tilted to a \qty{70}{\degree} angle to the electron beam.
+The specimen is then scanned at \qty{15}{\kilo\volt}, \qty{1.6}{\milli\ampere} at a step-size of \qty{2}{\micro\meter\per\px} to acquire the \textsc{Kikuchi} patterns of \ac{C3S} and \ac{CSH}.
+
+The \ac{EBSD} experiment produces a 2D dataset of crystal orientation estimates, phase indices and pattern quality indicators. 
+The raw data is preprocessed in \textit{AZtecCrystal 3.2} \cite{azteccrystal.2010} by \textit{Oxford Instruments} to clean up pseudosymmetric solutions.
+Finally, the data is exported as channel text file (.ctf) which can be further processed using \textit{Python}.
+
+%Each scan pixel is associated with \textsc{Euler} angles in the \textsc{Bunge} convention, which define a rotation $g$ from the sample reference frame to the crystal reference frame of the indexed phase.
+
+The \ac{BSE} image was manually aligned to the \ac{EBSD} map (using the band-contrast image) in \textit{QGIS 3.42} \cite{QGIS_software} by identifying common points.
+The \textit{QGIS}-project was then used to projective transform the high-resolution \ac{BSE} image to the low resolution \ac{EBSD} dataset.
+
+%After alignment, the physical step sizes of the \ac{EBSD} grid and the transformed \ac{BSE} image were harmonised by an integer upscale of the segmentation used in the rim algorithm and a scalar alignment factor between low-resolution and high-resolution \ac{BSE} exports, so that one \ac{EBSD} column and row index corresponds to a consistent footprint on the section.
+
+For every rim measurement, the clinker-hydrate boundary point reconstructed in \ac{BSE} coordinates was projected onto the nearest \ac{EBSD} grid node. % (including segmentation upscale and \ac{ROI} origin)  $(i_x,\,i_y)$.
+The \textsc{Euler} angles at that node then represent the orientation attributed to the measurement.
+Where several angular steps around one grain map to the same grid node, multiple records can share identical indices.%; this is expected when the \ac{EBSD} step width is large compared with the arc length sampled along the rim.
+
+\color{red}
+% TODO: Text umschreiben - hier nur Platzhalter!
+In the polar representation of the rim algorithm (\zcref{fig:hlt-method}), each valid direction is described by an azimuth $\theta_\mathrm{idx}$ in the plane of the micrograph (sample surface).
+A unit vector $\mathbf{n}_\mathrm{sample}$ was constructed in the sample reference frame with components
+\begin{equation}
+	\label{eq:nsample-plane}
+	\mathbf{n}_\mathrm{sample} = \bigl(\cos\theta,\; \sin\theta,\; 0\bigr)^\mathrm{T},
+\end{equation}
+where $\theta$ follows from the discrete index and an optional sign convention for the image $y$-axis.
+
+The crystal orientation at the associated grid point yields $\mathbf{g}(\varphi_1,\,\Phi,\,\varphi_2)$ in the \textsc{Bunge} convention ($\mathbf{g} = \mathbf{R}_{z}(\varphi_2)\,\mathbf{R}_{x}(\Phi)\,\mathbf{R}_{z}(\varphi_1)$).
+The corresponding rim direction in the crystal reference frame is
+\begin{equation}
+	\label{eq:h-crystal}
+	\mathbf{h} = \frac{\mathbf{g}\,\mathbf{n}_\mathrm{sample}}{\lVert \mathbf{g}\,\mathbf{n}_\mathrm{sample} \rVert},
+\end{equation}
+with components $(h_x,\,h_y,\,h_z)^\mathrm{T}$.
+Because $\mathbf{h}$ is normalised, all measurements lie on the unit sphere in crystal coordinates.
+
+For the cubic clinker phase investigated here, the angle between the measured rim normal direction and the $\langle001\rangle$ family was summarised by
+\begin{equation}
+	\label{eq:angle-001}
+	\alpha_{001} = \arccos\!\bigl(\lvert h_z\rvert\bigr),
+\end{equation}
+i.e.\ the acute angle between $\mathbf{h}$ and the crystal $c$-axis, using the absolute value of $h_z$ so that opposite poles of the same axis are treated equivalently in the statistical plots.
+The scalar rim length from the hydrate analysis (denoted $l$ in the workflow output) was retained alongside $\alpha_{001}$ and $(h_x,\,h_y,\,h_z)$ for joint distributions, spatial maps on $(i_x,\,i_y)$, and spherical heat maps of measurement density on the orientation sphere.
+
+\FloatBarrier
+\section{Phase consistency and optional orientation infill}
+
+The phase map delivered with the \ac{EBSD} data does not always label every pixel that appears as residual clinker in the \ac{BSE} segmentation---for example when pattern indexing failed at the grain boundary or when slight misalignment shifts the boundary between pixels.
+To reduce missing orientations at valid rim locations, an optional correction was applied on the \ac{EBSD} grid: pixels that fell inside a clinker mask derived from the upscaled \ac{BSE} segmentation but were not indexed as clinker in the \ac{CTF} were assigned the \textsc{Euler} angles of the nearest indexed clinker pixel within the same connected clinker region, subject to a maximum search radius in grid units.
+Pixels outside that radius were left unchanged so as not to interpolate across unrelated grains.
+Whenever this infill was used, the records were flagged in the exported table to allow filtering by data source (\ac{CTF} original versus infilled).
+
+\FloatBarrier
+\section{Multi-site compilation}
+
+Measurements from several fields of view or specimen positions were exported with an explicit site identifier, concatenated into a single table, and analysed with the same graphical procedures as the single-site workflow.
+Histograms, scatter plots, and heat maps then represent the pooled angular statistics, whilst maps of $(i_x,\,i_y)$ and interactive orientation plots are evaluated separately per site, because pixel indices are only meaningful within each \ac{EBSD} map.
+
+\FloatBarrier
+\section{Limitations}
+
+The procedure links a 2D rim length in the section plane to a 3D crystal orientation.
+No information is recovered along the surface normal; the rim vector $\mathbf{n}_\mathrm{sample}$ is confined to the plane of polish.
+Furthermore, $\mathbf{g}$ refers to the orientation of the voxel averaged by the \ac{EBSD} step at $(i_x,\,i_y)$; sub-grain orientation spread, pseudosymmetry, and indexing ambiguity are not resolved beyond the vendor indexing output.
+Finally, correlation plots between $l$ and $\alpha_{001}$ are descriptive: they do not, by themselves, establish a causal relationship between crystallography and local growth rate without additional modelling of transport and reaction at the three-phase boundary.
+
+\color{black}

@@ -56,6 +56,18 @@
 			"env": {}
 		},
 		{
+			"name": "xelatex",
+			"command": "xelatex",
+			"args": [
+				"-shell-escape",
+				"-synctex=1",
+				"-interaction=nonstopmode",
+				"-file-line-error",
+				"%DOC%"
+			],
+			"env": {}
+		},
+		{
 			"name": "pdflatex",
 			"command": "pdflatex",
 			"args": [
@@ -70,7 +82,7 @@
 			"name": "bibtex",
 			"command": "bibtex",
 			"args": [
-				"%DOCFILE%*"
+				"%DOCFILE%"
 			],
 			"env": {}
 		},
@@ -78,7 +90,7 @@
 			"name": "biber",
 			"command": "biber",
 			"args": [
-				"%DOCFILE%*"
+				"%DOCFILE%"
 			],
 			"env": {}
 		},
@@ -223,7 +235,6 @@
 		"Xerogel"
 	],
 	"latex-workshop.latex.build.forceRecipeUsage": false,
-
 	"latex-workshop.intellisense.citation.backend": "biblatex",
 	"todo-tree.tree.scanMode": "workspace",
     "latex-workshop.latex.clean.fileTypes": [
@@ -259,19 +270,18 @@
         "%DOCFILE%*.upa",
         "%DOCFILE%*.xdv"
     ],
-	"latex-workshop.latex.autoBuild.run": "onSave",
-	"latex-workshop.latex.recipe.default": "lastUsed",
 	"latex-workshop.latex.recipes": [
 
 		{
-			"name": "Build Digital",
+			"name": "Fast Build Digital",
 			"tools": [
-				"xelatexmk"
+				"xelatex"
 			]
 		},
 		{
-			"name": "Build Print",
+			"name": "Clean & Build Print",
 			"tools": [
+				"clean",
 				"xelatexmk_print"
 			]
 		},
@@ -297,5 +307,7 @@
 				"build_parallel_script"
 			]
 		}
-	]
+	],
+	"latex-workshop.latex.autoBuild.run": "onSave",
+	"latex-workshop.latex.recipe.default": "lastUsed"
 }

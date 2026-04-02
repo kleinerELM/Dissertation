@@ -58,6 +58,7 @@
 
 \usepackage{pifont} %https://www.physicsread.com/latex-star-symbol/
 \usepackage{textalpha}  % use greek letters in text directly like α -> package textgreek
+\usepackage{textgreek}
 \usepackage{textcomp}  % eg. modified € und § symbols
 \usepackage{csquotes}  % provides advanced facilities for inline and display quotations
 
@@ -245,9 +246,7 @@
 
 %\usepackage{ziffer}  % conversion of punctuation in maths mode (switches . and ,) % usage leads to an error with siunitx (missing decimal point)
 \usepackage{lineno}  % create line numbering for review process
-\usepackage{blindtext}  % creates blindtexts
 \usepackage{nicefrac}
-\usepackage{textgreek}
 \usepackage{xspace}
 \usepackage{epigraph}
 \setlength\epigraphwidth{.6\textwidth}
@@ -274,7 +273,7 @@
 		%\robustify\SI % Macht auch \SI robust, falls es in den TikZ-Grafiken vorkommt
 		\tikzexternalize[prefix=figures/tikz/] % Speichert die externen TikZ-Grafiken im Ordner figures/tikz/
 \fi
-% condition enviornment for equations to describe the variables
+% condition environment for equations to describe the variables
 % https://tex.stackexchange.com/questions/95838/how-to-write-a-perfect-equation-parameters-description
 \usepackage{pgfplots}
 \usepackage{pgfplotstable}
@@ -292,7 +291,7 @@
 }
 
 \usepackage[export]{adjustbox} % to crop images in figures
-\usepackage{array} %,tabularx
+\usepackage{array}
 
 
 \newlength{\conditionwd}
@@ -412,11 +411,21 @@
 \graphicspath{{figures/}}  % define graphics standard path
 
 \setcounter{tocdepth}{1}
+
+%%%%%% Get Git Commit Hash
+\usepackage{catchfile}
+\immediate\write18{git rev-parse --short HEAD > commit.tmp}
+\IfFileExists{commit.tmp}{%
+	\CatchFileDef{\gitcommit}{commit.tmp}{\endlinechar=-1\relax}%
+}{%
+	\def\gitcommit{unknown}%
+}
+
 %%%%%% Hyperref Settings
 %\usepackage{hyperxmp} %https://tex.stackexchange.com/questions/3708/hyperref-enquotes-metadata
 \usepackage[hidelinks,  % hide links in pdf document
 			pdfusetitle,
-			pdfsubject  = {\myTypeOfDocumentPDF},
+			pdfsubject  = {\myTypeOfDocumentPDF\ (Commit: \gitcommit)},
 			pdfkeywords = {{\myKeywords}}, %this does just not work as I expect
 			pdfproducer = {{\myUniversity}},
 			%pdfcreator  = {}, %software used

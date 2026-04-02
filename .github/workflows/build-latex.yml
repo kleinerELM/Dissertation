@@ -1,0 +1,46 @@
+name: Build LaTeX Document
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  build_latex:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          # Holt die .git-Historie, damit der Befehl 'git rev-parse --short HEAD' in deiner a-latex_header.tex funktioniert
+          fetch-depth: 0 
+
+      - name: Extract secure fonts
+        env:
+          FONT_PASS: ${{ secrets.FONT_PASSWORD }}
+        # Entpackt die Schriften nur, wenn das Passwort hinterlegt ist
+        if: ${{ env.FONT_PASS != '' }}
+        run: |
+          if [ -f "secured-linotype.7z" ]; then
+            7z x secured-linotype.7z -p"$FONT_PASS" -y
+          fi
+
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: Dissertation.tex
+          compiler: latexmk
+          # Wir übernehmen die Argumente aus deiner VS Code settings.json
+          args: -xelatex -shell-escape -synctex=1 -interaction=nonstopmode -file-line-error
+          pre_compile: |
+            # MiKTeX (dein lokales System) nutzt initexmf für Speicherlimits. TeX Live (GitHub Action) nutzt texmf.cnf.
+            # Hiermit erhöhen wir den TeX-Arbeitsspeicher temporär für diesen Build-Vorgang.
+            echo "main_memory = 10000000" > texmf.cnf
+            echo "extra_mem_top = 10000000" >> texmf.cnf
+
+      - name: Upload PDF as Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Dissertation-PDF
+          path: Dissertation.pdf

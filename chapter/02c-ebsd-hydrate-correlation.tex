@@ -23,53 +23,190 @@ For every rim measurement, the clinker-hydrate boundary point reconstructed in \
 The \textsc{Euler} angles at that node then represent the orientation attributed to the measurement.
 Where several angular steps around one grain map to the same grid node, multiple records can share identical indices.%; this is expected when the \ac{EBSD} step width is large compared with the arc length sampled along the rim.
 
-\color{red}
-% TODO: Text umschreiben - hier nur Platzhalter!
-In the polar representation of the rim algorithm (\zcref{fig:hlt-method}), each valid direction is described by an azimuth $\theta_\mathrm{idx}$ in the plane of the micrograph (sample surface).
-A unit vector $\mathbf{n}_\mathrm{sample}$ was constructed in the sample reference frame with components
+\zcref{fig:clinker-pixel-roles} visualises the pixels from the \ac{EBSD} measurement used for the calculations.
+The \ac{C3S} pixels sharing at least one edge or corner with \ac{CSH} lie on the \ac{C3S}--hydrate interface and correspond to the inner boundary from which the polar rim measurement in \zcref{fig:hlt-method} starts.
+Fully surrounded interior \ac{C3S} pixels remain in the same segmented grain mask but do not define that interface.
+The diagram is illustrative and omits pores and irregular grain shapes.
+
+\begin{figure}[htb]
+    \centering
+    \begin{tikzpicture}[
+        x=0.5cm,
+        y=0.5cm,
+        font=\scriptsize,
+    ]
+        % used clinker
+        \foreach \x/\y in {
+            5/0, 6/0, 6/1, 6/2, 6/3, 7/3, 7/4, 8/4, 9/4, 10/4,
+            10/5, 11/4, 12/4, 13/3, 13/4, 14/0, 14/1, 14/2, 14/3, 15/0%
+        } \fill[darkgreen] (\x,\y) rectangle +(1,1);
+
+        % ignored clinker
+        \foreach \x/\y in {
+            7/0, 8/0, 9/0, 10/0, 11/0, 12/0, 13/0, 7/1, 7/2, 8/1,
+            8/2, 8/3, 9/1, 9/2, 9/3, 10/1, 10/2, 10/3, 11/1, 11/2,
+            11/3, 12/1, 12/2, 12/3, 13/1, 13/2%
+        } \fill[orange] (\x,\y) rectangle +(1,1);
+
+        % CSH
+        \foreach \x/\y in {
+            3/0, 3/1, 4/0, 4/1, 4/2, 4/3, 4/4, 5/1, 5/2, 5/3,
+            5/4, 5/5, 6/4, 6/5, 6/6, 7/5, 7/6, 8/5, 8/6, 9/5,
+            9/6, 9/7, 10/6, 10/7, 11/5, 11/6, 11/7, 12/5, 12/6, 13/5,
+            13/6, 14/4, 14/5, 14/6, 15/1, 15/2, 15/3, 15/4, 15/5, 16/0,
+            16/1, 16/2, 16/3, 16/4, 17/0, 17/1%
+        } \fill[gray!52] (\x,\y) rectangle +(1,1);
+
+        \draw[thin, black!40] (0,0) rectangle (21,9);
+        \draw[thin, black!40, step=0.5cm] (0,0) grid (21,9);
+
+        % --- Linien vom Zentrum des Pixels 10/0 ---
+        \foreach \angle in {0, 30, ..., 180} {
+            \draw[thick, blue, ->, >=stealth] (10.5, 0.5) -- ++(\angle:8);
+        }
+
+        \node[anchor=west, align=left, font=\footnotesize] at (22,4) {%
+            \tikz[]\fill[darkgreen] (0,0) rectangle (0.5,0.5);~~used \ac{C3S} pixel\\
+            \tikz[]\fill[orange] (0,0) rectangle (0.5,0.5);~~ignored \ac{C3S} pixel\\
+            \tikz[]\fill[gray!52] (0,0) rectangle (0.5,0.5);~~\ac{CSH} layer\\
+            \tikz[]\draw[thick, blue, ->, >=stealth] (0,0.4) -- (0.5,0.4);~~$\vec{v}_\mathrm{HLT}$%
+        };
+        
+    \end{tikzpicture}
+
+    \caption{
+        Illustration of the upper half of an idealised circular \ac{C3S} grain to show the pixels used for the calculations.
+        Only the \ac{C3S} pixels associated to the interface to \ac{CSH} are used.
+        The red arrows represent \ac{HLT} measurement vectors ($\vec{v}_\mathrm{HLT}$).
+    }
+	\label{fig:clinker-pixel-roles}
+\end{figure}
+
+
+As schematically illustrated in \zcref{fig:ebsd-hydrate-correlation}, in the polar representation of the rim algorithm (\zcref{fig:hlt-method}), each valid direction is described by an azimuth $\theta_\mathrm{idx}$ in the plane of the sample surface.
+A unit vector $\vec{n}_\mathrm{sample}$ was constructed in the sample reference frame with components
 \begin{equation}
 	\label{eq:nsample-plane}
-	\mathbf{n}_\mathrm{sample} = \bigl(\cos\theta,\; \sin\theta,\; 0\bigr)^\mathrm{T},
+	\vec{n}_\mathrm{sample} = \bigl(\cos\theta,\; \sin\theta,\; 0\bigr)^\mathrm{T},
 \end{equation}
 where $\theta$ follows from the discrete index and an optional sign convention for the image $y$-axis.
 
-The crystal orientation at the associated grid point yields $\mathbf{g}(\varphi_1,\,\Phi,\,\varphi_2)$ in the \textsc{Bunge} convention ($\mathbf{g} = \mathbf{R}_{z}(\varphi_2)\,\mathbf{R}_{x}(\Phi)\,\mathbf{R}_{z}(\varphi_1)$).
+\begin{figure}[htb]
+    \centering
+    \begin{tikzpicture}[>=stealth, font=\sffamily]
+        % --- Left: Sample Reference Frame ---
+        \begin{scope}[shift={(0,0)}]
+            % Draw sample surface (isometric-like projection)
+            \filldraw[fill=grey!20, draw=darkgrey, thick] 
+                (-2,-1) -- (2,-1) -- (3.5,1.5) -- (-0.5,1.5) -- cycle;
+            
+            \node[text=darkgrey, font=\small] at (2.3, 1.7) {sample surface};
+            
+            
+            % Grain boundary (a curve on the surface)
+            \draw[ultra thick, darkgrey] (-1.7, -0.5) .. controls (-0.5, 0.2) and (0.5, -0.2) .. (2.45, -0.3);
+            \node[darkgrey, align=center, rotate=12, font=\small] at (-0.75, -0.15) {\ac{CSH}\\ \ac{C3S}};
+			
+            % Origin point
+            \coordinate (Os) at (0.5, -0.2);
+            % Axes
+            \draw[->, thick] (Os) -- ++(2.5, 0) node[right] {$x_\mathrm{sample}$};
+            \draw[->, thick] (Os) -- ++(1.1, 1.4) node[right] {$y_\mathrm{sample}$};
+            \draw[->, dashed, thick] (Os) -- ++(0, 2) node[above] {$z_\mathrm{sample}$};
+            
+            
+            % The point (i_x, i_y)
+            \filldraw[black] (Os) circle (2pt) node[below=2pt] {$(i_x, i_y)$};
+            
+            % Vector n_sample
+            \coordinate (Ns) at ($(Os) + (1.5, 1.0)$);
+            \draw[->, ultra thick, red] (Os) -- (Ns) node[right] {$\vec{n}_\mathrm{sample}$};
+            
+            % Angle theta
+            \draw[thick] (Os) ++(1,0) arc (0:33.0:1);
+            \node at ($(Os) + (1.2, 0.3)$) {$\theta$};
+            
+            % Frame label
+            \node[font=\bfseries, align=center] at (0.5, -2) {Sample reference frame};
+        \end{scope}
+
+        % --- Center: Rotation ---
+        \begin{scope}[shift={(5.2, 0.5)}]
+            \draw[->, ultra thick, blue] (0,0) -- (2.5,0);
+            \node[above, font=\bfseries, blue] at (1.25, 0.1) {$g(\varphi_1, \Phi, \varphi_2)$};
+            % \node[below, align=center, font=\small] at (1.25, -0.1) {\textsc{Bunge}};
+        \end{scope}
+
+        % --- Right: Crystal Reference Frame ---
+        \begin{scope}[shift={(10.8, 0.5)}]
+            % Origin
+            \coordinate (Oc) at (0,0);
+            
+            % Unit Sphere (2D circle representing 3D sphere)
+            \filldraw[fill=grey!10, draw=darkgrey, thick] (Oc) circle (2cm);
+            
+            % Equator ellipses to fake 3D
+            \draw[darkgrey, dashed] (0,0) ellipse (2cm and 0.6cm);
+            \draw[darkgrey] (2,0) arc (0:-180:2cm and 0.6cm);
+            
+            % Crystal Axes
+            \draw[->, thick] (Oc) -- ++(-1.5, -1) node[below] {$x\;[100]$};
+            \draw[->, thick] (Oc) -- ++(2.2, -0.2) node[right] {$y\;[010]$};
+            \draw[->, ultra thick, darkgrey] (Oc) -- ++(0, 2.5) node[above] {$z\;[001]$};
+            
+            % Vector h
+            \coordinate (H) at (1.2, 1.6);
+            \draw[->, ultra thick, red] (Oc) -- (H) node[above right] {$\vec{h}$};
+            
+            % z-projection line to show hz
+            \draw[dashed] (H) -- (0, 1.6) node[left] {$h_z$};
+            \draw[dashed] (0, 1.6) -- (Oc);
+            
+            % Angle alpha_001
+            \draw[thick] (0, 1) arc (90:53.1:1);
+            \node at (0.4, 1.25) {$\alpha_{001}$};
+            
+            % Frame label
+            \node[font=\bfseries, align=center] at (0, -2.5) {Crystal reference frame};
+        \end{scope}
+    \end{tikzpicture}
+    \caption{
+		Schematic representation of the geometric correlation between the 2D hydrate rim normal $\vec{n}_\mathrm{sample}$ mapped onto the sample surface and the 3D crystal direction $\vec{h}$ on the unit sphere in the crystal reference frame (3D unit sphere), derived via the \ac{EBSD} rotation matrix $g$.
+    }
+    \label{fig:ebsd-hydrate-correlation}
+\end{figure}
+
+The crystal orientation at the associated grid point yields $g(\varphi_1,\,\Phi,\,\varphi_2)$ in the \textsc{Bunge} convention ($g = R_{z}(\varphi_2)\,R_{x}(\Phi)\,R_{z}(\varphi_1)$).
 The corresponding rim direction in the crystal reference frame is
 \begin{equation}
 	\label{eq:h-crystal}
-	\mathbf{h} = \frac{\mathbf{g}\,\mathbf{n}_\mathrm{sample}}{\lVert \mathbf{g}\,\mathbf{n}_\mathrm{sample} \rVert},
+	\vec{h} = \frac{g\,n_\mathrm{sample}}{\lVert g\,n_\mathrm{sample} \rVert},
 \end{equation}
 with components $(h_x,\,h_y,\,h_z)^\mathrm{T}$.
-Because $\mathbf{h}$ is normalised, all measurements lie on the unit sphere in crystal coordinates.
+Because $\vec{h}$ is normalised, all measurements lie on the unit sphere in crystal coordinates, which allows a later visualisation.
 
 For the cubic clinker phase investigated here, the angle between the measured rim normal direction and the $\langle001\rangle$ family was summarised by
 \begin{equation}
 	\label{eq:angle-001}
 	\alpha_{001} = \arccos\!\bigl(\lvert h_z\rvert\bigr),
 \end{equation}
-i.e.\ the acute angle between $\mathbf{h}$ and the crystal $c$-axis, using the absolute value of $h_z$ so that opposite poles of the same axis are treated equivalently in the statistical plots.
+i.e.\ the acute angle between $\vec{h}$ and the crystal $c$-axis, using the absolute value of $h_z$ so that opposite poles of the same axis are treated equivalently in the statistical plots.
 The scalar rim length from the hydrate analysis (denoted $l$ in the workflow output) was retained alongside $\alpha_{001}$ and $(h_x,\,h_y,\,h_z)$ for joint distributions, spatial maps on $(i_x,\,i_y)$, and spherical heat maps of measurement density on the orientation sphere.
 
-\FloatBarrier
-\section{Phase consistency and optional orientation infill}
+The phase map delivered with the \ac{EBSD} data does not always label every pixel that appears as clinker in the \ac{BSE} segmentation. 
+This can happen, when pattern indexing failed at the grain boundary or when there is a slight misalignment between the datasets.
+To reduce missing orientations at valid rim locations, an correction was applied on the \ac{EBSD} grid.
+Pixels that fell inside a clinker mask derived from the upscaled \ac{BSE} segmentation but were not indexed as clinker in the raw \ac{EBSD} data were assigned the \textsc{Euler} angles of the nearest indexed clinker pixel within the same connected clinker region.
+Pixels outside a defined radius were left unchanged to avoid an interpolation across unrelated grains.
 
-The phase map delivered with the \ac{EBSD} data does not always label every pixel that appears as residual clinker in the \ac{BSE} segmentation---for example when pattern indexing failed at the grain boundary or when slight misalignment shifts the boundary between pixels.
-To reduce missing orientations at valid rim locations, an optional correction was applied on the \ac{EBSD} grid: pixels that fell inside a clinker mask derived from the upscaled \ac{BSE} segmentation but were not indexed as clinker in the \ac{CTF} were assigned the \textsc{Euler} angles of the nearest indexed clinker pixel within the same connected clinker region, subject to a maximum search radius in grid units.
-Pixels outside that radius were left unchanged so as not to interpolate across unrelated grains.
-Whenever this infill was used, the records were flagged in the exported table to allow filtering by data source (\ac{CTF} original versus infilled).
+Measurements from several specimen positions were concatenated into a single table and analysed together to improve the data density.
 
-\FloatBarrier
-\section{Multi-site compilation}
+%Histograms, scatter plots, and heat maps then represent the pooled angular statistics, whilst maps of $(i_x,\,i_y)$ and interactive orientation plots are evaluated separately per site, because pixel indices are only meaningful within each \ac{EBSD} map.
 
-Measurements from several fields of view or specimen positions were exported with an explicit site identifier, concatenated into a single table, and analysed with the same graphical procedures as the single-site workflow.
-Histograms, scatter plots, and heat maps then represent the pooled angular statistics, whilst maps of $(i_x,\,i_y)$ and interactive orientation plots are evaluated separately per site, because pixel indices are only meaningful within each \ac{EBSD} map.
+% \FloatBarrier
+% \section{Limitations}
 
-\FloatBarrier
-\section{Limitations}
-
-The procedure links a 2D rim length in the section plane to a 3D crystal orientation.
-No information is recovered along the surface normal; the rim vector $\mathbf{n}_\mathrm{sample}$ is confined to the plane of polish.
-Furthermore, $\mathbf{g}$ refers to the orientation of the voxel averaged by the \ac{EBSD} step at $(i_x,\,i_y)$; sub-grain orientation spread, pseudosymmetry, and indexing ambiguity are not resolved beyond the vendor indexing output.
-Finally, correlation plots between $l$ and $\alpha_{001}$ are descriptive: they do not, by themselves, establish a causal relationship between crystallography and local growth rate without additional modelling of transport and reaction at the three-phase boundary.
-
-\color{black}
+% The procedure links a 2D rim length in the section plane to a 3D crystal orientation.
+% No information is recovered along the surface normal; the rim vector $\mathbf{n}_\mathrm{sample}$ is confined to the plane of polish.
+% %Furthermore, $\mathbf{g}$ refers to the orientation of the voxel averaged by the \ac{EBSD} step at $(i_x,\,i_y)$; sub-grain orientation spread, pseudosymmetry, and indexing ambiguity are not resolved beyond the vendor indexing output.
+% Finally, correlation plots between $l$ and $\alpha_{001}$ are descriptive: they do not, by themselves, establish a causal relationship between crystallography and local growth rate without additional modelling of transport and reaction at the three-phase boundary.

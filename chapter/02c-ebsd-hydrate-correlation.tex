@@ -3,6 +3,7 @@
 
 %The  analysis  yields, for each valid angular step around a clinker grain, a rim length in the plane of the polished section.
 To relate the \ac{HLT} measurements which were measured as described in \zcref{subsec:algo_hlm} to the crystallographic orientation of the same clinker volume, the \ac{BSE} micrographs were combined with \ac{EBSD} data acquired on the identical surface.
+
 %The following sections summarise how the two datasets were registered, how crystal directions were assigned to each rim measurement, and which limitations arise from the two-dimensional character of both modalities.
 
 The carbon coated specimen is therefore mounted on a pre-tilted specimen holder and tilted to a \qty{70}{\degree} angle to the electron beam.
@@ -10,7 +11,31 @@ The specimen is then scanned at \qty{15}{\kilo\volt}, \qty{1.6}{\milli\ampere} a
 
 The \ac{EBSD} experiment produces a 2D dataset of crystal orientation estimates, phase indices and pattern quality indicators. 
 The raw data is preprocessed in \textit{AZtecCrystal 3.2} \cite{azteccrystal.2010} by \textit{Oxford Instruments} to clean up pseudosymmetric solutions.
+Since the crystallinity of \ac{C2S} is not good enough to obtain usable \textsc{Kikuchi} patterns, this work focussed on hydrated \ac{C3S} specimens.
+To identify and fit these patterns, the crystal structure published by \textcite{delatorre.2002} (COD 1540705) was used.
 Finally, the data is exported as channel text file (.ctf) which can be further processed using \textit{Python}.
+
+\begin{figure}[htb!]
+    \centering
+
+    \begin{subfigure}[t]{0.32\linewidth}
+        
+        \ifdefined\PRINTABLE
+            \includegraphics[width=\textwidth]{hydrate-rim/ebsd/C3S_cell_ani/cell23.jpg}
+        \else
+            \animategraphics[loop,autoplay,poster=23,width=\textwidth]{12}{hydrate-rim/ebsd/C3S_cell_ani/cell}{00}{71}%controls=on,
+        \fi
+    \end{subfigure}%
+    \hfill%
+    \begin{subfigure}[t]{0.66\linewidth}
+        \includegraphics[width=\textwidth]{hydrate-rim/ebsd/C3S_unit_cell_COD1540705_mollweide.pdf}
+    \end{subfigure}%
+        
+    \caption{
+        \ac{C3S} unit cell (green, COD 1540705) \cite{delatorre.2002} projected on a unit sphere and the respecitve \textsc{Mollweide} projection.
+    }
+    \label{fig:fib}
+\end{figure}
 
 %Each scan pixel is associated with \textsc{Euler} angles in the \textsc{Bunge} convention, which define a rotation $g$ from the sample reference frame to the crystal reference frame of the indexed phase.
 
@@ -19,9 +44,9 @@ The \textit{QGIS}-project was then used to projective transform the high-resolut
 
 %After alignment, the physical step sizes of the \ac{EBSD} grid and the transformed \ac{BSE} image were harmonised by an integer upscale of the segmentation used in the rim algorithm and a scalar alignment factor between low-resolution and high-resolution \ac{BSE} exports, so that one \ac{EBSD} column and row index corresponds to a consistent footprint on the section.
 
-For every rim measurement, the clinker-hydrate boundary point reconstructed in \ac{BSE} coordinates was projected onto the nearest \ac{EBSD} grid node. % (including segmentation upscale and \ac{ROI} origin)  $(i_x,\,i_y)$.
+For every rim measurement, the clinker-hydrate boundary point extracted from the \ac{BSE} segmentation was projected onto the nearest \ac{EBSD} grid node. % (including segmentation upscale and \ac{ROI} origin)  $(i_x,\,i_y)$.
 The \textsc{Euler} angles at that node then represent the orientation attributed to the measurement.
-Where several angular steps around one grain map to the same grid node, multiple records can share identical indices.%; this is expected when the \ac{EBSD} step width is large compared with the arc length sampled along the rim.
+Where several angular steps around one grain map to the same grid node, multiple records can share identical indices. %; this is expected when the \ac{EBSD} step width is large compared with the arc length sampled along the rim.
 
 \zcref{fig:clinker-pixel-roles} visualises the pixels from the \ac{EBSD} measurement used for the calculations.
 The \ac{C3S} pixels sharing at least one edge or corner with \ac{CSH} lie on the \ac{C3S}--hydrate interface and correspond to the inner boundary from which the polar rim measurement in \zcref{fig:hlt-method} starts.

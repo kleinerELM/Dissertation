@@ -1015,7 +1015,7 @@ This was done on a polished surface of \qty{7}{\day} hydrated \ac{C3S} which had
 \end{figure}
 
 As shown in \zcref{sec:ebsd-hydrate}, the \ac{EBSD} datasets are distorted compared to the \ac{BSE} image, since they were recorded at different angles using different detectors.
-To avoid the recalculation of the sparse \ac{EBSD} dataset , the high-resolution \ac{BSE} image (\qty{0.18}{\micro\meter\per\px}) was transformed to match the \ac{BSE} dataset instead (\zcref{fig:fig:ebsd_site5}A).
+To avoid the recalculation of the sparse \ac{EBSD} dataset, the high-resolution \ac{BSE} image (\qty{0.18}{\micro\meter\per\px}) was transformed to match the \ac{BSE} dataset instead (\zcref{fig:fig:ebsd_site5}A).
 The \ac{BSE} image was then segmented (\zcref{fig:fig:ebsd_site5}B) and processed using the \ac{HLT} method.
 Since the raw \ac{EBSD} dataset (\zcref{fig:fig:ebsd_site5}C) has a fairly sparse data density, it was combined with the scale-matched \ac{C3S} mask, and the data density was increased to fill the mask (\zcref{fig:fig:ebsd_site5}D).
 This ensures, that the \ac{EBSD} data always connects to the grain boundary used to determine the \ac{HLT} dataset, and increases the overall data density.
@@ -1029,15 +1029,109 @@ This ensures, that the \ac{EBSD} data always connects to the grain boundary used
     }
 \end{figure}
 
-In \zcref{fig:ebsd_sphere_a}, each \ac{HLT} measurement is visualised as a point on the unit sphere.
+After processing the data as explained in \zcref{sec:ebsd-hydrate}, the \ac{HLT} measurements can projected on a unit sphere of the crystal orientation of \ac{C3S}.
+If there is a dependence between the crystal orientation and the \ac{HLT}, it should become visible as a concentration of longer or shorter \ac{HLT}s in certain areas of the unit sphere.
+
+In \zcref{fig:ebsd_sphere_a}, each \ac{HLT} measurement of \ac{EBSD} site C is visualised as a point on the unit sphere.
 The colour encodes the \ac{HLT} length for each measurement.
 Since the the measurement density is not very high, the unit sphere was divided in a so called \ac{HEALPix} grid \cite{gorski.2005}.
+In a \ac{HEALPix} grid, the surface of a sphere is divided into sections of equal area.
 For each grid cell, the mean \ac{HLT} in each section was calculated (see \zcref{fig:ebsd_sphere_b}).
 \zcref{fig:ebsd_sphere_projection_b} shows the projection of this unit sphere surface in the \textsc{Mollweide} projection.
-The data density is shown in \zcref{fig:ebsd_sphere_projection_b}
+The data density is shown in \zcref{fig:ebsd_sphere_projection_b}.
 
 
-\begin{figure}[htbp]
+% \begin{figure}[htbp]
+% 	\centering
+    
+%     \begin{subfigure}[t]{0.49\linewidth}
+%         \begin{tikzpicture}
+%             \begin{axis}[
+%                 width=0.66\textwidth,
+%                 height=0.66\textwidth,
+%                 scale only axis,
+%                 enlargelimits=false,
+%                 xmin=-1.1, xmax=1.1,
+%                 ymin=-1.1, ymax=1.1,
+%                 axis on top,
+%                 colormap name=magma,
+%                 colorbar,
+%                 colorbar style={
+%                     ylabel={\ac{HLT} in \unit{\micro\meter}},
+%                 },
+%                 point meta min=0,
+%                 point meta max=12.1,
+%                 ticklabel style={font=\small},
+%                 xtick={-1,0,1},
+%                 ytick={-1,0,1},
+%             ]
+%                 \addplot [draw=none] coordinates {(-1,-1) (1,1)};
+%                 \node[inner sep=0pt, anchor=south west] at (axis cs:-1,-1) {
+                    
+%                     \ifdefined\PRINTABLE
+%                         \includegraphics[width=0.6\textwidth]{hydrate-rim/ebsd/ani/unitball00.jpg}
+%                     \else
+%                         \animategraphics[palindrome,autoplay,width=0.6\textwidth]{12}{hydrate-rim/ebsd/ani/unitball}{00}{35}
+%                     \fi
+                    
+%                 };
+%             \end{axis}
+%         \end{tikzpicture}
+%         \caption{
+%             \ac{HLT} scatter plot.
+%             \label{fig:ebsd_sphere_a}
+%         }
+%     \end{subfigure}%
+%     \hfill%
+%     \begin{subfigure}[t]{0.49\linewidth}
+        
+%         \begin{tikzpicture}
+%             \begin{axis}[
+%                 width=0.66\textwidth,
+%                 height=0.66\textwidth,
+%                 scale only axis,
+%                 enlargelimits=false,
+%                 xmin=-1.1, xmax=1.1,
+%                 ymin=-1.1, ymax=1.1,
+%                 axis on top,
+%                 colormap name=magma,
+%                 colorbar,
+%                 colorbar style={
+%                     ylabel={\ac{HLT} in \unit{\micro\meter}},
+%                 },
+%                 point meta min=0,
+%                 point meta max=6.3,
+%                 xtick={-1,0,1},
+%                 ytick={-1,0,1},
+%                 ticklabel style={font=\small},
+%             ]
+%                 \addplot [draw=none] coordinates {(-1,-1) (1,1)};
+%                 \node[inner sep=0pt, anchor=south west] at (axis cs:-1,-1) {
+                    
+%                     \ifdefined\PRINTABLE
+%                         \includegraphics[width=0.6\textwidth]{hydrate-rim/ebsd/ani_5deg/sphere00.jpg}
+%                     \else
+%                         \animategraphics[palindrome,autoplay,width=0.6\textwidth]{12}{hydrate-rim/ebsd/ani_5deg/sphere}{00}{71}
+%                     \fi
+                    
+%                 };
+%             \end{axis}
+%         \end{tikzpicture}
+%         \caption{
+%             Mean \ac{HLT} on a \textsc{HEALPix} grid.
+%             \label{fig:ebsd_sphere_b}
+%         }
+%     \end{subfigure}
+
+    
+% 	\caption{
+%         Unit sphere which is indicating \ac{HLT} measurements corresponding to the crystal orientation of \ac{C3S}.
+%         \label{fig:ebsd_sphere}
+%     }
+% \end{figure}
+
+
+\begin{figure}[htb]
 	\centering
     
     \begin{subfigure}[t]{0.49\linewidth}
@@ -1074,7 +1168,7 @@ The data density is shown in \zcref{fig:ebsd_sphere_projection_b}
             \end{axis}
         \end{tikzpicture}
         \caption{
-            \ac{HLT} scatter plot.
+            \ac{HLT} scatter plot on a unit sphere..
             \label{fig:ebsd_sphere_a}
         }
     \end{subfigure}%
@@ -1114,22 +1208,11 @@ The data density is shown in \zcref{fig:ebsd_sphere_projection_b}
             \end{axis}
         \end{tikzpicture}
         \caption{
-            Mean \ac{HLT} on a \textsc{HEALPix} grid.
+            Mean \ac{HLT} in a \textsc{HEALPix} grid on a unit sphere.
             \label{fig:ebsd_sphere_b}
         }
     \end{subfigure}
 
-    
-	\caption{
-        Unit sphere which is indicating \ac{HLT} measurements corresponding to the crystal orientation of \ac{C3S}.
-        \label{fig:ebsd_sphere}
-    }
-\end{figure}
-
-
-\begin{figure}[htbp]
-	\centering
-    
     \begin{subfigure}[t]{0.8\linewidth}
         
         \begin{tikzpicture}
@@ -1202,7 +1285,16 @@ The data density is shown in \zcref{fig:ebsd_sphere_projection_b}
     \end{subfigure}
     
 	\caption{
-        \textsc{Mollweide} projections of the unit sphere which is indicating mean \ac{HLT} measurements (left) and the data density (right) corresponding to the \ac{C3S} crystal orientation. % HEALPix Mollweide
+        Unit sphere which is indicating \ac{HLT} measurements corresponding to the crystal orientation of \ac{C3S} in a scatter plot (a) and in a \ac{HEALPix} grid (b).
+        The same \ac{HEALPix} grid in a \textsc{Mollweide} projection (c) and the corresponding data density plot (d). % HEALPix Mollweide
         \label{fig:ebsd_sphere_projection}
     }
 \end{figure}
+
+At first glance at \zcref{ebsd_sphere_projection_b}, there seems to be a larger mean \ac{HLT} between an azimuth of roughly \qtyrange{+-60}{+-120}{\degree}.
+However, \zcref{ebsd_sphere_projection_a} reveals that the data density in these areas is especially low, causing a noisy result.
+The reason for this unequal measurement density is, however, unclear.
+In this context, the \ac{Mollweide} projection of the \ac{HLT} distribution appears fairly homogeneous with no areas with significantly large or small \ac{HLT}s.
+Therefore, these results seem to indicate, that there is no preferred direction of growth of \ac{CSH} around \ac{C3S}.
+However, for a more definitive answer, the experiment should be extended to larger areas, higher \ac{EBSD} resolutions and on multiple specimens.
+Furthermore, a more detailed segmentation, which can separate \ac{CH} and \ac{CSH} of the hydrated \ac{C3S} could be beneficial, since a lot of unhydrated \ac{C3S} is contained within \ac{CH}, which consequently hinders the growth of \ac{CSH} and overall hydration of these grains.

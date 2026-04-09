@@ -2,18 +2,18 @@
 \label{sec:ebsd-hydrate}
 
 %The  analysis  yields, for each valid angular step around a clinker grain, a rim length in the plane of the polished section.
-To relate the \ac{HLT} measurements which were measured as described in \zcref{subsec:algo_hlm} to the crystallographic orientation of the same clinker volume, the \ac{BSE} micrographs were combined with \ac{EBSD} data acquired on the identical surface.
+To relate the \ac{HLT} measurements determined as described in \zcref{subsec:algo_hlm} to the crystallographic orientation of the same clinker volume, the \ac{BSE} images were combined with \ac{EBSD} data acquired on the identical surface.
 
 %The following sections summarise how the two datasets were registered, how crystal directions were assigned to each rim measurement, and which limitations arise from the two-dimensional character of both modalities.
 
-The carbon coated specimen is therefore mounted on a pre-tilted specimen holder and tilted to a \qty{70}{\degree} angle to the electron beam.
-The specimen is then scanned at \qty{15}{\kilo\volt}, \qty{1.6}{\milli\ampere} at a step-size of \qty{2}{\micro\meter\per\px} to acquire the \textsc{Kikuchi} patterns of \ac{C3S} and \ac{CSH}.
+The carbon-coated specimen was therefore mounted on a pre-tilted specimen holder and tilted to a \qty{70}{\degree} angle to the electron beam.
+The specimen was then scanned at \qty{15}{\kilo\volt}, \qty{1.6}{\milli\ampere} at a step size of \qty{2}{\micro\meter\per\px} to acquire the \textsc{Kikuchi} patterns of \ac{C3S} and \ac{CH}.
 
-The \ac{EBSD} experiment produces a 2D dataset of crystal orientation estimates, phase indices and pattern quality indicators. 
-The raw data is preprocessed in \textit{AZtecCrystal 3.2} \cite{azteccrystal.2010} by \textit{Oxford Instruments} to clean up pseudosymmetric solutions.
+The \ac{EBSD} experiment produced a 2D dataset of crystal orientation estimates, phase indices and pattern quality indicators. 
+The raw data was preprocessed in \textit{AZtecCrystal 3.2} \cite{azteccrystal.2010} by \textit{Oxford Instruments} to clean up pseudosymmetric solutions.
 Since the crystallinity of \ac{C2S} is not good enough to obtain usable \textsc{Kikuchi} patterns, this work focussed on hydrated \ac{C3S} specimens.
-To identify and fit these patterns, the crystal structure published by \textcite{delatorre.2002} (COD 1540705) was used.
-Finally, the data is exported as channel text file (.ctf) which can be further processed using \textit{Python}.
+To identify and fit these patterns, the crystal structure published by \textcite{delatorre.2002} (COD 1540705) was used (see \zcref{fig:c3s_unit_cell}).
+Finally, the data was exported as a channel text file (.ctf), which was further processed using \textit{Python}.
 
 \begin{figure}[htb!]
     \centering
@@ -32,15 +32,15 @@ Finally, the data is exported as channel text file (.ctf) which can be further p
     \end{subfigure}%
         
     \caption{
-        \ac{C3S} unit cell (green, COD 1540705) \cite{delatorre.2002} projected on a unit sphere and the respecitve \textsc{Mollweide} projection.
+        \ac{C3S} unit cell (green, COD 1540705) \cite{delatorre.2002} projected on a unit sphere and the respective \textsc{Mollweide} projection.
     }
-    \label{fig:fib}
+    \label{fig:c3s_unit_cell}
 \end{figure}
 
 %Each scan pixel is associated with \textsc{Euler} angles in the \textsc{Bunge} convention, which define a rotation $g$ from the sample reference frame to the crystal reference frame of the indexed phase.
 
 The \ac{BSE} image was manually aligned to the \ac{EBSD} map (using the band-contrast image) in \textit{QGIS 3.42} \cite{QGIS_software} by identifying common points.
-The \textit{QGIS}-project was then used to projective transform the high-resolution \ac{BSE} image to the low resolution \ac{EBSD} dataset.
+The \textit{QGIS}-project was then used to projectively transform the high-resolution \ac{BSE} image to the low-resolution \ac{EBSD} dataset.
 
 %After alignment, the physical step sizes of the \ac{EBSD} grid and the transformed \ac{BSE} image were harmonised by an integer upscale of the segmentation used in the rim algorithm and a scalar alignment factor between low-resolution and high-resolution \ac{BSE} exports, so that one \ac{EBSD} column and row index corresponds to a consistent footprint on the section.
 
@@ -101,8 +101,8 @@ The diagram is illustrative and omits pores and irregular grain shapes.
 
     \caption{
         Illustration of the upper half of an idealised circular \ac{C3S} grain to show the pixels used for the calculations.
-        Only the \ac{C3S} pixels associated to the interface to \ac{CSH} are used.
-        The red arrows represent \ac{HLT} measurement vectors ($\vec{v}_\mathrm{HLT}$).
+        Only the \ac{C3S} pixels associated with the interface to \ac{CSH} are used.
+        The blue arrows represent \ac{HLT} measurement vectors ($\vec{v}_\mathrm{HLT}$).
     }
 	\label{fig:clinker-pixel-roles}
 \end{figure}
@@ -210,7 +210,7 @@ The corresponding rim direction in the crystal reference frame is
 with components $(h_x,\,h_y,\,h_z)^\mathrm{T}$.
 Because $\vec{h}$ is normalised, all measurements lie on the unit sphere in crystal coordinates, which allows a later visualisation.
 
-For the cubic clinker phase investigated here, the angle between the measured rim normal direction and the $\langle001\rangle$ family was summarised by
+For the tricline clinker phase investigated here, the angle between the measured rim normal direction and the $\langle001\rangle$ family was summarised by
 \begin{equation}
 	\label{eq:angle-001}
 	\alpha_{001} = \arccos\!\bigl(\lvert h_z\rvert\bigr),

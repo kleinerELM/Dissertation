@@ -1,14 +1,12 @@
-\chapter{Hydrate layer measurements}
+\chapter{Hydrate layer and particle distance measurements}
 \label{chap:hydrate-rim}
 
 The method presented in \zcref{subsec:algo_hlm} was applied to pure hydrated \ac{C3S} and \ac{C2S} specimens and mixtures of both phases at different ages, which were embedded, polished and coated with carbon.
-The datasets differ in the imaged area and slightly in SEM imaging parameters.
+The datasets differ in the imaged area and slightly in \ac{SEM} imaging parameters.
 For example, the accelerating voltage used varied from \qtyrange{10}{15}{\kilo\volt}.
 The raw images are publicly available \cite{kleiner.2023a, kleiner.2025e, kleiner.2025d}.
+Furthermore, the method was adopted to measure particle distances and combined with \ac{EBSD} measurements.
 
-
-
-\FloatBarrier
 \section{Influence of the segmentation method}
 
 This section benchmarks different segmentation methods on a selected specimen.
@@ -206,7 +204,7 @@ An overview of some basic statistics of the images analysed is listed in \zcref{
 	particles per \unit{\milli\meter\squared}		& - & \num{73380}	& \num{22228} & \num{41577} & - & - \\[2pt] %\midrule
 	pores in \unit{\areapercent}					& - & 27.8	& 16.9	& 13.9 & - & - \\
 	hydrates in \unit{\areapercent}					& - & 55.5	& 68.4	& 73.8 & - & - \\
-	clinker in \unit{\areapercent}					& - & 16.7	& 14.7	& 12.4 & - & - \\
+	clinker in \unit{\areapercent}					& - & 16.7	& 14.7	& 12.4 & - & - \\[5pt] \midrule
 
 	\multicolumn{7}{c}{\textbf{\ac{C3S} 1:1 \ac{C2S}}} \\ \midrule
 	particles per \unit{\milli\meter\squared}		& - & \num{42752} & \num{44094} & \num{30576} & - & - \\[2pt] %\midrule
@@ -297,10 +295,18 @@ Comparing the particle counts of the \ac{C3S} and \ac{C2S} shows, that \ac{C2S} 
 This is caused by the slower dissolution rates of \ac{C2S} and the tendency of larger \ac{C2S} particles to shatter in multiple smaller ones.
 This also allows to visually distinguish both phases in a \ac{BSE} image.
 
-
 Applying the \ac{HLT}-measurement algorithm proposed in \zcref{subsec:algo_hlm} to individually hydrated phases gives the results shown in \zcref{fig:results2d_alite} and \zcref{fig:results2d_belite} for \ac{C3S} and \ac{C2S} respectively.
 The diagrams consist of a graph indicating frequency of a measured \ac{HLT} in dependency of the grain size (blue-green).
 This plot is accompanied by a frequency plot of the grain size diameter (grey) and a grain-size-agnostic distribution plot of the \ac{HLT} frequency (orange).
+
+\begin{figure}[htb]
+	\centerline{\includegraphics[width=\textwidth]{hydrate-rim/HLT_histogram_belit.pdf}}
+	\caption{
+        Normalised distributions of the \ac{HLT} of hydrated \ac{C2S} (aged \num{1}, \num{7}, \num{14}, and \qty{28}{\day}) depending on the particle diameter.
+        Same diagram type as in \zcref{fig:results2d_alite}.
+        \label{fig:results2d_belite}
+    }
+\end{figure}
 
 \begin{figure}[htbp]
 	\centerline{\includegraphics[width=\textwidth]{hydrate-rim/HLT_histogram_alit.pdf}}
@@ -325,14 +331,6 @@ Furthermore, very small grains seem to have no second \ac{HLT} accumulation, whi
 %Another reason: split, larger particles?
 
 
-\begin{figure}[htbp]
-	\centerline{\includegraphics[width=\textwidth]{hydrate-rim/HLT_histogram_belit.pdf}}
-	\caption{
-        Normalised distributions of the \ac{HLT} of hydrated \ac{C2S} (aged \num{1}, \num{7}, \num{14}, and \qty{28}{\day}) depending on the particle diameter.
-	Same diagram type as in \zcref{fig:results2d_alite}.
-	\label{fig:results2d_belite}
-    }
-\end{figure}
 
 \ac{C2S} shows a significant slower hydration, which is also visible in the growth of the \ac{HLT} (\zcref{fig:hydration-rim-results}).
 After \qty{28}{\day}, \ac{C2S} still shows smaller hydration rims than \ac{C3S} after \qty{7}{\day}.
@@ -450,7 +448,7 @@ Hereby, the lower \ac{HLT}-peak most probably originates from \ac{C2S}, while th
 \end{figure}
 
 \begin{figure}[htb]
-	\centerline{\includegraphics[width=.6\textwidth]{hydrate-rim/HLT_histogram_3-1.pdf}}
+	\centerline{\includegraphics[width=.7\textwidth]{hydrate-rim/HLT_histogram_3-1.pdf}}
 	\caption{
         Normalised distributions of the \ac{HLT} of a hydrated mixture of \ac{C3S}:\ac{C2S} 3:1 (aged \qty{28}{\day}) depending on the particle diameter.
         The histogram (orange) on the right illustrates the frequency of \ac{HLT} measurements as sum of the main diagram.
@@ -496,6 +494,7 @@ This can cause a reduced \ac{HLT} measurement around \ac{C2S}.
 
 
 \FloatBarrier
+\newpage
 \section{Statistical analysis of the representativeness of the 2D images}
 
 In this section, the images previously described in \zcref{sec:HLT_multi_phase} were used to assess the minimum area required to obtain a statistically relevant phase composition, using both the \ac{BC} and \ac{BG} methods.
@@ -759,11 +758,11 @@ Instead, the method specific standard deviation $\sigma_{\text{BG}}$ is defined 
 
 The minimum required area for a standard deviation $\sigma$ of <\,\qty{2}{\percent} was calculated for each phase.
 
-The largest minimum required area can be found in the pore and the clinker phases which are plotted in \zcref{fig:box_statistics_pores, fig:box_statistics_clinker}.
-The hydrate phases \ac{CSH} and \ac{CH} showed a significantly lower minimum required area (see \zcref{fig:box_statistics_csh, fig:box_statistics_ch}).
+The largest minimum required area can be found in the pore and the clinker phases which are plotted in \zcref{fig:box_statistics_clinker}.
+The hydrate phases \ac{CSH} and \ac{CH} showed a significantly lower minimum required area (see \zcref{fig:box_statistics_ch}).
 The results are also listed in \zcref{tab:convergence_area_box_cnt, tab:convergence_area_box_growth}.
 
-\begin{figure}[htbp]
+\begin{figure}[htb]
     \centering
     \begin{subfigure}[b]{0.49\textwidth}
         \centering
@@ -806,7 +805,7 @@ The results are also listed in \zcref{tab:convergence_area_box_cnt, tab:converge
             \end{axis}
         \end{tikzpicture}
         \caption{
-            \ac{BC} method.
+            Pores, \ac{BC} method.
         }
         \label{fig:convergence_pores}
     \end{subfigure}
@@ -854,20 +853,11 @@ The results are also listed in \zcref{tab:convergence_area_box_cnt, tab:converge
             \end{axis}
         \end{tikzpicture}
         \caption{
-            \ac{BG} method.
+            Pores, \ac{BG} method.
         }
         \label{fig:areagrowth_pores}
     \end{subfigure}
-    \caption{
-        Comparison of the minimum required area for to get the \textbf{pore} area fraction with a standard deviation $\sigma$ of <\,\qty{2}{\percent}.
-        The \ac{BC} and \ac{BG} methods were applied to images of \ac{C3S}:\ac{C2S} mixtures, hydrated for \num{7}, \num{14} and \qty{28}{\day}.
-    }
-    \label{fig:box_statistics_pores}
-\end{figure}
-
-
-\begin{figure}[htbp]
-    \centering
+    
     \begin{subfigure}[b]{0.49\textwidth}
         \centering
         \begin{tikzpicture}
@@ -909,7 +899,7 @@ The results are also listed in \zcref{tab:convergence_area_box_cnt, tab:converge
             \end{axis}
         \end{tikzpicture}
         \caption{
-            \ac{BC} method.
+            Clinker, \ac{BC} method.
         }
         \label{fig:convergence_clinker}
     \end{subfigure}
@@ -958,12 +948,12 @@ The results are also listed in \zcref{tab:convergence_area_box_cnt, tab:converge
             \end{axis}
         \end{tikzpicture}
         \caption{
-            \ac{BG} method.
+            Clinker, \ac{BG} method.
         }
         \label{fig:areagrowth_clinker}
     \end{subfigure}
     \caption{
-        Comparison of the minimum required area for to get the \textbf{clinker} area fraction with a standard deviation $\sigma$ of <\,\qty{2}{\percent}.
+        Comparison of the minimum required area for to get the pore area fraction (top row) and the clinker area fraction (bottom row) with a standard deviation $\sigma$ of <\,\qty{2}{\percent}.
         The \ac{BC} and \ac{BG} methods were applied to images of \ac{C3S}:\ac{C2S} mixtures, hydrated for \num{7}, \num{14} and \qty{28}{\day}.
     }
     \label{fig:box_statistics_clinker}
@@ -986,315 +976,5 @@ For example, to acquire the large images evaluated in this study, only the best 
 However, \textcite{kameda.2006} pointed out, that the data fluctuation of the measured porosity and permeability using this method becomes negligible, when `\textit{the cube size exceeds four grain radii}'.
  
 
-\section{Conclusion}
-
-The quantitative analysis of \ac{HLT} and phase composition in hydrated \ac{C3S}, \ac{C2S}, and their mixtures demonstrated the potential of image processing beyond mere segmentation.
-The method can be utilised to determine the \ac{HLT} development in \ac{C3S}, \ac{C2S} and \ac{C3S}:\ac{C2S} mixtures up to \qty{28}{\day} of hydration.
-The study confirmed the faster hydration of \ac{C3S} and revealed a slight retardation of \ac{C3S} hydration in mixtures with high \ac{C2S} content.
-Furthermore, the formation of \textsc{Hadley} grains was observed in mixtures with higher \ac{C2S} contents.
-Finally, the assessment of statistical representativeness indicated that the required analysis area is dictated by microstructural heterogeneity, ranging from \qty{0.3}{\milli\meter\squared} for homogeneous samples to over \qty{1.4}{\milli\meter\squared} for those with significant irregularities like air voids or inconsistent \ac{CH} growth.
-Furthermore, the formation of \textsc{Hadley} grains was observed in mixtures with higher \ac{C2S} content.
-Finally, the assessment of statistical representativeness indicated that the required analysis area is depending on the microstructural heterogeneity. It is ranging from \qty{0.3}{\milli\meter\squared} for homogeneous samples to over \qty{1.4}{\milli\meter\squared} for those with significant irregularities such as air voids or inconsistent \ac{CH} growth.
 
 
-%Machine learning-based pixel classification proved superior to thresholding, providing accuracy comparable to manual segmentation.
-
-
-\section{\acs*{HLT}-\acs*{EBSD} correlation}
-
-To determine whether there is a crystal orientation on the \ac{C3S} surface where \ac{CSH} grows preferentially or where growth is inhibited, a large, high resolution \ac{BSE} image was recorded and to increase the data density, three \ac{EBSD} measurements were performed (see \zcref{fig:ebsd_positions}) at a step size of \qty{2.00}{\micro\meter\per\px}, as described in \zcref{sec:ebsd-hydrate}.
-This was done on a polished surface of \qty{7}{\day} hydrated \ac{C3S} which had been freshly cleaned using \ac{ArBIB} and subsequently carbon coated.
-
-\begin{figure}[htbp]
-	\centering
-    \includegraphics[width=.7\textwidth]{hydrate-rim/ebsd/BSE+EBSD-sites.pdf}
-	\caption{
-        \ac{BSE} image of a \qty{7}{\day} hydrated \ac{C3S} and three \ac{EBSD} measurement locations.
-        \label{fig:ebsd_positions}
-    }
-\end{figure}
-
-As shown in \zcref{sec:ebsd-hydrate}, the \ac{EBSD} datasets are distorted compared to the \ac{BSE} image, since they were recorded at different angles using different detectors.
-To avoid the recalculation of the sparse \ac{EBSD} dataset, the high-resolution \ac{BSE} image (\qty{0.18}{\micro\meter\per\px}) was transformed to match the \ac{BSE} dataset instead (\zcref{fig:fig:ebsd_site5}A).
-The \ac{BSE} image was then segmented (\zcref{fig:fig:ebsd_site5}B) and processed using the \ac{HLT} method.
-Since the raw \ac{EBSD} dataset (\zcref{fig:fig:ebsd_site5}C) has a fairly sparse data density, it was combined with the scale-matched \ac{C3S} mask, and the data density was increased to fill the mask (\zcref{fig:fig:ebsd_site5}D).
-This ensures, that the \ac{EBSD} data always connects to the grain boundary used to determine the \ac{HLT} dataset, and increases the overall data density.
-
-\begin{figure}[htbp]
-	\centering
-    \includegraphics[width=\textwidth]{hydrate-rim/ebsd/BSE+EBSD-site5.pdf}
-	\caption{
-        Measurement site C as shown in \zcref{fig:ebsd_positions}. A: transformed and cropped \ac{BSE}-image; B: \ac{C3S} segmentation mask; C: unprocessed crystal orientations ($\varphi_2$) and D: extended crystal orientations at \ac{C3S} locations.
-        \label{fig:ebsd_site5}
-    }
-\end{figure}
-
-After processing the data as explained in \zcref{sec:ebsd-hydrate}, the \ac{HLT} measurements can projected on a unit sphere of the crystal orientation of \ac{C3S}.
-If there is a dependence between the crystal orientation and the \ac{HLT}, it should become visible as a concentration of longer or shorter \ac{HLT}s in certain areas of the unit sphere.
-
-In \zcref{fig:ebsd_sphere_a}, each \ac{HLT} measurement of \ac{EBSD} site C is visualised as a point on the unit sphere.
-The colour encodes the \ac{HLT} length for each measurement.
-Since the the measurement density is not very high, the unit sphere was divided in a so called \ac{HEALPix} grid \cite{gorski.2005}.
-In a \ac{HEALPix} grid, the surface of a sphere is divided into sections of equal area.
-For each grid cell, the mean \ac{HLT} in each section was calculated (see \zcref{fig:ebsd_sphere_b}).
-\zcref{fig:ebsd_sphere_projection_b} shows the projection of this unit sphere surface in the \textsc{Mollweide} projection.
-The data density is shown in \zcref{fig:ebsd_sphere_projection_b}.
-
-
-% \begin{figure}[htbp]
-% 	\centering
-    
-%     \begin{subfigure}[t]{0.49\linewidth}
-%         \begin{tikzpicture}
-%             \begin{axis}[
-%                 width=0.66\textwidth,
-%                 height=0.66\textwidth,
-%                 scale only axis,
-%                 enlargelimits=false,
-%                 xmin=-1.1, xmax=1.1,
-%                 ymin=-1.1, ymax=1.1,
-%                 axis on top,
-%                 colormap name=magma,
-%                 colorbar,
-%                 colorbar style={
-%                     ylabel={\ac{HLT} in \unit{\micro\meter}},
-%                 },
-%                 point meta min=0,
-%                 point meta max=12.1,
-%                 ticklabel style={font=\small},
-%                 xtick={-1,0,1},
-%                 ytick={-1,0,1},
-%             ]
-%                 \addplot [draw=none] coordinates {(-1,-1) (1,1)};
-%                 \node[inner sep=0pt, anchor=south west] at (axis cs:-1,-1) {
-                    
-%                     \ifdefined\PRINTABLE
-%                         \includegraphics[width=0.6\textwidth]{hydrate-rim/ebsd/ani/unitball00.jpg}
-%                     \else
-%                         \animategraphics[palindrome,autoplay,width=0.6\textwidth]{12}{hydrate-rim/ebsd/ani/unitball}{00}{35}
-%                     \fi
-                    
-%                 };
-%             \end{axis}
-%         \end{tikzpicture}
-%         \caption{
-%             \ac{HLT} scatter plot.
-%             \label{fig:ebsd_sphere_a}
-%         }
-%     \end{subfigure}%
-%     \hfill%
-%     \begin{subfigure}[t]{0.49\linewidth}
-        
-%         \begin{tikzpicture}
-%             \begin{axis}[
-%                 width=0.66\textwidth,
-%                 height=0.66\textwidth,
-%                 scale only axis,
-%                 enlargelimits=false,
-%                 xmin=-1.1, xmax=1.1,
-%                 ymin=-1.1, ymax=1.1,
-%                 axis on top,
-%                 colormap name=magma,
-%                 colorbar,
-%                 colorbar style={
-%                     ylabel={\ac{HLT} in \unit{\micro\meter}},
-%                 },
-%                 point meta min=0,
-%                 point meta max=6.3,
-%                 xtick={-1,0,1},
-%                 ytick={-1,0,1},
-%                 ticklabel style={font=\small},
-%             ]
-%                 \addplot [draw=none] coordinates {(-1,-1) (1,1)};
-%                 \node[inner sep=0pt, anchor=south west] at (axis cs:-1,-1) {
-                    
-%                     \ifdefined\PRINTABLE
-%                         \includegraphics[width=0.6\textwidth]{hydrate-rim/ebsd/ani_5deg/sphere00.jpg}
-%                     \else
-%                         \animategraphics[palindrome,autoplay,width=0.6\textwidth]{12}{hydrate-rim/ebsd/ani_5deg/sphere}{00}{71}
-%                     \fi
-                    
-%                 };
-%             \end{axis}
-%         \end{tikzpicture}
-%         \caption{
-%             Mean \ac{HLT} on a \textsc{HEALPix} grid.
-%             \label{fig:ebsd_sphere_b}
-%         }
-%     \end{subfigure}
-
-    
-% 	\caption{
-%         Unit sphere which is indicating \ac{HLT} measurements corresponding to the crystal orientation of \ac{C3S}.
-%         \label{fig:ebsd_sphere}
-%     }
-% \end{figure}
-
-
-\begin{figure}[htb]
-	\centering
-    
-    \begin{subfigure}[t]{0.49\linewidth}
-        \begin{tikzpicture}
-            \begin{axis}[
-                width=0.66\textwidth,
-                height=0.66\textwidth,
-                scale only axis,
-                enlargelimits=false,
-                xmin=-1.1, xmax=1.1,
-                ymin=-1.1, ymax=1.1,
-                axis on top,
-                colormap name=magma,
-                colorbar,
-                colorbar style={
-                    ylabel={\ac{HLT} in \unit{\micro\meter}},
-                },
-                point meta min=0,
-                point meta max=12.1,
-                ticklabel style={font=\small},
-                xtick={-1,0,1},
-                ytick={-1,0,1},
-            ]
-                \addplot [draw=none] coordinates {(-1,-1) (1,1)};
-                \node[inner sep=0pt, anchor=south west] at (axis cs:-1,-1) {
-                    
-                    \ifdefined\PRINTABLE
-                        \includegraphics[width=0.6\textwidth]{hydrate-rim/ebsd/ani/unitball00.jpg}
-                    \else
-                        \animategraphics[palindrome,autoplay,width=0.6\textwidth]{12}{hydrate-rim/ebsd/ani/unitball}{00}{35}
-                    \fi
-                    
-                };
-            \end{axis}
-        \end{tikzpicture}
-        \caption{
-            \ac{HLT} scatter plot on a unit sphere..
-            \label{fig:ebsd_sphere_a}
-        }
-    \end{subfigure}%
-    \hfill%
-    \begin{subfigure}[t]{0.49\linewidth}
-        
-        \begin{tikzpicture}
-            \begin{axis}[
-                width=0.66\textwidth,
-                height=0.66\textwidth,
-                scale only axis,
-                enlargelimits=false,
-                xmin=-1.1, xmax=1.1,
-                ymin=-1.1, ymax=1.1,
-                axis on top,
-                colormap name=magma,
-                colorbar,
-                colorbar style={
-                    ylabel={\ac{HLT} in \unit{\micro\meter}},
-                },
-                point meta min=0,
-                point meta max=6.3,
-                xtick={-1,0,1},
-                ytick={-1,0,1},
-                ticklabel style={font=\small},
-            ]
-                \addplot [draw=none] coordinates {(-1,-1) (1,1)};
-                \node[inner sep=0pt, anchor=south west] at (axis cs:-1,-1) {
-                    
-                    \ifdefined\PRINTABLE
-                        \includegraphics[width=0.6\textwidth]{hydrate-rim/ebsd/ani_5deg/sphere00.jpg}
-                    \else
-                        \animategraphics[palindrome,autoplay,width=0.6\textwidth]{12}{hydrate-rim/ebsd/ani_5deg/sphere}{00}{71}
-                    \fi
-                    
-                };
-            \end{axis}
-        \end{tikzpicture}
-        \caption{
-            Mean \ac{HLT} in a \textsc{HEALPix} grid on a unit sphere.
-            \label{fig:ebsd_sphere_b}
-        }
-    \end{subfigure}
-
-    \begin{subfigure}[t]{0.8\linewidth}
-        
-        \begin{tikzpicture}
-            \begin{axis}[
-                width=\textwidth,
-                height=.45\textwidth,
-                scale only axis,
-                enlargelimits=false,
-                colormap name=magma,
-                colorbar,
-                colorbar style={
-                    ylabel={\ac{HLT} in \unit{\micro\meter}},
-                },
-                point meta min=0,
-                point meta max=8,
-                xtick={-1,0,1},
-                ytick={-1,0,1},
-                ticklabel style={font=\small},
-                hide axis,
-            ]
-                \addplot [draw=none] coordinates {(-1,-1) (1,1)};
-                \node[inner sep=0pt, anchor=south west] at (axis cs:-1,-1) {
-                    
-                \includegraphics[width=.9\textwidth]{hydrate-rim/ebsd/mollweide_projection_b.png}
-                    
-                };
-            \end{axis}
-        \end{tikzpicture}
-        
-        \caption{
-            Mean \ac{HLT}.
-            \label{fig:ebsd_sphere_projection_b}
-        }
-
-    \end{subfigure}
-    
-    \begin{subfigure}[t]{0.8\linewidth}
-        \begin{tikzpicture}
-            \begin{axis}[
-                width=\textwidth,
-                height=.45\textwidth,
-                scale only axis,
-                enlargelimits=false,
-                hide axis,
-                colormap name=ocean_r,
-                colorbar,
-                colorbar style={
-                    ylabel={$log_{10}(n+1)$},
-                },
-                point meta min=0,
-                point meta max=1.7,
-                xtick={-1,0,1},
-                ytick={-1,0,1},
-                ticklabel style={font=\small},
-            ]
-                \addplot [draw=none] coordinates {(-1,-1) (1,1)};
-                \node[inner sep=0pt, anchor=south west] at (axis cs:-1,-1) {
-                    
-                \includegraphics[width=.9\textwidth]{hydrate-rim/ebsd/mollweide_projection_a.png}
-                    
-                };
-            \end{axis}
-        \end{tikzpicture}
-        
-        \caption{
-            Data density plot.
-            \label{fig:ebsd_sphere_projection_a}
-        }
-
-    \end{subfigure}
-    
-	\caption{
-        Unit sphere which is indicating \ac{HLT} measurements corresponding to the crystal orientation of \ac{C3S} in a scatter plot (a) and in a \ac{HEALPix} grid (b).
-        The same \ac{HEALPix} grid in a \textsc{Mollweide} projection (c) and the corresponding data density plot (d). % HEALPix Mollweide
-        \label{fig:ebsd_sphere_projection}
-    }
-\end{figure}
-
-At first glance at \zcref{ebsd_sphere_projection_b}, there seems to be a larger mean \ac{HLT} between an azimuth of roughly \qtyrange{+-60}{+-120}{\degree}.
-However, \zcref{ebsd_sphere_projection_a} reveals that the data density in these areas is especially low, causing a noisy result.
-The reason for this unequal measurement density is, however, unclear.
-In this context, the \ac{Mollweide} projection of the \ac{HLT} distribution appears fairly homogeneous with no areas with significantly large or small \ac{HLT}s.
-Therefore, these results seem to indicate, that there is no preferred direction of growth of \ac{CSH} around \ac{C3S}.
-However, for a more definitive answer, the experiment should be extended to larger areas, higher \ac{EBSD} resolutions and on multiple specimens.
-Furthermore, a more detailed segmentation, which can separate \ac{CH} and \ac{CSH} of the hydrated \ac{C3S} could be beneficial, since a lot of unhydrated \ac{C3S} is contained within \ac{CH}, which consequently hinders the growth of \ac{CSH} and overall hydration of these grains.

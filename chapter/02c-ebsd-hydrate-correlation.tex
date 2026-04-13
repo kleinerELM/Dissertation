@@ -12,7 +12,7 @@ The specimen was then scanned at \qty{15}{\kilo\volt}, \qty{1.6}{\milli\ampere} 
 The \ac{EBSD} experiment produced a 2D dataset of crystal orientation estimates, phase indices and pattern quality indicators. 
 The raw data was preprocessed in \textit{AZtecCrystal 3.2} \cite{azteccrystal.2010} by \textit{Oxford Instruments} to clean up pseudosymmetric solutions.
 Since the crystallinity of \ac{C2S} is not good enough to obtain usable \textsc{Kikuchi} patterns, this work focussed on hydrated \ac{C3S} specimens.
-To identify and fit these patterns, the crystal structure published by \textcite{delatorre.2002} (COD 1540705) was used (see \zcref{fig:c3s_unit_cell}).
+To identify and fit these patterns, the crystal structure published by \textcite{delatorre.2002} (\acs{ICSD} 94742, \acs{COD} \href{https://qiserver.ugr.es/cod/1540705.html}{1540705}) was used (see \zcref{fig:c3s_unit_cell}).
 Finally, the data was exported as a channel text file (.ctf), which was further processed using \textit{Python}.
 
 \begin{figure}[htb!]
@@ -32,7 +32,7 @@ Finally, the data was exported as a channel text file (.ctf), which was further 
     \end{subfigure}%
         
     \caption{
-        \ac{C3S} unit cell (green, COD 1540705) \cite{delatorre.2002} projected on a unit sphere and the respective \textsc{Mollweide} projection.
+        \ac{C3S} (MIII) unit cell (green, \acs{ICSD} 94742, \acs{COD} \href{https://qiserver.ugr.es/cod/1540705.html}{1540705}) \cite{delatorre.2002} projected on a unit sphere and the respective \textsc{Mollweide} projection.
     }
     \label{fig:c3s_unit_cell}
 \end{figure}
@@ -210,7 +210,7 @@ The corresponding rim direction in the crystal reference frame is
 with components $(h_x,\,h_y,\,h_z)^\mathrm{T}$.
 Because $\vec{h}$ is normalised, all measurements lie on the unit sphere in crystal coordinates, which allows a later visualisation.
 
-For the tricline clinker phase investigated here, the angle between the measured rim normal direction and the $\langle001\rangle$ family was summarised by
+For the monocline clinker phase investigated here, the angle between the measured rim normal direction and the $\langle001\rangle$ family was summarised by
 \begin{equation}
 	\label{eq:angle-001}
 	\alpha_{001} = \arccos\!\bigl(\lvert h_z\rvert\bigr),

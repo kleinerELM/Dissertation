@@ -1,8 +1,10 @@
 \newpage
 \section{\acs*{HLT}-\acs*{EBSD} correlation}
 
-To determine whether there is a crystal orientation on the \ac{C3S} surface where \ac{CSH} grows preferentially or where growth is inhibited, a large, high-resolution \ac{BSE} image was recorded.
-To increase the data density, three \ac{EBSD} measurements were performed (see \zcref{fig:ebsd_positions}) at a step size of \qty{2.00}{\micro\meter\per\px}, as described in \zcref{sec:ebsd-hydrate} with a total measurement time of roughly \qty{2}{\day}.
+As discussed in \zcref{subsec:C3S_cryst_orient_lit}, the dissolution of \ac{C3S} is highly dependent on its crystallographic orientation and the specifically exposed.
+In the context of cement hydration, this suggests that the local growth of \ac{CSH} on \ac{C3S} might exhibit a preference for specific crystallographic planes.
+To determine whether there are preferential growth surfaces, a large, high-resolution \ac{BSE} image was recorded.
+This was accompanied by three smaller \ac{EBSD} mappings (see \zcref{fig:ebsd_positions}) at a step size of \qty{2.00}{\micro\meter\per\px}, as described in \zcref{sec:ebsd-hydrate} with a total measurement time of roughly \qty{2}{\day}.
 This was done on a polished surface of \qty{7}{\day} hydrated \ac{C3S} which had been freshly cleaned using \ac{ArBIB} and subsequently carbon-coated.
 
 \begin{figure}[htbp]
@@ -36,11 +38,12 @@ In \zcref{fig:ebsd_sphere_a}, each \ac{HLT} measurement of \ac{EBSD} site C is v
 The colour encodes the \ac{HLT} length for each measurement.
 Since the measurement density is not very high, the unit sphere was divided into a so-called \ac{HEALPix} grid \cite{gorski.2005}.
 In a \ac{HEALPix} grid, the surface of the sphere is divided into sections of equal area.
+This avoids a statistical distortion, especially at the poles of the unit sphere.
 For each grid cell, the mean \ac{HLT} in each section was calculated using the results of all three measurement sites (see \zcref{fig:ebsd_sphere_b}).
 \zcref{fig:ebsd_sphere_projection_b} shows the projection of this unit sphere surface in the \textsc{Mollweide} projection.
 The data density is shown in \zcref{fig:ebsd_sphere_projection_a}.
 
-\begin{figure}[b]
+\begin{figure}[htb!]
 	\centering
     
     \begin{subfigure}[t]{0.49\linewidth}
@@ -122,7 +125,7 @@ The data density is shown in \zcref{fig:ebsd_sphere_projection_a}.
         }
     \end{subfigure}
 
-    \begin{subfigure}[t]{0.8\linewidth}
+    \begin{subfigure}[t]{0.75\linewidth}
         
         \begin{tikzpicture}
             \begin{axis}[
@@ -158,7 +161,7 @@ The data density is shown in \zcref{fig:ebsd_sphere_projection_a}.
 
     \end{subfigure}
     
-    \begin{subfigure}[t]{0.8\linewidth}
+    \begin{subfigure}[t]{0.75\linewidth}
         \begin{tikzpicture}
             \begin{axis}[
                 width=\textwidth,
@@ -190,21 +193,32 @@ The data density is shown in \zcref{fig:ebsd_sphere_projection_a}.
             Data density plot.
             \label{fig:ebsd_sphere_projection_a}
         }
-
     \end{subfigure}
     
 	\caption{
         Unit sphere which is indicating \ac{HLT} measurements corresponding to the crystal orientation of \ac{C3S} in a scatter plot (a) and in a \ac{HEALPix} grid (b).
         The same \ac{HEALPix} grid in a \textsc{Mollweide} projection (c) and the corresponding data density plot (d). 
-        The lines ({\color{red}red}) are a projection of the tricline structure of \ac{C3S} as derived from \zcref{fig:c3s_unit_cell}. % HEALPix Mollweide
+        The lines ({\color{red}red}) are a projection of the monocline structure of \ac{C3S} as derived from \zcref{fig:c3s_unit_cell}. % HEALPix Mollweide
         \label{fig:ebsd_sphere_projection}
     }
 \end{figure}
 
 At first glance at \zcref{fig:ebsd_sphere_projection_b}, there seems to be a larger mean \ac{HLT} between a crystallographic azimuth of roughly \qtyrange{+-60}{+-120}{\degree}.
-However, \zcref{fig:ebsd_sphere_projection_a} reveals that the data density in these areas is especially low, causing a noisy result.
-While the distribution seems to be correlated with the tricline structure of \ac{C3S} (red projection, compare to \zcref{fig:c3s_unit_cell}), the reason for this unequal measurement density is, however, unclear.
-In this context, the \textsc{Mollweide} projection of the \ac{HLT} distribution appears fairly homogeneous with no areas with significantly large or small \ac{HLT}s.
-Therefore, these results seem to indicate that there is no preferred direction of growth of \ac{CSH} around \ac{C3S}.
-However, for a more definitive answer, the experiment should be extended to larger areas, higher \ac{EBSD} resolutions, and multiple specimens.
+However, the corresponding data density plot (\zcref{fig:ebsd_sphere_projection_a}) reveals that the amount of valid measurements in these specific areas is fairly low, resulting in high statistical noise.
+This means, that in areas with very low data density, the calculated mean \ac{HLT} is biased by only a few measurements.
+For instance, if a specific crystal orientation is represented by only one or two grains in the 2D section, and these grains happen to be adjacent to a large capillary pore, they will exhibit a large \ac{HLT} due to unrestricted space for \ac{CSH} growth.
+Consequently, these hotspots likely reflect local spatial availability rather than a true crystallographic preference for \ac{CSH} precipitation.
+
+While the data density distribution appears to be somewhat correlated with the symmetry of the monoclinic \ac{C3S} structure (red projection lines, compare to \zcref{fig:c3s_unit_cell}), the exact cause for this unequal measurement density remains open to interpretation.
+It is highly probable that the finite number of grains intersected by the 2D plane simply does not provide a perfectly uniform statistical sampling of all possible 3D orientations.
+Additionally, preferred cleavage planes could cause the exposure of preferred orientations during the grinding and polishing process.
+
+In this context, the \textsc{Mollweide} projection of the \ac{HLT} distribution appears fairly homogeneous.
+There are no extended, statistically robust areas on the unit sphere that exhibit significantly larger or smaller \ac{HLT}s.
+Therefore, the current results indicate that the dissolution of \ac{C3S} and the subsequent growth of \ac{CSH} do not strongly prefer a specific crystallographic direction.
+Instead, the \ac{HLT} development seems to be primarily governed by the local environment, such as the available pore space and the proximity to neighbouring particles.
+
+For a more definitive answer, the experiment must be extended to larger areas, higher \ac{EBSD} resolutions, and multiple independent specimens.
 Furthermore, a more detailed segmentation, which can differentiate between \ac{CH} and \ac{CSH} around the hydrated \ac{C3S}, could be beneficial, since a lot of unhydrated \ac{C3S} is enclosed by \ac{CH}, which consequently hinders the growth of \ac{CSH} and the overall hydration of these grains.
+
+\FloatBarrier

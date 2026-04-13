@@ -69,5 +69,5 @@ if (Test-Path "$DirDigital\$DocName.pdf") { Move-Item "$DirDigital\$DocName.pdf"
 if (Test-Path "$DirPrint\${DocName}_print.pdf") { Move-Item "$DirPrint\${DocName}_print.pdf" ".\${DatePrefix}_${DocName}_print.pdf" -Force }
 
 # Cleanup after
-Invoke-Cleanup
+# Invoke-Cleanup
 Remove-Job -Job $jobs

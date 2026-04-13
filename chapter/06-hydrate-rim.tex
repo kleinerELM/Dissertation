@@ -448,7 +448,7 @@ Hereby, the lower \ac{HLT}-peak most probably originates from \ac{C2S}, while th
 \end{figure}
 
 \begin{figure}[htb]
-	\centerline{\includegraphics[width=.7\textwidth]{hydrate-rim/HLT_histogram_3-1.pdf}}
+	\centerline{\includegraphics[width=.9\textwidth]{hydrate-rim/HLT_histogram_3-1.pdf}}
 	\caption{
         Normalised distributions of the \ac{HLT} of a hydrated mixture of \ac{C3S}:\ac{C2S} 3:1 (aged \qty{28}{\day}) depending on the particle diameter.
         The histogram (orange) on the right illustrates the frequency of \ac{HLT} measurements as sum of the main diagram.
@@ -502,7 +502,6 @@ In this section, the images previously described in \zcref{sec:HLT_multi_phase} 
 The images were segmented via thresholding into four distinct phases: pores, \ac{CSH}, \ac{CH}, and clinker (see \zcref{fig:segmented_images}).
 Although this segmentation approach produces erroneously segmented layers around clinker grains, which are consequently assigned to \ac{CH} instead of \ac{CSH} or the clinker phase, it is still considered adequate for estimating the overall phase composition.
 
-% 
 \begin{figure}[htbp]
 
     \centering
@@ -517,7 +516,7 @@ Although this segmentation approach produces erroneously segmented layers around
 
 The result of the \ac{BC} method is a graph as shown in \zcref{fig:lit_box_count}.
 The standard deviation $\sigma$ in \zcref{fig:lit_box_count_b} indicates the decreasing uncertainty with a larger area analysed.
-Compared to \zcref{fig:lit_box_growth_b}, $\sigma$ decreases much more continuously, since there is no location bias.
+Compared to \zcref{fig:lit_box_growth_b}, $\sigma$ decreases continuously, since there is no location bias.
 
 \begin{figure}[H]
     \centering
@@ -625,11 +624,14 @@ Compared to \zcref{fig:lit_box_growth_b}, $\sigma$ decreases much more continuou
     \label{fig:lit_box_count}
 \end{figure}
 
-The \ac{BC} method is fast and works well for area calculations.
+Therefore, the $\sigma$ can directly be used to define the minimum required area.
+This point is reached, if $\sigma$ is below \qty{2}{\percent}.
+
+Since the phase composition of each image section can be calculated before the randomisation, the \ac{BC} method is fairly fast even for a lot of repeated experiments.
 Furthermore, it is insensitive to the influence of larger inhomogeneities, such as the rather large \ac{CH} areas or occasionally occurring air voids.
 
 
-\subsection{Box growth method}
+\subsection{\Acl*{BG} method}
 
 \zcref{fig:lit_box_growth} shows the result of the \ac{BG} method applied to an image of \qty{28}{\day} hydrated \ac{C3S}.
 This image has to be segmented beforehand into pores, unhydrated \ac{C3S}, \ac{CH} and \ac{CSH}.
@@ -742,17 +744,24 @@ The standard deviation in \zcref{fig:lit_box_growth_b} indicates the decreasing 
     \label{fig:lit_box_growth}
 \end{figure}
 
-While $\sigma$ decreases unsteadily, the standard deviation is below \qty{2}{\percent} at \qty{0.1}{\square\milli\meter}.
-However, the deviation from the phase measurement of the whole specimen can still be more than \qty{2}{\percent}.
-Since the location of larger phases like pores or \ac{CH} does not change in the image, even the randomised starting point cannot remove the bias.
-Due to this unsteadiness, the \qty{2}{\percent}-threshold was not directly processed using $\sigma$.
-Instead, the difference between the phase amount of the whole image and the phase amount in the current image area + $\sigma$ was used.
-Instead, the method specific standard deviation $\sigma_{\text{BG}}$ is defined as the absolute difference between the phase amount of the whole image ($\phi_{\text{img}}$) and the phase amount in the current image area ($\phi_{\text{area}}$), plus the absolute value of the standard deviation ($\sigma$):
+In contrast to the \ac{BC} method, the standard deviation of the \ac{BG} method decreases unsteadily.
+This is caused by the fact, that the position of the random growth point is limited.
+And since the location of larger phases like pores or \ac{CH} does not change in the image, their position can have a significant influence. 
+Even the randomised starting point cannot remove the bias, if only a single large image is used for this technique.
+Nevertheless, the standard deviation is below \qty{2}{\percent} at \qty{0.1}{\square\milli\meter}.
+However, due to this effect the deviation from the phase measurement of the whole specimen can still be more than \qty{2}{\percent}.
+Due to this unsteadiness, $\sigma_{\text{BG}}$ is not directly set as \qty{2}{\percent}-threshold was not directly processed using $\sigma$.
+Instead, the method specific standard deviation $\sigma_{\text{BG}}$ is defined as the absolute difference between the phase concentration of the whole image ($\phi_{\text{img}}$) and the phase concentration in the current image area ($\phi_{\text{area}}$), plus the absolute value of the standard deviation ($\sigma$) of the current image area:
 
 \begin{equation}
     \sigma_{\text{BG}} = \lvert\phi_{\text{img}} - \phi_{\text{area}} \rvert + \lvert\sigma\rvert
     \label{eq:phase_difference}
 \end{equation}
+
+The largest minimum required area is therefore reached, if $\sigma_{\text{BG}}$ is below \qty{2}{\percent}.
+
+Since for each repeated experiment, the phase composition has to be recalculated, this method is significantly slower than the \ac{BC} method.
+
 
 \subsection{Evaluation}
 

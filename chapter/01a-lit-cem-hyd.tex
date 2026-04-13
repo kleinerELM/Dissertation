@@ -124,7 +124,7 @@ As described in \cite{gartner.2002}, the phases are:
   \end{itemize}
 \end{multicols}
 
-The hydration process within the first 24 hours, particularly up to the end of the main hydration peak (phase III), is crucial for describing the initial hardening process and the rheological behaviour of the cement.
+The hydration process within the first \qty{24}{\hour}, particularly up to the end of the main hydration peak (phase III), is crucial for describing the initial hardening process and the rheological behaviour of the cement.
 The first useful qualitative observations at room temperature were made using the \ac{SE} mode and freshly prepared fracture surfaces after a few minutes or up to \qty{10}{\hour} \cite{stark.2001,voland.2000,suss.2001}.
 At this time, in \ac{OPC} the \ac{CSH} needles are up to \qty{300}{\nano\meter} long, while the dissolution process is barely visible in the particle \cite{voland.2000}.
 In contrast, reliable quantitative observations on embedded and polished surfaces using the \ac{BSE} mode can typically only be made after the initial setting, which takes a few hours.
@@ -335,6 +335,28 @@ Considering the literature, the term `\ac{CSH}-gel' will not be used in this wor
 While \ac{CSH} forms a colloidal network, it forms a rigid solid, not the soft, elastic material often associated with the common understanding of a gelatin-like `gel'.
 However, since the term `gel pores', describing the pores within the \ac{CSH} phases, is generally used term without any good replacement in terms of its meaning, it will still be used in this work.
 
+\subsection{Influence of the crystallographic orientation of \ac{C3S} on the hydration}
+\label{subsec:C3S_cryst_orient_lit}
+
+For many crystals it is well known that the crystallographic surface orientation plays a relevant role in their properties, such as dissolution rates, due to their anisotropy \cite{godinho.2012, prajapati.2021}.
+\ac{C3S} can occur in triclinic and monoclinic forms, which have a highly anisotropic character.
+In typical cements, the monoclinic forms MI and MIII are present \cite{denoirfontaine.2012}.
+
+Within the first seconds to the end of the induction phase, \ac{C3S} starts to dissolve and etch pits become visible on its surface \cite{scrivener.2011, juilland.2015, nicoleau.2016, tang.2023}.
+Examining the \ac{SEM} images provided in these publications, it becomes obvious that some crystal surfaces show extensive etch pits, while others are nearly unaffected \cite{scrivener.2011, nicoleau.2016, tang.2023}. 
+Furthermore, \textcite{juilland.2015} highlighted the anisotropic reactivity of \ac{C3S} originating most likely from the crystallographic planes exposed to different solvents.
+\textcite{hu.2016a} also demonstrated on seven individual \ac{C3S} particles using nano-\ac{CT} that the surface reaction during hydration is non-uniform.
+Atomistic simulations revealed that the (100), (101), (011) and ($0\overline{1}\overline{1}$) surfaces are the most reactive and thermodynamically favorable toward hydration, while the (001) surface is stabilised by a water layer \cite{salahuddin.2019}.
+However, crystal defects and resulting etch pits also play a major role in the dissolution of \ac{C3S} \cite{martin.2024}.
+
+Until now, there is no definitive indication that the \ac{CSH} growth is significantly influenced by the crystallographic orientation of \ac{C3S}.
+For example, \textcite{stark.2007} demonstrated that in pure \ac{C3S}, \ac{CSH} developed after \qty{6}{\hour} and the needles had no preferred orientation on the \ac{C3S} surface.
+In contrast, \ac{CSH} needles show an oriented growth on calcite in \ac{C3S}-calcite mixtures after only \qty{3}{\hour}.
+%The \ac{C3S} surfaces were still free of \ac{CSH} in the same mixture.
+
+%zheng.2020 CSH wächst auf Mono-layer CH?
+%garrault.2005
+
 \subsection{\acs*{CSH} rim development arount \ac{C3S} particles}
 
 In 1929/30 \textsc{Anderegg} and \textsc{Hubbell} \cite{anderegg.1929,anderegg.1930} attempted to measure the hydration layer development of \ac{OPC} at \qty{21(3)}{\celsius} using light microscopy.
@@ -403,9 +425,9 @@ However, the publication is not clear if the term `dimension' is equal to the pa
     \caption{
         Mean hydrate layer thickness $l_{\mathrm{CSH}}$ of \ac{OPC} determined by optical light microscopy experiments of \textsc{Anderegg} and \textsc{Hubbell} \cite{anderegg.1929,anderegg.1930} in dependence of the mean particle `dimension' of \num{150} measured grains.
         %The lack or addition of \qty{0.8}{\percent} \ce{CaSO4} in the experiments is marked with $\times$ and $\circ$ respectively.
-        \pdfcomment[icon=Comment, color=cyan, author=Christane]{% TODO: comment Christane
-            warum gibts für manche diamter und zeitpunkte zwei datenpunkte?
-        }
+        % \pdfcomment[icon=Comment, color=cyan, author=Christane]{% TODO: comment Christane
+        %     warum gibts für manche diamter und zeitpunkte zwei datenpunkte?
+        % }
     }
     \label{fig:anderegg-hubbel-distribution}
 \end{figure}

@@ -340,11 +340,12 @@ However, this parameter is not easily applicable for interconnected phases or po
 
 Often a reliable phase composition measurement is sufficient.
 Therefore, some authors tried to apply a \ac{REA} calculation, to make sure the observed image features are statistically relevant \cite{bosl.1998,kanit.2003,kameda.2006,klaver.2012,houben.2014,jiang.2022}.
-Similarly to the \ac{REA}, the size of therepresentative volume element can be calculated.
+Similarly to the \ac{REA}, the size of the representative volume element can be calculated.
 An essential framework for determining its size was defined by \textcite{kanit.2003}.
 %They showed that the required size of the volume element depends directly on the variance of the property under investigation (e.g. phase fraction or porosity) and the desired statistical precision.
 
-In the selected publications to calculate the \ac{REA}, two main methods were used for this statistical analysis (see \zcref{fig:lit_box_methods}).
+In the selected publications to calculate the \ac{REA}, two main methods, the \ac{BC} and the \ac{BG} method, were used for this statistical analysis.
+Their basic function is illustrated in \zcref{fig:lit_box_methods} and will be explained in the following sections.
 
 \begin{figure}[H]
     \centering
@@ -373,9 +374,9 @@ The source code used to compare both methods is publicly available \cite{kleiner
 
 The \ac{BC} method is a commonly used technique to obtain an indication of the statistical representativeness of the phase composition within an image \cite{mouret.2001, hlavacek.2015, cosenza.2019}.
 This method splits an image or multiple images of the same material into smaller sub-tiles (see \zcref{fig:lit_box_methods_b}).
-Then, a growing number of tiles is randomly selected from this tile pool.
+Then, for each experiment a growing number of tiles is randomly selected from this tile pool.
 From this selection, the phase composition is then remeasured.
-If this is repeated multiple times, the standard deviation indicates how much area has to be imaged and analysed to obtain a reasonable phase composition measurement.
+If these experiments are repeated multiple times, the standard deviation of the phase composition indicates how much area has to be imaged and analysed to obtain a reasonable phase composition measurement.
 
 \subsubsection{\Acl*{BG} method}
 \label{sec:box_growth}
@@ -385,7 +386,8 @@ The \ac{BG} method works by randomly selecting a growth point near the centre of
 From this point, a box will grow stepwise as illustrated in \zcref{fig:lit_box_methods_a}.
 The phase composition of these growing boxes is continuously measured.
 To initiate multiple experiments within an image, the growth point has to be selected randomly within a limited window (one fifth of the image width/height) in the centre of the image.
-This allows calculation of a standard deviation.
+This limited window ensures, that a large enough area remains to be analysed.
+Conducting multiple experiments allows for the calculation of standard deviations and thus enables to determine a minimal required area to be imaged to obtain a reasonable phase composition measurement.
 \textcite{kameda.2006} pointed out, that the data fluctuation of the measured porosity and permeability using this method becomes negligible, when `\textit{the cube size exceeds four grain radii}'.
 
 % relativer Fehler von hlavacek übernehmen

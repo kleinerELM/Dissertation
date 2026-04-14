@@ -357,15 +357,41 @@ Laser ablation offers an alternative for rapid, high-volume trench creation.
 \end{figure}
 
 The cross-section (\zcref{fig:fibnt_fresh_slice}) shows minor damage to the bulk material.
-Amorphous depositions up to \qty{2}{\micro\meter} and debris-filled pores are visible on the surface sectioned using a \ac{FIB}.
-However, specimens which were not lifted out of the bulk material cannot be analysed using \ac{EBSD} due to geometrical limitations.
-\pdfcomment[icon=Insert, color=red]{% TODO: insert!!
-	Der 3D Datensatz sollte in diesem Kapitel noch dargestellt werden.
-}
+Amorphous deposits up to \qty{2}{\micro\meter} and debris-filled pores are visible on the side surfaces sectioned using a \ac{FIB}.
+The large milling volume causes a rapid consumption of the deposited \ce{Pt} protection layer during the slicing process.
+This, in turn, can cause inconsistent slice widths.
+In the case of this specimen, this limited the obtained volume to a total $z$-thickness of \qty{4.3}{\micro\meter}.
+Nevertheless, the volume can be reconstructed as shown in \zcref{fig:fib_laser_3D}.
+Furthermore, since the specimen was not lifted out of the bulk material, it was not possible to analyse the specimen using \ac{EBSD} due to device-specific geometrical limitations.
 
+\begin{figure}[htb]
+    \centering
+
+    \begin{subfigure}[t]{0.4\textwidth}
+		\ifdefined\PRINTABLE
+			\includegraphics[width=\textwidth]{fibnt-datasets/high-vol-ani/ani16.pdf}
+			\caption{\ac{BSE} slice of the stack.}
+		\else
+			\animategraphics[palindrome,autoplay,poster=16,width=\textwidth]{10}{fibnt-datasets/high-vol-ani/ani}{01}{18}
+			\caption{\ac{BSE} slices of the stack.}
+		\fi
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.5\textwidth}
+		\ifdefined\PRINTABLE
+			\includegraphics[width=\textwidth]{fibnt-datasets/vol_ani2/ani16.pdf}
+		\else
+			\animategraphics[palindrome,autoplay,poster=16,width=\textwidth]{10}{fibnt-datasets/vol_ani2/ani}{01}{18}
+		\fi
+		\caption{3D reconstruction of the dataset ({\color{yellow}yellow}: \ac{C3S}, {\color{red}red}: \ac{CSH}).}
+    \end{subfigure}
+	\caption{
+		\ac{FIBnt} dataset (\qtyproduct{39.8 x 49.1 x 4.3}{\micro\meter\cubed}) of a \qty{7}{\day} hydrated \ac{C3S} specimen.
+	}
+	\label{fig:fib_laser_3D}
+\end{figure}
 
 The laser preparation also facilitates the easy preparation of larger cross-sections of \ac{ROI}s.
-For example, it enables preparation of mortar samples to analyse the \ac{ITZ} between binder and aggregate.
 For example, it enables the preparation of mortar samples to analyse the \ac{ITZ} between binder and aggregate.
 \zcref{fig:laser_prep_itz} shows that the cement binder is ablated much faster than the aggregates.
 

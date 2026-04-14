@@ -1,12 +1,9 @@
 \chapter{Summary and Outlook}
 
 This thesis focused on the advanced 2D and 3D characterisation of clinker phases and hydrated cementitious binders by combining a variety of modern imaging and analytical techniques.
-The main focus was the application of modern scanning electron microscopy (\ac{SEM}) imaging techniques which were combined with a variety of other methods.
-The primary goal was to improve the understanding of cement hydration and microstructure development by developing and refining evaluation methods and workflows.
+The main focus was the application of modern scanning electron microscopy (\ac{SEM}) imaging techniques, which were combined with various complementary methods.
+The primary goal was to improve the understanding of cement hydration and microstructural development by establishing and refining robust evaluation methods and workflows.
 
-%\color{red}
-% TODO: das ist nur ein Gerüst...
-%The key findings and contributions of this work are:
 \begin{description}
     \item[Correlative microscopy of clinker phases:]
     A correlative workflow combining \ac{SEM}-\acl{EDX} (\acs{EDX}) and \acl{LAICPMS} was established to map major, minor, and trace elements in unhydrated clinker.
@@ -17,31 +14,37 @@ The primary goal was to improve the understanding of cement hydration and micros
     The importance of advanced specimen preparation techniques like \acl{ArBIB} (\acs{ArBIB}) polishing for obtaining artefact-free surfaces for high-resolution \ac{SEM} imaging was highlighted.
     It was demonstrated that \ac{ArBIB} sectioning preserves the native pore structure without the need for resin embedding.
     Furthermore, \ac{ArBIB} preparation results in smooth surfaces, even at the interface between soft and hard materials.
-    This enables the application of \acl{NI} on epoxy-free hydrated concrete samples. 
-    Subsequent correlative \ac{NI}, \ac{EDX}, and \acl{BSE} (\acs{BSE}) analysis allowed for the determination of phase-specific mechanical properties and highlighted the differences between unhydrated clinker and hydration products.
+    This enables the application of \acl{NI} (\acs{NI}) on epoxy-free hydrated concrete samples. 
+    Subsequent correlative \ac{NI}, \ac{EDX}, and \acl{BSE} (\acs{BSE}) analyses allowed for the determination of phase-specific mechanical properties and highlighted the differences between unhydrated clinker and hydration products.
 
     \item[Advanced \ac{FIBnt} workflows:]
-    A refined lift-out technique for \acl{FIBnt} was optimised for cementitious materials to minimise common artefacts like charging, redeposition, and shadowing, enabling high-quality 3D dataset acquisition.
+    A refined lift-out technique for \acl{FIB} nano tomography (\acs{FIBnt}) was optimised for cementitious materials to minimise common artefacts like charging, redeposition, and shadowing, enabling high-quality 3D dataset acquisition.
     Furthermore, a post-processing workflow was developed to register, denoise, and segment correlative \ac{BSE} and \ac{EDX} 3D datasets, utilising 3D superpixel clustering for phase identification.
-    Additionally, laser preparation was introduced to access larger volumes and specific regions of interest like the \acl{ITZ}.
+    Additionally, laser preparation was introduced to access larger volumes and specific regions of interest, such as the \acl{ITZ}.
 
     \item[Automated \ac{HLT} measurement:]
     An algorithm was developed to automatically measure the \acl{HLT} (\acs{HLT}) from 2D-\ac{SEM} images of polished sections.
-    This method was successfully applied to \ac{C3S} and \ac{C2S}, and their mixtures, revealing the influence of phase composition and age on hydration kinetics.
+    This method was successfully applied to \ac{C3S}, \ac{C2S}, and their mixtures, revealing the influence of phase composition and age on hydration kinetics.
     It was also demonstrated that pixel classification-based segmentation yields more reliable results than simple thresholding.
     Furthermore, a statistical analysis defined the minimum representative area required for phase quantification, which depends on the sample heterogeneity.
 
     \item[Particle distance measurement in fresh pastes:]
-    Cryo-\acl{FIB} (\acs{FIB})-\ac{SEM} was successfully used to analyse the particle-particle distances in fresh cement pastes.
+    Cryo-\acs{FIB}-\ac{SEM} was used to analyse the inter-particle distances in fresh cement pastes.
     A modified version of the \ac{HLT} measurement algorithm was then used to determine particle distances.
-    The method objectively demonstrated the dispersing effect of \acl{PCE} and \acl{PUS} (\acs{PUS}) on the microstructure of cement pastes, by quantifying the shift in particle distance distributions.
+    The method objectively demonstrated the dispersing effect of \acl{PCE} and \acl{PUS} (\acs{PUS}) on the microstructure of cement pastes by quantifying the shift in particle distance distributions.
+
+    \item[\ac{EBSD}-\ac{HLT} correlation:]
+    The correlation between automated \ac{HLT} measurements and \ac{EBSD}-determined crystal orientations of \ac{C3S} revealed no significant preference for specific crystallographic directions in \ac{CSH} growth.
+    Instead, \ac{HLT} development appears to be primarily governed by the available pore space.
+    However, a correlation between the \ac{EBSD} measurement density and the crystal orientation was observed.
 
     \item[Pore structure analysis:]
     A comparative study of pore analysis methods (\ac{SEM}, \acl{LTDSC} (\acs{LTDSC}), \acl{MIP}) was conducted on reference materials (porous glass) and hydrated cement pastes.
     \ac{LTDSC} proved effective for analysing nanoscale gel porosity, showing an increase in gel pore volume with hydration time for both \ac{C3S} and \ac{C2S}.
     While \ac{C2S} exhibited a higher overall capillary porosity, \ac{C3S} showed a significantly higher gel pore volume.
     High-resolution \ac{SEM} and \ac{FIBnt} imaging of \ac{ArBIB}-prepared cross-sections allowed for the direct observation of nano-porosity within inner \ac{CSH}, yielding comparable pore size distributions to indirect methods.
-    However, it has also been shown that the limitations of the individual methods make it difficult to compare them with each other.
+    However, it was also shown that the inherent limitations of the individual methods make direct comparisons challenging.
+
 \end{description}
 
 These results demonstrate that combining various imaging and analytical techniques yields significantly more comprehensive information than individual methods by mitigating their respective limitations and leveraging their specific strengths.
@@ -51,13 +54,11 @@ This transition from qualitative observation to quantitative statistical analysi
 
 The methods and workflows developed in this thesis lay the groundwork for future research.
 \begin{itemize}
-    \item The automated \ac{HLT} measurement can be applied to a wider range of binder systems like real cements to build a comprehensive database for validating hydration models like the level-set method. 
-    \item The correlative 3D datasets from \ac{FIBnt} can be used to provide a rich basis for advanced microstructural modelling, simulation of transport properties, and validation of 2D-to-3D conversion algorithms.
-    \item \ac{FIBnt} volumes solely prepared by \ac{FIB} are fairly small. It was therefore demonstrated, that the preparation of larger volumes can be significantly accelerated by the \acl{fs-laser} preparation technique.
-    \item The cryo-\ac{FIB}-\ac{SEM} technique for analysing fresh pastes can be extended to study the very early stages of hydration and the influence of different admixtures or physical preparation steps like \ac{PUS} on particle interaction in-situ.
-    \item The most difficult and time-consuming step is still the segmentation task.
-    Further development of machine learning-based segmentation for both 2D and 3D datasets will be crucial to increase the throughput and objectivity of microstructural analysis.
-    To achieve this goal, the cement community needs to increase its effort to freely publish already labelled datasets.
+    \item The automated \ac{HLT} measurement can be applied to a wider range of binder systems, such as Portland and composite cements. These results can be used to validate hydration models, such as the level-set method. Furthermore, the \ac{HLT} measurement can be combined with other techniques, as demonstrated with \ac{EBSD}, to obtain deeper insights into the factors influencing the hydration process.
+    \item The correlative 3D datasets from \ac{FIBnt} provide a basis for microstructural modelling, simulation of transport properties, and validation of 2D-to-3D conversion algorithms.
+    \item Since \ac{FIBnt} volumes prepared solely by \ac{FIB} are inherently small, it was demonstrated that the preparation of larger volumes can be significantly accelerated by utilising the \acl{fs-laser} technique.
+    \item The cryo-\ac{FIB}-\ac{SEM} technique for analysing fresh pastes can be extended to study the very early stages of hydration and the influence of different admixtures or physical preparation steps like \ac{PUS} on particle interactions in situ.
+    \item The most challenging and time-consuming step remains the image segmentation task.
+    Further development of machine learning-based segmentation for both 2D and 3D datasets will be crucial to increase the throughput and objectivity of microstructural analyses.
+    To achieve this goal, the cement community needs to increase its efforts to freely publish annotated datasets.
 \end{itemize}
-
-%\color{black}

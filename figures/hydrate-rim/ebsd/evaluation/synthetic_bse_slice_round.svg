@@ -1,0 +1,1468 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="100.0000"
+   height="100.0000"
+   viewBox="0 0 100.0000 100.0000"
+   version="1.1"
+   id="svg170"
+   sodipodi:docname="synthetic_bse_slice_round.svg"
+   inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs170" />
+  <sodipodi:namedview
+     id="namedview170"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="5.8619152"
+     inkscape:cx="44.865883"
+     inkscape:cy="65.592897"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="-8"
+     inkscape:window-y="617"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g4-4-2" />
+  <rect
+     x="0"
+     y="0"
+     width="100.0000"
+     height="100.0000"
+     fill="#000000"
+     id="rect1" />
+  <ellipse
+     cx="13.1804"
+     cy="86.3158"
+     rx="5.7690"
+     ry="5.5181"
+     transform="rotate(127.5738 13.1804 86.3158)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse1" />
+  <ellipse
+     cx="40.1316"
+     cy="52.9052"
+     rx="7.8063"
+     ry="7.4952"
+     transform="rotate(106.2940 40.1316 52.9052)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse2" />
+  <ellipse
+     cx="49.8290"
+     cy="58.8314"
+     rx="8.0234"
+     ry="7.7635"
+     transform="rotate(84.8239 49.8290 58.8314)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse3" />
+  <ellipse
+     cx="22.0155"
+     cy="93.5585"
+     rx="6.7122"
+     ry="6.3574"
+     transform="rotate(-173.3153 22.0155 93.5585)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse4" />
+  <ellipse
+     cx="4.8598"
+     cy="19.2025"
+     rx="5.3814"
+     ry="5.0878"
+     transform="rotate(-179.3158 4.8598 19.2025)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse5" />
+  <ellipse
+     cx="92.3775"
+     cy="57.8873"
+     rx="6.2294"
+     ry="5.9342"
+     transform="rotate(-166.7420 92.3775 57.8873)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse6" />
+  <ellipse
+     cx="42.5953"
+     cy="45.3252"
+     rx="5.4472"
+     ry="5.2467"
+     transform="rotate(162.5938 42.5953 45.3252)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse7" />
+  <ellipse
+     cx="64.9458"
+     cy="35.8141"
+     rx="5.6900"
+     ry="5.5279"
+     transform="rotate(58.3632 64.9458 35.8141)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse8" />
+  <ellipse
+     cx="48.9478"
+     cy="78.5381"
+     rx="5.3370"
+     ry="4.9765"
+     transform="rotate(88.5107 48.9478 78.5381)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse9" />
+  <ellipse
+     cx="65.1571"
+     cy="39.9054"
+     rx="6.4970"
+     ry="6.2580"
+     transform="rotate(-153.9054 65.1571 39.9054)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse10" />
+  <ellipse
+     cx="70.9039"
+     cy="99.9539"
+     rx="6.5971"
+     ry="6.2831"
+     transform="rotate(78.0597 70.9039 99.9539)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse11" />
+  <ellipse
+     cx="36.2010"
+     cy="6.0887"
+     rx="6.6176"
+     ry="6.3288"
+     transform="rotate(119.8675 36.2010 6.0887)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse12" />
+  <ellipse
+     cx="29.2702"
+     cy="46.5868"
+     rx="6.0838"
+     ry="5.7143"
+     transform="rotate(177.8091 29.2702 46.5868)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse13" />
+  <ellipse
+     cx="75.6237"
+     cy="35.9011"
+     rx="5.7807"
+     ry="5.4219"
+     transform="rotate(78.8597 75.6237 35.9011)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse14" />
+  <ellipse
+     cx="8.6090"
+     cy="24.4964"
+     rx="6.4435"
+     ry="6.1413"
+     transform="rotate(161.8555 8.6090 24.4964)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse15" />
+  <ellipse
+     cx="33.6524"
+     cy="15.6661"
+     rx="6.3564"
+     ry="6.0279"
+     transform="rotate(-166.8122 33.6524 15.6661)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse16" />
+  <ellipse
+     cx="40.6463"
+     cy="17.0305"
+     rx="5.8599"
+     ry="5.4957"
+     transform="rotate(91.1106 40.6463 17.0305)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse17" />
+  <ellipse
+     cx="14.9644"
+     cy="52.5335"
+     rx="5.4100"
+     ry="5.1856"
+     transform="rotate(177.5257 14.9644 52.5335)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse18" />
+  <ellipse
+     cx="32.3238"
+     cy="23.7562"
+     rx="6.0342"
+     ry="5.6836"
+     transform="rotate(131.4350 32.3238 23.7562)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse19" />
+  <ellipse
+     cx="22.4549"
+     cy="26.1031"
+     rx="5.7918"
+     ry="5.4955"
+     transform="rotate(51.1015 22.4549 26.1031)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse20" />
+  <ellipse
+     cx="33.6502"
+     cy="98.8057"
+     rx="5.1699"
+     ry="4.8927"
+     transform="rotate(47.6108 33.6502 98.8057)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse21" />
+  <ellipse
+     cx="78.9518"
+     cy="26.4117"
+     rx="6.7569"
+     ry="6.5632"
+     transform="rotate(117.2700 78.9518 26.4117)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse22" />
+  <ellipse
+     cx="26.3314"
+     cy="85.3484"
+     rx="6.6291"
+     ry="6.4958"
+     transform="rotate(-146.5799 26.3314 85.3484)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse23" />
+  <ellipse
+     cx="5.4551"
+     cy="58.2141"
+     rx="6.2160"
+     ry="5.9748"
+     transform="rotate(-178.6281 5.4551 58.2141)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse24" />
+  <ellipse
+     cx="19.7613"
+     cy="53.4298"
+     rx="5.5577"
+     ry="5.3884"
+     transform="rotate(137.3689 19.7613 53.4298)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse25" />
+  <ellipse
+     cx="78.2732"
+     cy="7.9332"
+     rx="5.2289"
+     ry="5.0171"
+     transform="rotate(52.8602 78.2732 7.9332)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse26" />
+  <ellipse
+     cx="30.3781"
+     cy="87.3795"
+     rx="5.7673"
+     ry="5.5063"
+     transform="rotate(104.6768 30.3781 87.3795)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse27" />
+  <ellipse
+     cx="50.2347"
+     cy="66.1144"
+     rx="5.9622"
+     ry="5.6301"
+     transform="rotate(69.0413 50.2347 66.1144)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse28" />
+  <ellipse
+     cx="6.9394"
+     cy="1.7596"
+     rx="6.4428"
+     ry="6.2581"
+     transform="rotate(-177.1749 6.9394 1.7596)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse29" />
+  <ellipse
+     cx="32.7637"
+     cy="8.9961"
+     rx="6.8974"
+     ry="6.4362"
+     transform="rotate(117.5889 32.7637 8.9961)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse30" />
+  <ellipse
+     cx="9.9961"
+     cy="7.2969"
+     rx="5.9521"
+     ry="5.7174"
+     transform="rotate(-136.1684 9.9961 7.2969)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse31" />
+  <ellipse
+     cx="89.8247"
+     cy="27.7355"
+     rx="5.7568"
+     ry="5.5750"
+     transform="rotate(-158.0108 89.8247 27.7355)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse32" />
+  <ellipse
+     cx="72.5186"
+     cy="69.8420"
+     rx="5.8731"
+     ry="5.6035"
+     transform="rotate(177.5631 72.5186 69.8420)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse33" />
+  <ellipse
+     cx="19.4432"
+     cy="89.6451"
+     rx="5.5982"
+     ry="5.3543"
+     transform="rotate(51.1535 19.4432 89.6451)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse34" />
+  <ellipse
+     cx="100.0436"
+     cy="30.2673"
+     rx="6.5755"
+     ry="6.3607"
+     transform="rotate(122.3009 100.0436 30.2673)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse35" />
+  <ellipse
+     cx="49.6861"
+     cy="48.0472"
+     rx="6.1515"
+     ry="6.0203"
+     transform="rotate(116.3363 49.6861 48.0472)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse36" />
+  <ellipse
+     cx="28.8243"
+     cy="19.6193"
+     rx="6.4059"
+     ry="6.1923"
+     transform="rotate(137.0406 28.8243 19.6193)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse37" />
+  <ellipse
+     cx="90.8380"
+     cy="12.0958"
+     rx="4.4926"
+     ry="4.2319"
+     transform="rotate(80.9846 90.8380 12.0958)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse38" />
+  <ellipse
+     cx="98.1679"
+     cy="90.2440"
+     rx="5.9540"
+     ry="5.5775"
+     transform="rotate(-158.8848 98.1679 90.2440)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse39" />
+  <ellipse
+     cx="80.1259"
+     cy="3.8149"
+     rx="7.4835"
+     ry="7.2635"
+     transform="rotate(86.6985 80.1259 3.8149)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse40" />
+  <ellipse
+     cx="36.5975"
+     cy="5.0044"
+     rx="6.0062"
+     ry="5.8536"
+     transform="rotate(139.7406 36.5975 5.0044)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse41" />
+  <ellipse
+     cx="53.4184"
+     cy="27.5855"
+     rx="5.4888"
+     ry="5.2581"
+     transform="rotate(71.2662 53.4184 27.5855)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse42" />
+  <ellipse
+     cx="25.3824"
+     cy="60.2044"
+     rx="7.2419"
+     ry="7.0151"
+     transform="rotate(-149.7408 25.3824 60.2044)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse43" />
+  <ellipse
+     cx="10.5447"
+     cy="66.5115"
+     rx="3.3105"
+     ry="3.1891"
+     transform="rotate(166.8058 10.5447 66.5115)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse44" />
+  <ellipse
+     cx="75.4625"
+     cy="50.9937"
+     rx="7.0433"
+     ry="6.7417"
+     transform="rotate(119.7868 75.4625 50.9937)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse45" />
+  <ellipse
+     cx="44.0731"
+     cy="89.2871"
+     rx="5.8150"
+     ry="5.4165"
+     transform="rotate(70.3604 44.0731 89.2871)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse46" />
+  <ellipse
+     cx="28.5188"
+     cy="7.1073"
+     rx="6.2176"
+     ry="6.0187"
+     transform="rotate(168.8126 28.5188 7.1073)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse47" />
+  <ellipse
+     cx="56.9917"
+     cy="99.5514"
+     rx="5.9266"
+     ry="5.8457"
+     transform="rotate(-151.8089 56.9917 99.5514)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse48" />
+  <ellipse
+     cx="0.0860"
+     cy="47.4459"
+     rx="4.7401"
+     ry="4.5417"
+     transform="rotate(84.0315 0.0860 47.4459)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse49" />
+  <ellipse
+     cx="92.8459"
+     cy="26.5315"
+     rx="4.8185"
+     ry="4.5328"
+     transform="rotate(176.8860 92.8459 26.5315)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse50" />
+  <ellipse
+     cx="87.4232"
+     cy="69.4065"
+     rx="5.6570"
+     ry="5.3328"
+     transform="rotate(90.5409 87.4232 69.4065)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse51" />
+  <ellipse
+     cx="99.5421"
+     cy="95.8885"
+     rx="4.9008"
+     ry="4.7499"
+     transform="rotate(-141.3027 99.5421 95.8885)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse52" />
+  <ellipse
+     cx="32.5189"
+     cy="68.8899"
+     rx="2.9061"
+     ry="2.7393"
+     transform="rotate(122.3544 32.5189 68.8899)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse53" />
+  <ellipse
+     cx="95.8212"
+     cy="49.1757"
+     rx="5.2608"
+     ry="5.1480"
+     transform="rotate(166.4139 95.8212 49.1757)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse54" />
+  <ellipse
+     cx="92.8977"
+     cy="98.0669"
+     rx="3.7257"
+     ry="3.5906"
+     transform="rotate(-137.9936 92.8977 98.0669)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse55" />
+  <ellipse
+     cx="27.5940"
+     cy="41.6129"
+     rx="4.7225"
+     ry="4.6281"
+     transform="rotate(113.8234 27.5940 41.6129)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse56" />
+  <ellipse
+     cx="17.1412"
+     cy="92.9205"
+     rx="3.5786"
+     ry="3.3732"
+     transform="rotate(169.1951 17.1412 92.9205)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse57" />
+  <ellipse
+     cx="3.7869"
+     cy="72.8860"
+     rx="6.8132"
+     ry="6.5134"
+     transform="rotate(144.6970 3.7869 72.8860)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse58" />
+  <ellipse
+     cx="69.5638"
+     cy="3.2900"
+     rx="5.9643"
+     ry="5.6542"
+     transform="rotate(152.4778 69.5638 3.2900)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse59" />
+  <ellipse
+     cx="76.2020"
+     cy="98.6765"
+     rx="4.9475"
+     ry="4.7622"
+     transform="rotate(81.2401 76.2020 98.6765)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse60" />
+  <ellipse
+     cx="23.5531"
+     cy="27.5347"
+     rx="6.5998"
+     ry="6.3231"
+     transform="rotate(130.8455 23.5531 27.5347)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse61" />
+  <ellipse
+     cx="35.9947"
+     cy="22.2414"
+     rx="5.1618"
+     ry="4.9916"
+     transform="rotate(123.8157 35.9947 22.2414)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse62" />
+  <ellipse
+     cx="100.0883"
+     cy="71.9203"
+     rx="6.6643"
+     ry="6.4795"
+     transform="rotate(174.7368 100.0883 71.9203)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse63" />
+  <ellipse
+     cx="96.5261"
+     cy="46.5962"
+     rx="6.8639"
+     ry="6.4121"
+     transform="rotate(-177.5662 96.5261 46.5962)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse64" />
+  <ellipse
+     cx="13.4126"
+     cy="91.9520"
+     rx="5.9317"
+     ry="5.8671"
+     transform="rotate(127.3983 13.4126 91.9520)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse65" />
+  <ellipse
+     cx="99.1736"
+     cy="70.4232"
+     rx="3.4804"
+     ry="3.3521"
+     transform="rotate(73.8181 99.1736 70.4232)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse66" />
+  <ellipse
+     cx="91.0102"
+     cy="71.3275"
+     rx="5.4305"
+     ry="5.3779"
+     transform="rotate(66.5357 91.0102 71.3275)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse67" />
+  <ellipse
+     cx="70.2174"
+     cy="87.8974"
+     rx="4.8153"
+     ry="4.6206"
+     transform="rotate(-139.2510 70.2174 87.8974)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse68" />
+  <ellipse
+     cx="7.3559"
+     cy="39.0418"
+     rx="4.3439"
+     ry="4.0618"
+     transform="rotate(163.9540 7.3559 39.0418)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse69" />
+  <ellipse
+     cx="49.2769"
+     cy="24.0003"
+     rx="6.9626"
+     ry="6.4863"
+     transform="rotate(171.0653 49.2769 24.0003)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse70" />
+  <ellipse
+     cx="89.9449"
+     cy="85.2701"
+     rx="2.2641"
+     ry="2.1587"
+     transform="rotate(171.7067 89.9449 85.2701)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse71" />
+  <ellipse
+     cx="45.6164"
+     cy="81.3125"
+     rx="4.7872"
+     ry="4.6241"
+     transform="rotate(95.6296 45.6164 81.3125)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse72" />
+  <ellipse
+     cx="13.3898"
+     cy="51.2185"
+     rx="5.8054"
+     ry="5.4270"
+     transform="rotate(46.9545 13.3898 51.2185)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse73" />
+  <ellipse
+     cx="28.5555"
+     cy="87.6173"
+     rx="4.3294"
+     ry="4.1008"
+     transform="rotate(-158.2707 28.5555 87.6173)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse74" />
+  <ellipse
+     cx="2.0804"
+     cy="56.2844"
+     rx="4.6442"
+     ry="4.4675"
+     transform="rotate(145.5848 2.0804 56.2844)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse75" />
+  <ellipse
+     cx="30.7313"
+     cy="53.0586"
+     rx="4.3698"
+     ry="4.2554"
+     transform="rotate(95.3284 30.7313 53.0586)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse76" />
+  <ellipse
+     cx="13.7728"
+     cy="41.6129"
+     rx="3.7173"
+     ry="3.5727"
+     transform="rotate(-135.7749 13.7728 41.6129)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse77" />
+  <ellipse
+     cx="75.8978"
+     cy="84.4583"
+     rx="4.5439"
+     ry="4.3825"
+     transform="rotate(169.8099 75.8978 84.4583)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse78" />
+  <ellipse
+     cx="41.6575"
+     cy="87.8138"
+     rx="4.0064"
+     ry="3.7596"
+     transform="rotate(67.4663 41.6575 87.8138)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse79" />
+  <ellipse
+     cx="5.5085"
+     cy="0.5382"
+     rx="4.4698"
+     ry="4.1640"
+     transform="rotate(69.3209 5.5085 0.5382)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse80" />
+  <ellipse
+     cx="41.4584"
+     cy="58.8603"
+     rx="2.9249"
+     ry="2.8186"
+     transform="rotate(-147.6818 41.4584 58.8603)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse81" />
+  <ellipse
+     cx="25.5390"
+     cy="57.0548"
+     rx="3.3294"
+     ry="3.2257"
+     transform="rotate(134.7772 25.5390 57.0548)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse82" />
+  <ellipse
+     cx="9.5734"
+     cy="63.0799"
+     rx="2.6896"
+     ry="2.5898"
+     transform="rotate(65.6205 9.5734 63.0799)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse83" />
+  <ellipse
+     cx="64.7946"
+     cy="19.2537"
+     rx="3.8818"
+     ry="3.6741"
+     transform="rotate(110.2750 64.7946 19.2537)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse84" />
+  <ellipse
+     cx="17.3117"
+     cy="99.7878"
+     rx="2.8356"
+     ry="2.6886"
+     transform="rotate(161.0536 17.3117 99.7878)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse85" />
+  <ellipse
+     cx="98.7162"
+     cy="78.1572"
+     rx="5.5152"
+     ry="5.4640"
+     transform="rotate(90.2252 98.7162 78.1572)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse86" />
+  <ellipse
+     cx="28.6237"
+     cy="72.5148"
+     rx="4.3354"
+     ry="4.1221"
+     transform="rotate(177.6069 28.6237 72.5148)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse87" />
+  <ellipse
+     cx="48.1377"
+     cy="42.1874"
+     rx="4.5592"
+     ry="4.5176"
+     transform="rotate(146.7002 48.1377 42.1874)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse88" />
+  <ellipse
+     cx="92.1472"
+     cy="3.5201"
+     rx="5.2502"
+     ry="5.1894"
+     transform="rotate(-175.8290 92.1472 3.5201)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse89" />
+  <ellipse
+     cx="36.8478"
+     cy="56.9709"
+     rx="4.9662"
+     ry="4.8238"
+     transform="rotate(154.6898 36.8478 56.9709)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse90" />
+  <ellipse
+     cx="58.2843"
+     cy="29.7505"
+     rx="2.8910"
+     ry="2.7871"
+     transform="rotate(147.1987 58.2843 29.7505)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse91" />
+  <ellipse
+     cx="0.8661"
+     cy="90.9037"
+     rx="1.8499"
+     ry="1.7988"
+     transform="rotate(-139.8991 0.8661 90.9037)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse92" />
+  <ellipse
+     cx="18.2247"
+     cy="41.9379"
+     rx="4.0471"
+     ry="3.8643"
+     transform="rotate(74.0385 18.2247 41.9379)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse93" />
+  <ellipse
+     cx="44.3862"
+     cy="44.2377"
+     rx="3.5369"
+     ry="3.2982"
+     transform="rotate(91.7222 44.3862 44.2377)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse94" />
+  <ellipse
+     cx="44.7978"
+     cy="0.6253"
+     rx="5.2009"
+     ry="4.9990"
+     transform="rotate(133.1384 44.7978 0.6253)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse95" />
+  <ellipse
+     cx="64.3987"
+     cy="54.8554"
+     rx="2.5735"
+     ry="2.5535"
+     transform="rotate(122.6217 64.3987 54.8554)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse96" />
+  <ellipse
+     cx="39.1359"
+     cy="9.0355"
+     rx="0.9689"
+     ry="0.9021"
+     transform="rotate(127.8956 39.1359 9.0355)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse97" />
+  <ellipse
+     cx="34.1000"
+     cy="60.4485"
+     rx="2.2998"
+     ry="2.2533"
+     transform="rotate(92.3134 34.1000 60.4485)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse98" />
+  <ellipse
+     cx="17.0146"
+     cy="5.5640"
+     rx="4.8320"
+     ry="4.7953"
+     transform="rotate(-163.3352 17.0146 5.5640)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse99" />
+  <ellipse
+     cx="72.3810"
+     cy="83.3477"
+     rx="4.7119"
+     ry="4.5916"
+     transform="rotate(49.9617 72.3810 83.3477)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse100" />
+  <ellipse
+     cx="48.0295"
+     cy="50.6628"
+     rx="1.3532"
+     ry="1.2987"
+     transform="rotate(117.6188 48.0295 50.6628)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse101" />
+  <ellipse
+     cx="26.5199"
+     cy="50.2390"
+     rx="2.1921"
+     ry="2.0977"
+     transform="rotate(116.5582 26.5199 50.2390)"
+     fill="#373737"
+     stroke="none"
+     id="ellipse102" />
+  <circle
+     cx="13.1812"
+     cy="86.3152"
+     r="3.5715"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle102" />
+  <circle
+     cx="40.1306"
+     cy="52.9039"
+     r="5.7788"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle103" />
+  <circle
+     cx="49.8375"
+     cy="58.8269"
+     r="5.9758"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle104" />
+  <circle
+     cx="22.0048"
+     cy="93.5551"
+     r="4.5876"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle105" />
+  <circle
+     cx="4.8495"
+     cy="19.2114"
+     r="3.2467"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle106" />
+  <circle
+     cx="92.3900"
+     cy="57.8978"
+     r="4.0425"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle107" />
+  <circle
+     cx="42.5867"
+     cy="45.3319"
+     r="3.2569"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle108" />
+  <circle
+     cx="64.9485"
+     cy="35.8397"
+     r="3.5658"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle109" />
+  <circle
+     cx="48.9430"
+     cy="78.5444"
+     r="3.1505"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle110" />
+  <circle
+     cx="65.1855"
+     cy="39.9156"
+     r="4.3666"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle111" />
+  <circle
+     cx="70.8862"
+     cy="99.9390"
+     r="4.3751"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle112" />
+  <circle
+     cx="36.2123"
+     cy="6.0615"
+     r="4.4081"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle113" />
+  <circle
+     cx="29.2903"
+     cy="46.5751"
+     r="3.8990"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle114" />
+  <circle
+     cx="75.6075"
+     cy="35.9204"
+     r="3.5890"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle115" />
+  <circle
+     cx="8.5886"
+     cy="24.4627"
+     r="4.3117"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle116" />
+  <circle
+     cx="33.6381"
+     cy="15.7025"
+     r="4.1377"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle117" />
+  <circle
+     cx="40.6637"
+     cy="17.0537"
+     r="3.6532"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle118" />
+  <circle
+     cx="15.0024"
+     cy="52.4949"
+     r="3.2056"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle119" />
+  <circle
+     cx="32.3573"
+     cy="23.7714"
+     r="3.8458"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle120" />
+  <circle
+     cx="22.4234"
+     cy="26.0811"
+     r="3.5455"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle121" />
+  <circle
+     cx="33.6286"
+     cy="98.7647"
+     r="2.9110"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle122" />
+  <circle
+     cx="79.0413"
+     cy="26.4322"
+     r="4.6181"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle123" />
+  <circle
+     cx="26.3342"
+     cy="85.4490"
+     r="4.5195"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle124" />
+  <circle
+     cx="5.4935"
+     cy="58.1727"
+     r="4.0797"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle125" />
+  <circle
+     cx="19.6799"
+     cy="53.4552"
+     r="3.3976"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle126" />
+  <circle
+     cx="78.2858"
+     cy="8.0147"
+     r="3.0005"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle127" />
+  <circle
+     cx="30.3797"
+     cy="87.4334"
+     r="3.5614"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle128" />
+  <circle
+     cx="50.2278"
+     cy="66.1759"
+     r="3.7016"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle129" />
+  <circle
+     cx="7.0311"
+     cy="1.8231"
+     r="4.2001"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle130" />
+  <circle
+     cx="32.7924"
+     cy="8.9731"
+     r="4.5581"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle131" />
+  <circle
+     cx="9.9955"
+     cy="7.1996"
+     r="3.6442"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle132" />
+  <circle
+     cx="89.7731"
+     cy="27.8058"
+     r="3.4408"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle133" />
+  <circle
+     cx="72.5719"
+     cy="69.9182"
+     r="3.5440"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle134" />
+  <circle
+     cx="19.5242"
+     cy="89.6285"
+     r="3.3413"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle135" />
+  <circle
+     cx="99.9489"
+     cy="30.2692"
+     r="4.4137"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle136" />
+  <circle
+     cx="49.6980"
+     cy="47.9223"
+     r="3.9120"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle137" />
+  <circle
+     cx="28.8319"
+     cy="19.5029"
+     r="4.1972"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle138" />
+  <circle
+     cx="90.9000"
+     cy="12.0439"
+     r="1.9608"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle139" />
+  <circle
+     cx="98.1184"
+     cy="90.2726"
+     r="3.5994"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle140" />
+  <circle
+     cx="80.1076"
+     cy="3.7335"
+     r="5.1816"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle141" />
+  <circle
+     cx="36.6106"
+     cy="4.8667"
+     r="3.7648"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle142" />
+  <circle
+     cx="53.4378"
+     cy="27.6572"
+     r="3.1735"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle143" />
+  <circle
+     cx="25.2451"
+     cy="60.1638"
+     r="5.0042"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle144" />
+  <circle
+     cx="75.5322"
+     cy="50.9568"
+     r="4.6489"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle145" />
+  <circle
+     cx="44.1042"
+     cy="89.2706"
+     r="3.2848"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle146" />
+  <circle
+     cx="28.5925"
+     cy="7.1587"
+     r="3.7876"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle147" />
+  <circle
+     cx="57.1167"
+     cy="99.4078"
+     r="3.5345"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle148" />
+  <circle
+     cx="0.0926"
+     cy="47.3768"
+     r="2.0000"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle149" />
+  <circle
+     cx="92.7668"
+     cy="26.4574"
+     r="1.9989"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle150" />
+  <circle
+     cx="87.3240"
+     cy="69.3505"
+     r="3.0570"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle151" />
+  <circle
+     cx="99.3543"
+     cy="95.8708"
+     r="2.1815"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle152" />
+  <circle
+     cx="95.9814"
+     cy="49.2500"
+     r="2.6314"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle153" />
+  <circle
+     cx="27.5924"
+     cy="41.4178"
+     r="1.8759"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle154" />
+  <circle
+     cx="3.9524"
+     cy="72.8482"
+     r="4.3446"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle155" />
+  <circle
+     cx="69.4217"
+     cy="3.3428"
+     r="3.3743"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle156" />
+  <circle
+     cx="76.2251"
+     cy="98.7186"
+     r="2.0882"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle157" />
+  <circle
+     cx="23.5771"
+     cy="27.3689"
+     r="4.0764"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle158" />
+  <circle
+     cx="35.9666"
+     cy="22.4416"
+     r="2.3542"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle159" />
+  <circle
+     cx="99.9409"
+     cy="71.8690"
+     r="4.1531"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle160" />
+  <circle
+     cx="96.4581"
+     cy="46.5500"
+     r="4.2737"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle161" />
+  <circle
+     cx="13.6470"
+     cy="91.8585"
+     r="3.3488"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle162" />
+  <circle
+     cx="90.8042"
+     cy="71.1737"
+     r="2.6724"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle163" />
+  <circle
+     cx="70.2055"
+     cy="88.1165"
+     r="1.5128"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle164" />
+  <circle
+     cx="49.3209"
+     cy="23.9686"
+     r="4.2794"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle165" />
+  <circle
+     cx="45.4462"
+     cy="81.1571"
+     r="1.3685"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle166" />
+  <circle
+     cx="13.3977"
+     cy="51.1173"
+     r="2.8618"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle167" />
+  <circle
+     cx="2.2405"
+     cy="56.2430"
+     r="0.7565"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle168" />
+  <circle
+     cx="98.5636"
+     cy="77.8608"
+     r="2.3213"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle169" />
+  <circle
+     cx="91.9246"
+     cy="3.2592"
+     r="1.6904"
+     fill="#c8c8c8"
+     stroke="none"
+     id="circle170" />
+  <g
+     id="g4-4-2"
+     transform="matrix(1.0185185,0,0,1.0185185,55.398088,-188.93636)">
+    <rect
+       style="opacity:0.5;fill:#000000;stroke:none;stroke-width:11.3704;stroke-linecap:round;stroke-linejoin:round"
+       id="rect10-27-8"
+       width="27"
+       height="5.904182"
+       x="14.816223"
+       y="275.35709" />
+    <path
+       style="fill:#ffffff;stroke:#ffffff;stroke-width:0.543986;stroke-dasharray:none"
+       d="M 40.588951,276.58499 H 16.043496"
+       id="path1-2-7-6" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.88056px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';fill:#ffffff;stroke:none;stroke-width:0.108542;stroke-dasharray:none"
+       x="22.97657"
+       y="280.07849"
+       id="text3-9-0"><tspan
+         sodipodi:role="line"
+         id="tspan3-3-2"
+         style="font-size:3.88056px;stroke:none;stroke-width:0.108542"
+         x="22.97657"
+         y="280.07849">25 µm</tspan></text>
+  </g>
+</svg>

@@ -1,6 +1,6 @@
 
 \FloatBarrier
-\section{\Acl*{SEM} (\acs*{SEM}) for building material characterisation}
+\section[Scanning electron microscopy for building material characterisation (SEM)]{\Acl*{SEM} (\acs*{SEM}) for building material characterisation}
 
 % imaging overview paper \cite{qoku.2023}
 The first electron microscope was a constructed by \textsc{Ernst Ruska} and \textsc{Max Knoll} in 1931 \cite{knoll.1932} and was based on the transmission of electrons trough a thin specimen.
@@ -37,7 +37,7 @@ They allow to measure and visualise the chemical composition, the crystallograph
 
 
 
-\subsection{\Acl*{SE} (\acs*{SE}) imaging}
+\subsection[Secondary electron (SE) imaging]{\Acl*{SE} (\acs*{SE}) detector}
 \label{sec:se}
 
 \ac{SE} detectors primarily capture low-energy secondary electrons (<\,\qty{50}{\electronvolt}) which are inelastically scattered within the very near-surface region (a depth of below \qty{50}{\nano\meter}) of a sample \cite{pawley.1984}. %fylak.2011
@@ -54,7 +54,7 @@ These were equipped with field emission guns and more sensitive detectors \cite{
 Current \ac{SEM}s are able to further improve the \ac{SE}-imaging utilising voltages of a few hundred Volts and beam deceleration techniques, allowing for high resolutions of uncoated specimens in the \unit{\nano\meter} scale.
 Furthermore, the significantly improved compute power, now allows to easily produce high-resolution images of large areas, to accelerate the signal acquisition of detector signals and to automate significant parts of the imaging process.
 
-\subsection{\Acl*{BSE} (\acs*{BSE}) detector}
+\subsection[Backscatter electron (BSE) detector]{\Acl*{BSE} (\acs*{BSE}) detector}
 \label{sec:bse}
 
 \ac{BSE} detectors collect high-energy electrons from the primary beam that have been elastically scattered back out of the sample after interacting with atomic nuclei.
@@ -217,24 +217,24 @@ However, the calculated contrast does not always correlate perfectly with the or
 
 %\FloatBarrier
 
-\subsection{\Acl*{EDX} (\acs*{EDX})}
+\subsection[Energy-dispersive X-ray spectroscopy (EDX)]{\Acl*{EDX} (\acs*{EDX})}
 \label{sec:edx}
 
-\ac{EDX} is a widely used technology available on most modern \ac{SEM}-devices.
-It is based on the interaction of the electron beam with the atoms of the sample.
-When the high-energy beam electrons penetrate the sample, they can knock out inner shell electrons (\textsc{Auger} electrons) from the sample atoms.
-The electrons of the outer-shell will fall back to the energy level of the knocked-out electrons, emitting the excess energy in the form of X-rays.
+\ac{EDX} is a widely used technique available on most modern \ac{SEM} instruments.
+It is based on the interaction of the electron beam with the atoms in the sample.
+When the high-energy beam electrons penetrate the sample, they can knock out inner-shell electrons from the sample atoms.
+Outer-shell electrons then fall back into the resulting vacancy, emitting the excess energy as X-rays.
 The energy of these X-rays is a unique fingerprint of a specific element.
 An \ac{EDX} detector measures the energy and intensity (counts) of the emitted X-rays.
-This allows for qualitative identification for elements in cement-based materials with a concentration of down to \qty{0.1}{\wtpercent} \cite{kleiner.2022b} and quantitative analysis. 
+This allows qualitative identification of elements in cement-based materials at {\color{red}concentrations down to \qty{0.1}{\wtpercent} \cite{kleiner.2022b}}, as well as quantitative analysis. 
 Point analyses and elemental maps can show the spatial distribution of these elements and thus, the associated phases.
 
-The excitation voltage has to be about \numrange{2}{3} times as high as the expected X-ray energies of the elements of interest to collect enough counts to be able identify and quantify the concentration of the elements. % \acs{Ka}  or \acs{Kb}
-This results in a minimal required electron beam voltage of \qty{10}{\kilo\volt} to measure, e.g. \ce{Ca} with a \ac{Ka} of \qty{3.69}{\kilo\electronvolt} \cite{hudson.2003}.
-For sensitive phases, an electron dose like this can already alter its appearance.
-However, using low voltages will result in lower X-ray counts, which can only be countered by using a very sensitive detector, which has a large detection area and/or has no window \cite{yamamoto.2016}.
-Window-less detectors \cite{tamura.2013} also allow to detect light elements like \ce{Li}, \ce{Be}, and \ce{B} \cite{yamamoto.2016}.
-However, these elements still are challenging to differentiate in most specimens with a more complex composition due to the overlap of X-ray energies \cite{hudson.2003}.
+The excitation voltage must be about \numrange{2}{3} times as high as the expected X-ray energies of the elements of interest in order to collect enough counts to identify and quantify their concentrations. % \acs{Ka}  or \acs{Kb}
+This results in a minimum required electron beam voltage of \qty{10}{\kilo\volt} to measure, for example, \ce{Ca} with a \ac{Ka} line at \qty{3.69}{\kilo\electronvolt} \cite{hudson.2003}.
+For sensitive phases, such an electron dose can already alter appearance.
+However, using lower voltages results in fewer X-ray counts, which can only be mitigated by using a very sensitive detector with a large detection area and/or a window-less design \cite{yamamoto.2016}.
+Window-less detectors \cite{tamura.2013} also allow detection of light elements such as \ce{Li}, \ce{Be}, and \ce{B} \cite{yamamoto.2016}.
+Nonetheless, these elements remain challenging to distinguish in specimens of complex composition because of overlapping X-ray energies \cite{hudson.2003}.
 
 The lateral resolution of the \ac{EDX} analysis is limited by the applied electron beam voltage and current.
 Similar to the \ac{BSE}, the higher the voltage, the larger the interaction volume and depth (see \zcref{fig:penetration_depth}), and therefore the larger the area from which X-rays are emitted \cite{rossen.2017}, reducing the feature resolution.
@@ -242,19 +242,24 @@ Depending on the beam voltage required, the interaction volume and therefore the
 This was also shown by \textcite{rossler.2022}, who managed to reveal microstructural features below \qty{400}{\nano\meter} within cement clinkers at \qty{25}{\kilo\volt}.
 \textcite{moeini.2021} even demonstrated \ac{EDX} element mappings from an \ce{Al}-\ce{Si}10\ce{Mg} alloy, revealing intergranular spaces with a thickness between \qtyrange{100}{200}{\nano\meter}.
 
+To move beyond the interpretation of individual elemental distributions, multiple elemental \ac{EDX} maps can be combined to generate comprehensive phase maps.
+For instance, \textcite{munch.2015} introduced an automated segmentation method utilising $k$-means clustering on elemental \ac{EDX} maps to reliably identify and separate different mineral phases.
+Building on quantitative \ac{SEM}-\ac{EDX} hypermaps (multi-layer maps), \textcite{georget.2021} developed the \textit{edxia} tool specifically for the microstructural characterisation of cementitious materials.
+By evaluating atomic ratios (such as \ce{Ca}/\ce{Si} and \ce{Al}/\ce{Ca}) alongside \ac{BSE} grey levels, it enables a reproducible and automated segmentation of complex hydrated cement pastes into distinct phases like \ac{CH}, unreacted clinker, and various \ac{CSH} compositions.
+\textcite{jiang.2022} combined \ac{BSE} images with \ac{EDX} spectral data for the high-resolution phase segmentation of unhydrated cement clinkers by leveraging the higher resolution of the \ac{BSE} image for a better segmentation of the low-resolution \ac{EDX} data.
+They then applied a decision-tree model to identify the phases within the superpixels.
 
-
-% TODO: Wäre es hier nicht auch noch sinnvoll zu erwähnen, dass man ggf. seine Probe mit den hohen Energien kaputt macht? Das ist doch ein eindeutiger Nachteil.
+% TODO: Michael Wäre es hier nicht auch noch sinnvoll zu erwähnen, dass man ggf. seine Probe mit den hohen Energien kaputt macht? Das ist doch ein eindeutiger Nachteil.
 
 
 
 \FloatBarrier
 
-\subsection{\Acl*{EBSD} (\acs*{EBSD})}
+\subsection[Electron backscatter diffraction (EBSD)]{\Acl*{EBSD} (\acs*{EBSD})}
 \label{sec:ebsd}
 
-\ac{EBSD} is a technique used in the \ac{SEM}, which allows to spatially resolve the crystallographic structure and orientation of crystalline materials on the sample surface.
-The electron beam interacts is diffracted, normally on a tilted crystalline sample.
+\ac{EBSD} is a technique used in the \ac{SEM} that allows the spatially resolved determination of the crystallographic structure and orientation of crystalline materials on the sample surface.
+The electron beam is diffracted by a tilted crystalline sample.
 The term \ac{EBSD} was introduced in 1973 by \textcite{venables.1973}.
 The first commercial \ac{EBSD} system was introduced in 1984 by \textsc{Moon} and \textsc{Harris} based on the work of \textsc{Dingley} \cite{wright.2000} and has since become a standard tool in materials science.
 Often it is used simultaneously with \ac{EDX} to provide a comprehensive analysis of the sample \cite{wright.2000}.
@@ -268,27 +273,43 @@ Scanning across the sample generates maps of phase distribution, crystal orienta
     Schlecht verquellt. Da fehlt noch einiges.
 }
 
+\begin{figure}[htb!]
+    \centering
+    \begin{tikzpicture}
+        \node[anchor=south west, inner sep=0] (bg) at (0,0) {\includegraphics[width=\linewidth]{hydrate-rim/ebsd/method/EBSD-illustration_1.pdf}};
+        \node[anchor=south west, inner sep=0] (fg) at (0,0) {
+            \ifdefined\PRINTABLE
+                \includegraphics[width=\linewidth]{hydrate-rim/ebsd/method/EBSD-illustration_2.pdf}
+            \else
+                \animategraphics[loop,autoplay,width=\linewidth]{1}{hydrate-rim/ebsd/method/EBSD-illustration_}{2}{3}
+            \fi
+        };
+    \end{tikzpicture}
+    \caption{
+        Illustration of the \ac{EBSD} measurement principle.
+        Left: Specimen-detector arrangement within the \ac{SEM} chamber.
+        The specimen surface is at a \qty{20}{\degree} angle with respect to the electron beam.
+        Right: \textsc{Kikuchi} pattern with example lines used for pattern matching.
+    }
+    \label{fig:ebsd_principle}
+\end{figure}
+
+
 \ac{EBSD} relies on the principle of \textsc{Bragg} diffraction, which mandates the presence of a sufficiently well-ordered crystal lattice.
 Consequently, highly disordered materials (as in \ac{CSH} or many \ac{C2S} variations) cannot be reliably analysed.
 The technique generally requires a minimum crystallite size (a few tens of nanometres or more) to generate a discernible \textsc{Kikuchi} pattern.
 Additionally, mechanical surface polishing is not sufficient to analyse most materials.
-Therefore, ion polishing is a necessary preparation step for \ac{EBSD} analysis on cement based materials.
-Furthermore, to obtain a good pattern, \ac{EBSD} requires high voltages and currents, which can potentially damage electron beam sensitive specimens.
-\pdfcomment[icon=Note, color=orange]{% TODO: note
-    EBSD hat bisher keine signifikante Anwendung in der Arbeit gefunden. Streichen?
-    Die gewünschte Dickenmessung abh. von der Kristallorientierung ist mir bisher noch nicht gelungen.... Eventuell nur an einem 2D-Schliff durchführen? Nur für Alit?
-}
+Therefore, ion polishing is a necessary preparation step for \ac{EBSD} analysis on cement-based materials.
+To obtain a good pattern, \ac{EBSD} requires high voltages and currents, which can potentially damage electron-beam-sensitive specimens.
+Furthermore, for non-conductive specimens, a very thin conductive coating is still required \cite{rossler.2022}.
 
-% TODO: einen absatz zu phase maps (eine zusammenfassung von georget.2021) und munch.2015
+In the field of cement research, \ac{EBSD} is used for the characterisation of unhydrated clinkers \cite{rossler.2022} and supplementary cementitious materials like steel slags \cite{rossler.2023, derensy.2026}.
 
-% TODO: ein paar quellen
-% TODO: Christiane: ich hoffe in deiner arbeit wirds ein paar ebsd ergebnisse geben, zb dickenmessung des hydratsaums in abhängigkeit von der kristallorientierung? in 2d an C3S auch schnell gemacht.
-% und ich würde EBSD mit einem bild erläutern für die cement-cloud. 
 
-%TODO: Im Prinzip eine PD (pole figure diffraction), aber mit räumlicher Auflösung? Falls ja, solltest du die Analogie erwähnen.
+%TODO: Michael: Im Prinzip eine PD (pole figure diffraction), aber mit räumlicher Auflösung? Falls ja, solltest du die Analogie erwähnen.
 
 \FloatBarrier
-\subsection{\Acl*{FIB} (\acs*{FIB})}
+\subsection[Focussed ion beam (FIB)]{\Acl*{FIB} (\acs*{FIB})}
 \label{sec:lit_fib}
 
 Besides the classical detectors, modern \ac{SEM}s can also be equipped with a \ac{FIB}.

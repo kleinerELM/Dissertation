@@ -277,7 +277,7 @@
 		{
 			"name": "Fast Build Digital",
 			"tools": [
-				"xelatex"
+				"xelatexmk"
 			]
 		},
 		{

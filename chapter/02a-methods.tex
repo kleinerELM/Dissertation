@@ -2,8 +2,8 @@
 \label{sec:methods}
 
 The numerous materials used in this work are detailed in \zcref{sec:materials}.
-
-\section{\acs*{SEM}}
+ 
+\section{\Acl*{SEM}}
 \label{sec:sem}
 
 For most of the \ac{SEM}-imaging and for all \ac{FIB} experiments, a \textit{thermoFischer Scientific Helios G4 UX} was used.
@@ -126,7 +126,7 @@ However, the surface roughness was still rather high (\qty{\pm 40}{\nano\meter})
 
 A very common method is the \ac{FIBnt}, which was also used in this study.
 
-\subsection{\Acl*{FIBnt} (\acs*{FIBnt})}
+\subsection{\Acl*{FIBnt}}
 \label{sec:fib}
 
 To apply this method, the cementitious specimen was embedded in resin to avoid imaging the pore background or loose moving material within larger pores.
@@ -184,7 +184,7 @@ To avoid charging effects, the specimen can be coated with a layer of \ce{Au} in
 \end{figure}
 
 \FloatBarrier
-\section[Laser Ablation - Inductively Coupled Plasma - Mass Spectrometry \\ (\acs*{LAICPMS})]{Laser Ablation - Inductively Coupled Plasma - Mass Spectrometry (\acs*{LAICPMS})}
+\section[Laser ablation - inductively coupled plasma - mass spectrometry]{\Acl*{LAICPMS}}
 % The text for the TOC contains a line break, since the line was overflowing - it is not a nice fix but it kind of works...
 
 A \ac{LAICPMS} consists of a laser to ablate the specimen surface, a microscope to aim the laser at the measurement side, an \ac{ICP} to ionize the ablated flow of material within a carrier gas, and a \ac{MS}.
@@ -219,14 +219,14 @@ It has to be noted that the specimen surface was pre-ablated using a coarser res
 However, this has to be taken into account to correctly align the final ablation result to the \ac{SEM} image.
 
 \FloatBarrier
-\section[Micro X-ray fluorescence spectroscopy (\acs*{mXRF})]{Micro X-ray fluorescence spectroscopy (\acs*{mXRF})}
+\section[Micro X-ray fluorescence spectroscopy]{\Acl*{mXRF}}
 
 For the \ac{mXRF} mapping, an \textit{ORBIS-PC} instrument (\textsc{EDAX}) was used. 
 The X-ray source was operated at \qty{35}{\kilo\volt} and \qty{300}{\micro\ampere}, with a dwell time of \qty{200}{\milli\second} per pixel.
 An \qty{25}{\micro\meter} \ce{Al}-filter was used to reduce the background signal.
 
 \FloatBarrier
-\section[Nanoindentation (\acs*{NI})]{Nanoindentation (\acs*{NI})}
+\section[Nanoindentation]{\Acl*{NI}}
 
 The \ac{NI} experiments were done using a \textit{Hysitron TS 77 Select} by \textsc{Bruker}.
 It was equipped with a \textsc{Berkovich} tip which was calibrated on a standardised quartz surface.
@@ -239,12 +239,12 @@ The hardness $H$ and the reduced \textsc{Young}'s modulus $E_r$ were calculated 
 Individual outliers (curves with significant pop-in) were manually removed from the data prior to analysis.
 
 \FloatBarrier
-\section{Pore size measurement}
+\section{Pore size measurements}
 
 The following sections give an overview about methods used for pore size measurements.
 
 \FloatBarrier
-\subsection{\acs*{MIP}}
+\subsection{\Acl*{MIP}}
 \label{sec:method-mip}
 
 For this work, an \textit{Autopore IV 9500} from \textit{Micromeritics GmbH} was used for the \ac{MIP} measurements.
@@ -255,7 +255,7 @@ However, larger values (above $\approx$ \qty{10}{\micro\meter}) will be ignored,
 
 
 \FloatBarrier
-\subsection{\acs*{LTDSC}}
+\subsection{\Acl*{LTDSC}}
 \label{fig:ltdsc}
 
 To obtain data about the capillary and gel porosity, an \ac{LTDSC} system (\textit{DSC Polyma 214} from \textit{Netzsch}), connected to a cooling system (\textit{Intercooler IC70}) was used.
@@ -476,6 +476,47 @@ The source code of the procedure which was used for this analysis can be found i
 % % TODO: bild?
 
 
+
+\FloatBarrier
+\subsection{Calculating the phase composition based on 2D-\acs*{SEM} images}
+Using a segmented \ac{SEM} image with the image area $A_1$, the phase composition can be estimated by using the \unit{\areapercent} of alite $A_{\text{C}_3\text{S}}$ and the hydrate phases $A_\text{\text{CSH}}$ and $A_\text{CH}$ \cite{kleiner.2024a}.
+If the hydrate phases are indistinguishable, they can be summed up:
+
+\begin{equation}
+    \label{eq:est_hydrate_area}
+    \begin{aligned}
+        A_\text{hydrate} &= A_\text{\text{CSH}} + A_\text{CH} \\
+        &= A_1 - A_{\text{C}_3\text{S}} - A_{\text{pores}}
+    \end{aligned}
+\end{equation}
+
+Although density is a volumetric property and the measurements provide only areas, it can be used to approximate the volume fraction of the hydrate phases.
+This approximation assumes that the phase fractions observed in 2D images are representative of the true volumetric fractions.
+Under this assumption, Equation \zcref{eq:est_frac} yields an estimate of the mass fraction of the hydrate phases (\ac{CH} and \ac{CSH}), \(\sigma_{\text{hydrate}}\), expressed in \unit{\wtpercent}.
+
+\begin{equation}
+    \label{eq:est_frac}
+    \sigma_\text{hydrate} = \frac{A_\text{hydrate} \cdot \rho_\text{hydrate}}{A_\text{hydrate} \cdot \rho_\text{hydrate} + A_{\text{C}_3\text{S}} \cdot \rho_{\text{C}_3\text{S}}}
+\end{equation}
+
+The densities required to calculate these values are listed in \zcref{tab:densities}.
+
+% why 2.5 : 1.0?
+\begin{table}[htb]
+    \centering
+    \caption{
+        Densities of \ac{C3S} \cite{garrault.2006}, \ac{C2S}\cite{zhang.2012a}, \ac{CH} and \ac{CSH} \cite{garrault.2006} different phases in \unit{\gram\per\cubic\centi\meter} \cite{jennings.2000,garrault.2006}.\\$^{*}$mixture of \ac{CSH}:\ac{CH} at a volume ratio of \num{2.5}:\num{1}}
+    \label{tab:densities}
+    \begin{tabularx}{\textwidth}{@{}XXXXXXX@{}}
+        \toprule
+        \textbf{Phase} & \ac{C3S} & $\beta$-\ac{C2S} & $\gamma$-\ac{C2S} & \ac{CH} & \ac{CSH} & hydrate phase$^{*}$\\
+		\midrule
+        \textbf{Density} & \num{3.14} & \num{2.97} & \num{3.28} & \num{2.2} & $\approx$ \num{2.116} &  \num{2.07} \\
+		\bottomrule
+    \end{tabularx}
+\end{table}
+% beta-C2S: monoclin, more dense
+% gamma-C2S:orthorhombi, less dense
 
 \subsection{\Acl*{PSD} (\acs*{PSD}) of \ac*{SEM}-\ac*{SE} images of \acs*{CSHi}}
 \label{subsec:algo_psd}

@@ -2,14 +2,14 @@
 \section{Pore analysis}
 \label{sec:pore_analysis}
 
-% pore analysis paper \cite{yio.2019,levitz.2007,muench.2008,desbois.2016...}
+% pore analysis paper \cite{,levitz.2007,muench.2008,desbois.2016...}
 
-The porosity of a hydrated cement not only defines its final strength, but also its durability, freeze-thaw resistance and resistance to chemical attack.
-On initial thought, the measurement of pores and pore sizes seems to be fairly easy.
-However, while air voids in mortar and concrete are mostly spherical due to the surface tension of the fresh binder, this significantly changes below a scale of tens of micrometres, where the capillary pores begin.
+The porosity of a hydrated cement not only defines its final strength, but also its durability, freeze-thaw resistance, and resistance to chemical attack.
+On a first glance, the measurement of pores and pore sizes seems to be fairly easy.
+However, while air voids in mortar and concrete are mostly spherical due to the surface tension of the fresh binder, this significantly changes below a scale of tens of micrometres, where the capillary porosity begins.
 These pores are filled with pore solution/water during hydration and feature much more complex, fractal-like geometries.
 
-There are a lot of methods to measure the \ac{PSD} of a hardened specimen.
+There a variety of methods to measure the \ac{PSD} of a hardened specimen.
 However, each method has different measurement ranges as illustrated in \zcref{fig:pore_sizes}.
 
 \begin{figure}[!ht]
@@ -26,15 +26,19 @@ However, each method has different measurement ranges as illustrated in \zcref{f
 	\label{fig:pore_sizes}
 \end{figure}
 
-Image-based methods utilising \ac{SEM} or \ac{CT} inherently have either resolution issues, only give a two-dimensional view or do not give representative results due to a small \ac{ROI}.
+Image-based methods like \ac{SEM}, \ac{CT}, \ac{PXCT}, and light microscopy are widely used in the cement field for porosity analysis and cover a wide range of scales.
+Another lesser known alternative to 3D porosity imaging of cementitious materials is fluorescence \ac{LSCM}.
+It allows to record time series of thin specimens \cite{yio.2015a} and can be combined with serial sectioning for volume analysis \cite{yio.2015, yio.2019}. 
+However, image-based methods inherently have either a limited resolution, only give a 2D view or do not give representative results due to a small \ac{ROI}.
 Therefore, more indirect methods based on physical principles can help to obtain more statistically significant results.
-For this work, \ac{MIP}, \ac{LTDSC} and \ac{HNMR} were used as complementary methods to the image-based methods.
+For this work, \ac{MIP} and \ac{LTDSC} were used as complementary methods to the image-based methods.
+However, in the literature \ac{HNMR} and \ac{DVS} are also commonly used to characterise the porosity of cementitious materials \cite{naber.2020,pinson.2015}.
 
-{\color{red} There were multiple studies trying to compare different pore analysis methods \cite{naber.2020,georget.2024}.} % more sources!
+%{\color{red} There were multiple studies trying to compare different pore analysis methods \cite{naber.2020,georget.2024}.} % more sources!
 
 % Comparison of pore categories between different authors, from \cite{breugel.1997}, page 77
 
-\subsection{\Acl*{MIP} (\acs*{MIP})}
+\subsection{\Acl*{MIP}}
 \label{sec:mip}
 % \cite{munch.2008} FIB vs MIP!!! (11.9 x10.7 x5.6 µm)
 %https://www.epfl.ch/labs/lmc/wp-content/uploads/2019/08/03-Wioletta-Franco-MIP.pdf
@@ -72,7 +76,7 @@ The `ink-bottle' effect (see \zcref{fig:mip-bottle-neck}) is often mentioned as 
 \textcite{wang.2019} showed the damage induced by \ac{MIP} using \ac{mCT}.
 They came to the conclusion that the pore space was increased by $\approx$ \qty{7}{\percent} due to the mercury intrusion.
 The main affected pore size range was around \qtyrange{100}{500}{\micro\meter}.
-Furthermore, \ac{MIP} requires dried specimens, leading to a cracked and therefore non-native microstructure \cite{chatterji.2001,wang.2019}.
+Furthermore, \ac{MIP} requires dried specimens, leading to cracked and therefore non-native microstructures \cite{chatterji.2001,wang.2019}.
 
 \textcite{abell.1999} and \textcite{hildenbrand.2003} compared \ac{MIP} with the intrusion of \textsc{Wood}'s metal instead of mercury.
 In cement, the pore volume was comparable; the usage of \textsc{Wood}'s metal indicated that larger pores were present \cite{abell.1999}.
@@ -80,7 +84,7 @@ In cement, the pore volume was comparable; the usage of \textsc{Wood}'s metal in
 This was already assumed by \cite{horseman.1996} who declared \ac{MIP} as `totally unreliable' for clay-like materials.
 \textcite{hall.1986} concludes in comparison with small angle neutron scattering and \ce{N2} measurements (e.g. \ac{BET}), that pores larger than \qty{70}{\nano\meter} in clays may be preparation artefacts (e.g. due to drying).
 \ac{MIP} was also deemed inadequate for oolitic limestone by \textcite{roels.2001} due to the ink-bottle effect.
-They preferred the main wetting curve, \ac{SEM} images and pressure membrane apparatus measurements of saturated specimens over \ac{MIP}.
+They preferred the main wetting curve, \ac{SEM} images, and pressure membrane apparatus measurements of saturated specimens over \ac{MIP}.
 
 Finally, due to the use of hazardous mercury and the high cost, it has a reduced relevance today.
 Despite its flaws, \ac{MIP} is useful to compare the porosity of similar samples or the relative change in porosity within a specimen \cite{juntgen.1966}.
@@ -101,13 +105,14 @@ Despite its flaws, \ac{MIP} is useful to compare the porosity of similar samples
 
 
 \FloatBarrier
-\subsection{Low Temperature - Differential Scanning Calorimetry (\acs*{LTDSC})}
+\subsection{\Acl*{LTDSC}}
 
-Another less common method to indirectly measure the \ac{PSD}, especially in the nanopore range, is the \ac{LTDSC} \cite{brun.1973,brun.1977}, often also called \textit{thermoporometry} (e.g. \cite{joseph.2024}).
+Another method to indirectly measure the \ac{PSD}, especially in the nanopore range, is \ac{LTDSC} \cite{brun.1973,brun.1977}, often also called \textit{thermoporometry} (e.g. \cite{joseph.2024}).
 The method is based on the principle that the freezing point of water is lowered in small pores due to surface tension \cite{brun.1973,brun.1977}.
 Since the heat capacity of the phase transition (liquid-solid) is significantly higher than that of the solid phases, this freezing point depression can be measured using \ac{DSC}.
 
-The measurable pore size range starts at \qtyrange{2}{3.19}{\nano\meter} \cite{cuperus.1992} due to a temperature limit in the thermodynamic description of \qty{-40}{\celsius} \cite{brun.1977}.
+%\qtyrange{2}{3.19}{\nano\meter}
+The measurable pore size range starts at approx. \qty{2}{\nano\meter} \cite{cuperus.1992} due to a temperature limit in the thermodynamic description of \qty{-40}{\celsius} \cite{brun.1977}.
 However, this limit can be ignored and extended to lower temperatures and smaller pores when considering the extrapolated curve for the triple point depression in porous materials \cite{kloetstra.1995}.
 For pores larger than \qty{30}{\nano\meter} the temperature shift of the freezing point is too small to be separated from the freezing of free water \cite{cuperus.1992,stocker.2002}.
 
@@ -115,9 +120,9 @@ For pores larger than \qty{30}{\nano\meter} the temperature shift of the freezin
 \textcite{sant.2011} applied \ac{LTDSC} to measure the \ac{PSD} of hydrated cement pastes.
 They proposed the connection between pore types and the freezing point depression (ranges in brackets are extracted from graphs in \cite{sant.2011}):
 \begin{itemize}
-	\item Connected capillary pores freeze at $\approx$ \qty{-15}{\celsius} (\num{0} to \qty{-23}{\celsius})
-	\item Open gel pores and capillary pores at $\approx$ \qty{-27}{\celsius} (\num{-23} to \qty{-35}{\celsius})
-	\item Isolated capillary and gel pores at $\approx$ \qty{-43}{\celsius} (\num{-35} to \qty{-50}{\celsius})
+	\item connected capillary pores freeze at $\approx$ \qty{-15}{\celsius} (\num{0} to \qty{-23}{\celsius})
+	\item open gel pores and capillary pores at $\approx$ \qty{-27}{\celsius} (\num{-23} to \qty{-35}{\celsius})
+	\item isolated capillary and gel pores at $\approx$ \qty{-43}{\celsius} (\num{-35} to \qty{-50}{\celsius})
 \end{itemize}
 In their study, only the peak presence at $\approx$ \qty{-15}{\celsius} was evaluated.
 
@@ -138,7 +143,7 @@ The equation for freezing is:
 
 and for melting:
 \begin{equation}
-	r_\text{P} = -\frac{\qty{32.33}{\nano\meter\per\kelvin}}{\Delta T }+\qty{0.68}{\nano\meter};~~~\qty{0}{\kelvin} > \Delta T > \qty{-40}{\kelvin}.
+	r_\text{P} = -\frac{\qty{32.33}{\nano\meter\per\kelvin}}{\Delta T }+\qty{0.68}{\nano\meter};~~~\qty{-40}{\kelvin} < \Delta T < \qty{0}{\kelvin}.
 	\label{eq:brun_melt}
 \end{equation}
 % in Joseph.2024 stammt die + 0.68 aus "-0.12 + \delta" wobei \delta = the non-freezable layer of water in nm. With respect to the value of δ, both 1.2 nm [52,53] and 0.8 nm [51,54]
@@ -154,7 +159,7 @@ $\Delta T$ is defined as:
 	T_\text{m} &   theoretical freezing point in \unit{\kelvin}.
 \end{conditions}
 
-It has to be noted that \textcite{brun.1977} experimental investigations of water, from which these numerical approximations were derived, were limited to a temperature range of $\qty{0}{\kelvin} > \Delta T > \qty{-40}{\kelvin}$.
+It has to be noted that \textcite{brun.1977} experimental investigations of water, from which these numerical approximations were derived, were limited to a temperature range of $\qty{-40}{\kelvin} < \Delta T < \qty{0}{\kelvin}$.
 Therefore, the equations lack validation for freezing point depressions below \qty{-40}{\celsius}.
 However, \textcite{kloetstra.1995} applied these relations to their mesoporous materials and noted that the extrapolated curve for the triple point depression in porous materials shows that the relations can also be used at lower temperatures.
 
@@ -222,7 +227,6 @@ However, this also depends on the pore type.
 
 If a larger pore ($d_4$) is only connected to smaller pores ($d_3$) or is isolated, it can only freeze at the same temperature as the smaller pores ($d_3$), while pores with a similar size ($d_2$) were already frozen (\zcref{fig:freeze}).
 
-
 Furthermore, supercooling effects can be observed in the literature \cite{setzer.1994,sant.2011}, which renders the evaluation of the larger pore sizes more difficult or impossible.
 They are indicated by a shift of the main freezing peak to temperatures below \qty{-10}{\celsius}.
 The reason for the supercooling is the lack of nucleation points for the ice crystals.
@@ -243,23 +247,22 @@ However, cooling/heating rates below \qty{0.1}{\kelvin\per\minute} were consider
 While \textcite{joseph.2024} used \qty{0.5}{\kelvin\per\minute} as a compromise, \textcite{wu.2015} and \textcite{ghantous.2023} still used a cooling/heating rate of \qty{0.1}{\kelvin\per\minute} to measure the porosity of cementitious materials.
 %{\color{red}Considering the higher sensitivity of more modern devices, this heating rate could still be valid.}
 %10.14359/51738808 \cite{Ghantous.2023} Examining Effect of Printing Directionality on Freezing and-Thawing Response of Three-Dimensional-Printed Cement Paste
-%also measured Pore-size distribution using dynamic vapor sorption
 
-\subsection{Other non-image-based methods}
+\subsection{Further non-image-based methods}
 \label{subsec:other_porosity}
 
 Other methods to obtain information about the porosity of materials are based on their respective response to the diffusion, permeability or the sorption of various gases like \ce{N2}, \ce{O2} or water vapour.
 Furthermore, \ac{HNMR} can be used to measure the porosity of a material.
 
-\subsubsection{\ce{^{1}H} Nuclear Magnetic Resonance (\acs{NMR})}
+\subsubsection{\acs*{NMR}}
 
 \ac{HNMR} can be used to evaluate the porosity of cementitious materials at room temperature without the need for drying or freezing, which would change its microstructure \cite{gran.1997,muller.2014,naber.2020}.
 It is based on the magnetic resonance of the \ce{^1H} nuclei, primarily found in water molecules.
-The method involves placing a water-saturated sample in a strong magnetic field and perturbing the hydrogen nuclei with electromagnetic pulses.
+The method involves placing a water-saturated sample in a strong magnetic field and perturbing the hydrogen nuclei spins with magnetic pulses.
 The subsequent relaxation of these nuclei back to their equilibrium state generates a measurable signal.
 The key principle is that the \ac{NMR} relaxation time (particularly the transverse relaxation time, $T2$) of water molecules confined within pores is significantly affected by their interaction with the pore surfaces. % hier muss ich mich nochmal einlesen
 However, this method is not suitable for materials with a significant content of paramagnetic species (like iron oxides) \cite{barrie.2000}. 
-These species alter the relaxation rate of the protons, thereby interfering with the measurement \cite{muller.2014}.
+These species alter the relaxation behaviour of the protons, thereby interfering with the measurement \cite{muller.2014}.
 
 \ac{NMR} allows the analysis of the porosity of a specimen in a wide range, including porosity below \qty{2}{\nano\meter} \cite{barrie.2000}. 
 Therefore, it is especially useful to gain insight into the interlayer volume of the \ac{CSH} phases \cite{naber.2020}.
@@ -272,7 +275,7 @@ Results from \ac{HNMR} and \ac{LTDSC} (here TMP) do fit, however \ac{HNMR} provi
 \dots
 }
 
-\subsubsection{\Acl*{DVS} (\acs*{DVS})}
+\subsubsection{\acs*{DVS}}
 
 \Ac{DVS} can give a rough idea of the porosity of a material \cite{pinson.2015} and the behaviour of the material under changing humidity at different temperatures \cite{wang.2023}.
 While the operating gas is variable, it is usually water.
@@ -284,5 +287,4 @@ Depending on the device used and the experimental setup, the measurements can ta
 
 Therefore, this method is only useful for fully hydrated specimens.
 For specimens younger than \qty{14}{\day}, this method is not suitable, since hydration can continue significantly during the measurement period.
-
-Most authors do not directly evaluate the porosity of the specimen using this method but use it comparatively between specimens or parameters \cite{ghantous.2023, wang.2023}.
+Furthermore, most authors do not directly evaluate the porosity of the specimen using this method but use it comparatively between specimens or parameters \cite{ghantous.2023, wang.2023}.

@@ -7,19 +7,20 @@
 	\acro{ArBIB}[ArBIB]{argon broad ion beam}
 	\acro{BC}[BC]{box counting}
 	\acro{BG}[BG]{box growth}
-	\acro{BET}[BET]{Brunauer-Emmett-Teller theory}%textsc{Brunauer-Emmett-Teller} theory}
+	\acro{BET}[BET]{B\textsc{runauer}-\textsc{Emmett}-\textsc{Teller} theory}%textsc{Brunauer-Emmett-Teller} theory}
 	\acro{BM3D}[BM3D]{block-matching and 3D filtering}
 	\acro{BSE}[BSE]{backscattered electron}
 	\acro{C2S}[C$_2$S]{dicalcium silicate}
 	\acro{C3S}[C$_3$S]{tricalcium silicate}
 	\acro{C3A}[C$_3$A]{tricalcium aluminiate}
 	\acro{C4AF}[C$_4$AF]{calcium aluminoferrite}
-	\acro{CAH}[C\hbox{-}A\hbox{-}H\xspace]{calcium aluminate hydrates}
+	\acro{CAH}[C\hbox{-}A\hbox{-}H\xspace]{calcium alumi nate hydrates}
 	\acro{CASH}[C\hbox{-}A\hbox{-}S\hbox{-}H]{calcium aluminate silicate hydrate} 
+	\acro{CCN}[CCN]{cement chemist notation}
 	\acro{CDF}[CDF]{chord density function} 
 	\acro{CH}[CH]{portlandite}
 	\acro{CNN}[CNN]{convolutional neural network}
-	\acro{COD}[COD]{crystallography open database}
+	\acro{COD}[COD]{Crystallography Open Database}
 	\acro{CSH}[C\hbox{-}S\hbox{-}H\xspace]{calcium silicate hydrates}
 	\acro{CSHi}[C-S-H$_\text{i}$]{inner C\hbox{-}S\hbox{-}H}
 	\acro{CSHo}[C-S-H$_\text{o}$]{outer C\hbox{-}S\hbox{-}H}
@@ -29,14 +30,14 @@
 	\acro{DVS}[DVS]{dynamic vapour sorption}
 	\acro{EBSD}[EBSD]{electron backscatter diffraction}
 	\acro{EDX}[EDX]{energy-dispersive X-ray spectroscopy}
-	\acro{ESEM}[ESEM]{enviornmental scanning electron microscope}
+	\acro{ESEM}[ESEM]{environmental scanning electron microscope}
 	\acro{ETD}[ETD]{\textsc{Everhart}-\textsc{Thornley} detector}
 	\acro{FFT}[FFT]{fast \textsc{Fourier} transformation}
 	\acro{FIB}[FIB]{focussed ion beam}
 	\acro{FIBnt}[FIB-nT]{FIB nano tomography}
 	\acro{fs-laser}[fs-laser]{femtosecond laser}
 	\acro{HD}[HD]{high-density}
-	\acro{HEALPix}[HEALPix]{Hierarchical Equal Area isoLatitude Pixelization}
+	\acro{HEALPix}[HEALPix]{hierarchical equal area isoLatitude pixelization}
 	\acro{HLT}[HLT]{hydrate layer thickness}
 	\acro{HNMR}[\ce{^{1}H} NMR]{proton nuclear magnetic resonance spectroscopy}
 	\acro{ICP}[ICP]{inductively coupled plasma}
@@ -47,6 +48,7 @@
 	\acro{LAICPMS}[LA-ICP-MS]{laser ablation - inductively coupled plasma - mass spectrometry}
 	\acro{LC3}[LC$^3$]{limestone calcined clay cement} % https://lc3.ch/
 	\acro{LD}[LD]{low-density}
+	\acro{LSCM}[LSCM]{confocal laser dcanning microscopy}
 	\acro{LTDSC}[LT-DSC]{low temperature - differential scanning calorimetry}
 	\acro{LOI}[LOI]{loss on ignition}
 	\acro{MIP}[MIP]{mercury intrusion porosimetry}
@@ -88,14 +90,14 @@
 
 
 \begin{longtable}[l]{p{2.5cm}p{2.7cm}p{0.58\linewidth}}
-    \caption{Mathematical symbols used in this thesis.}
+    \caption{Mathematical symbols used in this thesis}
     \label{tab:symbols} \\
     \toprule
     Symbol  & Unit &    Name \\
     \midrule
     \endfirsthead
 
-    \caption[]{Mathematical symbols used in this thesis \textit{(continued)}.} \\
+    \caption[]{Mathematical symbols used in this thesis \textit{(continued)}} \\
     \toprule
     Symbol  & Unit &    Name \\
     \midrule
@@ -110,6 +112,7 @@
 	$a$  						& \unit{\nano\meter\squared}		& Fit parameter for $f_\text{v,n}$ \\
 	$a_\text{norm}$  			& \unit{\nano\meter}				& Normalised fit parameter for $f_\text{v,n}$ \\
 	$\mu$, $\sigma$  			& -- & Fit parameters for $f_\text{v,n}$ \\
+    $b$                         & \unit{\mole\per\kilo\gram}        & Molality \\
 	$C$                         & -- & Relative \acs*{BSE} image contrast \\
 	$c$                         & -- & Backscatter coefficient \\
     $d$, $d_i$                  & \unit{\meter}                     & (Pore) diameter \\
@@ -135,53 +138,49 @@
     $l_{\mathrm{max}}$          & \unit{\micro\meter}               & Most frequent \acs*{HLT} \\
     %$l_{33\,\%,\, \mathrm{l}}$  & \unit{\micro\meter}               & \qty{33}{\percent} of the smaller than below $l_{\mathrm{max}}$ \\
     %$l_{33\,\%,\, \mathrm{h}}$  & \unit{\micro\meter}               & \qty{33}{\percent} of the area larger than $l_{\mathrm{max}}$ \\
-    $m$                         & \unit{\mole\per\kilo\gram}        & Molality \\
     $m_{\mathrm{ice}}$          & \unit{\gram}                      & Mass of ice \\
     $n$                         & \unit{\mole}                      & Amount of substance \\
     $N$                         & --                                & Number of indents \\
     $p$, $p_i$                  & \unit{\mega\pascal}               & Pressure \\
     $\dot{Q}$                   & \unit{\joule\per\second\per\gram}, \unit{\joule\per\hour\per\gram} & Heat flow \\
     $\dot{Q}_{\mathrm{B}}$      & \unit{\joule\per\second\per\gram} & Baseline heat flow \\
-    $\dot{Q}_{\mathrm{raw}}$    & \unit{\joule\per\second\per\gram} & Raw heat flow signal \\
+    $\dot{Q}_{\mathrm{raw}}$    & \unit{\joule\per\second\per\gram} & Raw heat flow \\
     $r_{\mathrm{P}}$            & \unit{\nano\meter}                & Pore radius \\
-	$r_\text{P, max}$           & \unit{\nano\meter}                & most dominant pore radius \\
+	$r_\text{P, max}$           & \unit{\nano\meter}                & most frequent pore radius \\
     $r_{\mathrm{particle}}$     & \unit{\nano\meter}                & Particle radius \\
     $r_{\mathrm{p-hyd}}$        & \unit{\nano\meter}                & Potential hydration radius \\
     $r_{\mathrm{ROI}}$          & \unit{\nano\meter}                & Radius of the region of interest \\
-    $\rho_{\mathrm{ice}}$       & \unit{\gram\per\centi\meter\cubed} & Density of ice \\
+    $\rho$       				& \unit{\gram\per\centi\meter\cubed} & Density \\
     $S$                         & \unit{\mole\per\liter}            & Molar solubility \\
     $S_{dr}$                    & \unit{\percent}                   & Developed area ratio \\
     $\sigma_{\mathrm{hydrate}}$ & \unit{\wtpercent}                 & Amount of hydrate phase \\
     $t$                         & \unit{\s}, \unit{\min}, \unit{\hour} & Time \\
     $T$                         & \unit{\kelvin}                    & Temperature \\
     $T2$                        & \unit{\milli\second}              & Transverse relaxation time \\
-    $T_f$                       & \unit{\kelvin}                    & Freezing temperature \\
+    $T_f$                       & \unit{\kelvin}                    & Freezing temperature point \\
     $T_{\mathrm{m}}$            & \unit{\kelvin}                    & Theoretical freezing point \\
     $\vartheta$                 & \unit{\celsius}                   & Temperature \\
     $V$, $V_i$                  & \unit{\cubic\meter} or \unit{\liter} & Volume \\
-    $V_\text{pore}$             & \unit{\liter}						& Pore volume \\
     %$w/b$                       & --                                & water / binder ratio \\
-    $x, y, z$                   & --                                & Coordinate indices \\
+    $x, y, z$                   & --                                & Cartesian coordinates \\
     $Z$                         & --                                & Atomic number \\
 	$\bar{Z}$					& --                                & Average atomic number \\
 \end{longtable}
 
-
-
 \newpage
-Please note, that this work uses the cement chemist notation for most chemical equations (see \zcref{tab:ccn}).
+Please note, that this work uses the \ac{CCN} for most chemical equations (see \zcref{tab:ccn}).
 
 \begin{table}[htbp!]
 	%\centering
-	\caption{Cement chemist notation (CCN).}
+	\caption{\Acl{CCN} (\acs{CCN})}
 	\begin{tabular}{p{2cm}p{3cm}p{0.6\linewidth}}
 		\toprule
-		CCN	& Actual formula &	Name \\
+		\acs{CCN}	& Actual formula &	Name \\
 		\midrule
 		A	&\ce{Al2O3}	&	Aluminium oxide \\
 		C	&\ce{CaO}	&	Calcium oxide \\
 		H	&\ce{H2O}	&	Water \\
-		F	&\ce{Fe2O3}	&	Iron oxide \\
+		F	&\ce{Fe2O3}	&	Iron(III) oxide \\
 		M	&\ce{MgO}	&	Magnesium oxide \\
 		S	&\ce{SiO2}	&	Silicon dioxide \\
 		$\overline{\text{C}}$	&\ce{CO2}	&	Carbon dioxide \\

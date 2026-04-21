@@ -1,7 +1,7 @@
-\section{Method validation}
+\section{Validation of algorithms}
 \label{sec:ebsd-hydrate-validation}
 
-To validate the methods introduced in \zcref{sec:ebsd-hydrate,subsec:algo_hlm}, simulated datasets were created.
+To validate the algorithms introduced in \zcref{sec:ebsd-hydrate,subsec:algo_hlm}, simulated datasets were created.
 For this purpose, an artificial volume was randomly filled with \num{120000} spherical \ac{C3S} particles per \unit{\cubic\milli\meter}.
 A \textsc{Gaussian} particle size distribution with diameters ranging from $d_\text{min, \ac{C3S}}=$\qty{0}{\micro\meter} to $d_\text{max, \ac{C3S}}=$\qty{5}{\micro\meter} was selected. 
 The volume was set to \qtyproduct{2x2}{\milli\meter} with a height ($z$) of four times the maximum diameter of a hydrated \ac{C3S} grain.
@@ -67,7 +67,7 @@ Finally, the 2D plot and the grain diameter histogram show regular vertical arte
 
 Using the assigned crystal orientations, a simulated \ac{EBSD} dataset was generated with a resolution of \qty{2}{\micro\meter\per\px} in the form of a channel text file.
 The resolution of the simulated \ac{BSE} image only had to be adjusted to the \ac{EBSD} dataset, since the datasets were already aligned to each other.
-After processing the data as explained in \zcref{sec:ebsd-hydrate}, the \ac{HLT} measurements can be projected onto a unit sphere representing the crystal orientation of \ac{C3S} (see \zcref{ebsd_eval_sphere}).
+After processing the data as explained in \zcref{sec:ebsd-hydrate}, the \ac{HLT} measurements can be projected onto a unit sphere representing the crystal orientation of \ac{C3S} (see \zcref{fig:ebsd_eval_sphere}).
 
 \begin{figure}[htb!]
 	\centering

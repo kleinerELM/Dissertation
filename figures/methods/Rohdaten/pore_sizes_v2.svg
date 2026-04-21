@@ -1459,9 +1459,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="6.847"
-     inkscape:cx="321.81978"
-     inkscape:cy="266.46707"
+     inkscape:zoom="1.71"
+     inkscape:cx="245.02924"
+     inkscape:cy="181.57895"
      inkscape:document-units="mm"
      inkscape:current-layer="g1"
      showgrid="false"
@@ -1470,10 +1470,10 @@
      fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0"
-     inkscape:window-width="3840"
-     inkscape:window-height="2054"
-     inkscape:window-x="-11"
-     inkscape:window-y="-11"
+     inkscape:window-width="2560"
+     inkscape:window-height="1369"
+     inkscape:window-x="1912"
+     inkscape:window-y="268"
      inkscape:window-maximized="1"
      inkscape:document-rotation="0"
      inkscape:showpageshadow="2"
@@ -2276,7 +2276,7 @@
         <text
            xml:space="preserve"
            style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:2.82222px;line-height:1.25;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman,  Bold';letter-spacing:0px;word-spacing:0px;fill:#ffffff;stroke-width:0.264583"
-           x="72.917709"
+           x="67.631691"
            y="104.61094"
            id="text1-9-1-20"
            inkscape:transform-center-x="1.2027129"
@@ -2284,8 +2284,8 @@
              sodipodi:role="line"
              id="tspan1-1-4-21"
              style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:2.82222px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman,  Bold';fill:#ffffff;stroke-width:0.264583"
-             x="72.917709"
-             y="104.61094">gel</tspan></text>
+             x="67.631691"
+             y="104.61094">gel / nano</tspan></text>
         <text
            xml:space="preserve"
            style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:2.82222px;line-height:1.25;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman,  Bold';letter-spacing:0px;word-spacing:0px;fill:#ffffff;stroke-width:0.264583"
@@ -2430,7 +2430,7 @@
         <text
            xml:space="preserve"
            style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:2.82222px;line-height:1.25;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman,  Bold';letter-spacing:0px;word-spacing:0px;fill:#ffffff;stroke-width:0.264583"
-           x="73.433304"
+           x="73.717293"
            y="156.84349"
            id="text1-9-1-6"
            inkscape:transform-center-x="1.2027129"
@@ -2438,8 +2438,10 @@
              sodipodi:role="line"
              id="tspan1-1-4-77"
              style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:2.82222px;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman,  Bold';fill:#ffffff;stroke-width:0.264583"
-             x="73.433304"
-             y="156.84349">O2-diffusion</tspan></text>
+             x="73.717293"
+             y="156.84349">O<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan6">2</tspan>-diffusion</tspan></text>
         <text
            xml:space="preserve"
            style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:2.82222px;line-height:1.25;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman,  Bold';letter-spacing:0px;word-spacing:0px;fill:#ffffff;stroke-width:0.264583"

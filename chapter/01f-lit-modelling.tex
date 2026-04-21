@@ -3,7 +3,7 @@
 
 % aus dem ct/fib-sem-antrag
 As the demands on building materials increase, so do the requirements for characterising and modelling the underlying material systems.
-There are advanced approaches to modelling and simulating the strength, shape retention and durability characteristics of concretes \cite{bishnoi.2009, kumar.2017, zhou.2019, ouzia.2019}.
+There are advanced approaches to model and simulate the strength, shape retention, and durability characteristics of concretes \cite{bishnoi.2009, kumar.2017, zhou.2019, ouzia.2019}.
 Due to the high complexity, multi-scale heterogeneity and temporal changes, this is often only possible in a highly simplified model and on a very limited scale.
 
 The microstructure of concretes was simulated in a variety of models at different scales \cite{bishnoi.2009, kumar.2017, zhou.2019, ouzia.2019}.
@@ -69,17 +69,17 @@ For larger domains, \textcite{nguyen-tuan.2024} utilised the level set-based met
 %{\color{red} % erstmal nur so dahin gequatscht
 There also exists 3D simulation models.
 \textsc{HYMOSTRUC} \cite{vanbreugel.1995} is a model to simulate the hydration of cement in 2D and has been further developed over the last few decades into \textsc{HYMOSTRUC3D} \cite{ye.2007, liu.2014, gao.2014, qian.2017, gao.2019}.
-It is a vector based model using spherical cement particles, growing shells around them.
-In contrast, \textsc{CEMHYD3D} \cite{bentz.2005} is a voxel-based model to simulate the hydration of cement in 3D allowing irregular shaped particles.
+It is a vector-based model using spherical cement particles, growing shells around them.
+In contrast, \textsc{CEMHYD3D} \cite{bentz.2005} is a voxel-based model to simulate the hydration of cement in 3D allowing irregularly shaped particles.
 These models significantly differ in the simulated pore structure, as \textsc{HYMOSTRUC} results in a larger pore connectivity and relative diffusivity than in \textsc{CEMHYD3D}, caused by the simulation method \cite{gao.2013}.
-Another more modern model is \textsc{HydraFE} \cite{nothnagel.2007} which is based on the finite-element-method, using a adaptive instead of a fixed grid as in \textsc{CEMHYD3D}.
+Another more modern model is \textsc{HydraFE} \cite{nothnagel.2007} which is based on the finite-element-method, using an adaptive instead of a fixed grid as in \textsc{CEMHYD3D}.
 The main advantage of \textsc{CEMHYD3D} is that its code is open source \cite{bentz.2005,gao.2013} in contrast to \textsc{HYMOSTRUC} and \textsc{HydraFE}.
 However, today the code is only publicly accessible through the software package \textsc{SIFEL} \cite{kruis.2001, smilauer.2009}.
-3D-based simulations inherently have a better chance to closely represent reality, since 2D simulations are always missing a lot of information, which can cause distorted results (see \zcref{subsec:sectioning-effect}).
-However, 2D simulations are much faster and allow the simulation of larger areas, reflecting a more representative area, which is very important due to the heterogeneity of cement (see \zcref{sec:2D-representativeness}).
+3D-based simulations inherently have a better chance to closely represent reality, since 2D simulations are always missing a lot of details, which can cause distorted results (see \zcref{subsec:sectioning-effect}).
+However, 2D simulations are much faster and allow the simulation of much larger areas, reflecting a more representative specimen area, which is very important due to the heterogeneity of cement (see \zcref{sec:2D-representativeness}).
 
 %Models like these (\cite{vanbreugel.1995, bentz.2005, nothnagel.2007, nguyen-tuan.2024}) allow simulation of the development of the phase composition over time.
-Nevertheless, the basis for all realistic modelling is a qualitative and quantitative experimental characterisation of the corresponding structures \cite{nguyen-tuan.2019, gobel.2018a}.
+Nevertheless, the basis for all computer simulations is a qualitative and quantitative experimental characterisation of the corresponding structures \cite{nguyen-tuan.2019, gobel.2018a}.
 
 % simulationspaper der hydratation \cite{hlobil.2022} which was compared to volumetric \ac{mCT} data of differently aged cement.
 % CEMHYD3D -> Fig 3 anteile der phasen vgl mit Messungen

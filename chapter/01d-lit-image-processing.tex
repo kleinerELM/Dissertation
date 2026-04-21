@@ -32,7 +32,7 @@ One important representative filter is \ac{BM3D} \cite{dabov.2007}, which is a t
 \ac{NLM}-based methods often provide good performance but can be computationally expensive and require a careful selection of parameters.
 For this work, the \ac{BM3D} implementation in the extended photo processing module of \textit{OpenCV} \cite{bradski.2000} was used.
 
-\ac{TV} \cite{rudin.1992} filters also deliver good edge preserving results even for low signal images by reducing the total variation of the image signal.
+Good edge preserving results, even for low signal images, can be delivered by \ac{TV} \cite{rudin.1992} filters by reducing the total variation of the image signal.
 A fast variant of \ac{TV} filters is the split \textsc{Bregman} optimisation-based method \cite{goldstein.2009, getreuer.2012}.
 In this work, the implementation provided by the \textit{scikit-image} \cite{vanderwalt.2014} library was used.
 
@@ -56,7 +56,7 @@ Finally, \ac{MSE} quantifies the average squared difference between the original
 They came to the conclusion, that the \ac{CNN} significantly outperforms (\ac{PSNR} of \qty{26.35}{\decibel}) the median (\ac{PSNR} of \qty{23.20}{\decibel}) and wavelet filter (\ac{PSNR} of \qty{18.25}{\decibel}).
 
 \FloatBarrier
-\subsection{Segmentation of \acs{SEM} and \ac{EDX} images}
+\subsection{Segmentation of \acs*{SEM} and \acs*{EDX} images}
 \label{sec:lit_segmentation}
 
 Segmentation is the process of partitioning an image into multiple segments (sets of pixels or objects).
@@ -78,7 +78,7 @@ There are multiple thresholding methods available, such as \textsc{Otsu}'s metho
 However, these methods are rarely suitable, since many \ac{SEM} images contain more than two phases or show low contrast.
 Additionally, sometimes a specific grey value or range does not represent a specific phase throughout the entire dataset as border regions can appear darker than the image centre.
 This is can especially occur in \ac{SEM}-\ac{SE} images, \ac{SEM}-\ac{FIB} or \ac{mCT} datasets.
-In those cases, adaptive thresholding methods can be used to find a threshold value for each pixel based on the surrounding pixels \cite{sauvola.2000, phansalkar.2011}.
+In these cases, adaptive thresholding methods can be used to find a threshold value for each pixel based on the surrounding pixels \cite{sauvola.2000, phansalkar.2011}.
 For example, the method proposed by \textcite{phansalkar.2011} is a good choice for low contrast \ac{SEM}-\ac{SE} images \cite{kleiner.2021a}.
 Nevertheless, these methods still require a lot of manual work and subjective decisions to find the right parameters for the specific dataset.
 
@@ -89,18 +89,19 @@ These algorithms can help to segment very noisy datasets like from \ac{EDX} \cit
 Extensions such as Multi\ac{SLIC} \cite{yu.2023} further enable segmentation across multiple data modalities or data layers resulting in more robust and informative representations.
 % TODO: add details from jiang.2022 in the result section
 
-After simplifying the image using superpixel segmentation, the phase assignment must be carried out.
+After grouping similar neighbouring pixels into larger superpixels, the phase assignment must be carried out.
 Initial orientation can be achieved through clustering.
 Multiple approaches to do this were proposed in recent years. 
 Initial orientation can be achieved through clustering using $k$-means.
 This can either be done on a per-pixel basis \cite{munch.2015} or on a per-superpixel basis \cite{jiang.2022}.
-While not it could not yet applied in the cement context, clustering can be supported by \ac{UMAP} \cite{mcinnes.2018}, which allows to reduce the dimensionality of a multidimensional dataset as found in a multi-element mapping or multiple data sources.
-The clustering allows to find similar phase compositions.
-The phase assignment for each pixel or superpixel can be done manually or automatically.
+The clustering allows to find similar phase compositions based on element ratios \cite{georget.2021}.
+However, the application of a decision-tree-model, utilising known compositions of different phases, is also feasible \cite{jiang.2022}.
+Commercial software like AZtec \cite{aztec.2004} usually combines a set of \num{4} or more pixels and combines similar compositions to one phase. However, this still requires a lot of manual assignment to the final phases, due to their variable composition.
 
-using a decision-tree-model, utilising known compositions of different phases \cite{jiang.2022}.
+While it was not yet applied in the cement context, clustering can be supported by \ac{UMAP} \cite{mcinnes.2018}, which allows to reduce the dimensionality of a multidimensional dataset as found in a multi-element mapping or multiple data sources.
 
-%\cite{stutzman.2004}, vs \cite{georget.2021} vs. unser aachen ansatz \cite{jiang.2022} und vs die blackbox aus aztec \cite{aztec.2004} o.ä software.
+
+%\cite{stutzman.2004}, vs 
 % \cite{reed.2025} used a method based on QGIS (see mail from Christiane/Nikkola Paavo, 08.10.2025)
 
 % {
@@ -236,7 +237,7 @@ In contrast, the \ac{HLT} around the grain is often overestimated as illustrated
 \end{conditions}
 
 \begin{equation}
-	M_\text{HLT} = \frac{\int_{0}^{i} t(x) \,dx}{r_\text{grain}}, where~0 < i \leq r_\text{grain}.
+	M_\text{HLT} = \frac{\int_{0}^{i} t(x) \,dx}{r_\text{grain}}, \text{where}~0 < i \leq r_\text{grain}.
 	\label{eq:sectioning_effect_3}
 \end{equation}
 \begin{conditions}
@@ -259,7 +260,7 @@ This also means that very small particles, which have a higher probability of or
 
 \begin{figure}[htb]
     \centering
-	\includegraphics[width=.75\linewidth]{hydrate-rim/sectioning_overestimation2.pdf}
+	\includegraphics[width=.8\linewidth]{hydrate-rim/sectioning_overestimation.pdf}
 	\caption{
         Overestimation of the \ac{HLT} depending on the \ac{HLT} / grain diameter ratio and the integral limit $i$ (see \zcref{eq:sectioning_effect_3}).
         The blue line indicates the results for \ac{HLT} / grain diameter value of \num{0.3}.
@@ -267,73 +268,34 @@ This also means that very small particles, which have a higher probability of or
 	\label{fig:hlt_overestimation}
 \end{figure}
 
-\FloatBarrier
-\subsection{Calculating the phase composition based on 2D-\acs*{SEM} images}
-Using a segmented \ac{SEM} image with the image area $A_1$, the phase composition can be estimated by using the \unit{\areapercent} of alite $A_{\text{C}_3\text{S}}$ and the hydrate phases $A_\text{\text{CSH}}$ and $A_\text{CH}$ \cite{kleiner.2024a}.
-If the hydrate phases are indistinguishable, they can be summed up:
-
-\begin{equation}
-    \label{eq:est_hydrate_area}
-    \begin{aligned}
-        A_\text{hydrate} &= A_\text{\text{CSH}} + A_\text{CH} \\
-        &= A_1 - A_{\text{C}_3\text{S}} - A_{\text{pores}}
-    \end{aligned}
-\end{equation}
-
-Although density is a volumetric property and the measurements provide only areas, it can be used to approximate the volume fraction of the hydrate phases.
-This approximation assumes that the phase fractions observed in 2D images are representative of the true volumetric fractions.
-Under this assumption, Equation \zcref{eq:est_frac} yields an estimate of the mass fraction of the hydrate phases (\ac{CH} and \ac{CSH}), \(\sigma_{\text{hydrate}}\), expressed in \unit{\wtpercent}.
-
-\begin{equation}
-    \label{eq:est_frac}
-    \sigma_\text{hydrate} = \frac{A_\text{hydrate} \cdot \rho_\text{hydrate}}{A_\text{hydrate} \cdot \rho_\text{hydrate} + A_{\text{C}_3\text{S}} \cdot \rho_{\text{C}_3\text{S}}}
-\end{equation}
-
-The densities required to calculate these values are listed in \zcref{tab:densities}.
-
-% why 2.5 : 1.0?
-\begin{table}[htb]
-    \centering
-    \caption{
-        Densities of \ac{C3S} \cite{garrault.2006}, \ac{C2S}\cite{zhang.2012a}, \ac{CH} and \ac{CSH} \cite{garrault.2006} different phases in \unit{\gram\per\cubic\centi\meter} \cite{jennings.2000,garrault.2006}.\\$^{*}$mixture of \ac{CSH}:\ac{CH} at a volume ratio of \num{2.5}:\num{1}}
-    \label{tab:densities}
-    \begin{tabularx}{\textwidth}{@{}XXXXXXX@{}}
-        \toprule
-        \textbf{Phase} & \ac{C3S} & $\beta$-\ac{C2S} & $\gamma$-\ac{C2S} & \ac{CH} & \ac{CSH} & hydrate phase$^{*}$\\
-		\midrule
-        \textbf{Density} & \num{3.14} & \num{2.97} & \num{3.28} & \num{2.2} & $\approx$ \num{2.116} &  \num{2.07} \\
-		\bottomrule
-    \end{tabularx}
-\end{table}
-% beta-C2S: monoclin, more dense
-% gamma-C2S:orthorhombi, less dense
 
 \FloatBarrier
 \subsection{Statistical analysis of the representativeness of a 2D image}
 \label{sec:2D-representativeness}
 
-A question coming up often, especially in \ac{SEM}, where the field of view is often only a few \unit{\milli\meter\squared} or even less, is how representative an image is of the whole specimen.
-However, to evaluate that a measurement is representative can be a rather complicated challenge.
-This is especially true for inhomogeneous materials consisting of multiple phases and wide ranges of particle sizes.
-The problem starts with sampling and sample preparation.
+Scanning electron microscopy (\ac{SEM}) typically provides a field of view of only a few \unit{\milli\meter\squared} or less. 
+Therefore, a frequently asked question is whether such a small image represents the entire specimen.
+Evaluating the representativeness of a measurement can be a complex challenge.
+This is particularly pronounced for inhomogeneous materials that consist of multiple phases and a wide range of particle sizes.
+The issue already begins with the sampling and sample preparation processes.
 This process is standardised for granular or powdery samples in multiple fields (e.g. \textcite{din52101.2013} and \textcite{dinen932-1.1996}).
-Although this solution is very helpful for analysing loose particles, for the analysis of a monolithic sample the only option is to analyse the largest possible volume or surface area.
-This raises the question of what the minimum resolution and the size of the analysed area must be in order to obtain a statistically meaningful result.
+Although this standardisation is helpful for analysing loose particles, it is unsuitable for analysing monolithic samples for which the process is limited to determine the largest possible volume or surface area, respectively.
+This raises the question of what the minimum resolution and size of the analysed area must be in order to obtain a statistically meaningful results.
 \pdfcomment[icon=Comment, color=cyan, author=Christane]{% TODO: comment Christane
 	zur statistik von SEM bildanalyse an klinkern gibts auch arbeiten von Paul Stutzman und in dem buch von donald campbell über microscopical examination and interpretation of portland cement clinker bzw die deutsche variante davon. bestimmt gibts auch aussagen von betonmikroskopikern
 }
 
-The required lower resolution limit of a \ac{SEM} image can be concluded from the \textcite{nyquist.1928}-\textcite{shannon.1949} theorem. %\textcite{whittaker.1915}-\textcite{nyquist.1928}-\textcite{shannon.1949}
+A lower resolution limit of a \ac{SEM} image can be concluded from the \textcite{nyquist.1928}-\textcite{shannon.1949} theorem. %\textcite{whittaker.1915}-\textcite{nyquist.1928}-\textcite{shannon.1949}
 In the context of spatial resolution in digital imaging, this translates to the following requirement:
 The pixel should be no larger than half the size of the smallest resolvable feature \cite{roberge.2022}.
-In other words, to resolve an object with a size of \qty{4}{\nano\meter}, a resolution of less than \qty{2}{\nano\meter\per\px} is required.
+In other words, to resolve an object of \qty{4}{\nano\meter} in size, a resolution of less than \qty{2}{\nano\meter\per\px} is required.
 Due to the unavoidable noise level in most digital images (including images acquired by \ac{SEM}, \ac{CT} or light microscopy), a higher resolution is required to reliably represent a feature.
-Furthermore, the resolution limitations of the imaging device and the sample preparation (e.g. polishing) and the subsequent segmentation methods have to be considered.
+Furthermore, the resolution limitations of the imaging device, the sample preparation (e.g. polishing), and the subsequent segmentation methods, respectively, have to be considered.
 
 However, the minimum area required to obtain a statistically relevant result is especially an issue for \ac{SEM} analysis, because the imaged field of view is usually only a tiny detail of the whole specimen.
 While the operator of the microscope may try to exclude unusual areas or capture a typical, representative area of the specimen, this is a highly subjective task.
 Although the operator may try to avoid atypical regions and select a representative area, this judgement is inherently subjective.
-Acquiring a larger field of view or several independent images reduces this subjectivity, but it is not always clear how large the dataset must be to attain the desired level of statistical confidence.
+Acquiring a larger field of view or several independent images reduces this subjectivity, but it is unclear how large the dataset must be to attain the desired level of statistical confidence.
 
 In many cases, a particle size distribution or \ac{PSD} is of interest, which allows to evaluate distinct objects of an image \cite{odziomek.2016}.
 However, this parameter is not easily applicable for interconnected phases or pore spaces.
@@ -344,15 +306,17 @@ Similarly to the \ac{REA}, the size of the representative volume element can be 
 An essential framework for determining its size was defined by \textcite{kanit.2003}.
 %They showed that the required size of the volume element depends directly on the variance of the property under investigation (e.g. phase fraction or porosity) and the desired statistical precision.
 
-In the selected publications to calculate the \ac{REA}, two main methods, the \ac{BC} and the \ac{BG} method, were used for this statistical analysis.
-Their basic function is illustrated in \zcref{fig:lit_box_methods} and will be explained in the following sections.
+In the previously mentioned literature, two main methods to calculate the \ac{REA} were used for this statistical analysis.
+In this work, they are referred to as \ac{BC} and \ac{BG} method.
+Their application is illustrated in \zcref{fig:lit_box_methods} and will be explained in the following sections.
+The source code used to compare both methods is publicly available \cite{kleiner.2024b}. %-> https://github.com/kleinerELM/box_count_method
 
 \begin{figure}[H]
     \centering
 
 	\begin{subfigure}[t]{0.49\textwidth}
 		\includegraphics[width=\textwidth]{literature/box_cnt_illust.png}
-		\caption{Box count method.}
+		\caption{\ac{BC} method.}
         \label{fig:lit_box_methods_b}
 	\end{subfigure}
 	\hfill
@@ -368,17 +332,17 @@ Their basic function is illustrated in \zcref{fig:lit_box_methods} and will be e
     \label{fig:lit_box_methods}
 \end{figure}
 
-The source code used to compare both methods is publicly available \cite{kleiner.2024b}. %-> https://github.com/kleinerELM/box_count_method
 
-\subsubsection{\Acl*{BC} method}
+\subsubsection{\acs*{BC} method}
 
-The \ac{BC} method is a commonly used technique to obtain an indication of the statistical representativeness of the phase composition within an image \cite{mouret.2001, hlavacek.2015, cosenza.2019}.
-This method splits an image or multiple images of the same material into smaller sub-tiles (see \zcref{fig:lit_box_methods_b}).
+The \ac{BC} method is a commonly used technique to obtain an indication of the statistical representativeness of the phase composition within an image \cite{mouret.2001, hlavacek.2015, cosenza.2019, yio.2019}.
+This method uses multiple images or splits an image (or multiple images) of the same material into smaller sub-tiles (see \zcref{fig:lit_box_methods_b}).
+However, the amount of tiles varies in the literature.
 Then, for each experiment a growing number of tiles is randomly selected from this tile pool.
 From this selection, the phase composition is then remeasured.
-If these experiments are repeated multiple times, the standard deviation of the phase composition indicates how much area has to be imaged and analysed to obtain a reasonable phase composition measurement.
+If these experiments are repeated multiple times, the {\color{red}standard deviation} of the phase composition indicates how much area has to be imaged and analysed to obtain a reasonable phase composition measurement.
 
-\subsubsection{\Acl*{BG} method}
+\subsubsection{\acs*{BG} method}
 \label{sec:box_growth}
 
 A variation of the \ac{BC} method was used by \textcite{kameda.2006} and others \cite{klaver.2012, }. % TODO: at least one more reference

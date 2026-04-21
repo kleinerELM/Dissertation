@@ -2,7 +2,7 @@
 \label{sec:ebsd-hydrate}
 
 %The  analysis  yields, for each valid angular step around a clinker grain, a rim length in the plane of the polished section.
-To relate the \ac{HLT} measurements determined as described in \zcref{subsec:algo_hlm} to the crystallographic orientation of the same clinker volume, the \ac{BSE} images were combined with \ac{EBSD} data acquired on the identical surface.
+To relate the \ac{HLT} measurements as described in \zcref{subsec:algo_hlm} to the crystallographic orientation of the same clinker volume, the \ac{BSE} images were combined with \ac{EBSD} data acquired on the identical surface.
 
 %The following sections summarise how the two datasets were registered, how crystal directions were assigned to each rim measurement, and which limitations arise from the two-dimensional character of both modalities.
 
@@ -10,10 +10,10 @@ The carbon-coated specimen was therefore mounted on a pre-tilted specimen holder
 The specimen was then scanned at \qty{15}{\kilo\volt}, \qty{1.6}{\milli\ampere} at a step size of \qty{2}{\micro\meter\per\px} to acquire the \textsc{Kikuchi} patterns of \ac{C3S} and \ac{CH}.
 
 The \ac{EBSD} experiment produced a 2D dataset of crystal orientation estimates, phase indices and pattern quality indicators. 
-The raw data was preprocessed in \textit{AZtecCrystal 3.2} \cite{azteccrystal.2010} by \textit{Oxford Instruments} to clean up pseudosymmetric solutions.
+The raw data were preprocessed in \textit{AZtecCrystal 3.2} \cite{azteccrystal.2010} by \textit{Oxford Instruments} to clean up pseudosymmetric solutions.
 Since the crystallinity of \ac{C2S} is not good enough to obtain usable \textsc{Kikuchi} patterns, this work focussed on hydrated \ac{C3S} specimens.
 To identify and fit these patterns, the crystal structure published by \textcite{delatorre.2002} (\acs{ICSD} 94742, \acs{COD} \href{https://qiserver.ugr.es/cod/1540705.html}{1540705}) was used (see \zcref{fig:c3s_unit_cell}).
-Finally, the data was exported as a channel text file (.ctf), which was further processed using \textit{Python}.
+Finally, the data were exported as a channel text file (.ctf), which was further processed using \textit{Python}.
 
 \begin{figure}[htb!]
     \centering
@@ -45,7 +45,7 @@ The \textit{QGIS}-project was then used to projectively transform the high-resol
 %After alignment, the physical step sizes of the \ac{EBSD} grid and the transformed \ac{BSE} image were harmonised by an integer upscale of the segmentation used in the rim algorithm and a scalar alignment factor between low-resolution and high-resolution \ac{BSE} exports, so that one \ac{EBSD} column and row index corresponds to a consistent footprint on the section.
 
 For every rim measurement, the clinker-hydrate boundary point extracted from the \ac{BSE} segmentation was projected onto the nearest \ac{EBSD} grid node. % (including segmentation upscale and \ac{ROI} origin)  $(i_x,\,i_y)$.
-The \textsc{Euler} angles at that node then represent the orientation attributed to the measurement.
+The \textsc{Euler} angles at that node represent the orientation attributed to the measurement.
 Where several angular steps around one grain map to the same grid node, multiple records can share identical indices. %; this is expected when the \ac{EBSD} step width is large compared with the arc length sampled along the rim.
 
 \zcref{fig:clinker-pixel-roles} visualises the pixels from the \ac{EBSD} measurement used for the calculations.
@@ -213,7 +213,7 @@ Because $\vec{h}$ is normalised, all measurements lie on the unit sphere in crys
 For the monocline clinker phase investigated here, the angle between the measured rim normal direction and the $\langle001\rangle$ family was summarised by
 \begin{equation}
 	\label{eq:angle-001}
-	\alpha_{001} = \arccos\!\bigl(\lvert h_z\rvert\bigr),
+	\alpha_{001} = \arccos\bigl(\lvert h_z\rvert\bigr),
 \end{equation}
 i.e.\ the acute angle between $\vec{h}$ and the crystal $c$-axis, using the absolute value of $h_z$ so that opposite poles of the same axis are treated equivalently in the statistical plots.
 The scalar rim length from the hydrate analysis (denoted $l$ in the workflow output) was retained alongside $\alpha_{001}$ and $(h_x,\,h_y,\,h_z)$ for joint distributions, spatial maps on $(i_x,\,i_y)$, and spherical heat maps of measurement density on the orientation sphere.

@@ -3,15 +3,15 @@
 
 To validate the algorithms introduced in \zcref{sec:ebsd-hydrate,subsec:algo_hlm}, simulated datasets were created.
 For this purpose, an artificial volume was randomly filled with \num{120000} spherical \ac{C3S} particles per \unit{\cubic\milli\meter}.
-A \textsc{Gaussian} particle size distribution with diameters ranging from $d_\text{min, \ac{C3S}}=$\qty{0}{\micro\meter} to $d_\text{max, \ac{C3S}}=$\qty{5}{\micro\meter} was selected. 
-The volume was set to \qtyproduct{2x2}{\milli\meter} with a height ($z$) of four times the maximum diameter of a hydrated \ac{C3S} grain.
+A \textsc{Gaussian} distribution of particle diameters was generated with diameters ranging from $d_\text{min, \ac{C3S}}=$\qty{0}{\micro\meter} to $d_\text{max, \ac{C3S}}=$\qty{5}{\micro\meter} was selected. 
+The total volume was set to \qtyproduct{2000x2000}{\micro\meter\squared} with a height ($z$) of four times the maximum diameter of a hydrated \ac{C3S} grain.
 The simulation allows the \ac{HLT} to be varied depending on the crystal orientation of the clinker grains.
 To enable this, a random crystal orientation was assigned to each \ac{C3S} grain (based on the monoclinic unit cell \acs{ICSD} 94742 \cite{delatorre.2002}).
 Two scenarios were then created for validation.
 For the validation of the \ac{HLT} measurement algorithm, a constant spherical hydrate layer was used.
 To validate the \ac{EBSD} correlation, the hydrate layer was modelled as an ellipsoid whose orientation varied according to the assigned crystal orientation.
 
-Slicing this volume generates a virtual \ac{BSE} image (\qty{0.2}{\micro\meter\per\px}), which can then be used as input for the methods to be validated.
+Slicing this volume, generated a virtual \ac{BSE} image (\qty{0.2}{\micro\meter\per\px}), which was then be used as input for the methods to be validated.
 Sections of such synthetic \ac{BSE} images are shown in \zcref{fig:c3s_synthetic_BSE}.
 
 \begin{figure}[htb!]
@@ -30,6 +30,7 @@ Sections of such synthetic \ac{BSE} images are shown in \zcref{fig:c3s_synthetic
         
         \caption{
             Examples of synthetically generated \ac{BSE} images with a spherical \qty{2}{\micro\meter} hydrate layer (left) and an ellipsoidal hydrate layer with semi-axes of \qtyproduct{0.5x3.0x5}{\micro\meter} (right).
+            The red lines depict the selected hydrate layer thicknesses.
             Black: porosity; dark grey: \ac{CSH}; light grey: \ac{C3S}.
         }
     \label{fig:c3s_synthetic_BSE}
@@ -61,7 +62,8 @@ While one reason for this overestimation is the sectioning effect (see \zcref{su
 The simulated elliptical hydrate layer shows a much broader distribution of the \ac{HLT}.
 The maximum value of the \ac{HLT} was measured at \qty{2.9}{\micro\meter}, but the majority of measurements are distributed between the set limits for the ellipsoid.
 
-For both measurements, the data density below \qty{4}{\micro\meter} was low. However, these smaller grains seem to have a tendency to larger \ac{HLT}s, which can also be explained with the sectioning effect.
+For both measurements, the data density below a grain diameter of \qty{4}{\micro\meter} was low.
+However, these smaller grains seem to have a tendency to larger \ac{HLT}s, which can also be explained with the sectioning effect.
 In real specimens, many more smaller grains are expected than in this simulation, changing the appearance of the distribution for smaller grains.
 Finally, the 2D plot and the grain diameter histogram show regular vertical artefacts, which are probably caused by rounding errors, but do not affect the evaluation and are less pronounced in real-world data.
 
@@ -162,7 +164,7 @@ The mean \ac{HLT} within each \ac{HEALPix} grid cell was calculated and each cel
 
 If there is a dependence between the crystal orientation and the \ac{HLT}, it should become visible as a concentration of longer or shorter \ac{HLT}s in certain areas of the unit sphere.
 Additionally, for an ideal preparation a homogeneous distribution of measurement counts is expected around the unit sphere.
-While it becomes visible for the elliptical hydration rim simulation, that the \ac{HLT} distribution is not uniform in \zcref{fig:ebsd_eval_sphere_b}, a \textsc{Mollweide} projection of the whole sphere surface is shown in \zcref{fig:ebsd_eval_sphere_projection}.
+While it becomes apparent for the elliptical hydration rim simulation, that the \ac{HLT} distribution is not uniform in \zcref{fig:ebsd_eval_sphere_b}, a \textsc{Mollweide} projection of the whole sphere surface is shown in \zcref{fig:ebsd_eval_sphere_projection}.
 
 \begin{figure}[htb!]
 	\centering

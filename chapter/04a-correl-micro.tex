@@ -1,182 +1,19 @@
-\chapter[Argon broad ion beam techniques]{\Acl*{ArBIB} techniques}
-\label{sec:arbib-chapter}
+\chapter{Correlative microscopy}
 
-\ac{ArBIB} preparation is often used for the surface cleaning of specimens for \ac{EBSD} measurements.
-However, it is mostly known and used for materials other than cement \cite{desbois.2017}. % and clay \cite{desbois.2017}.
-For the preparation of cementitious specimens it is still rarely applied.
+Combining multiple imaging techniques can provide insight into a specimen that would be difficult to obtain using a single technique.
+However, this approach usually requires good surface preparation and accurate image-to-image alignment (registration).
+This chapter presents workflows for different methods and discusses the possible benefits of correlative microscopy.
 
-\section{\acs*{ArBIB} polishing}
-\label{sec:bib_pol_moving_result}
+\section{Combination of \acs*{EDX} phase mapping and \acl*{NI} utilising \acs*{ArBIB} milling}
 
-While the ion polishing is mostly used to enable \ac{EBSD} measurements, it can also allow artefact-free imaging of cementitious materials using the \ac{SE} and \ac{BSE} mode at low voltages (e.g., \qty{2}{\kilo\volt}).
-This is demonstrated in \zcref{fig:BSE_CEMI_voltages} using a three year old hydrated CEM~I sample, which was first carbon coated and then cleaned using \ac{ArBIB} (\qty{6}{\kilo\volt} at \qty{2}{\milli\ampere} for \qty{20}{\minute}).
-There is a significant difference in phase contrast, detail, and susceptibility to charging artefacts at different voltages and with and without a carbon coating.
-If a sample is not coated in the first place, \ac{ArBIB} polishing removes oil residue and reduces scratches as visible in \zcref{fig:mech_polishing_damage}.
-All images were recorded in \qty{16}{\bit}.
-
-\begin{figure*}[htb]
-    \centering
-
-	\includegraphics[width=\textwidth]{methods/bse-voltages/marked.pdf}
-    \caption{
-    	\ac{SEM} images of CEM~I hydrated for three years. With a carbon coating (top row) and after a subsequent \ac{ArBIB} polishing (middle row).
-		Recorded using different voltages and at \qty{0.8}{\nano\ampere}.
-		On the bottom, a comparison of the phase contrast between \ac{CH} and \ac{CSH} at \num{2.0} (\ac{ArBIB} polished, {\color{cyan}blue}) and \qty{15}{\kilo\volt} (carbon-coated, {\color{red}red}) is illustrated.
-    }
-    \label{fig:BSE_CEMI_voltages}
-\end{figure*}
-
-There is no fixed grey value for a specific phase in \ac{BSE} imaging.
-The grey values can be manipulated in the device not only by changing the voltage and current, but also by changing brightness, gamma, and contrast values either automatically or manually.
-Therefore, the contrast of the \qty{16}{bit} images was normalised using the \textit{Enhance Contrast} function available in \textsc{ImageJ}.
-In some instances this significantly changed the appearance of the images.
-
-The \ac{BSE} image of a carbon-coated specimen mostly shows the coating surface at \qty{2.5}{\kilo\volt} and the chemical contrast is only slightly visible.
-At \qty{4.0}{\kilo\volt} artefacts are still very prominent, making the image unsuitable for any segmentation task.
-An artefact-free image could be produced at \qty{10}{\kilo\volt}, allowing to distinguish between \ac{CH} and \ac{CSH} as well as between \ac{C3S} and \ac{C2S}.
-
-An \ac{ArBIB} cleaned surface can be imaged at voltages as low as \qty{2.0}{\kilo\volt} (at \qty{0.8}{\nano\ampere}), resulting in a segmentable image.
-The microstructure also appears more detailed than in images of the coated surface at \qty{10}{\kilo\volt}.
-This is caused by the smaller interaction volume at lower voltages (see \zcref{fig:penetration_depth}).
-However, the phase contrast between \ac{CH} and \ac{CSH} is diminished compared to the carbon-coated specimens at \qty{15}{\kilo\volt}.
-
-The images of the cleaned surfaces suffer from charging artefacts starting at \qty{4.0}{\kilo\volt}, \qty{0.8}{\nano\ampere}.
-At \qty{10}{\kilo\volt} and \qty{0.8}{\nano\ampere}, the image becomes unsuitable for any further processing.
-While current reduction to \qty{50}{\pico\ampere} eliminates the visible charging, the signal becomes very noisy.
-Therefore, much longer frame integration times would be required, which makes it difficult to obtain sharp details, since images easily become unstable and blurry due to charging.
-
-Furthermore, the \ac{ArBIB} cleaned surface shows more cracks due to dry-shrinking caused either by the heat from the ion beam or the prolonged vacuum exposure.
-
-\section{\acs*{ArBIB} milling}
-\label{sec:bib_pol_fixed_results}
-
-\ac{ArBIB} milling allows to section and subsequently image porous specimens without the requirement to embed them in epoxy resin (see \zcref{fig:BSE_ArBIB_CEMI}).
-This is especially useful for specimens with pronounced capillary porosity.
-Mechanical polishing would damage this non-stabilised microstructure and the pores would be filled with debris.
-However, the ion beam milling process is slower and can only prepare small areas.
-
-\begin{figure*}[htb]
-    \centering
-
-	\includegraphics[width=\textwidth]{literature/ArBIB-CEMI-BSE.pdf}
-    \caption{
-       \ac{SEM} image of \qty{28}{\day} hydrated CEM~I.
-       The larger left grain consists of multiple clinker phases, which can hardly be differentiated from each other.
-       The surface was polished using \acl*{ArBIB} and was captured using a through the lens detector in \ac{BSE} mode at \qty{2.0}{\kilo\volt} and \qty{0.1}{\nano\ampere}.
-       The contrast was increased in post processing.
-    }
-    \label{fig:BSE_ArBIB_CEMI}
-\end{figure*}
-
-The ion beam milled specimens have to be imaged using low voltages, since the so-prepared surface is intrinsically non-conductive and a consecutive coating would also alter the microstructures (see \zcref{fig:coating-influence}).
-As demonstrated in the previous section, low voltages also result in a limited contrast between phases like \ac{CH} and \ac{CSH} or \ac{C3S} and \ac{C2S}.
-However, pores that are smaller than large capillary pores are usually still differentiable and therefore segmentable from the solids.
-
-This method of preparation allows a close-to-native imaging of cementitious materials and results in a very flat and clean surface.
-This furthermore enables the analysis of very fine porosity, using primarily the \ac{SEM}-\ac{SE} mode \cite{desbois.2014, kleiner.2021a}.
-
-%\ac{ArBIB} sectioning allows to cut cross-sections (see \zcref{sec:bib_pol_fixed}) of \ac{CSH} needles of hydrated \ac{C3S}.
-\zcref{fig:csh-arbib-d} shows examples of the nano porosity within \ac{CSHi} of not epoxy resin embedded \qty{28}{\day} hydrated \ac{C3S} samples, revealed by room temperature \ac{ArBIB} milling.
-
-% X:\Mitarbeiter\Florian Kleiner\Einzelbilder\2020_04_29 C3S 28d RT BIB
-\begin{figure}[htb!]
-    \centering
-
-	\begin{subfigure}{0.49\textwidth}
-		\includegraphics[width=\textwidth]{methods/arbib-c3s-rt/fibres.pdf}
-		\caption{\ac{CSHo}, open porosity.}
-		\label{fig:csh-arbib-c}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}{0.49\textwidth}
-		\includegraphics[width=\textwidth]{methods/arbib-c3s-rt/CHSi_pores.pdf}
-		\caption{Close-up of \ac{CSHi} and its porosity.}
-		\label{fig:csh-arbib-d}
-	\end{subfigure}
-
-    \caption{
-		\ac{SEM}-\ac{SE}-images of cross-sections prepared by \ac{ArBIB} at room temperature of \qty{28}{\day} hydrated \ac{C3S} without epoxy resin intrusion.
-		The cross-sections reveal the \ac{CSH}-needle filled capillary pore space (left) and the porosity within \ac{CSHi}.
-		Through the lens detector in \ac{SE} mode, \qty{2}{\kilo\volt}.
-		}
-    \label{fig:csh-arbib-SEM2}
-\end{figure}
-
-\zcref{fig:csh-arbib-c} shows a needle filled capillary pore.
-The needles within the pore are fully visible and show no obvious morphological changes like bending or melting.
-However, such a pore cannot be segmented automatically, as not only the material of the cutting plane but also the pore background is visible.
-
-In contrast, the nano porosity shown in \zcref{fig:csh-arbib-d} is segmentable.
-However, similar to \ac{SEM}-\ac{SE} images of other porous samples, the segmentation cannot be done using a global threshold value.
-While in a \ac{BSE} image a rather distinct grey value range represents a single phase, this is not valid for \ac{SE} images.
-Therefore, the use of local adaptive threshold methods can enable a correct segmentation as will be shown in \zcref{subsec:pores_C3S_SEM}.
-
-As shown in \zcref{fig:bib_scheme}, an irradiation volume is expected during the \ac{ArBIB} sectioning.
-Since hydrate phases can be easily damaged by electron radiation as demonstrated in \zcref{fig:ebeam_damage}, the same could be expected during the ion beam preparation.
-To determine morphological differences, a CEM~I was sectioned at \qty{-140}{\celsius}.
-A comparison of images of cryo-prepared areas (\zcref{fig:csh-arbib-SEM}) and areas prepared at room temperature (\zcref{fig:csh-arbib-SEM2}) indicates that there is no visible damage caused by the ion beam without cooling.
-
-\begin{figure}[htb!]
-    \centering
-
-	\begin{subfigure}{0.49\textwidth}
-		%X:\Mitarbeiter\Florian Kleiner\Einzelbilder\2020_05_19 C3S 28d BIB 6KV 6h\C3S 28d BIB 6KV 6h_006.tif
-		\includegraphics[width=\textwidth]{methods/artistic-csh-anim/CSH-cross-section1.pdf}
-		\caption{Not embedded \qty{7}{\day} hydrated \ac{C3S}. \ac{SE} mode, \qty{2}{\kilo\volt}.}
-		\label{fig:csh-arbib-a}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}{0.49\textwidth}
-		%X:\Mitarbeiter\Florian Kleiner\Einzelbilder\selected BIB\Cryo+Harz_055.tif
-		\includegraphics[width=\textwidth]{methods/artistic-csh-anim/CSH-cross-section2.pdf}
-		\caption{Epoxy resin embedded \qty{7}{\day} hydrated \ac{C3S}. \ac{BSE} mode, \qty{1}{\kilo\volt}.}
-		\label{fig:csh-arbib-b}
-	\end{subfigure}
-
-	\begin{subfigure}{0.49\textwidth}
-		\includegraphics[width=\textwidth]{methods/artistic-csh-anim/CSH-cross-section.pdf}
-	 	\caption{Fractured surface of \qty{28}{\day} hydrated \ac{C3S}.}
-	 	\label{fig:csh-fracture}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}{0.49\textwidth}
-		\ifdefined\PRINTABLE
-			\includegraphics[width=\textwidth]{methods/artistic-csh-anim/still.png}
-		\else
-			\animategraphics[palindrome,autoplay,width=\textwidth]{12}{methods/artistic-csh-anim/Test00}{01}{30}
-		\fi
-		\caption{Artistic 3D reconstruction of \ac{CSHo}.}
-		\label{fig:csh-animation}
-	\end{subfigure}
-
-    \caption{
-		\ac{SEM}-\ac{SE}-images of \ac{ArBIB} cross-sections under cryo conditions of \qty{7}{\day} hydrated \ac{C3S} (a, b) revealing the cross-section of \ac{CSH}-needles, resembling a star like shape ({\color{blue}blue}).
-		The same shape is visible on a fractured surface showing the stems of \ac{CSH} needles (c).
-		And an artistic three-dimensional reconstruction of \ac{CSH} fibres covering a \ac{C3S}-particle based on a \ac{ArBIB} cross-section of hydrated \ac{C3S} (d). \cite{rossler.2023}
-	}
-    \label{fig:csh-arbib-SEM}
-\end{figure}
-
-
-
-Furthermore, the \ac{ArBIB} milling revealed the shape of the cross-section of a \ac{CSH}-needle.
-As illustrated in \zcref{fig:csh-arbib-b}, the needles are star-shaped and indeed not hollow as suggested by \textcite{double.1976, double.1978} in the 1970s.
-However, this can mainly be observed at the stem of the needle as foils radiate from the centre of the needle, resembling plank roots (buttress roots) of shallowly rooting trees found in tropical forests. % baumhinweis drin lassen ?
-
-This structure can also be found in cracked surfaces of the same material (\zcref{fig:csh-fracture}).
-This allows to create a 3D reconstruction of a hydrated \ac{C3S} grain covered in \ac{CSH}-fibres (\zcref{fig:csh-animation}).
-
-
-
-\section{\acs*{ArBIB} preparation for \acl*{NI}}
-
-\Acl{NI} is a technique which requires very flat surfaces \cite{wilson.2018}.
-While mechanical polishing works well if done with an oil-based polishing process \cite{gao.2012, wilson.2018}, \ac{ArBIB} sectioning is a promising preparation method of hydraulic cement-based materials, since it does not require water-free resin embedding, even for porous materials, avoids chemical contamination and minimises mechanical damage as demonstrated in \zcref{sec:bib_pol_fixed_results}.
+\Acl{NI} is a technique to determine mechanical properties of a specimen which requires very flat surfaces \cite{wilson.2018}.
+Mechanical polishing works well for \ac{NI} experiments if done with an oil-based polishing process \cite{gao.2012, wilson.2018}
+GNevertheless, \ac{ArBIB} milling is a promising preparation method for hydraulic cement-based materials, since it does not require water-free resin embedding, even for porous materials, avoids chemical contamination and minimises mechanical damage as demonstrated in \zcref{sec:bib_pol_fixed_results}.
 Furthermore, it avoids the formation of a pronounced relief at the interface of hard (e.g., quartz grains) and soft (e.g., hydrated cement) materials.
 For example, the imaging of microstructures of claystone was challenging until the advent of \ac{ArBIB} polishing and milling \cite{yven.2007,houben.2014}.
 
 The objective was to obtain a clean and smooth \ac{ITZ} between the binder and a large quartz grain of a \qty{91}{\day} hydrated CEM~I concrete sample (see \zcref{sec:ni_concrete}).
-As shown in \zcref{fig:lm_ni}, a usable area of $\approx$ \qty{7.5}{\milli\meter\squared} was prepared using \ac{ArBIB} sectioning.
+As shown in \zcref{fig:lm_ni}, a usable area of $\approx$ \qty{7.5}{\milli\meter\squared} was prepared using \ac{ArBIB} milling.
 The polishing was done at \qty{6}{\kilo\volt}, \qty{2}{\milli\ampere} in multiple sessions for a total of $\approx$ \qty{72}{\hour}.
 Between the sessions, the specimen was repositioned due to a failed ion gun.
 Since the redepositioning process is manual, the specimen was not at the exact same height as in the first milling session, causing a damaged front area.
@@ -661,30 +498,3 @@ Therefore, a porosity analysis in this range not suitable, since the majority of
 For example, the specimen was dried in vacuum within the polishing device and within the \ac{SEM} and the \ac{ArBIB} preparation also induces heat and therefore can cause cracks.
 This can also be seen in the lower two images in \zcref{fig:BSE_CEMI_voltages}, where the carbon coating was removed using \ac{ArBIB} polishing and new cracks appeared.
 
-
-
-
-% \color{orange}
-% Aligning these images from multiple modalities can be helpful to find a fitting measurement position but also to evaluate the results in a later stage.
-% The alignment can be done manually as discussed in the previous section by finding at least three or more matching point pairs or by manually transforming the images until the remaining error is acceptable.
-% However, a more automatic method would be preferred.
-% Multimodal image matching is a known but difficult problem in computer vision.
-% Widley used algorithms like \ac{SIFT} usually expect images of the same modality and often fail if the modality changes.
-% One possible solution is to bring all images in a similar modality.
-% For example by first applying denoising and edge detection algorithms.
-
-% \color{black}
-
-\section{Conclusions}
-
-\ac{ArBIB} milling has proven to be a valuable preparation technique for the microstructural characterisation of hydrated cementitious materials.
-\ac{ArBIB} polishing effectively removes surface contaminants and mechanical preparation artefacts, enabling high-resolution \ac{BSE} and \ac{SE} imaging at low accelerating voltages without the need for conductive coatings.
-However, this approach is limited by potential charging effects and reduced phase contrast compared to high-voltage imaging of coated specimens.
-\ac{ArBIB} sectioning offers the distinct advantage of preparing porous samples without resin embedding, thus preserving the native pore structure, especially nano pores.
-Furthermore, for micromechanical investigations such as \ac{NI}, \ac{ArBIB} preparation reduces the topographic relief between phases of different hardness, such as aggregates and the cement paste matrix.
-Although the technique can introduce specific surface textures like curtaining, correlative microscopy combining \ac{SEM}-\ac{BSE}, \ac{EDX} spectroscopy, and \ac{NI} on \ac{ArBIB}-prepared surfaces successfully facilitated the phase-specific determination of mechanical properties.
-This approach highlighted significant differences between anhydrous clinker phases and hydration products, although the precise characterisation of the \ac{ITZ} remained constrained by preparation-induced microcracking.
-Furthermore, pores are assigned higher hardness values than in resin embedded specimens, since the nanoindenter will mostly measure pore backgrounds or crack edges.
-\pdfcomment[icon=Comment, color=cyan, author=Christane]{% TODO: comment Christane
-	und wie ist es mit C-S-H? besonders C-S_Ho sind da die NI werte mit und ohne harz verschieden (feng meinte ja mal er korrigiert die NI werte der hydrates um die werte des epoxidharzes. ich erinnere mich aber nicht genau wie und ob er das -hoffentlich nicht- auch für quarzt macht.)
-}

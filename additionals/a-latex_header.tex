@@ -108,7 +108,9 @@
 			uniquelist = false, % This feature allows ambiguous labelname list --> unique dateformat (e.g. 2020a, 2020b)
 			defernumbers=true,
 			sorting=none, 
-			articlein=false %Suppress "In:" biblatex
+			articlein=false, %Suppress "In:" biblatex
+			maxbibnames=20, % softwarepackages have toooo many authors
+			minbibnames=20,
 			]{biblatex}  % use biblatex for bibliography
 
 			
@@ -201,10 +203,10 @@
 	product-units=single,
 	list-units=single,
 % on default show only a single unit when using /SIrange{}
-	detect-family,
+	reset-text-family = false,%detect-family,
 	per-mode=fraction,
-	separate-uncertainty = true,
-	multi-part-units=single,
+	uncertainty-mode = separate,%separate-uncertainty = true,
+	separate-uncertainty-units = single,%multi-part-units=single,
 	math-sf=\sffamily,
 	%inline-per-mode=fraction,
 	%display-per-mode=fraction,
@@ -477,4 +479,20 @@
 \usepackage{wasysym} % für \diameter
 \usepackage{pdfcomment}
 \usepackage{zref-clever}
-\zcsetup{capfirst=true} % first letter in "Figure" etc. is always capitalised 
+\zcsetup{capfirst=true}
+\zcLanguageSetup{english}{
+    type = figure,
+        Name-sg = Figure,   name-sg = Figure,   Name-pl = Figures,   name-pl = Figures,
+    type = table,
+        Name-sg = Table,    name-sg = Table,    Name-pl = Tables,    name-pl = Tables,
+    type = chapter,
+        Name-sg = Chapter,  name-sg = Chapter,  Name-pl = Chapters,  name-pl = Chapters,
+    type = section,
+        Name-sg = Section,  name-sg = Ssection,  Name-pl = Sections,  name-pl = Sections,
+    type = subsection,
+        Name-sg = Section,  name-sg = Section,  Name-pl = Sections,  name-pl = Sections,
+    type = subsubsection,
+        Name-sg = Section,  name-sg = Section,  Name-pl = Sections,  name-pl = Sections,
+    type = equation,
+        Name-sg = Equation, name-sg = Equation, Name-pl = Equations, name-pl = Equations
+}

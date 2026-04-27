@@ -1,8 +1,8 @@
-\chapter{Hydrate layer and particle distance measurements}
+\chapter{Hydrate layers and particle distances}
 \label{chap:hydrate-rim}
 
 
-The methods presented \zcref{subsec:algo_hlm, sec:ebsd-hydrate}  was applied to pure hydrated \ac{C3S} and \ac{C2S} specimens and mixtures of both phases at different ages, which were embedded, polished and coated with carbon.
+The methods presented \zcref{subsec:algo_hlm, sec:ebsd-hydrate} were applied to pure hydrated \ac{C3S} and \ac{C2S} specimens as well as mixtures of both phases at different ages, which were embedded, polished, and coated with carbon.
 The datasets differ in the imaged area and slightly in \ac{SEM} imaging parameters.
 For example, the accelerating voltage used varied from \qtyrange{10}{15}{\kilo\volt}.
 The raw images are publicly available \cite{kleiner.2023a, kleiner.2025e, kleiner.2025d}.
@@ -13,11 +13,12 @@ However, the methods first had to be validated.
 
 \section{Influence of the segmentation method}
 
-This section benchmarks different segmentation methods on a selected specimen.
-A \qtyproduct{0.5 x 0.5}{\milli\meter\squared} section of one image (\qty{14}{\day} hydrated \ac{C3S}, \cite{kleiner.2024a}) was segmented by using three different segmentation methods:
+This section benchmarks and discussed different segmentation methods on a selected specimen.
+The evaluation will be done on a \qtyproduct{0.5 x 0.5}{\milli\meter\squared} section of stitched \ac{SEM}-\ac{BSE} images of \qty{14}{\day} hydrated \ac{C3S} \cite{kleiner.2024a}.
+Three different segmentation methods were applied:
 
 \begin{enumerate}
-	\item a manually selected threshold value to distinguish between pores, hydrate phases and the unhydrated clinker,
+	\item a manually selected threshold value to distinguish between pores, hydrate phases, and the unhydrated clinker,
 	\item a manually trained pixel classification algorithm distinguishing between pores, the unhydrated clinker, \ac{CH}, and
 	\begin{enumerate}
 		\item separated inner and outer \ac{CSH},
@@ -30,7 +31,7 @@ A \qtyproduct{0.5 x 0.5}{\milli\meter\squared} section of one image (\qty{14}{\d
 Comparing the raw segmentation results (see \zcref{fig:results_segmentation_methods, tab:segmentation}), there are apparent differences.
 The threshold segmentation leads to many erroneously identified phases.
 In contrast, the pixel classification gives a very close result to the manual segmentation.
-However, if \ac{CSHo} is taken into account in the pixel classification, the \ac{HLT} distribution and the calculated $l_\text{max}$ are comparable to the threshold-based segmentation, while the data density is significantly reduced (see \zcref{tab:segmentation} and \zcref{fig:hlt_segmentation_influence} \cite{kleiner.2024}, \ac{SI}).
+However, if \ac{CSHo} is taken into account in the pixel classification, the \ac{HLT} distribution and the calculated $l_\text{max}$ (the most frequent \ac{HLT}) are comparable to the threshold-based segmentation, while the data density is significantly reduced (see \zcref{tab:segmentation} and \zcref{fig:hlt_segmentation_influence} \cite{kleiner.2024}, \ac{SI}).
 This data density reduction is caused by a rough segmentation of the \ac{CSHo} and therefore, a significantly decreased pore space.
 Furthermore, a slightly larger \qty{33.3}{\percent} confidence interval and a significant reduction of the first \ac{HLT} accumulation can be observed, including the \ac{CSHo}.
 
@@ -64,7 +65,7 @@ The difference of the $l_\text{max}$ of the pixel classification results allows 
 Nevertheless, segmenting the outer layer presents a non-trivial challenge as it relies on the person performing the segmentation and training the pixel classification.
 In many cases, whether \ac{CSHo} or merely an artifact such as a flat edge is being segmented remains unclear.
 
-An overview of the influence of the segmentation method on the results can be found in \zcref{tab:segmentation}.
+%An overview of the influence of the segmentation method on the results can be found in \zcref{tab:segmentation}.
 
 \begin{table}[htbp]
 	\centering
@@ -93,15 +94,15 @@ An overview of the influence of the segmentation method on the results can be fo
 
 The phase composition indicates the reaction progress of the specimen.
 The porosity data must be interpreted with caution and cannot be reliably evaluated, as the measurement of total porosity can be significantly influenced by the presence of air voids and cracks within the specimen.
-Therefore, the hydrate content within the solids $F_\text{norm, hydrate}$ was calculated:
+Therefore, the hydrate content within the solids $F_\text{hydrate}$ was calculated:
 
 \begin{equation}
-	F_\text{norm, hydrate} = \frac{A_{\text{hydrate}}}{A_{\text{clinker}} + A_{\text{hydrate}}}
+	F_\text{hydrate} = \frac{A_{\text{hydrate}}}{A_{\text{clinker}} + A_{\text{hydrate}}}
 \end{equation}
 
-\zcref{fig:segmentation_hydrate_clinker_ratio} indicates the variation in $F_\text{norm, hydrate}$ caused by different segmentation methods.
+\zcref{fig:segmentation_hydrate_clinker_ratio} indicates the variation in $F_\text{hydrate}$ caused by different segmentation methods.
 
-% Bar chart: Normalised hydrate content F_norm, hydrate
+% Bar chart: Normalised hydrate content F_hydrate
 % Values taken from table \ref{tab:segmentation}:
 % method 1: 62.9 / (13.9 + 62.9) * 100 = 81.9
 % method 2.a: 61.1 / (17.4 + 61.1) * 100 = 77.8
@@ -113,7 +114,7 @@ Therefore, the hydrate content within the solids $F_\text{norm, hydrate}$ was ca
 		\begin{axis}[
 			ybar,
 			ymin=0, ymax=100,
-			ylabel={$F_\text{norm, hydrate}$ in \unit{\percent}},
+			ylabel={$F_\text{hydrate}$ in \unit{\percent}},
 			symbolic x coords={1,2.a,2.b,3},
 			xtick=data,
 			enlarge x limits=0.25,
@@ -132,7 +133,7 @@ Therefore, the hydrate content within the solids $F_\text{norm, hydrate}$ was ca
 		\end{axis}
 	\end{tikzpicture}
 	\caption{
-		Normalised hydrate content $F_\text{norm, hydrate}$ for various segmentation methods.
+		Normalised hydrate content $F_\text{hydrate}$ for various segmentation methods.
 		1: threshold, 2: pixel classification (a: with and b: without \ac{CSHo}), 3: manual segmentation.
 	}
 	\label{fig:segmentation_hydrate_clinker_ratio}
@@ -226,7 +227,7 @@ An overview of some basic statistics of the images analysed is listed in \zcref{
 	\end{tabularx}
 \end{table}
 
-The hydrate content within the solids $F_\text{norm, hydrate}$ is plotted in \zcref{fig:hydrate_clinker_stacked_bar}.
+The hydrate content within the solids $F_\text{hydrate}$ is plotted in \zcref{fig:hydrate_clinker_stacked_bar}.
 As established in the literature \cite{goni.2010}, the diagram shows that the \ac{C3S} reaction is much faster than the \ac{C2S} reaction and after \qty{28}{\day} the hydrates account for \,\qty{91.1}{\percent} of the measured area of solids.
 In \ac{C2S} only \qty{75.5}{\percent} hydrates can be found after \qty{28}{\day}, a value comparable to the \ac{C3S} hydration progress after \qty{7}{\day}.
 
@@ -253,7 +254,7 @@ In \ac{C2S} only \qty{75.5}{\percent} hydrates can be found after \qty{28}{\day}
 		\begin{axis}[
 			ybar,
 			ymin=0, ymax=100,
-			ylabel={$F_\text{norm, hydrate}$ in \unit{\percent}},
+			ylabel={$F_\text{hydrate}$ in \unit{\percent}},
 			symbolic x coords={1,7,14,28,84,365},
 			xtick=data,
 			xlabel={age in \unit{\day}},
@@ -402,7 +403,7 @@ Applying the algorithm to mixtures of \ac{C3S} and \ac{C2S} without distinguishi
 % 	\end{tabularx}
 % \end{table}
 
-\zcref{fig:hydrate_clinker_stacked_bar_mix} shows the hydration progress using the hydrate content $F_\text{norm, hydrate}$ relative to the solid fraction.
+\zcref{fig:hydrate_clinker_stacked_bar_mix} shows the hydration progress using the hydrate content $F_\text{hydrate}$ relative to the solid fraction.
 With increasing \ac{C2S} content, the hydrate content is usually reduced.
 Only the \ac{C3S} 3:1 \ac{C2S} mixture deviates slight from this trend at \num{7} and \qty{14}{\day}.
 However, there is no obvious reason for this deviation and may result from a poor segmentation quality.
@@ -413,7 +414,7 @@ However, there is no obvious reason for this deviation and may result from a poo
 		\begin{axis}[
 			ybar,
 			ymin=0, ymax=100,
-			ylabel={$F_\text{norm, hydrate}$ in \unit{\percent}},
+			ylabel={$F_\text{hydrate}$ in \unit{\percent}},
 			symbolic x coords={1:0, 3:1, 1:1, 1:3, 0:1},
 			xtick=data,
 			xlabel={\ac{C3S}:\ac{C2S} ratio},
@@ -487,7 +488,7 @@ Based on the \ac{C2S} results younger than \qty{28}{\day} (see \zcref{fig:result
 By only comparing specimens with an age of \qty{28}{\day} with three distinct peaks, a mutual dependence of both phases can be identified.
 
 In \zcref{fig:hyd-rim-mix-28d} it becomes apparent, that \ac{C3S} reacts slower with increasing \ac{C2S} content, while \ac{C2S} reacts only slightly faster, if at all.
-This uncertainty is caused by the following sources of error:
+This uncertainty may be caused by the following sources of error:
 \begin{itemize}
 	\item Overlap/contact of the \ac{CSH} from \ac{C3S} and \ac{C2S},
 	\item and filled Hadley-grains with no contact to the actual hydrate layer around the grain resulting in an overestimation and lower data density.
@@ -511,7 +512,7 @@ Although this segmentation approach produces erroneously segmented layers around
     \centering
 	\includegraphics[height=.98\textheight]{hydrate-rim/segmented/overview.pdf}
 	\caption{
-        Segmented images of \ac{C3S}:\ac{C2S} mixtures after \num{7}, \num{14} and \qty{28}{\day} of hydration. Red: {\color{red}\ac{CSH}}; yellow: {\color{orange}\ac{C3S}}; cyan: {\color{cyan}\ac{CH}}; black: pores.
+        Segmented images of \ac{C3S}:\ac{C2S} mixtures after \num{7}, \num{14}, and \qty{28}{\day} of hydration. Red: {\color{red}\ac{CSH}}; yellow: {\color{orange}\ac{C3S}}; cyan: {\color{cyan}\ac{CH}}; black: pores.
     }
     \label{fig:segmented_images}
 \end{figure}
@@ -623,7 +624,7 @@ Compared to \zcref{fig:lit_box_growth_b}, $\sigma$ decreases continuously, since
       \label{fig:lit_box_count_b}
     \end{subfigure}
     \caption{
-        Results of the \textbf{\ac{BC}} as explained in \cite{mouret.2001,hlavacek.2015} and the respective standard deviations (right) after the selection of up to \num{100} random tiles.
+        Results of the \ac{BC} as explained in \cite{mouret.2001,hlavacek.2015} and the respective standard deviations (right) after the selection of up to \num{100} random tiles.
     }
     \label{fig:lit_box_count}
 \end{figure}
@@ -754,7 +755,7 @@ And since the location of larger phases like pores or \ac{CH} does not change in
 Even the randomised starting point cannot remove the bias, if only a single large image is used for this technique.
 Nevertheless, the standard deviation is below \qty{2}{\percent} at \qty{0.1}{\square\milli\meter}.
 However, due to this effect the deviation from the phase measurement of the whole specimen can still be more than \qty{2}{\percent}.
-Due to this unsteadiness, $\sigma_{\text{BG}}$ is not directly set as \qty{2}{\percent}-threshold was not directly processed using $\sigma$.
+Due to this unsteadiness, $\sigma_{\text{BG}}$ was not directly set to the measured $\sigma$.
 Instead, the method specific standard deviation $\sigma_{\text{BG}}$ is defined as the absolute difference between the phase concentration of the whole image ($\phi_{\text{img}}$) and the phase concentration in the current image area ($\phi_{\text{area}}$), plus the absolute value of the standard deviation ($\sigma$) of the current image area:
 
 \begin{equation}
@@ -982,12 +983,9 @@ This directly causes the unsteady decrease observed in \zcref{fig:lit_box_growth
 
 In summary, images of hydrated \ac{C3S}:\ac{C2S} paste exhibiting considerable inhomogeneities (e.g., air voids) require significantly larger areas (more than \qty{1.4}{\milli\meter\squared}) to achieve statistical representativeness compared to highly homogeneous specimens, for which an area exceeding \qty{0.3}{\milli\meter\squared} is sufficient.
 Moreover, this dependence on feature size (the larger the feature, the larger the image) demonstrates that an analysis of statistical representativeness must be conducted on an image-by-image basis and depends on the specimen type.
-For comparison, \cite{stutzman.2004} determined, that areas larger than \qty{0.2}{\milli\meter\squared} are sufficient for statistical representativeness to analyse polished cement clinker.
+For comparison, \textcite{stutzman.2004} determined, that areas larger than \qty{0.2}{\milli\meter\squared} are sufficient for statistical representativeness to analyse polished cement clinker.
 
 Furthermore, there is a significant subjective influence of the \ac{SEM} operator which can hardly be avoided.
 For example, to acquire the large images evaluated in this study, only the best areas with few pores and irregularities were manually selected from the specimen surface.
-However, \textcite{kameda.2006} pointed out, that the data fluctuation of the measured porosity and permeability using this method becomes negligible, when `\textit{the cube size exceeds four grain radii}'.
+\textcite{kameda.2006} pointed out, that the data fluctuation of the measured porosity and permeability using this method becomes negligible, when `\textit{the cube size exceeds four grain radii}'.
  
-
-
-

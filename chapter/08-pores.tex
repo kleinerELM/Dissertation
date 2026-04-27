@@ -12,7 +12,7 @@ To address this, a standard material was utilised to benchmark and compare selec
 
 \section{Porous glass standard}
 
-Two porous glass standards (\textsc{VYCOR} glass with \num{5} and \qty{20}{\nano\meter} diameter, see \zcref{sec:boraglas}) were evaluated using \ac{SEM}, \ac{LTDSC}, and \ac{HNMR} spectroscopy.
+Two porous glass standards (\textsc{Vycor} glass with \num{5} and \qty{20}{\nano\meter} pore diameter, \acs{VG5} and \acs{VG20} , see \zcref{sec:boraglas}) were evaluated using \ac{SEM}, \ac{LTDSC}, and \ac{HNMR} spectroscopy.
 The glass standards were initially defined using \ac{MIP} by the manufacturer (\zcref{fig:vycor-mip}). % or \ce{N2}-ad/absorption.
 % TODO: die Endporosität wird normalerweise eher durch Engstellen (necks) definiert als durch die Bulk-porosität
 
@@ -31,37 +31,37 @@ This pore structure allows its use as a filter material and and caused by the ma
 
 	\begin{subfigure}{0.49\textwidth}
 		\includegraphics[width=\textwidth]{ltdsc/glass/segmentation/5nm.pdf}
-		\caption{Raw, pore size \qty{5}{\nano\meter} (diameter)}
+		\caption{Raw, \acs{VG5}}
 		\label{fig:ltdsc-vycor-glass-a}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}{0.49\textwidth}
 		\includegraphics[width=\textwidth]{ltdsc/glass/segmentation/20nm.pdf}
-		\caption{Raw, pore size \qty{20}{\nano\meter} (diameter)}
+		\caption{Raw, \acs{VG20}}
 		\label{fig:ltdsc-vycor-glass-b}
 	\end{subfigure}
 
 	\begin{subfigure}{0.49\textwidth}
 		\includegraphics[width=\textwidth]{ltdsc/glass/segmentation/20nm_pores.pdf}
-		\caption{Segmented, pore size \qty{5}{\nano\meter} (diameter)}
+		\caption{Segmented, \acs{VG5}}
 		\label{fig:ltdsc-vycor-glass-c}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}{0.49\textwidth}
 		\includegraphics[width=\textwidth]{ltdsc/glass/segmentation/20nm_pores.pdf}
-		\caption{Segmented, pore size \qty{20}{\nano\meter} (diameter)}
+		\caption{Segmented, \acs{VG20}}
 		\label{fig:ltdsc-vycor-glass-d}
 	\end{subfigure}
 
 	\begin{subfigure}{0.49\textwidth}
 		\includegraphics[width=\textwidth]{ltdsc/glass/segmentation/20nm_pores_ws.pdf}
-		\caption{Segmented, watershed, pore size \qty{5}{\nano\meter} (diameter)}
+		\caption{Segmented, watershed, \acs{VG5}}
 		\label{fig:ltdsc-vycor-glass-e}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}{0.49\textwidth}
 		\includegraphics[width=\textwidth]{ltdsc/glass/segmentation/20nm_pores_ws.pdf}
-		\caption{Segmented, watershed, pore size \qty{20}{\nano\meter} (diameter)}
+		\caption{Segmented, watershed, \acs{VG20}}
 		\label{fig:ltdsc-vycor-glass-f}
 	\end{subfigure}
 
@@ -140,7 +140,7 @@ This pore structure allows its use as a filter material and and caused by the ma
     %     \end{semilogxaxis}
     %   \end{tikzpicture}
     %   \caption{
-	% 	Pore size distribution \qty{5}{\nano\meter} porous \textsc{VYCOR}-glass.
+	% 	Pore size distribution \qty{5}{\nano\meter} porous \textsc{Vycor}-glass.
 	%   }
 	%   \label{fig:ltdsc-vycor-glass-e}
     % \end{subfigure}
@@ -220,7 +220,7 @@ This pore structure allows its use as a filter material and and caused by the ma
     %       \end{semilogxaxis}
     %     \end{tikzpicture}
     %     \caption{
-	% 		Pore size distribution of \qty{20}{\nano\meter} porous \textsc{VYCOR} glass.
+	% 		Pore size distribution of \qty{20}{\nano\meter} porous \textsc{Vycor} glass.
 	% 	}
 	% 	\label{fig:ltdsc-vycor-glass-f}
     % \end{subfigure}
@@ -258,7 +258,7 @@ This pore structure allows its use as a filter material and and caused by the ma
 
     %     \end{semilogxaxis}
 	%   \end{tikzpicture}
-	%   \caption{Pore size distribution of \qty{5}{\nano\meter} porous \textsc{VYCOR} glass.}
+	%   \caption{Pore size distribution of \qty{5}{\nano\meter} porous \textsc{Vycor} glass.}
 	%   \label{fig:ltdsc-vycor-glass-e}
 
 	% \end{subfigure}
@@ -299,14 +299,15 @@ This pore structure allows its use as a filter material and and caused by the ma
 
 	% 	  \end{semilogxaxis}
 	% 	\end{tikzpicture}
-	% 	\caption{Pore size distribution of \qty{20}{\nano\meter} porous \textsc{VYCOR} glass.}
+	% 	\caption{Pore size distribution of \qty{20}{\nano\meter} porous \textsc{Vycor} glass.}
 	%   	\label{fig:ltdsc-vycor-glass-f}
 
 	% \end{subfigure}
     \caption{
-		Enlarged sections of \ac{SEM}-\ac{SE} images of two \textsc{VYCOR}-glass samples and their respective segmentation results.
+		Enlarged sections of \ac{SEM}-\ac{SE} images of two \textsc{Vycor}-glass samples and their respective segmentation results.
 		The pore size was determined using two segmented \ac{SEM} image for each glass type.
-	} % Probenbilder-rodaten vmtl vertauscht.
+		In (e) and (f), each pore was assigned a random color for visualisation purposes.
+	} % Probenbilder-rohdaten vmtl vertauscht?
     \label{fig:ltdsc-vycor-glass}
 \end{figure}
 
@@ -315,7 +316,7 @@ Since the dwell-time has to be chosen as short as possible to avoid charging, th
 
 The pores were segmented using adaptive thresholding to determine the pore size distribution (see \zcref{fig:ltdsc-vycor-glass-c,fig:ltdsc-vycor-glass-d}).
 This method utilizes a `blocksize' parameter (in \unit{\px}), which defines the local neighbourhood size for calculating the threshold.
-For \textsc{VYCOR} glass with a nominal pore diameter of \qty{20}{\nano\meter}, a blocksize corresponding to \qtyrange{50}{100}{\nano\meter} yielded reliable results.
+For \acs{VG20}, a blocksize corresponding to \qtyrange{50}{100}{\nano\meter} yielded reliable results.
 Consequently, a blocksize parameter corresponding to approximately \qty{80}{\nano\meter} was selected.
 The resulting binary images were morphologically cleaned using dilation and erosion operations.
 
@@ -365,7 +366,7 @@ The fit parameters are listed in \zcref{tab:rP_fit_parameters}.
 % 				\draw [grey, thick] (axis cs:0,80) -- (axis cs:40,80);
 % 			\end{axis}
 % 		\end{tikzpicture}
-% 		\caption{\qty{5}{\nano\meter} porous \textsc{VYCOR} glass.}
+% 		\caption{\qty{5}{\nano\meter} porous \textsc{Vycor} glass.}
 % 		\label{fig:mip_heatmap_vycor5nm}
 
 % 	\end{subfigure}
@@ -409,12 +410,12 @@ The fit parameters are listed in \zcref{tab:rP_fit_parameters}.
 % 				\draw [grey, thick] (axis cs:0,80) -- (axis cs:40,80);
 % 			\end{axis}
 % 		\end{tikzpicture}
-% 		\caption{\qty{20}{\nano\meter} porous \textsc{VYCOR} glass.}
+% 		\caption{\qty{20}{\nano\meter} porous \textsc{Vycor} glass.}
 % 		\label{fig:mheatmap_vycor20nm}
 
 % 	\end{subfigure}
 % 	\caption{
-% 		Heatmaps indicating the influence of the `blocksize' option using `adaptive threshold' on the measured median \textsc{Feret} diameter of the \textsc{VYCOR} glass.
+% 		Heatmaps indicating the influence of the `blocksize' option using `adaptive threshold' on the measured median \textsc{Feret} diameter of the \textsc{Vycor} glass.
 % 		The frequency is normalised per blocksize.
 % 		The blocksize is the size of the sliding window used for the adaptive thresholding.
 % 	}
@@ -462,7 +463,7 @@ The fit parameters are listed in \zcref{tab:rP_fit_parameters}.
 
             \end{axis}
         \end{tikzpicture}
-        \caption{\qty{5}{\nano\meter} porous \textsc{VYCOR} glass.}
+        \caption{\acs{VG5}.}
         \label{fig:compare_psd_5nm}
     \end{subfigure}
     \hfill
@@ -500,11 +501,11 @@ The fit parameters are listed in \zcref{tab:rP_fit_parameters}.
 
             \end{axis}
         \end{tikzpicture}
-        \caption{\qty{20}{\nano\meter} porous \textsc{VYCOR} glass.}
+        \caption{\acs{VG20}.}
         \label{fig:compare_psd_20nm}
     \end{subfigure}
 	\caption{
-		\ac{PSD} of \num{5} and \qty{20}{\nano\meter} \textsc{VYCOR} glass, obtained from segmented \ac{SE} images (\num{3} images, \qty{53.61}{\micro\meter\squared} in total for each glass).
+		\ac{PSD} of \acs{V5} and \acs{VG20}, obtained from segmented \ac{SE} images (\num{3} images, \qty{53.61}{\micro\meter\squared} in total for each glass).
 		Graphs marked with `ws' were filtered using the watershed algorithm \cite{beucher.1992}.
 		The fit parameters are listed in \zcref{tab:rP_fit_parameters}.
 	}
@@ -518,11 +519,12 @@ The fit parameters are listed in \zcref{tab:rP_fit_parameters}.
 % The resulting median \textsc{Feret} diameter distribution was then normalised to the maximum value within the distribution.
 % Depending on the blocksize used, very different results were obtained, as shown in \zcref{fig:heatmap_vycor}.
 
-For \textsc{VYCOR}-glass with a nominal pore size of \qty{5}{\nano\meter}, a main radius of approximately \qty{12.7}{\nano\meter} was calculated. Applying the watershed filter reduced this radius to \qty{8.2}{\nano\meter}.
-For the \qty{20}{\nano\meter} glass, radii of \qty{20.3}{\nano\meter} and \qty{10.9}{\nano\meter} were determined, respectively.
+For \acs{VG5}, a main radius of approximately \qty{12.7}{\nano\meter} was calculated.
+Applying the watershed filter reduced this radius to \qty{8.2}{\nano\meter}.
+For \acs{VG20}, radii of \num{20.3} and \qty{10.9}{\nano\meter} were determined, respectively.
 In both cases, the calculated main radii overestimates the manufacturer's specifications.
-For the \qty{5}{\nano\meter} glass, the calculated values exceed the manufacturer's median pore radius of \qty{2.4}{\nano\meter} by a factor of \numrange{3.5}{5.4}.
-For the \qty{20}{\nano\meter} glass, the overestimation is lower, exceeding the reference radius of \qty{9.2}{\nano\meter} (measured via \ac{MIP}, see \zcref{fig:vycor-mip}) by a factor of \numrange{1.2}{2.2}.
+For \acs{VG5}, the calculated values exceed the manufacturer's median pore radius of \qty{2.4}{\nano\meter} by a factor of \numrange{3.5}{5.4}.
+For \acs{VG20}, the overestimation is lower, exceeding the reference radius of \qty{9.2}{\nano\meter} (measured via \ac{MIP}, see \zcref{fig:vycor-mip}) by a factor of \numrange{1.2}{2.2}.
 
 % the porosity was overestimated by a factor of \num{2.5}, with a median \textsc{Feret} diameter around \qty{15}{\nano\meter} (see \zcref{fig:mip_heatmap_vycor5nm}).
 % For block sizes smaller than \qty{50}{\nano\meter}, the segmentation result was very noisy, and the \textsc{Feret} diameter was underestimated and unreliable.
@@ -602,7 +604,7 @@ For the measurement, the water saturated specimen was then cooled down to \qty{-
 
         \end{semilogxaxis}
 	  \end{tikzpicture}
-	  \caption{\qty{5}{\nano\meter} porous \textsc{VYCOR} glass.}
+	  \caption{\acs{VG5}.}
 
 	\end{subfigure}
 	\hfill
@@ -665,7 +667,7 @@ For the measurement, the water saturated specimen was then cooled down to \qty{-
 
 		  \end{semilogxaxis}
 		\end{tikzpicture}
-		\caption{\qty{20}{\nano\meter} porous \textsc{VYCOR} glass.}
+		\caption{\acs{VG20}.}
 
 	\end{subfigure}
     \caption{
@@ -677,12 +679,12 @@ For the measurement, the water saturated specimen was then cooled down to \qty{-
 
 
 This resulted in the following freeze curves as plotted in \zcref{fig:ltdsc_result_glass_freeze}.
-The glass type specified with a pore diameter of \qty{5}{\nano\meter} has two peaks in the heat-flow signal.
+\acs{VG5} specified with a pore radius of \qty{2.5}{\nano\meter} has two peaks in the heat-flow signal.
 According to \zcref{eq:brun_freeze} \cite{brun.1977}, a heat flow signal was measured in the pore radius range of \qtyrange{3}{8}{\nano\meter} (pore diameter of \num{6} and \qty{16}{\nano\meter}) with peaks at \num{4} and \qty{6.5}{\nano\meter} (pore diameter of \num{8} and \qty{13}{\nano\meter}).
 
-A heat flow signal was observed for the glass with a specified pore radius of \qty{10}{\nano\meter} for temperatures which can be converted to radii of \num{5} and \qty{12}{\nano\meter}, with peaks at pore radii of \num{7} and \qty{10}{\nano\meter}.
+A heat flow signal was observed for \acs{VG20} with a specified pore radius of \qty{10}{\nano\meter} for temperatures which can be converted to radii of \num{5} and \qty{12}{\nano\meter}, with peaks at pore radii of \num{7} and \qty{10}{\nano\meter}.
 
-These results show, that the pore diameter is overestimated by a factor of up to \num{2} for the \qty{5}{\nano\meter} glass compared to the \ac{MIP} results (see \zcref{fig:vycor-mip}), while the \qty{20}{\nano\meter} glass shows a good fit for its main peak.
+These results show, that the pore diameter is overestimated by a factor of up to \num{2} for \acs{VG5} compared to the \ac{MIP} results (see \zcref{fig:vycor-mip}), while \acs{VG20} shows a good fit for its main peak.
 This result is similar to the image based results with the applied watershed filter shown before.
 Despite this deviation, the difference in the pore size is still observable.
 Compared to the \ac{SEM} results (see \zcref{fig:ltdsc-vycor-glass}), the \ac{LTDSC} results fit slightly better to the \ac{MIP} results.
@@ -699,22 +701,21 @@ Similar to the \ac{SEM} data, the \qty{5}{\nano\meter} glass also exhibits a shi
 \FloatBarrier
 \section{Porosity of hydrated \acs*{C2S} and \acs*{C3S}}
 
-In contrast to porous glass, the generation of fracture surfaces in hydrated \ac{C2S} and \ac{C3S} is not sufficient for a pore analysis using \ac{SEM}-\ac{BSE} images.
-Therefore, a good specimen preparation is important  to obtain a usable pore analysis.
-Therefore, \ac{ArBIB} sectioned specimens were used (see \zcref{sec:bib_pol_fixed_results}).
+In contrast to porous glass, the generation of fractured surfaces in hydrated \ac{C2S} and \ac{C3S} is not sufficient for a pore analysis using \ac{SEM}-\ac{BSE} images.
+Therefore, a good specimen preparation is important to obtain a suitable pore analysis and \ac{ArBIB} sectioned specimens were used (see \zcref{sec:bib_pol_fixed_results}).
 
 \subsection{\acs*{SEM}}
 \label{subsec:pores_C3S_SEM}
 
-\textit{This section is partially published in \textcite{kleiner.2021a}, but the dataset was reevaluated.}
+\textit{This section was partially published in \textcite{kleiner.2021a}, but the dataset was reevaluated.}
 
 The images obtained from the \ac{ArBIB} sectioned specimens (see \zcref{fig:csh-arbib-SEM2, fig:csh-arbib-SEM}) reveal the porosity within \ac{CSHi} and the porosity caused by the interpenetrating network of \ac{CSH}-fibres.
 This also illustrates the advantage of the epoxy resin intrusion (\zcref{fig:csh-arbib-b}) into the pore space between the needle structure for image segmentation.
 In \zcref{fig:csh-arbib-a, fig:csh-arbib-c} the full pore background is visible, making a useful segmentation and evaluation of the pore space unfeasible.
 However, the image quality of the nano-scale porosity within \ac{CSHi} is not affected by the epoxy intrusion.
-Therefore a segmentation proposed in \zcref{subsec:algo_psd} can be applied for both preparation variants.
+Therefore, a segmentation proposed in \zcref{subsec:algo_psd} can be applied for both preparation variants.
 
-To assess potential damage induced by thermal stress during the \ac{ArBIB} process at room temperature, the results were compared with those obtained using Cryo-\ac{ArBIB}.
+To assess potential damage induced by thermal stress during the \ac{ArBIB} process at room temperature, the results were compared with those obtained using cryo-\ac{ArBIB}.
 As no subjective alteration of the \ac{CSH} structures was observed in high-resolution images following either preparation method, a pore analysis of the \ac{CSHi} was conducted.
 A total of \num{11} images (total image area: \qty{29.8}{\micro\meter\squared}, of which \qty{23.2}{\micro\meter\squared} was \ac{CSHi}) were analysed for specimens prepared at \qty{20}{\celsius}, and \num{15} images (total image area: \qty{25.2}{\micro\meter\squared}, of which \qty{24.0}{\micro\meter\squared} was \ac{CSHi}) for those prepared at \qty{-140}{\celsius}.
 These images, along with the corresponding segmentation results, are provided in \zcref{subsec:appendix_PSD_arbib} and \cite{kleiner.2021g,kleiner.2021h}.
@@ -845,6 +846,7 @@ For each dataset, the area-weighted \ac{PSD} and the corresponding \ac{CDF} were
     \end{subfigure}
 	\caption{
 		\ac{PSD} and \ac{CDF} of \ac{CSHi} (\qty{28}{\day} hydrated \ac{C3S}) prepared at \qty{20}{\celsius} and \qty{-140}{\celsius}, obtained from \ac{SE} images (\qty{20}{\celsius}: analysed \qty{23.2}{\micro\meter\squared}; \qty{-140}{\celsius}: analysed \qty{24.0}{\micro\meter\squared}).
+		The fit parameters are listed in \zcref{tab:rP_fit_parameters}.
 	}
     \label{fig:compare_graphs}
 \end{figure}
@@ -909,7 +911,7 @@ It contains a block of \ac{CSHi} which is surrounded by \ac{CSH} needles and inc
 
 While the energy density introduced in the specimen surface by imaging at \qty{2}{\kilo\volt} and \qty{0.1}{\nano\ampere} was fairly low, it is still possible that the nano-porosity observed within the bulk was induced or at least enlarged by the image acquisition as discussed in \zcref{sec:fib_evaluation_obstacles}.
 
-The volume was denoised using \ac{NLM} and segmented using a global threshold value.
+Each slice of the volume was denoised using \ac{NLM} and segmented using a global threshold value.
 The so segmented pores were then evaluated.
 Assuming spherical porosity, the pore radius $r_\text{P}$ was calculated for the segmented volume.
 The respective pore size distribution histograms are shown in \zcref{fig:fib_highres_hist_3D}.
@@ -993,12 +995,12 @@ The weighted and normalised frequency $f_\text{v,n}$ (see \zcref{eq:weig_norm_po
 However, the distribution differs when analysing the contribution to the total pore volume.
 The peak of the pore volume distribution was determined using a log-normal fit function (\zcref{eq:lognormal_fit}) and was found at a pore radius $r_\text{P}$ of \qty{10.8}{\nano\meter}.
 The fit parameters are listed in \zcref{tab:rP_fit_parameters}.
-For this fit, only radii larger than \qty{6.5}{\nano\meter} were considered, as the three excluded smaller bins (shown in grey) are likely attributable to data noise.
+For this fit, only radii larger than \qty{6.5}{\nano\meter} were considered, as the three excluded smaller bins (marked in grey) are likely attributable to data noise.
 Notably, the voxel geometry exhibits significant anisotropy, with a slice thickness ($z$) of \qty{10}{\nano\meter} compared to a lateral resolution ($x, y$) of \qtyproduct{1.6 x 2.0}{\nano\meter}.
 This anisotropy introduces considerable uncertainty in measuring pore diameters below \qty{10}{\nano\meter}, as these features cannot be reliably resolved in the $z$-direction.
 
 Considering these factors and the potential for pore enlargement caused by the preparation method, the measured distribution is likely shifted towards larger pore radii.
-Consequently, the true peak of the distribution is expected to be lower than the determined \qty{10.8}{\nano\meter}.
+Consequently, the the most-frequent pore radius of the distribution is expected to be lower than the determined \qty{10.8}{\nano\meter}.
 
 Comparing this value with the results from the \ac{ArBIB}-prepared samples in the previous section, it falls between the values measured for the two temperature conditions: \qty{9.2}{\nano\meter} at \qty{-140}{\celsius} and \qty{14.8}{\nano\meter} at room temperature.
 
@@ -1886,7 +1888,7 @@ These observations fit well to the microstructural development visible in \ac{SE
 \FloatBarrier
 \subsection{\Acl*{MIP} measurements}
 
-\zcref{fig:mip_c2s_c3s} illustrate the \ac{MIP} results for \ac{C2S} and \ac{C3S} after up to \qty{28}{\day} of hydration in comparison to the second freezing curves of the \ac{LTDSC}-measurements.
+\zcref{fig:mip_c2s_c3s} illustrate the \ac{MIP} results for \ac{C2S} and \ac{C3S}, respectively, after up to \qty{28}{\day} of hydration in comparison to the second freezing curves of the \ac{LTDSC}-measurements.
 For these diagrams, the freeze curves were baseline corrected, which was performed by by calculating the linear regression of the data between \numrange{-55}{-50} and \qtyrange{-27}{-23}{\celsius} and subtracting this regression function from the mean data as shown in \zcref{fig:ltdsc_result_c2s_melt}.
 
 \begin{figure}[!htb]
@@ -2110,13 +2112,13 @@ For these diagrams, the freeze curves were baseline corrected, which was perform
 	  \label{fig:mip_c3s}
     \end{subfigure}%
 	\caption{
-		\ac{MIP}-analysis of \ac{C2S} after \num{14} and \qty{28}{\day} and \ac{C3S} after \num{7} and \qty{28}{\day} of hydration ({\color{darkgreen}right axis}) compared with selected \ac{LTDSC}-curves (left axis).
+		\ac{MIP} analysis of \ac{C2S} after \num{14} and \qty{28}{\day} and \ac{C3S} after \num{7} and \qty{28}{\day} of hydration ({\color{darkgreen}right axis}) compared with selected \ac{LTDSC}-curves (left axis).
 		Note that pore sizes below \qty{3.19}{\nano\meter} are undefined as noted in \zcref{eq:brun_freeze}.
 	}
     \label{fig:mip_c2s_c3s}
 \end{figure}
 
-The \ac{LTDSC} curves above \qty{-12.4}{\celsius} ($r_P$=\qty{10}{\nano\meter}) are not reliable due to system inertia.
+The \ac{LTDSC} curves above \qty{-12.4}{\celsius} ($r_\text{P}$=\qty{10}{\nano\meter}) are not reliable due to system inertia.
 This is because the rapid freezing rate shifts the capillary pore space and larger pores become indistinguishable.
 However, \ac{MIP} is considered fairly reliable above \qty{10}{\nano\meter}, while smaller pores are hardly detectable.
 Therefore, both methods cover different pore space ranges.
@@ -2338,7 +2340,7 @@ This is likely caused by the aforementioned limitations of the thermodynamic mod
 However, the evaluation of the melting enthalpy in \ac{LTDSC} allowed for a quantitative assessment of pore volumes.
 
 Comparing the methods regarding the hydration of \ac{C3S} and \ac{C2S}, these techniques consistently indicated a densification of the microstructure over time.
-\ac{LTDSC} revealed a linear correlation between the formation of gel porosity and the reduction of capillary porosity.
+\ac{LTDSC} revealed a linear correlation over time between the formation of gel porosity and the reduction of capillary porosity.
 Specifically, \ac{C3S} exhibited a significantly higher volume of gel pores and a lower volume of capillary pores compared to \ac{C2S} at the same hydration age.
 This aligns with the faster reaction kinetics of \ac{C3S} observed in other experiments.
 \ac{MIP} confirmed the higher capillary porosity in \ac{C2S} pastes.

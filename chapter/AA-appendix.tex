@@ -21,25 +21,25 @@ Figures in the appendix section are not visible in draft mode!
 
 
 
-The cryoscopic constant $K_{f}$ of water is \qty{1.86}{\celsius\kilo\gram\per\mole} and the solubility product $K_{sp}$ of \ce{Ca(OH)2} is \num{5.02e-6} \cite{haynes.2017}.
+The cryoscopic constant $K_{f}$ of water is \qty{1.86}{\celsius\kilo\gram\per\mole} and the solubility product $K_{sp}$ of \ce{Ca(OH)2} is \qty{5.02e-6}{\mole\cubed\per\litre\cubed} \cite{haynes.2017}.
 \begin{equation}
     K_{sp} = [\text{Ca}^{2+}][\text{OH}^{-}]^2 = (S)(2S)^2 = 4S^3
 \end{equation}
 
 The molar solubility $S$ can now be calculated as:
 \begin{equation}
-	S = \sqrt[3]{ \frac{K_{sp}}{4}} = \sqrt[3]{ \frac{\num{5.02e-6}}{4}} = 0.01079 \frac{\text{mol}}{\text{L}}
+	S = \sqrt[3]{ \frac{K_{sp}}{4}} = \sqrt[3]{ \frac{\qty{5.02e-6}{\mole\cubed\per\litre\cubed}}{4}} = \qty{0.01079}{\mole\per\litre}
 \end{equation}
 
-The mass of \qty{1}{\litre} of the saturated \ce{Ca(OH)2}-solution is \qty{0.999}{\kilo\gram\per\liter}.
+The mass of \qty{1}{\litre} of the saturated \ce{Ca(OH)2} solution is \qty{0.999}{\kilo\gram\per\liter}.
 The molality $b$ of \ce{Ca(OH)2} at its saturation point ($n=S$) at room temperature is therefore:
 \begin{equation}
-	b = \frac{n}{M}  = \frac{0.01079 \frac{\text{mol}}{\text{L}}}{0.999\frac{\text{kg}}{\text{L}}} = 0.01080 \frac{\text{mol}}{\text{kg}}
+	b = \frac{n}{M}  = \frac{\qty{0.01079}{\mole\per\litre}}{\qty{0.999}{\kilo\gram\per\litre}} = \qty{0.01080}{\mole\per\kilo\gram}
 \end{equation}
 
 The temperature depression can now be calculated as 
 \begin{equation}
-	\Delta T_f = i_\text{vH} \cdot K_f \cdot b = 3 \cdot 1.86 \frac{^\circ\text{C} \cdot \text{kg}}{\text{mol}} \cdot 0.01080 \frac{\text{mol}}{\text{kg}}
+	\Delta T_f = i_\text{vH} \cdot K_f \cdot b = 3 \cdot \qty{1.86}{\celsius\kilo\gram\per\mole} \cdot \qty{0.01080}{\mole\per{\kilo\gram}}
 \end{equation}
 \begin{conditions}
 	i_\text{vH}	&	\textsc{van 't-Hoff} factor, here 3 (number of ions in \ce{Ca(OH)2})
@@ -458,8 +458,8 @@ The specimen was then cut into a suitable shape by sawing the specimen under a c
 \subsection{Porous glass standard}
 \label{sec:boraglas}
 
-As reference  with a defined pore size, porous glass membranes by \textsc{Boraglas} with a pore size of \qtylist{5;20}{\nano\meter} were used.
-These borosilicate glass products are made using the \textsc{VYCOR}-process and are usually utilised as filter material.
+As reference  with a defined pore size, porous glass membranes by \textsc{Boraglas} with a pore size of \qtylist{5;20}{\nano\meter} (\ac{VG5}, \ac{VG20}) were used.
+These borosilicate glass products are made using the \textsc{Vycor}-process and are usually utilised as filter material.
 The specimens were provided as \qtyproduct{10 x 10 x
 1.2}{\milli\meter\cubed} plates, which were cut into smaller pieces for the measurements.
 
@@ -473,18 +473,18 @@ A revalidation of the \ac{MIP} results was omitted, due to the high material cos
 
 	\begin{subfigure}{0.495\textwidth}
 		\includegraphics[width=\textwidth]{mip/vycor_glass_5.png}
-		\caption{\qty{5}{\nano\meter} porous \textsc{VYCOR} glass.}
+		\caption{\ac{VG5}.}
 		\label{fig:vycor-mip-5}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}{0.495\textwidth}
 		\includegraphics[width=\textwidth]{mip/vycor_glass_20.png}
-		\caption{\qty{20}{\nano\meter} porous \textsc{VYCOR} glass.}
+		\caption{\ac{VG20}.}
 		\label{fig:vycor-mip-20}
 	\end{subfigure}
 
     \caption{
-		\ac{PSD} of two \textsc{VYCOR} glass samples measured using \ac{MIP}.
+		\ac{PSD} of two \textsc{Vycor} glass samples measured using \ac{MIP}.
 		The graphs originate from the test certificate from the manufacturer, measured by the University of Leipzig; ICT, February 2020.
 	}
     \label{fig:vycor-mip}
@@ -493,14 +493,15 @@ A revalidation of the \ac{MIP} results was omitted, due to the high material cos
 \begin{table}[htb]
     \centering
     \caption{
-		Certified data of two \textsc{VYCOR} glass samples.
+		Certified data of two \textsc{Vycor} glass samples.
 		They originate from the test certificate from the manufacturer, measured by the University of Leipzig; ICT, February 2020.
 	}
     \label{tab:vycor-datatable}
 	\begin{tabularx}{\linewidth}{X S[table-format=2.3] S[table-format=2.3]}
 		\toprule
-		Nominal pore diameter & \qty{5}{\nano\meter} & \qty{20}{\nano\meter} \\
+		Specimen & \ac{VG5} & \ac{VG20} \\
 		\midrule
+		Nominal pore diameter & \qty{5}{\nano\meter} & \qty{20}{\nano\meter} \\
 		Modal diameter in \unit{\nano\meter}           		& 4.5   & 22.3  \\
 		Median diameter in \unit{\nano\meter} 				& 4.7   & 19.4  \\
 		Porosity in \unit{\percent}                   		& 54.1  & 51.3  \\
@@ -511,7 +512,7 @@ A revalidation of the \ac{MIP} results was omitted, due to the high material cos
 
 \newpage
 \FloatBarrier
-\section{\acs*{SEM}-\acs*{BSE} + \acs*{EDX} + \acs*{LAICPMS} }
+\section{\acs*{SEM}-\acs*{BSE} + \acs*{EDX} + \acs*{LAICPMS} data}
 
 \begin{table}[!htb]
 	\caption{
@@ -705,6 +706,7 @@ They cause significant trenches behind them. However, the material hardness does
 \section{Hydrate rim measurements}
 
 The diagrams in \zcref{fig:hlt_segmentation_influence} compare the influence of different segmentation methods on the \ac{HLT} measurement results.
+\zcref{fig:results2d_mixture} lists and compares all result diagrams of the \ac{HLT} measurement for all \ac{C3S}:\ac{C2S} mixtures.
 
 \begin{figure}[htbp]
 	\centerline{\includegraphics[width=\textwidth]{hydrate-rim/histogram_segmentation2.pdf}}
@@ -715,7 +717,6 @@ The diagrams in \zcref{fig:hlt_segmentation_influence} compare the influence of 
 	\label{fig:hlt_segmentation_influence}
 \end{figure}
 
-\zcref{fig:results2d_mixture} lists and compares all result diagrams of the \ac{HLT} measurement for all \ac{C3S}:\ac{C2S} mixtures.
 
 \begin{figure}[htbp]
 	\centerline{\includegraphics[width=\textwidth]{hydrate-rim/supplementary/mixture_overview.pdf}}
@@ -1007,6 +1008,70 @@ The diagrams in \zcref{fig:hlt_segmentation_influence} compare the influence of 
 \end{figure}
 
 
+\FloatBarrier
+\section{Particle distance measurements}
+
+
+\begin{table}[H]
+	\centering
+	\caption{
+		Metadata of the \ac{SEM}-images used for the particle distance measurements.
+		$A_\text{unusable}$ is the area of the image containing other phases or artifacts, which were manually excluded.
+		$A_\text{solv}$ and $A_\text{solids}$ are the areas of the solution and solid phases, respectively.
+		$n$ represents the corresponding particle count.
+	}
+	\begin{tabularx}{\linewidth}{Xcccccc}
+		\toprule
+		Figure & scaling & $A_\text{usable}$ & $A_\text{solv}$ & $A_\text{solids}$ & $A_\text{unusable}$ & $N$ \\
+			& \unit{\nano\meter\per\px} & \unit{\micro\meter\squared} & \unit{\percent} & \unit{\percent} & \unit{\percent} & \\
+			\midrule
+			\zcref{fig:cryo-fib}, \acs{C3S}   & \tablenum{26.9789}           & \tablenum{10683}                  & \tablenum{36.3}            & \tablenum{48.8}             & \tablenum{14.9}                & \tablenum{1500} \\
+			\zcref{fig:cryo-fib-lc3}, \acs{LC3} & \tablenum{19.2712}          & \tablenum{1096}                   & \tablenum{46.0}            & \tablenum{54.0}             & -                & \tablenum{723} \\
+			\zcref{fig:cryo-fib-lc3}, \acs{LC3}+\acs{PUS}     & \tablenum{9.6355}           & \tablenum{1050}                   & \tablenum{43.9}            & \tablenum{56.1}             & -                & \tablenum{888} \\
+			Figure~5 in \cite{zingg.2008a}, no \acs{PCE}     & \tablenum{30.0303}           & \tablenum{315}                   & \tablenum{62.1}            & \tablenum{37.9}             & -                & \tablenum{266} \\
+			Figure~7 in \cite{zingg.2008a}, with \acs{PCE}     & \tablenum{30.0303}           & \tablenum{315}                   & \tablenum{52.3}            & \tablenum{47.7}             & -                & \tablenum{737} \\
+			\bottomrule
+	\end{tabularx}
+	\label{tab:part_dist_metadata}
+\end{table}
+
+
+\begin{figure}[htb!]
+    \centering
+
+	\begin{subfigure}{0.48\textwidth}
+		\includegraphics[width=\textwidth]{particle-dist/zing.2008a/f5_processed-particles.pdf}
+		\caption{\ac{OPC} without \ac{PCE}}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.48\textwidth}
+		\includegraphics[width=\textwidth]{particle-dist/zing.2008a/f7_processed-particles.pdf}
+		\caption{\ac{OPC} with \ac{PCE}}
+	\end{subfigure}
+
+    \caption{
+		Particle distance measurement of cryo-\ac{FIB} sections of the fine fraction of an sieved \ac{OPC} (\ac{wb}\,=\,\num{0.5}) with and without \acs{PCE} from Figures~\num{5} (left-hand side) and \num{7} (right-hand side) published in \cite{zingg.2008a}.
+		White: unprocessed clinker particles; yellow: clinker particles used for the analysis, red: included measurements, black: excluded pore space.
+	}
+    \label{fig:cryo-fib-zingg-results}
+\end{figure}
+
+\begin{figure}[htb!]
+    \centering
+
+	\begin{subfigure}{0.495\textwidth}
+		\includegraphics[width=\textwidth]{particle-dist/zing.2008a/f5_histogram.pdf}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.495\textwidth}
+		\includegraphics[width=\textwidth]{particle-dist/zing.2008a/f7_histogram.pdf}
+	\end{subfigure}
+
+    \caption{
+		Particle distance measurement of cryo-\ac{FIB} sections of the fine fraction of an \ac{OPC} (\ac{wb}\,=\,\num{0.5}) with and without \acs{PCE} from \zcref{fig:cryo-fib-zingg-results}.
+	}
+    \label{fig:cryo-fib-zingg-results2}
+\end{figure}
 
 \FloatBarrier
 \section{Pore size distributions}
@@ -1024,10 +1089,10 @@ The diagrams in \zcref{fig:hlt_segmentation_influence} compare the influence of 
         Figure & Dataset & Type & {$a_\text{norm}$} & {$\mu$} & {$\sigma$} & {$r_\text{P, max}$} \\
          &  &  & {\unit{\nano\meter}} &  &  & {\unit{\nano\meter}} \\
         \midrule
-        \zcref{fig:compare_psd_5nm} & \qty{5}{\nano\meter} \textsc{VYCOR}-glass & \ac{PSD} & 13.45 & 2.6318 & 0.3063 & 12.7 \\
-        \zcref{fig:compare_psd_5nm} & \qty{5}{\nano\meter} \textsc{VYCOR}-glass & \ac{PSD} ws & 8.58 & 2.1651 & 0.2530 & 8.2 \\
-        \zcref{fig:compare_psd_20nm} & \qty{20}{\nano\meter} \textsc{VYCOR}-glass & \ac{PSD} & 20.50 & 3.1318 & 0.3456 & 20.3 \\
-        \zcref{fig:compare_psd_20nm} & \qty{20}{\nano\meter} \textsc{VYCOR}-glass & \ac{PSD} ws & 11.65 & 2.4632 & 0.2785 & 10.9 \\
+        \zcref{fig:compare_psd_5nm} & \ac{VG5} & \ac{PSD} & 13.45 & 2.6318 & 0.3063 & 12.7 \\
+        \zcref{fig:compare_psd_5nm} & \ac{VG5} & \ac{PSD} ws & 8.58 & 2.1651 & 0.2530 & 8.2 \\
+        \zcref{fig:compare_psd_20nm} & \ac{VG20} & \ac{PSD} & 20.50 & 3.1318 & 0.3456 & 20.3 \\
+        \zcref{fig:compare_psd_20nm} & \ac{VG20} & \ac{PSD} ws & 11.65 & 2.4632 & 0.2785 & 10.9 \\
         \midrule
         \zcref{fig:compare_rt_c} & RT (\qty{20}{\celsius}) & \ac{CDF} & 13.64 & 2.9845 & 0.5814 & 14.1 \\
         \zcref{fig:compare_rt_c} & RT (\qty{20}{\celsius}) & \ac{PSD} & 13.04 & 3.0072 & 0.5615 & 14.8 \\
@@ -1051,23 +1116,6 @@ The latter were excluded from the pore segmentation since these areas contain la
 % CLD_AREA_CRYO_IMAGES
 \begin{figure}[htbp]
     \centering
-    % \begin{subfigure}{0.32\textwidth}
-    %     \includegraphics[width=\textwidth]{methods/arbib-c3s-pores/CryoBIB_002_cut.jpg}
-    %     \caption{Raw image 1.}
-    %     \label{fig:compare_cryo_1a}
-    % \end{subfigure}
-    % \hfill
-    % \begin{subfigure}{0.32\textwidth}
-    %     \includegraphics[width=\textwidth]{methods/arbib-c3s-pores/CryoBIB_009_cut.jpg}
-    %     \caption{Raw image 2.}
-    %     \label{fig:compare_cryo_1c}
-    % \end{subfigure}
-    % \hfill
-    % \begin{subfigure}{0.32\textwidth}
-    %     \includegraphics[width=\textwidth]{methods/arbib-c3s-pores/CryoBIB_011_cut.jpg}
-    %     \caption{Raw image 3.}
-    %     \label{fig:compare_cryo_1e}
-    % \end{subfigure}
 
     \begin{subfigure}{0.32\textwidth}
         \includegraphics[width=\textwidth]{methods/arbib-c3s-pores/C3S 28d CryoBIB_002_cut_masked.pdf}
@@ -1086,24 +1134,6 @@ The latter were excluded from the pore segmentation since these areas contain la
         \caption{Segmented image 3.}
         \label{fig:compare_cryo_1f}
     \end{subfigure}
-
-    % \begin{subfigure}{0.32\textwidth}
-    %     \includegraphics[width=\textwidth]{methods/arbib-c3s-pores/CryoBIB_020_cut.jpg}
-    %     \caption{Raw image 4.}
-    %     \label{fig:compare_cryo_1g}
-    % \end{subfigure}
-    % \hfill
-    % \begin{subfigure}{0.32\textwidth}
-    %     \includegraphics[width=\textwidth]{methods/arbib-c3s-pores/CryoBIB_041_cut.jpg}
-    %     \caption{Raw image 5.}
-    %     \label{fig:compare_cryo_1h}
-    % \end{subfigure}
-    % \hfill
-    % \begin{subfigure}{0.32\textwidth}
-    %     \includegraphics[width=\textwidth]{methods/arbib-c3s-pores/CryoBIB_6h_018_cut.jpg}
-    %     \caption{Raw image 6.}
-    %     \label{fig:compare_cryo_1i}
-    % \end{subfigure}
 
     \begin{subfigure}{0.32\textwidth}
         \includegraphics[width=\textwidth]{methods/arbib-c3s-pores/C3S 28d CryoBIB_041_cut_masked.pdf}
@@ -1129,23 +1159,6 @@ The latter were excluded from the pore segmentation since these areas contain la
 % CLD_AREA_RT_IMAGES
 \begin{figure}[htbp]
     \centering
-    % \begin{subfigure}{0.32\textwidth}
-    %     \includegraphics[width=\textwidth]{methods/arbib-c3s-pores/BIB_6KV_6h_004_cut.jpg}
-    %     \caption{Raw image 7.}
-    %     \label{fig:compare_rt_1a}
-    % \end{subfigure}
-    % \hfill
-    % \begin{subfigure}{0.32\textwidth}
-    %     \includegraphics[width=\textwidth]{methods/arbib-c3s-pores/BIB_6KV_6h_015_cut.jpg}
-    %     \caption{Raw image 8.}
-    %     \label{fig:compare_rt_1c}
-    % \end{subfigure}
-    % \hfill
-    % \begin{subfigure}{0.32\textwidth}
-    %     \includegraphics[width=\textwidth]{methods/arbib-c3s-pores/BIB_6KV_6h_016_cut-1.jpg}
-    %     \caption{Raw image 9.}
-    %     \label{fig:compare_rt_1e}
-    % \end{subfigure}
 
     \begin{subfigure}{0.32\textwidth}
         \includegraphics[width=\textwidth]{methods/arbib-c3s-pores/C3S 28d BIB 6KV 6h_004_cut_masked.pdf}
@@ -1164,24 +1177,6 @@ The latter were excluded from the pore segmentation since these areas contain la
         \caption{Segmented image 9.}
         \label{fig:compare_rt_1f}
     \end{subfigure}
-	
-    % \begin{subfigure}{0.32\textwidth}
-    %     \includegraphics[width=\textwidth]{methods/arbib-c3s-pores/BIB_6KV_6h_cut.jpg}
-    %     \caption{Raw image 10.}
-    %     \label{fig:compare_rt_1g}
-    % \end{subfigure}
-    % \hfill
-    % \begin{subfigure}{0.32\textwidth}
-    %     \includegraphics[width=\textwidth]{methods/arbib-c3s-pores/BIB_6KV_6h_003_cut.jpg}
-    %     \caption{Raw image 11.}
-    %     \label{fig:compare_rt_1h}
-    % \end{subfigure}
-    % \hfill
-    % \begin{subfigure}{0.32\textwidth}
-    %     \includegraphics[width=\textwidth]{methods/arbib-c3s-pores/BIB_6KV_6h_041_cut.jpg}
-    %     \caption{Raw image 12.}
-    %     \label{fig:compare_rt_1i}
-    % \end{subfigure}
 
     \begin{subfigure}{0.32\textwidth}
         \includegraphics[width=\textwidth]{methods/arbib-c3s-pores/C3S 28d BIB 6KV 6h_cut_masked.pdf}
@@ -1446,17 +1441,7 @@ The latter were excluded from the pore segmentation since these areas contain la
         \draw[dashed,grey] (top-3) -- (top-4);
         \draw[dashed,grey] (bottom-3) -- (bottom-4);
     \end{tikzpicture}
-%     \caption{
-% 		Individual \ac{LTDSC} measurements for the second freezing pass of \ac{C3S} from \qtyrange{1}{28}{\day} of hydration. Every specimen age was measured using three specimens.
-% 		On the left-hand side, the full measurement is plotted (pore radius and temperature is plotted logarithmic).
-% 		On the right-hand side is a magnified section (linear plot), highlighting the data correlating to the gel pores.
-% 		Note that pore sizes below \qty{3.19}{\nano\meter} (<\,\qty{-40}{\celsius}) are undefined as noted in \zcref{eq:brun_freeze}.
-% 	}
-%     \label{fig:ltdsc_result_C3S_freeze_raw}
-% \end{figure}
-
-% \begin{figure}[!htb]
-%     \centering
+	
   	\begin{subfigure}{.47\textwidth}
       \begin{tikzpicture}[remember picture]
         \begin{semilogxaxis}[
@@ -1631,136 +1616,3 @@ The latter were excluded from the pore segmentation since these areas contain la
 \ifdefined\EXTERNALIZE
 	\tikzexternalenable
 \fi
-
-\FloatBarrier
-\section{Particle distance measurements}
-
-
-% \begin{figure}[H]
-%     \centering
-% 	\begin{tikzpicture}
-% 		\begin{axis}[
-% 			xmin=0, xmax=60,
-% 			ymin=-160, ymax=25,
-% 			axis y line*=left,
-% 			ytick={-150, -100, -50, 0,25},
-% 			width=.9\linewidth,
-% 			height=.25\textheight,
-% 			xlabel={time in \unit{\second}},
-% 			ylabel={temperature in \unit{\celsius}},
-% 			grid=none,
-% 			grid style={line width=.1pt, draw=gray!10}
-% 		  ]
-
-% 		  \addplot[blue, mark=none,restrict x to domain=0:60] table [x expr=\thisrow{time}/1000,y=temp, col sep=comma, filter discard warning=false, unbounded coords=discard,] {figures/particle-dist/freezing_curve_C3S.csv};
-
-% 		\end{axis}
-% 		\begin{axis}[
-% 			legend style={at={(0.97,.5)},anchor=east},
-% 			legend cell align={left},
-% 			xmin=0, xmax=60,
-% 			axis y line*=right,
-% 			axis x line=none,
-% 			ymin=0, ymax=0.25,
-% 			ylabel={pressure in \unit{\giga\pascal}},
-% 			ytick={0, 0.05, ..., 0.25},
-% 			yticklabel style={
-% 					/pgf/number format/fixed,
-% 					/pgf/number format/precision=2,
-% 					/pgf/number format/fixed zerofill,
-% 			},
-% 			width=.9\linewidth,
-% 			height=.25\textheight,
-% 			grid=none,
-% 		]
-% 			\addplot[blue, mark=none] coordinates {(0,20)};
-% 			\addlegendentry{temperature};
-
-% 			\addplot[orange, mark=none,restrict x to domain=0:60] table [x expr=\thisrow{time}/1000, y expr=\thisrow{pressure}/10000, col sep=comma,  filter discard warning=false, unbounded coords=discard] {figures/particle-dist/freezing_curve_C3S.csv};
-% 			\addlegendentry{pressure};
-% 		\end{axis}
-% 	\end{tikzpicture}
-
-%     \caption{
-% 		High-pressure freezing curve from the freezing process of the \ac{C3S} paste.
-% 	}
-%     \label{fig:cryo-fib-freeze-curve}
-% \end{figure}
-
-\begin{table}[H]
-	\centering
-	\caption{
-		Metadata of the \ac{SEM}-images used for the particle distance measurements.
-		$A_\text{unusable}$ is the area of the image containing other phases or artifacts, which were manually excluded.
-		$A_\text{solv}$ and $A_\text{solids}$ are the areas of the solution and solid phases, respectively.
-		$n$ represents the corresponding particle count.
-	}
-	\begin{tabularx}{\linewidth}{Xcccccc}
-		\toprule
-		Figure & scaling & $A_\text{usable}$ & $A_\text{solv}$ & $A_\text{solids}$ & $A_\text{unusable}$ & $N$ \\
-			& \unit{\nano\meter\per\px} & \unit{\micro\meter\squared} & \unit{\percent} & \unit{\percent} & \unit{\percent} & \\
-			\midrule
-			\zcref{fig:cryo-fib}, \acs{C3S}   & \tablenum{26.9789}           & \tablenum{10683}                  & \tablenum{36.3}            & \tablenum{48.8}             & \tablenum{14.9}                & \tablenum{1500} \\
-			\zcref{fig:cryo-fib-lc3}, \acs{LC3} & \tablenum{19.2712}          & \tablenum{1096}                   & \tablenum{46.0}            & \tablenum{54.0}             & -                & \tablenum{723} \\
-			\zcref{fig:cryo-fib-lc3}, \acs{LC3}+\acs{PUS}     & \tablenum{9.6355}           & \tablenum{1050}                   & \tablenum{43.9}            & \tablenum{56.1}             & -                & \tablenum{888} \\
-			Figure~5 in \cite{zingg.2008a}, no \acs{PCE}     & \tablenum{30.0303}           & \tablenum{315}                   & \tablenum{62.1}            & \tablenum{37.9}             & -                & \tablenum{266} \\
-			Figure~7 in \cite{zingg.2008a}, with \acs{PCE}     & \tablenum{30.0303}           & \tablenum{315}                   & \tablenum{52.3}            & \tablenum{47.7}             & -                & \tablenum{737} \\
-			\bottomrule
-	\end{tabularx}
-	\label{tab:part_dist_metadata}
-\end{table}
-
-% \begin{figure}[htb!]
-%     \centering
-
-% 	% area: \qty{1095.9}{\micro\meter\squared}}
-% 	\begin{subfigure}{0.495\textwidth}
-% 		\includegraphics[width=\textwidth]{particle-dist/LC3/noPUS/histogram_border.pdf}
-% 	\end{subfigure}
-% 	\hfill
-% 	\begin{subfigure}{0.495\textwidth}
-% 		\includegraphics[width=\textwidth]{particle-dist/LC3/PUS/histogram_border.pdf}
-% 	\end{subfigure}
-
-%     \caption{
-% 		Particle distance measurement of \qty{20}{\minute} old \ac{LC3} paste without (left) and with (right) the application of \ac{PUS}. The mean distance between particles decreased from \qty{0.33(0.17)}{\micro\meter} and \qty{0.24(0.15)}{\micro\meter}.
-% 	}
-%     \label{fig:cryo-fib-lc3-results}
-% \end{figure}
-
-\begin{figure}[htb!]
-    \centering
-
-	\begin{subfigure}{0.48\textwidth}
-		\includegraphics[width=\textwidth]{particle-dist/zing.2008a/f5_processed-particles.pdf}
-		\caption{\ac{OPC} without \ac{PCE}}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}{0.48\textwidth}
-		\includegraphics[width=\textwidth]{particle-dist/zing.2008a/f7_processed-particles.pdf}
-		\caption{\ac{OPC} with \ac{PCE}}
-	\end{subfigure}
-
-    \caption{
-		Particle distance measurement of cryo-\ac{FIB} sections of the fine fraction of an sieved \ac{OPC} (\ac{wb}\,=\,\num{0.5}) with and without \acs{PCE} from Figures~\num{5} (left-hand side) and \num{7} (right-hand side) published in \cite{zingg.2008a}.
-		White: unprocessed clinker particles; yellow: clinker particles used for the analysis, red: included measurements, black: excluded pore space.
-	}
-    \label{fig:cryo-fib-zingg-results}
-\end{figure}
-
-\begin{figure}[htb!]
-    \centering
-
-	\begin{subfigure}{0.495\textwidth}
-		\includegraphics[width=\textwidth]{particle-dist/zing.2008a/f5_histogram.pdf}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}{0.495\textwidth}
-		\includegraphics[width=\textwidth]{particle-dist/zing.2008a/f7_histogram.pdf}
-	\end{subfigure}
-
-    \caption{
-		Particle distance measurement of cryo-\ac{FIB} sections of the fine fraction of an \ac{OPC} (\ac{wb}\,=\,\num{0.5}) with and without \acs{PCE} from \zcref{fig:cryo-fib-zingg-results}.
-	}
-    \label{fig:cryo-fib-zingg-results2}
-\end{figure}

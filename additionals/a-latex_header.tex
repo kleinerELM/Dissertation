@@ -100,7 +100,7 @@
 \usepackage{graphicx}  % include graphics
 
 \usepackage[style = ext-numeric-comp,
-			backend=biber,%backend = bibtex,
+			backend=biber, % backend = bibtex,
 			maxbibnames = 99, % arbitrary high value to ensure that all authors are listet in the bibliography
 			maxcitenames = 2, % truncate nameslist for citations
 			giveninits = true, % abbrevation for first name
@@ -204,10 +204,10 @@
 	list-units=single,
 % on default show only a single unit when using /SIrange{}
 	reset-text-family = false,%detect-family,
+	detect-family = true,
 	per-mode=fraction,
 	uncertainty-mode = separate,%separate-uncertainty = true,
 	separate-uncertainty-units = single,%multi-part-units=single,
-	math-sf=\sffamily,
 	%inline-per-mode=fraction,
 	%display-per-mode=fraction,
 	%unit-mode=text,

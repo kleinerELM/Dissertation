@@ -29,8 +29,8 @@ However, they also struggle with more complex noise patterns (e.g. low count \ac
 
 Transform techniques decompose the image into frequency components, allowing for selective noise reduction in specific domains like high-frequency noise (shot noise) or low-frequency, directional patterns (banding noise).
 One important representative filter is \ac{BM3D} \cite{dabov.2007}, which is a two-stage filtering method and an extension of the \ac{NLM} filter.
-\ac{NLM}-based methods often provide good performance but can be computationally expensive and require a careful selection of parameters.
 For this work, the \ac{BM3D} implementation in the extended photo processing module of \textit{OpenCV} \cite{bradski.2000} was used.
+\ac{NLM}-based methods often provide good performance but can be computationally expensive and require a careful selection of parameters.
 
 Good edge preserving results, even for low signal images, can be delivered by \ac{TV} \cite{rudin.1992} filters by reducing the total variation of the image signal.
 A fast variant of \ac{TV} filters is the split \textsc{Bregman} optimisation-based method \cite{goldstein.2009, getreuer.2012}.
@@ -39,12 +39,12 @@ In this work, the implementation provided by the \textit{scikit-image} \cite{van
 More recently, \ac{CNN}-based denoising methods were introduced.
 They attempt to learn complex noise patterns directly from degraded-clean image pairs.
 These models try to predict the clean image from its noisy counterpart using a training set.
-The reduce a loss function and thus, minimise the prediction error.
+They reduce a loss function and thus, minimise the prediction error.
 Various \ac{CNN} architectures have been proposed since 2008 \cite{jain.2008}.
-They can be differentiated into multi-layer perceptron models and deep learning models.
+They can be differentiated into multi-layer perception models and deep learning models.
 The strength of \ac{CNN}s lies in their capacity to learn highly non-linear mappings and adapt to different noise characteristics, often outperforming traditional methods, especially in scenarios with unknown or complex noise distributions.
 However, their performance heavily relies on the availability of large and diverse training datasets of degraded-clean image pairs.
-In addition, their use is often still a hurdle for untrained users, as they are still rarely available in ready-to-use software.
+In addition, their use is often still a hurdle for most users, as they are still rarely available as ready-to-use software.
 
 To objectively evaluate the performance of denoising algorithms, quantitative benchmarks such as \ac{PSNR}, \ac{SSIM} and \ac{MSE} are commonly used.
 \ac{PSNR} measures the ratio between the maximum possible signal power and the power of corrupting noise in \unit{\decibel}, providing a simple metric for image fidelity.
@@ -69,7 +69,7 @@ The result is highly dependent on the experience and knowledge of the operator, 
 
 Automated segmentation methods are often used to reduce the time and effort required for image analysis and to enable reproducibility.
 However, the prerequisite for a good automatic segmentation is a good image quality.
-Nevertheless, especially images acquired using a \ac{SEM} and its detectors are noisy and lack contrast.
+Nevertheless, especially images acquired using a \ac{SEM} and its detectors can be noisy and lack contrast.
 These issues can be reduced by applying steps such as denoising, contrast enhancement, and sharpening.
 However, low-count \ac{EDX} datasets remain challenging.
 
@@ -78,31 +78,33 @@ There are multiple thresholding methods available, such as \textsc{Otsu}'s metho
 However, these methods are rarely suitable, since many \ac{SEM} images contain more than two phases or show low contrast.
 Additionally, sometimes a specific grey value or range does not represent a specific phase throughout the entire dataset as border regions can appear darker than the image centre.
 This is can especially occur in \ac{SEM}-\ac{SE} images, \ac{SEM}-\ac{FIB} or \ac{mCT} datasets.
-In these cases, adaptive thresholding methods can be used to find a threshold value for each pixel based on the surrounding pixels \cite{sauvola.2000, phansalkar.2011}.
+In these cases, adaptive thresholding methods \cite{sauvola.2000, phansalkar.2011} can be used to find a threshold value for each pixel based on the surrounding pixels.
 For example, the method proposed by \textcite{phansalkar.2011} is a good choice for low contrast \ac{SEM}-\ac{SE} images \cite{kleiner.2021a}.
 Nevertheless, these methods still require a lot of manual work and subjective decisions to find the right parameters for the specific dataset.
 
 Superpixel segmentation algorithms such as \ac{SLIC} \cite{achanta.2012} divide an image into smaller regions, which are similar in color and texture, while preserving boundaries of objects within the image.
 \ac{SLIC}O allows to omit the compactness parameter, since it adaptively chooses this parameter for each superpixel.
-These small regions are called superpixels.
-These algorithms can help to segment very noisy datasets like from \ac{EDX} \cite{georget.2021, jiang.2022}.
+These regions are called superpixels.
+Superpixel algorithms can help to segment very noisy datasets (e.g. from low-count \ac{EDX} datasets \cite{georget.2021, jiang.2022}).
 Extensions such as Multi\ac{SLIC} \cite{yu.2023} further enable segmentation across multiple data modalities or data layers resulting in more robust and informative representations.
 % TODO: add details from jiang.2022 in the result section
 
 After grouping similar neighbouring pixels into larger superpixels, the phase assignment must be carried out.
-Initial orientation can be achieved through clustering.
 Multiple approaches to do this were proposed in recent years. 
 Initial orientation can be achieved through clustering using $k$-means.
 This can either be done on a per-pixel basis \cite{munch.2015} or on a per-superpixel basis \cite{jiang.2022}.
-The clustering allows to find similar phase compositions based on element ratios \cite{georget.2021}.
-However, the application of a decision-tree-model, utilising known compositions of different phases, is also feasible \cite{jiang.2022}.
-Commercial software like \textit{AZtec} \cite{aztec.2004} usually combines a set of \num{4} or more pixels and combines similar compositions to one phase. However, this still requires a lot of manual assignment to the final phases, due to their variable composition.
+Utilising prior knowledge of the composition of the expected phases can then be used to segment the dataset \cite{georget.2021,jiang.2022,reed.2025}
+\textcite{reed.2025} proposed an open-source method utilising \textit{QGIS} \cite{QGIS_software} by training an random forest model to automatically segment \ac{EDX} hypermaps on a per-pixel basis.
+Clustering simplifies the identification of similar phase compositions based on element ratios within the hypermaps \cite{georget.2021}.
+However, the application of a decision-tree-models is also feasible for superpixel-clustered datasets \cite{jiang.2022}.
+Commercial software like \textit{AZtec} \cite{aztec.2004} usually combines a set of \num{4} or more pixels and combines similar compositions to one phase.
+However, this still requires a lot of manual assignment to the final phases, due to their variable composition.
 
 While it was not yet applied in the cement context, clustering can be supported by \ac{UMAP} \cite{mcinnes.2018}, which allows to reduce the dimensionality of a multidimensional dataset as found in a multi-element mapping or multiple data sources.
 
 
 %\cite{stutzman.2004}, vs 
-% \cite{reed.2025} used a method based on QGIS (see mail from Christiane/Nikkola Paavo, 08.10.2025)
+% \cite{} used a method based on QGIS (see mail from Christiane/Nikkola Paavo, 08.10.2025)
 
 % {
 % \color{red}
@@ -180,7 +182,7 @@ In contrast, the \ac{HLT} around the grain is often overestimated as illustrated
 			\end{axis}
 		\end{tikzpicture}
 		\caption{
-            Influence of the sectioning distance from centre point $x$ on the \acs*{HLT} ($t(x)$), calculated using Equation \zcref{eq:sectioning_effect_2}.
+            Influence of the sectioning distance from centre point $x$ on the \acs*{HLT} ($t(x)$), calculated using \zcref{eq:sectioning_effect_2}.
         }
 		\label{fig:sectioning_effect_b}
 	\end{subfigure}
@@ -247,7 +249,7 @@ In contrast, the \ac{HLT} around the grain is often overestimated as illustrated
 
 
 \zcref{fig:sectioning_effect_b} indicates that the \ac{HLT} can be significantly overestimated.
-This becomes more prevalent the closer the cut through a particle is to the particle border.
+This becomes more prevalent the closer the cut through a particle is to its border.
 % https://www.wolframalpha.com/input?i=integral&assumption=%7B%22F%22%2C+%22Integral%22%2C+%22rangestart%22%7D+-%3E%220%22&assumption=%7B%22C%22%2C+%22integral%22%7D+-%3E+%7B%22Calculator%22%2C+%22dflt%22%7D&assumption=%7B%22F%22%2C+%22Integral%22%2C+%22integrand%22%7D+-%3E%22sqrt%282*1.3*%28x%2B1.3%29+-+%28x%2B1.3%29%5E2%29+-+sqrt%282*1*%28x%2B1%29+-+%28x%2B1%29%5E2%29%22&assumption=%7B%22F%22%2C+%22Integral%22%2C+%22rangeend%22%7D+-%3E%22.9%22
 For example, if a grain has a constant \ac{HLT} of \qty{30}{\percent} of the grain radius (as shown in \zcref{fig:sectioning_effect_b}, blue curve), an overestimation of from \qtyrange{0}{23.8}{\percent} of the \ac{HLT} can be expected. %0,3715/0,33
 If the grain is cut at a sectioning distance from the centre point of the grain $x$ of \num{0.3}, the grain radius will be underestimated by \qty{4.6}{\percent} of the actual value, while the \ac{HLT} will be overestimated at \qty{1.2}{\percent} of the actual value.

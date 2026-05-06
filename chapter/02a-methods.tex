@@ -7,7 +7,7 @@ The numerous materials used in this work are detailed in \zcref{sec:materials}.
 \label{sec:sem}
 
 For most of the \ac{SEM} imaging and for all \ac{FIB} experiments, a \textit{thermoFischer Scientific Helios G4 UX} was used.
-It is equipped with additional detectors by \textit{Oxford Instruments}: two combinable \ac{EDX} detectors (\textit{XMax$^\text{N}$ 80} with a polymer window and the windowless \textit{Ultim Extreme}) and the \ac{EBSD} detector \textit{C-Swift}.
+It is equipped with additional detectors by \textsc{Oxford Instruments}: two combinable \ac{EDX} detectors (\textit{XMax$^\text{N}$ 80} with a polymer window and the windowless \textit{Ultim Extreme}) and the \ac{EBSD} detector \textit{C-Swift}.
 For cryo-preparation, the microscope is equipped with a cooling stage and vacuum cryo transfer system \textit{EM VCT500} from \textsc{Leica}.
 
 Some of the \ac{SEM} imaging was done utilizing a \textit{Nova NanoSEM 230} by \textit{FEI}.
@@ -42,8 +42,7 @@ To perform a quantitative image analysis, very smooth specimen surfaces are requ
 Those surfaces are usually achieved by mechanically polishing epoxy resin embedded specimens.
 
 Before embedding the specimen, the hydration process of young specimens was first stopped by immersing them into isopropanol to remove the excess water.
-Nevertheless, building materials were dried before the embedding process.
-Depending on the sensitivity and the size of the specimen, they remained at \qtyrange{40}{60}{\celsius} in an oven for up to \qty{12}{\hour}.
+Depending on the sensitivity and the size of the specimen, they remained at \qtyrange{40}{60}{\celsius} in an oven for up to \qty{12}{\hour} to dry the specimen and evaporate the isopropanol.
 The sample, which has been brought to the correct size, was now poured over with epoxy resin of a very low viscosity in a mold.
 In this work, a combination of the resin \textit{R1370} and the hardener \textit{R1376}, by \textsc{Agar Scientific} was used.
 The embedded specimen was then degassed in two \qty{30}{\minute} cycles.
@@ -57,13 +56,13 @@ The particle sizes of the diamond pastes will be sequentially reduced (\num{15},
 
 %\ac{ArBIB} is a technique which enables the polishing or milling of a specimen to obtain very clean and flat surfaces utilising one or more \ce{Ar}-ion beams.
 In this study, a triple ion beam milling system (\textit{EM TIC 3X}, \textsc{Leica}) was used (\zcref{fig:bib_device}).
-The \ac{ArBIB} polishing is carried out under low pressure (\qtyrange{1}{4}{\kilo\pascal}) conditions in an argon atmosphere.
+The \ac{ArBIB} polishing is carried out under low pressure (\qtyrange{1}{4}{\kilo\pascal}) conditions in an \ce{Ar}-atmosphere.
 The utilised \ac{ArBIB} device provides two modes of operation: \ac{ArBIB} polishing and \ac{ArBIB} sectioning.
 
 \subsection{\acs*{ArBIB} polishing}
 \label{sec:bib_pol_moving}
 
-In the polishing mode, the mechanically polished specimen is semi-randomly moved under a grazing incidence angle under the Argon ion beam.
+In the polishing mode, the mechanically polished specimen is semi-randomly moved under a grazing incidence angle under the \ce{Ar} ion beam.
 This mode can be applied to improve or clean mechanically polished specimens as well as to remove thin coatings (e.g. carbon or gold) applied for previous measurements.
 This technique is mostly used to improve surfaces for \ac{EDX}- or \ac{EBSD}-measurements, in which very clean surfaces are required \cite{rossler.2017,rossler.2022}.
 
@@ -71,7 +70,7 @@ This technique is mostly used to improve surfaces for \ac{EDX}- or \ac{EBSD}-mea
 \label{sec:bib_pol_fixed}
 
 The sectioning mode requires a smaller pre-cut sample (e.g. \qtyproduct{5 x 3 x 10}{\cubic\milli\meter}) in a fixed sample holder.
-The three argon ion beams intersect at a sharp edged tungsten mask forming a horizontal milling sector of $\approx$ \qty{100}{\degree} (\zcref{fig:bib_device}).
+The three \ce{Ar} ion beams intersect at a sharp edged tungsten mask forming a horizontal milling sector of $\approx$ \qty{100}{\degree} (\zcref{fig:bib_device}).
 The mask and the specimen surface are arranged in a way that only \qtyrange{20}{100}{\micro\meter} of the sample are exposed to the ion beam above the mask (\zcref{fig:bib_scheme}).
 
 \begin{figure}[!ht]
@@ -107,13 +106,13 @@ This helps to avoid that the specimen is heated above a damaging temperature (\q
 %To determine the influence of the ion beam during the regular milling process on hydrated cement specimens, it was compared with a milling process while cooling the specimen (see section~\ref{}). %Kapitelplatz finden
 %The comparison was made using hydrated alite, hydrated \ac{OPC} and \ac{LC3}.
 %}
-Due to variations in hardness among the phases within a material, the ion beam can also induce an artefact called the `curtaining effect' \cite{desbois.2013}, which is known in the context of \ac{SEM}-\ac{FIB} \cite{cantoni.2014}.
+Due to variations in hardness among the phases within a material, the ion beam can also induce an artefact called `curtaining effect' \cite{desbois.2013}, which is known in the context of \ac{SEM}-\ac{FIB} \cite{cantoni.2014}.
 These stripes align with the direction of the ion beams, as harder phases or pores create `shadows' of the material in their wake.
 While these can be reduced in the \ac{SEM}-\ac{FIB} process by using coatings \cite{cantoni.2014}, this is not possible in the \ac{ArBIB} process.
 These artefacts can be significantly reduced in a subsequent image processing step by applying a \ac{FFT} \cite{kleiner.2021a}, as demonstrated for images from a \ac{SEM}-\ac{FIB} process \cite{fitschen.2017,schankula.2018}.
 This removes the stripes in one direction, however, the applied filter can also soften the image.
 This is especially apparent when artefacts are present in more than one direction in the image \cite{kleiner.2021a}.
-However, the areas analysed were fairly small (\qtyproduct{20 x 20}{\micro\meter\squared})
+However, the areas analysed were fairly small (\qtyproduct{20 x 20}{\micro\meter\squared}).
 
 \textcite{sammer.2024} pointed out, that the overall roughness of \ac{ArBIB} polishing is higher (\qty{388(101)}{\nano\meter}) than for mechanical polishing \qty{156(114)}{\nano\meter}.   
 
@@ -145,7 +144,7 @@ Depending on the detector type and the geometrical positioning of the detectors 
 Often it is not necessary or advisable to use detectors like \ac{EDX} or \ac{EBSD} for every slice.
 The \ac{EDX} detector requires higher accelerating voltages for a useful signal, which might damage the specimen.
 To obtain \ac{EBSD} data, the specimen has to be rotated to face the detector, which causes a significant increase in the measurement time.
-Recording of a \qtyproduct{10 x 10 x 10}{\cubic\micro\meter} cube using only a high-resolution BSE detector takes about \qtyrange{12}{24}{\hour} excluding the sample preparation.
+Recording of a \qtyproduct{10 x 10 x 10}{\cubic\micro\meter} cube using only a high-resolution \ac{BSE} detector in immersion mode takes about \qtyrange{12}{24}{\hour} excluding the sample preparation.
 Combined with \ac{EDX} imaging, the time can increase to multiple days for a single cube.
 
 \subsection{\Acl*{fs-laser} preparation}
@@ -178,7 +177,7 @@ To avoid charging effects, the specimen can be coated with a layer of \ce{Au} in
     \caption{
 		Illustration of cryo-preparation.
 		The specimen is placed between two circular brass sample holders (diameter: \qty{3}{\milli\meter}, depth: \qty{0.5}{\milli\meter}) and is frozen under high pressure (left).
-		The specimen is split under vacuum (centre) and can be coated with \ce{Au} in the high vacuum preparation system  or with \ce{Pt} in the \ac{SEM} (right).
+		The specimen is split under vacuum (centre) and can be coated with \ce{Au} in the high vacuum preparation system or with \ce{Pt} in the \ac{SEM} (right).
 	}
     \label{fig:cryo-prep}
 \end{figure}
@@ -200,7 +199,7 @@ The samples were placed in a two-volume sample cell and purged for at least \qty
 \ac{LAICPMS} intrinsically results in a damaged surface, since it vaporises material.
 \zcref{fig:laicpms-pre-ablation} illustrates this effect on a clinker surface.
 It also indicates the the spot size (\qtyproduct{6 x 6}{\micro\meter\squared}) and the rough interaction depth, which is $\approx$ \qty{7}{\micro\meter}.
-Conveniently, this damage can be use for cross-method alignment purposes.
+Conveniently, this damage can be used for cross-method alignment purposes.
 
 \begin{figure}[h!]
     \centering
@@ -258,7 +257,7 @@ However, larger values (above $\approx$ \qty{10}{\micro\meter}) will be ignored,
 \subsection{\Acl*{LTDSC}}
 \label{fig:ltdsc}
 
-To obtain data about the capillary and gel porosity, an \ac{LTDSC} system (\textit{DSC Polyma 214} from \textit{Netzsch}), connected to a cooling system (\textit{Intercooler IC70}) was used.
+To obtain data about the capillary and gel porosity, an \ac{LTDSC} system (\textit{DSC Polyma 214} from \textsc{Netzsch}), connected to a cooling system (\textit{Intercooler IC70}) was used.
 The hardened specimens were sliced to fit the small aluminum crucibles with an inner volume of $\approx$ \qty{60}{\micro\litre}.
 These crucibles sealed airtight by cold-welding a lid under pressure and measured against an empty reference crucible.
 
@@ -336,8 +335,8 @@ These crucibles sealed airtight by cold-welding a lid under pressure and measure
     \caption{
 		Temperature regime of an \ac{LTDSC}-measurement, based on \textsc{Sun}, \textsc{Scherer}, and \textsc{Müller} \cite{sun.2010, mueller.2021} with two measurement passes P1 and P2.
 		{\color{blue}\ding{100}1}, {\color{blue}\ding{100}2} = zones are intended introduce ice nuclei.
-		Theoretical pore radii $r_\text{P}$ were calculated after \textcite{brun.1977}. {\color{red}Red axis}: on melting (Equation \zcref{eq:brun_melt});
-		{\color{blue}Blue axis}: pore radius on freezing (Equation \zcref{eq:brun_freeze}).
+		Theoretical pore radii $r_\text{P}$ were calculated after \textcite{brun.1977}. {\color{red}Red axis}: on melting (\zcref{eq:brun_melt});
+		{\color{blue}Blue axis}: pore radius on freezing (\zcref{eq:brun_freeze}).
 		The {\color{blue}65.2} and {\color{red}\qty{33.0}{\nano\meter}} are the pore radii at \qty{-1}{\celsius}.}
     \label{fig:ltdc_regime}
 \end{figure}
@@ -478,7 +477,7 @@ The source code of the procedure which was used for this analysis can be found i
 
 \FloatBarrier
 \subsection{Calculating the phase composition based on 2D-\acs*{SEM} images}
-Using a segmented \ac{SEM} image with the image area $A_1$, the phase composition can be estimated by using the \unit{\areapercent} of alite $A_{\text{C}_3\text{S}}$ and the hydrate phases $A_\text{\text{CSH}}$ and $A_\text{CH}$ \cite{kleiner.2024a}.
+Using a segmented \ac{SEM} image with the image area $A_1$, the phase composition can be estimated by using the \unit{\areapercent} of \ac{C3S} $A_{\text{C}_3\text{S}}$ and the hydrate phases $A_\text{\text{CSH}}$ and $A_\text{CH}$ \cite{kleiner.2024a}.
 If the hydrate phases are indistinguishable, they can be summed up:
 
 \begin{equation}
@@ -491,7 +490,7 @@ If the hydrate phases are indistinguishable, they can be summed up:
 
 Although density is a volumetric property and the measurements provide only areas, it can be used to approximate the volume fraction of the hydrate phases.
 This approximation assumes that the phase fractions observed in 2D images are representative of the true volumetric fractions.
-Under this assumption, Equation \zcref{eq:est_frac} yields an estimate of the mass fraction of the hydrate phases (\ac{CH} and \ac{CSH}), \(\sigma_{\text{hydrate}}\), expressed in \unit{\wtpercent}.
+Under this assumption, \zcref{eq:est_frac} yields an estimate of the mass fraction of the hydrate phases (\ac{CH} and \ac{CSH}), \(\sigma_{\text{hydrate}}\), expressed in \unit{\wtpercent}.
 
 \begin{equation}
     \label{eq:est_frac}

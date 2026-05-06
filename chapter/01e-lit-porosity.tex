@@ -9,7 +9,7 @@ On a first glance, the measurement of pores and pore sizes seems to be fairly ea
 However, while air voids in mortar and concrete are mostly spherical due to the surface tension of the fresh binder, this significantly changes below a scale of tens of micrometres, where the capillary porosity begins.
 These pores are filled with pore solution/water during hydration and feature much more complex, fractal-like geometries.
 
-There a variety of methods to measure the \ac{PSD} of a hardened specimen.
+There are a variety of methods to measure the \ac{PSD} of a hardened specimen.
 However, each method has different measurement ranges as illustrated in \zcref{fig:pore_sizes}.
 
 \begin{figure}[!ht]
@@ -33,8 +33,6 @@ However, image-based methods inherently have either a limited resolution, only g
 Therefore, more indirect methods based on physical principles can help to obtain more statistically significant results.
 For this work, \ac{MIP} and \ac{LTDSC} were used as complementary methods to the image-based methods.
 However, in the literature \ac{HNMR} and \ac{DVS} are also commonly used to characterise the porosity of cementitious materials \cite{naber.2020,pinson.2015}.
-
-%{\color{red} There were multiple studies trying to compare different pore analysis methods \cite{naber.2020,georget.2024}.} % more sources!
 
 % Comparison of pore categories between different authors, from \cite{breugel.1997}, page 77
 
@@ -89,13 +87,6 @@ They preferred the main wetting curve, \ac{SEM} images, and pressure membrane ap
 Finally, due to the use of hazardous mercury and the high cost, it has a reduced relevance today.
 Despite its flaws, \ac{MIP} is useful to compare the porosity of similar samples or the relative change in porosity within a specimen \cite{juntgen.1966}.
 
-{\color{red}
-\begin{itemize}
-	\item early look and critique on MIP: 
-	\item \ac{MIP} and \ac{HNMR} do not fit well. \cite{tziotziou.2011}
-	\item \textcite{qian.2018} looked at the influence of metal intrusion using another alloy with an even lower melting point than \textsc{Wood}'s metal and analysed its distribution in the pore space using \ac{SEM} and \ac{mCT}
-\end{itemize}
-}
 
 
 %im hinblick auf mögliche gutachterinnen: hast du gecheckt, ich glaube hong wong zusammen mit buenfeld haben sich auch dazu geäußert
@@ -265,26 +256,51 @@ However, this method is not suitable for materials with a significant content of
 These species alter the relaxation behaviour of the protons, thereby interfering with the measurement \cite{muller.2014}.
 
 \ac{NMR} allows the analysis of the porosity of a specimen in a wide range, including porosity below \qty{2}{\nano\meter} \cite{barrie.2000}. 
-Therefore, it is especially useful to gain insight into the interlayer volume of the \ac{CSH} phases \cite{naber.2020}.
+Therefore, it is especially useful to gain insight into the interlayer volume of the \ac{CSH} phases.
+For example, \textcite{naber.2020} combined \ac{SEM} image analysis with \ac{HNMR} relaxometry.
+They used high-resolution \ac{SEM} images of \ac{ArBIB}-milled surfaces to determine the surface-to-volume ratio of the larger interhydrate pores, which are mostly unaffected by sample preparation.
+This geometrical data was then used to calibrate the surface relaxivity parameter for the \ac{HNMR} measurements.
+Consequently, they were able to calculate the sizes of the nanoscale gel and interlayer pores from the \ac{HNMR} data without relying on theoretical assumptions about water monolayer coverage.
 %W. P. Halperin, J.-Y. Jehng, Y.-Q. Song, Application of spin-spin relaxation to measurement of surface area and pore size distributions in a hydrating cement paste, Magnetic  Resonance Imaging 12 (2) (1994) 169–173.#
-
-{\color{red}
-Results from \ac{HNMR} and \ac{LTDSC} (here TMP) do fit, however \ac{HNMR} provides more data for pores with a size below \qty{3}{\nano\meter} \cite{joseph.2024}.
-%The paper also shows me, that the speed of temperature change (2K/min) is too fast in our experiments, probably leading to a shift of the pore size to smaller values. Their experiments used 0.5K/min
-
-\dots
-}
 
 \subsubsection[Dynamic vapour sorption]{\Acl*{DVS}}
 
 \Ac{DVS} can give a rough idea of the porosity of a material \cite{pinson.2015} and the behaviour of the material under changing humidity at different temperatures \cite{wang.2023}.
 While the operating gas is variable, it is usually water.
 
-The method works by placing a dry specimen in a humidity-controlled chamber, while stepwise increasing the humidity inside and measuring the mass change of the specimen until mass consistency is reached.
+The method works by placing a dry specimen in a humidity-controlled chamber, while stepwise increasing the humidity and measuring the mass change of the specimen until mass consistency is reached.
 This is followed by a subsequent stepwise reduction of the humidity.
 Depending on the available and accessible pore classes (capillary or gel porosity), the amount of mass change can indicate their presence at different humidities during the drying step \cite{pinson.2015}.
-Depending on the device used and the experimental setup, the measurements can take multiple days or weeks at room temperature and below \cite{wang.2023}.
+Depending on the device used and the experimental setup, the measurements can take multiple days or weeks at or below room temperature \cite{wang.2023}.
 
 Therefore, this method is only useful for fully hydrated specimens.
 For specimens younger than \qty{14}{\day}, this method is not suitable, since hydration can continue significantly during the measurement period.
 Furthermore, most authors do not directly evaluate the porosity of the specimen using this method but use it comparatively between specimens or parameters \cite{ghantous.2023, wang.2023}.
+
+\subsection{Comparison-studies of pore analysis methods}
+\label{subsec:pore_comparison}
+
+Given the different physical principles and measurement ranges of the various pore analysis methods, multiple studies have attempted to compare their results \cite{munch.2008, naber.2020, georget.2024}.
+Since each technique requires specific sample preparation and probes different aspects of the pore network, direct comparisons are often difficult or impossible.
+
+To explain the frequently observed discrepancies between image-based methods and \ac{MIP}, \textcite{munch.2008} compared \ac{MIP} measurements with simulated intrusion algorithms applied to a \ac{FIBnt} 3D volume (\qtyproduct{11.9 x 10.7 x 5.6}{\micro\meter\cubed}).
+While standard image analysis typically determines a `discrete' \ac{PSD} by assigning a single equivalent radius to each separated pore object, \ac{MIP} inherently measures a `continuous' \ac{PSD} by decomposing interconnected pore networks into a continuous size spectrum.
+This indicates that while the ink-bottle effect still plays a significant role in underestimating larger pores in a \ac{MIP} analysis, the geometric definition of a pore size is the main reason for deviations between microscopy and intrusion techniques.
+
+To overcome the ink-bottle effect and to validate \ac{mCT} and \ac{SEM} measurements, alternative intrusion techniques have been explored.
+\textcite{qian.2018} utilised a metal alloy with a melting of \qty{47}{\celsius} to intrude the pore space by centrifugation.
+By analysing the metal distribution using \ac{SEM} and \ac{mCT}, they achieved a high-contrast 3D visualisation of the pore structure.
+Compared to \ac{MIP}, the total porosities were consistent, but the metal intrusion revealed larger most-probable pore sizes.
+This directly demonstrated the underestimation caused by the ink-bottle effect and sectioning differences in \ac{MIP}.
+
+\textcite{georget.2024} systematically compared \ac{MIP}, \ce{N2}-adsorption, \ac{HNMR}, and \ac{SEM} image analysis.
+They highlighted that only methods measuring liquid water (such as \ac{HNMR}) can reliably access the true gel porosity.
+The drying steps necessary for \ac{MIP} and \ce{N2}-adsorption inevitably lead to a partial change of the gel porosity, shifting these pore sizes towards the capillary pore range.
+Furthermore, they concluded, that the evaluation of only a single segmented \ac{SEM}-\ac{BSE} image ($\approx$\qty{0.3}{\milli\meter\squared} at $\approx$\qty{0.1}{\micro\meter\per\px}) per specimen is not sufficient for a reliable pore analysis.
+
+% Note: joseph.2024 also indicates that a cooling rate of 0.5 K/min might be more appropriate than 2 K/min to avoid shifting pore sizes to smaller values.
+Comparisons between \ac{MIP} and \ac{HNMR} can be complicated, and their respective \ac{PSD}s often do not fit perfectly \cite{tziotziou.2011}.
+This discrepancy arises primarily because \ac{MIP} measures the distribution of pore throats, whereas \ac{HNMR} surveys the actual pore body dimensions based on the enclosed water volume.
+\textcite{joseph.2024} also compared \ac{HNMR}, \ac{MIP}, and \ac{LTDSC}.
+They found, considerable deviations for pores larger than \qty{10}{\nano\meter} in mature pastes using \ac{MIP}, which was attributed to the required drying processes.
+They concluded that while \ac{HNMR} and \ac{LTDSC} yield similar \ac{PSD}s for saturated pores, \ac{HNMR} provides more comprehensive data for pores smaller than \qty{3}{\nano\meter}, as \ac{LTDSC} cannot fully capture the non-freezable water layers.

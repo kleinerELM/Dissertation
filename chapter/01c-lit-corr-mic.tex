@@ -22,8 +22,8 @@ For example, the combination of \ac{SEM}-\ac{BSE}, \ac{EDX}, and \ac{EBSD} enabl
 
 \subsection{Image alignment}
 
-Good image alignment is the most important step for any further analysis.
-While the alignment of images with overlapping content from the same source (modality) is straightforward, multimodal image alignment is still a challenging problem \cite{frolov.2026}.
+Good image alignment is the most important step before any further analysis.
+While the automatic alignment of images with overlapping content from the same source (modality) is a mostly solved issue, multimodal image alignment is still a challenging problem \cite{frolov.2026}.
 However, if the resulting images share enough features, they can still be aligned.
 This can be done using
 \begin{itemize}
@@ -32,7 +32,7 @@ This can be done using
     \item fully automatic methods from the field of computer vision/photogrammetry such as \ac{SIFT} \cite{lowe.2004} or machine learning-supported algorithms \cite{frolov.2025, frolov.2026}.
 \end{itemize}
 
-Usually, for few or single datasets this can be done manually.
+Usually, for few or single datasets the alignment can be done fully manually or by using tools like \textit{QGIS} \cite{QGIS_software}.
 However, this can become tedious and time-consuming for more datasets, and in many cases, it is not very exact and not repeatable.
 
 The main issues for the combination of multi-device (multi-modal) measurements are

@@ -1,18 +1,15 @@
 \section{Correlation of hydrate rim measurements with \acs*{EBSD} orientations}
 \label{sec:ebsd-hydrate}
 
-%The  analysis  yields, for each valid angular step around a clinker grain, a rim length in the plane of the polished section.
-To relate the \ac{HLT} measurements as described in \zcref{subsec:algo_hlm} to the crystallographic orientation of the same clinker volume, the \ac{BSE} images were combined with \ac{EBSD} data acquired on the identical surface.
+To relate the \ac{HLT} measurements as described in \zcref{subsec:algo_hlm} to the crystallographic orientation of the same clinker volume, the \ac{BSE} images can be combined with \ac{EBSD} data acquired on the identical surface of a polished hydrated \ac{C3S} sample.
 
-%The following sections summarise how the two datasets were registered, how crystal directions were assigned to each rim measurement, and which limitations arise from the two-dimensional character of both modalities.
-
-The carbon-coated specimen was therefore mounted on a pre-tilted specimen holder and tilted to a \qty{70}{\degree} angle to the electron beam.
+To measure the crystal orientation, the carbon-coated specimen was mounted on a pre-tilted specimen holder (\qty{45}{\degree}) and the surface was then tilted to a \qty{70}{\degree} angle to the electron beam (see \zcref{fig:ebsd_principle_a}).
 The specimen was then scanned at \qty{15}{\kilo\volt}, \qty{1.6}{\milli\ampere} at a step size of \qty{2}{\micro\meter\per\px} to acquire the \textsc{Kikuchi} patterns of \ac{C3S} and \ac{CH}.
 
-The \ac{EBSD} experiment produced a 2D dataset of crystal orientation estimates, phase indices and pattern quality indicators. 
+The \ac{EBSD} experiment produces a 2D dataset of crystal orientation estimates, phase indices and pattern quality indicators. 
 The raw data were preprocessed in \textit{AZtecCrystal 3.2} \cite{azteccrystal.2010} by \textsc{Oxford Instruments} to clean up pseudosymmetric solutions.
-Since the crystallinity of \ac{C2S} is not good enough to obtain usable \textsc{Kikuchi} patterns, this work focussed on hydrated \ac{C3S} specimens.
-To identify and fit these patterns, the crystal structure published by \textcite{delatorre.2002} (\acs{ICSD} 94742, \acs{COD} \href{https://qiserver.ugr.es/cod/1540705.html}{1540705}) was used (see \zcref{fig:c3s_unit_cell}).
+Since the crystallinity of \ac{C2S} is not good enough to obtain usable \textsc{Kikuchi} patterns, this work focussed on hydrated \ac{C3S} specimens \cite{rossler.2022}.
+To identify and fit the patterns of \ac{C3S}, the crystal structure published by \textcite{delatorre.2002} (\acs{ICSD} 94742, \acs{COD} \href{https://qiserver.ugr.es/cod/1540705.html}{1540705}) was used (see \zcref{fig:c3s_unit_cell}).
 Finally, the data were exported as a channel text file (.ctf), which was further processed using \textit{Python}.
 
 \begin{figure}[htb!]
@@ -40,16 +37,18 @@ Finally, the data were exported as a channel text file (.ctf), which was further
 %Each scan pixel is associated with \textsc{Euler} angles in the \textsc{Bunge} convention, which define a rotation $g$ from the sample reference frame to the crystal reference frame of the indexed phase.
 
 The \ac{BSE} image was manually aligned to the \ac{EBSD} map (using the band-contrast image) in \textit{QGIS 3.42} \cite{QGIS_software} by identifying common points.
-The \textit{QGIS}-project was then used to projectively transform the high-resolution \ac{BSE} image to the low-resolution \ac{EBSD} dataset.
+The \textit{QGIS}-project was then used to projectively transform the high-resolution \ac{BSE} image to the low-resolution \ac{EBSD} dataset in \textit{Python}.
 
 %After alignment, the physical step sizes of the \ac{EBSD} grid and the transformed \ac{BSE} image were harmonised by an integer upscale of the segmentation used in the rim algorithm and a scalar alignment factor between low-resolution and high-resolution \ac{BSE} exports, so that one \ac{EBSD} column and row index corresponds to a consistent footprint on the section.
 
-For every rim measurement, the clinker-hydrate boundary point extracted from the \ac{BSE} segmentation was projected onto the nearest \ac{EBSD} grid node. % (including segmentation upscale and \ac{ROI} origin)  $(i_x,\,i_y)$.
+After the data alignment, real-world data exhibit, that not all pixels assigned to \ac{C3S} also have a corresponding usable pixel with good \ac{EBSD} data.
+Therefore, the available \ac{EBSD} data of a grain were expanded until all pixels assigned to a \ac{C3S} grain had a corresponding crystal orientation.
+For every \ac{CSH} rim measurement, the clinker-hydrate boundary point extracted from the \ac{BSE} segmentation was projected onto the nearest \ac{EBSD} grid node (see ).
 The \textsc{Euler} angles at that node represent the orientation attributed to the measurement.
 Where several angular steps around one grain map to the same grid node, multiple records can share identical indices. %; this is expected when the \ac{EBSD} step width is large compared with the arc length sampled along the rim.
 
-\zcref{fig:clinker-pixel-roles} visualises the pixels from the \ac{EBSD} measurement used for the calculations.
-The \ac{C3S} pixels sharing at least one edge or corner with \ac{CSH} lie on the \ac{C3S}--hydrate interface and correspond to the inner boundary from which the polar rim measurement in \zcref{fig:hlt-method} starts.
+\zcref{fig:clinker-pixel-roles} visualises the pixels from the \ac{EBSD} measurement used for the calculations (green).
+The \ac{C3S} pixels sharing at least one edge or corner with \ac{CSH} lie on the \ac{C3S}-hydrate interface and correspond to the inner boundary from which the polar rim measurement in \zcref{fig:hlt-method} starts.
 Fully surrounded interior \ac{C3S} pixels remain in the same segmented grain mask but do not define that interface.
 The diagram is illustrative and omits pores and irregular grain shapes.
 
@@ -96,7 +95,6 @@ The diagram is illustrative and omits pores and irregular grain shapes.
             \tikz[]\fill[gray!52] (0,0) rectangle (0.5,0.5);~~\ac{CSH} layer\\
             \tikz[]\draw[thick, blue, ->, >=stealth] (0,0.4) -- (0.5,0.4);~~$\vec{v}_\mathrm{HLT}$%
         };
-        
     \end{tikzpicture}
 
     \caption{
@@ -106,7 +104,6 @@ The diagram is illustrative and omits pores and irregular grain shapes.
     }
 	\label{fig:clinker-pixel-roles}
 \end{figure}
-
 
 As schematically illustrated in \zcref{fig:ebsd-hydrate-correlation}, in the polar representation of the rim algorithm (\zcref{fig:hlt-method}), each valid direction is described by an azimuth $\theta_\mathrm{idx}$ in the plane of the sample surface.
 A unit vector $\vec{n}_\mathrm{sample}$ was constructed in the sample reference frame with components
@@ -156,14 +153,14 @@ where $\theta$ follows from the discrete index and an optional sign convention f
         \end{scope}
 
         % --- Center: Rotation ---
-        \begin{scope}[shift={(5.2, 0.5)}]
+        \begin{scope}[shift={(4.8, 0.5)}]
             \draw[->, ultra thick, blue] (0,0) -- (2.5,0);
-            \node[above, font=\bfseries, blue] at (1.25, 0.1) {$g(\varphi_1, \Phi, \varphi_2)$};
+            %\node[above, font=\bfseries, blue] at (1.25, 0.1) {$g(\varphi_1, \Phi, \varphi_2)$};
             % \node[below, align=center, font=\small] at (1.25, -0.1) {\textsc{Bunge}};
         \end{scope}
 
         % --- Right: Crystal Reference Frame ---
-        \begin{scope}[shift={(10.8, 0.5)}]
+        \begin{scope}[shift={(10.0, 0.5)}]
             % Origin
             \coordinate (Oc) at (0,0);
             
@@ -216,7 +213,7 @@ For the monocline clinker phase investigated here, the angle between the measure
 	\alpha_{001} = \arccos\bigl(\lvert h_z\rvert\bigr),
 \end{equation}
 i.e.\ the acute angle between $\vec{h}$ and the crystal $c$-axis, using the absolute value of $h_z$ so that opposite poles of the same axis are treated equivalently in the statistical plots.
-The scalar rim length from the hydrate analysis (denoted $l$ in the workflow output) was retained alongside $\alpha_{001}$ and $(h_x,\,h_y,\,h_z)$ for joint distributions, spatial maps on $(i_x,\,i_y)$, and spherical heat maps of measurement density on the orientation sphere.
+The rim length from the hydrate analysis was retained alongside $\alpha_{001}$ and $(h_x,\,h_y,\,h_z)$ for joint distributions, spatial maps on $(i_x,\,i_y)$, and spherical heat maps of measurement density on the orientation sphere.
 
 The phase map delivered with the \ac{EBSD} data does not always label every pixel that appears as clinker in the \ac{BSE} segmentation. 
 This can happen, when pattern indexing failed at the grain boundary or when there is a slight misalignment between the datasets.

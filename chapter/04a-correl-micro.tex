@@ -8,16 +8,18 @@ This chapter presents workflows for different methods and discusses the possible
 \label{sec:EDX-NI}
 
 \Acl{NI} is a technique to determine mechanical properties of a specimen which requires very flat surfaces \cite{wilson.2018}.
-Mechanical polishing works well for \ac{NI} experiments if done with an oil-based polishing process \cite{gao.2012, wilson.2018}
-Nevertheless, \ac{ArBIB} milling is a promising preparation method for hydraulic cement-based materials, since it does not require water-free resin embedding, even for porous materials, avoids chemical contamination and minimises mechanical damage as demonstrated in \zcref{sec:bib_pol_fixed_results}.
-Furthermore, it avoids the formation of a pronounced relief at the interface of hard (e.g. quartz grains) and soft (e.g. hydrated cement) materials.
+Mechanical polishing works well for \ac{NI} experiments if done with an oil-based polishing process \cite{gao.2012, wilson.2018}.
+Nevertheless, \ac{ArBIB} milling is a promising preparation method for hydraulic cement-based materials, since it does not require water-free resin embedding, even for porous materials.
+It minimises mechanical damage as demonstrated in \zcref{sec:bib_pol_fixed_results} and avoids chemical contamination.
+Furthermore, it prevents the formation of a pronounced relief at the interface of hard (e.g. quartz grains) and soft (e.g. hydrated cement) materials.
 For example, the imaging of microstructures of claystone was challenging until the advent of \ac{ArBIB} polishing and milling \cite{yven.2007,houben.2014}.
 
-The objective was to obtain a clean and smooth \ac{ITZ} between the binder and a large quartz grain of a \qty{91}{\day} hydrated CEM~I concrete sample (see \zcref{sec:ni_concrete}).
+The objective was to obtain a clean and smooth \ac{ITZ} between the binder and a large quartz grain of a \qty{91}{\day} hydrated \acs{CEMI} concrete sample (see \zcref{sec:ni_concrete}).
 As shown in \zcref{fig:lm_ni}, a usable area of $\approx$ \qty{7.5}{\milli\meter\squared} was prepared using \ac{ArBIB} milling.
 The polishing was done at \qty{6}{\kilo\volt}, \qty{2}{\milli\ampere} in multiple sessions for a total of $\approx$ \qty{72}{\hour}.
 Between the sessions, the specimen was repositioned due to a failed ion gun.
-Since this process is manual, the specimen was not at the exact same height as in the first milling session, causing a damaged front area.
+Since the positioning of the specimen is a manual process, the specimen was not at the exact same height as in the first milling session, causing a damaged front area.
+The unpolished upper part of the specimen appears black, which is caused by the depositioning of ablated material such as metal from the \ce{W}-blade.
 
 \begin{figure}[htb!]
   \centering
@@ -77,9 +79,10 @@ This seems to be in accordance with the observations from \textcite{sammer.2024}
   \label{fig:arbib-topography}
 \end{figure}
 
-\textcite{ISO25178-2:2022} defines roughness parameters like $S_{dr}$.
-The developed area ratio $S_{dr}$ is the percentage increase in surface area due to texture compared to a perfectly flat surface.
-This parameter was calculated within a \qtyproduct{20 x 20}{\px} sliding window for the whole \ac{ROI} (see \zcref{fig:arbib-rough}).
+\textcite{ISO25178-2:2022} defines roughness parameters like the `developed area ratio' ($S_{dr}$).
+$S_{dr}$ is the percentage increase in surface area due to a texture compared to a perfectly flat surface.
+The parameter was calculated within a \qtyproduct{20 x 20}{\px} sliding window for the whole \ac{ROI} (see \zcref{fig:arbib-rough}).
+This allows to omit the global roughness and highlights the local roughness.
 \zcref{fig:arbib-rough} shows the result with a scale from \qty{0}{\percent} for a perfectly flat surfaces up to a local increase of the surface area of \qty{300}{\percent}.
 Combined with the segmentation results from the \ac{mXRF} dataset, this allows the surface roughness to be attributed to different phases.
 
@@ -113,10 +116,10 @@ However, especially at the quartz grains it becomes obvious, that irregularities
 They cause visible stripes, which are often V-shaped, with the discontinuity at the intersection of the stripes.
 
 In mechanically polished specimens, a visible height difference between phases of different hardness (e.g. quartz and hydrated cement binder) can be observed.
-In contrast, for \ac{ArBIB} milled specimens no such height difference was observed as illustrated by the tilted \ac{SEM}-\ac{SE} images in \zcref{fig:arbib-tilt,fig:arbib-tilt-c}.
-However, the curtaining artefacts caused by porosity are clearly visible in \zcref{fig:arbib-tilt-b}, while \zcref{fig:arbib-tilt-a} shows a smooth surface.
+In contrast, for \ac{ArBIB} milled specimens no such height difference was observed as illustrated by the tilted \ac{SEM}-\ac{SE} images in \zcref{fig:arbib-tilt,fig:arbib-tilt-c} and the \ac{LSCM}-visualisation in \zcref{fig:lscm_NI_depth}.
+The curtaining artefacts caused by porosity are clearly visible in \zcref{fig:arbib-tilt-b}, while \zcref{fig:arbib-tilt-a} shows a smooth surface.
 In both cases, the ion beam was directed from bottom to top.
-As indicated in \zcref{fig:arbib-rough}, quartz grains cause a smoother surface and this also seems to be true for the transition from quartz to hydrated cement binder.
+As indicated in \zcref{fig:arbib-rough, fig:lscm_NI_depth}, quartz grains cause a smoother surface and this also seems to be true for the transition from quartz to hydrated cement binder.
 
 % X:\Mitarbeiter\Florian Kleiner\Einzelbilder\2026_02_13 Tilt NI Probe
 \begin{figure}[htb!]
@@ -170,9 +173,9 @@ A straight phase boundary between quartz and hydrated cement binder was identifi
   \label{fig:arbib-EDX-NI}
 \end{figure}
 
-Despite using a CEM~I as binder, a slag grain can be identified, which might originate from the \qty{5}{\percent} of allowed other components according to \textcite{dinen197-1.2011}.
-The \ac{EDX} mapping derived phase map does not distinguish between \ac{C3S} and \ac{C2S} phases, but divides the hydrate phases granularly into \ac{CSHi} (\ac{HD}), \ac{CASH}, \ce{Mg}-\ac{CASH}, \ac{CH} and \ac{AFm}/\ac{AFt} phases.
-Hydrate phases that could not be further differentiated due to their nano-scale intergrowth and were classified as \ac{CSHo} (\ac{LD}).
+Despite using a \acs{CEMI} as binder, a slag grain can be identified, which might originate from the \qty{5}{\percent} of allowed other components allowed in a \ac{CEMI} according to \textcite{dinen197-1.2011}.
+The \ac{EDX} mapping derived phase map does not distinguish between \ac{C3S} and \ac{C2S} phases, but divides the hydrate phases granularly into \ac{CSHi} (\ac{HD}), \ac{CASH}, \ce{Mg}-\ac{CASH}, \ac{CH} and \ac{AFm}/\ac{AFt}.
+Hydrate phases that could not be further differentiated due to their nano-scale intergrowth were classified as \ac{CSHo} (\ac{LD}).
 
 The \ac{NI} was done on a $\approx$ \qtyproduct{100 x 325}{\micro\meter\squared} area with \numproduct{20 x 65} indents at a \qty{5}{\micro\meter} spacing.
 The \ac{NI} measurements allow to calculate the hardness $H$ and the reduced \textsc{Young}'s modulus $E_r$.
@@ -193,7 +196,7 @@ Furthermore, another \ac{NI} measurement was performed within the same area, res
   \label{fig:BSE-indents}
 \end{figure}
 
-Visualising the resulting hardness and the reduced \textsc{Young}'s modulus maps, results in the images shown in \zcref{fig:ni2D-results}.
+Visualising the hardness and the reduced \textsc{Young}'s modulus maps, results in the images shown in \zcref{fig:ni2D-results}.
 In both images, the position of the quartz, clinker and slag phases can be identified by their high values.
 In the modulus map, the distribution of the cracks can also be determined.
 
@@ -491,11 +494,10 @@ This was done by selecting only indents, with a hardness below \num{6} and a red
 \end{figure}
 
 Both diagrams show that the values directly at the interface (at \qty{30}{\micro\meter}) are slightly lower than in the bulk material.
-However, based on this data the \ac{ITZ} width cannot be clearly defined, but the typical width known from literature (\qty{60}{\micro\meter}; between \qtyrange{30}{90}{\micro\meter}) was marked.
+However, based on this data the \ac{ITZ} width cannot be clearly defined, but the typical width known from literature (\qty{60}{\micro\meter}) was marked in grey in the graphs.
 Nevertheless, it was demonstrated that, as stated in the literature, \ac{CH} accumulated at the \ac{ITZ} \cite{li.2012, tian.2018, gao.2014}.
 %The \ac{ITZ} is expected to be <\,\qty{100}{\micro\meter} wide \cite{lavrov.2017,torsaeter.2015,zhu.2000}, based on the slope attributed to the quartz grain interface.
 Comparing the graphs to the \ac{BSE} and \ac{EDX} data indicates a small crack in the interface zone between the binder and the grain.
 Therefore, a porosity analysis in this range not suitable, since the majority of the segmentable pores in the \ac{BSE} image originate from cracks, most probably caused by the preparation.
 For example, the specimen was dried in vacuum within the polishing device and within the \ac{SEM} and the \ac{ArBIB} preparation also induces heat and therefore can cause cracks.
 This can also be seen in the lower two images in \zcref{fig:BSE_CEMI_voltages}, where the carbon coating was removed using \ac{ArBIB} polishing and new cracks appeared.
-

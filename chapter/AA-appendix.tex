@@ -10,9 +10,6 @@
 Figures in the appendix section are not visible in draft mode!
 }
 \fi
-\ifdefined\EXTERNALIZE
-	\tikzexternaldisable
-\fi
 
 \section{Freezing point depression due to \ce{CaOH}}
 \label{sec:freezing-point-depression}
@@ -101,7 +98,7 @@ The particle size distribution of the \ac{C3S} powder sieved to <\,\qty{20}{\mic
             xmin=0.04, xmax=500,
             ymin=0, ymax=1,
             width=.95\linewidth,
-            height=.25\textheight,
+            height=.29\textheight,
 			xticklabels={0.04,0.1,1,10,100},
 			xtick={.04,.1,1,10,100},
 			extra x ticks={0.05,0.06,...,0.09,0.2,0.3,...,0.9,2,3,...,9,20,30,...,90,200,300,...,900},
@@ -127,7 +124,7 @@ The particle size distribution of the \ac{C3S} powder sieved to <\,\qty{20}{\mic
 			axis x line=none,
 			ylabel={cum. volume in \unit{\volpercent}},
 			width=.95\linewidth,
-			height=.25\textheight,
+			height=.29\textheight,
             legend style={at={(.5,1.03)},anchor=south, style={column sep=4pt},text=black},
             legend columns = 2,
 			legend cell align={left},
@@ -156,7 +153,7 @@ The pastes were prepared with a \ac{wb} value of \num{0.5} and stored in sealed 
 The hydration of the specimens was stopped after the desired age by immersion in isopropanol and subsequent drying at \qty{60}{\celsius}.
 The phase composition of samples stored for \num{1} (only \ac{C3S}), \num{7}, and \qty{28}{\day} were assessed by quantitative \ac{XRD} analysis using the $G$-factor method \cite{oconnor.1988, jansen.2011}.
 
-%\newpage
+\newpage
 \FloatBarrier
 \subsection{Cements}
 \label{sec:cements}
@@ -253,7 +250,7 @@ Its composition is listed in the tables below:
 			xmin=0.04, xmax=500,
 			ymin=0, ymax=3.5,
 			width=.95\linewidth,
-			height=.24\textheight,
+			height=.29\textheight,
 			xticklabels={0.04,0.1,1,10,100},
 			xtick={.04,.1,1,10,100},
 			extra x ticks={0.05,0.06,...,0.09,0.2,0.3,...,0.9,2,3,...,9,20,30,...,90,200,300,...,900},
@@ -279,7 +276,7 @@ Its composition is listed in the tables below:
 			axis x line=none,
 			ylabel={Cumulative in \unit{\volpercent}},
 			width=.95\linewidth,
-			height=.24\textheight,
+			height=.29\textheight,
             legend style={
 				at={(.01,0.97)},
 				anchor=north west,
@@ -320,7 +317,7 @@ For this, a ultrasound processor and generator \textit{UIP1000hd} connected to a
             xmin=0.04, xmax=500,
             ymin=0, ymax=1,
             width=.95\linewidth,
-            height=.25\textheight,
+            height=.29\textheight,
             legend style={at={(.5,1.03)},anchor=south, style={column sep=4pt}},
             legend columns = 2,
 			xticklabels={0.04,0.1,1,10,100},
@@ -350,7 +347,7 @@ For this, a ultrasound processor and generator \textit{UIP1000hd} connected to a
 			axis x line=none,
 			ylabel={cum. volume in \unit{\volpercent}},
 			width=.95\linewidth,
-			height=.25\textheight,
+			height=.29\textheight,
             legend style={at={(.5,1.03)},anchor=south, style={column sep=4pt},text=black},
             legend columns = 2,
 			legend cell align={left},
@@ -417,18 +414,18 @@ The phase composition measured using \ac{XRD} is listed in \zcref{tab:phase-comp
 		\toprule
 		Oxide         & \ac{ICP}-\ac{OES} & \ac{ICP}-\ac{MS} & Oxide         & \ac{ICP}-\ac{OES} (cont.) & \ac{ICP}-\ac{MS} (cont.) \\
 		\midrule
-		\ce{CaO}	& \tablenum{64.81}	& -					& \ce{SrO}	& \tablenum{0.15}	& \tablenum{0.1254} \\
-		\ce{SiO2}	& \tablenum{22.44}	& -					& \ce{P2O5}	& \tablenum{0.15}	& -      \\
-		\ce{Al2O3}	& \tablenum{4.67}	& -					& \ce{ZnO}	& \tablenum{0.04}	& -      \\
-		\ce{Fe2O3}	& \tablenum{2.59}	& -					& \ce{Mn2O3}	& \tablenum{0.04}	& \tablenum{0.0275} \\
-		\ce{MgO}	& \tablenum{1.36}	& -					& \ce{V2O5}	& \tablenum{0.01}	& \tablenum{0.0053} \\
-		\ce{K2O}	& \tablenum{1.26}	& -					& \ce{ZnO}	& \tablenum{0.04}	& \tablenum{0.0294} \\
-		\ce{SO3}	& \tablenum{1.01}	& -					& \ce{Cr2O3}& \tablenum{0.01}	& \tablenum{0.0067} \\
-		\ce{Na2O}	& \tablenum{0.41}	& -					& \ce{BaO}	& \tablenum{0.02}	& \tablenum{0.0185} \\
-		\ce{TiO2}	& \tablenum{0.24}	& \tablenum{0.1431} & \ce{CuO}	& -					& \tablenum{0.0107} \\
+		\ce{CaO}	& \tablenum{64.81}	& {--}					& \ce{SrO}	& \tablenum{0.15}	& \tablenum{0.1254} \\
+		\ce{SiO2}	& \tablenum{22.44}	& {--}					& \ce{P2O5}	& \tablenum{0.15}	& {--}      \\
+		\ce{Al2O3}	& \tablenum{4.67}	& {--}					& \ce{ZnO}	& \tablenum{0.04}	& {--}      \\
+		\ce{Fe2O3}	& \tablenum{2.59}	& {--}					& \ce{Mn2O3}	& \tablenum{0.04}	& \tablenum{0.0275} \\
+		\ce{MgO}	& \tablenum{1.36}	& {--}					& \ce{V2O5}	& \tablenum{0.01}	& \tablenum{0.0053} \\
+		\ce{K2O}	& \tablenum{1.26}	& {--}					& \ce{ZnO}	& \tablenum{0.04}	& \tablenum{0.0294} \\
+		\ce{SO3}	& \tablenum{1.01}	& {--}					& \ce{Cr2O3}& \tablenum{0.01}	& \tablenum{0.0067} \\
+		\ce{Na2O}	& \tablenum{0.41}	& {--}					& \ce{BaO}	& \tablenum{0.02}	& \tablenum{0.0185} \\
+		\ce{TiO2}	& \tablenum{0.24}	& \tablenum{0.1431} & \ce{CuO}	& {--}					& \tablenum{0.0107} \\
 		\midrule
-		Total		&					&					&			&  \tablenum{99.88}	& -      \\
-		\acs{LOI} (\qty{1000}{\celsius}) & &			&			& \tablenum{0.70}	& -      \\
+		Total		&					&					&			&  \tablenum{99.88}	& {--}      \\
+		\acs{LOI} (\qty{1000}{\celsius}) & &			&			& \tablenum{0.70}	& {--}      \\
 		\bottomrule
 	\end{tabularx}
 	\label{tab:laicpms-clinker}
@@ -502,7 +499,7 @@ A revalidation of the \ac{MIP} results was omitted, due to the high material cos
 		\toprule
 		Specimen & \ac{VG5} & \ac{VG20} \\
 		\midrule
-		Nominal pore diameter & \qty{5}{\nano\meter} & \qty{20}{\nano\meter} \\
+		Nominal pore diameter in \unit{\nano\meter}			& 5		& 20	\\
 		Modal diameter in \unit{\nano\meter}           		& 4.5   & 22.3  \\
 		Median diameter in \unit{\nano\meter} 				& 4.7   & 19.4  \\
 		Porosity in \unit{\percent}                   		& 54.1  & 51.3  \\
@@ -695,36 +692,36 @@ They cause significant trenches behind them. However, the material hardness does
 	\centerline{\includegraphics[width=.9\textwidth]{nanoindentation/LSCM_depth_vis.pdf}}
 	\caption{
 		Topographic visualisation of the \ac{NI} measuring side (height appearance multiplied by factor of \num{10}), measured using \ac{LSCM}.
-		The measurement area is approximately \qtyproduct{140x338}{\micro\meter\squared}.
+		The measurement area is approximately \qtyproduct{338x140}{\micro\meter\squared}.
 	}
 	\label{fig:lscm_NI_depth}
 \end{figure}
 
 \FloatBarrier
-\section{Laser preparation side}
+\section{Laser preparation process for \ac{FIBnt}}
 
 \begin{figure}[htb!]
-	\centerline{\includegraphics[width=.7\textwidth]{methods/laser_prep/depth_vis.pdf}}
+	\centerline{\includegraphics[width=\textwidth]{methods/laser_prep/depth_vis.pdf}}
 	\caption{
-		\qty{7}{\d} hydrated \ac{C3S} specimen, embedded in epoxy resin and prepared using a \ac{fs-laser}.
-		The preparation site has a size of \qtyproduct{.6 x 1.0}{\milli\meter\squared} and the prepared bar is \qty{40}{\micro\meter} wide at the top.
-		Depth visualisation of the laser preparation side (between \qtyrange{150}{200}{\micro\meter}), measured using \ac{LSCM}.
+		Depth visualisation of the \ac{fs-laser} preparation side (between \qtyrange{150}{200}{\micro\meter}) of a \qty{7}{\day} hydrated \ac{C3S} specimen, measured using \ac{LSCM}.
+		The preparation site has a size of \qtyproduct{.6 x 1.0}{\milli\meter\squared}.
 	}
 	\label{fig:lscm_laser_depth}
 \end{figure}
 
 
 \FloatBarrier
-%\newpage
+\newpage
 \section{Hydrate rim measurements}
 
 The diagrams in \zcref{fig:hlt_segmentation_influence} compare the influence of different segmentation methods on the \ac{HLT} measurement results.
 \zcref{fig:results2d_mixture} lists and compares all result diagrams of the \ac{HLT} measurement for all \ac{C3S}:\ac{C2S} mixtures.
 
-\begin{figure}[htbp]
+\begin{figure}[htb!]
 	\centerline{\includegraphics[width=\textwidth]{hydrate-rim/histogram_segmentation2.pdf}}
 	\caption{
-		Histograms of the hydration layers of \qty{14}{\day} hydrated \ac{C3S}. Segmentation result by thresholding ($l_\text{max}$ = \qty{1.85}{\micro\meter}), pixel classification with ($l_\text{max}$ = \qty{1.94}{\micro\meter}) and without respecting \ac{CSHo} ($l_\text{max}$ = \qty{1.52}{\micro\meter}) and manual segmentation ($l_\text{max}$ = \qty{1.52}{\micro\meter})
+		Histograms of the hydration layers of \qty{14}{\day} hydrated \ac{C3S}.
+		Segmentation result by thresholding ($l_\text{max}$ = \qty{1.85}{\micro\meter}), pixel classification with ($l_\text{max}$ = \qty{1.94}{\micro\meter}) and without respecting \ac{CSHo} ($l_\text{max}$ = \qty{1.52}{\micro\meter}) and manual segmentation ($l_\text{max}$ = \qty{1.52}{\micro\meter}).
 		%Same diagram type as in \zcref{fig:results2d_alite}.
 	}
 	\label{fig:hlt_segmentation_influence}
@@ -1033,16 +1030,16 @@ The diagrams in \zcref{fig:hlt_segmentation_influence} compare the influence of 
 		$A_\text{solv}$ and $A_\text{solids}$ are the areas of the solution and solid phases, respectively.
 		$n$ represents the corresponding particle count.
 	}
-	\begin{tabularx}{\linewidth}{Xcccccc}
+	\begin{tabularx}{\linewidth}{Xcccccr}
 		\toprule
 		Figure & scaling & $A_\text{usable}$ & $A_\text{solv}$ & $A_\text{solids}$ & $A_\text{unusable}$ & $N$ \\
 			& \unit{\nano\meter\per\px} & \unit{\micro\meter\squared} & \unit{\percent} & \unit{\percent} & \unit{\percent} & \\
 			\midrule
-			\zcref{fig:cryo-fib}, \acs{C3S}   & \tablenum{26.9789}           & \tablenum{10683}                  & \tablenum{36.3}            & \tablenum{48.8}             & \tablenum{14.9}                & \tablenum{1500} \\
-			\zcref{fig:cryo-fib-lc3}, \acs{LC3} & \tablenum{19.2712}          & \tablenum{1096}                   & \tablenum{46.0}            & \tablenum{54.0}             & -                & \tablenum{723} \\
-			\zcref{fig:cryo-fib-lc3}, \acs{LC3}+\acs{PUS}     & \tablenum{9.6355}           & \tablenum{1050}                   & \tablenum{43.9}            & \tablenum{56.1}             & -                & \tablenum{888} \\
-			Figure~5 in \cite{zingg.2008a}, no \acs{PCE}     & \tablenum{30.0303}           & \tablenum{315}                   & \tablenum{62.1}            & \tablenum{37.9}             & -                & \tablenum{266} \\
-			Figure~7 in \cite{zingg.2008a}, with \acs{PCE}     & \tablenum{30.0303}           & \tablenum{315}                   & \tablenum{52.3}            & \tablenum{47.7}             & -                & \tablenum{737} \\
+			\zcref{fig:cryo-fib}, \acs{C3S}   & \tablenum{26.9789}           & \num{10683}                  & \tablenum{36.3}            & \tablenum{48.8}             & \tablenum{14.9}                & \num{1500} \\
+			\zcref{fig:cryo-fib-lc3}, \acs{LC3} & \tablenum{19.2712}          & \num{1096}                   & \tablenum{46.0}            & \tablenum{54.0}             & {--}                & \num{723} \\
+			\zcref{fig:cryo-fib-lc3}, \acs{LC3}+\acs{PUS}     & \tablenum{9.6355}           & \num{1050}                   & \tablenum{43.9}            & \tablenum{56.1}             & {--}                & \num{888} \\
+			Figure~5 in \cite{zingg.2008a}, no \acs{PCE}     & \tablenum{30.0303}           & \num{315}                   & \tablenum{62.1}            & \tablenum{37.9}             & {--}                & \num{266} \\
+			Figure~7 in \cite{zingg.2008a}, with \acs{PCE}     & \tablenum{30.0303}           & \num{315}                   & \tablenum{52.3}            & \tablenum{47.7}             & {--}                & \num{737} \\
 			\bottomrule
 	\end{tabularx}
 	\label{tab:part_dist_metadata}
@@ -1116,6 +1113,7 @@ The diagrams in \zcref{fig:hlt_segmentation_influence} compare the influence of 
     \end{tabularx}
 \end{table}
 
+\newpage
 \subsection{Additional segmented images}
 \label{subsec:appendix_PSD_arbib}
 
@@ -1213,7 +1211,6 @@ The latter were excluded from the pore segmentation since these areas contain la
 \end{figure}
 
 
-
 \FloatBarrier
 \subsection{\acs*{LTDSC}}
 
@@ -1231,7 +1228,7 @@ The latter were excluded from the pore segmentation since these areas contain la
 			zmin=160, zmax=171,
 			grid=major,
 			width=.89\linewidth,
-			height=7.5cm,
+			height=6.5cm,
 			xlabel={$\vartheta_\text{low}$},
 			ylabel={$\vartheta_\text{high}$},
 			zlabel={ice volume in \unit{\micro\liter\per\gram}},
@@ -1260,7 +1257,7 @@ The latter were excluded from the pore segmentation since these areas contain la
 			grid=major,
 			%axis z line=right,
 			width=.89\linewidth,
-			height=7.5cm,
+			height=6.5cm,
 			xlabel={$\vartheta_\text{low}$},
 			ylabel={$\vartheta_\text{high}$},
 			zlabel={ice volume in \unit{\micro\liter\per\gram}},
@@ -1447,8 +1444,7 @@ The latter were excluded from the pore segmentation since these areas contain la
 			\node[draw=none] (bottom-4) at (axis cs:1.75,-.03) {};
 		\end{axis}
 	  \end{tikzpicture}
-	  
-	  \caption{\ac{C3S} after \qtyrange{1}{28}{\day} of hydration.}
+	  %\caption{\ac{C3S} after \qtyrange{1}{28}{\day} of hydration.}
 	\end{subfigure}
     \begin{tikzpicture}[remember picture,overlay]
         \draw[dashed,grey] (top-3) -- (top-4);
@@ -1609,7 +1605,7 @@ The latter were excluded from the pore segmentation since these areas contain la
 			\node[draw=none] (bottom-2) at (axis cs:1.75,-.03) {};
 		\end{axis}
 	  \end{tikzpicture}
-	  \caption{\ac{C2S} after \qtyrange{7}{28}{\day} of hydration.}
+	  %\caption{\ac{C2S} after \qtyrange{7}{28}{\day} of hydration.}
 	\end{subfigure}
     \begin{tikzpicture}[remember picture,overlay]
         \draw[dashed,grey] (top-1) -- (top-2);
@@ -1626,6 +1622,3 @@ The latter were excluded from the pore segmentation since these areas contain la
     \label{fig:ltdsc_result_freeze_raw}
 \end{figure}
 
-\ifdefined\EXTERNALIZE
-	\tikzexternalenable
-\fi

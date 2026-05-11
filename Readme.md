@@ -29,8 +29,6 @@ Im vereinfachten Draft-Modus werden einige Seiten nicht eingebunden und der Anha
 
 `% \def\DRAFTSIMPLIFY{}`
 
-Das deaktiviert auch die Verwendung von tikzexternalize. Dadurch funktioniert auch die Verwendung von Acronymen in tikz-Diagrammen.
-
 Alle anderen Designdefinitionen sind in `./additionals/a-latex_header.tex` eingepflegt.
 
 ## XeLaTeX Einstellungen ##
@@ -50,7 +48,17 @@ Abschließend müssen die Einstellungen durch XeLaTeX geladen werden:
 
 `initexmf --dump=xelatex`
 
+## VSCode Einstellungen ##
+
+Das Dokument wurde mittels Visual Studio Code erstellt. Mit den Plugins LaTeX Workshop und LaTeX Utilities kann das Dokument innerhalb von VSCode in verschiedenen Versionen gesetzt werden:
+
+ - *Fast Build Digital* (Setzt die digitale Version einmal)
+ - *Clean & Build Print* (Setzt die Printversion als finales Dokument)
+ - *Clean & Build Print* (Setzt die Digitalversion als finales Dokument)
+ - *Print & Digital* (Setzt beide Versionen als finales Dokument)
+ - *Parallel Print & Digital* (Setzt beide Versionen als finales Dokument in einem parallelen Prozess, nur unter Windows mit Powershell)
+
 ## Lizenz ##
 
-CC-BY 4.0, Florian Kleiner, 2025, 
+CC-BY 4.0, Florian Kleiner, 2023-2026, 
 https://creativecommons.org/licenses/by/4.0/

@@ -13,6 +13,8 @@
 \renewcommand{\thechapter}{B}
 \chapter{List of publications}
 
+\addtocontents{toc}{\protect\setcounter{tocdepth}{0}}
+
 % print own peer reviewed publications
 \newrefcontext[labelprefix={P},sorting=ynt]
 
@@ -32,3 +34,5 @@
 
 % in case of non wrapped titles:
 % https://retorque.re/zotero-better-bibtex/installation/preferences/export/#apply-case-protection-to-capitalized-words-by-enclosing-them-in-braces
+
+\addtocontents{toc}{\protect\setcounter{tocdepth}{1}}

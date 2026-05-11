@@ -264,17 +264,17 @@
 \makeatother
 
 % improve compiling speed in draft mode. Review mode however requires freshly set tikz-images.
-\ifdefined\EXTERNALIZE
-		\usepackage{tikz}
-		\usetikzlibrary{external}
-		%\usepackage{robust-externalize}
-		%\robExtConfigure{ enable fallback to manual mode,
-		%add to preset={tikz}
-		%}
-		%\robustify\ac % Macht das \ac Kommando für die externe Kompilierung robust
-		%\robustify\SI % Macht auch \SI robust, falls es in den TikZ-Grafiken vorkommt
-		\tikzexternalize[prefix=figures/tikz/] % Speichert die externen TikZ-Grafiken im Ordner figures/tikz/
-\fi
+% \ifdefined\EXTERNALIZE
+% 		\usepackage{tikz}
+% 		\usetikzlibrary{external}
+% 		%\usepackage{robust-externalize}
+% 		%\robExtConfigure{ enable fallback to manual mode,
+% 		%add to preset={tikz}
+% 		%}
+% 		%\robustify\ac % Macht das \ac Kommando für die externe Kompilierung robust
+% 		%\robustify\SI % Macht auch \SI robust, falls es in den TikZ-Grafiken vorkommt
+% 		\tikzexternalize[prefix=figures/tikz/] % Speichert die externen TikZ-Grafiken im Ordner figures/tikz/
+% \fi
 % condition environment for equations to describe the variables
 % https://tex.stackexchange.com/questions/95838/how-to-write-a-perfect-equation-parameters-description
 \usepackage{pgfplots}

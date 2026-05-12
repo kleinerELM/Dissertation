@@ -1,11 +1,11 @@
 \newpage
 \section{\acs*{HLT}-\acs*{EBSD} correlation}
 
-As discussed in \zcref{subsec:C3S_cryst_orient_lit}, the dissolution of \ac{C3S} is highly dependent on its crystallographic orientation and the specifically exposed.
+As discussed in \zcref{subsec:C3S_cryst_orient_lit}, the dissolution of \ac{C3S} is dependent on its crystallographic orientation and the specifically exposed crystal surface.
 In the context of cement hydration, this suggests that the local growth of \ac{CSH} on \ac{C3S} might exhibit a preference for specific crystallographic planes.
 To determine whether there are preferential growth surfaces, a large, high-resolution \ac{BSE} image was recorded.
-This was accompanied by three smaller \ac{EBSD} mappings (see \zcref{fig:ebsd_positions}) at a step size of \qty{2.00}{\micro\meter\per\px}, as described in \zcref{sec:ebsd-hydrate} with a total measurement time of roughly \qty{2}{\day}.
-This was done on a polished surface of \qty{7}{\day} hydrated \ac{C3S} which had been freshly cleaned using \ac{ArBIB} and subsequently carbon-coated.
+This was accompanied by three smaller \ac{EBSD} mappings (see \zcref{fig:ebsd_positions}) at a step size of \qty{2.00}{\micro\meter\per\px}, as described in \zcref{sec:ebsd-hydrate}, with a total measurement time of roughly \qty{2}{\day}.
+This was done on a polished surface of a \qty{7}{\day} hydrated \ac{C3S} specimen which had been freshly cleaned using \ac{ArBIB} and subsequently carbon-coated.
 
 \begin{figure}[htbp]
 	\centering
@@ -17,10 +17,10 @@ This was done on a polished surface of \qty{7}{\day} hydrated \ac{C3S} which had
 \end{figure}
 
 The \ac{EBSD} datasets are distorted compared to the \ac{BSE} image, since they were recorded at different angles using different detectors.
-To avoid the recalculation of the sparse \ac{EBSD} dataset, the high-resolution \ac{BSE} image (\qty{0.18}{\micro\meter\per\px}) was transformed to match the \ac{EBSD} dataset instead (\zcref{fig:ebsd_site5}A).
+To avoid the recalculation of the sparse \ac{EBSD} dataset, the high-resolution \ac{BSE} image (\qty{0.18}{\micro\meter\per\px}) was transformed to match the geometry of the \ac{EBSD} dataset instead (\zcref{fig:ebsd_site5}A).
 The \ac{BSE} image was then segmented (\zcref{fig:ebsd_site5}B) and processed using the \ac{HLT} method.
-Since the raw \ac{EBSD} dataset (\zcref{fig:ebsd_site5}C) has a fairly sparse data density, it was combined with the scale-matched \ac{C3S} mask, and missing data within the mask was filled by assigning the orientation of the nearest valid neighbour pixel (\zcref{fig:ebsd_site5}D).
-This ensures that the \ac{EBSD} data always connects to the grain boundary used to determine the \ac{HLT} dataset, and increases the overall data density.
+Since the raw \ac{EBSD} dataset (\zcref{fig:ebsd_site5}C) has a fairly sparse data density, it was combined with the scale-matched \ac{C3S} mask, and missing data within the mask were filled by assigning the orientation of the nearest valid neighbour pixel (\zcref{fig:ebsd_site5}D).
+This ensures that the \ac{EBSD} data always connect to the grain boundary used to determine the \ac{HLT} dataset, and increase the overall data density.
 
 \begin{figure}[htb]
 	\centering
@@ -38,9 +38,10 @@ If there is a dependence between the crystal orientation and the \ac{HLT}, it sh
 
 In \zcref{fig:ebsd_sphere_a}, each \ac{HLT} measurement of \ac{EBSD} site C is visualised as a point on the unit sphere.
 The colour encodes the \ac{HLT} length for each measurement.
+In contrast to the simulated dataset (see \zcref{sec:ebsd-hydrate-validation}), it is apparent that the measurements are not distributed homogeneously on the unit sphere.
 
-Since the measurement density is not very high, the unit sphere was divided into a so-called \ac{HEALPix} grid \cite{gorski.2005}.
-For each \ac{HEALPix} grid cell, the mean \ac{HLT} in each section was calculated using the results of all three measurement sites (see \zcref{fig:ebsd_sphere_b}).
+Since the measurement density is not very high, the unit sphere was divided into a \ac{HEALPix} grid.
+For each grid cell, the mean \ac{HLT} was calculated using the results of all three measurement sites (see \zcref{fig:ebsd_sphere_b}).
 \zcref{fig:ebsd_sphere_projection_b} shows the projection of this unit sphere surface in the \textsc{Mollweide} projection.
 The data density is shown in \zcref{fig:ebsd_sphere_projection_a}.
 
@@ -197,26 +198,27 @@ The data density is shown in \zcref{fig:ebsd_sphere_projection_a}.
     \end{subfigure}
     
 	\caption{
-        Unit sphere which is indicating \ac{HLT} measurements corresponding to the crystal orientation of \ac{C3S} in a scatter plot (a) and in a \ac{HEALPix} grid (b).
+        Unit sphere indicating \ac{HLT} measurements corresponding to the crystal orientation of \ac{C3S} in a scatter plot (a) and in a \ac{HEALPix} grid (b).
         The same \ac{HEALPix} grid in a \textsc{Mollweide} projection (c) and the corresponding data density plot (d). 
         The lines ({\color{red}red}) are a projection of the monocline structure of \ac{C3S} as derived from \zcref{fig:c3s_unit_cell}. % HEALPix Mollweide
         \label{fig:ebsd_sphere_projection}
     }
 \end{figure}
 
-At first glance at \zcref{fig:ebsd_sphere_projection_b}, there seems to be a larger mean \ac{HLT} between a crystallographic azimuth of roughly \qtyrange{+-60}{+-120}{\degree}.
-However, the corresponding data density plot (\zcref{fig:ebsd_sphere_projection_a}) reveals that the amount of valid measurements in these specific areas is fairly low, resulting in high statistical noise.
-This means, that in areas with very low data density, the calculated mean \ac{HLT} is biased by only a few measurements.
+A first glance at \zcref{fig:ebsd_sphere_projection_b} suggests a larger mean \ac{HLT} between a crystallographic azimuth of roughly \qtyrange{+-60}{+-120}{\degree}.
+However, the corresponding data density plot (\zcref{fig:ebsd_sphere_projection_a}) reveals that the number of valid measurements in these specific areas is fairly low, resulting in high statistical noise.
+This means that in areas with very low data density, the calculated mean \ac{HLT} is biased by only a few measurements.
 For instance, if a specific crystal orientation is represented by only one or two grains in the 2D section, and these grains happen to be adjacent to a large capillary pore, they will exhibit a large \ac{HLT} due to unrestricted space for \ac{CSH} growth.
 Consequently, these hotspots likely reflect local spatial availability rather than a true crystallographic preference for \ac{CSH} precipitation.
 
-While the data density distribution appears to be somewhat correlated with the symmetry of the monoclinic \ac{C3S} structure (red projection lines, compare to \zcref{fig:c3s_unit_cell}), the exact cause for this unequal measurement density remains open to interpretation.
+While the data density distribution appears to be correlated with the symmetry of the monoclinic \ac{C3S} structure (red projection lines, compare to \zcref{fig:c3s_unit_cell}), the exact cause for this unequal measurement density remains open to interpretation.
 It is highly probable that the finite number of grains intersected by the 2D plane simply does not provide a perfectly uniform statistical sampling of all possible 3D orientations.
-Additionally, preferred cleavage planes could cause the exposure of preferred orientations during the grinding and polishing process.
+However, the simulated dataset (see \zcref{fig:ebsd_eval_sphere_projection_a}) did not show such a measurement density distribution.
+One possible reason could be that the preferred cleavage planes cause the exposure of preferred orientations during the grinding and polishing process.
 
 In this context, the \textsc{Mollweide} projection of the \ac{HLT} distribution appears fairly homogeneous.
 There are no extended, statistically robust areas on the unit sphere that exhibit significantly larger or smaller \ac{HLT}s.
-Therefore, the current results indicate that the dissolution of \ac{C3S} and the subsequent growth of \ac{CSH} do not strongly prefer a specific crystallographic direction.
+Therefore, the current results indicate that the dissolution of \ac{C3S} and the subsequent growth of \ac{CSH} do not strongly prefer a specific crystallographic orientation.
 Instead, the \ac{HLT} development seems to be primarily governed by the local environment, such as the available pore space and the proximity to neighbouring particles.
 
 For a more definitive answer, the experiment must be extended to larger areas, higher \ac{EBSD} resolutions, and multiple independent specimens.

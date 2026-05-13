@@ -19,19 +19,25 @@ This was done on a polished surface of a \qty{7}{\day} hydrated \ac{C3S} specime
 The \ac{EBSD} datasets are distorted compared to the \ac{BSE} image, since they were recorded at different angles using different detectors.
 To avoid the recalculation of the sparse \ac{EBSD} dataset, the high-resolution \ac{BSE} image (\qty{0.18}{\micro\meter\per\px}) was transformed to match the geometry of the \ac{EBSD} dataset instead (\zcref{fig:ebsd_site5}A).
 The \ac{BSE} image was then segmented (\zcref{fig:ebsd_site5}B) and processed using the \ac{HLT} method.
-Since the raw \ac{EBSD} dataset (\zcref{fig:ebsd_site5}C) has a fairly sparse data density, it was combined with the scale-matched \ac{C3S} mask, and missing data within the mask were filled by assigning the orientation of the nearest valid neighbour pixel (\zcref{fig:ebsd_site5}D).
+Since the raw \ac{EBSD} dataset (\zcref{fig:ebsd_site5}C, shown as \ac{IPF} map) has a fairly sparse data density, it was combined with the scale-matched \ac{C3S} mask, and missing data within the mask were filled by assigning the orientation of the nearest valid neighbour pixel (\zcref{fig:ebsd_site5}D).
 This ensures that the \ac{EBSD} data always connect to the grain boundary used to determine the \ac{HLT} dataset, and increase the overall data density.
 
 \begin{figure}[htb]
 	\centering
     \includegraphics[width=\textwidth]{hydrate-rim/ebsd/BSE+EBSD-site5.pdf}
 	\caption{
-        Measurement site C as shown in \zcref{fig:ebsd_positions}. A: transformed and cropped \ac{BSE}-image; B: \ac{C3S} segmentation mask; C: unprocessed crystal orientations (inverse pole figure map) and D: extended crystal orientations at \ac{C3S} locations.
+        Measurement site C as shown in \zcref{fig:ebsd_positions}. A: transformed and cropped \ac{BSE}-image; B: \ac{C3S} segmentation mask; C: unprocessed crystal orientations (\ac{IPF} map) and D: extended crystal orientations at \ac{C3S} locations.
         Pixels assigned as \ac{C3S} without a valid crystal orientation are coloured dark grey.
         Non-\ac{C3S} pixels are coloured medium grey.
+        The \ac{IPF}-Z colour key and a scatter plot of the observed orientations are plotted above C and D.
         \label{fig:ebsd_site5}
     }
 \end{figure}
+
+Above (\zcref{fig:ebsd_site5}C and D), the \ac{IPF}-Z colour key is plotted in two variants.
+On the left is a colour legend, and on the right is a scatter plot indicating the measured crystal orientations.
+In the \ac{IPF}-Z scatter plot, it becomes apparent that the orientations are not homogeneously distributed, as there are significantly fewer orientations near $[001]$ and $[00\bar{1}]$.
+The reason for this inhomogeneous distribution is, however, unclear.
 
 After processing the data as explained in \zcref{sec:ebsd-hydrate}, the \ac{HLT} measurements can be projected onto a unit sphere representing the crystal orientation of \ac{C3S}.
 If there is a dependence between the crystal orientation and the \ac{HLT}, it should become visible as a concentration of longer or shorter \ac{HLT}s in certain areas of the unit sphere.
@@ -141,7 +147,7 @@ The data density is shown in \zcref{fig:ebsd_sphere_projection_a}.
                     ylabel={Average \ac{HLT} in \unit{\micro\meter}},
                 },
                 point meta min=0,
-                point meta max=8,
+                point meta max=9.175,
                 xtick={-1,0,1},
                 ytick={-1,0,1},
                 ticklabel style={font=\small},
@@ -177,7 +183,7 @@ The data density is shown in \zcref{fig:ebsd_sphere_projection_a}.
                     ylabel={$log_{10}(n+1)$},
                 },
                 point meta min=0,
-                point meta max=1.7,
+                point meta max=2.06,
                 xtick={-1,0,1},
                 ytick={-1,0,1},
                 ticklabel style={font=\small},

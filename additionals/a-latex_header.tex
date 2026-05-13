@@ -330,14 +330,27 @@
 \ofoot*{\sffamily\pagemark}  % Show page number
 
 \ifdefined\DRAFT
-	\usepackage[firstpageonly=true,
-				scale=5,
-				fontsize=12pt, % DO NOT REMOVE, else the package will generate an errors
-				]{draftwatermark}
-	\usepackage{datetime}
-	\def\myTypeOfDocumentPDF{\myTypeOfDocument\ (draft version)}
-	%define footer watermark for draft version
-	\ifoot*{\selectlanguage{ngerman}\color{gray} (Draft from \today, \currenttime)}
+  \ifdefined\REVIEW
+    \usepackage[
+          text={REVIEW},
+          firstpageonly=true,
+          scale=5,
+          fontsize=12pt, % DO NOT REMOVE, else the package will generate an errors
+          ]{draftwatermark}
+    \usepackage{datetime}
+    \def\myTypeOfDocumentPDF{\myTypeOfDocument\ (review version)}
+    %define footer watermark for draft version
+    \ifoot*{\selectlanguage{ngerman}\color{gray} (Review version from \today, \currenttime)}
+  \else
+    \usepackage[firstpageonly=true,
+          scale=5,
+          fontsize=12pt, % DO NOT REMOVE, else the package will generate an errors
+          ]{draftwatermark}
+    \usepackage{datetime}
+    \def\myTypeOfDocumentPDF{\myTypeOfDocument\ (draft version)}
+    %define footer watermark for draft version
+    \ifoot*{\selectlanguage{ngerman}\color{gray} (Draft from \today, \currenttime)}
+  \fi
 \else
 	\def\myTypeOfDocumentPDF{\myTypeOfDocument}
 \fi

@@ -6,7 +6,7 @@ To relate the \ac{HLT} measurements as described in \zcref{subsec:algo_hlm} to t
 To measure the crystal orientation, the carbon-coated specimen was mounted on a pre-tilted specimen holder (\qty{45}{\degree}) and the surface was then tilted to a \qty{70}{\degree} angle to the electron beam (see \zcref{fig:ebsd_principle_a}).
 The specimen was then scanned at \qty{15}{\kilo\volt}, \qty{1.6}{\milli\ampere} at a step size of \qty{2}{\micro\meter\per\px} to acquire the \textsc{Kikuchi} patterns of \ac{C3S} and \ac{CH}.
 
-The \ac{EBSD} experiment produces a 2D dataset of crystal orientation estimates, phase indices and pattern quality indicators. 
+The \ac{EBSD} experiment produces a 2D dataset of crystal orientation estimates, phase indices, and pattern quality indicators. 
 The raw data were preprocessed in \textit{AZtecCrystal 3.2} \cite{azteccrystal.2010} by \textsc{Oxford Instruments} to clean up pseudosymmetric solutions.
 Since the crystallinity of \ac{C2S} is not good enough to obtain usable \textsc{Kikuchi} patterns, this work focussed on hydrated \ac{C3S} specimens \cite{rossler.2022}.
 To identify and fit the patterns of \ac{C3S}, the crystal structure published by \textcite{delatorre.2002} (\acs{ICSD} 94742, \acs{COD} \href{https://qiserver.ugr.es/cod/1540705.html}{1540705}) was used (see \zcref{fig:c3s_unit_cell}).
@@ -41,11 +41,139 @@ The \textit{QGIS}-project was then used to projectively transform the high-resol
 
 %After alignment, the physical step sizes of the \ac{EBSD} grid and the transformed \ac{BSE} image were harmonised by an integer upscale of the segmentation used in the rim algorithm and a scalar alignment factor between low-resolution and high-resolution \ac{BSE} exports, so that one \ac{EBSD} column and row index corresponds to a consistent footprint on the section.
 
-After the data alignment, real-world data exhibit, that not all pixels assigned to \ac{C3S} also have a corresponding usable pixel with good \ac{EBSD} data.
-Therefore, the available \ac{EBSD} data of a grain were expanded until all pixels assigned to a \ac{C3S} grain had a corresponding crystal orientation.
-For every \ac{CSH} rim measurement, the clinker-hydrate boundary point extracted from the \ac{BSE} segmentation was projected onto the nearest \ac{EBSD} grid node (see ).
+After the data alignment, real-world data exhibit that not all pixels assigned to \ac{C3S} also have a corresponding usable pixel with good \ac{EBSD} data.
+Furthermore, combining the clinker mask from the segmented \ac{BSE} image often results in a \qty{1}{\px} shift and, therefore, unassigned areas.
+Since this issue would significantly reduce the measurement density, the available \ac{EBSD} data of a grain were expanded until all pixels assigned to a \ac{C3S} grain had a corresponding crystal orientation (see \zcref{fig:clinker-ebsd-fill}).
+For every \ac{CSH} rim measurement, the clinker-hydrate boundary point extracted from the \ac{BSE} segmentation was projected onto the nearest \ac{EBSD} grid node.
 The \textsc{Euler} angles at that node represent the orientation attributed to the measurement.
 Where several angular steps around one grain map to the same grid node, multiple records can share identical indices. %; this is expected when the \ac{EBSD} step width is large compared with the arc length sampled along the rim.
+
+
+\begin{figure}[htb]
+    \centering
+    % Define the customized colors
+    \colorlet{darkgreen}{green!50!black}
+    
+    \begin{tikzpicture}[
+        x=0.4cm,
+        y=0.4cm,
+        font=\scriptsize,
+    ]
+    
+        \begin{scope}[shift={(7, 11.5)}, font=\footnotesize]
+        % Definition of a convenient style for legend boxes
+            \tikzset{legbox/.style={minimum size=0.3cm, inner sep=0pt, outer sep=0pt}}
+
+            % Row 1
+            \node[legbox, fill=gray!60, label={[anchor=west, xshift=0.1cm]east:unassigned \ac{C3S} pixel}] (leg11) {};
+            \node[legbox, fill=gray!30, label={[anchor=west, xshift=0.1cm]east:\ac{CSH} layer}, anchor=west] (leg12) at ([xshift=4.5cm]leg11.east) {};
+            
+            % Row 2
+            \node[legbox, fill=darkred, label={[anchor=west, xshift=0.1cm]east:A measured}, anchor=north] (leg21) at ([yshift=-0.2cm]leg11.south) {};
+            \node[legbox, fill=blue, label={[anchor=west, xshift=0.1cm]east:B measured}, anchor=west] (leg22) at ([xshift=2.5cm]leg21.east) {};
+            \node[legbox, fill=red, label={[anchor=west, xshift=0.1cm]east:A infilled}, anchor=west] (leg23) at ([xshift=2.5cm]leg22.east) {};
+            \node[legbox, fill=cyan, label={[anchor=west, xshift=0.1cm]east:B infilled}, anchor=west] (leg24) at ([xshift=2.5cm]leg23.east) {};
+        \end{scope}
+
+        % --- Sub-diagram LEFT (Grid 17 pixels wide) ---
+        \begin{scope}[shift={(0,0)}]
+            
+            % Original pattern, shifted to center in the 17-wide grid
+            % We shift by (3,0) to center.
+            \begin{scope}[shift={(-2,0)}]
+                % used clinker
+
+                % ignored clinker
+                \foreach \x/\y in {
+                    7/0, 8/0, 9/0, 10/0, 11/0, 12/0, 13/0, 7/1, 7/2, 8/1,
+                    8/2, 8/3, 9/1, 9/2, 9/3, 10/1, 10/2, 10/3, 11/1, 11/2,
+                    11/3, 12/1, 12/2, 12/3, 13/1, 13/2,
+                    5/0, 6/0, 6/1, 6/2, 6/3, 7/3, 7/4, 8/4, 9/4, 10/4,
+                    10/5, 11/4, 12/4, 13/3, 13/4, 14/0, 14/1, 14/2, 14/3, 15/0%
+                } \fill[gray!60] (\x,\y) rectangle +(1,1);
+
+                % New Color Categories
+                \foreach \x/\y in {
+                    5/0, 6/0, 6/1, 6/2,
+                    7/0, 8/0, 7/1, 7/2, 8/1,
+                    9/1, 9/2
+                } \fill[darkred] (\x,\y) rectangle +(1,1);
+                \foreach \x/\y in {
+                    9/0,10/0, 11/0, 12/0, 13/0,
+                    10/1, 10/2, 10/3, 11/1, 11/2,
+                    11/2, 12/1, 12/2
+                } \fill[blue] (\x,\y) rectangle +(1,1);
+
+                % CSH
+                \foreach \x/\y in {
+                    3/0, 3/1, 4/0, 4/1, 4/2, 4/3, 4/4, 5/1, 5/2, 5/3,
+                    5/4, 5/5, 6/4, 6/5, 6/6, 7/5, 7/6, 8/5, 8/6, 9/5,
+                    9/6, 9/7, 10/6, 10/7, 11/5, 11/6, 11/7, 12/5, 12/6, 13/5,
+                    13/6, 14/4, 14/5, 14/6, 15/1, 15/2, 15/3, 15/4, 15/5, 16/0,
+                    16/1, 16/2, 16/3, 16/4, 17/0, 17/1%
+                } \fill[gray!30] (\x,\y) rectangle +(1,1);
+            \end{scope}
+
+            \draw[thin, black!40] (0,0) rectangle (17,9);
+            \draw[thin, black!40, step=0.4cm] (0,0) grid (17,9);
+        \end{scope}
+
+        % --- Modification Arrow ---
+        \draw[thick, black, ->, >=stealth] (18, 4.5) -- node[above, font=\footnotesize] {grow} ++(2,0);
+
+        % --- Sub-diagram RIGHT (Grid 17 pixels wide) ---
+        \begin{scope}[shift={(21,0)}]
+            
+            \begin{scope}[shift={(-2,0)}]
+                
+                \foreach \x/\y in {
+                     5/0, 6/0, 6/1, 6/2, 6/3, 7/3, 7/4, 8/4, 9/4,7/0, 8/0, 9/0, 8/2,8/3, 9/1, 9/2, 9/3
+                } \fill[red] (\x,\y) rectangle +(1,1);
+                \foreach \x/\y in {
+                    10/4,
+                    10/5, 11/4, 12/4, 13/3, 13/4, 14/0, 14/1, 14/2, 14/3, 15/0,
+                    7/0, 8/0, 9/0, 10/0, 11/0, 12/0, 13/0, 7/1, 7/2, 8/1,
+                    10/1, 10/2, 10/3, 11/1, 11/2,
+                    11/3, 12/1, 12/2, 12/3, % Removed 12/3 for the red pixel
+                    13/1, 13/2%
+                } \fill[cyan] (\x,\y) rectangle +(1,1);
+
+                % New Color Categories
+                \foreach \x/\y in {
+                    5/0, 6/0, 6/1, 6/2,
+                    7/0, 8/0,  7/1, 7/2, 8/1,
+                    9/1, 9/2
+                } \fill[darkred] (\x,\y) rectangle +(1,1);
+                \foreach \x/\y in {
+                    9/0, 10/0, 11/0, 12/0, 13/0,
+                    10/1, 10/2, 10/3, 11/1, 11/2,
+                    11/2, 12/1, 12/2
+                } \fill[blue] (\x,\y) rectangle +(1,1);
+
+
+                % CSH (identical)
+                \foreach \x/\y in {
+                    3/0, 3/1, 4/0, 4/1, 4/2, 4/3, 4/4, 5/1, 5/2, 5/3,
+                    5/4, 5/5, 6/4, 6/5, 6/6, 7/5, 7/6, 8/5, 8/6, 9/5,
+                    9/6, 9/7, 10/6, 10/7, 11/5, 11/6, 11/7, 12/5, 12/6, 13/5,
+                    13/6, 14/4, 14/5, 14/6, 15/1, 15/2, 15/3, 15/4, 15/5, 16/0,
+                    16/1, 16/2, 16/3, 16/4, 17/0, 17/1%
+                } \fill[gray!30] (\x,\y) rectangle +(1,1);
+            \end{scope}
+
+            \draw[thin, black!40] (0,0) rectangle (17,9);
+            \draw[thin, black!40, step=0.4cm] (0,0) grid (17,9);
+        \end{scope}
+
+    \end{tikzpicture}
+
+    \caption{
+        Illustration of the algorithm to fill the grain mask with valid \ac{EBSD} crystal orientations.
+        The raw measurement (left) contains two measured crystal orientations {\color{darkred}A} and {\color{blue}B}.
+        To fill the whole grain area, unassigned \ac{C3S} pixels (dark grey) are replaced with neighbouring pixel orientations ({\color{red}A} and {\color{cyan}B}).
+    }
+    \label{fig:clinker-ebsd-fill}
+\end{figure}
 
 \zcref{fig:clinker-pixel-roles} visualises the pixels from the \ac{EBSD} measurement used for the calculations (green).
 The \ac{C3S} pixels sharing at least one edge or corner with \ac{CSH} lie on the \ac{C3S}-hydrate interface and correspond to the inner boundary from which the polar rim measurement in \zcref{fig:hlt-method} starts.
@@ -79,7 +207,7 @@ The diagram is illustrative and omits pores and irregular grain shapes.
             9/6, 9/7, 10/6, 10/7, 11/5, 11/6, 11/7, 12/5, 12/6, 13/5,
             13/6, 14/4, 14/5, 14/6, 15/1, 15/2, 15/3, 15/4, 15/5, 16/0,
             16/1, 16/2, 16/3, 16/4, 17/0, 17/1%
-        } \fill[gray!52] (\x,\y) rectangle +(1,1);
+        } \fill[gray!30] (\x,\y) rectangle +(1,1);
 
         \draw[thin, black!40] (0,0) rectangle (21,9);
         \draw[thin, black!40, step=0.5cm] (0,0) grid (21,9);
@@ -92,7 +220,7 @@ The diagram is illustrative and omits pores and irregular grain shapes.
         \node[anchor=west, align=left, font=\footnotesize] at (22,4) {%
             \tikz[]\fill[darkgreen] (0,0) rectangle (0.5,0.5);~~used \ac{C3S} pixel\\
             \tikz[]\fill[orange] (0,0) rectangle (0.5,0.5);~~ignored \ac{C3S} pixel\\
-            \tikz[]\fill[gray!52] (0,0) rectangle (0.5,0.5);~~\ac{CSH} layer\\
+            \tikz[]\fill[gray!30] (0,0) rectangle (0.5,0.5);~~\ac{CSH} layer\\
             \tikz[]\draw[thick, blue, ->, >=stealth] (0,0.4) -- (0.5,0.4);~~$\vec{v}_\mathrm{HLT}$%
         };
     \end{tikzpicture}
@@ -104,6 +232,7 @@ The diagram is illustrative and omits pores and irregular grain shapes.
     }
 	\label{fig:clinker-pixel-roles}
 \end{figure}
+
 
 As schematically illustrated in \zcref{fig:ebsd-hydrate-correlation}, in the polar representation of the rim algorithm (\zcref{fig:hlt-method}), each valid direction is described by an azimuth $\theta_\mathrm{idx}$ in the plane of the sample surface.
 A unit vector $\vec{n}_\mathrm{sample}$ was constructed in the sample reference frame with components
@@ -126,7 +255,7 @@ where $\theta$ follows from the discrete index and an optional sign convention f
             
             
             % Grain boundary (a curve on the surface)
-            \draw[ultra thick, darkgrey] (-1.7, -0.5) .. controls (-0.5, 0.2) and (0.5, -0.2) .. (2.45, -0.3);
+            \draw[ultra thick, darkgrey] (-1.7, -0.5) .. controls (-0.5, 0.2) and (1.1, -0.1) .. (2, -1.0);
             \node[darkgrey, align=center, rotate=12, font=\small] at (-0.75, -0.15) {\ac{CSH}\\ \ac{C3S}};
 			
             % Origin point
@@ -207,7 +336,7 @@ The corresponding rim direction in the crystal reference frame is
 with components $(h_x,\,h_y,\,h_z)^\mathrm{T}$.
 Because $\vec{h}$ is normalised, all measurements lie on the unit sphere in crystal coordinates, which allows a later visualisation.
 
-For the monocline clinker phase investigated here, the angle between the measured rim normal direction and the $\langle001\rangle$ family was summarised by
+For the monoclinic clinker phase investigated here, the angle between the measured rim normal direction and the $\langle001\rangle$ family was summarised by
 \begin{equation}
 	\label{eq:angle-001}
 	\alpha_{001} = \arccos\bigl(\lvert h_z\rvert\bigr),
@@ -216,10 +345,10 @@ i.e.\ the acute angle between $\vec{h}$ and the crystal $c$-axis, using the abso
 The rim length from the hydrate analysis was retained alongside $\alpha_{001}$ and $(h_x,\,h_y,\,h_z)$ for joint distributions, spatial maps on $(i_x,\,i_y)$, and spherical heat maps of measurement density on the orientation sphere.
 
 The phase map delivered with the \ac{EBSD} data does not always label every pixel that appears as clinker in the \ac{BSE} segmentation. 
-This can happen, when pattern indexing failed at the grain boundary or when there is a slight misalignment between the datasets.
-To reduce missing orientations at valid rim locations, an correction was applied on the \ac{EBSD} grid.
+This can happen when pattern indexing fails at the grain boundary or when there is a slight misalignment between the datasets.
+To reduce missing orientations at valid rim locations, a correction was applied on the \ac{EBSD} grid.
 Pixels that fell inside a clinker mask derived from the upscaled \ac{BSE} segmentation but were not indexed as clinker in the raw \ac{EBSD} data were assigned the \textsc{Euler} angles of the nearest indexed clinker pixel within the same connected clinker region.
-Pixels outside a defined radius were left unchanged to avoid an interpolation across unrelated grains.
+Pixels outside a defined radius were left unchanged to avoid interpolation across unrelated grains.
 
 Measurements from several specimen positions were concatenated into a single table and analysed together to improve the data density.
 

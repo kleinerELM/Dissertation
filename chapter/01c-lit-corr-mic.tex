@@ -7,14 +7,14 @@ In this area, it usually represents the combination of light/fluorescence and el
 Nonetheless, it can be applied to most microscopic and tomographic techniques, as long as the measurement is performed on exactly the same specimen with sufficient overlap \cite{loussertfonta.2015,daly.2017,mitchell.2019,mitchell.2021}.
 Ideally, it is done within the same device, though this is not essential.
 
-Advantages of the combination of multiple techniques are the combination of different information of one object/phase, such as:
+The advantages of combining multiple techniques include the combination of various types of information from a single object or phase, such as:
 \begin{itemize}
     \item trace element content (see \zcref{sec:corr_laicpms} and \cite{kleiner.2022b}),
     \item crystallographic information (see \zcref{sec:ebsd-hydrate} and \cite{rossler.2022}), and
     \item mechanical information (modulus, see \zcref{sec:EDX-NI} and \cite{chen.2010, li.2025, li.2026}).
 \end{itemize}
-Furthermore, information of a specimen across multiple scales can be collected \cite{daly.2017,mitchell.2019,mitchell.2021,kleiner.2022a}.
-Finally, the resolution differences of different techniques can improve the segmentation results of lower resolution methods, enabling new insights, like to the properties of phases \cite{kleiner.2022b}.
+Furthermore, information about a specimen across multiple scales can be collected \cite{daly.2017,mitchell.2019,mitchell.2021,kleiner.2022a}.
+Finally, the resolution differences between techniques can improve the segmentation results of lower-resolution methods, enabling new insights, such as into the properties of phases \cite{kleiner.2022b}.
 
 %TODO: Du willst ja am Ende bzw. im Allgemeinen diskriminieren zwischen Phasen. Methode A hilft dir Phase A von B zu unterscheiden, Methode B bei der Unterscheidung zwischen B und C etc.
 
@@ -29,18 +29,18 @@ This can be done using
 \begin{itemize}
     \item a fully manual alignment by rotating and transforming the images,
     \item a semi-manual method by identifying at least four matching point-pairs between both images and calculating the transformation \cite{hartley.2003},
-    \item fully automatic methods from the field of computer vision/photogrammetry such as \ac{SIFT} \cite{lowe.2004} or machine learning-supported algorithms \cite{frolov.2025, frolov.2026}.
+    \item fully automatic methods from the field of computer vision/photogrammetry, such as \ac{SIFT} \cite{lowe.2004} or machine learning-supported algorithms \cite{frolov.2025, frolov.2026}.
 \end{itemize}
 
-Usually, for few or single datasets the alignment can be done fully manually or by using tools like \textit{QGIS} \cite{QGIS_software}.
-However, this can become tedious and time-consuming for more datasets, and in many cases, it is not very exact and not repeatable.
+Usually, for a few or single datasets, the alignment can be done fully manually or by using tools like \textit{QGIS} \cite{QGIS_software}.
+However, this can become tedious and time-consuming for multiple datasets, and in many cases, it is not very exact and not repeatable.
 
 The main issues for the combination of multi-device (multi-modal) measurements are
 \begin{itemize}
     \item distortions,
     \item different pixel aspect ratios,
     \item significant resolution differences,
-    \item not enough reappearing matching features in one or both images (e.g. a phase which has a homogeneous chemical composition but differently oriented crystallites),
+    \item insufficient recurring matching features in one or both images (e.g. a phase which has a homogeneous chemical composition but differently oriented crystallites),
     \item and re-identifying the measurement positions in the first place.
 \end{itemize}
 
@@ -58,5 +58,3 @@ The main issues for the combination of multi-device (multi-modal) measurements a
 
 % To simplify the realignment, markers (called fiducials) can be used to align different data sources to each other.
 % However, this is not always possible or can be expensive.
-
-

@@ -3,19 +3,19 @@
 \section[Scanning electron microscopy for building material characterisation]{\Acl*{SEM} for building material characterisation}
 
 % imaging overview paper \cite{qoku.2023}
-The first electron microscope was a constructed by \textsc{Ernst Ruska} and \textsc{Max Knoll} in 1931 \cite{knoll.1932} and was based on the transmission of electrons trough a thin specimen.
+The first electron microscope was constructed by \textsc{Ernst Ruska} and \textsc{Max Knoll} in 1931 \cite{knoll.1932} and was based on the transmission of electrons through a thin specimen.
 This class of microscopes is therefore called \acs{TEM} today.
 It was first applied in 1939 by \textcite{rapczewski.1939} to image hydration products of \ac{C3S}.
 In the 1950s and 1960s, electron microscopy in combination with electron diffraction developed to become a useful and reliable tool for the analysis of cement and its hydration products \cite{grudemo.1960, grudemo.1965}.
 However, it had multiple limitations, such as the requirement of very small (powdered) and thin specimens to be able to penetrate the specimen with the electron beam.
 
-In 1937, \textsc{Manfred von Ardenne} built the first \ac{SEM} which enabled to image the surface of \ce{ZnO} crystals \cite{vonardenne.1938}, allowing for a wider range of samples.
+In 1937, \textsc{Manfred von Ardenne} built the first \ac{SEM}, which enabled imaging of the surface of \ce{ZnO} crystals \cite{vonardenne.1938}, allowing for a wider range of samples.
 It took until 1965, when the first commercial \ac{SEM} made by \textsc{Cambridge Instrument Co.} was available.
 Only a year later, \textcite{chatterji.1966} used this \ac{SEM} to observe fractured specimens of hydrated cement.
 They observed the formation of a needle-like structure of \ac{CSH}.
 Today, \ac{SEM} is a widely used tool for the analysis of building materials.
 Modern \ac{SEM}s are equipped with various detectors, e.g. \ac{SE}, \ac{BSE}, \ac{EDX} and \ac{EBSD} detectors, which will be discussed in the following sections.
-They allow to measure and visualise the chemical composition, the crystallographic orientation, and the topography of the specimen.
+They enable measurement and visualisation of the chemical composition, the crystallographic orientation, and the topography of the specimen.
 
 
 % was gibts für abbildungsmodi - praktikumsanleitungen - Karen Microstructure analysis
@@ -42,12 +42,12 @@ Edges and surfaces facing the detector emit more electrons than surfaces facing 
 Especially \ac{SE} imaging using low voltages (below \qty{3}{\kilo\volt}) has significantly improved the resolution, contrast, and topographic representation of specimens (\zcref{fig:kV-influence}) \cite{pawley.1984,moser.1998}.
 Looking at the electron wavelength at low voltages (\qty{38.8}{\pico\meter} at \qty{1}{\kilo\volt}), one would expect worse feature resolutions than for high beam voltages (\qty{12.2}{\pico\meter} at \qty{10}{\kilo\volt}).
 The resolution improvements are instead caused by the reduced penetration depth of the electrons, less pronounced charging artefacts and reduced beam damage \cite{pawley.1984}.
-The voltage reduction also allows to omit conductive coatings, which alter the surface appearance at high magnifications (\zcref{fig:coating-influence}) \cite{pawley.1984,moser.1996}.
+The voltage reduction also enables the omission of conductive coatings, which alter the surface appearance at high magnifications (\zcref{fig:coating-influence}) \cite{pawley.1984,moser.1996}.
 While the advantages of low-\unit{\kilo\volt} imaging were known early on \cite{vonardenne.1940}, it took until the late 1970s and early 1980s until problems like chromatic aberration and low source brightness were addressed in the first widely available \ac{SEM}s.
 These were equipped with field emission guns and more sensitive detectors \cite{pawley.1984,moser.1996}.
 
 Current \ac{SEM}s are able to further improve the \ac{SE}-imaging, utilising voltages of a few hundred Volts and beam deceleration techniques, allowing for high resolutions of uncoated specimens in the \unit{\nano\meter} scale.
-Furthermore, the significantly improved compute power, now allows to easily produce high-resolution images of large areas, to accelerate the signal acquisition of detector signals and to automate significant parts of the imaging process.
+Furthermore, the significantly improved compute power now allows easy production of high-resolution images of large areas, acceleration of detector signal acquisition, and automation of significant parts of the imaging process.
 
 \subsection[BSE detector]{\Acl*{BSE} detector}
 \label{sec:bse}
@@ -113,7 +113,7 @@ The higher the voltage and the lower the material density, the larger the intera
     }
     \label{fig:penetration_depth}
 \end{figure}
-In a polished cross-section of hardened cement paste, \ac{BSE} imaging allows therefore the differentiation of phases such as: unhydrated clinker particles (higher average $Z$ ($\bar{Z}$)) appear bright, hydrates (intermediate $\bar{Z}$) appear as grey phases, and pores (e.g. filled with epoxy resin) appear darkest (black).
+In a polished cross-section of hardened cement paste, \ac{BSE} imaging enables differentiation of phases such as: unhydrated clinker particles (higher average $Z$ ($\bar{Z}$)) appear bright, hydrates (intermediate $\bar{Z}$) appear as grey phases, and pores (e.g. filled with epoxy resin) appear darkest (black).
 However, especially phases like calcite, \ac{CH}, ettringite, \ac{CSH}, and \ac{AFm} can in some cases be difficult to distinguish from each other.
 This is caused by a low difference in the backscatter coefficient ($\eta$) of these phases.
 This coefficient can be directly calculated from the atomic number $Z$ of the elements in the material \cite{reuter.1972,goldstein.1992a}.
@@ -129,7 +129,7 @@ For materials composed of multiple elements, the backscatter coefficient can be 
 \end{equation}
 where $c_i$ is the proportion of the element $i$ and $\eta_i$ is its backscatter coefficient.
 
-The relative contrast $C$ can be calculated as shown in \zcref{eq:bse_contrast} from the the backscatter coefficient ($\eta$) of a material (\cite{goldstein.1992}, Equation~4.11), where $\eta_1$ and $\eta_2$ are the backscatter coefficients of the two materials:
+The relative contrast $C$ can be calculated as shown in \zcref{eq:bse_contrast} from the backscatter coefficient ($\eta$) of a material (\cite{goldstein.1992}, Equation~4.11), where $\eta_1$ and $\eta_2$ are the backscatter coefficients of the two materials:
 
 \begin{equation}
     C = \frac{\lvert \eta_2 - \eta_1 \rvert}{\eta_2}
@@ -138,7 +138,7 @@ The relative contrast $C$ can be calculated as shown in \zcref{eq:bse_contrast} 
 
 The backscatter coefficient is defined as the ratio of the number of backscattered electrons to the number of incident electrons \cite{goldstein.1992a}
 Selected phases and their respective $\eta$ are listed in \zcref{tab:bse_eta_Z}.
-Furthermore, these datapoints and \zcref{eq:bse_eta} are plotted in \zcref{fig:bse_eta_plot}.
+Furthermore, these data points and \zcref{eq:bse_eta} are plotted in \zcref{fig:bse_eta_plot}.
 
 \begin{table}[htbp]
     \centering
@@ -205,7 +205,7 @@ Furthermore, these datapoints and \zcref{eq:bse_eta} are plotted in \zcref{fig:b
     \label{fig:bse_eta_plot}
 \end{figure}
 
-Since the $\eta$ values for these compositions are very similar in most cases, it can be expected, that the resulting contrast between these phases is low.
+Since the $\eta$ values for these compositions are very similar in most cases, it can be expected that the resulting contrast between these phases is low.
 However, the calculated contrast does not always correlate perfectly with the order of grey levels in a typical \ac{BSE} image.
 
 
@@ -258,13 +258,13 @@ They then applied a decision-tree model to identify the phases within the superp
 The electron beam is diffracted by a tilted crystalline sample.
 The term \ac{EBSD} was introduced in 1973 by \textcite{venables.1973}.
 The first commercial \ac{EBSD} system was introduced in 1984 by \textsc{Moon} and \textsc{Harris} based on the work of \textsc{Dingley} \cite{wright.2000} and has since become a standard tool in materials science.
-Often it is combined with with \ac{EDX} to provide a comprehensive analysis of the sample \cite{wright.2000}.
+Often it is combined with \ac{EDX} to provide a comprehensive analysis of the sample \cite{wright.2000}.
 In the field of cement or concrete research, \ac{EBSD} can be used for the characterisation of unhydrated clinkers \cite{rossler.2022}, supplementary cementitious materials like steel slags \cite{rossler.2023, derensy.2026}, and to evaluate the risk of alkali silica reaction of concrete aggregates \cite{rossler.2017a}.
 
 In an \ac{EBSD} measurement, the electrons are diffracted according to \textsc{Bragg}'s Law \cite{bragg.1913} by the crystal lattice planes within the crystals.
 These diffracted electrons form \textcite{kikuchi.1928} patterns on a phosphor screen, which are captured by a camera.
 By indexing these patterns, \ac{EBSD} can be used to identify the crystal (e.g. distinguish between \ac{C3S} and \ac{C2S}) as pioneered in 1954 by \textcite{alam.1954}.
-This allows to determine the precise crystallographic orientation at that point on the sample.
+This enables the determination of the precise crystallographic orientation at that point on the sample.
 Scanning across the sample generates maps of phase distribution, crystal orientation, grain boundaries, and texture.
 % \pdfcomment[icon=Note, color=orange]{% TODO: note
 %     Schlecht verquellt. Da fehlt noch einiges.
@@ -330,7 +330,7 @@ Furthermore, for non-conductive specimens, a very thin conductive coating is sti
 
 Besides classical detectors, modern \ac{SEM}s can also be equipped with a \ac{FIB}.
 Instead of electrons, ions (usually \ce{Ga+} or \ce{Xe+}) are shot onto the specimen surface.
-\ac{FIB} systems enable the targeted removal of material or the deposition of coatings (e.g. \ce{Pt} or \ce{C}) to protect a \ac{ROI}, to weld  the specimen to a nearby object or to make a surface conductive.
+\ac{FIB} systems enable the targeted removal of material or the deposition of coatings (e.g. \ce{Pt} or \ce{C}) to protect a \ac{ROI}, to weld the specimen to a nearby object or to make a surface conductive.
 
 The \ac{FIB} technique was initially introduced in 1974/75 by \textcite{levi-setti.1974} and \textcite{orloff.1975} for microprobing applications.
 \Ac{FIB} systems became broadly available since the 1990s, mainly utilizing liquid metal ion sources (LMIS) like \ce{Ga+} \cite{volkert.2007}.
@@ -428,7 +428,7 @@ For example, \textcite{desbois.2008} compared cryo-preparation for the analysis 
 
 Detectors such as \ac{BSE} and \ac{EDX} provide the best results with the smoothest possible surfaces of sample cross-sections.
 Thus, resin embedding and mechanical polishing are very common methods to prepare samples \cite{scrivener.2004}.
-The sample is embedded in a resin (e.g. epoxy resin) to stabilize the specimen and to fill the pores.
+The sample is embedded in a resin (e.g. epoxy resin) to stabilise the specimen and to fill the pores.
 Then, the sample is polished using a series of oil-based polishing slurries with decreasing grain size (see \zcref{sec:mech_pol}).
 However, it is difficult to obtain a surface without scratches using mechanical polishing (see \zcref{fig:mech_polishing_damage}).
 
@@ -458,7 +458,7 @@ While mechanical polishing still can be good enough for many applications like \
 \subsection{\Acl*{ArBIB} polishing and sectioning}
 
 An alternative method to polish specimen surfaces is \ac{ArBIB}.
-Ion beam applications for etching were introduced in the 1970ies \cite{lee.1979}, but rapidly evolved to be used for etching, polishing and other milling tasks \cite{harper.1983,grunewald.1987}.
+Ion beam applications for etching were introduced in the 1970s \cite{lee.1979}, but rapidly evolved to be used for etching, polishing and other milling tasks \cite{harper.1983,grunewald.1987}.
 In a broad ion beam device, accelerated ions (e.g. \ce{Ar+}) are used to clean, polish, or mill the specimen surface.
 Surfaces prepared this way show limited damage to the nanoscale features of interest \cite{desbois.2009,desbois.2010, houben.2014}.
 For example, small pores are not filled with debris (see \zcref{fig:BSE_ArBIB_CEMI}) \cite{desbois.2009,desbois.2010}, which eliminates the need for resin intrusion \cite{desbois.2009}.
@@ -466,7 +466,7 @@ However, it is still possible to do so \cite{rossler.2017} and advisable for lat
 Furthermore, during milling using a knife-like mask, the hardness differences of materials (e.g. quartz and clay) do not cause a step between these phase interfaces and pore morphologies are not altered \cite{houben.2014}.
 This is an important feature for \ac{NI}, where a smooth surface is a requirement \cite{wilson.2018}.
 
-\Ac{ArBIB} milling allows to prepare large areas in the range of several \unit{\milli\meter\squared} \cite{hauffe.2003,desbois.2013}.
+\Ac{ArBIB} milling enables the preparation of large areas in the range of several \unit{\milli\meter\squared} \cite{hauffe.2003,desbois.2013}.
 Therefore, some authors utilised \ac{ArBIB} milling as a tool for tomography \cite{desbois.2013,mac.2018}.
 Compared to \ac{FIBnt}, the slice thickness of this technique is large and inconsistent (>\,\qty{350(70)}{\nano\meter} compared to \qtyrange{5}{10}{\nano\meter}) and the effort required is very high \cite{desbois.2013}.
 
@@ -530,12 +530,12 @@ After prolonged electron exposure, especially at higher beam voltages, damaging 
 These artefacts can be attributed to the electron beam heating the specimen and to the formation of gaseous products attributed to radiation damage.
 However, whether thermal damage occurs is highly dependent on the specimen (thermal conductivity, melting or decomposition temperature) and the applied scanning parameters (scanned area, beam voltage and current, dwell time). \cite{reimer.1998b}
 
-For cement hydrates, damages can be observed for example after a prolonged \ac{EDX}-measurement using a high-powered electron beam.
+For cement hydrates, damage can be observed, for example, after prolonged \ac{EDX} measurements using a high-power electron beam.
 Furthermore, at high magnifications, the energy density (electron dose per area) is high even at low beam voltages and currents.
-In a literature review from 2002, \textcite{gartner.2002} pointed to a lot of studies of morphologically damaged \ac{CSH} phases in \ac{TEM} and \ac{SEM} images.
-The damages were mostly caused by the preparation and the electron beam \cite{gartner.2002}.
+In a literature review from 2002, \textcite{gartner.2002} identified numerous studies documenting morphologically damaged \ac{CSH} phases in \ac{TEM} and \ac{SEM} images.
+This damage was mostly caused by the preparation and the electron beam \cite{gartner.2002}.
 The difference in preparation methods was also demonstrated by \textsc{Möser} and \textsc{Stark} \cite{moser.1998,moser.2003} using an environmental \ac{SEM} (\acs{ESEM}).
-\textcite{rossler.2006} were able to show, that at at \qty{-172}{\celsius} an energy dose of $\approx$ \qty{8e2}{\elementarycharge\per\square\angstrom} allows to retrieve electron diffraction patterns and artefact-free imaging \ac{CSH}, while \qty{6.2e3}{\elementarycharge\per\square\angstrom} at room temperature induce significant beam damage to the mineral, amorphising it in the process.
+\textcite{rossler.2006} were able to show that at \qty{-172}{\celsius} an energy dose of $\approx$ \qty{8e2}{\elementarycharge\per\square\angstrom} allows retrieval of electron diffraction patterns and artefact-free imaging of \ac{CSH}, whereas \qty{6.2e3}{\elementarycharge\per\square\angstrom} at room temperature induces significant beam damage to the mineral, amorphising it in the process.
 A high energy dose in the \ac{SEM} can cause geometrical deformation of \ac{CSH}-structures and introduce pores within initially compact phases (see \zcref{fig:ebeam_damage}) \cite{moser.2003,kleiner.2021a}.
 
 \begin{figure}[h!]
@@ -555,5 +555,6 @@ A high energy dose in the \ac{SEM} can cause geometrical deformation of \ac{CSH}
     \label{fig:ebeam_damage}
 \end{figure}
 
-Also due to the high vacuum in the \ac{SEM}, the specimen can dry out, inducing artefacts like cracks and shrinkage \cite{moser.2003}.
-This can be circumvented by using a \ac{SEM} in a low vacuum mode (\acs{ESEM}), it is not always possible to use this mode.
+Additionally, due to the high vacuum in the \ac{SEM}, the specimen can dry out, inducing artefacts such as cracks and shrinkage \cite{moser.2003}.
+This can be circumvented by using a \ac{SEM} in a low vacuum mode (\acs{ESEM}).
+However, it is not always possible to use this mode.

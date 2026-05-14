@@ -15,7 +15,7 @@
 \def\myFirstReviewer{Professor Dr.-Ing. Horst-Michael Ludwig}  % name of first reviewer
 \def\mySecondReviewer{Unknown}  % name of second reviewer
 \def\myThirdReviewer{Unknown}   % name of third reviewer
-\def\myExamDate{xx.xx.2025}
+\def\myExamDate{xx.xx.2027}
 \title{Correlative characterisation of clinker phases and hydrated cementitious binders by a variety of modern 2D and 3D imaging techniques}
 \def\myKeywords{SEM EDX {image analysis} cement hydration clinker {specimen preparation}}
 \ifdefined\PRINTABLE
@@ -25,20 +25,22 @@
 \fi
 
 \ifdefined\DRAFT
-	\documentclass[	paper=a4, twoside = true, fontsize = 12,  % font size for \normalsize set to 12
-					toc = bibliography,  % add bibliography to table of contens
-					numbers = noendperiod,  % no dot at the end of chapter and section labels
-					english,
-					openany,
-					]{scrbook}  % document class
+	\documentclass[
+		paper=a4, twoside = true, fontsize = 12,  % font size for \normalsize set to 12
+		toc = bibliography,  % add bibliography to table of contens
+		numbers = noendperiod,  % no dot at the end of chapter and section labels
+		english,
+		openany,
+	]{scrbook}  % document class
 \else
-	\documentclass[	paper=a4, twoside = true, fontsize = 12,  % font size for \normalsize set to 12
-					% parskip = half,  % paragraphs are separated by 0.5\baselineskip
-					% BCOR = 0cm,  % sets bonding correction (Bindekorrektur) to 0 cm
-					toc = bibliography,  % add bibliography to table of contens
-					numbers = noendperiod,  % no dot at the end of chapter and section labels
-					english,  % set language to english
-				]{scrbook}  % document class
+	\documentclass[
+		paper=a4, twoside = true, fontsize = 12,  % font size for \normalsize set to 12
+		% parskip = half,  % paragraphs are separated by 0.5\baselineskip
+		% BCOR = 0cm,  % sets bonding correction (Bindekorrektur) to 0 cm
+		toc = bibliography,  % add bibliography to table of contens
+		numbers = noendperiod,  % no dot at the end of chapter and section labels
+		english,  % set language to english
+	]{scrbook}  % document class
 \fi
 
 \input{additionals/a-latex_header.tex}  % import packages and design definitions
@@ -85,23 +87,22 @@
 			\input{chapter/01e-lit-porosity}
 			\input{chapter/01f-lit-modelling}
 			\input{chapter/01g-itz}
-
 		%\chapter{Methods}
 			\input{chapter/02a-methods}
 			\input{chapter/02b-algorithms}
 			\input{chapter/02c-ebsd-hydrate-correlation}
-
 		\input{chapter/03-arbib}
-		\input{chapter/04a-correl-micro}
-		\input{chapter/04b-correl-micro}
+		%\chapter{Correlative microscopy}
+			\input{chapter/04a-correl-micro}
+			\input{chapter/04b-correl-micro}
 		\input{chapter/05-fibnt}
-		\input{chapter/06-hydrate-rim}
+		%\chapter{Hydrate layers and particle distances}
+			\input{chapter/06-hydrate-rim}
 			\input{chapter/06b-particle-distance}
 			\input{chapter/06c-ebsd-hlt}
 			\input{chapter/06d-hlt-conclusion}
-		\input{chapter/08-pores}
-
-		\input{chapter/90-summary}
+		\input{chapter/07-pores}
+		\input{chapter/08-summary}
 
 		\input{chapter/99-bibliography}
 
@@ -113,7 +114,7 @@
 
 	\backmatter
 		\selectlanguage{ngerman}
-		\ifdefined\DRAFT
+		\ifdefined\DRAFTSIMPLIFY
 		\else
 			\input{additionals/z-declaration}
 		\fi

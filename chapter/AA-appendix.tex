@@ -4,19 +4,8 @@
 %\pagenumbering{Roman}  % set page numbering to Roman
 
 
-\ifdefined\DRAFTSIMPLIFY
-{
-\color{red}
-Figures in the appendix section are not visible in draft mode!
-}
-\fi
-
-\section{Freezing point depression due to \ce{CaOH}}
+\section{Freezing point depression due to \ce{Ca(OH)2}}
 \label{sec:freezing-point-depression}
-
-%\reaction[CaOH_dissolution]{Ca(OH2)<=>Ca2++2OH-}
-
-
 
 The cryoscopic constant $K_{f}$ of water is \qty{1.86}{\celsius\kilo\gram\per\mole} and the solubility product $K_{sp}$ of \ce{Ca(OH)2} is \qty{5.02e-6}{\mole\cubed\per\litre\cubed} \cite{haynes.2017}.
 \begin{equation}
@@ -39,13 +28,13 @@ The temperature depression can now be calculated as
 	\Delta T_f = i_\text{vH} \cdot K_f \cdot b = 3 \cdot \qty{1.86}{\celsius\kilo\gram\per\mole} \cdot \qty{0.01080}{\mole\per{\kilo\gram}}
 \end{equation}
 \begin{conditions}
-	i_\text{vH}	&	\textsc{van 't-Hoff} factor, here 3 (number of ions in \ce{Ca(OH)2})
+	i_\text{vH}	&	\textsc{van 't Hoff} factor, here \num{3} (number of ions in \ce{Ca(OH)2})
 \end{conditions}
 \begin{equation}
 	\Delta T_f = \qty{0.0602}{\celsius}
 \end{equation}
 
-The freezing point of a saturated \ce{Ca(OH)2}-solution is therefore to be expected at \qty{-0.0602}{\celsius}.
+The freezing point of a saturated \ce{Ca(OH)2} solution is therefore to be expected at \qty{-0.0602}{\celsius}.
 
 \FloatBarrier
 \section{Materials}
@@ -54,8 +43,8 @@ The freezing point of a saturated \ce{Ca(OH)2}-solution is therefore to be expec
 \subsection{\acs{C2S} and \acs{C3S} clinker}
 
 Commercially available alite (MIII polymorph, Vustah, Czech Republic) and belite (Vustah, Czech Republic) were used in the experiments.
-The chemical composition (\zcref{tab:chemical_composition}) was determined by \ac{mXRF}, and the phase purity was confirmed at \qty{99.4(0.4)}{\wtpercent} for alite (\ac{C3S}, \acs{ICSD} 94742, \acs{COD} \href{https://qiserver.ugr.es/cod/1540705.html}{1540705} \cite{delatorre.2002}) and \qty{91.7(0.7)}{\wtpercent} for belite ($\beta$-\ac{C2S}, \acs{ICSD} 81096 \cite{jost.1977}) using \ac{XRD} analysis.
-The measurements were carried out using a \textit{D8 DaVinci} diffractometer by \textsc{Bruker}.
+The chemical composition (see \zcref{tab:chemical_composition}) was determined by \ac{mXRF}, and the phase purity was confirmed at \qty{99.4(0.4)}{\wtpercent} for alite (\ac{C3S}, \acs{ICSD} 94742, \acs{COD} \href{https://qiserver.ugr.es/cod/1540705.html}{1540705} \cite{delatorre.2002}) and \qty{91.7(0.7)}{\wtpercent} for belite ($\beta$-\ac{C2S}, \acs{ICSD} 81096 \cite{jost.1977}) using \ac{XRD} analysis.
+The measurements were carried out using a \textit{D8 DaVinci} diffractometer from \textsc{Bruker}.
 
 \begin{table}[h]
 	\centering
@@ -151,7 +140,7 @@ The particle size distribution of the \ac{C3S} powder sieved to <\,\qty{20}{\mic
 
 The pastes were prepared with a \ac{wb} value of \num{0.5} and stored in sealed cylindrical containers with a diameter of $\approx$ \qty{8}{\milli\meter}.
 The hydration of the specimens was stopped after the desired age by immersion in isopropanol and subsequent drying at \qty{60}{\celsius}.
-The phase composition of samples stored for \num{1} (only \ac{C3S}), \num{7}, and \qty{28}{\day} were assessed by quantitative \ac{XRD} analysis using the $G$-factor method \cite{oconnor.1988, jansen.2011}.
+The phase compositions of samples stored for \num{1} (only \ac{C3S}), \num{7}, and \qty{28}{\day} were assessed by quantitative \ac{XRD} analysis using the $G$-factor method \cite{oconnor.1988, jansen.2011}.
 
 \newpage
 \FloatBarrier
@@ -159,6 +148,7 @@ The phase composition of samples stored for \num{1} (only \ac{C3S}), \num{7}, an
 \label{sec:cements}
 
 For some \ac{FIBnt} experiments, a commercially available \ac{OPC} (type \acs{CEMI} \num{42.5} R from \textsc{Dyckerhoff}) was used (chemical composition see \zcref{tab:phase-composition}) to produce a mortar (\qty{450(2)}{\gram} cement, \qty{1350(5)}{\gram} sand and \qty{225(1)}{\gram} water; according to \textcite{dinen196-1.2016}).
+For some \ac{FIBnt} experiments, a commercially available \ac{OPC} (type \acs{CEMI} \num{42.5} R from \textsc{Dyckerhoff}) was used (for the chemical composition, see \zcref{tab:phase-composition}) to produce a mortar (\qty{450(2)}{\gram} cement, \qty{1350(5)}{\gram} sand and \qty{225(1)}{\gram} water; according to \textcite{dinen196-1.2016}).
 
 %Zement nummer 808 für CT Untersuchungen -> Kapitel correlative Mikroskopie
 \begin{table}[H]
@@ -303,11 +293,11 @@ Its composition is listed in the tables below:
 \end{figure}
 
 
-\Ac{LC3} with a composition of \qty{51.87}{\wtpercent} \acs{CEMI}, \qty{30.00}{\wtpercent} calcined clay, \qty{15.61}{\wtpercent} limestone and \qty{2.52}{\wtpercent} set regulator was used in the cryo-\ac{FIB} experiments (see \zcref{sec:cryo_fib_sem}).
-The pore size distribution measured using laser diffraction analysis is plotted in \zcref{fig:psd_cryo_LC3} and compared to the \textsc{Feret} diameter, measured using the \ac{SEM} images shown in \zcref{fig:cryo-fib-lc3}.
+An \ac{LC3} blend with a composition of \qty{51.87}{\wtpercent} \acs{CEMI}, \qty{30.00}{\wtpercent} calcined clay, \qty{15.61}{\wtpercent} limestone, and \qty{2.52}{\wtpercent} set regulator was used in the cryo-\ac{FIB} experiments (see \zcref{sec:cryo_fib_sem}).
+The pore size distribution measured using laser diffraction analysis is plotted in \zcref{fig:psd_cryo_LC3} and compared to the \textsc{Feret} diameter measured using the \ac{SEM} images shown in \zcref{fig:cryo-fib-lc3}.
 More details on the \ac{LC3} used can be found in \cite{pott.2023}.
 The \ac{LC3} was mixed with water (\ac{wb}\,=\,\num{0.5}) and a part of the paste was sonicated with \ac{PUS}.
-For this, a ultrasound processor and generator \textit{UIP1000hd} connected to a \textit{Booster B2-2.2} amplifier and a \textit{BS2d34} sonotrode at a maximum amplitude of \qty{42.4}{\micro\meter} was used.
+For this, an ultrasound processor and generator (\textit{UIP1000hd}) connected to a \textit{Booster B2-2.2} amplifier and a \textit{BS2d34} sonotrode at a maximum amplitude of \qty{42.4}{\micro\meter} were used.
 
 \begin{figure}[H]
     \centering
@@ -703,7 +693,7 @@ They cause significant trenches behind them. However, the material hardness does
 \begin{figure}[htb!]
 	\centerline{\includegraphics[width=\textwidth]{methods/laser_prep/depth_vis.pdf}}
 	\caption{
-		Depth visualisation of the \ac{fs-laser} preparation side (between \qtyrange{150}{200}{\micro\meter}) of a \qty{7}{\day} hydrated \ac{C3S} specimen, measured using \ac{LSCM}.
+		Depth visualisation of the \ac{fs-laser} preparation site (between \qtyrange{150}{200}{\micro\meter}) of a \qty{7}{\day} hydrated \ac{C3S} specimen, measured using \ac{LSCM}.
 		The preparation site has a size of \qtyproduct{.6 x 1.0}{\milli\meter\squared}.
 	}
 	\label{fig:lscm_laser_depth}
@@ -1011,8 +1001,8 @@ The diagrams in \zcref{fig:hlt_segmentation_influence} compare the influence of 
         \label{fig:areagrowth_ch}
     \end{subfigure}
 	\caption{
-		Comparison of the minimum required area for to get the \ac{CSH} area fraction (top row) and the \ac{CH} area fraction (bottom row) with a standard deviation $\sigma$ of <\,\qty{2}{\percent}.
-        The \ac{BC} and \ac{BG} methods were applied to images of \ac{C3S}:\ac{C2S} mixtures, hydrated for \num{7}, \num{14} and \qty{28}{\day}.
+        Minimum required area to obtain the \ac{CSH} area fraction (top row) and the \ac{CH} area fraction (bottom row) with a standard deviation $\sigma$ of <\,\qty{2}{\percent}.
+        The \ac{BC} and \ac{BG} methods were applied to images of \ac{C3S}:\ac{C2S} mixtures, hydrated for \num{7}, \num{14}, and \qty{28}{\day}.
 	}
     \label{fig:box_statistics_ch}
 \end{figure}
@@ -1060,7 +1050,7 @@ The diagrams in \zcref{fig:hlt_segmentation_influence} compare the influence of 
 	\end{subfigure}
 
     \caption{
-		Particle distance measurement of cryo-\ac{FIB} sections of the fine fraction of an sieved \ac{OPC} (\ac{wb}\,=\,\num{0.5}) with and without \acs{PCE} from Figures~\num{5} (left-hand side) and \num{7} (right-hand side) published in \cite{zingg.2008a}.
+		Particle distance measurement of cryo-\ac{FIB} sections of the fine fraction of a sieved \ac{OPC} (\ac{wb}\,=\,\num{0.5}) with and without \acs{PCE} from Figures~\num{5} (left-hand side) and \num{7} (right-hand side) published in \cite{zingg.2008a}.
 		White: unprocessed clinker particles; yellow: clinker particles used for the analysis, red: included measurements, black: excluded pore space.
 	}
     \label{fig:cryo-fib-zingg-results}
@@ -1119,11 +1109,11 @@ The diagrams in \zcref{fig:hlt_segmentation_influence} compare the influence of 
 \label{subsec:appendix_PSD_arbib}
 
 The following images were acquired as described in \zcref{sec:bib_pol_fixed}.
-\zcref{fig:compare_cryo_1,fig:compare_rt_1} show images of (\ac{CSHi}), which were prepared using Cryo-\ac{ArBIB}.
-The specimens shown in \zcref{fig:compare_cryo_1} were prepared at \qty{-140}{\celsius} (raw images can be found at \cite{kleiner.2021g}), while the specimens presented in \zcref{fig:compare_rt_1} were prepared at \qty{20}{\celsius} (raw images can be found at \cite{kleiner.2021h}).
-On the left side the raw unedited images are shown, while on the right side, the denoised result image with the result of the semi-automatic segmentation \cite{kleiner.2021h} is presented.
-The areas with a green overlay show the pores, while the blue overlay represents areas manually segmented.
-The latter were excluded from the pore segmentation since these areas contain large pores, \ac{C3S} or imaging artefacts, which were not subject to the analysis.
+\zcref{fig:compare_cryo_1,fig:compare_rt_1} show images of \ac{CSHi}, which were prepared using Cryo-\ac{ArBIB}.
+The specimens shown in \zcref{fig:compare_cryo_1} were prepared at \qty{-140}{\celsius} (raw images can be found in \cite{kleiner.2021g}), while the specimens presented in \zcref{fig:compare_rt_1} were prepared at \qty{20}{\celsius} (raw images can be found in \cite{kleiner.2021h}).
+On the left side, the raw, unedited images are shown, while on the right side, the denoised result images alongside the results of the semi-automatic segmentation \cite{kleiner.2021h} are presented.
+The areas with a green overlay show the pores, while the blue overlay represents areas that were manually segmented.
+The latter were excluded from the pore segmentation, since these areas contain large pores, \ac{C3S}, or imaging artefacts, which were not subject to the analysis.
 
 % CLD_AREA_CRYO_IMAGES
 \begin{figure}[htbp]
@@ -1276,7 +1266,7 @@ The latter were excluded from the pore segmentation since these areas contain la
 
     \caption{
 		Example of the influence of the temperature range selection for the baseline correction on the ice volume.
-		The lower temperature rage $\vartheta_\text{low}$ and the higher $\vartheta_\text{high}$ are given in \unit{\celsius} and are \qty{1}{\celsius} wide.
+		The lower temperature range $\vartheta_\text{low}$ and the upper temperature range $\vartheta_\text{high}$ are given in \unit{\celsius} and are \qty{1}{\celsius} wide.
 		The dataset for the slow heating rate starts at \qty{-50}{\celsius}, while the fast heating rate starts at \qty{-48.5}{\celsius}, since lower values were still influenced by unsteady conditions.
 	}
     \label{fig:basle_line_ice_vol}
@@ -1622,4 +1612,3 @@ The latter were excluded from the pore segmentation since these areas contain la
 	}
     \label{fig:ltdsc_result_freeze_raw}
 \end{figure}
-

@@ -41,12 +41,12 @@ These artefacts can be reduced in post processing using a directional \ac{FFT}-b
 However, this processing reduces image quality and avoiding the artefact in the first place is more preferable.
 
 Vertical shadowing is another typical artefact caused by a loss of signal of the back-scattered electrons due to the trench geometry (see \zcref{fig:fib_artifacts_b}).
-This well-known effect can be corrected in post processing \cite{holzer.2007, mac.2018, fager.2020}, if the phase contrast is good enough.
+This well-known effect can be corrected in post-processing \cite{holzer.2007, mac.2018, fager.2020}, if the phase contrast is good enough.
 However, in case the signal-to-noise ratio is too low in the darkened areas, this post processing will not work.
 However, there are more severe uncorrectable artefacts caused by the in-place slicing process.
 Since cementitious material is not conductive and the trenches are not coated throughout, charging effects can negatively influence the image quality (e.g. \zcref{fig:fib_artifacts_c} and \zcref{fig:fib_artifacts_a}) or cause uncorrectable image drift during the process.
 The re-deposition of the removed material usually happens within the trenches, which does not cause any problems.
-However, it may also appear on small structures in front of the \ac{ROI} or even on the specimen surface after longer imaging periods as shown in \zcref{fig:fib_artifacts_b} and \zcref{fig:fib_artifacts_c}.
+However, it may also appear on small structures in front of the \ac{ROI} or even on the specimen surface after longer imaging periods, as shown in \zcref{fig:fib_artifacts_b} and \zcref{fig:fib_artifacts_c}.
 
 %\subsection{The lift-out process}
 
@@ -105,8 +105,8 @@ Such small structures are therefore ignored in the segmentation process, especia
 
 Due to the sensitive nature of the hydrate phases (see \zcref{sec:beam_damage}), the operator must pay particular attention when analysing at higher voltages as required for \ac{EDX} or \ac{EBSD} samples.
 As shown in \zcref{fig:edx_damage}, an electron beam at \qty{10}{\kilo\volt}, \qty{4}{\pico\ampere} and a long exposure time (\qty{600}{\micro\second}, \num{6} frames) can cause damage in the specimen which could be misinterpreted as porosity.
-The exposure time is the sum of the dwell time on each point and the frame count.
-But especially the dwell time increases the risk of specimen damage.
+The total exposure time is the product of the dwell time on each point and the frame count.
+However, the dwell time, in particular, increases the risk of specimen damage.
 In the example, pores with a diameter of several \unit{\nano\meter} were induced, which can mostly be identified by comparing the damaged slice (\zcref{fig:edx_damage_b}) with a freshly cut surface (\zcref{fig:edx_damage_a}).
 This issue can be mitigated for 2D \ac{BSE}/\ac{EDX} datasets by recording the \ac{BSE} before the \ac{EDX} analysis
 However, in \ac{FIBnt} the damage is visible throughout several slices.
@@ -137,7 +137,7 @@ Solutions to this problem include reducing the energy density.
 This can be done by reducing the scanning duration or the electron beam current (reducing overall counts), lowering the electron beam voltage (limiting the elements that can be analysed), or using more sensitive detectors.
 For the presented experiments, a further reduced electron beam voltage was not applicable.
 Therefore, a very sensitive, windowless \ac{EDX}-detector was used and combined with the counts of a second, less-sensitive \ac{EDX}-detector, which yields only one-fifth of the counts of the windowless detector.
-While a reduction of the accelerating voltage from \num{10} to \qty{6}{\kilo\volt} had no significant effect, a reduced dwell time (reduced from \num{600} to \qty{60}{\micro\second}) and increased frame count (from \num{6} to \num{60}) significantly decreased the damage.
+While a reduction of the accelerating voltage from \num{10} to \qty{6}{\kilo\volt} had no significant effect, a reduced dwell time (from \num{600} to \qty{60}{\micro\second}) and an increased frame count (from \num{6} to \num{60}) significantly decreased the damage.
 
 While these measures result in a good signal-to-noise ratio for the main components, the mappings for less abundant elements remain fairly noisy.
 However, it still allows the distinction of the different main phases of the material.
@@ -208,7 +208,7 @@ Furthermore, after the \ac{SIFT} alignment the stack is often still systematical
 
 Aligning the \ac{EDX} dataset to the corresponding \ac{BSE} dataset is challenging.
 Although the correspondence between \ac{BSE} and \ac{EDX} slices is known, the images differ in resolution and field of view.
-Usually the image shift between the \ac{BSE} and \ac{EDX} images of the same slice should be nearly identical.
+Usually, the image shift between the \ac{BSE} and \ac{EDX} images of the same slice should be nearly identical.
 This allows the alignment problem to be solved relatively easily.
 Depending on the data acquisition settings it can, however, happen that the \ac{EDX} dataset does not align perfectly with the \ac{BSE} dataset (e.g. due to drift caused by charging).
 Then, additional registration steps, such as the use of landmarks or scale-adjusted transformations, are required to achieve an accurate overlay of the datasets.
@@ -323,7 +323,7 @@ This approach facilitates the identification of material phases, resulting in a 
 	\label{fig:fib-sem-clustering}
 \end{figure}
 
-While one can already get a sense the position of \ce{Al}-rich \ac{AFm} phases using only the \ce{Al} phase map (see \zcref{fig:fib-sem-Al}), the phase-assigned superpixel segmentation allows to identify each cluster (see \zcref{fig:fib-sem-visualisation}).
+While one can already get a sense of the position of \ce{Al}-rich \ac{AFm} phases using only the \ce{Al} phase map (see \zcref{fig:fib-sem-Al}), the phase-assigned superpixel segmentation allows each cluster to be identified (see \zcref{fig:fib-sem-visualisation}).
 However, it becomes obvious, that the volume prepared using a \ac{FIB}-\ac{SEM} on its own as demonstrated until now does not cover a statistically representative domain.
 
 % TODO: compare different ways to get to the goal? - SLIC -> (direct/indirect with umap?) -> labeling; UNET

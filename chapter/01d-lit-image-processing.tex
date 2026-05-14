@@ -172,17 +172,17 @@ In contrast, the \ac{HLT} around the grain is often overestimated as illustrated
 				\addplot[red, domain=0:1.35, samples=1000, very thick] {sqrt(2*1.3*(x+1.3) - (x+1.3)^2)};
 				\addlegendentry{outer radius \\ $f(x, r_\text{outer})$};
 				\addplot[blue,   domain=0:1, samples=1000, name path=f] {sqrt(2*1.3*(x+1.3) - (x+1.3)^2) - sqrt(2*1*(x+1) - (x+1)^2)};
-				\addlegendentry{\acs*{HLT} \\ $t(x)$};
+				\addlegendentry{\acs*{HLT} \\ $l_{\mathrm{CSH}}(x)$};
 				\path[name path=axis] (axis cs:0,0) -- (axis cs:1,0);
 				\addplot [fill=blue, fill opacity=0.2] fill between[of=f and axis, soft clip={domain=0:1}];
 
-				\node[coordinate, pin={[align=left,pin distance = 5mm]-270:{\tiny $\int_{0}^{r_\text{grain}} t(x) \,dx$}}] at (axis cs:0.4,0.24) {};
+				\node[coordinate, pin={[align=left,pin distance = 5mm]-270:{\tiny $\int_{0}^{r_\text{grain}} l_{\mathrm{CSH}}(x) \,dx$}}] at (axis cs:0.4,0.24) {};
 				%\addplot[yellow,  domain=0:1, samples=360] {sqrt(2*1*(x+1) - (x+1)^2)};
 
 			\end{axis}
 		\end{tikzpicture}
 		\caption{
-            Influence of the sectioning distance from the centre point $x$ on the \acs*{HLT} ($t(x)$), calculated using \zcref{eq:sectioning_effect_2}.
+            Influence of the sectioning distance from the centre point $x$ on the \acs*{HLT} ($l_{\mathrm{CSH}}(x)$), calculated using \zcref{eq:sectioning_effect_2}.
         }
 		\label{fig:sectioning_effect_b}
 	\end{subfigure}
@@ -193,7 +193,7 @@ In contrast, the \ac{HLT} around the grain is often overestimated as illustrated
     \label{fig:sectioning_effect}
 \end{figure}
 
-\zcref{eq:sectioning_effect_1, eq:sectioning_effect_2} can be used to calculate the \ac{HLT} ($t$) for a spherical particle, depending on the sectioning distance from the centre point ($x$).
+\zcref{eq:sectioning_effect_1, eq:sectioning_effect_2} can be used to calculate the \ac{HLT} ($l_{\mathrm{CSH}}$) for a spherical particle, depending on the sectioning distance from the centre point ($x$).
 
 \begin{equation}
 	f(x, r) = \sqrt{2r(x+r) - (x+r)^2}
@@ -201,8 +201,8 @@ In contrast, the \ac{HLT} around the grain is often overestimated as illustrated
 \end{equation}
 \begin{conditions}
 	f	&	measured radius, \\
-	r	&   actual radius, \\
-	x	&   sectioning distance from centre point; $0 \leq x \leq r$.
+	r	&	actual radius, \\
+	x	&	sectioning distance from centre point; $0 \leq x \leq r$.
 \end{conditions}
 
 
@@ -229,29 +229,30 @@ In contrast, the \ac{HLT} around the grain is often overestimated as illustrated
 % \end{figure}
 
 \begin{equation}
-	t(x) = f(x, r_\text{outer}) - f(x, r_\text{grain})
+	l_{\mathrm{CSH}}(x) = f(x, r_\text{outer}) - f(x, r_\text{grain})
 	\label{eq:sectioning_effect_2}
 \end{equation}
 \begin{conditions}
-	t				&	measured \ac{HLT}, \\
-	r_\text{outer}	&   radius of the grain + hydrate layer, \\
-	r_\text{grain}	&   grain radius.
+	l_{\mathrm{CSH}}	&	measured \ac{HLT}, \\
+	r_\text{outer}		&	radius of the grain + hydrate layer, \\
+	r_\text{grain}		&	grain radius.
 \end{conditions}
 
 \begin{equation}
-	M_\text{HLT} = \frac{\int_{0}^{i} t(x) \,dx}{r_\text{grain}}, \text{where}~0 < i \leq r_\text{grain}.
+	M_\text{HLT} = \frac{\int_{0}^{i} l_{\mathrm{CSH}}(x) \,dx}{r_\text{grain}}, \text{where}~0 < i \leq r_\text{grain}.
 	\label{eq:sectioning_effect_3}
 \end{equation}
 \begin{conditions}
-	M_\text{HLT}	&	mean \ac{HLT} of a grain, \\
-	r_\text{grain}	&   grain radius, \\
+	M_\text{HLT}		&	mean \ac{HLT} of a grain, \\
+	r_\text{grain}		&	grain radius, \\
 \end{conditions}
 
 
 \zcref{fig:sectioning_effect_b} indicates that the \ac{HLT} can be significantly overestimated.
 This becomes more prevalent the closer the cut through a particle is to its border.
 % https://www.wolframalpha.com/input?i=integral&assumption=%7B%22F%22%2C+%22Integral%22%2C+%22rangestart%22%7D+-%3E%220%22&assumption=%7B%22C%22%2C+%22integral%22%7D+-%3E+%7B%22Calculator%22%2C+%22dflt%22%7D&assumption=%7B%22F%22%2C+%22Integral%22%2C+%22integrand%22%7D+-%3E%22sqrt%282*1.3*%28x%2B1.3%29+-+%28x%2B1.3%29%5E2%29+-+sqrt%282*1*%28x%2B1%29+-+%28x%2B1%29%5E2%29%22&assumption=%7B%22F%22%2C+%22Integral%22%2C+%22rangeend%22%7D+-%3E%22.9%22
-For example, if a grain has a constant \ac{HLT} of \qty{30}{\percent} of the grain radius (as shown in \zcref{fig:sectioning_effect_b}, blue curve), an overestimation of \qtyrange{0}{23.8}{\percent} of the \ac{HLT} can be expected. %0,3715/0,33
+For example, if a grain has a constant \ac{HLT} of \qty{30}{\percent} of the grain radius (as shown in \zcref{fig:sectioning_effect_b}, blue curve), an overestimation of \qtyrange{0}{23.8}{\percent} of the \ac{HLT} can be expected.
+%0,3715/0,33
 If the grain is cut at a sectioning distance from the centre point of the grain $x$ of \num{0.3}, the grain radius will be underestimated by \qty{4.6}{\percent} of the actual value, while the \ac{HLT} will be overestimated at \qty{1.2}{\percent} of the actual value.
 In contrast, at $x=0.8$, the radius will be underestimated by \qty{40.0}{\percent} and the \ac{HLT} will be overestimated by \qty{11.0}{\percent}.
 

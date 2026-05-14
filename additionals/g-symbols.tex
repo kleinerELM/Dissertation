@@ -110,64 +110,78 @@
 	\multicolumn{3}{r@{}}{\footnotesize\sffamily \textit{Continues on the next page ...}} \\ \endfoot
 	\bottomrule \endlastfoot
 
-	$A$                         & area-\unit{\percent} 				& Area \\
+	$A$                         & area-\unit{\percent}					& Area \\
 	$\alpha$, $\beta$, $\gamma$, $\delta$ & {--} 						& Fit parameters for $f$ \\
-	$a$  						& \unit{\nano\meter\squared}		& Fit parameter for $f_\text{v,n}$ \\
-	$a_\text{norm}$  			& \unit{\nano\meter}				& Normalised fit parameter for $f_\text{v,n}$ \\
-	$\mu$, $\sigma$  			& {--} & Fit parameters for $f_\text{v,n}$ \\
-    $b$                         & \unit{\mole\per\kilo\gram}        & Molality \\
-	$C$                         & {--} & Relative \acs*{BSE} image contrast \\
-	$c$                         & {--} & Backscatter coefficient \\
-    $d$, $d_i$                  & \unit{\meter}                     & (Pore) diameter \\
-    $\Delta H_{\mathrm{fus}}$   & \unit{\joule\per\gram}            & Enthalpy of fusion \\
-    $\Delta T$                  & \unit{\kelvin}                    & Temperature difference / freezing point depression \\
-    $\Delta T_{\mathrm{fus}}$   & \unit{\kelvin}                    & Temperature difference from the freezing point \\
-	$\eta$	& {--} & Backscatter coefficient \\
-    $E_r$                       & \unit{\giga\pascal}               & Reduced \textsc{Young}'s modulus \\
-    %$F$                         & \unit{\newton}                    & loading force \\
-    $f$ 						& {--}                  				& Frequency \\
-	$f_\text{pore}$ 			& {--}         						& Frequency of pores \\
-	$f_\text{v,n}$ 				& {--}         						& Volume weighted and normalised pore frequency  \\
-    $F_{\mathrm{norm, hydrate}}$ & \unit{\percent}                  & Normalised hydrate content \\
-    $H$                         & \unit{\giga\pascal}               & Hardness \\
-    $H_{\mathrm{fus}}$          & \unit{\joule\per\gram}            & Enthalpy of fusion \\
-    $i$                         & {--}                                & Counter / index \\
-    $i_{\mathrm{vH}}$           & {--}                                & \textsc{Van 't-Hoff} factor \\
-    $K_f$                       & \unit{\celsius\kilo\gram\per\mole} & Cryoscopic constant \\
-    $K_{sp}$                    & {--}                                & Solubility product \\
-    %$l$                         & \unit{\micro\meter}               & \acs*{HLT} \\
-	$l_{\mathrm{CSH}}$          & \unit{\micro\meter}               & Hydration layer thickness (\acs*{HLT}) \\
-    $l_{\mathrm{CSH}_{\mathrm{o}}}$ & \unit{\micro\meter}           & Length of \acs*{CSHo} needles \\
-    $l_{\mathrm{max}}$          & \unit{\micro\meter}               & Most frequent \acs*{HLT} \\
-    %$l_{33\,\%,\, \mathrm{l}}$  & \unit{\micro\meter}               & \qty{33}{\percent} of the smaller than below $l_{\mathrm{max}}$ \\
-    %$l_{33\,\%,\, \mathrm{h}}$  & \unit{\micro\meter}               & \qty{33}{\percent} of the area larger than $l_{\mathrm{max}}$ \\
-    $m_{\mathrm{ice}}$          & \unit{\gram}                      & Mass of ice \\
-    $n$                         & \unit{\mole}                      & Amount of substance \\
-    $N$                         & {--}                                & Number of indents \\
-    $p$, $p_i$                  & \unit{\mega\pascal}               & Pressure \\
-    $\dot{Q}$                   & \unit{\joule\per\second\per\gram}, \unit{\joule\per\hour\per\gram} & Heat flow \\
-    $\dot{Q}_{\mathrm{B}}$      & \unit{\joule\per\second\per\gram} & Baseline heat flow \\
-    $\dot{Q}_{\mathrm{raw}}$    & \unit{\joule\per\second\per\gram} & Raw heat flow \\
-    $r_{\mathrm{P}}$            & \unit{\nano\meter}                & Pore radius \\
-	$r_\text{P, max}$           & \unit{\nano\meter}                & most frequent pore radius \\
-    $r_{\mathrm{particle}}$     & \unit{\nano\meter}                & Particle radius \\
-    $r_{\mathrm{p-hyd}}$        & \unit{\nano\meter}                & Potential hydration radius \\
-    $r_{\mathrm{ROI}}$          & \unit{\nano\meter}                & Radius of the region of interest \\
-    $\rho$       				& \unit{\gram\per\centi\meter\cubed} & Density \\
-    $S$                         & \unit{\mole\per\liter}            & Molar solubility \\
-    $S_{dr}$                    & \unit{\percent}                   & Developed area ratio \\
-    $\sigma_{\mathrm{hydrate}}$ & \unit{\wtpercent}                 & Amount of hydrate phase \\
-    $t$                         & \unit{\s}, \unit{\min}, \unit{\hour} & Time \\
-    $T$                         & \unit{\kelvin}                    & Temperature \\
-    $T2$                        & \unit{\milli\second}              & Transverse relaxation time \\
-    $T_f$                       & \unit{\kelvin}                    & Freezing temperature point \\
-    $T_{\mathrm{m}}$            & \unit{\kelvin}                    & Theoretical freezing point \\
-    $\vartheta$                 & \unit{\celsius}                   & Temperature \\
-    $V$, $V_i$                  & \unit{\cubic\meter} or \unit{\liter} & Volume \\
-    %$w/b$                       & {--}                                & water / binder ratio \\
-    $x, y, z$                   & {--}                                & Cartesian coordinates \\
-    $Z$                         & {--}                                & Atomic number \\
-	$\bar{Z}$					& {--}                                & Average atomic number \\
+	$\alpha_{001}$              & \unit{\degree}      					& Angle between $\vec{h}$ and the crystal $c$-axis \\
+	$a$  						& \unit{\nano\meter\squared}			& Fit parameter for $f_\text{v,n}$ \\
+	$a_\text{norm}$  			& \unit{\nano\meter}					& Normalised fit parameter for $f_\text{v,n}$ \\
+	$\mu$, $\sigma$  			& {--}									& Fit parameters for $f_\text{v,n}$ \\
+    $b$ 						& \unit{\mole\per\kilo\gram}			& Molality \\
+	$C$ 						& {--}									& Relative \acs*{BSE} image contrast \\
+	$c, c_i$ 					& {--}									& Proportion / mass fraction of an element \\
+    $d$, $d_i$                  & \unit{\meter}							& (Pore) diameter \\
+    $\Delta H_{\mathrm{fus}}$	& \unit{\joule\per\gram}				& Enthalpy of fusion \\
+    $\Delta T$					& \unit{\kelvin}						& Temperature difference / freezing point depression \\
+    $\Delta T_{\mathrm{fus}}$	& \unit{\kelvin}						& Temperature difference from the freezing point \\
+	$\eta$						& {--}									& Backscatter coefficient \\
+    $E_r$						& \unit{\giga\pascal}					& Reduced \textsc{Young}'s modulus \\
+    %$F$						& \unit{\newton}						& loading force \\
+    $f$ 						& {--}									& Frequency \\
+	$f_\text{pore}$ 			& {--}									& Frequency of pores \\
+	$f_\text{v,n}$ 				& {--}									& Volume weighted and normalised pore frequency  \\
+    $F_{\mathrm{hydrate}}$       & \unit{\percent}						& Normalised hydrate content \\
+    $g$                         & {--}									& Rotation matrix (\textsc{Bunge} convention) \\
+    $H$							& \unit{\giga\pascal}					& Hardness \\
+    $H_{\mathrm{fus}}$			& \unit{\joule\per\gram}				& Enthalpy of fusion \\
+    $\vec{h}, h_x, h_y, h_z$    & {--}									& Rim direction in crystal reference frame and its components \\
+    $i$							& {--}									& Counter / index \\
+    $i_{\mathrm{vH}}$			& {--}									& \textsc{Van 't-Hoff} factor \\
+    $K_f$						& \unit{\celsius\kilo\gram\per\mole}	& Cryoscopic constant \\
+    $K_{sp}$					& {--}									& Solubility product \\
+    %$l$						& \unit{\micro\meter}					& \acs*{HLT} \\
+	$l_{\mathrm{CSH}}$          & \unit{\micro\meter}					& Hydration layer thickness (\acs*{HLT}) \\
+    $l_{\mathrm{CSH}}(x)$       & \unit{\micro\meter}					& Measured \acs*{HLT} depending on sectioning distance \\
+    $l_{\mathrm{CSH}_{\mathrm{o}}}$ & \unit{\micro\meter}				& Length of \acs*{CSHo} needles \\
+    $l_{\mathrm{max}}$          & \unit{\micro\meter}					& Most frequent \acs*{HLT} \\
+    %$l_{33\,\%,\, \mathrm{l}}$	& \unit{\micro\meter}               & \qty{33}{\percent} of the smaller than below $l_{\mathrm{max}}$ \\
+    %$l_{33\,\%,\, \mathrm{h}}$	& \unit{\micro\meter}               & \qty{33}{\percent} of the area larger than $l_{\mathrm{max}}$ \\
+    $M_{\text{cell}}, M_i$      & \unit{\giga\pascal}					& Mechanical property in a cell / of a pure phase $i$ \\
+    $M_\text{HLT}$              & \unit{\micro\meter}					& Mean \acs*{HLT} of a grain \\
+	$m$							& \unit{\gram}							& Mass\\
+    $n$							& \unit{\mole}							& Amount of substance \\
+    $\vec{n}_\mathrm{sample}$   & {--}									& Unit vector of rim normal in sample reference frame \\
+    $N$							& {--}									& Number of indents \\
+    $p$, $p_i$					& \unit{\mega\pascal}					& Pressure \\
+    $\dot{Q}$					& \unit{\joule\per\second\per\gram}, \unit{\joule\per\hour\per\gram} & Heat flow \\
+    $\dot{Q}_{\mathrm{B}}$		& \unit{\joule\per\second\per\gram}		& Baseline heat flow \\
+    $\dot{Q}_{\mathrm{raw}}$	& \unit{\joule\per\second\per\gram}		& Raw heat flow \\
+    $\dot{Q}_{m}$               & \unit{\joule\per\second\per\gram}		& Baseline corrected heat flow per unit mass \\
+    $R^2$                       & {--}									& Coefficient of determination \\
+    $r_{\mathrm{P}}$			& \unit{\nano\meter}					& Pore radius \\
+	$r_\text{P, max}$			& \unit{\nano\meter}					& most frequent pore radius \\
+    $r_{\mathrm{particle}}$		& \unit{\nano\meter}					& Particle radius \\
+    $r_{\mathrm{p-hyd}}$		& \unit{\nano\meter}					& Potential hydration radius \\
+    $r_{\mathrm{ROI}}$          & \unit{\nano\meter}					& Radius of the region of interest \\
+    $\rho$       				& \unit{\gram\per\centi\meter\cubed}	& Density \\
+    $S$                         & \unit{\mole\per\liter}				& Molar solubility \\
+    $S_{dr}$                    & \unit{\percent}						& Developed area ratio \\
+    $\sigma_{\mathrm{hydrate}}$ & \unit{\wtpercent}						& Amount of hydrate phase \\
+    $\sigma_{\mathrm{BG}}$      & \unit{\percent}						& Method-specific standard deviation for the \acs*{BG} method \\
+    $t$                         & \unit{\s}, \unit{\min}, \unit{\hour}	& Time \\
+    $T$                         & \unit{\kelvin}						& Temperature \\
+    $T2$                        & \unit{\milli\second}					& Transverse relaxation time \\
+    $T_f$                       & \unit{\kelvin}						& Freezing temperature point \\
+    $T_{\mathrm{m}}$            & \unit{\kelvin}						& Theoretical freezing point \\
+    $\theta$                    & \unit{\degree}						& Azimuth angle \\
+    $\vartheta$                 & \unit{\celsius}						& Temperature \\
+    $V$, $V_i$                  & \unit{\cubic\meter} or \unit{\liter}	& Volume \\
+    %$w/b$						& {--}									& water / binder ratio \\
+    $w_{i,\text{cell}}$         & {--}									& Volume fraction of phase $i$ in a cell \\
+    $x, y, z$                   & {--}									& Cartesian coordinates \\
+	$\phi_{\text{img}}, \phi_{\text{area}}$ & \unit{\percent}			& Phase concentration of the entire image / specific area \\
+    $\varphi_1, \Phi, \varphi_2$ & \unit{\degree}						& \textsc{Euler} angles \\
+    $Z$                         & {--} 									& Atomic number \\
+	$\bar{Z}$					& {--} 									& Average atomic number \\
 \end{longtable}
 
 \newpage

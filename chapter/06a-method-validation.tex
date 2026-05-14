@@ -9,7 +9,7 @@ The simulation allows the \ac{HLT} to be varied depending on the crystal orienta
 To enable this, a random crystal orientation was assigned to each \ac{C3S} grain (based on the monoclinic unit cell \acs{ICSD} 94742, \acs{COD} \href{https://qiserver.ugr.es/cod/1540705.html}{1540705} \cite{delatorre.2002}).
 For the validation of the \ac{HLT} measurement algorithm, a constant spherical hydrate layer was used.
 To validate the \ac{EBSD} correlation, the hydrate layer was also modelled as an ellipsoid.
-To create the ellipsoidal hydrate layer, the hydrate layer size was set depending on the crystal-axis to $a$: \num{3.0}, $b$: \num{0.5}, and $c$:  \qty{5.0}{\micro\meter}.
+To create the ellipsoidal hydrate layer, the hydrate layer size was set depending on the crystal axes to $a$: \num{3.0}, $b$: \num{0.5}, and $c$: \qty{5.0}{\micro\meter}.
 
 Slicing this volume generated a virtual \ac{BSE} image (\qty{0.2}{\micro\meter\per\px}), which was then used as input for the methods to be validated.
 Sections of such synthetic \ac{BSE} images are shown in \zcref{fig:c3s_synthetic_BSE}.
@@ -38,7 +38,7 @@ Sections of such synthetic \ac{BSE} images are shown in \zcref{fig:c3s_synthetic
 
 Applying the \ac{HLT} measurement to the synthetic \ac{BSE} images results in \zcref{fig:c3s_synthetic_BSE_HLT}.
 The diagrams consist of a graph indicating frequency of a measured \ac{HLT} as a function of the grain size (blue-green).
-This plot is accompanied by a frequency plot of the grain size diameter (grey) and a grain-size-agnostic distribution plot of the \ac{HLT} frequency (orange).
+This plot is accompanied by a frequency plot of the grain diameter (grey) and a grain-size-agnostic distribution plot of the \ac{HLT} frequency (orange).
 The set values for the respective \ac{HLT} are marked with red lines.
 
 \begin{figure}[htb!]

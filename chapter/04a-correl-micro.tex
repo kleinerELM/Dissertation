@@ -7,19 +7,19 @@ This chapter presents workflows for different methods and discusses the possible
 \section{Combination of \acs*{EDX} and \acl*{NI} utilising \acs*{ArBIB} milling}
 \label{sec:EDX-NI}
 
-\Acl{NI} is a technique to determine mechanical properties of a specimen which requires very flat surfaces \cite{wilson.2018}.
-Mechanical polishing works well for \ac{NI} experiments if done with an oil-based polishing process \cite{gao.2012, wilson.2018}.
+\Acl{NI} is a technique to determine the mechanical properties of a specimen, which requires very flat surfaces \cite{wilson.2018}.
+Mechanical polishing works well for \ac{NI} experiments when done with an oil-based polishing process \cite{gao.2012, wilson.2018}.
 Nevertheless, \ac{ArBIB} milling is a promising preparation method for hydraulic cement-based materials, since it does not require water-free resin embedding, even for porous materials.
-It minimises mechanical damage as demonstrated in \zcref{sec:bib_pol_fixed_results} and avoids chemical contamination.
+It minimises mechanical damage, as demonstrated in \zcref{sec:bib_pol_fixed_results}, and avoids chemical contamination.
 Furthermore, it prevents the formation of a pronounced relief at the interface of hard (e.g. quartz grains) and soft (e.g. hydrated cement) materials.
-For example, the imaging of microstructures of claystone was challenging until the advent of \ac{ArBIB} polishing and milling \cite{yven.2007,houben.2014}.
+For example, imaging the microstructures of claystone was challenging until the advent of \ac{ArBIB} polishing and milling \cite{yven.2007,houben.2014}.
 
 The objective was to obtain a clean and smooth \ac{ITZ} between the binder and a large quartz grain of a \qty{91}{\day} hydrated \acs{CEMI} concrete sample (see \zcref{sec:ni_concrete}).
 As shown in \zcref{fig:lm_ni}, a usable area of $\approx$ \qty{7.5}{\milli\meter\squared} was prepared using \ac{ArBIB} milling.
 The polishing was done at \qty{6}{\kilo\volt}, \qty{2}{\milli\ampere} in multiple sessions for a total of $\approx$ \qty{72}{\hour}.
 Between the sessions, the specimen was repositioned due to a failed ion gun.
-Since the positioning of the specimen is a manual process, the specimen was not at the exact same height as in the first milling session, causing a damaged front area.
-The unpolished upper part of the specimen appears black, which is caused by the depositioning of ablated material such as metal from the \ce{W}-blade.
+Since the positioning of the specimen is a manual process, the specimen was not at the exact same height as in the first milling session, causing damage to the front area.
+The unpolished upper part of the specimen appears black, which is caused by the deposition of ablated material such as metal from the \ce{W}-blade.
 
 \begin{figure}[htb!]
   \centering
@@ -34,10 +34,10 @@ The unpolished upper part of the specimen appears black, which is caused by the 
 \end{figure}
 
 To test the surface quality, a height map was measured using \ac{LSCM} (\textit{VK-X3050} by \textsc{Keyence}) with a resolution of \qty{1.373}{\micro\meter\per\px}.
-The phase segmentation (quartz-binder) was enabled by an element mapping using \ac{mXRF}.
-The quartz grains were segmented based on the subsequent \ce{Si} signal.
+The phase segmentation (quartz-binder) was enabled via elemental mapping using \ac{mXRF}.
+The quartz grains were segmented based on the corresponding \ce{Si} signal.
 Furthermore, a \ac{BSE} image was acquired to find a suitable \ac{ROI} for the \ac{EDX} analysis and the \ac{NI} site.
-The 2D datasets were manually aligned by identifying matching points between these datasets using \textit{QGIS 3.42} \cite{QGIS_software}.
+The 2D datasets were manually aligned by identifying matching points between them using \textit{QGIS 3.42} \cite{QGIS_software}.
 \zcref{fig:arbib-experiment-positions} illustrates the position of the different areas measured by these methods.
 
 \begin{figure}[htb!]
@@ -51,14 +51,14 @@ The 2D datasets were manually aligned by identifying matching points between the
   \label{fig:arbib-experiment-positions}
 \end{figure}
 
-The raw height map in \zcref{fig:arbib-experiment-positions} was aligned to the dark unpolished surface (compare \zcref{fig:lm_ni}).
+The raw height map in \zcref{fig:arbib-experiment-positions} was aligned to the dark, unpolished surface (compare \zcref{fig:lm_ni}).
 This was performed by defining three spatial points and setting the resulting surface plane as the reference plane ($h=0$).
 The aligned height map indicates that the ion beam milled the sample at an angle of \qtyrange{5}{6}{\degree} relative to the top surface.
 
 In contrast, defining the polished surface as a reference plane using three points reveals the unevenness caused by the three beams (see \zcref{fig:arbib-topography}).
 The central area was milled deeper than the lateral areas, creating a V-shaped pattern.
 The polished area in the selected \ac{ROI} has a total height difference of approximately \qty{75}{\micro\meter}, whereas local variations are significantly smaller.
-This seems to be in accordance with the observations from \textcite{sammer.2024}, where the overall roughness was seemingly worse than in mechanical polishing, while locally smoother surfaces were achieved.
+This seems to be in accordance with the observations of \textcite{sammer.2024}, where the overall roughness was seemingly worse than in mechanical polishing, while locally smoother surfaces were achieved.
 
 \begin{figure}[htb!]
 	\centering
@@ -79,7 +79,7 @@ This seems to be in accordance with the observations from \textcite{sammer.2024}
   \label{fig:arbib-topography}
 \end{figure}
 
-\textcite{ISO25178-2:2022} defines roughness parameters like the `developed area ratio' ($S_{dr}$).
+\textcite{ISO25178-2:2022} defines roughness parameters such as the `developed area ratio' ($S_{dr}$).
 $S_{dr}$ is the percentage increase in surface area due to a texture compared to a perfectly flat surface.
 The parameter was calculated within a \qtyproduct{20 x 20}{\px} sliding window for the whole \ac{ROI} (see \zcref{fig:arbib-rough}).
 This allows to omit the global roughness and highlights the local roughness.
@@ -109,17 +109,17 @@ Combined with the segmentation results from the \ac{mXRF} dataset, this allows t
 \end{figure}
 
 At first glance, a significant difference in the overall roughness between the aggregate and the binder area can be observed.
-Calculating the mean $S_{dr}$ value for the aggregate area and the binder area results in \qty{59.7(33.5)}{\percent}, and \qty{87.8(41.5)}{\percent}, respectively.
+Calculating the mean $S_{dr}$ value for the aggregate area and the binder area yields \qty{59.7(33.5)}{\percent} and \qty{87.8(41.5)}{\percent}, respectively.
 In other words, the quartz grains have smoother surfaces than the cement binder phase.
 This can be attributed to the homogeneous composition and the scarcity of phase boundaries (e.g. pores) within the quartz grains, while the binder matrix contains numerous small phase boundaries and incorporates significant porosity.
-However, especially at the quartz grains it becomes obvious, that irregularities are causing a shadow effect in the direction of the ion beam.
+However, especially on the quartz grains, it becomes obvious that irregularities cause a shadowing effect in the direction of the ion beam.
 They cause visible stripes, which are often V-shaped, with the discontinuity at the intersection of the stripes.
 
 In mechanically polished specimens, a visible height difference between phases of different hardness (e.g. quartz and hydrated cement binder) can be observed.
-In contrast, for \ac{ArBIB} milled specimens no such height difference was observed as illustrated by the tilted \ac{SEM}-\ac{SE} images in \zcref{fig:arbib-tilt,fig:arbib-tilt-c} and the \ac{LSCM}-visualisation in \zcref{fig:lscm_NI_depth}.
+In contrast, for \ac{ArBIB}-milled specimens, no such height difference was observed, as illustrated by the tilted \ac{SEM}-\ac{SE} images in \zcref{fig:arbib-tilt,fig:arbib-tilt-c} and the \ac{LSCM} visualisation in \zcref{fig:lscm_NI_depth}.
 The curtaining artefacts caused by porosity are clearly visible in \zcref{fig:arbib-tilt-b}, while \zcref{fig:arbib-tilt-a} shows a smooth surface.
 In both cases, the ion beam was directed from bottom to top.
-As indicated in \zcref{fig:arbib-rough, fig:lscm_NI_depth}, quartz grains cause a smoother surface and this also seems to be true for the transition from quartz to hydrated cement binder.
+As indicated in \zcref{fig:arbib-rough, fig:lscm_NI_depth}, quartz grains present a smoother surface, and this also seems to be true for the transition from quartz to the hydrated cement binder.
 
 % X:\Mitarbeiter\Florian Kleiner\Einzelbilder\2026_02_13 Tilt NI Probe
 \begin{figure}[htb!]
@@ -157,8 +157,8 @@ As indicated in \zcref{fig:arbib-rough, fig:lscm_NI_depth}, quartz grains cause 
   \label{fig:arbib-tilt}
 \end{figure}
 
-A large scale \ac{SEM}-\ac{BSE} image was acquired to find suitable \ac{EDX} and \ac{NI} areas and to estimate the porosity of the \ac{ITZ}.
-A straight phase boundary between quartz and hydrated cement binder was identified and an \ac{EDX} phase map was created (see \zcref{fig:arbib-EDX-NI}).
+A large-scale \ac{SEM}-\ac{BSE} image was acquired to find suitable \ac{EDX} and \ac{NI} areas and to estimate the porosity of the \ac{ITZ}.
+A straight phase boundary between quartz and hydrated cement binder was identified, and an \ac{EDX} phase map was created (see \zcref{fig:arbib-EDX-NI}).
 
 \begin{figure}[htb!]
   \centering
@@ -173,14 +173,14 @@ A straight phase boundary between quartz and hydrated cement binder was identifi
   \label{fig:arbib-EDX-NI}
 \end{figure}
 
-Despite using a \acs{CEMI} as binder, a slag grain can be identified, which might originate from the \qty{5}{\percent} of allowed other components allowed in a \ac{CEMI} according to \textcite{dinen197-1.2011}.
-The \ac{EDX} mapping derived phase map does not distinguish between \ac{C3S} and \ac{C2S} phases, but divides the hydrate phases granularly into \ac{CSHi} (\ac{HD}), \ac{CASH}, \ce{Mg}-\ac{CASH}, \ac{CH} and \ac{AFm}/\ac{AFt}.
+Despite using a \acs{CEMI} as the binder, a slag grain can be identified, which might originate from the \qty{5}{\percent} of minor additional constituents allowed in a \ac{CEMI} according to \textcite{dinen197-1.2011}.
+The phase map derived from the \ac{EDX} mapping does not distinguish between \ac{C3S} and \ac{C2S} phases, but divides the hydrate phases granularly into \ac{CSHi} (\ac{HD}), \ac{CASH}, \ce{Mg}-\ac{CASH}, \ac{CH} and \ac{AFm}/\ac{AFt}.
 Hydrate phases that could not be further differentiated due to their nano-scale intergrowth were classified as \ac{CSHo} (\ac{LD}).
 
-The \ac{NI} was done on a $\approx$ \qtyproduct{100 x 325}{\micro\meter\squared} area with \numproduct{20 x 65} indents at a \qty{5}{\micro\meter} spacing.
-The \ac{NI} measurements allow to calculate the hardness $H$ and the reduced \textsc{Young}'s modulus $E_r$.
+The \ac{NI} was performed on an area of $\approx$ \qtyproduct{100 x 325}{\micro\meter\squared} with \numproduct{20 x 65} indents at a \qty{5}{\micro\meter} spacing.
+The \ac{NI} measurements enable the calculation of the hardness $H$ and the reduced \textsc{Young}'s modulus $E_r$.
 After the indentation process was completed, another \ac{BSE} image was acquired to identify the indents.
-Overlaying a grid, as shown in \zcref{fig:BSE-indents}, indicates that the indent positions deviated a few \unit{\micro\meter} from the planned ones.
+Overlaying a grid, as shown in \zcref{fig:BSE-indents}, indicates that the indent positions deviated by a few \unit{\micro\meter} from the planned ones.
 Furthermore, another \ac{NI} measurement was performed within the same area, resulting in an apparently irregular pattern, making the indent assignment difficult.
 
 \begin{figure}[htb!]
@@ -196,8 +196,8 @@ Furthermore, another \ac{NI} measurement was performed within the same area, res
   \label{fig:BSE-indents}
 \end{figure}
 
-Visualising the hardness and the reduced \textsc{Young}'s modulus maps, results in the images shown in \zcref{fig:ni2D-results}.
-In both images, the position of the quartz, clinker and slag phases can be identified by their high values.
+Visualising the hardness and the reduced \textsc{Young}'s modulus maps yields the images shown in \zcref{fig:ni2D-results}.
+In both images, the position of the quartz, clinker, and slag phases can be identified by their high values.
 In the modulus map, the distribution of the cracks can also be determined.
 
 \begin{figure}[htb!]
@@ -258,13 +258,13 @@ In the modulus map, the distribution of the cracks can also be determined.
   \label{fig:ni2D-results}
 \end{figure}
 
-Combining the \ac{NI} measurements, the \ac{EDX} phase mapping, and the \ac{BSE} image, allows to assign the hardness and the modulus to the different phases.
-However, the phase assignment of each of the \num{1140} indents based on the indent positions found in the \ac{BSE} image was unpractical, due to their slight misalignments (see \zcref{fig:ni2D-results}).
-Therefore, the high-resolution \ac{EDX} map was subdivided using a grid as indicated in \zcref{fig:BSE-indents, fig:ni2D-results-c,fig:ni2D-results-d}.
+Combining the \ac{NI} measurements, the \ac{EDX} phase mapping, and the \ac{BSE} image allows the hardness and the modulus to be assigned to the different phases.
+However, the phase assignment of each of the \num{1140} indents based on the indent positions found in the \ac{BSE} image was impractical due to their slight misalignments (see \zcref{fig:ni2D-results}).
+Therefore, the high-resolution \ac{EDX} map was subdivided using a grid, as indicated in \zcref{fig:BSE-indents, fig:ni2D-results-c,fig:ni2D-results-d}.
 Within each grid cell, the phase composition ratio was calculated.
 Grid cells in which no single phase exceeded \qty{50}{\percent} were excluded from the \ac{NI} evaluation.
-This resulted in \qty{76.1}{\percent} (\num{868} of \num{1140}) assigned indents within the overlapping area.
-\zcref{tab:ni-results} and \zcref{fig:ni-boxplot-raw} show the detailed results of the phase dependent hardness and modulus.
+This resulted in \qty{76.1}{\percent} (\num{868} of \num{1140}) of the indents being assigned within the overlapping area.
+\zcref{tab:ni-results} and \zcref{fig:ni-boxplot-raw} show the detailed results of the phase-dependent hardness and modulus.
 
 \begin{table}[htb]
 	\centering
@@ -306,7 +306,7 @@ Unhydrated materials such as \ac{C3S}/\ac{C2S} and slag exhibit superior mechani
 \ac{C3S}/\ac{C2S} shows a mean hardness of \qty{7.6(3.1)}{\giga\pascal} and a reduced modulus of \qty{92.0(24.1)}{\giga\pascal}, while slag has a hardness of \qty{7.1(1.4)}{\giga\pascal} and a modulus of \qty{81.1(11.4)}{\giga\pascal}.
 In contrast, the hydrated phases exhibit much more similar mechanical properties.
 \ac{CH} exhibits a mean hardness of \qty{1.8(0.8)}{\giga\pascal} and a modulus of \qty{36.1(9.5)}{\giga\pascal}, which is slightly lower than in \cite{li.2025,li.2026}.
-\ac{CSHi} shows values with a hardness of \qty{1.4(1.0)}{\giga\pascal} and a modulus of \qty{29.6(11.9)}{\giga\pascal}, while \ac{CSHo} is slightly lower with a hardness of \qty{1.1(0.5)}{\giga\pascal} and a modulus of \qty{23.5(8.0)}{\giga\pascal}.
+\ac{CSHi} shows a hardness of \qty{1.4(1.0)}{\giga\pascal} and a modulus of \qty{29.6(11.9)}{\giga\pascal}, while \ac{CSHo} yields slightly lower values with a hardness of \qty{1.1(0.5)}{\giga\pascal} and a modulus of \qty{23.5(8.0)}{\giga\pascal}.
 
 \ac{CASH} and \ce{Mg}-\ac{CASH} display comparable properties, with hardness values of \qty{1.2(0.6)}{\giga\pascal} and \qty{1.2(1.3)}{\giga\pascal}, and moduli of \qty{27.4(8.2)}{\giga\pascal} and \qty{28.7(14.8)}{\giga\pascal}, respectively.
 Comparing the very low values determined for \ac{C3A}/\ac{C4AF} (\qty{1.36}{\giga\pascal} hardness and \qty{28.76}{\giga\pascal} reduced modulus) with literature values (\qtyrange{9}{11}{\giga\pascal} hardness and \qtyrange{125}{145}{\giga\pascal} elastic moduli in \ac{OPC} \cite{velez.2001}) shows a stark discrepancy.
@@ -314,7 +314,7 @@ This discrepancy arises because the \ac{C3A}/\ac{C4AF} phase is represented by o
 Although pores should theoretically yield values of zero, low values are recorded (mean hardness \qty{1.00(1.15)}{\giga\pascal}).
 This is likely due to the interaction volume of the indentation including material directly at the crack edges or beneath the shallow pores.
 However, these results are still above the manually assigned values in \cite{li.2025, li.2026}, where the pores were filled with epoxy resin.
-This discrepancy may be attributed to direct contact with the material beneath the pore or at the edges, in contrast to the intermediate contact with epoxy resin, or to imperfect phase assignment.
+This discrepancy may be attributed to direct contact with the material beneath the pore or at the edges, in contrast to an intermediate contact with epoxy resin, or to imperfect phase assignment.
 The quartz aggregate exhibits the highest hardness of \qty{11.0(2.3)}{\giga\pascal} and a modulus of \qty{84.0(14.0)}{\giga\pascal}, which is in good agreement with \cite{li.2025, li.2026}.
 
 %sebastiani.2016: w/z 0.35, CEM I 52.5R; E_r: CSHi 39.3+-2.8; CSHo 30.1+-2.3 GPa (significantly higher, but more performant concrete mixture)
@@ -322,18 +322,19 @@ The quartz aggregate exhibits the highest hardness of \qty{11.0(2.3)}{\giga\pasc
 % xu.2017: w/z 0.45, CEM I 42.5; E_r: CSHi 29.45+-1.87; CSHo 20.96+-1.35 GPa
 In the literature, hardness values for clinker phases are reported to range from \qtyrange{4.5}{11}{\giga\pascal}, with moduli between \qtyrange{72}{160}{\giga\pascal} \cite{sebastiani.2016,han.2012,xu.2017, lahayne.2022}.
 For \ac{CSHi}, hardness values range from \qtyrange{0.9}{1.8}{\giga\pascal} with moduli between \qtyrange{21}{32}{\giga\pascal}, whereas for \ac{CSHo}, hardness values range from \qtyrange{0.3}{1.0}{\giga\pascal} and moduli from \qtyrange{11}{20}{\giga\pascal} \cite{han.2012, xu.2017, lahayne.2022}.
-However, these properties depend on the \ac{wb} value; typically, a higher \ac{wb} value results in lower hardness and modulus \cite{xu.2017}.
+However, these properties depend on the \ac{wb} value. 
+Typically, a higher \ac{wb} value results in lower hardness and a lower modulus \cite{xu.2017}.
 The values measured in this experiment align with the ranges reported in the literature, although the standard deviations observed here are generally higher than in \cite{sebastiani.2016,xu.2017}.
-This might be caused by the different indent assignment, which is usually done in literature by using the deconvolution technique applied to the probability density function of the modulus values \cite{sebastiani.2016,xu.2017}.
+This might be caused by the different indent assignment, which is usually performed in the literature using the deconvolution technique applied to the probability density function of the modulus values \cite{sebastiani.2016,xu.2017}.
 A few previous studies only distinguish between \ac{CSHi}, \ac{CSHo}, and \ac{CH}, even when combined with \ac{EDX} measurements \cite{sebastiani.2016, lahayne.2022}.
-\textcite{wilson.2018} was additionally able to identify and assign \ac{NI} measurements to \ac{CASH} phases of a hydrated cement (\ac{wb} = \qty{0.4}) utilising a \ac{EDX} mapping.
+\textcite{wilson.2018} were additionally able to identify and assign \ac{NI} measurements to \ac{CASH} phases of a hydrated cement (\ac{wb} = \qty{0.4}) utilising an \ac{EDX} mapping.
 They measured hardness values of \qty{1.1(0.35)}{\giga\pascal}, and moduli of \qty{33.5(7.3)}{\giga\pascal}.
 However, as shown in this study, the use of detailed \ac{EDX} phase segmentation enables the identification of additional hydrate phases.
 \pdfcomment[icon=Comment, color=cyan, author=Christane]{% TODO: comment Christane
 	gibt es literatur daten für AFm/Aft (an richtigen zementen nicht reinen phasen, dass würde ich immer unterscheiden).? gibt es nun unterschiede mit und ohne epoxy? ich würde schon eine NI probe mit epoxi mit ranziehen und das diesen ergebnissen direkt gegenüberstellen (weil wir hier dann gleiche probenzusammensetzung und messparameter haben, die daten hat feng doch, oder?)
 }
 
-The boxplots in \zcref{fig:ni-boxplot-raw} visualises these distributions, showing the median, the lowest, and highest datapoints (whiskers) excluding the outliers (dots) and the first and third quartile of the datapoints (coloured box).
+The boxplots in \zcref{fig:ni-boxplot-raw} visualise these distributions, showing the median, the lowest and highest data points (whiskers) excluding the outliers (dots), and the first and third quartiles of the data points (coloured boxes).
 The interquartile range (box) is calculated as the difference between the third and first quartiles.
 Any data point falling more than \num{1.5} times this range above the upper quartile or below the lower quartile is classified as an outlier and visualised individually (\textsc{Tukey}'s method).
 The whiskers extend to the most extreme data points that remain within these calculated boundaries.
@@ -442,18 +443,18 @@ The mechanical properties of a composite material were approximated using the fo
 where $M_{\text{cell}}$ is the measured mechanical property (hardness $H$ or modulus $E_r$) in a grid cell, $w_{i,\text{cell}}$ is the volume fraction of phase $i$ in that cell (determined from the \ac{EDX} grid analysis), and $M_i$ is the mechanical property of pure phase $i$ (to be determined).
 The cell-averaged properties represent the spatial averaging over the indent interaction volume, which typically extends $\approx$ \qty{0.5}{\micro\meter} into the material.
 
-Since each cell roughly has a dimension of \qtyproduct{5x5}{\micro\metre}, using the volume fraction for the whole cell is a rather coarse approach.
+Since each cell has dimensions of roughly \qtyproduct{5x5}{\micro\metre}, using the volume fraction for the entire cell is a rather coarse approach.
 Therefore, a weighted volume fraction was also used.
 The weighted volume fraction does not treat all phase fractions within the cell equally, but takes into account the local phase distribution in the vicinity ($r$ = \qty{0.5}{\micro\meter}) of the most likely position of the indentation.
 Phase fractions that are spatially closer to the indent location or that contribute more strongly to the effective interaction volume are thus given greater influence.
 This improves the assignment of measured hardness and modulus values to the pure phases.
 This can be especially useful in heterogeneous cells and for rare phases such as \acs{C3A}/\acs{C4AF}.
 
-For all \num{1140} grid cells, a system of linear equations for hardness and reduced modulus datasets were constructed and solved using least-squares minimization.
+For all \num{1140} grid cells, a system of linear equations for hardness and reduced modulus datasets was constructed and solved using least-squares minimisation.
 The phase fractions $w_{i,\text{cell}}$ serve as the coefficients (design matrix), and the measured indentation properties $M_{\text{cell}}$ form the observation vector.
-The fit parameters $M_i$ were determined by minimizing the residual sum of squares.
+The fit parameters $M_i$ were determined by minimising the residual sum of squares.
 
-The pores were fixed to $M_i$ = \qty{0.4}{\giga\pascal} for hardness and \qty{5.0}{\giga\pascal} for the modulus, respectively, as reasonable assumption, since these measurements usually are very low, but not \num{0} in a real-world measurement.
+The pores were fixed to $M_i$ = \qty{0.4}{\giga\pascal} for hardness and \qty{5.0}{\giga\pascal} for the modulus, respectively, as a reasonable assumption, since these measurements are usually very low, but not exactly \num{0} in a real-world measurement.
 % Negative property values were eliminated during post-processing (non-physical).
 
 The quality of the fit was assessed using the coefficient of determination ($R^2$).
@@ -497,7 +498,7 @@ The fitted phase hardnesses and moduli are presented in \zcref{tab:ni-results-fi
 	\label{tab:ni-results-fitted}
 \end{table}
 
-The fit yields $R^2$ = \num{0.7992} for hardness of the coarse solution (\num{0.7435} for the reduced modulus) and $R^2$ = \num{0.7209} for the hardness of the weighted solution (\num{0.6404} for the reduced modulus). 
+The fit yields $R^2$ = \num{0.7992} for the hardness of the coarse solution (\num{0.7435} for the reduced modulus) and $R^2$ = \num{0.7209} for the hardness of the weighted solution (\num{0.6404} for the reduced modulus). 
 This indicates that the linear combination of phase fractions explains the majority of the measured cell-averaged hardness variance.
 
 All \num{1140} measurements are incorporated, eliminating the data loss from the threshold-based method. 
@@ -505,16 +506,17 @@ The two approaches yield broadly consistent results for abundant phases but diff
 For \ac{CSHo}, the threshold-based method yields \qty{1.06(0.53)}{\giga\pascal}, while the fit estimates \qty{1.05}{\giga\pascal}.
 Similarly close results were acquired for quartz: \qty{11.0(2.3)}{\giga\pascal} vs. \qty{11.8}{\giga\pascal}.
 Phases like \acs{C3A}/\acs{C4AF}, represented by limited direct measurements, benefit from information distributed across all grid cells, resulting in more realistic estimates.
-The estimates range from \qtyrange{10.5}{15.1}{\giga\pascal} for hardness and \qtyrange{124}{180}{\giga\pascal} for the modulus and are much closer to the expected literature values (\qtyrange{9}{11}{\giga\pascal} hardness and \qtyrange{125}{145}{\giga\pascal} elastic moduli in \ac{OPC} \cite{velez.2001}) than the single measurement available in the threshold-based approach.
+The estimates range from \qtyrange{10.5}{15.1}{\giga\pascal} for the hardness and \qtyrange{124}{180}{\giga\pascal} for the modulus and are much closer to the expected literature values (\qtyrange{9}{11}{\giga\pascal} hardness and \qtyrange{125}{145}{\giga\pascal} elastic moduli in \ac{OPC} \cite{velez.2001}) than the single measurement available in the threshold-based approach.
 Overall, the weighted values seem to be more realistic, while the $R^2$ value is worse than for the coarse fit.
 Nevertheless, the linear rule-of-mixtures assumes additive contributions without interactions.
-Real composite behaviour may deviate due to phase-boundary effects, residual stresses, or mechanical constraint effects neighbouring phases.
-Additionally, the model assumes each indent was performed on a homogeneous phase, whereas heterogeneities like micro-cracks or compositional gradients could introduce errors.
+Real composite behaviour may deviate due to phase-boundary effects, residual stresses, or mechanical constraint effects from neighbouring phases.
+Additionally, the model assumes each indent was performed on a homogeneous phase, whereas heterogeneities such as micro-cracks or compositional gradients could introduce errors.
 
 
-Since the measurement area was chosen in a way, that the quartz grain boundary is parallel to the $y$-axis (orientation as shown in \zcref{fig:ni2D-results-a,fig:ni2D-results-b}), a profile can be plotted to visualise the hardness and moduli depending on the distance to the quartz grain (\zcref{fig:ni-profiles}).
-Since the hydrate phase is the primary focus in terms of mechanical properties at the \ac{ITZ}, phases like quartz, \ac{C3S}/\ac{C2S} and slag had to be filtered.
-This was done by selecting only indents, with a hardness below \num{6} and a reduced modulus below \qty{80}{\giga\pascal}.
+Since the measurement area was chosen such that the quartz grain boundary is parallel to the $y$-axis (orientation as shown in \zcref{fig:ni2D-results-a,fig:ni2D-results-b}), a profile can be plotted to visualise the hardness and moduli depending on the distance from the quartz grain (\zcref{fig:ni-profiles}).
+The hydrate phase is the primary focus in terms of mechanical properties at the \ac{ITZ}.
+Therefore, phases like quartz, \ac{C3S}/\ac{C2S} and slag had to be filtered out.
+This was done by selecting only indents with a hardness below \num{6} and a reduced modulus below \qty{80}{\giga\pascal}.
 %, respectively, to remove phases like quartz, clinker and slag, which have a high hardness.
 
 \begin{figure}[htb]
@@ -578,10 +580,10 @@ This was done by selecting only indents, with a hardness below \num{6} and a red
 \end{figure}
 
 Both diagrams show that the values directly at the interface (at \qty{30}{\micro\meter}) are slightly lower than in the bulk material.
-However, based on this data the \ac{ITZ} width cannot be clearly defined, but the typical width known from literature (\qty{60}{\micro\meter}) was marked in grey in the graphs.
-Nevertheless, it was demonstrated that, as stated in the literature, \ac{CH} accumulated at the \ac{ITZ} \cite{li.2012, tian.2018, gao.2014}.
+However, based on these data, the \ac{ITZ} width cannot be clearly defined, but the typical width known from literature (\qty{60}{\micro\meter}) was marked in grey in the graphs.
+Nevertheless, it was demonstrated that, as stated in the literature, \ac{CH} accumulates at the \ac{ITZ} \cite{li.2012, tian.2018, gao.2014}.
 %The \ac{ITZ} is expected to be <\,\qty{100}{\micro\meter} wide \cite{lavrov.2017,torsaeter.2015,zhu.2000}, based on the slope attributed to the quartz grain interface.
 Comparing the graphs to the \ac{BSE} and \ac{EDX} data indicates a small crack in the interface zone between the binder and the grain.
-Therefore, a porosity analysis in this range not suitable, since the majority of the segmentable pores in the \ac{BSE} image originate from cracks, most probably caused by the preparation.
-For example, the specimen was dried in vacuum within the polishing device and within the \ac{SEM} and the \ac{ArBIB} preparation also induces heat and therefore can cause cracks.
+Therefore, a porosity analysis in this range is not suitable, since the majority of the segmentable pores in the \ac{BSE} image originate from cracks, most probably caused by the preparation.
+For example, the specimen was dried in vacuum within the polishing device and within the \ac{SEM}, and the \ac{ArBIB} preparation also induces heat and can therefore cause cracks.
 This can also be seen in the lower two images in \zcref{fig:BSE_CEMI_voltages}, where the carbon coating was removed using \ac{ArBIB} polishing and new cracks appeared.

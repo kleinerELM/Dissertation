@@ -382,7 +382,7 @@ These images, along with the corresponding segmentation results, are provided in
 \zcref{fig:compare_images} presents two example images alongside their respective pore segmentations.
 Additional image examples, indicating the excluded areas, are shown in \zcref{fig:compare_rt_1,fig:compare_cryo_1}.
 
-\begin{figure}[htbp]
+\begin{figure}[htb!]
     \centering
     % RT Images
 	% C3S 28d BIB 6KV 6h_019.tif
@@ -421,7 +421,11 @@ The \ac{PSD} and \ac{CDF} were calculated for each image.
 As the pixel sizes and image areas differed, these results subsequently summarised in two datasets.
 For each dataset, the area-weighted \ac{PSD} and the corresponding \ac{CDF} were calculated using \zcref{eq:weig_norm_pore_frequency} and plotted in \zcref{fig:compare_graphs}.
 
-\begin{figure}[htbp]
+\zcref{fig:compare_images} shows nano-sized pores in a sample sectioned using \ac{ArBIB} at \qty{-140}{\celsius} and \qty{20}{\celsius}.
+Pores with a diameter of \qty{5}{\nano\meter} can be clearly distinguished and analysed in the \ac{SE} images (resolution: \qty{0.9}{\nano\meter\per\px}, \qtyproduct{2022 x 1650}{\px}).
+Manual verification of the segmentation results is essential to exclude erroneously segmented areas, as the false detection of microstructural features remains a possibility.
+
+\begin{figure}[htb!]
     \centering
     % RT Graph
     \begin{subfigure}{0.49\textwidth}
@@ -511,10 +515,6 @@ For each dataset, the area-weighted \ac{PSD} and the corresponding \ac{CDF} were
     \label{fig:compare_graphs}
 \end{figure}
 
-\zcref{fig:compare_images} shows nano-sized pores in a sample sectioned using \ac{ArBIB} at \qty{-140}{\celsius} and \qty{20}{\celsius}.
-Pores with a diameter of \qty{5}{\nano\meter} can be clearly distinguished and analysed in the \ac{SE} images (resolution: \qty{0.9}{\nano\meter\per\px}, \qtyproduct{2022 x 1650}{\px}).
-Manual verification of the segmentation results is essential to exclude erroneously segmented areas, as the false detection of microstructural features remains a possibility.
-
 As illustrated in \zcref{fig:compare_cryo_c,fig:compare_rt_c}, the \ac{CDF} (converted from chord to volume, red) exhibits a distribution remarkably similar to the \ac{PSD} determined by pore area analysis (blue).
 However, the data density of the \ac{PSD} is relatively low, resulting in significant fluctuations.
 The data density of the \ac{PSD} is also insufficient for evaluating individual images, as previously demonstrated in \cite{kleiner.2021a}. 
@@ -536,16 +536,13 @@ However, it appears that the curtaining artefacts visible in some images may aff
 
 \subsection{\acs*{FIBnt}}
 
-To obtain data on the nano porosity of \ac{CSHi} of \qty{28}{\day} hydrated \ac{C3S}, a high-resolution \ac{BSE}-stack was created using \ac{FIBnt} \cite{kleiner.2026}.
-The dataset has a volume of \qtyproduct{3.8 x 4.1 x 0.7}{\micro\meter\cubed} and a voxel size \qtyproduct{1.6 x 2.0 x 10}{\nano\meter\cubed}.
-It contains a block of \ac{CSHi} which is surrounded by \ac{CSH} needles and includes a \textsc{Hadley} grain with an unhydrated \ac{C3S} particle in its centre.
-\zcref{fig:fib_highres_pores} illustrates the dataset and the porosity within the \ac{CSHi}.
+To obtain data on the nano porosity of \ac{CSHi} of \qty{28}{\day} hydrated \ac{C3S}, a high-resolution \ac{BSE}-stack was created using \ac{FIBnt} (see \zcref{fig:fib_highres_pores_a}) \cite{kleiner.2026}.
 
 % E:\Mitarbeiter\Florian Kleiner\FIB-Data\C3S 1Tag-10Monate\2019_11_01 C3S High Resolution Training RT
 \begin{figure}[H]
     \centering
 
-	\begin{subfigure}[t]{0.45\textwidth}
+	\begin{subfigure}[t]{0.43\textwidth}
 		\ifdefined\PRINTABLE
 			\includegraphics[width=\textwidth]{fibnt-datasets/high-res-ani/high-res-11.pdf}
 		\else
@@ -555,13 +552,14 @@ It contains a block of \ac{CSHi} which is surrounded by \ac{CSH} needles and inc
 		\label{fig:fib_highres_pores_a}
 	\end{subfigure}
 	\hfill
-	\begin{subfigure}[t]{0.54\textwidth}
+	\begin{subfigure}[t]{0.52\textwidth}
 		\ifdefined\PRINTABLE
 			\includegraphics[width=\textwidth]{fibnt-datasets/vol_ani/volume_00.pdf}
 		\else
 			\animategraphics[palindrome,autoplay,poster=00,width=\textwidth]{10}{fibnt-datasets/vol_ani/volume_}{00}{14}
 		\fi
 		\caption{3D-reconstruction of the pore space.}
+		\label{fig:fib_highres_pores_b}
 	\end{subfigure}
 	\caption{
 		\ac{FIBnt} dataset (\qtyproduct{3.8 x 4.1 x 0.7}{\micro\meter\cubed}) of a \qty{28}{\day} hydrated \ac{C3S} specimen and its 3D-reconstruction \cite{kleiner.2026}.
@@ -569,6 +567,10 @@ It contains a block of \ac{CSHi} which is surrounded by \ac{CSH} needles and inc
 	}
 	\label{fig:fib_highres_pores}
 \end{figure}
+
+The dataset has a volume of \qtyproduct{3.8 x 4.1 x 0.7}{\micro\meter\cubed} and a voxel size \qtyproduct{1.6 x 2.0 x 10}{\nano\meter\cubed}.
+It contains a block of \ac{CSHi} which is surrounded by \ac{CSH} needles and includes a \textsc{Hadley} grain with an unhydrated \ac{C3S} particle in its centre.
+\zcref{fig:fib_highres_pores_b} illustrates the porosity within the \ac{CSHi}.
 
 While the energy density introduced in the specimen surface by imaging at \qty{2}{\kilo\volt} and \qty{0.1}{\nano\ampere} was fairly low, it is still possible that the nano-porosity observed within the bulk was induced or at least enlarged during the image acquisition as discussed in \zcref{sec:fib_evaluation_obstacles}.
 

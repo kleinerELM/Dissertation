@@ -7,7 +7,7 @@ The methods presented in \zcref{subsec:algo_hlm, sec:ebsd-hydrate} were applied 
 The datasets differ in the imaged area and slightly in \ac{SEM} imaging parameters.
 For example, the accelerating voltage used varied from \qtyrange{10}{15}{\kilo\volt}.
 The raw images are publicly available \cite{kleiner.2023a, kleiner.2025e, kleiner.2025d}.
-Furthermore, the method was adapted to measure particle distances and combined with \ac{EBSD} measurements.
+Furthermore, the method was adapted to measure particle distances and was combined with \ac{EBSD} measurements.
 However, the methods first had to be validated.
 
 \input{chapter/06a-method-validation}
@@ -34,7 +34,7 @@ The threshold segmentation leads to many erroneously identified phases.
 In contrast, the pixel classification produces a result very close to the manual segmentation.
 However, if \ac{CSHo} is taken into account in the pixel classification, the \ac{HLT} distribution and the calculated $l_\text{max}$ (the most frequent \ac{HLT}) are comparable to the threshold-based segmentation, whilst the data density is significantly reduced (see \zcref{tab:segmentation} and \zcref{fig:hlt_segmentation_influence} \cite{kleiner.2024}, \ac{SI}).
 This data density reduction is caused by a rough segmentation of the \ac{CSHo} and, therefore, a significantly decreased pore space.
-Furthermore, a slightly larger \qty{33.3}{\percent} confidence interval and a significant reduction of the first \ac{HLT} accumulation can be observed, including the \ac{CSHo}.
+Furthermore, a slightly larger \qty{33.3}{\percent} confidence interval and a significant reduction of the first \ac{HLT} accumulation can be observed when including the \ac{CSHo}.
 
 \begin{figure}[p]
     \centerline{\includegraphics[width=\textwidth]{hydrate-rim/supplementary/threshold_types.pdf}}
@@ -78,16 +78,17 @@ In many cases, whether \ac{CSHo} or merely an artefact such as a flat edge is be
 		\toprule
 		\multirow{3}{*}{segmentation method} & 1. & 2.a & 2.b & 3. \\
 
-			& threshold		& \multicolumn{2}{c}{pixel classification} & manual\\
-		 & {--} & w. \ac{CSHo} & wo. \ac{CSHo} & {--} \\ \midrule
-		time required & $\approx$\,\qty{5}{\minute} & \multicolumn{2}{c}{$\approx$\,\qty{4}{\hour}} & $\approx$\,\qty{2}{weeks} \\\midrule
+																	& threshold		& \multicolumn{2}{c}{pixel classification} & manual\\
+																	& {--} & w. \ac{CSHo} & wo. \ac{CSHo} & {--} \\ \midrule
+		time required												& $\approx$\,\qty{5}{\minute} & \multicolumn{2}{c}{$\approx$\,\qty{4}{\hour}} & $\approx$\,\qty{2}{weeks} \\\midrule
 
-		pores in \unit{\areapercent}        & 23.3   & 22.1    & 30.7    & 30.0  \\
-		hydrates in \unit{\areapercent}        & 62.9    & 61.1    & 52.5    & 53.4  \\
-		clinker in \unit{\areapercent}        & 13.9    & 17.4    & 17.4    & 17.2 \\ \midrule
-		$l_\text{\qty{-33.3}{\percent}}$ in \unit{\micro\meter}    &  1.43    & 1.43    & 1.18    & 1.18 \\
-		$l_\text{max}$ in \unit{\micro\meter}    &  1.85    & 1.94    & 1.52    & 1.52 \\
-		$l_\text{+\qty{33.3}{\percent}}$ in \unit{\micro\meter}    & 2.28 & 2.44    & 1.85    & 1.94 \\
+		pores in \unit{\areapercent}								& 23.3   & 22.0   & 30.7   & 30.0 \\
+		\ac{CSH} in \unit{\areapercent}								& 62.9   & 52.5   & 52.5   & 53.4 \\
+		\ac{CSHo} in \unit{\areapercent}							& {--}   &  8.6   & {--}   & {--} \\
+		clinker in \unit{\areapercent}								& 13.9   & 16.8   & 16.8   & 16.7 \\ \midrule
+		$l_\text{\qty{-33.3}{\percent}}$ in \unit{\micro\meter}		&  1.43  & 1.43   & 1.18   & 1.18 \\
+		$l_\text{max}$ in \unit{\micro\meter}						&  1.85  & 1.94   & 1.52   & 1.52 \\
+		$l_\text{+\qty{33.3}{\percent}}$ in \unit{\micro\meter}		& 2.28   & 2.44   & 1.85   & 1.94 \\
 		\bottomrule
 	\end{tabularx}
 	\label{tab:segmentation}
@@ -106,9 +107,9 @@ Therefore, the hydrate content within the solids $F_\text{hydrate}$ was calculat
 % Bar chart: Normalised hydrate content F_hydrate
 % Values taken from table \ref{tab:segmentation}:
 % method 1: 62.9 / (13.9 + 62.9) * 100 = 81.9
-% method 2.a: 61.1 / (17.4 + 61.1) * 100 = 77.8
-% method 2.b: 52.5 / (17.4 + 52.5) * 100 = 75.1
-% method 3: 53.4 / (17.2 + 53.4) * 100 = 75.6
+% method 2.a: 61.1 / (16.8 + 61.1) * 100 = 78.4
+% method 2.b: 52.5 / (16.8 + 52.5) * 100 = 75.8
+% method 3: 53.4 / (16.7 + 53.4) * 100 = 76.2
 \begin{figure}[htbp]
 	\centering
 	\begin{tikzpicture}
@@ -127,10 +128,10 @@ Therefore, the hydrate content within the solids $F_\text{hydrate}$ was calculat
 				precision=1
 			},
 			bar width=14pt,
-			height=5.5cm,
-			width=.6\textwidth,
+			height=6.5cm,
+			width=.7\textwidth,
 		]
-			\addplot+[fill=orange, orange] coordinates {(1,81.9) (2.a,77.8) (2.b,75.1) (3,75.6)};
+			\addplot+[fill=orange, orange] coordinates {(1,81.9) (2.a,78.4) (2.b,75.8) (3,76.2)};
 		\end{axis}
 	\end{tikzpicture}
 	\caption{
@@ -140,8 +141,8 @@ Therefore, the hydrate content within the solids $F_\text{hydrate}$ was calculat
 	\label{fig:segmentation_hydrate_clinker_ratio}
 \end{figure}
 
-Simple thresholding overestimates the proportion of hydration products by more than \qty{6}{\percent}.
-In contrast, the pixel classification (ignoring \ac{CSHo}) deviates by only \qty{1}{\percent} from the manual segmentation result.
+Simple thresholding overestimates the proportion of hydration products by more than \qty{5}{\percent}.
+In contrast, the pixel classification (ignoring \ac{CSHo}) deviates by only \qty{2}{\percent} from the manual segmentation result.
 The estimated time required to manually train this model is approximately \qty{4}{\hour}, although this can vary considerably depending on the training results.
 However, the thresholding method is the fastest option.
 It can perform well if the raw images have good phase contrast, which can be difficult to achieve due to the small differences in the backscatter coefficient $\eta$, as described in \zcref{sec:bse}.
@@ -153,7 +154,7 @@ These artefacts can significantly influence the thresholding method in particula
 
 Initially, the individual phases were analysed.
 The images reveal distinct differences in the morphology of the hydration products.
-For example, the \ac{CSH}-needles in hydrated \ac{C3S} are small and form on a dense \ac{CSHi} rim.
+For example, the \ac{CSH} needles in hydrated \ac{C3S} are small and form on a dense \ac{CSHi} rim.
 In contrast, hydrated \ac{C2S} produces coarser needles with a less homogeneous, dense \ac{CSH} layer underneath (see \zcref{fig:single_phase_examples}).
 Furthermore, a higher number of unhydrated \ac{C2S} particles can be observed in the same area, often shattered into smaller fragments.
 
@@ -196,33 +197,30 @@ An overview of some basic statistics of the images analysed is listed in \zcref{
 	pores in \unit{\areapercent}		& 38.5	& 28.5	& 22.2	& 13.7	& 21.7	& 14.8  \\
 	hydrates in \unit{\areapercent}	& 38.0	& 52.8	& 62.7	& 78.7	& 72.7	& 83.2  \\
 	clinker in \unit{\areapercent}		& 23.9	& 19.1	& 15.4	&  7.7	& 5.7	& 2.0   \\[5pt] \midrule
-	% $l_\text{33\,\%, l}$ in \unit{\micro\meter}	&  - 	& 1.10	& 1.52 & 2.44 & {--} & {--} \\
-	% $l_\text{max}$ in \unit{\micro\meter}	&  0.45	&  1.35		& 1.94	&  3.04	& {--}	& {--} \\
-	% $l_\text{33\,\%, h}$ in \unit{\micro\meter}	& 0.63 &  1.69	& 2.36 & 3.63 & {--} & {--} \\
 
 	\multicolumn{7}{c}{\textbf{\ac{C2S}}} \\ \midrule
     particles per \unit{\milli\meter\squared} 	 & \num{74870} & \num{86495} & \num{113898} & \num{95004} & {--} 	& {--} 	\\[2pt] %\midrule
-    pores in \unit{\areapercent} 	 	& 46.2 	& 43.2 	& 31.4 	& 15.9 	& {--} 	& {--} 	\\
-    hydrates in \unit{\areapercent} & 15.4 	& 27.0 	& 44.5 	& 63.4 	& {--} 	& {--} 	\\
-    clinker in \unit{\areapercent} 	 	& 38.4 	& 30.1 	& 21.1 	& 20.6 	& {--} 	& {--} 	\\[5pt] \midrule
+    pores in \unit{\areapercent}					& 46.2 	& 43.2 	& 31.4 	& 15.9 	& {--} 	& {--} 	\\
+    hydrates in \unit{\areapercent}					& 15.4 	& 27.0 	& 44.5 	& 63.4 	& {--} 	& {--} 	\\
+    clinker in \unit{\areapercent}					& 38.4 	& 30.1 	& 24.1 	& 20.6 	& {--} 	& {--} 	\\[5pt] \midrule
 
 	\multicolumn{7}{c}{\textbf{\ac{C3S} 3:1 \ac{C2S}}} \\ \midrule
 	particles per \unit{\milli\meter\squared}		& {--} & \num{73380}	& \num{22228} & \num{41577} & {--} & {--} \\[2pt] %\midrule
 	pores in \unit{\areapercent}					& {--} & 27.8	& 16.9	& 13.9 & {--} & {--} \\
-	hydrates in \unit{\areapercent}					& {--} & 55.5	& 68.4	& 73.8 & {--} & {--} \\
-	clinker in \unit{\areapercent}					& {--} & 16.7	& 14.7	& 12.4 & {--} & {--} \\[5pt] \midrule
+	hydrates in \unit{\areapercent}					& {--} & 55.5	& 68.4	& 74.2 & {--} & {--} \\
+	clinker in \unit{\areapercent}					& {--} & 16.7	& 14.7	& 11.9 & {--} & {--} \\[5pt] \midrule
 
 	\multicolumn{7}{c}{\textbf{\ac{C3S} 1:1 \ac{C2S}}} \\ \midrule
 	particles per \unit{\milli\meter\squared}		& {--} & \num{42752} & \num{44094} & \num{30576} & {--} & {--} \\[2pt] %\midrule
 	pores in \unit{\areapercent}					& {--} & 32.1	& 30.1	& 10.1 & {--} & {--} \\
-	hydrates in \unit{\areapercent}					& {--} & 45.5	& 53.8	& 73.4 & {--} & {--} \\
-	clinker in \unit{\areapercent}					& {--} & 21.4	& 16.1	& 16.6 & {--} & {--} \\[5pt] \midrule
+	hydrates in \unit{\areapercent}					& {--} & 46.5	& 53.8	& 73.8 & {--} & {--} \\
+	clinker in \unit{\areapercent}					& {--} & 21.4	& 16.1	& 16.1 & {--} & {--} \\[5pt] \midrule
 
 	\multicolumn{7}{c}{\textbf{\ac{C3S} 1:3 \ac{C2S}}} \\ \midrule
 	particles per \unit{\milli\meter\squared}		& {--} & \num{77636}	& \num{59619}	& \num{37509} & {--} & {--} \\[2pt] %\midrule
 	pores in \unit{\areapercent}					& {--} & 40.6	& 40.4	& 18.2 & {--} & {--} \\
-	hydrates in \unit{\areapercent}					& {--} & 32.5	& 38.6	& 65.0 & {--} & {--} \\
-	clinker in \unit{\areapercent}					& {--} & 27.1	& 21.1	& 16.9 & {--} & {--} \\[5pt]
+	hydrates in \unit{\areapercent}					& {--} & 33.1	& 39.0	& 65.4 & {--} & {--} \\
+	clinker in \unit{\areapercent}					& {--} & 26.3	& 20.6	& 16.4 & {--} & {--} \\[5pt]
 
 	\bottomrule
 	\end{tabularx}
@@ -263,8 +261,8 @@ In \ac{C2S}, only \qty{75.5}{\percent} hydrates can be found after \qty{28}{\day
 			enlarge x limits=0.15,
 			legend style={at={(1.02,0.5)}, anchor=west, legend columns=1},
 			bar shift=-7pt,
-			width=.7\textwidth,
-			height=6cm,
+			width=.8\textwidth,
+			height=7cm,
 		]
 			\addplot[fill=red,red] coordinates {
 				(1,61.4) (7,73.4) (14,80.3) (28,91.1) (84,92.7) (365,97.6)
@@ -301,7 +299,7 @@ Comparing the particle counts of \ac{C3S} and \ac{C2S} shows that \ac{C2S} has u
 This is caused by the slower dissolution rates of \ac{C2S} and the tendency of larger \ac{C2S} particles to shatter into multiple smaller ones.
 This also allows both phases to be visually distinguished in a \ac{BSE} image.
 
-Applying the \ac{HLT}-measurement algorithm proposed in \zcref{subsec:algo_hlm} to individually hydrated phases gives the results shown in \zcref{fig:results2d_alite} and \zcref{fig:results2d_belite} for \ac{C3S} and \ac{C2S}, respectively.
+Applying the \ac{HLT} measurement algorithm proposed in \zcref{subsec:algo_hlm} to individually hydrated phases gives the results shown in \zcref{fig:results2d_alite} and \zcref{fig:results2d_belite} for \ac{C3S} and \ac{C2S}, respectively.
 The diagrams consist of a graph indicating the frequency of a measured \ac{HLT} as a function of the grain size (blue-green).
 This plot is accompanied by a frequency plot of the grain size diameter (grey) and a grain-size-agnostic distribution plot of the \ac{HLT} frequency (orange).
 
@@ -326,19 +324,16 @@ This plot is accompanied by a frequency plot of the grain size diameter (grey) a
 	\label{fig:results2d_alite}
 \end{figure}
 
-Smaller particles are more frequent than larger particles throughout all samples tested.
-Furthermore, especially larger particles become less frequent with increasing specimen age, which results in a coarser data density.
+Smaller particles are more frequent than larger particles throughout all the samples tested.
+Furthermore, larger particles, in particular, become less frequent with increasing specimen age, which results in a coarser data density.
 
-The \ac{HLT} distributions of \ac{C3S} at \qtyrange{7}{28}{\day} and \ac{C2S} at \qty{28}{\day} specimens show two distinct accumulations in the \ac{HLT} distribution.
-The second, larger accumulation appears at larger \ac{HLT}s, the older the specimen, until it ultimately disappears for really old \ac{C3S} specimens at \qty{84}{\day} and \qty{365}{\day}, where the pore space is mostly consumed by \ac{CSH} and \ac{CH}, which makes the evaluation impossible.
+The \ac{HLT} distributions of \ac{C3S} specimens at \qtyrange{7}{28}{\day} and \ac{C2S} specimens at \qty{28}{\day} show two distinct accumulations.
+The second, larger accumulation appears at larger \ac{HLT}s for older specimens, until it ultimately disappears for mature \ac{C3S} specimens at \qty{84}{\day} and \qty{365}{\day}, where the pore space is mostly consumed by \ac{CSH} and \ac{CH}, which makes the evaluation impossible.
 However, the \ac{CSH} growth is then also limited by the neighbouring particles and hydrate phases, which would also reduce the meaning of the measurement.
-The first accumulation is most likely an artefact of the segmentation quality as becomes more obvious in \zcref{fig:hlt_segmentation_influence}.
-Furthermore, very small grains seem to have no second \ac{HLT} accumulation, while the first is more pronounced, which also reduced with different segmentation methods.
-%Another reason: split, larger particles?
+The first accumulation is most likely an artefact of the segmentation quality as is more obvious in \zcref{fig:hlt_segmentation_influence}.
+Furthermore, very small grains seem to have no second \ac{HLT} accumulation, while the first is more pronounced, which is also reduced when using different segmentation methods.
 
-
-
-\ac{C2S} shows a significant slower hydration, which is also visible in the growth of the \ac{HLT} (\zcref{fig:hydration-rim-results}).
+\ac{C2S} shows a significantly slower hydration, which is also visible in the growth of the \ac{HLT} (\zcref{fig:hydration-rim-results}).
 After \qty{28}{\day}, \ac{C2S} still shows smaller hydration rims than \ac{C3S} after \qty{7}{\day}.
 
 \begin{figure}[ht!]
@@ -370,39 +365,6 @@ After \qty{28}{\day}, \ac{C2S} still shows smaller hydration rims than \ac{C3S} 
 \label{sec:HLT_multi_phase}
 
 Applying the algorithm to mixtures of \ac{C3S} and \ac{C2S} without distinguishing between clinker phases using a simple threshold method is also possible.
-
-% \begin{table}[htb]
-% 	\caption{
-% 		Overview of the processed \ac{C3S}:\ac{C2S} mixture datasets listing basic image statistics:
-% 		Normed particle count (diameter <\,\qty{9.0}{\micro\meter}, circularity >\,\num{0.3}) and phase areas based on the segmentation.
-% 		All images cover an area of \qty{2.4}{\milli\meter\squared} with a source pixel size of \qty{42.2}{\nano\meter\per\px}.
-% 	}
-% 	\label{tab:multi_phase_images}
-% 	\centering
-% 	\begin{tabularx}{\textwidth}{@{}l*{6}{>{\raggedleft\arraybackslash}X}@{}}
-% 	\toprule
-% 	age in days										& 7		& 14	& 28 \\ \midrule
-% 	 & \multicolumn{3}{c}{\ac{C3S} 1:3 \ac{C2S}} \\ \midrule
-% 	particles per \unit{\milli\meter\squared}		& 77636	& 59619	& 37509 \\ \midrule
-% 	pores in \unit{\areapercent}					& 40.6	& 40.4	& 18.2 \\
-% 	hydrates in \unit{\areapercent}					& 32.5	& 38.6	& 65.0 \\
-% 	clinker in \unit{\areapercent}					& 27.1	& 21.1	& 16.9 \\ \midrule
-
-% 	 & \multicolumn{3}{c}{\ac{C3S} 1:1 \ac{C2S}} \\ \midrule
-% 	particles per \unit{\milli\meter\squared}		& 42752 & 44094 & 30576 \\ \midrule
-% 	pores in \unit{\areapercent}					& 32.1	& 30.1	& 10.1 \\
-% 	hydrates in \unit{\areapercent}					& 45.5	& 53.8	& 73.4 \\
-% 	clinker in \unit{\areapercent}					& 21.4	& 16.1	& 16.6 \\ \midrule
-
-% 	 & \multicolumn{3}{c}{\ac{C3S} 3:1 \ac{C2S}} \\ \midrule
-% 	particles per \unit{\milli\meter\squared}		& 73380	& 22228 & 41577 \\ \midrule
-% 	pores in \unit{\areapercent}					& 27.8	& 16.9	& 13.9 \\
-% 	hydrates in \unit{\areapercent}					& 55.5	& 68.4	& 73.8 \\
-% 	clinker in \unit{\areapercent}					& 16.7	& 14.7	& 12.4 \\
-
-% 	\bottomrule
-% 	\end{tabularx}
-% \end{table}
 
 \zcref{fig:hydrate_clinker_stacked_bar_mix} shows the hydration progress using the hydrate content $F_\text{hydrate}$ relative to the solid fraction.
 With increasing \ac{C2S} content, the hydrate content is usually reduced.

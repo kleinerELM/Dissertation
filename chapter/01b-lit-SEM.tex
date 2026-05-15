@@ -54,15 +54,16 @@ Furthermore, the significantly improved compute power now allows for the easy pr
 
 \ac{BSE} detectors collect high-energy electrons from the primary beam that have been elastically scattered back out of the sample after interacting with atomic nuclei.
 Heavier elements (with a higher atomic number $Z$) scatter electrons more strongly and appear brighter in the \ac{BSE} image.
-The higher the voltage and the lower the material density, the larger the interaction volume and depth (see \zcref{fig:penetration_depth}).
+The higher the voltage and the lower the material density, the larger the interaction volume and depth (see \zcref{fig:penetration_depth}) \cite{yio.2016}.
 
 \begin{figure}[!htb]
     \centering
 
-
 	\begin{subfigure}[t]{0.48\textwidth}
 		\includegraphics[width=\textwidth]{literature/pen_depth/pen_depth.pdf}
-		\caption{\textsc{Monte-Carlo}-simulation of the interaction volume of a \qty{10}{\kilo\volt} electron beam in \ac{C3S}. Modelled using \cite{drouin.2016}.}
+		\caption{
+			\textsc{Monte Carlo}-simulation of the interaction volume of a \qty{10}{\kilo\volt} electron beam in \ac{C3S}.
+		}
 		\label{fig:pen_depth_a}
 	\end{subfigure}
 	\hfill
@@ -96,23 +97,24 @@ The higher the voltage and the lower the material density, the larger the intera
                 \addlegendentry{\acs{CH}};
                 \addplot[thick,color=grey, mark=10-pointed star]  table[x=Voltage,y=Epoxy,col sep=semicolon] {figures/literature/pen_depth.csv};
                 \addlegendentry{epoxy resin};
-            \end{semilogyaxis}
-        \end{tikzpicture}
+			\end{semilogyaxis}
+		\end{tikzpicture}
 		\caption{
-            Logarithmic penetration depths in \ac{C3S}, \ac{CSH}, \ac{CH} and epoxy resin.
-            Modelled using \cite{joy.2004}.
-        }
+			Logarithmic penetration depths in \ac{C3S}, \ac{CSH}, \ac{CH} and epoxy resin.
+			Modelled using \cite{joy.2004}.
+		}
 		\label{fig:pen_depth_b}
 
 	\end{subfigure}
 
-    \caption{
-        Visualisation of the penetration depth of the electron beam using \textsc{Monte-Carlo}-simulations.
-        The colour of the electrons in the simulation on the left-hand side indicates their remaining energy at a specific position (cf. rainbow-coloured bar on the right).
-        The graph on the right-hand side shows that the interaction volume increases with increasing voltage and decreasing material density.
-    }
-    \label{fig:penetration_depth}
+	\caption{
+		Visualisation of the penetration depth of the electron beam using \textsc{Monte Carlo}-simulations (simulated using \textsc{CASINO} v3.3 \cite{drouin.2016}).
+		The colour of the electrons in the simulation on the left-hand side indicates their remaining energy at a specific position (cf. rainbow-coloured bar on the right).
+		The graph on the right-hand side shows that the interaction volume increases with increasing voltage and decreasing material density.
+	}
+	\label{fig:penetration_depth}
 \end{figure}
+
 In a polished cross-section of hardened cement paste, \ac{BSE} imaging enables differentiation of phases such as: unhydrated clinker particles (higher average $Z$ ($\bar{Z}$)) appear bright, hydrates (intermediate $\bar{Z}$) appear as grey phases, and pores (e.g. filled with epoxy resin) appear darkest (black).
 However, especially phases like calcite, \ac{CH}, ettringite, \ac{CSH}, and \ac{AFm} can in some cases be difficult to distinguish from each other.
 This is caused by a low difference in the backscatter coefficient ($\eta$) of these phases.

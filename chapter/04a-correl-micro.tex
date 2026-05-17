@@ -440,24 +440,27 @@ The mechanical properties of a composite material were approximated using the fo
 	\label{eq:compositional-fit}
 	M_{\text{cell}} = \sum_{i=1}^{n} w_{i,\text{cell}} \cdot M_i
 \end{equation}
-where $M_{\text{cell}}$ is the measured mechanical property (hardness $H$ or modulus $E_r$) in a grid cell, $w_{i,\text{cell}}$ is the volume fraction of phase $i$ in that cell (determined from the \ac{EDX} grid analysis), and $M_i$ is the mechanical property of pure phase $i$ (to be determined).
+where $M_{\text{cell}}$ is the measured mechanical property (hardness $H$ or modulus $E_r$) in a grid cell, $w_{i,\text{cell}}$ is the area fraction of phase $i$ in that cell (determined from the \ac{EDX} grid analysis), and $M_i$ is the mechanical property of pure phase $i$ (to be determined).
 The cell-averaged properties represent the spatial averaging over the indent interaction volume, which typically extends $\approx$ \qty{0.5}{\micro\meter} into the material.
 
-Since each cell has dimensions of roughly \qtyproduct{5x5}{\micro\metre}, using the volume fraction for the entire cell is a rather coarse approach.
+Since each cell has dimensions of roughly \qtyproduct{5x5}{\micro\metre}, using the area fraction for the entire cell is a rather coarse approach.
 Therefore, a weighted volume fraction was also used.
 The weighted volume fraction does not treat all phase fractions within the cell equally, but takes into account the local phase distribution in the vicinity ($r$ = \qty{0.5}{\micro\meter}) of the most likely position of the indentation.
 Phase fractions that are spatially closer to the indent location or that contribute more strongly to the effective interaction volume are thus given greater influence.
 This improves the assignment of measured hardness and modulus values to the pure phases.
 This can be especially useful in heterogeneous cells and for rare phases such as \acs{C3A}/\acs{C4AF}.
 
-For all \num{1140} grid cells, a system of linear equations for hardness and reduced modulus datasets was constructed and solved using least-squares minimisation.
+For all \numproduct{20}{73} grid cells, a system of linear equations for hardness and reduced modulus datasets was constructed and solved using least-squares minimisation.
 The phase fractions $w_{i,\text{cell}}$ serve as the coefficients (design matrix), and the measured indentation properties $M_{\text{cell}}$ form the observation vector.
 The fit parameters $M_i$ were determined by minimising the residual sum of squares.
 
-The pores were fixed to $M_i$ = \qty{0.4}{\giga\pascal} for hardness and \qty{5.0}{\giga\pascal} for the modulus, respectively, as a reasonable assumption, since these measurements are usually very low, but not exactly \num{0} in a real-world measurement.
+For the pores, the mechanical properties $M_i$ were fixed to \qty{0.4}{\giga\pascal} for the hardness and \qty{5.0}{\giga\pascal} for the reduced modulus.
+This is a reasonable assumption because, in a real-world experiment, the recorded values are typically very low but rarely exactly zero.
+Even though the pores are not filled with resin, the indenter tip will ultimately contact a pore edge or loosely attached material, thereby registering a small but measurable resistance.
 % Negative property values were eliminated during post-processing (non-physical).
 
 The quality of the fit was assessed using the coefficient of determination ($R^2$).
+Correlation matrices also indicate limited correlation between the phases and can be found in \zcref{fig:cor_ni_fit}.
 The fitted phase hardnesses and moduli are presented in \zcref{tab:ni-results-fitted} in comparison to the mean values from \zcref{tab:ni-results}.
 %Uncertainty estimates for the fitted parameters were derived from the covariance matrix of the least-squares solution, calculated as $\text{Cov} = \sigma_{\text{residual}}^2 \cdot (X^T X)^{-1}$, where $X$ is the design matrix and $\sigma_{\text{residual}}^2$ is the residual variance.
 

@@ -482,7 +482,6 @@
 \mbox{\chapappifchapterprefix{\nobreakspace}%
 \scalebox{3}{\color{gray}\sffamily\thechapter\autodot \color{black}$\vert$}\enskip}}
 
-
 \usepackage[
     type={CC},
     modifier={by},
@@ -491,7 +490,6 @@
 \usepackage{qrcode}
 \usepackage[shortcuts]{extdash}
 \usepackage{wasysym} % für \diameter
-\usepackage{pdfcomment}
 \usepackage{zref-clever}
 \zcsetup{capfirst=true}
 \zcLanguageSetup{english}{
@@ -510,3 +508,9 @@
     type = equation,
         Name-sg = Equation, name-sg = Equation, Name-pl = Equations, name-pl = Equations
 }
+
+\ifdefined\SHOWTODOS
+	\usepackage{pdfcomment}
+\else
+	\usepackage[disable]{pdfcomment}
+\fi

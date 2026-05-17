@@ -10,7 +10,7 @@ The \ac{EBSD} experiment produces a 2D dataset of crystal orientation estimates,
 The raw data were preprocessed in \textit{AZtecCrystal 3.2} \cite{azteccrystal.2010} by \textsc{Oxford Instruments} to clean up pseudosymmetric solutions.
 Since the crystallinity of \ac{C2S} is not good enough to obtain usable \textsc{Kikuchi} patterns, this work focussed on hydrated \ac{C3S} specimens \cite{rossler.2022}.
 To identify and fit the patterns of \ac{C3S}, the crystal structure published by \textcite{delatorre.2002} (\acs{ICSD} 94742, \acs{COD} \href{https://qiserver.ugr.es/cod/1540705.html}{1540705}) was used (see \zcref{fig:c3s_unit_cell}).
-Finally, the data were exported as a channel text file (.ctf), which was further processed using \textit{Python}.
+Finally, the measured \ac{EBSD} data were exported as a channel text file (.ctf), which was further processed using \textit{Python}.
 
 \begin{figure}[htb!]
     \centering
@@ -322,16 +322,16 @@ where $\theta$ follows from the discrete index and an optional sign convention f
         \end{scope}
     \end{tikzpicture}
     \caption{
-		Schematic representation of the geometric correlation between the 2D hydrate rim normal $\vec{n}_\mathrm{sample}$ mapped onto the sample surface and the 3D crystal direction $\vec{h}$ on the unit sphere in the crystal reference frame (3D unit sphere), derived via the \ac{EBSD} rotation matrix $g$.
+		Schematic representation of the geometric correlation between the 2D hydrate rim normal $\vec{n}_\mathrm{sample}$ mapped onto the sample surface and the 3D crystal direction $\vec{h}$ on the unit sphere in the crystal reference frame (3D unit sphere), derived via the \ac{EBSD} matrix $G$.
     }
     \label{fig:ebsd-hydrate-correlation}
 \end{figure}
 
-The crystal orientation at the associated grid point yields $g(\varphi_1,\,\Phi,\,\varphi_2)$ in the \textsc{Bunge} convention ($g = R_{z}(\varphi_2)\,R_{x}(\Phi)\,R_{z}(\varphi_1)$).
+The crystal orientation at the associated grid point yields $G(\varphi_1,\,\Phi,\,\varphi_2)$ in the \textsc{Bunge} convention ($G = R_{z}(\varphi_2)\,R_{x}(\Phi)\,R_{z}(\varphi_1)$).
 The corresponding rim direction in the crystal reference frame is
 \begin{equation}
 	\label{eq:h-crystal}
-	\vec{h} = \frac{g\,n_\mathrm{sample}}{\lVert g\,n_\mathrm{sample} \rVert},
+	\vec{h} = \frac{G\,n_\mathrm{sample}}{\lVert g\,n_\mathrm{sample} \rVert},
 \end{equation}
 with components $(h_x,\,h_y,\,h_z)^\mathrm{T}$.
 Because $\vec{h}$ is normalised, all measurements lie on the unit sphere in crystal coordinates, which allows a later visualisation.

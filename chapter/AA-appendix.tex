@@ -687,6 +687,123 @@ They cause significant trenches behind them. However, the material hardness does
 	\label{fig:lscm_NI_depth}
 \end{figure}
 
+\begin{figure}[h!]
+    \centering
+
+    \begin{subfigure}[t]{0.48\linewidth}
+        \begin{tikzpicture}
+			\begin{axis}[
+				width=7.5cm,
+				height=7.5cm,
+				colormap name=ocean_r,
+				point meta=explicit,
+				point meta min=-0.3,
+				point meta max=1.0,
+				xtick={0,1,2,3,4,5,6,7,8,9},
+				ytick={0,1,2,3,4,5,6,7,8,9},
+				xticklabels={\acs{AFm}/\acs{AFt}, \acs{CASH}, \acs{CSH}, \acs{C3A}/\acs{C4AF}, \acs{CH}, Mg-\acs{CASH}, Slag, \acs{C3S}/\acs{C2S}, matrix, quartz},
+				yticklabels={\acs{AFm}/\acs{AFt}, \acs{CASH}, \acs{CSH}, \acs{C3A}/\acs{C4AF}, \acs{CH}, Mg-\acs{CASH}, Slag, \acs{C3S}/\acs{C2S}, matrix, quartz},
+				y dir=reverse,
+				tick label style={font=\tiny},
+				x tick label style={rotate=90,anchor=east},
+				xmin=-0.5,xmax=9.5,ymin=-0.5,ymax=9.5
+			]
+			\addplot [matrix plot*, point meta=explicit, mesh/cols=10] table [x=x, y=y, meta=z, col sep=comma] {figures/nanoindentation/correlation_matrix_H_coarse_no_pores_long_numeric.csv};
+			\end{axis}
+		\end{tikzpicture}
+		\caption{
+			$H$, coarse fit.
+    	}
+    \end{subfigure}%
+    \hfill%
+    \begin{subfigure}[t]{0.48\linewidth}
+        \begin{tikzpicture}
+			\begin{axis}[
+				width=7.5cm,
+				height=7.5cm,
+				colorbar,
+				colormap name=ocean_r,
+				point meta=explicit,
+				point meta min=-0.3,
+				point meta max=1.0,
+				xtick={0,1,2,3,4,5,6,7,8,9},
+				ytick={0,1,2,3,4,5,6,7,8,9},
+				xticklabels={\acs{AFm}/\acs{AFt}, \acs{CASH}, \acs{CSH}, \acs{C3A}/\acs{C4AF}, \acs{CH}, Mg-\acs{CASH}, Slag, \acs{C3S}/\acs{C2S}, matrix, quartz},
+				yticklabels={},%{\acs{AFm}/\acs{AFt}, \acs{CASH}, \acs{CSH}, \acs{C3A}/\acs{C4AF}, \acs{CH}, Mg-\acs{CASH}, Slag, \acs{C3S}/\acs{C2S}, matrix, quartz},
+				y dir=reverse,
+				tick label style={font=\tiny},
+				x tick label style={rotate=90,anchor=east},
+				xmin=-0.5,xmax=9.5,ymin=-0.5,ymax=9.5
+			]
+			\addplot [matrix plot*, point meta=explicit, mesh/cols=10] table [x=x, y=y, meta=z, col sep=comma] {figures/nanoindentation/correlation_matrix_H_weighted_no_pores_long_numeric.csv};
+			\end{axis}
+		\end{tikzpicture}
+		\caption{
+			$H$, weighted fit.
+    	}
+    \end{subfigure}%
+
+    % \begin{subfigure}[t]{0.48\linewidth}
+    %     \begin{tikzpicture}
+	% 		\begin{axis}[
+	% 			width=7.5cm,
+	% 			height=7.5cm,
+	% 			colorbar,
+	% 			colormap name=ocean_r,
+	% 			point meta=explicit,
+	% 			point meta min=-0.3,
+	% 			point meta max=1.0,
+	% 			xtick={0,1,2,3,4,5,6,7,8,9},
+	% 			ytick={0,1,2,3,4,5,6,7,8,9},
+	% 			xticklabels={},%{\acs{AFm}/\acs{AFt}, \acs{CASH}, \acs{CSH}, \acs{C3A}/\acs{C4AF}, \acs{CH}, Mg-\acs{CASH}, Slag, \acs{C3S}/\acs{C2S}, matrix, quartz},
+	% 			yticklabels={},%\acs{AFm}/\acs{AFt}, \acs{CASH}, \acs{CSH}, \acs{C3A}/\acs{C4AF}, \acs{CH}, Mg-\acs{CASH}, Slag, \acs{C3S}/\acs{C2S}, matrix, quartz},
+	% 			y dir=reverse,
+	% 			tick label style={font=\tiny},
+	% 			x tick label style={rotate=90,anchor=east},
+	% 			xmin=-0.5,xmax=9.5,ymin=-0.5,ymax=9.5
+	% 		]
+	% 		\addplot [matrix plot*, point meta=explicit, mesh/cols=10] table [x=x, y=y, meta=z, col sep=comma] {figures/nanoindentation/correlation_matrix_Er_coarse_no_pores_long_numeric.csv};
+	% 		\end{axis}
+	% 	\end{tikzpicture}
+	% 	\caption{
+	% 		$E_r$, coarse fit.
+    % 	}
+    % \end{subfigure}
+    % \hfill%
+    % \begin{subfigure}[t]{0.48\linewidth}
+    %     \begin{tikzpicture}
+	% 		\begin{axis}[
+	% 			width=7.5cm,
+	% 			height=7.5cm,
+	% 			colorbar,
+	% 			colormap name=ocean_r,
+	% 			point meta=explicit,
+	% 			point meta min=-0.3,
+	% 			point meta max=1.0,
+	% 			xtick={0,1,2,3,4,5,6,7,8,9},
+	% 			ytick={0,1,2,3,4,5,6,7,8,9},
+	% 			xticklabels={\acs{AFm}/\acs{AFt}, \acs{CASH}, \acs{CSH}, \acs{C3A}/\acs{C4AF}, \acs{CH}, Mg-\acs{CASH}, Slag, \acs{C3S}/\acs{C2S}, matrix, quartz},
+	% 			yticklabels={},%\acs{AFm}/\acs{AFt}, \acs{CASH}, \acs{CSH}, \acs{C3A}/\acs{C4AF}, \acs{CH}, Mg-\acs{CASH}, Slag, \acs{C3S}/\acs{C2S}, matrix, quartz},
+	% 			y dir=reverse,
+	% 			tick label style={font=\tiny},
+	% 			x tick label style={rotate=90,anchor=east},
+	% 			xmin=-0.5,xmax=9.5,ymin=-0.5,ymax=9.5
+	% 		]
+	% 		\addplot [matrix plot*, point meta=explicit, mesh/cols=10] table [x=x, y=y, meta=z, col sep=comma] {figures/nanoindentation/correlation_matrix_Er_weighted_no_pores_long_numeric.csv};
+	% 		\end{axis}
+	% 	\end{tikzpicture}
+	% 	\caption{
+	% 		$E_r$, weighted fit.
+    % 	}
+    % \end{subfigure}
+
+    \caption{
+        Correlation matrices for the phase-dependent hardness $H$, from the composition model using the least squares method.
+        The corresponding matrices for the elastic modulus $E_r$ have a similar structure and have therefore been omitted.
+    }
+    \label{fig:cor_ni_fit}
+\end{figure}
+
 \FloatBarrier
 \section{Laser preparation process for \ac{FIBnt}}
 

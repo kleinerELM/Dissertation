@@ -328,10 +328,25 @@ where $\theta$ follows from the discrete index and an optional sign convention f
 \end{figure}
 
 The crystal orientation at the associated grid point yields $G(\varphi_1,\,\Phi,\,\varphi_2)$ in the \textsc{Bunge} convention ($G = R_{z}(\varphi_2)\,R_{x}(\Phi)\,R_{z}(\varphi_1)$).
-The corresponding rim direction in the crystal reference frame is
+For the monoclinic unit cell of \ce{C3S}, the sample-space direction $\vec{n}_\mathrm{sample}$ must first be expressed in the crystal's fractional lattice basis, since the crystallographic axes are not orthogonal.
+This is accomplished with the inverse unit-cell transformation matrix $M^{-1}$ (\zcref{eq:monoclinic-Minv}), which maps a Cartesian direction into monoclinic fractional coordinates.
 \begin{equation}
-	\label{eq:h-crystal}
-	\vec{h} = \frac{G\,n_\mathrm{sample}}{\lVert g\,n_\mathrm{sample} \rVert},
+    \label{eq:monoclinic-Minv}
+    M^{-1} =
+    \begin{pmatrix}
+        1/a & 0 & -\frac{\cos\beta}{a\sin\beta} \\
+        0   & 1/b & 0 \\
+        0   & 0 & \frac{1}{c\sin\beta}
+    \end{pmatrix}, where
+\end{equation}
+\begin{conditions}
+	a, b, c, \beta	&	cell parameters of the crystal \\
+\end{conditions}
+
+The corresponding rim direction in the crystal reference frame is then
+\begin{equation}
+    \label{eq:h-crystal}
+    \vec{h} = \frac{G\,M^{-1}\,\vec{n}_\mathrm{sample})}{\lVert G\,\bigl(M^{-1}\,\vec{n}_\mathrm{sample}\bigr)\rVert},
 \end{equation}
 with components $(h_x,\,h_y,\,h_z)^\mathrm{T}$.
 Because $\vec{h}$ is normalised, all measurements lie on the unit sphere in crystal coordinates, which allows a later visualisation.

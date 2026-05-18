@@ -285,17 +285,17 @@ This resulted in \qty{76.1}{\percent} (\num{868} of \num{1140}) of the indents b
 		Phase & $N$ & \multicolumn{3}{c}{Hardness $H$} & \multicolumn{3}{c}{Reduced modulus $E_r$} \\ 
      & & {Median} & {Mean} & {Std. Dev.} & {Median} & {Mean} & {Std. Dev.} \\
 		\midrule
-		Quartz & 44 & 11.77 & 11.01 & 2.29 & 88.36 & 83.97 & 13.96 \\
-		\acs{C3S}/\acs{C2S} & 39 & 9.08 & 7.63 & 3.12 & 105.43 & 92.03 & 24.07 \\
-		Slag & 7 & 7.72 & 7.10 & 1.35 & 86.27 & 81.05 & 11.36 \\
-		\acs{CH} & 25 & 1.73 & 1.82 & 0.77 & 34.62 & 36.07 & 9.46 \\
-		\acs{CSHi} & 93 & 1.26 & 1.38 & 0.97 & 28.09 & 29.61 & 11.93 \\
-		\acs{C3A}/\acs{C4AF} & 1 & 1.36 & 1.36 & {--} & 28.76 & 28.76 & {--} \\
-		Mg-\ac{CASH} & 30 & 0.93 & 1.22 & 1.30 & 25.86 & 28.73 & 14.80 \\
-		\ac{CASH} & 20 & 1.10 & 1.21 & 0.62 & 26.95 & 27.44 & 8.23 \\
-		\acs{AFm}/\ac{AFt} & 11 & 1.22 & 1.13 & 0.48 & 24.67 & 25.08 & 6.71 \\
-		\acs{CSHo} & 580 & 1.00 & 1.06 & 0.53 & 23.16 & 23.46 & 7.94 \\
-		Pores & 18 & 0.62 & 1.00 & 1.15 & 20.81 & 21.20 & 14.13 \\
+		Quartz				& 44	& 11.77 & 11.01 & 2.29 & 88.36 & 83.97 & 13.96 \\
+		\acs{C3S}/\acs{C2S}	& 39	& 9.08 & 7.63 & 3.12 & 105.43 & 92.03 & 24.07 \\
+		Slag				& 7		& 7.72 & 7.10 & 1.35 & 86.27 & 81.05 & 11.36 \\
+		\acs{CH}			& 25	& 1.73 & 1.82 & 0.77 & 34.62 & 36.07 & 9.46 \\
+		\acs{CSHi}			& 93	& 1.26 & 1.38 & 0.97 & 28.09 & 29.61 & 11.93 \\
+		\acs{C3A}/\acs{C4AF}& 1		& 1.36 & 1.36 & {--} & 28.76 & 28.76 & {--} \\
+		Mg-\ac{CASH}		& 30	& 0.93 & 1.22 & 1.30 & 25.86 & 28.73 & 14.80 \\
+		\ac{CASH}			& 20	& 1.10 & 1.21 & 0.62 & 26.95 & 27.44 & 8.23 \\
+		\acs{AFm}/\ac{AFt}	& 11	& 1.22 & 1.13 & 0.48 & 24.67 & 25.08 & 6.71 \\
+		\acs{CSHo}			& 580	& 1.00 & 1.06 & 0.53 & 23.16 & 23.46 & 7.94 \\
+		Pores				& 18	& 0.62 & 1.00 & 1.15 & 20.81 & 21.20 & 14.13 \\
 		\bottomrule
 	\end{tabularx}
 	\label{tab:ni-results}
@@ -443,12 +443,10 @@ The mechanical properties of a composite material were approximated using the fo
 where $M_{\text{cell}}$ is the measured mechanical property (hardness $H$ or modulus $E_r$) in a grid cell, $w_{i,\text{cell}}$ is the area fraction of phase $i$ in that cell (determined from the \ac{EDX} grid analysis), and $M_i$ is the mechanical property of pure phase $i$ (to be determined).
 The cell-averaged properties represent the spatial averaging over the indent interaction volume, which typically extends $\approx$ \qty{0.5}{\micro\meter} into the material.
 
-Since each cell has dimensions of roughly \qtyproduct{5x5}{\micro\metre}, using the area fraction for the entire cell is a rather coarse approach.
-Therefore, a weighted volume fraction was also used.
-The weighted volume fraction does not treat all phase fractions within the cell equally, but takes into account the local phase distribution in the vicinity ($r$ = \qty{0.5}{\micro\meter}) of the most likely position of the indentation.
-Phase fractions that are spatially closer to the indent location or that contribute more strongly to the effective interaction volume are thus given greater influence.
-This improves the assignment of measured hardness and modulus values to the pure phases.
-This can be especially useful in heterogeneous cells and for rare phases such as \acs{C3A}/\acs{C4AF}.
+Since each cell has dimensions of roughly \qtyproduct{5x5}{\micro\metre}, using the phase fraction for the entire cell is a simple cell-average (CA) approach.
+The alternative procedure computes weighted phase fractions by applying a Gaussian kernel around the expected indent centre, with an interaction radius of \qty{0.5}{\micro\meter}.
+This interaction-weighted (IW) distribution gives greater influence to the phase composition close to the likely indent location, rather than treating all pixels in the same cell equally.
+It therefore provides a more realistic estimate of the material sampled by each indent, especially in heterogeneous cells and for rare phases such as \acs{C3A}/\acs{C4AF}. 
 
 For all \numproduct{20}{73} grid cells, a system of linear equations for hardness and reduced modulus datasets was constructed and solved using least-squares minimisation.
 The phase fractions $w_{i,\text{cell}}$ serve as the coefficients (design matrix), and the measured indentation properties $M_{\text{cell}}$ form the observation vector.
@@ -460,40 +458,39 @@ Even though the pores are not filled with resin, the indenter tip will ultimatel
 % Negative property values were eliminated during post-processing (non-physical).
 
 The quality of the fit was assessed using the coefficient of determination ($R^2$).
-Correlation matrices also indicate limited correlation between the phases and can be found in \zcref{fig:cor_ni_fit}.
-The fitted phase hardnesses and moduli are presented in \zcref{tab:ni-results-fitted} in comparison to the mean values from \zcref{tab:ni-results}.
+The fitted phase hardnesses and moduli are presented in \zcref{tab:ni-results-fitted} in comparison to the median values from \zcref{tab:ni-results}.
 %Uncertainty estimates for the fitted parameters were derived from the covariance matrix of the least-squares solution, calculated as $\text{Cov} = \sigma_{\text{residual}}^2 \cdot (X^T X)^{-1}$, where $X$ is the design matrix and $\sigma_{\text{residual}}^2$ is the residual variance.
 
 \begin{table}[htb!]
 	\centering
 	\caption{
-		Fitted phase-dependent mechanical properties from the compositional least-squares model compared to the simple mean. Values are presented for the mean, coarse, and weighted fitting variants.
-		The mean values are copied from \zcref{tab:ni-results}.
+		Fitted phase-dependent mechanical properties from the compositional least-squares model compared to the simple mean.
+		Values are presented for the threshold based median (TB$^*$, from \zcref{tab:ni-results}), cell-average (CA), and interaction-weighted (IW) fitting variants.
 	}
 	\begin{tabularx}{\linewidth}{
 		X
+		>{\color{gray}}S[table-format=2.2, round-mode=places, round-precision=1]
 		S[table-format=2.2, round-mode=places, round-precision=1]
 		S[table-format=2.2, round-mode=places, round-precision=1]
-		S[table-format=2.2, round-mode=places, round-precision=1]
-		S[table-format=3.2, round-mode=places, round-precision=1]
+		>{\color{gray}}S[table-format=3.2, round-mode=places, round-precision=1]
 		S[table-format=3.2, round-mode=places, round-precision=1]
 		S[table-format=3.2, round-mode=places, round-precision=1]
 	}
 		\toprule
 		Phase & \multicolumn{3}{c}{Hardness $H$ (\unit{\giga\pascal})} & \multicolumn{3}{c}{Modulus $E_r$ (\unit{\giga\pascal})} \\
-		& {Mean} & {Coarse} & {Weighted} & {Mean} & {Coarse} & {Weighted} \\
+		& \multicolumn{1}{c}{\textcolor{gray}{TB$^*$}} & {CA} & {IW} & \multicolumn{1}{c}{\textcolor{gray}{TB$^*$}} & {CA} & {IW} \\
 		\midrule
-		Quartz & 11.01 & 11.73 & 11.11 & 83.97 & 88.93 & 84.87 \\
-		\acs{C3S}/\acs{C2S} & 7.63 & 8.77 & 7.92 & 92.03 & 105.51 & 96.09 \\
-		Slag & 7.10 & 7.10 & 6.34 & 81.05 & 82.47 & 75.22 \\
-		\acs{CH} & 1.82 & 2.36 & 2.10 & 36.07 & 50.48 & 42.60 \\
-		\acs{CSHi} & 1.38 & 0.79 & 1.06 & 29.61 & 24.01 & 25.63 \\
-		\acs{C3A}/\acs{C4AF} & 1.36 & 15.10 & 10.46 & 28.76 & 179.86 & 124.38 \\
-		Mg-\ac{CASH} & 1.22 & 1.32 & 1.45 & 28.73 & 31.52 & 31.52 \\
-		\ac{CASH} & 1.21 & 0.95 & 1.24 & 27.44 & 23.88 & 25.80 \\
-		\acs{AFm}/\ac{AFt} & 1.13 & 1.09 & 1.19 & 25.08 & 20.88 & 25.01 \\
-		\acs{CSHo} & 1.06 & 1.05 & 1.07 & 23.46 & 22.85 & 23.63 \\
-		Pores & 1.00 & 0.40 & 0.40 & 21.20 & 5.00 & 5.00 \\
+		Quartz				& 11.77	& 11.73 & 11.11 & 88.36 & 88.93 & 84.87 \\
+		\acs{C3S}/\acs{C2S}	& 9.08	& 8.77 & 7.92 & 105.43 & 105.51 & 96.09 \\
+		Slag				& 7.72	& 7.10 & 6.34 & 86.27 & 82.47 & 75.22 \\
+		\acs{CH}			& 1.73	& 2.36 & 2.10 & 34.62 & 50.48 & 42.60 \\
+		\acs{CSHi}			& 1.26	& 0.79 & 1.06 & 28.09 & 24.01 & 25.63 \\
+		\acs{C3A}/\acs{C4AF}& 1.36	& 15.10 & 10.46 & 28.76 & 179.86 & 124.38 \\
+		Mg-\ac{CASH}		& 0.93	& 1.32 & 1.45 & 25.86 & 31.52 & 31.52 \\
+		\ac{CASH}			& 1.10	& 0.95 & 1.24 & 26.95 & 23.88 & 25.80 \\
+		\acs{AFm}/\ac{AFt}	& 1.22	& 1.09 & 1.19 & 24.67 & 20.88 & 25.01 \\
+		\acs{CSHo}			& 1.00	& 1.05 & 1.07 & 23.16 & 22.85 & 23.63 \\
+		Pores				& 0.62	& 0.40 & 0.40 & 20.81 & 5.00 & 5.00 \\
 		\midrule
 		$R^2$ & {--} & 0.7992 & 0.7209 & {--} & 0.7435 & 0.6404 \\
 		\bottomrule
@@ -501,8 +498,10 @@ The fitted phase hardnesses and moduli are presented in \zcref{tab:ni-results-fi
 	\label{tab:ni-results-fitted}
 \end{table}
 
-The fit yields $R^2$ = \num{0.7992} for the hardness of the coarse solution (\num{0.7435} for the reduced modulus) and $R^2$ = \num{0.7209} for the hardness of the weighted solution (\num{0.6404} for the reduced modulus). 
+The fit yields $R^2$ = \num{0.799} for the hardness of the cell-average solution (\num{0.744} for the reduced modulus) and $R^2$ = \num{0.721} for the hardness of the interaction-weighted solution (\num{0.640} for the reduced modulus). 
 This indicates that the linear combination of phase fractions explains the majority of the measured cell-averaged hardness variance.
+The correlation matrices (\zcref{fig:cor_ni_fit}) show generally small off-diagonal coefficients, which indicates that no pair of phase fraction predictors is strongly collinear.
+This supports the view that the fitted mechanical properties of the individual phases are relatively independent, even though weak correlations remain for a few phase pairs.
 
 All \num{1140} measurements are incorporated, eliminating the data loss from the threshold-based method. 
 The two approaches yield broadly consistent results for abundant phases but differ in approach and reliability for sparse phases.
@@ -510,7 +509,7 @@ For \ac{CSHo}, the threshold-based method yields \qty{1.06(0.53)}{\giga\pascal},
 Similarly close results were acquired for quartz: \qty{11.0(2.3)}{\giga\pascal} vs. \qty{11.8}{\giga\pascal}.
 Phases like \acs{C3A}/\acs{C4AF}, represented by limited direct measurements, benefit from information distributed across all grid cells, resulting in more realistic estimates.
 The estimates range from \qtyrange{10.5}{15.1}{\giga\pascal} for the hardness and \qtyrange{124}{180}{\giga\pascal} for the modulus and are much closer to the expected literature values (\qtyrange{9}{11}{\giga\pascal} hardness and \qtyrange{125}{145}{\giga\pascal} elastic moduli in \ac{OPC} \cite{velez.2001}) than the single measurement available in the threshold-based approach.
-Overall, the weighted values seem to be more realistic, while the $R^2$ value is worse than for the coarse fit.
+Overall, the interaction-weighted values seem to be more realistic, while the $R^2$ value is worse than for the cell-average fit.
 Nevertheless, the linear rule-of-mixtures assumes additive contributions without interactions.
 Real composite behaviour may deviate due to phase-boundary effects, residual stresses, or mechanical constraint effects from neighbouring phases.
 Additionally, the model assumes each indent was performed on a homogeneous phase, whereas heterogeneities such as micro-cracks or compositional gradients could introduce errors.

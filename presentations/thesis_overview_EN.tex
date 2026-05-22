@@ -13,7 +13,7 @@
 \usepackage[british]{babel}
 \usepackage[babel,english=british]{csquotes}
 \usepackage{datetime}
-
+\usepackage[version=4]{mhchem}
 \usepackage{booktabs}
 \usepackage{xspace}
 \usepackage{multicol}
@@ -44,6 +44,7 @@
 
 \usepackage{animate}
 \usepackage[version=4]{mhchem}
+\usepackage{orcidlink}
 
 % Dummy command for potential background images from the template
 %\newcommand{\BUWtitlebg}{}
@@ -52,11 +53,14 @@
 {Advanced 2D and 3D characterisation of clinker phases and hydrated cementitious binders}
 
 \subtitle{Overview of the Thesis}
-\date{\today}
+
+% Anwendung des Formats
+\date{10$^\text{th}$ June 2026}
 
 \newcommand\shortauthor{Florian Kleiner}
+\newcommand\orcid{0000-0001-6002-0829}
 \author[\shortauthor]{
-  \shortauthor\\
+  \shortauthor\,\orcidlink{\orcid}\\
   \href{mailto:florian.kleiner@uni-weimar.de}{{\tt florian.kleiner@uni-weimar.de}}
 }
 
@@ -136,7 +140,7 @@
 
     \end{column}
   \end{columns}
-   \vfill\raggedleft\tiny\itshape F. Kleiner, C. Matthes, C. Rößler, `Argon broad ion beam sectioning and high resolution scanning electron microscopy imaging of hydrated alite', 2021, \doi{10.1016/j.cemconres.2021.106583}
+  \vfill\raggedleft\tiny\itshape F. Kleiner, C. Matthes, C. Rößler, `Argon broad ion beam sectioning and high resolution scanning electron microscopy imaging of hydrated alite', 2021, \doi{10.1016/j.cemconres.2021.106583}
 \end{frame}
 
 
@@ -148,7 +152,7 @@
       \textbf{BSE + EDX + LA-ICP-MS}
       \begin{itemize}
         \item High resolution of EDX data enables precise phase assignment of LA-ICP-MS measurements.
-        \item Trace elements such as V, Ba, Rb are concentrated in C$_2$S, while Ti and Mn are found in the interstitial phases.
+        \item Trace elements such as V, Ba, Rb are concentrated in \ce{C2S}, while Ti and Mn are found in the interstitial phases.
       \end{itemize}
     \end{column}
     \begin{column}{0.5\textwidth}
@@ -170,7 +174,7 @@
         \item Preparation via ArBIB.
         \item Reduced preparation artefacts (avoidance of relief).
         \item Combination of NI + EDX.
-        \item Direct, detailed phase assignment of hardness/modulus (e.g. quartz, C$_3$S, C$_2$S, C-S-H, C-A-S-H) in contrast to the commonly used coarse deconvolution methods.
+        \item Direct, detailed phase assignment of hardness/modulus (e.g. quartz, \ce{C3S}, \ce{C2S}, C-S-H, C-A-S-H) in contrast to the commonly used coarse deconvolution methods.
       \end{itemize}
     \end{column}
     \begin{column}{0.5\textwidth}
@@ -212,17 +216,17 @@
 \begin{frame}{Hydrate Layer Thickness (HLT) Measurements}
   \begin{columns}
     \begin{column}{0.5\textwidth}
-      \textbf{Results for C$_3$S and C$_2$S:}
+      \textbf{Results for \ce{C3S} and \ce{C2S}:}
       \begin{itemize}
-        \item For pure phases (C$_3$S and C$_2$S), HLT growth is measurable in specimens up to 28 days old.
-        \item C$_2$S shows expectedly slower C-S-H growth than C$_3$S.
-        \item For mixed phases (C$_3$S:C$_2$S 3:1, 1:1, 1:3), distinct growth rates around C$_3$S and C$_2$S can be determined.
+        \item For pure phases (\ce{C3S} and \ce{C2S}), HLT growth is measurable in specimens up to 28 days old.
+        \item \ce{C2S} shows expectedly slower C-S-H growth than \ce{C3S}.
+        \item For mixed phases (\ce{C3S}:\ce{C2S} 3:1, 1:1, 1:3), distinct growth rates around \ce{C3S} and \ce{C2S} can be determined.
       \end{itemize}
     \end{column}
     \begin{column}{0.5\textwidth}
       \centering
       \includegraphics[width=\linewidth]{hydrate-rim/HLT_histogram_3-1.pdf}
-      \footnotesize HLT result for 28\,d hydrated C$_3$S:C$_2$S 3:1. In the HLT histogram (orange), the peaks (green) can be assigned to C$_2$S and C$_3$S.\\
+      \footnotesize HLT result for 28\,d hydrated \ce{C3S}:\ce{C2S} 3:1. In the HLT histogram (orange), the peaks (green) can be assigned to \ce{C2S} and \ce{C3S}.\\
     \end{column}
   \end{columns}
 \end{frame}
@@ -231,10 +235,10 @@
 \begin{frame}{EBSD \& HLT Correlation}
   \begin{columns}
     \begin{column}{0.4\textwidth}
-      Does C-S-H grow preferentially on specific C$_3$S crystal faces?
+      Does C-S-H grow preferentially on specific \ce{C3S} crystal faces?
       \begin{itemize}
         \item Acquistion of a BSE image for HLT measurement.
-        \item Measurement of the crystal orientation of unhydrated C$_3$S particles using electron backscatter diffraction (EBSD).
+        \item Measurement of the crystal orientation of unhydrated \ce{C3S} particles using electron backscatter diffraction (EBSD).
       \end{itemize}
     \end{column}
     \begin{column}{0.6\textwidth}
@@ -259,7 +263,7 @@
     \begin{column}{0.6\textwidth}
       \centering
       \includegraphics[width=0.7\linewidth]{./graphics/ebsd/mollweideprojektion.pdf}\\
-      \footnotesize Mollweide projection of the mean HLT (top) and the measurement density (bottom) with projected C$_3$S unit cell (MIII polymorph, red).
+      \footnotesize Mollweide projection of the mean HLT (top) and the measurement density (bottom) with projected \ce{C3S} unit cell (MIII polymorph, red).
     \end{column}
   \end{columns}
   \vfill\raggedleft\tiny\itshape unpublished
@@ -401,5 +405,41 @@
     \item Pore structure analysis of nanoporosity using FIB-nT and LT-DSC.
   \end{itemize}
 \end{frame} 
+
+\appendix
+
+\begin{frame}{Acronyms}
+  \begin{multicols}{2}
+    \scriptsize
+    \begin{description}[LA-ICP-MS]
+      \item[ArBIB] Argon Broad Ion Beam
+      \item[BSE] Backscattered Electron
+      \item[C-A-S-H] Calcium Aluminate Silicate Hydrate
+      \item[CEM~I] Portland cement as defined in DIN EN 197-1
+      \item[C-S-H] Calcium Silicate Hydrate
+      \item[\ce{C2S}] Dicalcium Silicate
+      \item[\ce{C3S}] Tricalcium Silicate
+      \item[EBSD] Electron Backscatter Diffraction
+      \item[EDX] Energy-Dispersive X-ray Spectroscopy
+      \item[FIB] Focussed Ion Beam
+      \item[FIB-nT] FIB nano Tomography
+      \item[fs-Laser] Femtosecond Laser
+      \item[HLT] Hydrate Layer Thickness
+      \item[IPF] Inverse Pole Figure
+      \item[ITZ] Interfacial Transition Zone
+      \item[LA-ICP-MS] Laser Ablation - Inductively Coupled Plasma - Mass Spectrometry
+      \item[LC$^3$] Limestone Calcined Clay Cement
+      \item[LT-DSC] Low Temperature - Differential Scanning Calorimetry
+      \item[MIP] Mercury Intrusion Porosimetry
+      \item[NI] Nanoindentation
+      \item[PCE] Polycarboxylate Ether
+      \item[PUS] Power Ultrasound
+      \item[SE] Secondary Electron
+      \item[SEM] Scanning Electron Microscope
+      \item[SLIC] Simple Linear Iterative Clustering
+      \item[UMAP] Uniform Manifold Approximation
+    \end{description}
+  \end{multicols}
+\end{frame}
 
 \end{document}

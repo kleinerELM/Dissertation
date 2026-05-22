@@ -13,7 +13,7 @@
 \usepackage[ngerman]{babel}
 \usepackage[babel,german=guillemets]{csquotes}
 \usepackage{datetime}
-
+\usepackage[version=4]{mhchem}
 \usepackage{booktabs}
 \usepackage{xspace}
 \usepackage{multicol}
@@ -44,6 +44,7 @@
 
 \usepackage{animate}
 \usepackage[version=4]{mhchem}
+\usepackage{orcidlink}
 
 % Dummy-Befehl für eventuelle Hintergrundbilder aus der Vorlage
 %\newcommand{\BUWtitlebg}{}
@@ -52,11 +53,12 @@
 {Advanced 2D and 3D characterisation of clinker phases and hydrated cementitious binders}
 
 \subtitle{Inhaltsübersicht der Dissertation}
-\date{\today}
+\date{10. Juni 2026}
 
 \newcommand\shortauthor{Florian Kleiner}
+\newcommand\orcid{0000-0001-6002-0829}
 \author[\shortauthor]{
-  \shortauthor\\
+  \shortauthor\,\orcidlink{\orcid}\\
   \href{mailto:florian.kleiner@uni-weimar.de}{{\tt florian.kleiner@uni-weimar.de}}
 }
 
@@ -146,7 +148,7 @@
       \textbf{BSE + EDX + LA-ICP-MS}
       \begin{itemize}
         \item Gute Auflösung der EDX-Daten ermöglicht exakte Phasen-Zuordnung der LA-ICP-MS-Messungen.
-        \item Spurenelemente wie V, Ba, Rb konzentrieren sich im C$_2$S, Ti und Mn in den Zwischenphasen.
+        \item Spurenelemente wie V, Ba, Rb konzentrieren sich im \ce{C2S}, Ti und Mn in den Zwischenphasen.
       \end{itemize}
     \end{column}
     \begin{column}{0.5\textwidth}
@@ -168,7 +170,7 @@
         \item Präparation mittels ArBIB
         \item geringere Präparationsartefakte (Vermeidung von Reliefs).
         \item Kombination von NI + EDX.
-        \item Direkte, detaillierte Phasenzuordnung von Härte/Modul (z.\,B. Quarz, C$_3$S, C$_2$S, C-S-H, C-A-S-H) im Gegensatz zum sonst groben Dekonvolutionsverfahren.
+        \item Direkte, detaillierte Phasenzuordnung von Härte/Modul (z.\,B. Quarz, \ce{C3S}, \ce{C2S}, C-S-H, C-A-S-H) im Gegensatz zum sonst groben Dekonvolutionsverfahren.
       \end{itemize}
     \end{column}
     \begin{column}{0.5\textwidth}
@@ -211,18 +213,18 @@
 \begin{frame}{Automatisierte Hydratsaummessung (HLT)}
   \begin{columns}
     \begin{column}{0.5\textwidth}
-      \textbf{Ergebnis für C$_3$S und C$_2$S:}
+      \textbf{Ergebnis für \ce{C3S} und \ce{C2S}:}
       \begin{itemize}
         %\item Bis zu 28\,d alte Proben lassen eine Messung zu.
-        \item Für Reinphasen (C$_3$S und C$_2$S) ist das HLT-Wachstum bis zu 28 Tage alten Proben messbar.
-        \item C$_2$S zeigt erwartbar langsameres C-S-H-Wachstum als C$_3$S
-        \item Für Mischphasen (C$_3$S:C$_2$S 3:1, 1:1, 1:3) lassen sich unterschiedliche Wachstumsraten um C$_3$S und C$_2$S feststellen.
+        \item Für Reinphasen (\ce{C3S} und \ce{C2S}) ist das HLT-Wachstum bis zu 28 Tage alten Proben messbar.
+        \item \ce{C2S} zeigt erwartbar langsameres C-S-H-Wachstum als \ce{C3S}
+        \item Für Mischphasen (\ce{C3S}:\ce{C2S} 3:1, 1:1, 1:3) lassen sich unterschiedliche Wachstumsraten um \ce{C3S} und \ce{C2S} feststellen.
       \end{itemize}
     \end{column}
     \begin{column}{0.5\textwidth}
       \centering
       \includegraphics[width=\linewidth]{hydrate-rim/HLT_histogram_3-1.pdf} % fig:hlt_mixture_peaks
-      \footnotesize HLT-Ergebnis für 28\,d hydratisiertes C$_3$S:C$_2$S 3:1. Im HLT-Histogramm (orange) lassen sich\\die Peaks (grün) C$_2$S und C$_3$S zuordnen.\\
+      \footnotesize HLT-Ergebnis für 28\,d hydratisiertes \ce{C3S}:\ce{C2S} 3:1. Im HLT-Histogramm (orange) lassen sich\\die Peaks (grün) \ce{C2S} und \ce{C3S} zuordnen.\\
     \end{column}
   \end{columns}
 \end{frame}
@@ -231,10 +233,10 @@
 \begin{frame}{EBSD \& HLT Korrelation}
   \begin{columns}
     \begin{column}{0.4\textwidth}
-      Wächst C-S-H bevorzugt auf bestimmten C$_3$S-Kristallflächen?
+      Wächst C-S-H bevorzugt auf bestimmten \ce{C3S}-Kristallflächen?
       \begin{itemize}
         \item Erstellung eines BSE Bildes zur HLT-Messung
-        \item Messung der Kristallorientierung von unhydratisierten C$_3$S-Partikeln mittels Elektronenrückstreubeugung (EBSD)
+        \item Messung der Kristallorientierung von unhydratisierten \ce{C3S}-Partikeln mittels Elektronenrückstreubeugung (EBSD)
       \end{itemize}
     \end{column}
     \begin{column}{0.6\textwidth}
@@ -259,7 +261,7 @@
     \begin{column}{0.6\textwidth}
       \centering
       \includegraphics[width=0.7\linewidth]{./graphics/ebsd/mollweideprojektion.pdf}\\ % fig:ebsd_sphere_projection
-      \footnotesize Mollweide-Projektion der mittleren HLT (oben) und der Messdichte (unten) mit projizierter C$_3$S-Einheitszelle (MIII-Polymorph, rot).
+      \footnotesize Mollweide-Projektion der mittleren HLT (oben) und der Messdichte (unten) mit projizierter \ce{C3S}-Einheitszelle (MIII-Polymorph, rot).
     \end{column}
   \end{columns}
   \vfill\raggedleft\tiny\itshape unpublished
@@ -407,14 +409,41 @@
 % ---------------------------------------------------
 % BACKUP FOLIEN
 % ---------------------------------------------------
-% \appendix
 
+\appendix
 
-% \begin{frame}{Backup: Repräsentativitätsanalyse (Box-Growth)}
-%   \centering
-%   \includegraphics[width=0.35\linewidth]{literature/area growth_illust.png} % fig:lit_box_methods_a
-  
-%   \footnotesize Kontinuierliche Messung der Phasenzusammensetzung bei wachsender Boxgröße zur Bestimmung des \textit{Representative Elementary Area} (REA).
-% \end{frame}
+\begin{frame}{Acronyms}
+  \begin{multicols}{2}
+    \scriptsize
+    \begin{description}[LA-ICP-MS]
+      \item[ArBIB] Argon Broad Ion Beam
+      \item[BSE] Backscattered Electron
+      \item[C-A-S-H] Calcium Aluminate Silicate Hydrate
+      \item[CEM~I] Portland cement as defined in DIN EN 197-1
+      \item[C-S-H] Calcium Silicate Hydrate
+      \item[\ce{C2S}] Dicalcium Silicate
+      \item[\ce{C3S}] Tricalcium Silicate
+      \item[EBSD] Electron Backscatter Diffraction
+      \item[EDX] Energy-Dispersive X-ray Spectroscopy
+      \item[FIB] Focussed Ion Beam
+      \item[FIB-nT] FIB nano Tomography
+      \item[fs-Laser] Femtosecond Laser
+      \item[HLT] Hydrate Layer Thickness
+      \item[IPF] Inverse Pole Figure
+      \item[ITZ] Interfacial Transition Zone
+      \item[LA-ICP-MS] Laser Ablation - Inductively Coupled Plasma - Mass Spectrometry
+      \item[LC$^3$] Limestone Calcined Clay Cement
+      \item[LT-DSC] Low Temperature - Differential Scanning Calorimetry
+      \item[MIP] Mercury Intrusion Porosimetry
+      \item[NI] Nanoindentation
+      \item[PCE] Polycarboxylate Ether
+      \item[PUS] Power Ultrasound
+      \item[SE] Secondary Electron
+      \item[SEM] Scanning Electron Microscope
+      \item[SLIC] Simple Linear Iterative Clustering
+      \item[UMAP] Uniform Manifold Approximation
+    \end{description}
+  \end{multicols}
+\end{frame}
 
 \end{document}

@@ -1,0 +1,119 @@
+% !TEX program = xelatex
+\documentclass[11pt, a4paper]{article}
+
+\usepackage[ngerman]{babel}
+\usepackage[inner=3cm, outer=2.5cm, top=2.5cm, bottom=3cm]{geometry}
+\usepackage{fontspec}
+\usepackage{setspace}
+\usepackage[version=4]{mhchem}
+\usepackage{siunitx}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{titling}
+\usepackage{qrcode}
+\usepackage[hidelinks]{hyperref}
+
+\setstretch{1.2}
+\sisetup{locale = DE, range-units=single, product-units=single}
+
+\title{Advanced 2D and 3D characterisation of clinker phases and hydrated cementitious binders by combining a variety of modern imaging and analytical techniques}
+\author{Florian Kleiner}
+
+\begin{document}
+
+%%% Seite 1: Titelseite %%%
+\begin{titlepage}
+    \centering
+    \vspace*{1cm}
+    
+    {\Large Zusammenfassung der Dissertation\par}
+    \vspace{1.5cm}
+    
+    {\LARGE \textbf{\thetitle}\par}
+    \vspace{2cm}
+    
+    {\large Autor:\par}
+    {\Large \theauthor\par}
+    \vspace{1cm}
+    
+    {\large Erstrebter akademischer Grad:\par}
+    {\Large Doktoringenieur (Dr.-Ing.)\par}
+    \vspace{1cm}
+    
+    { an der\par}
+    {\large Fakultät für Bau- und Umweltingenieurwissenschaften,\par}
+    {\large der Bauhaus-Universität Weimar\par}
+    \vspace{1cm}
+
+    {\large Gutachter:\par}
+    {\Large Professor Dr.-Ing. Horst-Michael Ludwig\par}
+    \vspace{1cm}
+    
+    {\large Status des Doktoranden:\par}
+    {\Large Intern\par}
+    \vspace{3cm}
+    
+    \vfill
+    
+    {\large Weimar, \today\par}
+\end{titlepage}
+
+\newpage
+
+\section*{Zusammenfassung der Dissertation}
+
+\subsection*{I. Problemstellung und Zielsetzung}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=1.5cm, labelsep=0.5cm, itemsep=0.5em]
+    \item Die Zementhydratation ist ein Skalenübergreifender Prozess.
+    Während qualitative mikrostrukturelle Analysen durchaus weit verbreitet sind, ist eine statistisch repräsentative, quantitative Datenanalyse in der zementbasierten Werkstoffwissenschaft noch nicht der Regelfall.
+    \item Herkömmliche bildgebende Verfahren stoßen oft an ihre Auflösungsgrenzen z.~B. hinsichtlich der Nanoporosität oder bieten nicht die erforderliche chemische Sensitivität, um Spurenelemente spezifischen Mineralphasen innerhalb der heterogenen Klinkermatrix zuzuordnen.
+    \item Das Hauptziel dieser Arbeit ist es, diese Einschränkungen durch die Etablierung korrelativer Mikroskopie-Workflows und automatisierter Auswertungswerkzeuge zu überwinden.
+    Dies soll die Lücke zwischen hochauflösender Bildgebung und der Bestimmung physikalischer Eigenschaften schließen.
+    \item Folglich soll diese Kombination von Techniken mehr Informationen liefern, als jede Methode einzeln bieten kann.
+\end{enumerate}
+
+\subsection*{II. Stand der Technik}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=1.5cm, labelsep=0.5cm, itemsep=0.5em, resume]
+    \item \textbf{Präparationsartefakte:} Herkömmliches mechanisches Polieren führt oft zu Reliefs und in Poren verschmiertes Harz, was die Darstellung der nativen Porenstruktur verzerrt und die Segmentierung von Hydratphasen im Rasterelektronenmikroskop (REM) erschwert.
+    \item \textbf{Einschränkungen der 3D-Bildgebung:} Die fokussierte Ionenstrahl-Nano\-to\-mo\-gra\-phie (FIB-nT) ist typischerweise auf sehr kleine, nicht-repräsentative Volumina begrenzt.
+    Bestehende Workflows kämpfen mit Artefakten wie Aufladungen und Redeposition, was die Erstellung hochwertiger Datensätze für die mikrostrukturelle Modellierung behindert.
+    \item \textbf{Subjektivität bei der Datenauswertung:} Viele quantitative Kennwerte in der Zementforschung, wie die Dicke von Hydratsäumen oder Partikelabstände in frischen Leimen, beruhen auf manuellen oder halbautomatischen Messungen, die anfällig für Anwenderfehler sind und einen geringen statistischen Durchsatz aufweisen.
+\end{enumerate}
+
+\subsection*{III. Methodik}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=1.5cm, labelsep=0.5cm, itemsep=0.5em, resume]
+    \item \textbf{ArBIB-Präparation:} Diese Arbeit nutzt die Argon-Broad-Ionbeam politur(ArBIB, Polieren bei Raumtemperatur und bei \qty{-140}{\celsius}) und das Böschungsätzen als wesentliche Präparationsschritte für eine artefaktreduzierte Bildgebung und Charakterisierung.
+    Diese Methodik ermöglicht die Visualisierung nativer Nanoporen in dichtem C-S-H ohne das Einbetten in Harz.
+    \item \textbf{Multimodale Korrelation:} Ein zentraler Schwerpunkt dieser Forschung ist die Integration multimodaler Daten.
+    Dies wird durch die Co-Registrierung von REM-BSE-Bilddaten bzw. REM-EDX-Phasenkarten mit Spurenelementverteilungen, die mittels Laserablation mit induktiv gekoppeltem Plasma und Massenspektrometrie (LA-ICP-MS) gewonnen wurden, sowie mechanischen Eigenschaftskarten aus der Nanoindentation (NI) erreicht. 
+    Die Kombination dieser Daten ermöglicht die direkte Zuordnung chemischer und mechanischer Eigenschaften zu den Phasen eines hydratisierten Zements oder Klinkers.
+    \item \textbf{Automatisierte Python-basierte Werkzeuge:} Die Arbeit präsentiert einen neu entwickelten Algorithmus zur automatisierten Messung der Hydratsaumdicke (HLT) aus großflächigen BSE-Bildern, der die statistische Analyse des Hydratationsfortschritts an Hunderttausenden einzelner Partikel ermöglicht.
+    Diese Methode kann angepasst auch zur Messung von Partikelabständen genutzt und mit Elektronen\-rück\-streu\-beu\-gungs-Messungen (EBSD) kombiniert werden, um zu untersuchen, ob eine Abhängigkeit zwischen der Kristallorientierung und dem Hydratsaumwachstum besteht.
+    \item \textbf{Lift-out-Technik für FIB-nT:} Die Implementierung der Lift-out-Technik für FIB-nT reduziert Aufladungsartefakte erheblich und stabilisiert die Probe.
+    \item \textbf{Laserpräparation für FIB-nT:} Der Einsatz der Femtosekunden-Laserablation (fs-Laser) ermöglicht die schnelle Präparation repräsentativer Volumina für nachfolgende FIB-nT-Analysen. Darüber hinaus erlaubt sie die schnelle Präparation großer Schnitte für die Analyse der Kontaktzone (ITZ) und schließt so die Lücke zwischen Nano-Skala und Bulk-Analyse.
+\end{enumerate}
+
+\subsection*{IV. Hauptergebnisse}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=1.5cm, labelsep=0.5cm, itemsep=0.5em, resume]
+    \item \textbf{ArBIB-Polieren:} Es wurde nachgewiesen, dass die Präparation von dichtem innerem C-S-H bei \qty{-140}{\celsius} zu kleineren beobachtbaren Poren führt.
+    Dies deutet auf einen geringfügigen schädigenden Effekt des ArBIB-Polierens bei Raumtemperatur hin.
+    \item \textbf{Spurenelement-Mapping:} Es wurde belegt, dass Spurenelemente wie Ba, V und Rb bevorzugt in Belit (\ce{C2S}) eingebaut werden, während sich Ti und Mn in den Zwischenphasen anreichern.
+    \item \textbf{Mikromechanische Phasenzuordnung:} Die Kombination von NI-EDX ermöglichte eine direkte, nicht-statistische Zuordnung mechanischer Eigenschaften zu spezifischen Hydratzusammensetzungen (C-S-H vs. C-A-S-H), im Gegensatz zu den herkömmlichen statistischen Dekonvolutionsmethoden, welche die Phasenkomplexität des hydratisierten Bindemittels vereinfachen können.
+    \item \textbf{Statistische Repräsentativität:} Eine systematische Flächenanalyse legte die repräsentative Elementarfläche (REA) für Phasenzusammensetzungsmessungen fest. Während \qty{0,3}{\milli\meter\squared} für homogene Proben ausreichen, benötigen Proben mit großräumigen Inhomogenitäten (z.\,B. Luftporen) Flächen von mehr als \qty{1,4}{\milli\meter\squared} für statistisch zuverlässige Ergebnisse.
+    \item \textbf{Hydratsaumwachstum und Phasentrennung:} Die HLT-Analyse quantifizierte das Wachstum von Hydratationsprodukten über die Zeit und bestätigte, dass \ce{C2S} signifikant langsamer hydratisiert als \ce{C3S}.
+    In Mehrphasengemischen ermöglichte der Algorithmus eine identifikation von mehreren deutlichen HLT-Peaks, was die individuelle Hydratationskinetik von \ce{C3S} und \ce{C2S} widerspiegelt.
+    \item \textbf{Hydratationskinetik und Kristallorientierung:} Die Korrelation der HLT-Mess\-ung\-en mit EBSD deutet darauf hin, dass das C-S-H-Wachstum um \ce{C3S}-Körner viel stärker von der lokalen räumlichen Verfügbarkeit und Porenkonnektivität als von der kristallographischen Orientierung bestimmt wird.
+    \item \textbf{Quantifizierung der Dispergierwirkung:} Der Einsatz von Kryo-FIB-REM in Kombination mit einer automatisierten Partikelabstandsanalyse konnte die Wirkung von Hochleistungsultraschall (PUS) und Polycarboxylatethern (PCE) bei der Dispergierung frischer Leime veranschaulichen und bietet ein objektives Werkzeug für rheologische Optimierungen.
+    \item \textbf{Porositätsmessungen:} Ein Multimethodenvergleich (LT-DSC, MIP, 2D- und 3D-Bildgebung) ergab eine lineare Korrelation zwischen der Abnahme der Kapillarporosität und der Bildung von Gelporosität.
+\end{enumerate}
+
+\vfill
+\begin{center}
+    \qrcode[height=2cm]{https://github.com/kleinerELM/Dissertation/releases}\hspace*{.5cm}\url{https://github.com/kleinerELM/Dissertation/releases}
+\end{center}
+
+\end{document}

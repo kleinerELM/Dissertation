@@ -27,7 +27,12 @@
 			\vspace*{2\baselineskip}
 			vorgelegt von
 
-			Dipl.-Ing. \@author
+			\ifdefined\PRINTABLE
+				Dipl.-Ing. \@author
+			\else
+				Dipl.-Ing. \orcidlinki{\@author}{0000-0001-6002-0829}
+			\fi
+			
 
 			\vspace*{1\baselineskip}
 
@@ -38,15 +43,15 @@
 
 		\vspace*{3\baselineskip}
 
+		\begin{tabbing}
+			Stand des Dokumentes:	\=	Name \kill
+			Gutachter:	\>	\myFirstReviewer \\
+						\>	\mySecondReviewer \\
+						\>	\myThirdReviewer
+		\end{tabbing}
+			
 		\ifdefined\EXAMVERSION
 		\else
-			\begin{tabbing}
-				Stand des Dokumentes:	\=	Name \kill
-				Gutachter:	\>	\myFirstReviewer \\
-							\>	\mySecondReviewer \\
-							\>	\myThirdReviewer
-			\end{tabbing}
-			
 			\begin{tabbing}
 				Stand des Dokumentes:	\=	Name \kill
 				Tag der Disputation: \>	\myExamDate \\

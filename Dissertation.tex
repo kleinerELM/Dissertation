@@ -11,10 +11,8 @@
 
 \def\myTypeOfDocument{Dissertation}
 \author{Florian Kleiner}
+\def\authorORCID{0000-0001-6002-0829}
 \def\myUniversity{Bauhaus-Universität Weimar}
-\def\myFirstReviewer{Professor Dr.-Ing. Horst-Michael Ludwig}  % name of first reviewer
-\def\mySecondReviewer{Unknown}  % name of second reviewer
-\def\myThirdReviewer{Unknown}   % name of third reviewer
 \def\myExamDate{xx.xx.2027}
 \title{Correlative characterisation of clinker phases and hydrated cementitious binders by a variety of modern 2D and 3D imaging techniques}
 \def\myKeywords{SEM EDX {image analysis} cement hydration clinker {specimen preparation}}
@@ -44,6 +42,17 @@
 \fi
 
 \input{additionals/a-latex_header.tex}  % import packages and design definitions
+
+
+\ifdefined\PRINTABLE
+	\NewDocumentCommand{\withORCID}{o m}{#2}
+\else
+	\NewDocumentCommand{\withORCID}{o m}{\orcidlinki{#2}{#1}}
+\fi
+
+\def\myFirstReviewer{\withORCID[0000-0002-8998-4936]{Professor Dr.-Ing. Horst-Michael Ludwig}}
+\def\mySecondReviewer{\withORCID[0000-0003-2736-4050]{Professor Hong S. Wong}}
+\def\myThirdReviewer{\withORCID[0000-0002-7133-8717]{Prof. Dr. habil. Thorsten Schäfer}}
 
 \addbibresource{Dissertation.bib}
 

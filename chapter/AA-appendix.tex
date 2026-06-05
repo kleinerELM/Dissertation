@@ -147,8 +147,7 @@ The phase compositions of samples stored for \num{1} (only \ac{C3S}), \num{7}, a
 \subsection{Cements}
 \label{sec:cements}
 
-For some \ac{FIBnt} experiments, a commercially available \ac{OPC} (type \acs{CEMI} \num{42.5} R from \textsc{Dyckerhoff}) was used (chemical composition see \zcref{tab:phase-composition}) to produce a mortar (\qty{450(2)}{\gram} cement, \qty{1350(5)}{\gram} sand and \qty{225(1)}{\gram} water; according to \textcite{dinen196-1.2016}).
-For some \ac{FIBnt} experiments, a commercially available \ac{OPC} (type \acs{CEMI} \num{42.5} R from \textsc{Dyckerhoff}) was used (for the chemical composition, see \zcref{tab:phase-composition}) to produce a mortar (\qty{450(2)}{\gram} cement, \qty{1350(5)}{\gram} sand and \qty{225(1)}{\gram} water; according to \textcite{dinen196-1.2016}).
+For some \ac{FIBnt} experiments, a commercially available \ac{OPC} (type \acs{CEMI} \num{42.5} R from \textsc{Dyckerhoff}) was used (for the chemical composition see \zcref{tab:phase-composition}) to produce a mortar (\qty{450(2)}{\gram} cement, \qty{1350(5)}{\gram} sand and \qty{225(1)}{\gram} water; according to \textcite{dinen196-1.2016}).
 
 %Zement nummer 808 für CT Untersuchungen -> Kapitel correlative Mikroskopie
 \begin{table}[H]
@@ -844,6 +843,42 @@ The diagrams in \zcref{fig:hlt_segmentation_influence} compare the influence of 
 	\label{fig:results2d_mixture}
 \end{figure}
 
+\begin{table}[ht]
+    \centering
+    \caption{
+        \ac{HLT} peak measurements of hydrated \ac{C3S}, \ac{C2S} and mixtures (aged \num{1}, \num{7}, \num{14}, and \qty{28}{\day}).
+    }
+    \label{tab:hlt_peak_measurements}
+
+    \begin{tabularx}{\textwidth}{@{}l *{4}{>{\centering\arraybackslash}X} @{}}
+        \toprule
+        Age in \unit{\day} & 1 & 7 & 14 & 28 \\
+        \midrule
+        
+        % \multicolumn für die Gruppenüberschrift (jetzt 5 Spalten breit)
+	 	&\multicolumn{4}{c}{\textbf{\ac{C3S}}} \\ \midrule
+        \ac{HLT} in \unit{\micro\meter} (\ac{C3S} peak) & 0.45$^{*}$ & 1.35 & 1.94 & 3.12 \\[5pt]
+        
+	 	&\multicolumn{4}{c}{\textbf{\ac{C2S}}} \\ \midrule
+        \ac{HLT} in \unit{\micro\meter} (\ac{C2S} peak) & 0.25$^{*}$ & 0.51$^{*}$ & 0.67 & 1.01 \\[5pt]
+        
+        &\multicolumn{4}{c}{\textbf{\ac{C3S} 3:1 \ac{C2S}}} \\ \midrule        
+		\ac{HLT} in \unit{\micro\meter} (\ac{C3S} peak) & -- & 1.52 & 1.94 & 2.81 \\
+		\ac{HLT} in \unit{\micro\meter} (\ac{C2S} peak) & -- & $^{**}$ & $^{**}$ & 1.37 \\[5pt]
+        
+        &\multicolumn{4}{c}{\textbf{\ac{C3S} 1:1 \ac{C2S}}} \\ \midrule
+		\ac{HLT} in \unit{\micro\meter} (\ac{C3S} peak) & -- & 1.35 & 1.45 & 2.79 \\
+		\ac{HLT} in \unit{\micro\meter} (\ac{C2S} peak) & -- & $^{**}$ & $^{**}$ & 1.56 \\[5pt]
+        
+        &\multicolumn{4}{c}{\textbf{\ac{C3S} 1:3 \ac{C2S}}} \\ \midrule
+		\ac{HLT} in \unit{\micro\meter} (\ac{C3S} peak) & -- & 1.0$^{*}$ & 1.0$^{*}$ & 2.22 \\
+		\ac{HLT} in \unit{\micro\meter} (\ac{C2S} peak) & -- & $^{**}$ & $^{**}$ & 1.14 \\[5pt]
+        
+        \bottomrule
+    \end{tabularx}
+	\par\smallskip\raggedright\footnotesize $^{*}$ estimated value since the measurement is to close to or equal the noise peak
+	\par\smallskip\raggedright\footnotesize $^{**}$ \ac{C2S} peak not distinguishable
+\end{table}
 
 \begin{table}[ht]
     \centering

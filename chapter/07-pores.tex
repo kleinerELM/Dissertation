@@ -2,16 +2,16 @@
 
 The determination of porosity is fundamental to understanding and predicting the performance and durability of concrete.
 Whilst macroscopic air voids influence properties like freeze-thaw resistance, the gel porosity dictates the material's intrinsic characteristics.
-For example, the transport mechanisms (permeability and diffusion) of water and ions are determined by the pore network caused by the fine structures inherent of the \ac{CSH} phase.
-Accurately quantifying this gel porosity is essential to assess the resistance to chemical (e.g. chloride ingress or sulphate attack) or frost attack, and its mechanical performance.
+For example, the transport mechanisms (permeability and diffusion) of water and ions are determined by the pore network which is formed, among other things, by the fine structures inherent of the \ac{CSH} phase.
+Accurately quantifying the gel and the capillary porosity is essential to assess the resistance to chemical (e.g. chloride ingress or sulphate attack) or frost attack, its mechanical performance and durability.
 
 On a macroscopic scale, comparing different pore measurement methods is feasible.
 However, as the pore size decreases, this comparison becomes increasingly challenging due to physical limits and the fractal nature of porosity.
-To evaluate the methods, a standard material was utilised to benchmark and compare selected methods.
+To evaluate the methods, a standard material was utilised to benchmark and compare selected methods, which were described in \zcref{sec:methods_pore_analysis}.
 
 \section{Porous glass standard}
 
-Two porous glass standards (\textsc{Vycor} glass with \num{5} and \qty{20}{\nano\meter} pore diameter, \acs{VG5} and \acs{VG20}, see \zcref{sec:boraglas}) were evaluated using \ac{SEM} and \ac{LTDSC} spectroscopy.
+Two porous glass standards (\textsc{Vycor} glass with \num{5} and \qty{20}{\nano\meter} pore diameter, short: \acs{VG5} and \acs{VG20}, see \zcref{sec:boraglas}) were evaluated using \ac{SEM} and \ac{LTDSC} spectroscopy.
 The glass standards were initially defined using \ac{MIP} by the manufacturer (\zcref{fig:vycor-mip}). % or \ce{N2}-ad/absorption.
 % TODO: die Endporosität wird normalerweise eher durch Engstellen (necks) definiert als durch die Bulk-porosität
 
@@ -255,7 +255,8 @@ For the measurement, the water saturated specimen was then cooled down to \qty{-
 				scaled x ticks=false,
             ]
 			  \addplot[dotted, thick, samples=2, darkgrey,forget plot] coordinates {(3.19,-.2)(3.19,.2)};
-			  \node[darkgrey, rotate=90, anchor=west] at (axis cs: 2.6,-.06) {\scriptsize <\,\qty{-40}{\celsius}!};
+			  %\node[darkgrey, rotate=90, anchor=west] at (axis cs: 2.6,-.06) {\scriptsize <\,\qty{-40}{\celsius}!};
+			  \node[darkgrey, rotate=90, anchor=west] at (axis cs: 2.6,-.06) {\scriptsize <\,\qty{3.19}{\nano\meter}!};
 
 			\addplot [ no marks, darkgreen] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/glass/ExpDat_2.1-5nm_freeze_segment_18.csv};
 			\addlegendentry{specimen 1};
@@ -318,7 +319,8 @@ For the measurement, the water saturated specimen was then cooled down to \qty{-
 				yticklabel pos=right,
 			]
 			  \addplot[dotted, thick, samples=2, darkgrey,forget plot] coordinates {(3.19,-.2)(3.19,0)};
-			  \node[darkgrey, rotate=90, anchor=west] at (axis cs: 2.6,-.06) {\scriptsize <\,\qty{-40}{\celsius}!};
+			  %\node[darkgrey, rotate=90, anchor=west] at (axis cs: 2.6,-.06) {\scriptsize <\,\qty{-40}{\celsius}!};
+			  \node[darkgrey, rotate=90, anchor=west] at (axis cs: 2.6,-.06) {\scriptsize <\,\qty{3.19}{\nano\meter}!};
 
 			  \addplot [ no marks, orange ] table [ each nth point=4, filter discard warning=false, unbounded coords=discard, x index=2, y index=1, col sep=comma ] {figures/ltdsc/glass/ExpDat_1.1-20nm_freeze_segment_18.csv};
 			  \addlegendentry{specimen 1};
@@ -332,11 +334,11 @@ For the measurement, the water saturated specimen was then cooled down to \qty{-
 	\end{subfigure}
     \caption{
 		\ac{LTDSC}-measurements of two nano-porous glass types.
-		Each type was measured using two specimens. Note that pore sizes below \qty{3.19}{\nano\meter} are undefined as noted in \zcref{eq:brun_freeze}.
+		Each type was measured using two specimens.
+		Note that pore sizes below \qty{3.19}{\nano\meter} (dotted line) are undefined as noted in \zcref{eq:brun_freeze}.
 	}
     \label{fig:ltdsc_result_glass_freeze}
 \end{figure}
-
 
 This resulted in the following freeze curves as plotted in \zcref{fig:ltdsc_result_glass_freeze}.
 \acs{VG5} specified with a pore radius of \qty{2.5}{\nano\meter} has two peaks in the heat-flow signal.
@@ -1815,6 +1817,6 @@ Specifically, \ac{C3S} exhibited a significantly higher volume of gel pores and 
 This aligns with the faster reaction kinetics of \ac{C3S} observed in other experiments.
 \ac{MIP} confirmed the higher capillary porosity in \ac{C2S} pastes.
 Consequently, while no single method can fully characterise the entire pore space, the combination of direct imaging (\ac{ArBIB} combined with \ac{SEM} and \ac{FIBnt}) give a good idea for the gel pore morphology within \ac*{CSHi}.
-More indirect methods like \ac{LTDSC} and \ac{MIP} for volumetric quantification provide a robust description of the evolving pore structure, which are in accordance with the results based on image analysis shown in \zcref{chap:hydrate-rim}.
+
 More indirect methods like \ac{LTDSC} and \ac{MIP} for volumetric quantification provide a robust description of the evolving pore structure, which is in accordance with the results based on image analysis shown in \zcref{chap:hydrate-rim}.
 % TODO:  in \zcref{chap:hydrate-rim}, try to perform some kind of CLD image analysis of the porosity, remove large pores using a filter?

@@ -239,6 +239,7 @@ Individual outliers (curves with significant pop-in) were manually removed from 
 
 \FloatBarrier
 \section{Pore size measurements}
+\label{sec:methods_pore_analysis}
 
 The following sections give an overview of the methods used for pore size measurements.
 
@@ -257,8 +258,8 @@ However, larger values (above $\approx$ \qty{10}{\micro\meter}) will be ignored,
 \label{fig:ltdsc}
 
 To obtain data about the capillary and gel porosity, an \ac{LTDSC} system (\textit{DSC Polyma 214} from \textsc{Netzsch}), connected to a cooling system (\textit{Intercooler IC70}), was used.
-The hardened specimens were sliced to fit the small aluminium crucibles with an inner volume of $\approx$ \qty{60}{\micro\litre}.
-These crucibles were sealed airtight by cold-welding a lid under pressure and measured against an empty reference crucible.
+The hardened specimens were sliced to fit in small aluminium crucibles with an inner volume of $\approx$ \qty{60}{\micro\litre}.
+These crucibles were sealed airtight by cold-welding a lid under pressure and were measured against an empty reference crucible.
 
 \begin{figure}[!htb]
     \centering
@@ -334,14 +335,16 @@ These crucibles were sealed airtight by cold-welding a lid under pressure and me
     \caption{
 		Temperature regime of an \ac{LTDSC}-measurement, based on \textsc{Sun}, \textsc{Scherer}, and \textsc{Müller} \cite{sun.2010, mueller.2021} with two measurement passes P1 and P2.
 		{\color{blue}\ding{100}1}, {\color{blue}\ding{100}2} = zones intended to introduce ice nuclei.
-		Theoretical pore radii $r_\text{P}$ were calculated after \textcite{brun.1977}. {\color{red}Red axis}: on melting (\zcref{eq:brun_melt});
+		Theoretical pore radii $r_\text{P}$ were calculated after \textcite{brun.1977}. {\color{red}Red axis}: pore radius on melting (\zcref{eq:brun_melt});
 		{\color{blue}Blue axis}: pore radius on freezing (\zcref{eq:brun_freeze}).
-		The {\color{blue}65.2} and {\color{red}\qty{33.0}{\nano\meter}} are the pore radii at \qty{-1}{\celsius}.}
+		The {\color{blue}65.2} and {\color{red}\qty{33.0}{\nano\meter}} are the pore radii at \qty{-1}{\celsius}.
+		The green dashed lines represent parts of the temperature regime which is not evaluated.
+	}
     \label{fig:ltdc_regime}
 \end{figure}
 
 The applied temperature regime is depicted in \zcref{fig:ltdc_regime}.
-The indicated zones {\color{blue}\ding{100}1} and {\color{blue}\ding{100}2}, respectively, are intended to create ice seeds and, thus, avoid supercooling.
+The indicated zones {\color{blue}\ding{100}1} and {\color{blue}\ding{100}2}, respectively, are intended to create ice seeds and, thus, avoid supercooling in P1 and P2.
 Data from the measurement passes P1 (down to \qty{-25}{\celsius}) and P2 (down to \qty{-60}{\celsius}) can be evaluated for the porosity analysis.
 A cooling and heating rate of $\pm$\,\qty{2}{\kelvin\per\minute} was applied, since it is the fastest usable heating rate according to \textcite{neffati.2001}.
 The difference between those two measurement zones allows the distinction of the ice mass of pores with radii smaller (P2) and larger (P1) than $\approx$ \qty{3}{\nano\meter}.
@@ -379,7 +382,7 @@ where $\Delta T_\text{fus}$ is the temperature difference (in \unit{\kelvin}) be
 	\end{aligned}
 \end{equation}
 
-The measured heat flow $\dot{Q}_{raw}(T)$ caused by the phase transition must be corrected by subtracting a baseline $\dot{Q}_\text{B}(T)$.
+The measured heat flow $\dot{Q}_{raw}(T)$ in \unit{\joule\per\second\per\gram} caused by the phase transition must be corrected by subtracting a baseline $\dot{Q}_\text{B}(T)$.
 This baseline represents the heat capacity of the solid matrix and the unfrozen liquid/ice fractions.
 A linear approximation of the baseline is established by fitting the steady-state heat flow signal in temperature ranges free from phase transition peaks, which have to be found manually.
 
@@ -389,15 +392,15 @@ A linear approximation of the baseline is established by fitting the steady-stat
 \end{equation}
 
 
-After the baseline correction, the total ice mass can be calculated by integrating the heat flow curve over the melting peak.
+After the baseline correction, the total ice mass can be calculated by integrating the heat flow curve over the whole temperature ramp P1 or P2.
 %\dot{Q}/m_\text{specimen} = DSC / Wärmestrom pro Probenmasse
 % \begin{equation}
 % 	m_\text{ice} = \int_{\vartheta_\text{min}}^{\vartheta_\text{max}} \dot{Q}_{m}(\vartheta) d\vartheta  / \Delta H_\text{fus}
 % 	\label{eq:ltdsc_ice}
 % \end{equation}
 
-The heat flow per unit mass $\dot{Q}_{m}$ is related to the rate of ice mass formation $\dot{m}_\text{ice}$ and the enthalpy of fusion $H_\text{fus}$.
-Since $\dot{Q}_{m}=\dot{m}_\text{ice}\cdot H_\text{fus}$, the total mass is found by integrating the mass rate over the time interval of the measurement:
+The heat flow per unit mass $\dot{Q}_{m}$ is related to the specific rate of ice mass formation $\dot{m}_\text{ice}$ (in \unit{\per\second}, since it is normed by the specimen mass) and the enthalpy of fusion $H_\text{fus}$.
+Since $\dot{Q}_{m}=\dot{m}_\text{ice}\cdot H_\text{fus}$, the total specific ice mass is found by integrating the mass rate over the time interval of the measurement:
 
 \begin{equation}
 	m_\text{ice} = \int_{t_{\text{min}}}^{t_{\text{max}}} \frac{\dot{Q}_{m}(T)}{\Delta H_\text{fus}(T)} dt
@@ -476,7 +479,8 @@ The source code of the procedure used for this analysis can be found in \cite{kl
 
 \FloatBarrier
 \subsection{Calculating the phase composition based on 2D-\acs*{SEM} images}
-Using a segmented \ac{SEM} image with the image area $A_1$, the phase composition can be estimated using the \unit{\areapercent} of \ac{C3S} $A_{\text{C}_3\text{S}}$ and the hydrate phases $A_\text{\text{CSH}}$ and $A_\text{CH}$ \cite{kleiner.2024a}.
+
+Using a segmented \ac{SEM} image with the image area $A_1$, the phase composition can be estimated using $A_{\text{C}_3\text{S}}$, $A_\text{\text{CSH}}$, and $A_\text{CH}$, the \unit{\areapercent} of \ac{C3S}, hydrate phases, and \ac{CH} \cite{kleiner.2024a}.
 If the hydrate phases are indistinguishable, they can be summed:
 
 \begin{equation}
@@ -502,7 +506,7 @@ The densities required to calculate these values are listed in \zcref{tab:densit
 \begin{table}[htb]
     \centering
     \caption{
-        Densities of \ac{C3S} \cite{garrault.2006}, \ac{C2S} \cite{zhang.2012a}, \ac{CH}, and \ac{CSH} \cite{garrault.2006} in \unit{\gram\per\cubic\centi\meter} \cite{jennings.2000,garrault.2006}.\\$^{*}$mixture of \ac{CSH}:\ac{CH} at a volume ratio of \num{2.5}:\num{1}}
+        Densities of \ac{C3S} \cite{garrault.2006}, \ac{C2S} \cite{zhang.2012a}, \ac{CH}, and \ac{CSH} \cite{garrault.2006} in \unit{\gram\per\cubic\centi\meter} \cite{jennings.2000,garrault.2006}.}
     \label{tab:densities}
     \begin{tabularx}{\textwidth}{@{}XXXXXXX@{}}
         \toprule
@@ -511,6 +515,7 @@ The densities required to calculate these values are listed in \zcref{tab:densit
         \textbf{Density} & \num{3.14} & \num{2.97} & \num{3.28} & \num{2.2} & $\approx$ \num{2.116} &  \num{2.07} \\
 		\bottomrule
     \end{tabularx}
+    \par\smallskip\raggedright\footnotesize $^{*}$ mixture of \ac{CSH}:\ac{CH} at a volume ratio of \num{2.5}:\num{1}
 \end{table}
 % beta-C2S: monoclin, more dense
 % gamma-C2S:orthorhombi, less dense
@@ -556,7 +561,8 @@ Since areas to be excluded from the analysis, such as other phases, large pores,
     \label{fig:fixed_threshold}
 \end{figure}
 
-To address the pore segmentation issue, pores within the \ac{CSHi} were segmented using the local thresholding algorithm proposed by \textcite{phansalkar.2011}.
+To address the pore segmentation issue, the following procedure was developed and applied in this study.
+Initially, pores within the \ac{CSHi} were segmented using the local thresholding algorithm proposed by \textcite{phansalkar.2011}.
 This algorithm is a modification of the \textsc{Sauvola} method \cite{sauvola.2000}, specifically optimised for low-contrast images.
 It calculates a threshold value for each pixel based on the local neighbourhood defined by a certain window size (e.g. \qty{20}{\px}).
 The \textsc{Phansalkar} thresholding is implemented in \textsc{Python} \cite{kleiner.2021}, but similar results can be achieved using the \textit{Auto Local Threshold} function in \textsc{Fiji}/\textsc{ImageJ} \cite{schindelin.2012} with the parameters $k = \num{0.15}$ and $r = \num{0.3}$.
@@ -565,6 +571,7 @@ Following segmentation, morphological operators were applied to remove noise fro
 Depending on the imaged specimen, the pores can be connected.
 To separate them, the watershed algorithm was applied \cite{beucher.1992}.
 First, the \textsc{Euclidean} distance transform of the pore mask was computed.
+This distance map represents, for each pixel assigned to a pore, its Euclidean distance to the nearest pore edge.
 One important value to be set is the minimum spacing between the maxima, which determines the granularity with which the pores are separated.
 The larger the value, the larger the resulting pore sizes in the final mask, which significantly influences the resulting \ac{PSD}.
 Therefore, this algorithm was only applied when strictly necessary.

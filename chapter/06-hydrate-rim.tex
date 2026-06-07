@@ -149,7 +149,7 @@ It can perform well if the raw images have good phase contrast, which can be dif
 In some cases, large-scale \ac{BSE} images may exhibit brightness deviations from one edge to another, or the overall brightness of image tiles within a larger image set may change (for example, due to charging).
 These artefacts can significantly influence the thresholding method in particular.
 
-
+\FloatBarrier
 \section{Single phase analysis}
 
 Initially, the individual phases were analysed.
@@ -316,8 +316,8 @@ This plot is accompanied by a frequency plot of the grain size diameter (grey) a
 	\centerline{\includegraphics[width=\textwidth]{hydrate-rim/HLT_histogram_alit.pdf}}
 	\caption{
         Normalised distributions of the \ac{HLT} of hydrated \ac{C3S} (aged \num{1}, \num{7}, \num{14}, \num{28}, \num{84}, and \qty{365}{\day}) depending on the particle diameter.
-        The histogram (({\color{darkgrey}grey}) on top illustrates the logarithmic frequency for each diameter bin in the diagram below.
-        The histogram (({\color{orange}orange}) on the right illustrates the frequency of \ac{HLT} measurements as sum of the main diagram.
+        The histogram ({\color{darkgrey}grey}) on top illustrates the logarithmic frequency for each diameter bin in the diagram below.
+        The histogram ({\color{orange}orange}) on the right illustrates the frequency of \ac{HLT} measurements as sum of the main diagram.
         The values are thus independent of the frequency of single grain diameters.
         The yellow markers indicate the confidence interval at a confidence level of \qty{33.3}{\percent} around $l_\text{max}$ (colored {\color{darkgreen}green}).
     }
@@ -336,31 +336,130 @@ Furthermore, very small grains seem to have no second \ac{HLT} accumulation, whi
 \ac{C2S} shows a significantly slower hydration, which is also visible in the growth of the \ac{HLT} (\zcref{fig:hydration-rim-results}, raw data are listed in \zcref{tab:hlt_peak_measurements}).
 After \qty{28}{\day}, \ac{C2S} still shows smaller hydration rims than \ac{C3S} after \qty{7}{\day}.
 
-\begin{figure}[ht!]
-    \centering
+The half-sided violin plots in \zcref{fig:hydration-rim-results} represent the log-normal fits (cf. \zcref{eq:fitcurve}) of the underlying \ac{HLT} histograms (orange plots in \zcref{fig:results2d_belite, fig:results2d_alite}).
+It is evident that the \ac{HLT} distributions broaden significantly with increasing age.
 
-	\begin{subfigure}{0.475\textwidth}
-		\includegraphics[width=\textwidth]{hydrate-rim/alite_result.pdf}
-		\caption{Hydration of \ac{C3S} from \qtyrange{1}{28}{\day}. \cite{kleiner.2024} }
-		\label{fig:hyd-rim-alite}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}{0.475\textwidth}
-		\includegraphics[width=\textwidth]{hydrate-rim/belite_result.pdf}
-		\caption{Hydration of \ac{C2S} from \qtyrange{1}{28}{\day}.}
-		\label{fig:hyd-rim-belite}
-	\end{subfigure}
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}
+        \begin{groupplot}[
+            group style={
+                group size=2 by 2,
+                vertical sep=.4cm,
+                horizontal sep=.5cm,
+            },
+            width=0.48\textwidth,
+            height=7cm,
+            xmin=-2, xmax=31,
+            xtick={1,7,14,28},
+            xlabel={age in \unit{\day}},
+            grid=major,
+            grid style={line width=.1pt, draw=gray!10},
+        ]
+            % 1: Top Left - C3S XRD + Area
+            \nextgroupplot[
+                title={\textbf{\ac{C3S}}},
+                ylabel={phase content in\\ \unit{\wtpercent} / \unit{\areapercent}},
+                ylabel style={align=center},
+                ymin=0, ymax=100,
+                yticklabel pos=left,
+                xticklabels={},
+                xlabel={},
+                legend style={at={(1.05,1.4)}, anchor=north, legend columns=3, font=\footnotesize},
+            ]
+            \addplot[darkgreen, thick, mark=diamond*] table [x index=0, y index=1, col sep=semicolon] {figures/hydrate-rim/summary/20230621_XRD Daten C3S.csv};
+            \addlegendentry{XRD (\ac{C3S})}
+            \addplot[cyan, thick, mark=triangle*] table [x index=0, y index=3, col sep=semicolon] {figures/hydrate-rim/summary/20230621_XRD Daten C3S.csv};
+            \addlegendentry{XRD (\ac{CH})}
+            \addplot[red, thick, mark=pentagon*] table [x index=0, y index=5, col sep=semicolon] {figures/hydrate-rim/summary/20230621_XRD Daten C3S.csv};
+            \addlegendentry{XRD (\ac{CSH})}
+            \addplot[blue, dashed, mark=square*] table [x index=0, y expr={\thisrowno{3} + \thisrowno{5}}, col sep=semicolon] {figures/hydrate-rim/summary/20230621_XRD Daten C3S.csv};
+            \addlegendentry{XRD ($\Sigma$ hydrates)}
+            \addplot[black, dotted, thick, mark=*] coordinates { (1,61.4) (7,73.4) (14,80.3) (28,91.1) };
+            \addlegendentry{image area ($F_{\text{hydrate}}$)}
+            \addlegendimage{area legend, fill=orange, fill opacity=0.4, draw=none}
+            \addlegendentry{HLT distribution}
+
+            % 2: Top Right - C2S XRD + Area
+            \nextgroupplot[
+                title={\textbf{\ac{C2S}}},
+                ymin=0, ymax=100,
+                yticklabel pos=right,
+                xticklabels={},
+                xlabel={},
+            ]
+            \addplot[darkgreen, thick, mark=diamond*] table [x index=0, y index=1, col sep=semicolon] {figures/hydrate-rim/summary/20230621_XRD Daten C2S.csv};
+            \addplot[cyan, thick, mark=triangle*] table [x index=0, y index=3, col sep=semicolon] {figures/hydrate-rim/summary/20230621_XRD Daten C2S.csv};
+            \addplot[red, thick, mark=pentagon*] table [x index=0, y index=5, col sep=semicolon] {figures/hydrate-rim/summary/20230621_XRD Daten C2S.csv};
+            \addplot[blue, dashed, mark=square*] table [x index=0, y expr={\thisrowno{3} + \thisrowno{5}}, col sep=semicolon] {figures/hydrate-rim/summary/20230621_XRD Daten C2S.csv};
+            \addplot[black, dotted, thick, mark=*] coordinates { (1,28.6) (7,47.3) (14,67.8) (28,75.5) };
+
+            % 3: Bottom Left - C3S HLT
+            \nextgroupplot[
+                ylabel={\ac{HLT} $l_{\text{max}}$ in \unit{\micro\meter}},
+                ymin=0, ymax=7,
+                ytick={0,1,...,7},
+                yticklabel pos=left,
+            ]
+            \pgfmathsetmacro{\vscale}{1.8}
+            % Violin 1d (a=1.019, b=-1.469, c=0.964, d=0.221)
+            \addplot [fill=orange, fill opacity=0.4, draw=none, domain=-7:2, samples=100, forget plot] 
+                ( {1 + \vscale * 1.019 * exp(-0.5 * ((\x - (-1.469))/0.964)^2)}, {exp(\x) + 0.221} ) -- (1, 7) -- (1, 0) -- cycle;
+            
+            % Violin 7d (a=0.939, b=-0.145, c=0.571, d=0.495)
+            \addplot [fill=orange, fill opacity=0.4, draw=none, domain=-7:2, samples=100, forget plot] 
+                ( {7 + \vscale * 0.939 * exp(-0.5 * ((\x - (-0.145))/0.571)^2)}, {exp(\x) + 0.495} ) -- (7, 7) -- (7, 0) -- cycle;
+
+            % Violin 14d (a=0.887, b=0.523, c=0.522, d=0.224)
+            \addplot [fill=orange, fill opacity=0.4, draw=none, domain=-7:2, samples=100, forget plot] 
+                ( {14 + \vscale * 0.887 * exp(-0.5 * ((\x - 0.523)/0.522)^2)}, {exp(\x) + 0.224} ) -- (14, 7) -- (14, 0) -- cycle;
+
+            % Violin 28d (a=0.869, b=0.887, c=0.608, d=0.670)
+            \addplot [fill=orange, fill opacity=0.4, draw=none, domain=-7:2, samples=100, forget plot] 
+                ( {28 + \vscale * 0.869 * exp(-0.5 * ((\x - 0.887)/0.608)^2)}, {exp(\x) + 0.670} ) -- (28, 7) -- (28, 0) -- cycle;
+
+            \addplot[orange, thick, mark=diamond*] coordinates { (1,0.45) (7,1.35) (14,1.94) (28,3.12) };
+
+            % 4: Bottom Right - C2S HLT
+            \nextgroupplot[
+                ymin=0, ymax=7,
+                ytick={0,1,...,7},
+                yticklabel pos=right,
+            ]
+            \pgfmathsetmacro{\vscale}{1.8}
+            % Violin 1d (a=1.049, b=-1.452, c=0.450, d=0.049)
+            \addplot [fill=orange, fill opacity=0.4, draw=none, domain=-7:2, samples=100, forget plot] 
+                ( {1 - \vscale * 1.049 * exp(-0.5 * ((\x - (-1.452))/0.450)^2)}, {exp(\x) + 0.049} ) -- (1, 7) -- (1, 0) -- cycle;
+            
+            % Violin 7d (a=1.284, b=-3.085, c=1.378, d=0.469)
+            \addplot [fill=orange, fill opacity=0.4, draw=none, domain=-7:2, samples=100, forget plot] 
+                ( {7 - \vscale * 1.284 * exp(-0.5 * ((\x - (-3.085))/1.378)^2)}, {exp(\x) + 0.469} ) -- (7, 7) -- (7, 0) -- cycle;
+
+            % Violin 14d (a=0.952, b=-1.109, c=0.908, d=0.341)
+            \addplot [fill=orange, fill opacity=0.4, draw=none, domain=-7:2, samples=100, forget plot] 
+                ( {14 - \vscale * 0.952 * exp(-0.5 * ((\x - (-1.109))/0.908)^2)}, {exp(\x) + 0.341} ) -- (14, 7) -- (14, 0) -- cycle;
+
+            % Violin 28d (a=0.935, b=-0.404, c=0.981, d=0.354)
+            \addplot [fill=orange, fill opacity=0.4, draw=none, domain=-7:2, samples=100, forget plot] 
+                ( {28 - \vscale * 0.935 * exp(-0.5 * ((\x - (-0.404))/0.981)^2)}, {exp(\x) + 0.354} ) -- (28, 7) -- (28, 0) -- cycle;
+
+            \addplot[orange, thick, mark=diamond*] coordinates { (1,0.25) (7,0.51) (14,0.67) (28,1.01) };
+
+        \end{groupplot}
+    \end{tikzpicture}
     \caption{
-		Comparison between the hydration progression measured using \ac{XRD} (dashed lines) with $l_\text{max}$ (solid line).
-		The pink markers (dotted line) indicate the amount of hydrate phase $\sigma_\text{hyd}$ estimated from the image segmentation.
-		The red translucent areas indicate the confidence interval at a confidence level of where \qty{33.3}{\percent} (dark) and \qty{50.0}{\percent} (light).
-	}
+        Comparison between the hydration progression of \ac{C3S} (left) and \ac{C2S} (right). 
+        Top row: Phase content determined by \ac{XRD} (Clinker, \ac{CH}, \ac{CSH} as solid lines, their sum as dashed blue lines) and estimated from image segmentation ($F_{\text{hydrate}}$, dotted lines). 
+        Bottom row: Development of the \ac{HLT} $l_{\text{max}}$ measured using the automated algorithm.
+        The \ac{HLT} distribution was fitted using log-normal functions.
+        The distribution fits are plotted as half-sided violin plots.
+    }
     \label{fig:hydration-rim-results}
 \end{figure}
 
 
-
 \FloatBarrier
+%\newpage
 \section{Multi phase analysis}
 \label{sec:HLT_multi_phase}
 
@@ -379,12 +478,13 @@ However, there is no obvious reason for this deviation, which may result from po
 			ymin=0, ymax=100,
 			ylabel={$F_\text{hydrate}$ in \unit{\percent}},
 			symbolic x coords={1:0, 3:1, 1:1, 1:3, 0:1},
+            xticklabels={\ac{C3S}, 3:1, 1:1, 1:3, \ac{C2S}},
 			xtick=data,
 			xlabel={\ac{C3S}:\ac{C2S} ratio},
 			bar width=8pt,
-			enlarge x limits=0.25,
+			enlarge x limits=0.15,
 			legend style={at={(1.02,0.5)}, anchor=west, legend columns=1},
-			width=.9\textwidth,
+			width=.85\textwidth,
 			height=5.5cm,
 		]
 			\addplot[fill=yellow, draw opacity=0, bar shift=-9pt,] coordinates { (1:0,73.44) (3:1,76.87) (1:1,68.01) (1:3,54.53) (0:1,47.29) };
@@ -415,74 +515,87 @@ For younger specimens, however, these peaks are often not yet clearly distinguis
     }
 \end{figure}
 
-\begin{figure}[htb]
-    
-	\hfill
-	\begin{subfigure}[t]{0.49\textwidth}
-        \includegraphics[width=\linewidth]{hydrate-rim/HLT_histogram_3-1.pdf}
-        \caption{
-            Normalised distributions of the \ac{HLT} of a hydrated mixture of \ac{C3S}:\ac{C2S} 3:1 (aged \qty{28}{\day}).
-        }
-        \label{fig:hlt_mixture_peaks}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[t]{0.49\textwidth}
+\begin{figure}[htbp]
+    \centering
 
-        \begin{tikzpicture}
-            \begin{axis}[
-                width=\linewidth,
-                height=5cm,
-                xlabel={proportion of a phase within the binary mixture},
-                ylabel={\ac{HLT} in \unit{\micro\meter}},
-                symbolic x coords={C3S,3:1,1:1,1:3,C2S},
-                xtick={C3S,3:1,1:1,1:3,C2S},
-                xticklabels={\ac{C3S}, 3:1, 1:1, 1:3, \ac{C2S}},
-                enlarge x limits=0.15,
-                ymin=0, ymax=3.5,
-                ytick={0,1,2,3},
-                minor ytick={0.5,1.5,2.5,3.5},
-                %yticklabel style={/pgf/number format/fixed, /pgf/number format/precision=1, /pgf/number format/fixed zerofill},
-                grid=both,
-                grid style={line width=.1pt, draw=gray!10},
-                minor grid style={line width=.05pt, draw=gray!5},
-                legend cell align={left},
-                legend style={at={(.5,1.05)}, anchor=south, legend columns=2},
-            ]
-                \addplot[color=red, mark=*, thick] coordinates {
-                    (C3S, 3.04)
-                    (3:1, 2.81)
-                    (1:1, 2.785)
-                    (1:3, 2.223)
-                };
-                \addlegendentry{\ac{C3S} peak};
-
-                \addplot[color=blue, mark=square*, thick] coordinates {
-                    (3:1, 1.374)
-                    (1:1, 1.558)
-                    (1:3, 1.135)
-                    (C2S, 1.1)
-                };
-                \addlegendentry{\ac{C2S} peak};
-            \end{axis}
-        \end{tikzpicture}
-        \caption{
-            Measured \ac{HLT} for \ac{C3S} and \ac{C2S} mixtures after \qty{28}{\day} of hydration.
-        }
-        \label{fig:hydration-rim-mixture-results}
-	\end{subfigure}
-
-	\caption{
-        \ac{HLT} measurements for \ac{C3S} and \ac{C2S} mixtures.
-        Left: Normalised distribution of the \ac{HLT} of a hydrated mixture of \ac{C3S}:\ac{C2S} 3:1 (aged \qty{28}{\day}).
+    \includegraphics[width=.8\linewidth]{hydrate-rim/HLT_histogram_3-1.pdf}
+    \caption{
+         Normalised distribution of the \ac{HLT} of a mixture of \ac{C3S}:\ac{C2S} 3:1 (hydrated for \qty{28}{\day}).
         The histogram ({\color{orange}orange}) on the right illustrates the frequency of \ac{HLT} measurements as sum of the main diagram.
         The {\color{red} red} line indicates the \ac{C3S} peak and the {\color{blue} blue} line indicates the \ac{C2S} peak.
-        Right: \ac{C3S} and \ac{C2S} peak positions of all mixtures after \qty{28}{\day} of hydration.
     }
-    \label{fig:hlt_mixture_peaks_full}
+    \label{fig:hlt_mixture_peaks}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            width=0.65\textwidth,
+            height=6.5cm,
+			xlabel={\ac{C3S}:\ac{C2S} ratio},
+            ylabel={\ac{HLT} in \unit{\micro\meter}},
+            xmin=0, xmax=4,
+            xtick={0,1,2,3,4},
+            xticklabels={\ac{C3S}, 3:1, 1:1, 1:3, \ac{C2S}},
+            enlarge x limits=0.15,
+            ymin=0, ymax=7,
+            ytick={0,1,...,7},
+            grid=both,
+            grid style={line width=.1pt, draw=gray!10},
+            minor grid style={line width=.05pt, draw=gray!5},
+            legend cell align={left},
+            legend style={at={(1.05,.5)}, anchor=west, legend columns=1, font=\footnotesize},
+        ]
+            \pgfmathsetmacro{\vscale}{0.4}
+
+            % pos 0: C3S (Right side only, using 28d pure phase data)
+            \addplot [fill=red, fill opacity=0.4, draw=none, domain=-7:2, samples=100, forget plot] 
+                ( {0 + \vscale * 0.869 * exp(-0.5 * ((\x - 0.887)/0.608)^2)}, {exp(\x) + 0.670} ) -- (0, 7) -- (0, 0) -- cycle;
+            
+            % pos 1: 3:1 (a_Belit=0.272, b=-0.206, c=1, d=0.523 | a_Alit=0.793, b=0.088, c=0.857, d=1.723)
+            \addplot [fill=blue, fill opacity=0.4, draw=none, domain=-7:2, samples=100, forget plot] 
+                ( {1 - \vscale * 0.272 * exp(-0.5 * ((\x - (-0.206))/1.000)^2)}, {exp(\x) + 0.523} ) -- (1, 7) -- (1, 0) -- cycle;
+            \addplot [fill=red, fill opacity=0.4, draw=none, domain=-7:2, samples=100, forget plot] 
+                ( {1 + \vscale * 0.793 * exp(-0.5 * ((\x - 0.088)/0.857)^2)}, {exp(\x) + 1.723} ) -- (1, 7) -- (1, 0) -- cycle;
+
+            % pos 2: 1:1
+            \addplot [fill=blue, fill opacity=0.4, draw=none, domain=-7:2, samples=100, forget plot] 
+                ( {2 - \vscale * 0.503 * exp(-0.5 * ((\x - (-0.177))/1.000)^2)}, {exp(\x) + 0.720} ) -- (2, 7) -- (2, 0) -- cycle;
+            \addplot [fill=red, fill opacity=0.4, draw=none, domain=-7:2, samples=100, forget plot] 
+                ( {2 + \vscale * 0.599 * exp(-0.5 * ((\x - (-0.057))/0.940)^2)}, {exp(\x) + 1.840} ) -- (2, 7) -- (2, 0) -- cycle;
+
+            % pos 3: 1:3
+            \addplot [fill=blue, fill opacity=0.4, draw=none, domain=-7:2, samples=100, forget plot] 
+                ( {3 - \vscale * 1.000 * exp(-0.5 * ((\x - (-0.491))/1.000)^2)}, {exp(\x) + 0.523} ) -- (3, 7) -- (3, 0) -- cycle;
+            \addplot [fill=red, fill opacity=0.4, draw=none, domain=-7:2, samples=100, forget plot] 
+                ( {3 + \vscale * 0.363 * exp(-0.5 * ((\x - (-0.626))/1.212)^2)}, {exp(\x) + 1.688} ) -- (3, 7) -- (3, 0) -- cycle;
+
+            % pos 4: C2S (Left side only, using 28d pure phase data)
+            \addplot [fill=blue, fill opacity=0.4, draw=none, domain=-7:2, samples=100, forget plot] 
+                ( {4 - \vscale * 0.935 * exp(-0.5 * ((\x - (-0.404))/0.981)^2)}, {exp(\x) + 0.354} ) -- (4, 7) -- (4, 0) -- cycle;
+
+            \addplot[color=red, mark=*, thick] coordinates {(0, 3.12) (1, 2.81) (2, 2.785) (3, 2.223)};
+            \addlegendentry{\ac{C3S} peak};
+            \addplot[color=blue, mark=square*, thick] coordinates {(1, 1.374) (2, 1.558) (3, 1.135) (4, 1.01)};
+            \addlegendentry{\ac{C2S} peak};
+            \addlegendimage{area legend, fill=red, fill opacity=0.4, draw=none}
+            \addlegendentry{\ac{C3S} \ac{HLT} distribution}
+            \addlegendimage{area legend, fill=blue, fill opacity=0.4, draw=none}
+            \addlegendentry{\ac{C2S} \ac{HLT} distribution}
+        \end{axis}
+    \end{tikzpicture}
+    \caption{
+        Comparison of measured \ac{HLT} peak positions and their corresponding distributions of \ac{C3S}:\ac{C2S} mixtures after \qty{28}{\day} of hydration.
+        The half-sided violin plots illustrate the fitted log-normal distributions (right: {\color{red}\ac{C3S}}, left: {\color{blue}\ac{C2S}}).
+    }
+    \label{fig:hydration-rim-mixture-results}
 \end{figure}
 
 
 In \zcref{fig:hydration-rim-mixture-results} it becomes apparent that \ac{C3S} reacts more slowly with increasing \ac{C2S} content, while \ac{C2S} reacts only slightly faster, if at all (raw data are listed in \zcref{tab:hlt_peak_measurements}).
+As the proportion of a specific phase in the mixture decreases, its corresponding \ac{HLT} distribution tends to broaden, accompanied by a reduction in signal intensity.
+Nevertheless, the peak for \ac{C3S} remains clearly visible across all mixtures due to its faster reaction kinetics.
 This uncertainty may be caused by the following sources of error:
 \begin{itemize}
 	\item overlap/contact of the \ac{CSH} from \ac{C3S} and \ac{C2S},
@@ -494,7 +607,7 @@ This can cause a reduced \ac{HLT} measurement around \ac{C2S}.
 
 
 \FloatBarrier
-\newpage
+%\newpage
 \section{Statistical analysis of the representativeness of the 2D images}
 
 In this section, the images previously described in \zcref{sec:HLT_multi_phase} were used to assess the minimum area required to obtain a statistically relevant phase composition, using both the \ac{BC} and \ac{BG} methods.

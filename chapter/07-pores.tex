@@ -104,7 +104,7 @@ The fit parameters are listed in \zcref{tab:rP_fit_parameters}.
                 height=6cm,
                 grid=major,
                 xlabel={pore radius in \unit{\nano\meter}},
-                ylabel={weighted frequency $f_\text{v,n}$},
+                ylabel={pore frequency $f_\text{v,n}$},
 				ytick=\empty,
                 xmin=0, xmax=54,
                 ymin=0, ymax=1.2,
@@ -147,7 +147,7 @@ The fit parameters are listed in \zcref{tab:rP_fit_parameters}.
                 height=6cm,
                 grid=major,
                 xlabel={pore radius in \unit{\nano\meter}},
-                ylabel={weighted frequency $f_\text{v,n}$},
+                ylabel={pore frequency $f_\text{v,n}$},
                 yticklabel pos=right,
 				ytick=\empty,
                 xmin=0, xmax=54,
@@ -176,7 +176,8 @@ The fit parameters are listed in \zcref{tab:rP_fit_parameters}.
         \label{fig:compare_psd_20nm}
     \end{subfigure}
 	\caption{
-		\ac{PSD} of \acs{VG5} and \acs{VG20}, obtained from segmented \ac{SE} images (\num{3} images, \qty{53.61}{\micro\meter\squared} in total for each glass).
+		\acs*{PSD} of \acs{VG5} and \acs{VG20}, expressed as the volume-weighted and normalised pore frequency $f_\text{v,n}$.
+		The distributions were obtained from segmented \ac{SE} images (\num{3} images, \qty{53.61}{\micro\meter\squared} in total for each glass).
 		Graphs marked with `ws' were filtered using the watershed algorithm \cite{beucher.1992}.
 		The fit parameters are listed in \zcref{tab:rP_fit_parameters}.
 	}
@@ -195,12 +196,10 @@ For \acs{VG20}, the overestimation is lower, exceeding the reference radius of \
 % TODO: normales thresholding auf eines der identischen Bilder anwenden zum Vergleich?
 
 
-
-
 \FloatBarrier
 \subsection{\acs*{LTDSC}}
 
-The glass standards were measured using a simplified temperature regimen.
+The glass specimens were measured using \ac{LTDSC} utilising a simplified temperature regimen compared to the regime presented in \zcref{fig:ltdc_regime}.
 It also experienced ice crystal-inducing freeze-thaw cycles before the actual measurement.
 For the measurement, the water saturated specimen was then cooled down to \qty{-60}{\celsius} and heated up to \qty{20}{\celsius} at a cooling and heating rate of $\pm$\,\qty{2}{\kelvin\per\minute}.
 
@@ -223,7 +222,7 @@ For the measurement, the water saturated specimen was then cooled down to \qty{-
 				xtick={2.5,5,10,25,50},
 				ytick=\empty,
 				scaled y ticks=false,
-				scaled x ticks=false,,
+				scaled x ticks=false,
 				axis x line*=top
             ]
 
@@ -255,8 +254,8 @@ For the measurement, the water saturated specimen was then cooled down to \qty{-
 				scaled x ticks=false,
             ]
 			  \addplot[dotted, thick, samples=2, darkgrey,forget plot] coordinates {(3.19,-.2)(3.19,.2)};
-			  %\node[darkgrey, rotate=90, anchor=west] at (axis cs: 2.6,-.06) {\scriptsize <\,\qty{-40}{\celsius}!};
-			  \node[darkgrey, rotate=90, anchor=west] at (axis cs: 2.6,-.06) {\scriptsize <\,\qty{3.19}{\nano\meter}!};
+			  %\node[darkgrey, rotate=90, anchor=west] at (axis cs: 2.6,-.06) {\scriptsize <\,\qty{3.19}{\nano\meter}}
+			  \node[darkgrey, rotate=90, anchor=west] at (axis cs: 2.6,-.06) {\scriptsize <\,\qty{3.19}{\nano\meter}};
 
 			\addplot [ no marks, darkgreen] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=2, y index=1, col sep=comma] {figures/ltdsc/glass/ExpDat_2.1-5nm_freeze_segment_18.csv};
 			\addlegendentry{specimen 1};
@@ -266,6 +265,7 @@ For the measurement, the water saturated specimen was then cooled down to \qty{-
         \end{semilogxaxis}
 	  \end{tikzpicture}
 	  \caption{\acs{VG5}.}
+    	\label{fig:ltdsc_result_glass_freeze_a}
 
 	\end{subfigure}
 	\hfill
@@ -319,8 +319,8 @@ For the measurement, the water saturated specimen was then cooled down to \qty{-
 				yticklabel pos=right,
 			]
 			  \addplot[dotted, thick, samples=2, darkgrey,forget plot] coordinates {(3.19,-.2)(3.19,0)};
-			  %\node[darkgrey, rotate=90, anchor=west] at (axis cs: 2.6,-.06) {\scriptsize <\,\qty{-40}{\celsius}!};
-			  \node[darkgrey, rotate=90, anchor=west] at (axis cs: 2.6,-.06) {\scriptsize <\,\qty{3.19}{\nano\meter}!};
+			  %\node[darkgrey, rotate=90, anchor=west] at (axis cs: 2.6,-.06) {\scriptsize <\,\qty{3.19}{\nano\meter}}
+			  \node[darkgrey, rotate=90, anchor=west] at (axis cs: 2.6,-.06) {\scriptsize <\,\qty{3.19}{\nano\meter}};
 
 			  \addplot [ no marks, orange ] table [ each nth point=4, filter discard warning=false, unbounded coords=discard, x index=2, y index=1, col sep=comma ] {figures/ltdsc/glass/ExpDat_1.1-20nm_freeze_segment_18.csv};
 			  \addlegendentry{specimen 1};
@@ -330,6 +330,7 @@ For the measurement, the water saturated specimen was then cooled down to \qty{-
 		  \end{semilogxaxis}
 		\end{tikzpicture}
 		\caption{\acs{VG20}.}
+    	\label{fig:ltdsc_result_glass_freeze_b}
 
 	\end{subfigure}
     \caption{
@@ -341,12 +342,12 @@ For the measurement, the water saturated specimen was then cooled down to \qty{-
 \end{figure}
 
 This resulted in the following freeze curves as plotted in \zcref{fig:ltdsc_result_glass_freeze}.
-\acs{VG5} specified with a pore radius of \qty{2.5}{\nano\meter} has two peaks in the heat-flow signal.
+\acs{VG5} specified with a pore radius of \qty{2.5}{\nano\meter} has two peaks in the heat-flow signal (\zcref{fig:ltdsc_result_glass_freeze_a}).
 According to \zcref{eq:brun_freeze} \cite{brun.1977}, a heat flow signal was measured in the pore radius range of \qtyrange{3}{8}{\nano\meter} (pore diameter of \num{6} and \qty{16}{\nano\meter}) with peaks at \num{4} and \qty{6.5}{\nano\meter} (pore diameter of \num{8} and \qty{13}{\nano\meter}).
 
-A heat flow signal was observed for \acs{VG20} with a specified pore radius of \qty{10}{\nano\meter} for temperatures which can be converted to radii of \num{5} and \qty{12}{\nano\meter}, with peaks at pore radii of \num{7} and \qty{10}{\nano\meter}.
+In contrast, \acs{VG20} (\zcref{fig:ltdsc_result_glass_freeze_a}) has a specified pore radius of \qty{10}{\nano\meter}. The measured heat flow signal can be converted to pore radii of \num{5} and \qty{12}{\nano\meter}, with peaks at pore radii of \num{7} and \qty{10}{\nano\meter}.
 
-These results show that the pore diameter is overestimated by a factor of up to \num{2} for \acs{VG5} compared to the \ac{MIP} results (see \zcref{fig:vycor-mip}), while \acs{VG20} shows a good fit for its main peak.
+These results show that the pore radius is overestimated by a factor of up to \num{2} for \acs{VG5} compared to the \ac{MIP} results (see \zcref{fig:vycor-mip}), while \acs{VG20} shows a good fit for its main peak.
 This result is similar to the image based results with the applied watershed filter shown before.
 Despite this deviation, the difference in the pore size is still observable.
 Compared to the \ac{SEM} results (see \zcref{fig:ltdsc-vycor-glass}), the \ac{LTDSC} results fit slightly better to the \ac{MIP} results.
@@ -382,7 +383,7 @@ As no subjective alteration of the \ac{CSH} structures was observed in high-reso
 A total of \num{11} images (total image area: \qty{29.8}{\micro\meter\squared}, of which \qty{23.2}{\micro\meter\squared} was \ac{CSHi}) were analysed for specimens prepared at \qty{20}{\celsius}, and \num{15} images (total image area: \qty{25.2}{\micro\meter\squared}, of which \qty{24.0}{\micro\meter\squared} was \ac{CSHi}) for those prepared at \qty{-140}{\celsius}.
 These images, along with the corresponding segmentation results, are provided in \zcref{subsec:appendix_PSD_arbib} and \cite{kleiner.2021g,kleiner.2021h}.
 \zcref{fig:compare_images} presents two example images alongside their respective pore segmentations.
-Additional image examples, indicating the excluded areas, are shown in \zcref{fig:compare_rt_1,fig:compare_cryo_1}.
+Additional image examples, indicating the excluded areas, are shown in \zcref{fig:compare_rt_1,fig:compare_cryo_1} in the Appendix.
 
 \begin{figure}[htb!]
     \centering
@@ -414,7 +415,7 @@ Additional image examples, indicating the excluded areas, are shown in \zcref{fi
         \label{fig:compare_cryo_b}
     \end{subfigure}
     \caption{
-		Comparison of contrast enhanced \ac{SEM}-\ac{SE} images and the segmentation of pores within \ac{CSHi}, sectioned using \ac{ArBIB} prepared at \num{20} and \qty{-140}{\celsius}.
+		Comparison of contrast enhanced \ac{SEM}-\ac{SE} images (\qtyproduct{2022 x 1650}{\px} at \qty{0.9}{\nano\meter\per\px}) and the segmentation of pores within \ac{CSHi}, sectioned using \ac{ArBIB} prepared at \num{20} and \qty{-140}{\celsius}. 
 	}
     \label{fig:compare_images}
 \end{figure}
@@ -424,7 +425,7 @@ As the pixel sizes and image areas differed, these results subsequently summaris
 For each dataset, the area-weighted \ac{PSD} and the corresponding \ac{CDF} were calculated using \zcref{eq:weig_norm_pore_frequency} and plotted in \zcref{fig:compare_graphs}.
 
 \zcref{fig:compare_images} shows nano-sized pores in a sample sectioned using \ac{ArBIB} at \qty{-140}{\celsius} and \qty{20}{\celsius}.
-Pores with a diameter of \qty{5}{\nano\meter} can be clearly distinguished and analysed in the \ac{SE} images (resolution: \qty{0.9}{\nano\meter\per\px}, \qtyproduct{2022 x 1650}{\px}).
+Pores with a diameter of \qty{5}{\nano\meter} can be clearly distinguished and analysed in the \ac{SE} images.
 Manual verification of the segmentation results is essential to exclude erroneously segmented areas, as the false detection of microstructural features remains a possibility.
 
 \begin{figure}[htb!]
@@ -521,13 +522,13 @@ As illustrated in \zcref{fig:compare_cryo_c,fig:compare_rt_c}, the \ac{CDF} (con
 However, the data density of the \ac{PSD} is relatively low, resulting in significant fluctuations.
 The data density of the \ac{PSD} is also insufficient for evaluating individual images, as previously demonstrated in \cite{kleiner.2021a}. 
 Furthermore, the \ac{PSD} appears to be more sensitive to image background noise (compare \zcref{fig:compare_cryo_c,fig:compare_rt_c}), whereas the \ac{CDF} yields more robust results due to its higher data density.
-The analysis indicates that the pores within \ac{CSHi} predominantly possess diameters in the range of \qtyrange{10}{30}{\nano\meter}.
+The analysis indicates that the pores within \ac{CSHi} predominantly possess diameters in the range of \qtyrange{5}{30}{\nano\meter}.
 
 The position of the most dominant pore radius, $r_\text{P, max}$, determined by the fit function (\zcref{eq:lognormal_fit}) of the \ac{PSD} in the range $r_\text{P}=\qtyrange{0}{55}{\nano\meter}$, was utilised to compare both methods.
 The fit parameters are listed in \zcref{tab:rP_fit_parameters}.
 While the individual evaluation of the images is not enough to reveal a significant influence of the temperature used for the \ac{ArBIB} milling \cite{kleiner.2021a}, the summarised dataset indicates a difference of the preparation temperature.
 Combining the datasets, the pore radius was determined to be \qty{9.2}{\nano\meter} for \ac{ArBIB} at \qty{-140}{\celsius} and \qty{14.8}{\nano\meter} for \ac{ArBIB} at \qty{20}{\celsius}.
-Furthermore, a larger pore area fraction was measured at room temperature compared to cryo conditions (\qty{4.1}{\percent} vs. \qty{1.28}{\percent}).
+Furthermore, a larger pore area fraction was measured at room temperature compared to cryo conditions (\qty{4.1}{\percent} vs. \qty{1.3}{\percent}).
 While a trend towards larger nano-porosity in the \ac{CSHi} prepared at room temperature is measurable, it must be noted that the analysed area was relatively small, and only a small portion contained segmented porosity.
 
 Finally, \zcref{fig:compare_cryo_a,fig:compare_rt_a} reveal no apparent differences in the pore structure.
@@ -577,7 +578,7 @@ It contains a block of \ac{CSHi} which is surrounded by \ac{CSH} needles and inc
 While the energy density introduced in the specimen surface by imaging at \qty{2}{\kilo\volt} and \qty{0.1}{\nano\ampere} was fairly low, it is still possible that the nano-porosity observed within the bulk was induced or at least enlarged during the image acquisition as discussed in \zcref{sec:fib_evaluation_obstacles}.
 
 Each slice of the volume was denoised using \ac{NLM} and segmented using a global threshold value.
-The so segmented pores were then evaluated.
+The segmented pores were then evaluated.
 Assuming spherical porosity, the pore radius $r_\text{P}$ was calculated for the segmented volume.
 The respective pore size distribution histograms are shown in \zcref{fig:fib_highres_hist_3D}.
 
@@ -591,7 +592,7 @@ The respective pore size distribution histograms are shown in \zcref{fig:fib_hig
 				width=1.1\textwidth,
 				height=6cm,
 				xlabel={pore radius $r_\text{P}$ in \unit{\nano\meter}},
-				ylabel={norm. frequency},
+				ylabel={normalised frequency},
 				grid=major,
 				xmin=0, xmax=95,
 				xtick={0,20,...,100},
@@ -607,7 +608,7 @@ The respective pore size distribution histograms are shown in \zcref{fig:fib_hig
 			\addlegendentry{\ac{CSHi} porosity}
 			\end{axis}
 		\end{tikzpicture}
-		\caption{Normalised frequency distribution.}
+		\caption{\ac{PSD} of the 2D slices within \ac{CSHi}.}
 		\label{fig:fib_highres_hist_3D-a}
 	\end{subfigure}
 	\hfill
@@ -618,7 +619,7 @@ The respective pore size distribution histograms are shown in \zcref{fig:fib_hig
 				width=1.1\textwidth,
 				height=6cm,
 				xlabel={pore radius $r_\text{P}$ in \unit{\nano\meter}},
-				ylabel={weighted frequency $f_\text{v,n}$},
+				ylabel={normalised frequency},
 				grid=major,
 				xmin=0, xmax=95,
 				xticklabels={0,20,...,100},
@@ -644,11 +645,11 @@ The respective pore size distribution histograms are shown in \zcref{fig:fib_hig
 
 			\end{axis}
 		\end{tikzpicture}
-		\caption{\ac{PSD} within \ac{CSHi}.}
+		\caption{\ac{PSD} of the volume within \ac{CSHi}.}
 		\label{fig:fib_highres_hist_3D-b}
 	\end{subfigure}
 	\caption{
-		Normalised frequency distribution of the pores ({\color{blue}blue}) and the \ac{PSD} of the segmented dataset based on a segmented 3D volume of of \ac{CSHi} ({\color{red}red}).
+		Normalised \ac{PSD} of the pores measured using the segmented 2D slices ({\color{blue}blue}) and the \ac{PSD} of the segmented dataset based on the segmented 3D volume of of \ac{CSHi} ({\color{red}red}).
 		% and the 2D slices ({\color{red}red}).
 		The first three bins ({\color{darkgrey}grey}) were not used to for the fit.
 	}
@@ -732,7 +733,7 @@ It was not possible to measure \ac{C2S} after \qty{1}{\day} of hydration, since 
 				clip=false,
             ]
 			\addplot[dotted, thick, samples=2, darkgrey,forget plot] coordinates {(3.19,-.2)(3.19,0.07)};
-			\node[darkgrey, rotate=90, anchor=west] at (axis cs: 2.51,-.105) {\scriptsize <\,\qty{-40}{\celsius}};
+			\node[darkgrey, rotate=90, anchor=west] at (axis cs: 2.51,-.105) {\scriptsize <\,\qty{3.19}{\nano\meter}};
 
 			% std dev of 1d C3S
             \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=3, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}] {figures/ltdsc/reduced/C3S_1d_mean_freeze_segment.csv};
@@ -927,7 +928,7 @@ It was not possible to measure \ac{C2S} after \qty{1}{\day} of hydration, since 
 				clip=false,
             ]
 			\addplot[dotted, thick, samples=2, darkgrey,forget plot] coordinates {(3.19,-.2)(3.19,0.07)};
-			\node[darkgrey, rotate=90, anchor=west] at (axis cs: 2.51,-.105) {\scriptsize <\,\qty{-40}{\celsius}};
+			\node[darkgrey, rotate=90, anchor=west] at (axis cs: 2.51,-.105) {\scriptsize <\,\qty{3.19}{\nano\meter}};
 
 			% std dev of 7d C2S
             \addplot+ [draw=none, no markers, name path=A,forget plot] table [x index=3, col sep=comma,y expr={\thisrowno{1}-\thisrowno{2}}] {figures/ltdsc/reduced/C2S_7d_mean_freeze_segment.csv};
@@ -1070,7 +1071,7 @@ It was not possible to measure \ac{C2S} after \qty{1}{\day} of hydration, since 
 \end{figure}
 
 The graphs on the right-hand side of \zcref{fig:ltdsc_result_freeze} are a magnified sections of the left graphs, showing the peaks correlating to the gel pores.
-Applying \zcref{eq:brun_freeze}, a pore radius of $\approx$ \qtyrange{2.00}{2.25}{\nano\meter} for \ac{C3S} and $\approx$ \qtyrange{1.85}{2.25}{\nano\meter} for \ac{C2S}, respectively, can be calculated.
+Applying \zcref{eq:brun_freeze}, a main pore radius range between \qtyrange{1.8}{2.3}{\nano\meter} can be calculated, while \ac{C3S} displays a slightly broader and larger pore size compared to \ac{C2S}.
 However, according to \textcite{brun.1977} this equation is not valid for temperatures below \qty{-40}{\celsius}.
 The figure shows that the heat flow signal of the gel pores is increasing with the age of the specimen, which indicates an increase in the gel pore volume with increasing specimen age.
 
@@ -1088,8 +1089,9 @@ Beforehand, a base line correction was applied to the raw data.
 
 The raw data are plotted as dashed lines, while the baseline corrected data are plotted as solid lines.
 The baseline functions $\dot{Q}_\text{B, P1}(T)$ and $\dot{Q}_\text{B, P2}(T)$ are plotted in the graph.
-The areas under the solid curves are marked in red and yellow.
-The red area represents the gel pore volume, while the yellow area represents the capillary pore volume.
+The areas under the solid curves are marked in green and yellow.
+The green area represents the gel pore volume, while the yellow area represents the capillary pore volume.
+Note, that the green area fully overlaps the yellow area.
 
 \begin{figure}[!htb]
     \centering
@@ -1145,7 +1147,7 @@ The red area represents the gel pore volume, while the yellow area represents th
 
 			\addplot[thick, domain=0:1, color=blue, fill = yellow, fill opacity=0.3, forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=0, y index=2, col sep=comma] {figures/ltdsc/ExpDat_C2S_28d-1_melt_segment_16.csv};
 
-			\addplot[domain=0:1, color=green, fill = red, fill opacity=0.3, forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=0, y index=2, col sep=comma] {figures/ltdsc/ExpDat_C2S_28d-1_melt_segment_8.csv};
+			\addplot[domain=0:1, color=green, fill = green, fill opacity=0.3, forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=0, y index=2, col sep=comma] {figures/ltdsc/ExpDat_C2S_28d-1_melt_segment_8.csv};
 
 
             \addplot [thick, no marks, green] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=0, y index=2, col sep=comma] {figures/ltdsc/ExpDat_C2S_28d-1_melt_segment_8.csv};
@@ -1159,7 +1161,7 @@ The red area represents the gel pore volume, while the yellow area represents th
 
     \caption{
 		\ac{LTDSC} curves for the first and second melting pass of \qty{28}{\day} hydrated \ac{C2S}.
-		The red area correlate to the capillary porosity, while the yellow area correlates to the gel porosity.
+		The green area correlate to the capillary porosity, while the yellow area correlates to the gel porosity.
 		The value range used for the linear baseline regression is marked red between \qtyrange{-57}{-56}{\celsius} (P2) or \qtyrange{-21.5}{-20.5}{\celsius} (P1) and \qtyrange{9}{10}{\celsius} (P1 and P2).
 	}
     \label{fig:ltdsc_result_c2s_melt}
@@ -1255,7 +1257,10 @@ To mitigate this, the dashed curve indicates the heat flow $\dot{Q}$ of the \qty
 
 	\end{subfigure}
 
-    \caption{\ac{LTDSC} curves and the cumulative ice volume per specimen weight for a slow (\qty{0.5}{\kelvin\per\minute}) and fast (\qty{2}{\kelvin\per\minute}) heating curves from \qtyrange{-50}{15}{\celsius} of \qty{28}{\day} hydrated cement (\ac{wb} = \num{0.5}).}
+    \caption{
+		\ac{LTDSC} curves and the cumulative ice volume per specimen weight for a slow (\qty{0.5}{\kelvin\per\minute}) and fast (\qty{2}{\kelvin\per\minute}) heating curves from \qtyrange{-50}{15}{\celsius} of \qty{28}{\day} hydrated cement (\ac{wb} = \num{0.5}).
+		To better illustrate the effect, the heat flow signal of the \qty{0.5}{\kelvin\per\minute} measurement was also multiplied with a factor of \num{4} (dashed line).
+	}
     \label{fig:ltdsc_result_heating_rate}
 \end{figure}
 
@@ -1424,7 +1429,7 @@ Therefore, it has been decided to use a faster heating rate of \qty{2}{\kelvin\p
 
 As shown in \zcref{fig:ltdsc_result_C2S_melt_bar}, for \ac{C2S} the ice volume of the gel pores was calculated to be \qty{1.2}{\micro\liter\per\gram} at \qty{7}{\day} up to \qty{18.3}{\micro\liter\per\gram} after \qty{28}{\day} of hydration, while the capillary pores were reduced from \num{290} to \qty{233}{\micro\liter\per\gram} in the same time.
 In contrast, \ac{C3S} has a higher ice volume accountable to the gel pores (\zcref{fig:ltdsc_result_C3S_melt_bar}).
-The gel pore ice volume was increasing from from \qty{6.6}{\micro\liter\per\gram} at an age of \qty{1}{\day} to \qty{30.3}{\micro\liter\per\gram} after \qty{28}{\day} of hydration.
+The gel pore ice volume was increasing from \qty{6.6}{\micro\liter\per\gram} at an age of \qty{1}{\day} to \qty{30.3}{\micro\liter\per\gram} after \qty{28}{\day} of hydration.
 In comparison to \ac{C2S}, less than half of the ice volume corresponding to capillary pores is detected in \ac{C3S} after \qty{7}{\day} of hydration.
 The capillary pore space was reduced by approximately \qty{50}{\percent} from \qty{208}{\micro\liter\per\gram} (\qty{1}{\day}) to \qty{109}{\micro\liter\per\gram} (\qty{28}{\day}).
 Furthermore, a significant slow down of gel pore development and reduction in capillary pores can be seen in \ac{C3S} after \qty{14}{\day} of hydration.
@@ -1591,7 +1596,7 @@ For these diagrams, the freeze curves were baseline corrected, which was perform
 		]
 
 			\addplot[dotted, thick, samples=2, darkgrey,forget plot] coordinates {(3.19,-.2)(3.19,.2)};
-			\node[darkgrey, rotate=90, anchor=west] at (axis cs: 2.50,-.035) {\scriptsize <\,\qty{-40}{\celsius}!};
+			\node[darkgrey, rotate=90, anchor=west] at (axis cs: 2.50,-.035) {\scriptsize <\,\qty{3.19}{\nano\meter}};
 
 			\addplot [ no marks, orange, forget plot, opacity=0.5] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=3, y index=4, col sep=comma] {figures/ltdsc/C2S_7d_mean_freeze_segment.csv};
 			\addplot [ no marks, red, forget plot, opacity=0.5] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=3, y index=4, col sep=comma] {figures/ltdsc/C2S_14d_mean_freeze_segment.csv};
@@ -1704,9 +1709,9 @@ For these diagrams, the freeze curves were baseline corrected, which was perform
 			]
 
 			\addplot[dotted, thick, samples=2, darkgrey,forget plot] coordinates {(3.19,-.2)(3.19,.2)};
-			\node[darkgrey, rotate=90, anchor=west] at (axis cs: 2.50,-.020) {\scriptsize <\,\qty{-40}{\celsius}!};
+			\node[darkgrey, rotate=90, anchor=west] at (axis cs: 2.50,-.020) {\scriptsize <\,\qty{3.19}{\nano\meter}};
 
-            \addplot [ no marks, yellow, opacity=0.5, forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=3, y index=4, col sep=comma] {figures/ltdsc/C3S_1d_mean_freeze_segment.csv};
+			\addplot [ no marks, yellow, opacity=0.5, forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=3, y index=4, col sep=comma] {figures/ltdsc/C3S_1d_mean_freeze_segment.csv};
             \addplot [ no marks, orange, opacity=0.5, forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=3, y index=4, col sep=comma] {figures/ltdsc/C3S_7d_mean_freeze_segment.csv};
             \addplot [ no marks, red, opacity=0.5, forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=3, y index=4, col sep=comma] {figures/ltdsc/C3S_14d_mean_freeze_segment.csv};
             \addplot [ no marks, green, opacity=0.5, forget plot] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=3, y index=4, col sep=comma] {figures/ltdsc/C3S_21d_mean_freeze_segment.csv};

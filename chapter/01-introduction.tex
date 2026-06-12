@@ -3,11 +3,19 @@
 \section{Background and motivation}
 
 With a world-wide production of \qty{3.8}{\giga\tonne} in 2025 \cite{usgs.2026}, \textsc{Portland} cement is the most widely used binder for the production of concrete.
-After adding water to cement, a reaction called `hydration' begins.
-The cement reactivity is determined by its composition and particle size distribution.
-During hydration, the cement begins to dissolve and new hydration products start to form (see \zcref{fig:intro}).
+This production volume is associated with a significant carbon footprint.
+To mitigate these environmental impacts, modern clinker-reduced composite cements, such as blends incorporating calcined clays and limestone, will be increasingly used in the industry.
+Furthermore, the use of alternative fuels introduces trace elements into the clinker, which can alter its properties, which can also be .
+
+After adding water to cement based binders, a reaction called `hydration' begins.
+During hydration, the remaining clinker phases begin to dissolve and new hydration products start to form (see \zcref{fig:intro}).
 This ultimately causes hardening of the cement paste and concrete.
 Furthermore, this microstructure determines properties like strength and durability of the resulting concrete.
+
+While the cement reactivity is primarily determined by its composition and particle size distribution, the introduction of supplementary cementitious materials significantly increases the complexity of these reactions.
+In these composite systems, it is crucial to understand the specific dissolution behaviour of the clinker and the formation of the \ac{ITZ}, which can exhibit significantly different characteristics compared to traditional \textsc{Portland} cement.
+Additionally, the substitution of clinker often alters the rheology of the fresh paste.
+However, chemical admixtures like superplasticisers or physical dispersion methods like \ac{PUS} act slightly different in composite cements.
 
 In 1929 \textsc{Anderegg} and \textsc{Hubbell} introduced their paper \cite{anderegg.1929} as follows:
 \begin{iquote}
@@ -42,20 +50,21 @@ Advances in optical and in particular in electron microscopy helped to clarify p
 For example, it has been proven that the `cement gel', which forms during hydration, actually consists of needle-shaped crystallites.
 Later it was proven, that the hollow hydration shells which could be found in hydrated cements \cite{hadley.1972} were actually no preparation artefacts but a real phenomenon \cite{barnes.1978}.
 
+To objectively observe and quantify the influences of modern cement compositions advanced imaging methods are essential.
 A \ac{SEM} is a powerful tool to image the microstructure of a lot of materials.
 Electron microscopy is widely known for its \ac{SE}-mode, which gives helpful insights into the surface profile of the specimen.
 The \ac{BSE}-mode is often used for polished samples resulting in a chemical contrast image.
 To obtain high-quality data, the appropriate specimen preparation plays a crucial role.
 For example, the application of modern ion beam polishing methods enables better images with less artefacts.
-The data extracted from the resulting images can be greatly improved, if they are linked to data from other methods like \ac{EDX}, \ac{EBSD}, optical microscopy, \ac{mCT}, laser ablation or \ac{NI}.
+The data extracted from the resulting images can be greatly improved, if they are linked to data from other methods like \ac{EDX}, \ac{EBSD}, optical microscopy, laser ablation, or \ac{NI}.
 The combination of these (imaging) techniques is often referred to as correlative microscopy.
 It results in significantly more insights than the simple sum of the individual methods would be able to produce.
 
 Modern computer vision methods allow the development of complicated and creative evaluation methods, which were computationally too expensive just a few years ago.
 Therefore, existing analytical methods are to be improved and further developed to be reproducible and fairly easily repeatable.
 
-This thesis is devoted to improve the characterisation of the microstructure of unhydrated and hydrated cement-based binders by combining a set of imaging techniques like \ac{SEM} and \ac{mCT}.
-The results of these methods can then be correlated to selected methods like \ac{LTDSC} and \ac{MIP}.
+This thesis is devoted to improving the characterisation of the microstructure of unhydrated and hydrated modern cement-based binders by combining a set of imaging techniques available in a \ac{SEM}.
+The results of the image analysis can then be correlated to selected methods like \ac{LTDSC}, and \ac{MIP}.
 The main goals are to better utilise methods and techniques, find improved ways to combine them to gain better knowledge about unhydrated and hydrated cements and the cement hydration, define protocols and best practices to obtain statistically relevant data, and to develop or adopt software tools for automated image analysis.
 In this regard, the composition of clinker as well as the structure and porosity of hydration products are the focus of this work.
 \pdfcomment[icon=Comment, color=cyan, author=Christane]{% TODO: comment Christiane

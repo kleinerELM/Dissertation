@@ -4,13 +4,13 @@
 To relate the \ac{HLT} measurements as described in \zcref{subsec:algo_hlm} to the crystallographic orientation of the same clinker volume, the \ac{BSE} images can be combined with \ac{EBSD} data acquired on the identical surface of a polished hydrated \ac{C3S} sample.
 
 To measure the crystal orientation, the carbon-coated specimen was mounted on a pre-tilted specimen holder (\qty{45}{\degree}) and the surface was then tilted to a \qty{70}{\degree} angle to the electron beam (see \zcref{fig:ebsd_principle_a}).
-The specimen was then scanned at \qty{15}{\kilo\volt}, \qty{1.6}{\milli\ampere} at a step size of \qty{2}{\micro\meter\per\px} to acquire the \textsc{Kikuchi} patterns of \ac{C3S} and \ac{CH}.
+The specimen was then scanned at \qty{15}{\kilo\volt}, \qty{1.6}{\nano\ampere} at a step size of \qty{2}{\micro\meter\per\px} to acquire the \textsc{Kikuchi} patterns of \ac{C3S} and \ac{CH}.
 
-The \ac{EBSD} experiment produces a 2D dataset of crystal orientation estimates, phase indices, and pattern quality indicators. 
+The \ac{EBSD} experiment produces a 2D dataset of crystal orientation estimates, phase indices, and pattern quality indicators \cite{kleiner.2026a}. 
 The raw data were preprocessed in \textit{AZtecCrystal 3.2} \cite{azteccrystal.2010} by \textsc{Oxford Instruments} to clean up pseudosymmetric solutions.
 Since the crystallinity of \ac{C2S} is not good enough to obtain usable \textsc{Kikuchi} patterns, this work focussed on hydrated \ac{C3S} specimens \cite{rossler.2022}.
 To identify and fit the patterns of \ac{C3S}, the crystal structure published by \textcite{delatorre.2002} (\acs{ICSD} 94742, \acs{COD} \href{https://qiserver.ugr.es/cod/1540705.html}{1540705}) was used (see \zcref{fig:c3s_unit_cell}).
-Finally, the measured \ac{EBSD} data were exported as a channel text file (.ctf), which was further processed using \textit{Python}.
+Finally, the measured \ac{EBSD} data were exported as a channel text file (.ctf) \cite{kleiner.2026a}, which was further processed using \textit{Python}.
 
 \begin{figure}[htb!]
     \centering
@@ -36,7 +36,7 @@ Finally, the measured \ac{EBSD} data were exported as a channel text file (.ctf)
 
 %Each scan pixel is associated with \textsc{Euler} angles in the \textsc{Bunge} convention, which define a rotation $g$ from the sample reference frame to the crystal reference frame of the indexed phase.
 
-The \ac{BSE} image was manually aligned to the \ac{EBSD} map (using the band-contrast image) in \textit{QGIS 3.42} \cite{QGIS_software} by identifying common points.
+The \ac{BSE} image was manually aligned to the \ac{EBSD} map (using the band-contrast image) in \textit{QGIS 3.42} \cite{QGIS_software} by identifying common points \cite{kleiner.2026a}.
 The \textit{QGIS}-project was then used to projectively transform the high-resolution \ac{BSE} image to the low-resolution \ac{EBSD} dataset in \textit{Python}.
 
 %After alignment, the physical step sizes of the \ac{EBSD} grid and the transformed \ac{BSE} image were harmonised by an integer upscale of the segmentation used in the rim algorithm and a scalar alignment factor between low-resolution and high-resolution \ac{BSE} exports, so that one \ac{EBSD} column and row index corresponds to a consistent footprint on the section.

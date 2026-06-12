@@ -58,8 +58,8 @@ Furthermore, a slightly larger \qty{33.3}{\percent} confidence interval and a si
 	\label{fig:results_segmentation_methods_HLT}
 \end{figure}
 
-Thresholding results in a higher number of excluded and fewer valid measurements than the other methods.
-One main reason is the presence of dense regions filled with \ac{CH}, since no phase transition between hydrate and pores is present in those areas.
+Thresholding results in a higher number of excluded and fewer valid measurements than the other methods. 
+One main reason is the presence of dense regions filled with \ac{CH}, where no phase transition between hydrate and pores is detectable.
 Manual segmentation and pixel classification ignoring \ac{CSHo} show nearly identical $l_\text{max}$ values, while restoring the data density (see \zcref{fig:results_segmentation_methods_HLT}).
 
 The difference in the $l_\text{max}$ of the pixel classification results allows the estimation of a \ac{CSHo} thickness of roughly \qty{0.4}{\micro\meter}.
@@ -463,7 +463,7 @@ It is evident that the \ac{HLT} distributions broaden significantly with increas
 \section{Multi phase analysis}
 \label{sec:HLT_multi_phase}
 
-Applying the algorithm to mixtures of \ac{C3S} and \ac{C2S} without distinguishing between clinker phases using a simple threshold method is also possible.
+Applying the algorithm to mixtures of \ac{C3S} and \ac{C2S} without distinguishing between clinker phases using a simple threshold method is also possible \cite{kleiner.2026b}.
 
 \zcref{fig:hydrate_clinker_stacked_bar_mix} shows the hydration progress using the hydrate content $F_\text{hydrate}$ relative to the solid fraction.
 With increasing \ac{C2S} content, the hydrate content is usually reduced.
@@ -624,6 +624,10 @@ Although this segmentation approach produces erroneously segmented layers around
     }
     \label{fig:segmented_images}
 \end{figure}
+
+A closer inspection of the images reveals that some clinker grains become encapsulated by \ac{CH}.
+This prevents the dissolution of the clinker and the growth of \ac{CSH} due to the lack of available pore space.
+In older specimens, most of the remaining small unhydrated clinker grains are typically surrounded by \ac{CH}.
 
 \subsection{\Acl*{BC} method}
 

@@ -123,7 +123,7 @@ As described in \cite{gartner.2002}, these phases are:
 \end{multicols}
 
 The hydration process within the first \qty{24}{\hour}, particularly up to the end of the main hydration peak (phase III), is crucial for describing the initial hardening process and the rheological behaviour of the cement.
-The first useful qualitative observations at room temperature were made using the \ac{SE} mode and freshly prepared fracture surfaces after a few minutes or up to \qty{10}{\hour} \cite{stark.2001,voland.2000,suss.2001}.
+The first useful qualitative observations at room temperature were made using the \ac{SE} mode and freshly prepared fracture surfaces after a few minutes or up to \qty{10}{\hour} \cite{stark.2001,voland.2000,suess.2001}.
 At this time, in \ac{OPC} the \ac{CSH} needles are up to \qty{0.3}{\micro\meter} long, while the dissolution process is barely visible on the particles \cite{voland.2000}.
 In contrast, reliable quantitative observations on embedded and polished surfaces using the \ac{BSE} mode can typically only be made after the initial setting, which takes a few hours.
 Before this point, the material is not sufficiently hardened to withstand the preparation process without disintegrating into a powder.
@@ -638,7 +638,7 @@ They determined the thickness at \num{12}, \num{16}, and \qty{20}{\hour} as \qty
 %     somehow measure the thickness from the PXCT data?
 % }
 
-\textcite{voland.2000} and \textcite{suss.2001} measured the development of the length of \ac{CSH} needles (roughly equivalent to \ac{CSHo}) using \ac{SEM}-\ac{SE} images up to a specimen age of \qty{28}{\day}.
+\textcite{voland.2000} and \textcite{suess.2001} measured the development of the length of \ac{CSH} needles (roughly equivalent to \ac{CSHo}) using \ac{SEM}-\ac{SE} images up to a specimen age of \qty{28}{\day}.
 \textsc{Stark} and \textsc{Möser} et al. \cite{stark.2001,moser.2001,moser.2002} continued this work up to nearly three years.
 These experiments were conducted using \ac{C3S} and $\beta$-\ac{C2S} at different temperatures.
 They measured a minimum and maximum value, from which the mean was calculated.
@@ -735,7 +735,7 @@ The results are plotted in \zcref{fig:suess_CSH_C3S} (\ac{C3S}) and \zcref{fig:s
             \addplot [fill=green, fill opacity=0.2,forget plot] fill between [of=A and B];
 
             \addplot [color=green, mark=+, dotted] table [skip first n=3, x index=1, y index=3, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
-            \addlegendentry[]{\acs*{C3S} \qty{5}{\celsius} \cite{suss.2001}}
+            \addlegendentry[]{\acs*{C3S} \qty{5}{\celsius} \cite{suess.2001}}
 
 
             \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=1, y index=5, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
@@ -751,14 +751,14 @@ The results are plotted in \zcref{fig:suess_CSH_C3S} (\ac{C3S}) and \zcref{fig:s
             \addplot [fill=red, fill opacity=0.2,forget plot] fill between [of=A and B];
 
             \addplot [color=red, mark=star, dotted] table [skip first n=3, x index=1, y index=9, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
-            \addlegendentry[]{\acs*{C3S} \qty{60}{\celsius} \cite{suss.2001}}
+            \addlegendentry[]{\acs*{C3S} \qty{60}{\celsius} \cite{suess.2001}}
 
             \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=1, y index=11, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
             \addplot+ [draw=none, no markers, name path=B,forget plot] table [skip first n=3, x index=1, y index=13, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
             \addplot [fill=orange, fill opacity=0.2,forget plot] fill between [of=A and B];
 
             \addplot [color=orange, mark=Mercedes star, dotted] table [skip first n=3, x index=1, y index=12, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
-            \addlegendentry[]{\acs*{C3S} \qty{90}{\celsius} \cite{suss.2001}}
+            \addlegendentry[]{\acs*{C3S} \qty{90}{\celsius} \cite{suess.2001}}
 
             % \cite{bazzoni.2014}
             \addplot+ [ mark=|, black, dotted,
@@ -776,7 +776,7 @@ The results are plotted in \zcref{fig:suess_CSH_C3S} (\ac{C3S}) and \zcref{fig:s
         \node [above] (L) at (rel axis cs:1.0,1.05) {\ref{CommonLegend}};
 
     \end{tikzpicture}
-    \caption{Growth of \ac{CSHo} on \ac{C3S} at different temperatures. Based on data from \textcite{voland.2000} and \textcite{suss.2001}.}
+    \caption{Growth of \ac{CSHo} on \ac{C3S} at different temperatures. Based on data from \textcite{voland.2000} and \textcite{suess.2001}.}
     \label{fig:suess_CSH_C3S}
 \end{figure}
 \pdfcomment[icon=Note, color=orange]{% TODO: note
@@ -787,7 +787,7 @@ The results are plotted in \zcref{fig:suess_CSH_C3S} (\ac{C3S}) and \zcref{fig:s
 The formation of \ac{CSH} begins earlier at elevated ambient temperatures.
 This also causes a significant increase in the overall fibre length.
 At the same temperature, \ac{C2S} demonstrates a slower \ac{CSH} growth.
-The \ac{CSH} growth of \ac{C3S} (\ac{wb}=\num{0.5}) stagnates after \num{5} months according to \textcite{voland.2000}, \textcite{suss.2001}, \textsc{Stark} and \textsc{Möser} et al. \cite{stark.2001,moser.2002}.
+The \ac{CSH} growth of \ac{C3S} (\ac{wb}=\num{0.5}) stagnates after \num{5} months according to \textcite{voland.2000}, \textcite{suess.2001}, \textsc{Stark} and \textsc{Möser} et al. \cite{stark.2001,moser.2002}.
 \textcite{bazzoni.2014} observed this stagnation already after one day, depending on the \ac{wb} value.
 A higher \ac{wb} value (\num{0.8} compared to \num{0.4}) led to longer \ac{CSH} needles.
 
@@ -824,7 +824,7 @@ In contrast, \textcite{moser.2002} indicates that the needle length of \ac{CSH} 
             \addplot [fill=red, fill opacity=0.2,forget plot] fill between [of=A and B];
 
             \addplot [color=red, mark=x, dotted] table [skip first n=3, x index=1, y index=6, col sep=comma] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
-            \addlegendentry[]{\acs*{C3S} \cite{voland.2000,suss.2001,stark.2001,moser.2002}}
+            \addlegendentry[]{\acs*{C3S} \cite{voland.2000,suess.2001,stark.2001,moser.2002}}
 
 
             \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=1, y index=14, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
@@ -832,7 +832,7 @@ In contrast, \textcite{moser.2002} indicates that the needle length of \ac{CSH} 
             \addplot [fill=green, fill opacity=0.2,forget plot] fill between [of=A and B];
 
             \addplot [color=green, mark=+, dotted] table [skip first n=3, x index=1, y index=15, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C3S-C2S.csv};
-            \addlegendentry[]{$\beta$-\acs*{C2S} \cite{voland.2000,suss.2001}}
+            \addlegendentry[]{$\beta$-\acs*{C2S} \cite{voland.2000,suess.2001}}
 
 
             \addplot+ [draw=none, no markers, name path=A,forget plot] table [skip first n=3, x index=0, y index=1, col sep=comma, filter discard warning=false] {figures/hydrate-rim/data_t_suess/CSH-length_C2S_moeser.csv};
@@ -892,7 +892,9 @@ In contrast, \textcite{moser.2002} indicates that the needle length of \ac{CSH} 
         \end{semilogxaxis}
 
     \end{tikzpicture}
-    \caption{Growth of \ac{CSHo} on $\beta$-\ac{C2S} (\ac{wb}=\num{0.5}) compared to \ac{C3S} (\ac{wb}=\num{0.5}) at \qty{20}{\celsius}. Based on data from \textcite{voland.2000}, \textcite{suss.2001}, \textsc{Stark} and \textsc{Möser} et al. \cite{stark.2001,moser.2002} and compared to \ac{C3S}-data from \textcite{bazzoni.2014}.}
+    \caption{
+        Growth of \ac{CSHo} on $\beta$-\ac{C2S} (\ac{wb}=\num{0.5}) compared to \ac{C3S} (\ac{wb}=\num{0.5}) at \qty{20}{\celsius}. Based on data from \textcite{voland.2000}, \textcite{suess.2001}, \textsc{Stark} and \textsc{Möser} et al. \cite{stark.2001,moser.2002} and compared to \ac{C3S}-data from \textcite{bazzoni.2014}.
+        }
     \label{fig:suess_CSH_C2S}
 \end{figure}
 

@@ -4,10 +4,11 @@ The determination of porosity is fundamental to understanding and predicting the
 Whilst macroscopic air voids influence properties like freeze-thaw resistance, the gel porosity dictates the material's intrinsic characteristics.
 For example, the transport mechanisms (permeability and diffusion) of water and ions are determined by the pore network which is formed, among other things, by the fine structures inherent of the \ac{CSH} phase.
 Accurately quantifying the gel and the capillary porosity is essential to assess the resistance to chemical (e.g. chloride ingress or sulphate attack) or frost attack, its mechanical performance and durability.
+This becomes especially crucial for modern composite cements, with a much more complex microstructure.
 
 On a macroscopic scale, comparing different pore measurement methods is feasible.
 However, as the pore size decreases, this comparison becomes increasingly challenging due to physical limits and the fractal nature of porosity.
-To evaluate the methods, a standard material was utilised to benchmark and compare selected methods, which were described in \zcref{sec:methods_pore_analysis}.
+To evaluate and compare the results of these methods, a standard material was utilised to benchmark and compare selected methods, which were described in \zcref{sec:methods_pore_analysis}.
 
 \section{Porous glass standard}
 
@@ -128,7 +129,7 @@ The fit parameters are listed in \zcref{tab:rP_fit_parameters}.
 				% max value at x=8.1751
 
 				%--- Fit Result for PSD_volume_weighted.png ---
-				% Peak: 517409.3924 at x=12.6538; max at 
+				% Peak: 517409.3924 at x=12.6538; max at
 				% \addplot [no markers, red, domain=0.01:55, samples=100] {6861582.0403 / x * exp(-0.5 * ((ln(x) - 2.6318) / 0.3063)^2)};
 
 
@@ -415,7 +416,7 @@ Additional image examples, indicating the excluded areas, are shown in \zcref{fi
         \label{fig:compare_cryo_b}
     \end{subfigure}
     \caption{
-		Comparison of contrast enhanced \ac{SEM}-\ac{SE} images (\qtyproduct{2022 x 1650}{\px} at \qty{0.9}{\nano\meter\per\px}) and the segmentation of pores within \ac{CSHi}, sectioned using \ac{ArBIB} prepared at \num{20} and \qty{-140}{\celsius}. 
+		Comparison of contrast enhanced \ac{SEM}-\ac{SE} images (\qtyproduct{2022 x 1650}{\px} at \qty{0.9}{\nano\meter\per\px}) and the segmentation of pores within \ac{CSHi}, sectioned using \ac{ArBIB} prepared at \num{20} and \qty{-140}{\celsius}.
 	}
     \label{fig:compare_images}
 \end{figure}
@@ -520,7 +521,7 @@ Manual verification of the segmentation results is essential to exclude erroneou
 
 As illustrated in \zcref{fig:compare_cryo_c,fig:compare_rt_c}, the \ac{CDF} (converted from chord to volume, red) exhibits a distribution remarkably similar to the \ac{PSD} determined by pore area analysis (blue).
 However, the data density of the \ac{PSD} is relatively low, resulting in significant fluctuations.
-The data density of the \ac{PSD} is also insufficient for evaluating individual images, as previously demonstrated in \cite{kleiner.2021a}. 
+The data density of the \ac{PSD} is also insufficient for evaluating individual images, as previously demonstrated in \cite{kleiner.2021a}.
 Furthermore, the \ac{PSD} appears to be more sensitive to image background noise (compare \zcref{fig:compare_cryo_c,fig:compare_rt_c}), whereas the \ac{CDF} yields more robust results due to its higher data density.
 The analysis indicates that the pores within \ac{CSHi} predominantly possess diameters in the range of \qtyrange{5}{30}{\nano\meter}.
 
@@ -1802,7 +1803,7 @@ The characterisation of porosity in cementitious materials necessitates a multi-
 The experiments using porous glass standards yielded promising results, serving as a successful benchmark for the \ac{LTDSC} method.
 It was demonstrated that \ac{LTDSC} is capable of distinguishing between different pore sizes, validating its applicability for the subsequent analysis of cement-based materials.
 Furthermore, the \ac{SEM}-based pore size analysis is highly sensitive to segmentation parameters, such as the blocksize of the adaptive thresholding algorithm and the watershed minimum-distance parameter.
- 
+
 For hydrated \ac{C3S} and \ac{C2S}, the combination of \ac{SEM}, \ac{FIBnt}, \ac{LTDSC}, and \ac{MIP} provided a comprehensive view of the pore structure development.
 High-resolution \ac{SEM} and \ac{FIBnt} imaging of \ac{ArBIB}-prepared cross-sections allowed for the direct observation and quantification of the nano-porosity within \ac{CSHi}.
 Both 2D and 3D image analysis yielded comparable pore size distributions with a dominant pore radius in the range of \qtyrange{9}{15}{\nano\meter}.

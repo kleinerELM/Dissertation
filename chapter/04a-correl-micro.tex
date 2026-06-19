@@ -1,6 +1,9 @@
 \chapter{Correlative microscopy}
 
-Combining multiple imaging techniques can provide insight into a specimen that would be difficult to obtain using a single technique.
+As the use of alternative fuels and supplementary cementitious materials increases, the chemical and micromechanical complexity of clinkers and the resulting binder matrix rises significantly.
+Therefore, localised chemical compositions or mechanical properties of clinkers and hydrated binders are of interest for the hydration dynamics and mechanical properties.
+Techniques like \ac{EDX}, \ac{LAICPMS}, or \ac{NI} with \ac{SEN}-imaging can provide those information.
+Combining multiple of these imaging methods, allows further insights into a specimen (e.g., assignment of a property to a specific phase) that would be difficult to obtain using a each technique on its own.
 However, this approach usually requires good surface preparation and accurate image-to-image alignment (registration).
 This chapter presents workflows for different methods and discusses the possible benefits of correlative microscopy.
 
@@ -88,7 +91,7 @@ Combined with the segmentation results from the \ac{mXRF} dataset, this allows t
 
 \begin{figure}[htb!]
 	\centering
-	
+
 	\begin{tikzpicture}
 
 		\node[anchor=south west, inner sep=0] (bg) at (0,0) {\includegraphics[width=\textwidth]{nanoindentation/local-roughness-Sdr00.pdf}};
@@ -162,7 +165,7 @@ A straight phase boundary between quartz and hydrated cement binder was identifi
 
 \begin{figure}[htb!]
   \centering
-  
+
   \includegraphics[width=.9\linewidth]{nanoindentation/EDX_positions.pdf}
   \caption{
     \ac{EDX} phase mapping overlaid on the \ac{BSE} image at the position of the \ac{NI} site.
@@ -185,7 +188,7 @@ Furthermore, another \ac{NI} measurement was performed within the same area, res
 
 \begin{figure}[htb!]
   \centering
-  
+
   \includegraphics[width=\linewidth]{nanoindentation/indents_BSE.pdf}
   \caption{
     \ac{BSE} images of the \ac{NI} site after indentation.
@@ -222,7 +225,7 @@ In the modulus map, the distribution of the cracks can also be determined.
 
   \begin{subfigure}{0.49\linewidth}
     \flushleft
-	
+
 	\ifdefined\PRINTABLE
 		\includegraphics[height=23.369mm]{nanoindentation/EDX_pixelated_01.pdf}
 	\else
@@ -237,7 +240,7 @@ In the modulus map, the distribution of the cracks can also be determined.
   \hfill
   \begin{subfigure}{0.49\linewidth}
     \flushleft
-	
+
 	\ifdefined\PRINTABLE
 		\includegraphics[height=23.369mm]{nanoindentation/EDX_pixelated_02.pdf}
 	\else
@@ -282,7 +285,7 @@ This resulted in \qty{76.1}{\percent} (\num{868} of \num{1140}) of the indents b
 		S[table-format=2.1, round-mode=places, round-precision=1] % Modulus Std. Dev.
 	}
 		\toprule
-		Phase & $N$ & \multicolumn{3}{c}{Hardness $H$} & \multicolumn{3}{c}{Reduced modulus $E_r$} \\ 
+		Phase & $N$ & \multicolumn{3}{c}{Hardness $H$} & \multicolumn{3}{c}{Reduced modulus $E_r$} \\
      & & {Median} & {Mean} & {Std. Dev.} & {Median} & {Mean} & {Std. Dev.} \\
 		\midrule
 		Quartz				& 44	& 11.77 & 11.01 & 2.29 & 88.36 & 83.97 & 13.96 \\
@@ -322,7 +325,7 @@ The quartz aggregate exhibits the highest hardness of \qty{11.0(2.3)}{\giga\pasc
 % xu.2017: w/z 0.45, CEM I 42.5; E_r: CSHi 29.45+-1.87; CSHo 20.96+-1.35 GPa
 In the literature, hardness values for clinker phases are reported to range from \qtyrange{4.5}{11}{\giga\pascal}, with moduli between \qtyrange{72}{160}{\giga\pascal} \cite{sebastiani.2016,han.2012,xu.2017, lahayne.2022}.
 For \ac{CSHi}, hardness values range from \qtyrange{0.9}{1.8}{\giga\pascal} with moduli between \qtyrange{21}{32}{\giga\pascal}, whereas for \ac{CSHo}, hardness values range from \qtyrange{0.3}{1.0}{\giga\pascal} and moduli from \qtyrange{11}{20}{\giga\pascal} \cite{han.2012, xu.2017, lahayne.2022}.
-However, these properties depend on the \ac{wb} value. 
+However, these properties depend on the \ac{wb} value.
 Typically, a higher \ac{wb} value results in lower hardness and a lower modulus \cite{xu.2017}.
 The values measured in this experiment align with the ranges reported in the literature, although the standard deviations observed here are generally higher than in \cite{sebastiani.2016,xu.2017}.
 This might be caused by the different indent assignment, which is usually performed in the literature using the deconvolution technique applied to the probability density function of the modulus values \cite{sebastiani.2016,xu.2017}.
@@ -446,7 +449,7 @@ The cell-averaged properties represent the spatial averaging over the indent int
 Since each cell has dimensions of roughly \qtyproduct{5x5}{\micro\metre}, using the phase fraction for the entire cell is a simple cell-average (CA) approach.
 The alternative procedure computes weighted phase fractions by applying a Gaussian kernel around the expected indent centre, with an interaction radius of \qty{0.5}{\micro\meter}.
 This interaction-weighted (IW) distribution gives greater influence to the phase composition close to the likely indent location, rather than treating all pixels in the same cell equally.
-It therefore provides a more realistic estimate of the material sampled by each indent, especially in heterogeneous cells and for rare phases such as \acs{C3A}/\acs{C4AF}. 
+It therefore provides a more realistic estimate of the material sampled by each indent, especially in heterogeneous cells and for rare phases such as \acs{C3A}/\acs{C4AF}.
 
 For all \numproduct{20}{73} grid cells, a system of linear equations for hardness and reduced modulus datasets was constructed and solved using least-squares minimisation.
 The phase fractions $w_{i,\text{cell}}$ serve as the coefficients (design matrix), and the measured indentation properties $M_{\text{cell}}$ form the observation vector.
@@ -498,12 +501,12 @@ The fitted phase hardnesses and moduli are presented in \zcref{tab:ni-results-fi
 	\label{tab:ni-results-fitted}
 \end{table}
 
-The fit yields $R^2$ = \num{0.799} for the hardness of the cell-average solution (\num{0.744} for the reduced modulus) and $R^2$ = \num{0.721} for the hardness of the interaction-weighted solution (\num{0.640} for the reduced modulus). 
+The fit yields $R^2$ = \num{0.799} for the hardness of the cell-average solution (\num{0.744} for the reduced modulus) and $R^2$ = \num{0.721} for the hardness of the interaction-weighted solution (\num{0.640} for the reduced modulus).
 This indicates that the linear combination of phase fractions explains the majority of the measured cell-averaged hardness variance.
 The correlation matrices (\zcref{fig:cor_ni_fit}) show generally small off-diagonal coefficients, which indicates that no pair of phase fraction predictors is strongly collinear.
 This supports the view that the fitted mechanical properties of the individual phases are relatively independent, even though weak correlations remain for a few phase pairs.
 
-All \num{1140} measurements are incorporated, eliminating the data loss from the threshold-based method. 
+All \num{1140} measurements are incorporated, eliminating the data loss from the threshold-based method.
 The two approaches yield broadly consistent results for abundant phases but differ in approach and reliability for sparse phases.
 For \ac{CSHo}, the threshold-based method yields \qty{1.06(0.53)}{\giga\pascal}, while the fit estimates \qty{1.05}{\giga\pascal}.
 Similarly close results were acquired for quartz: \qty{11.0(2.3)}{\giga\pascal} vs. \qty{11.8}{\giga\pascal}.
@@ -564,7 +567,7 @@ This was done by selecting only indents with a hardness below \num{6} and a redu
 					%(20, 0) (100,0) (100, 80) (20,80) (20, 0)
 				};
 				\node[black, anchor=west] at (axis cs: 35,75) {\small ITZ};
-      
+
 				\addplot [name path=upper, draw=none, forget plot] table [skip first n=2, header=false, col sep=comma, x index=0, y expr=\thisrowno{1}+\thisrowno{2}] {figures/nanoindentation/profile_ErGPa.csv};
 				\addplot [name path=lower, draw=none, forget plot] table [skip first n=2, header=false, col sep=comma, x index=0, y expr=\thisrowno{1}-\thisrowno{2}] {figures/nanoindentation/profile_ErGPa.csv};
 				\addplot [fill=red, fill opacity=0.2, draw=none] fill between [of=upper and lower];

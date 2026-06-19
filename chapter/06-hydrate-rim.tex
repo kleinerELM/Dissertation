@@ -10,6 +10,11 @@ The raw images are publicly available \cite{kleiner.2023a, kleiner.2025e, kleine
 Furthermore, the method was adapted to measure particle distances and was combined with \ac{EBSD} measurements.
 However, the methods first had to be validated.
 
+To correctly simulate the hydration of cement based materials, the knowledge of the development of \ac{C-S-H} on the micro-scale is of significant interest.
+Image-based \ac{HLT} measurements provide a direct, phase-specific assessment of these reaction rates.
+Additionally, the particle distance analysis directly addresses the rheological challenges associated with supplementary cementitious materials, such as the high water demand and agglomeration tendencies of calcined clays.
+It enables an objective quantification of the dispersion efficiency of superplasticisers or sonication in fresh pastes.
+
 \input{chapter/06a-method-validation}
 
 \section{Influence of the segmentation method}
@@ -58,7 +63,7 @@ Furthermore, a slightly larger \qty{33.3}{\percent} confidence interval and a si
 	\label{fig:results_segmentation_methods_HLT}
 \end{figure}
 
-Thresholding results in a higher number of excluded and fewer valid measurements than the other methods. 
+Thresholding results in a higher number of excluded and fewer valid measurements than the other methods.
 One main reason is the presence of dense regions filled with \ac{CH}, where no phase transition between hydrate and pores is detectable.
 Manual segmentation and pixel classification ignoring \ac{CSHo} show nearly identical $l_\text{max}$ values, while restoring the data density (see \zcref{fig:results_segmentation_methods_HLT}).
 
@@ -403,19 +408,19 @@ It is evident that the \ac{HLT} distributions broaden significantly with increas
             ]
             \pgfmathsetmacro{\vscale}{1.8}
             % Violin 1d (a=1.019, b=-1.469, c=0.964, d=0.221)
-            \addplot [fill=orange, fill opacity=0.4, draw=none, domain=-7:2, samples=100, forget plot] 
+            \addplot [fill=orange, fill opacity=0.4, draw=none, domain=-7:2, samples=100, forget plot]
                 ( {1 + \vscale * 1.019 * exp(-0.5 * ((\x - (-1.469))/0.964)^2)}, {exp(\x) + 0.221} ) -- (1, 7) -- (1, 0) -- cycle;
-            
+
             % Violin 7d (a=0.939, b=-0.145, c=0.571, d=0.495)
-            \addplot [fill=orange, fill opacity=0.4, draw=none, domain=-7:2, samples=100, forget plot] 
+            \addplot [fill=orange, fill opacity=0.4, draw=none, domain=-7:2, samples=100, forget plot]
                 ( {7 + \vscale * 0.939 * exp(-0.5 * ((\x - (-0.145))/0.571)^2)}, {exp(\x) + 0.495} ) -- (7, 7) -- (7, 0) -- cycle;
 
             % Violin 14d (a=0.887, b=0.523, c=0.522, d=0.224)
-            \addplot [fill=orange, fill opacity=0.4, draw=none, domain=-7:2, samples=100, forget plot] 
+            \addplot [fill=orange, fill opacity=0.4, draw=none, domain=-7:2, samples=100, forget plot]
                 ( {14 + \vscale * 0.887 * exp(-0.5 * ((\x - 0.523)/0.522)^2)}, {exp(\x) + 0.224} ) -- (14, 7) -- (14, 0) -- cycle;
 
             % Violin 28d (a=0.869, b=0.887, c=0.608, d=0.670)
-            \addplot [fill=orange, fill opacity=0.4, draw=none, domain=-7:2, samples=100, forget plot] 
+            \addplot [fill=orange, fill opacity=0.4, draw=none, domain=-7:2, samples=100, forget plot]
                 ( {28 + \vscale * 0.869 * exp(-0.5 * ((\x - 0.887)/0.608)^2)}, {exp(\x) + 0.670} ) -- (28, 7) -- (28, 0) -- cycle;
 
             \addplot[orange, thick, mark=diamond*] coordinates { (1,0.45) (7,1.35) (14,1.94) (28,3.12) };
@@ -428,19 +433,19 @@ It is evident that the \ac{HLT} distributions broaden significantly with increas
             ]
             \pgfmathsetmacro{\vscale}{1.8}
             % Violin 1d (a=1.049, b=-1.452, c=0.450, d=0.049)
-            \addplot [fill=orange, fill opacity=0.4, draw=none, domain=-7:2, samples=100, forget plot] 
+            \addplot [fill=orange, fill opacity=0.4, draw=none, domain=-7:2, samples=100, forget plot]
                 ( {1 - \vscale * 1.049 * exp(-0.5 * ((\x - (-1.452))/0.450)^2)}, {exp(\x) + 0.049} ) -- (1, 7) -- (1, 0) -- cycle;
-            
+
             % Violin 7d (a=1.284, b=-3.085, c=1.378, d=0.469)
-            \addplot [fill=orange, fill opacity=0.4, draw=none, domain=-7:2, samples=100, forget plot] 
+            \addplot [fill=orange, fill opacity=0.4, draw=none, domain=-7:2, samples=100, forget plot]
                 ( {7 - \vscale * 1.284 * exp(-0.5 * ((\x - (-3.085))/1.378)^2)}, {exp(\x) + 0.469} ) -- (7, 7) -- (7, 0) -- cycle;
 
             % Violin 14d (a=0.952, b=-1.109, c=0.908, d=0.341)
-            \addplot [fill=orange, fill opacity=0.4, draw=none, domain=-7:2, samples=100, forget plot] 
+            \addplot [fill=orange, fill opacity=0.4, draw=none, domain=-7:2, samples=100, forget plot]
                 ( {14 - \vscale * 0.952 * exp(-0.5 * ((\x - (-1.109))/0.908)^2)}, {exp(\x) + 0.341} ) -- (14, 7) -- (14, 0) -- cycle;
 
             % Violin 28d (a=0.935, b=-0.404, c=0.981, d=0.354)
-            \addplot [fill=orange, fill opacity=0.4, draw=none, domain=-7:2, samples=100, forget plot] 
+            \addplot [fill=orange, fill opacity=0.4, draw=none, domain=-7:2, samples=100, forget plot]
                 ( {28 - \vscale * 0.935 * exp(-0.5 * ((\x - (-0.404))/0.981)^2)}, {exp(\x) + 0.354} ) -- (28, 7) -- (28, 0) -- cycle;
 
             \addplot[orange, thick, mark=diamond*] coordinates { (1,0.25) (7,0.51) (14,0.67) (28,1.01) };
@@ -448,8 +453,8 @@ It is evident that the \ac{HLT} distributions broaden significantly with increas
         \end{groupplot}
     \end{tikzpicture}
     \caption{
-        Comparison between the hydration progression of \ac{C3S} (left) and \ac{C2S} (right). 
-        Top row: Phase content determined by \ac{XRD} (Clinker, \ac{CH}, \ac{CSH} as solid lines, their sum as dashed blue lines) and estimated from image segmentation ($F_{\text{hydrate}}$, dotted lines). 
+        Comparison between the hydration progression of \ac{C3S} (left) and \ac{C2S} (right).
+        Top row: Phase content determined by \ac{XRD} (Clinker, \ac{CH}, \ac{CSH} as solid lines, their sum as dashed blue lines) and estimated from image segmentation ($F_{\text{hydrate}}$, dotted lines).
         Bottom row: Development of the \ac{HLT} $l_{\text{max}}$ measured using the automated algorithm.
         The \ac{HLT} distribution was fitted using log-normal functions.
         The distribution fits are plotted as half-sided violin plots.
@@ -503,7 +508,7 @@ However, there is no obvious reason for this deviation, which may result from po
 \end{figure}
 
 The raw images of the mixtures (e.g. \zcref{fig:hadley2}) show that the \ac{CSH} around \ac{C2S} grows much more slowly than around \ac{C3S} grains.
-In specimens hydrated for \qty{28}{\day}, the orange \ac{HLT} histograms typically exhibit three distinct peaks representing noise in the first peak, similar to the single-phase images, and two different phases: a lower peak corresponding to \ac{C2S} and a larger one resulting from \ac{CSH} growth around \ac{C3S} (\zcref{fig:hlt_mixture_peaks}). 
+In specimens hydrated for \qty{28}{\day}, the orange \ac{HLT} histograms typically exhibit three distinct peaks representing noise in the first peak, similar to the single-phase images, and two different phases: a lower peak corresponding to \ac{C2S} and a larger one resulting from \ac{CSH} growth around \ac{C3S} (\zcref{fig:hlt_mixture_peaks}).
 For younger specimens, however, these peaks are often not yet clearly distinguishable.
 
 \begin{figure}[htb]
@@ -550,29 +555,29 @@ For younger specimens, however, these peaks are often not yet clearly distinguis
             \pgfmathsetmacro{\vscale}{0.4}
 
             % pos 0: C3S (Right side only, using 28d pure phase data)
-            \addplot [fill=red, fill opacity=0.4, draw=none, domain=-7:2, samples=100, forget plot] 
+            \addplot [fill=red, fill opacity=0.4, draw=none, domain=-7:2, samples=100, forget plot]
                 ( {0 + \vscale * 0.869 * exp(-0.5 * ((\x - 0.887)/0.608)^2)}, {exp(\x) + 0.670} ) -- (0, 7) -- (0, 0) -- cycle;
-            
+
             % pos 1: 3:1 (a_Belit=0.272, b=-0.206, c=1, d=0.523 | a_Alit=0.793, b=0.088, c=0.857, d=1.723)
-            \addplot [fill=blue, fill opacity=0.4, draw=none, domain=-7:2, samples=100, forget plot] 
+            \addplot [fill=blue, fill opacity=0.4, draw=none, domain=-7:2, samples=100, forget plot]
                 ( {1 - \vscale * 0.272 * exp(-0.5 * ((\x - (-0.206))/1.000)^2)}, {exp(\x) + 0.523} ) -- (1, 7) -- (1, 0) -- cycle;
-            \addplot [fill=red, fill opacity=0.4, draw=none, domain=-7:2, samples=100, forget plot] 
+            \addplot [fill=red, fill opacity=0.4, draw=none, domain=-7:2, samples=100, forget plot]
                 ( {1 + \vscale * 0.793 * exp(-0.5 * ((\x - 0.088)/0.857)^2)}, {exp(\x) + 1.723} ) -- (1, 7) -- (1, 0) -- cycle;
 
             % pos 2: 1:1
-            \addplot [fill=blue, fill opacity=0.4, draw=none, domain=-7:2, samples=100, forget plot] 
+            \addplot [fill=blue, fill opacity=0.4, draw=none, domain=-7:2, samples=100, forget plot]
                 ( {2 - \vscale * 0.503 * exp(-0.5 * ((\x - (-0.177))/1.000)^2)}, {exp(\x) + 0.720} ) -- (2, 7) -- (2, 0) -- cycle;
-            \addplot [fill=red, fill opacity=0.4, draw=none, domain=-7:2, samples=100, forget plot] 
+            \addplot [fill=red, fill opacity=0.4, draw=none, domain=-7:2, samples=100, forget plot]
                 ( {2 + \vscale * 0.599 * exp(-0.5 * ((\x - (-0.057))/0.940)^2)}, {exp(\x) + 1.840} ) -- (2, 7) -- (2, 0) -- cycle;
 
             % pos 3: 1:3
-            \addplot [fill=blue, fill opacity=0.4, draw=none, domain=-7:2, samples=100, forget plot] 
+            \addplot [fill=blue, fill opacity=0.4, draw=none, domain=-7:2, samples=100, forget plot]
                 ( {3 - \vscale * 1.000 * exp(-0.5 * ((\x - (-0.491))/1.000)^2)}, {exp(\x) + 0.523} ) -- (3, 7) -- (3, 0) -- cycle;
-            \addplot [fill=red, fill opacity=0.4, draw=none, domain=-7:2, samples=100, forget plot] 
+            \addplot [fill=red, fill opacity=0.4, draw=none, domain=-7:2, samples=100, forget plot]
                 ( {3 + \vscale * 0.363 * exp(-0.5 * ((\x - (-0.626))/1.212)^2)}, {exp(\x) + 1.688} ) -- (3, 7) -- (3, 0) -- cycle;
 
             % pos 4: C2S (Left side only, using 28d pure phase data)
-            \addplot [fill=blue, fill opacity=0.4, draw=none, domain=-7:2, samples=100, forget plot] 
+            \addplot [fill=blue, fill opacity=0.4, draw=none, domain=-7:2, samples=100, forget plot]
                 ( {4 - \vscale * 0.935 * exp(-0.5 * ((\x - (-0.404))/0.981)^2)}, {exp(\x) + 0.354} ) -- (4, 7) -- (4, 0) -- cycle;
 
             \addplot[color=red, mark=*, thick] coordinates {(0, 3.12) (1, 2.81) (2, 2.785) (3, 2.223)};
@@ -863,7 +868,7 @@ The standard deviation in \zcref{fig:lit_box_growth_b} indicates the decreasing 
 
 In contrast to the \ac{BC} method, the standard deviation of the \ac{BG} method decreases unsteadily.
 This is caused by the fact that the position of the random growth point is limited.
-Since the location of larger phases like pores or \ac{CH} does not change in the image, their position can have a significant influence. 
+Since the location of larger phases like pores or \ac{CH} does not change in the image, their position can have a significant influence.
 Even the randomised starting point cannot remove the bias if only a single large image is used for this technique.
 Nevertheless, the standard deviation is below \qty{2}{\percent} at \qty{0.1}{\square\milli\meter}.
 However, due to this effect, the deviation from the phase measurement of the whole specimen can still be more than \qty{2}{\percent}.
@@ -983,7 +988,7 @@ The results are also listed in \zcref{tab:convergence_area_box_cnt, tab:converge
         }
         \label{fig:areagrowth_pores}
     \end{subfigure}
-    
+
     \begin{subfigure}[b]{0.49\textwidth}
         \centering
         \begin{tikzpicture}
@@ -1100,4 +1105,3 @@ For comparison, \textcite{stutzman.2004} determined that areas larger than \qty{
 Furthermore, there is a significant subjective influence of the \ac{SEM} operator, which can hardly be avoided.
 For example, to acquire the large images evaluated in this study, only the best areas with few pores and irregularities were manually selected from the specimen surface.
 \textcite{kameda.2006} pointed out that the data fluctuation of the measured porosity and permeability using this method becomes negligible when `\textit{the cube size exceeds four grain radii}'.
- 

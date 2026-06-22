@@ -12,6 +12,10 @@ This chapter discusses these specific sample-related challenges alongside develo
 \section{Artefacts of the \acs*{FIBnt} process}
 
 Due to the destructive nature of the \ac{FIBnt} process, there are a lot of possible artefacts.
+As described in the \ac{ArBIB} sectioning (see \zcref{sec:bib_pol_fixed}), the cutting process can introduce curtaining.
+It is caused by the cutting process causing vertical line artefacts in the direction of the ion beam (\zcref{fig:fib_artifacts_a}).
+These artefacts can be reduced in post processing using a directional \ac{FFT}-based filter as for the curtaining found in the \ac{ArBIB} process \cite{fitschen.2017,schankula.2018}.
+However, this processing reduces image quality and avoiding the artefact in the first place is more preferable.
 
 \begin{figure}[H]
     \centering
@@ -36,11 +40,6 @@ Due to the destructive nature of the \ac{FIBnt} process, there are a lot of poss
     \caption{Imaging issues of hydrated and embedded \ac{C3S} specimens during the \ac{FIBnt}-process within the bulk material.}
     \label{fig:fib_artifacts}
 \end{figure}
-
-As described in the \ac{ArBIB} sectioning (see \zcref{sec:bib_pol_fixed}), the cutting process can introduce curtaining.
-It is caused by the cutting process causing vertical line artefacts in the direction of the ion beam (\zcref{fig:fib_artifacts_a}).
-These artefacts can be reduced in post processing using a directional \ac{FFT}-based filter as for the curtaining found in the \ac{ArBIB} process \cite{fitschen.2017,schankula.2018}.
-However, this processing reduces image quality and avoiding the artefact in the first place is more preferable.
 
 Vertical shadowing is another typical artefact caused by a loss of signal of the back-scattered electrons due to the trench geometry (see \zcref{fig:fib_artifacts_b}).
 This well-known effect can be corrected in post-processing \cite{holzer.2007, mac.2018, fager.2020}, if the phase contrast is good enough.
@@ -295,7 +294,7 @@ These superpixel-based vectors are subsequently normalised and clustered based o
 The result of this clustering for the examined dataset is shown in the ternary diagram in \zcref{fig:clustering_ternary}.
 This approach facilitates the identification of material phases, resulting in a three-dimensional phase label volume that is directly overlaid and visualised in \textit{napari} \cite{sofroniew.2025}.
 
-\begin{figure}[htb]
+\begin{figure}[t]
 	\centering
 
 	\begin{subfigure}[t]{0.3\textwidth}
@@ -453,13 +452,13 @@ Nevertheless, the laser prepared trenches enable the creation of very large \ac{
 
 However, due to the orientation of the beam, the large-scale surface polishing using \ac{FIB} still introduces typical artefacts.
 For example, protruding edges cast shadows on the \ac{BSE} image (\zcref{fig:laser_prep_itz_fib}, left; note the shadow on the homogeneous grey value of the aggregate on the right side).
-Furthermore, the softer cementitious binder tends to be more prone to curtaining artefacts, while the quartz grain appears to be nicely polished.
+Furthermore, the softer cementitious binder tends to be more prone to curtaining artefacts, while the quartz particle appears to be nicely polished.
 Finally, since a very large area of a non-conductive material is exposed to the electron beam, charging effects occur even on low voltage and current combinations (\qty{5}{\kilo\volt}, \qty{0.1}{\nano\ampere}) with low dwell times (\qty{50}{\nano\second}).
 Therefore, the reachable chemical contrast in the \ac{BSE} images is very limited.
 
 The \ac{EDX} mapping also suffers from significant signal attenuation with increasing distance from the surface.
 For example, the \ac{EDX} mapping \zcref{fig:laser_prep_itz_fib} has been brightened in the lower portions to compensate for this effect, which also increases the noise in these areas.
-Nevertheless, a zone of higher \ce{Ca} concentrations at the interface to the quartz grain becomes visible.
+Nevertheless, a zone of higher \ce{Ca} concentrations at the interface to the quartz particle becomes visible.
 The width of this layer ranges from \qtyrange{2}{5}{\micro\meter}.
 As already demonstrated in literature \cite{li.2012, tian.2018,gao.2014}, the \ce{Ca}-rich zone, which most likely consists of \ac{CH} as shown in \zcref{fig:laser_prep_itz}, is only a part of the \ac{ITZ}.
 However, the small image section does not allow measuring the higher porosity in the vicinity of the aggregate to measure the \ac{ITZ} width with confidence.

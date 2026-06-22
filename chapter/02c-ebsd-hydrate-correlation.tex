@@ -43,10 +43,10 @@ The \textit{QGIS}-project was then used to projectively transform the high-resol
 
 After the data alignment, real-world data exhibit that not all pixels assigned to \ac{C3S} also have a corresponding usable pixel with good \ac{EBSD} data.
 Furthermore, combining the clinker mask from the segmented \ac{BSE} image often results in a \qty{1}{\px} shift and, therefore, unassigned areas.
-Since this issue would significantly reduce the measurement density, the available \ac{EBSD} data of a grain were expanded until all pixels assigned to a \ac{C3S} grain had a corresponding crystal orientation (see \zcref{fig:clinker-ebsd-fill}).
+Since this issue would significantly reduce the measurement density, the available \ac{EBSD} data of a particle were expanded until all pixels assigned to a \ac{C3S} particle had a corresponding crystal orientation (see \zcref{fig:clinker-ebsd-fill}).
 For every \ac{CSH} rim measurement, the clinker-hydrate boundary point extracted from the \ac{BSE} segmentation was projected onto the nearest \ac{EBSD} grid node.
 The \textsc{Euler} angles at that node represent the orientation attributed to the measurement.
-Where several angular steps around one grain map to the same grid node, multiple records can share identical indices. %; this is expected when the \ac{EBSD} step width is large compared with the arc length sampled along the rim.
+Where several angular steps around one particle map to the same grid node, multiple records can share identical indices. %; this is expected when the \ac{EBSD} step width is large compared with the arc length sampled along the rim.
 
 
 \begin{figure}[htb]
@@ -168,17 +168,17 @@ Where several angular steps around one grain map to the same grid node, multiple
     \end{tikzpicture}
 
     \caption{
-        Illustration of the algorithm to fill the grain mask with valid \ac{EBSD} crystal orientations.
+        Illustration of the algorithm to fill the particle mask with valid \ac{EBSD} crystal orientations.
         The raw measurement (left) contains two measured crystal orientations {\color{darkred}A} and {\color{blue}B}.
-        To fill the whole grain area, unassigned \ac{C3S} pixels (dark grey) are replaced with neighbouring pixel orientations ({\color{red}A} and {\color{cyan}B}).
+        To fill the whole particle area, unassigned \ac{C3S} pixels (dark grey) are replaced with neighbouring pixel orientations ({\color{red}A} and {\color{cyan}B}).
     }
     \label{fig:clinker-ebsd-fill}
 \end{figure}
 
 \zcref{fig:clinker-pixel-roles} visualises the pixels from the \ac{EBSD} measurement used for the calculations (green).
 The \ac{C3S} pixels sharing at least one edge or corner with \ac{CSH} lie on the \ac{C3S}-hydrate interface and correspond to the inner boundary from which the polar rim measurement in \zcref{fig:hlt-method} starts.
-Fully surrounded interior \ac{C3S} pixels remain in the same segmented grain mask but do not define that interface.
-The diagram is illustrative and omits pores and irregular grain shapes.
+Fully surrounded interior \ac{C3S} pixels remain in the same segmented particle mask but do not define that interface.
+The diagram is illustrative and omits pores and irregular particle shapes.
 
 \begin{figure}[htb]
     \centering
@@ -226,7 +226,7 @@ The diagram is illustrative and omits pores and irregular grain shapes.
     \end{tikzpicture}
 
     \caption{
-        Illustration of the upper half of an idealised circular \ac{C3S} grain to show the pixels used for the calculations.
+        Illustration of the upper half of an idealised circular \ac{C3S} particle to show the pixels used for the calculations.
         Only the \ac{C3S} pixels associated with the interface to \ac{CSH} are used.
         The blue arrows represent \ac{HLT} measurement vectors ($\vec{v}_\mathrm{HLT}$).
     }
@@ -254,7 +254,7 @@ where $\theta$ follows from the discrete index and an optional sign convention f
             \node[text=darkgrey, font=\small] at (2.3, 1.7) {sample surface};
             
             
-            % Grain boundary (a curve on the surface)
+            % particle boundary (a curve on the surface)
             \draw[ultra thick, darkgrey] (-1.7, -0.5) .. controls (-0.5, 0.2) and (1.1, -0.1) .. (2, -1.0);
             \node[darkgrey, align=center, rotate=12, font=\small] at (-0.75, -0.15) {\ac{CSH}\\ \ac{C3S}};
 			
@@ -360,10 +360,10 @@ i.e.\ the acute angle between $\vec{h}$ and the crystal $c$-axis, using the abso
 The rim length from the hydrate analysis was retained alongside $\alpha_{001}$ and $(h_x,\,h_y,\,h_z)$ for joint distributions, spatial maps on $(i_x,\,i_y)$, and spherical heat maps of measurement density on the orientation sphere.
 
 The phase map delivered with the \ac{EBSD} data does not always label every pixel that appears as clinker in the \ac{BSE} segmentation. 
-This can happen when pattern indexing fails at the grain boundary or when there is a slight misalignment between the datasets.
+This can happen when pattern indexing fails at the particle boundary or when there is a slight misalignment between the datasets.
 To reduce missing orientations at valid rim locations, a correction was applied on the \ac{EBSD} grid.
 Pixels that fell inside a clinker mask derived from the upscaled \ac{BSE} segmentation but were not indexed as clinker in the raw \ac{EBSD} data were assigned the \textsc{Euler} angles of the nearest indexed clinker pixel within the same connected clinker region.
-Pixels outside a defined radius were left unchanged to avoid interpolation across unrelated grains.
+Pixels outside a defined radius were left unchanged to avoid interpolation across unrelated particles.
 
 Measurements from several specimen positions were concatenated into a single table and analysed together to improve the data density.
 
@@ -374,5 +374,5 @@ Measurements from several specimen positions were concatenated into a single tab
 
 % The procedure links a 2D rim length in the section plane to a 3D crystal orientation.
 % No information is recovered along the surface normal; the rim vector $\mathbf{n}_\mathrm{sample}$ is confined to the plane of polish.
-% %Furthermore, $\mathbf{g}$ refers to the orientation of the voxel averaged by the \ac{EBSD} step at $(i_x,\,i_y)$; sub-grain orientation spread, pseudosymmetry, and indexing ambiguity are not resolved beyond the vendor indexing output.
+% %Furthermore, $\mathbf{g}$ refers to the orientation of the voxel averaged by the \ac{EBSD} step at $(i_x,\,i_y)$; sub-particle orientation spread, pseudosymmetry, and indexing ambiguity are not resolved beyond the vendor indexing output.
 % Finally, correlation plots between $l$ and $\alpha_{001}$ are descriptive: they do not, by themselves, establish a causal relationship between crystallography and local growth rate without additional modelling of transport and reaction at the three-phase boundary.

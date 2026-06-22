@@ -4,9 +4,9 @@
 To validate the algorithms introduced in \zcref{sec:ebsd-hydrate,subsec:algo_hlm}, simulated datasets were created.
 For this purpose, an artificial volume was randomly filled with \num{120000} spherical \ac{C3S} particles per \unit{\cubic\milli\meter}.
 A \textsc{Gaussian} distribution of particle diameters ranging from $d_\text{min, \ac{C3S}}=$\qty{0}{\micro\meter} to $d_\text{max, \ac{C3S}}=$\qty{5}{\micro\meter} was selected. 
-The total volume was set to \qtyproduct{2000x2000}{\micro\meter\squared} with a height ($z$) of four times the maximum diameter of a hydrated \ac{C3S} grain.
-The simulation allows the \ac{HLT} to be varied depending on the crystal orientation of the clinker grains.
-To enable this, a random crystal orientation was assigned to each \ac{C3S} grain (based on the monoclinic unit cell \acs{ICSD} 94742, \acs{COD} \href{https://qiserver.ugr.es/cod/1540705.html}{1540705} \cite{delatorre.2002}).
+The total volume was set to \qtyproduct{2000x2000}{\micro\meter\squared} with a height ($z$) of four times the maximum diameter of a hydrated \ac{C3S} particle.
+The simulation allows the \ac{HLT} to be varied depending on the crystal orientation of the clinker particles.
+To enable this, a random crystal orientation was assigned to each \ac{C3S} particle (based on the monoclinic unit cell \acs{ICSD} 94742, \acs{COD} \href{https://qiserver.ugr.es/cod/1540705.html}{1540705} \cite{delatorre.2002}).
 For the validation of the \ac{HLT} measurement algorithm, a constant spherical hydrate layer was used.
 To validate the \ac{EBSD} correlation, the hydrate layer was also modelled as an ellipsoid.
 To create the ellipsoidal hydrate layer, the hydrate layer size was set depending on the crystal axes to $a$: \num{3.0}, $b$: \num{0.5}, and $c$: \qty{5.0}{\micro\meter}.
@@ -37,8 +37,8 @@ Sections of such synthetic \ac{BSE} images are shown in \zcref{fig:c3s_synthetic
 \end{figure}
 
 Applying the \ac{HLT} measurement to the synthetic \ac{BSE} images results in \zcref{fig:c3s_synthetic_BSE_HLT}.
-The diagrams consist of a graph indicating frequency of a measured \ac{HLT} as a function of the grain size (blue-green).
-This plot is accompanied by a frequency plot of the grain diameter (grey) and a grain-size-agnostic distribution plot of the \ac{HLT} frequency (orange).
+The diagrams consist of a graph indicating frequency of a measured \ac{HLT} as a function of the particle size (blue-green).
+This plot is accompanied by a frequency plot of the particle diameter (grey) and a particle-size-agnostic distribution plot of the \ac{HLT} frequency (orange).
 The set values for the respective \ac{HLT} are marked with red lines.
 
 \begin{figure}[htb!]
@@ -59,14 +59,14 @@ The diagrams are distinctly different.
 The spherical hydrate layer results in a fairly tight \ac{HLT} distribution (orange histogram). 
 This distribution can also be fitted using a log-normal function, which also simplifies to calculate the maximum, which is at \qty{3.3}{\micro\meter} in this dataset.
 This value is \qty{10}{\percent} higher than the simulated layer thickness.
-While one reason for this overestimation is the sectioning effect (see \zcref{subsec:sectioning-effect}), another reason is the merging of the hydrate layers of multiple grains, causing a larger \ac{HLT} for some measurements.
+While one reason for this overestimation is the sectioning effect (see \zcref{subsec:sectioning-effect}), another reason is the merging of the hydrate layers of multiple particles, causing a larger \ac{HLT} for some measurements.
 The simulated elliptical hydrate layer shows a much broader distribution of the \ac{HLT}.
 The maximum value of the \ac{HLT} was measured at \qty{2.9}{\micro\meter}, but the majority of measurements are distributed between the set limits for the ellipsoid.
 
-For both measurements, the data density below a grain diameter of \qty{4}{\micro\meter} was low.
-However, these smaller grains seem to have a tendency towards larger \ac{HLT}s, which can also be explained by the sectioning effect.
-In real specimens, many more smaller grains are expected than in this simulation, changing the appearance of the distribution for smaller grains.
-Finally, the 2D plot and the grain diameter histogram show regular vertical artefacts, which are probably caused by rounding errors, but do not affect the evaluation and are less pronounced in real-world data.
+For both measurements, the data density below a particle diameter of \qty{4}{\micro\meter} was low.
+However, these smaller particles seem to have a tendency towards larger \ac{HLT}s, which can also be explained by the sectioning effect.
+In real specimens, many more smaller particles are expected than in this simulation, changing the appearance of the distribution for smaller particles.
+Finally, the 2D plot and the particle diameter histogram show regular vertical artefacts, which are probably caused by rounding errors, but do not affect the evaluation and are less pronounced in real-world data.
 
 Using the assigned crystal orientations, a simulated \ac{EBSD} dataset was generated with a resolution of \qty{2}{\micro\meter\per\px} in the form of a channel text file.
 The resolution of the simulated \ac{BSE} image only had to be adjusted to the \ac{EBSD} dataset, since the datasets were already aligned to each other.

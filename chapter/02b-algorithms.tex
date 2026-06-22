@@ -6,7 +6,7 @@
 %This chapter describes the algorithms used to process and evaluate the image data.
 %The code used in this chapter is publicly available and was written for \textit{Python 3}.
 
-To measure the \ac{HLT} of hydrated clinker grains, the \ac{SEM}-\ac{BSE} images were processed in \textit{Python 3} \cite{kleiner.2024}.
+To measure the \ac{HLT} of hydrated clinker particles, the \ac{SEM}-\ac{BSE} images were processed in \textit{Python 3} \cite{kleiner.2024}.
 First, the image contrast was logarithmically enhanced using the \textit{scikit-image} \cite{vanderwalt.2014} library.
 For most images, a denoising step is recommended using algorithms like \ac{NLM} \cite{buades.2011}.
 The script uses the implementation provided by the \textit{OpenCV} \cite{bradski.2000} library.
@@ -44,13 +44,13 @@ However, the software can be used to process pre-segmented images (e.g. manually
 
 After the segmentation, the holes within segmented clinker particles were removed to avoid errors in the following analysis.
 
-Only clinker particles with a grain diameter between \qtyrange{0.3}{9.0}{\micro\meter} (grain area between \qtyrange{0.07}{63.6}{\square\micro\meter}) were used to determine the \ac{HLT}.
+Only clinker particles with a particle diameter between \qtyrange{0.3}{9.0}{\micro\meter} (particle area between \qtyrange{0.07}{63.6}{\square\micro\meter}) were used to determine the \ac{HLT}.
 Furthermore, particles with a circularity lower than \num{0.3} were excluded to avoid extreme sectioning effects.
 The circularity ranges between \num{0} and \num{1}, where \num{1} represents a perfect circle.
 For very oval particles, the hydrate fringe could otherwise be greatly overestimated and undercuts could also lead to undesirable results.
 
-In addition, the clinker further dissolves and, thus, the particle size reduces over time and small grains are consumed.
-Since the selected size range of the grain diameters was kept constant regardless of the specimen age, this effect was not taken into account in this analysis. %kann man das irgendwie messen, wie sich der Korngrößendurchmesser ändert mit der Zeit? Einen Peak gabs ja leider nicht... Eventuell mal Korngrößenverteilungen gegenüberstellen...
+In addition, the clinker further dissolves and, thus, the particle size reduces over time and small particles are consumed.
+Since the selected size range of the particle diameters was kept constant regardless of the specimen age, this effect was not taken into account in this analysis. %kann man das irgendwie messen, wie sich der Korngrößendurchmesser ändert mit der Zeit? Einen Peak gabs ja leider nicht... Eventuell mal Korngrößenverteilungen gegenüberstellen...
 
 The segmented particles were then extracted as objects using the \textit{OpenCV} \cite{bradski.2000} library and their respective centre of gravity was determined.
 Starting from this point, the mean radius $r_\text{particle}$ was measured.
@@ -67,14 +67,14 @@ The \ac{HLT} was determined using \ang{1} increments in \num{360} steps.
 To achieve this, the distance from the \ac{C3S} phase (left-hand side of \zcref{fig:hlt-method}C, blue, \ding{172}) to the next pore (black, \ding{173}) was measured.
 If there were no adjacent pores within $r_\text{ROI}$, the measurement was ignored (\zcref{fig:hlt-method}D, areas with adjacent grey).
 To reduce errors, \ang{3} before and after those areas were ignored as well (\zcref{fig:hlt-method}D, marked as darker vertical lines).
-Furthermore, measurements of grains that provided fewer than \num{90} valid data points (\qty{25}{\percent} of \num{360} possible measurements) were excluded from the statistical analysis.
+Furthermore, measurements of particles that provided fewer than \num{90} valid data points (\qty{25}{\percent} of \num{360} possible measurements) were excluded from the statistical analysis.
 
 \begin{figure}[htb]
 \centerline{\includegraphics[width=\textwidth]{hydrate-rim/Mechanism_v2.pdf}}
 \caption{
 	Illustration of the processing to measure the \ac{HLT}.
-	In the centre of A, B and E is an unhydrated \ac{C3S} grain \ding{172} within a \qty{7}{\day} hydrated specimen.
-	A: raw image; B: segmented image (black: pores \ding{173}, green: hydrates, blue: \ac{C3S}); C: transformation of B into polar coordinates, the \ac{C3S} grain (blue) is on the left; D: like C, but only with the identified hydrate in green (grey areas were excluded from processing); E: version of D transformed into \textsc{Cartesian} coordinates.
+	In the centre of A, B and E is an unhydrated \ac{C3S} particle \ding{172} within a \qty{7}{\day} hydrated specimen.
+	A: raw image; B: segmented image (black: pores \ding{173}, green: hydrates, blue: \ac{C3S}); C: transformation of B into polar coordinates, the \ac{C3S} particle (blue) is on the left; D: like C, but only with the identified hydrate in green (grey areas were excluded from processing); E: version of D transformed into \textsc{Cartesian} coordinates.
 	\cite{kleiner.2024}
 }
 \label{fig:hlt-method}
@@ -94,7 +94,7 @@ To safely determine the most frequent \ac{HLT}, a function was fitted to the his
 	%l_\text{max}	&	most frequent \ac{HLT}.
 \end{conditions}
 
-\textsc{Hadley} grains (\zcref{subsec:hadley}) can distort the results, since the gap between the clinker grain and the hydrate layer would stop the measurement.
+\textsc{Hadley} grains (\zcref{subsec:hadley}) can distort the results, since the gap between the clinker particle and the hydrate layer would stop the measurement.
 The result would be a very small \ac{HLT}, since the transition zone between clinker and gap would probably be identified as \ac{CSH}.
 With a modification to the algorithm, the seam thickness and the \textsc{Hadley} grain gap could be measured.
 However, to obtain these data, the \textsc{Hadley} grains must be identified and segmented beforehand.

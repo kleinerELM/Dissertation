@@ -56,7 +56,7 @@ Furthermore, a slightly larger \qty{33.3}{\percent} confidence interval and a si
     \centerline{\includegraphics[width=\textwidth]{hydrate-rim/supplementary/segmentation_results.pdf}}
     \caption{
 		Visualisation of the measured \ac{HLT}.
-		Valid measurements are indicated in {\color{green}green} around the \ac{C3S} in {\color{blue}blue}. \ac{C3S} grains in {\color{red}red} were filtered or had not enough measurements.
+		Valid measurements are indicated in {\color{green}green} around the \ac{C3S} in {\color{blue}blue}. \ac{C3S} particles in {\color{red}red} were filtered or had not enough measurements.
 		Segmentation result by thresholding (A), pixel classification with (B) and without \ac{CSHo} (C) and manual segmentation (D).
 		\cite{kleiner.2024}, \ac{SI}
 	}
@@ -305,8 +305,8 @@ This is caused by the slower dissolution rates of \ac{C2S} and the tendency of l
 This also allows both phases to be visually distinguished in a \ac{BSE} image.
 
 Applying the \ac{HLT} measurement algorithm proposed in \zcref{subsec:algo_hlm} to individually hydrated phases gives the results shown in \zcref{fig:results2d_alite} and \zcref{fig:results2d_belite} for \ac{C3S} and \ac{C2S}, respectively.
-The diagrams consist of a graph indicating the frequency of a measured \ac{HLT} as a function of the grain size (blue-green).
-This plot is accompanied by a frequency plot of the grain size diameter (grey) and a grain-size-agnostic distribution plot of the \ac{HLT} frequency (orange).
+The diagrams consist of a graph indicating the frequency of a measured \ac{HLT} as a function of the particle size (blue-green).
+This plot is accompanied by a frequency plot of the particle size diameter (grey) and a particle-size-agnostic distribution plot of the \ac{HLT} frequency (orange).
 
 \begin{figure}[htb]
 	\centerline{\includegraphics[width=\textwidth]{hydrate-rim/HLT_histogram_belit.pdf}}
@@ -323,7 +323,7 @@ This plot is accompanied by a frequency plot of the grain size diameter (grey) a
         Normalised distributions of the \ac{HLT} of hydrated \ac{C3S} (aged \num{1}, \num{7}, \num{14}, \num{28}, \num{84}, and \qty{365}{\day}) depending on the particle diameter.
         The histogram ({\color{darkgrey}grey}) on top illustrates the logarithmic frequency for each diameter bin in the diagram below.
         The histogram ({\color{orange}orange}) on the right illustrates the frequency of \ac{HLT} measurements as sum of the main diagram.
-        The values are thus independent of the frequency of single grain diameters.
+        The values are thus independent of the frequency of single particle diameters.
         The yellow markers indicate the confidence interval at a confidence level of \qty{33.3}{\percent} around $l_\text{max}$ (colored {\color{darkgreen}green}).
     }
 	\label{fig:results2d_alite}
@@ -336,7 +336,7 @@ The \ac{HLT} distributions of \ac{C3S} specimens at \qtyrange{7}{28}{\day} and \
 The second, larger accumulation appears at larger \ac{HLT}s for older specimens, until it ultimately disappears for mature \ac{C3S} specimens at \qty{84}{\day} and \qty{365}{\day}, where the pore space is mostly consumed by \ac{CSH} and \ac{CH}, which makes the evaluation impossible.
 However, the \ac{CSH} growth is then also limited by the neighbouring particles and hydrate phases, which would also reduce the meaning of the measurement.
 The first accumulation is most likely an artefact of the segmentation quality as is more obvious in \zcref{fig:hlt_segmentation_influence}.
-Furthermore, very small grains seem to have no second \ac{HLT} accumulation, while the first is more pronounced, which is also reduced when using different segmentation methods.
+Furthermore, very small particles seem to have no second \ac{HLT} accumulation, while the first is more pronounced, which is also reduced when using different segmentation methods.
 
 \ac{C2S} shows a significantly slower hydration, which is also visible in the growth of the \ac{HLT} (\zcref{fig:hydration-rim-results}, raw data are listed in \zcref{tab:hlt_peak_measurements}).
 After \qty{28}{\day}, \ac{C2S} still shows smaller hydration rims than \ac{C3S} after \qty{7}{\day}.
@@ -507,7 +507,7 @@ However, there is no obvious reason for this deviation, which may result from po
     \label{fig:hydrate_clinker_stacked_bar_mix}
 \end{figure}
 
-The raw images of the mixtures (e.g. \zcref{fig:hadley2}) show that the \ac{CSH} around \ac{C2S} grows much more slowly than around \ac{C3S} grains.
+The raw images of the mixtures (e.g. \zcref{fig:hadley2}) show that the \ac{CSH} around \ac{C2S} grows much more slowly than around \ac{C3S} particles.
 In specimens hydrated for \qty{28}{\day}, the orange \ac{HLT} histograms typically exhibit three distinct peaks representing noise in the first peak, similar to the single-phase images, and two different phases: a lower peak corresponding to \ac{C2S} and a larger one resulting from \ac{CSH} growth around \ac{C3S} (\zcref{fig:hlt_mixture_peaks}).
 For younger specimens, however, these peaks are often not yet clearly distinguishable.
 
@@ -515,7 +515,7 @@ For younger specimens, however, these peaks are often not yet clearly distinguis
 	\centerline{\includegraphics[width=\textwidth]{hydrate-rim/hadley_grains.pdf}}
 	\caption{
         \ac{BSE} image of a polished section of a \qty{28}{\day} hydrated \ac{C3S} and \ac{C2S} mixture (\num{3}:\num{1}).
-        Around many \ac{C2S} grains, \textsc{Hadley} grains were formed.
+        Around many \ac{C2S} particles, \textsc{Hadley} grains were formed.
         Furthermore, hollow \textsc{Hadley} grains can be found. \label{fig:hadley2}
     }
 \end{figure}
@@ -604,10 +604,10 @@ Nevertheless, the peak for \ac{C3S} remains clearly visible across all mixtures 
 This uncertainty may be caused by the following sources of error:
 \begin{itemize}
 	\item overlap/contact of the \ac{CSH} from \ac{C3S} and \ac{C2S},
-	\item and filled \textsc{Hadley} grains with no contact to the actual hydrate layer around the grain, resulting in an overestimation and lower data density.
+	\item and filled \textsc{Hadley} grains with no contact to the actual hydrate layer around the particle, resulting in an overestimation and lower data density.
 \end{itemize}
 
-Manually reviewing the images furthermore reveals that the \textsc{Hadley} grain development is significantly more pronounced around \ac{C2S} grains in \ac{C3S}:\ac{C2S} mixtures (compare \zcref{fig:hadley2}).
+Manually reviewing the images furthermore reveals that the \textsc{Hadley} grain development is significantly more pronounced around \ac{C2S} particles in \ac{C3S}:\ac{C2S} mixtures (compare \zcref{fig:hadley2}).
 This can cause a reduced \ac{HLT} measurement around \ac{C2S}.
 
 
@@ -618,7 +618,7 @@ This can cause a reduced \ac{HLT} measurement around \ac{C2S}.
 In this section, the images previously described in \zcref{sec:HLT_multi_phase} were used to assess the minimum area required to obtain a statistically relevant phase composition, using both the \ac{BC} and \ac{BG} methods.
 
 The images were segmented via thresholding into four distinct phases: pores, \ac{CSH}, \ac{CH}, and clinker (see \zcref{fig:segmented_images}).
-Although this segmentation approach produces erroneously segmented layers around clinker grains, which are consequently assigned to \ac{CH} instead of \ac{CSH} or the clinker phase, it is still considered adequate for estimating the overall phase composition.
+Although this segmentation approach produces erroneously segmented layers around clinker particles, which are consequently assigned to \ac{CH} instead of \ac{CSH} or the clinker phase, it is still considered adequate for estimating the overall phase composition.
 
 \begin{figure}[htbp]
 
@@ -630,9 +630,9 @@ Although this segmentation approach produces erroneously segmented layers around
     \label{fig:segmented_images}
 \end{figure}
 
-A closer inspection of the images reveals that some clinker grains become encapsulated by \ac{CH}.
+A closer inspection of the images reveals that some clinker particles become encapsulated by \ac{CH}.
 This prevents the dissolution of the clinker and the growth of \ac{CSH} due to the lack of available pore space.
-In older specimens, most of the remaining small unhydrated clinker grains are typically surrounded by \ac{CH}.
+In older specimens, most of the remaining small unhydrated clinker particles are typically surrounded by \ac{CH}.
 
 \subsection{\Acl*{BC} method}
 

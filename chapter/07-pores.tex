@@ -1,4 +1,4 @@
-\chapter{Pore analysis}
+\chapter{Comparative pore analysis using physical and imaging techniques}
 
 The determination of porosity is fundamental to understanding and predicting the performance and durability of concrete.
 Whilst macroscopic air voids influence properties like freeze-thaw resistance, the gel porosity dictates the material's intrinsic characteristics.
@@ -542,8 +542,12 @@ However, it appears that the curtaining artefacts visible in some images may aff
 
 To obtain data on the nano porosity of \ac{CSHi} of \qty{28}{\day} hydrated \ac{C3S}, a high-resolution \ac{BSE}-stack was created using \ac{FIBnt} (see \zcref{fig:fib_highres_pores_a}) \cite{kleiner.2026}.
 
+The dataset has a volume of \qtyproduct{3.8 x 4.1 x 0.7}{\micro\meter\cubed} and a voxel size \qtyproduct{1.6 x 2.0 x 10}{\nano\meter\cubed}.
+It contains a block of \ac{CSHi} which is surrounded by \ac{CSH} needles and includes a \textsc{Hadley} grain with an unhydrated \ac{C3S} particle in its centre.
+\zcref{fig:fib_highres_pores_b} illustrates the porosity within the \ac{CSHi}.
+
 % E:\Mitarbeiter\Florian Kleiner\FIB-Data\C3S 1Tag-10Monate\2019_11_01 C3S High Resolution Training RT
-\begin{figure}[H]
+\begin{figure}[htb]
     \centering
 
 	\begin{subfigure}[t]{0.43\textwidth}
@@ -572,9 +576,6 @@ To obtain data on the nano porosity of \ac{CSHi} of \qty{28}{\day} hydrated \ac{
 	\label{fig:fib_highres_pores}
 \end{figure}
 
-The dataset has a volume of \qtyproduct{3.8 x 4.1 x 0.7}{\micro\meter\cubed} and a voxel size \qtyproduct{1.6 x 2.0 x 10}{\nano\meter\cubed}.
-It contains a block of \ac{CSHi} which is surrounded by \ac{CSH} needles and includes a \textsc{Hadley} grain with an unhydrated \ac{C3S} particle in its centre.
-\zcref{fig:fib_highres_pores_b} illustrates the porosity within the \ac{CSHi}.
 
 While the energy density introduced in the specimen surface by imaging at \qty{2}{\kilo\volt} and \qty{0.1}{\nano\ampere} was fairly low, it is still possible that the nano-porosity observed within the bulk was induced or at least enlarged during the image acquisition as discussed in \zcref{sec:fib_evaluation_obstacles}.
 
@@ -1139,10 +1140,10 @@ Note, that the green area fully overlaps the yellow area.
             \node[anchor=west, align=left] at (axis cs:-4,0.5) {A};
             \node[anchor=west, align=left] at (axis cs:3.5,0.55) {B};
 
-            \addplot [ no marks, green, dashed] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=0, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_28d-1_melt_segment_8.csv};
+            \addplot [no marks, green, dashed] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=0, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_28d-1_melt_segment_8.csv};
             \addlegendentry{P1, raw data};
 
-            \addplot [ no marks, blue, dashed] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=0, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_28d-1_melt_segment_16.csv};
+            \addplot [no marks, blue, dashed] table [each nth point=4, filter discard warning=false, unbounded coords=discard,x index=0, y index=1, col sep=comma] {figures/ltdsc/ExpDat_C2S_28d-1_melt_segment_16.csv};
             \addlegendentry{P2, raw data};
 
 
@@ -1162,12 +1163,11 @@ Note, that the green area fully overlaps the yellow area.
 
     \caption{
 		\ac{LTDSC} curves for the first and second melting pass of \qty{28}{\day} hydrated \ac{C2S}.
-		The green area correlate to the capillary porosity, while the yellow area correlates to the gel porosity.
-		The value range used for the linear baseline regression is marked red between \qtyrange{-57}{-56}{\celsius} (P2) or \qtyrange{-21.5}{-20.5}{\celsius} (P1) and \qtyrange{9}{10}{\celsius} (P1 and P2).
+		The {\color{green}green} area correlate to the capillary porosity, while the {\color{orange}yellow} area correlates to the gel porosity.
+		The value range used for the linear baseline regression is marked {\color{red}red} between \qtyrange{-57}{-56}{\celsius} (P2) or \qtyrange{-21.5}{-20.5}{\celsius} (P1) and \qtyrange{9}{10}{\celsius} (P1 and P2).
 	}
     \label{fig:ltdsc_result_c2s_melt}
 \end{figure}
-
 
 
 The melting curve shows two distinct peaks, one at \qty{0}{\celsius} (A) and one at \qty{2}{\celsius} (B).

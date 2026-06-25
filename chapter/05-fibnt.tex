@@ -1,7 +1,7 @@
 \chapter{Challenges in 3D nano-tomography of cementitious samples}
 %\chapter[Focussed ion beam nano tomography]{\Acl*{FIB} nano tomography}
 
-\textit{A few results of this section were published and presented on various conferences \cite{kleiner.2021b,kleiner.2021c,kleiner.2025f}.}
+\textit{A few results of this chapter were published and presented on various conferences \cite{kleiner.2021b,kleiner.2021c,kleiner.2025f}. The presented datasets are available in \cite{kleiner.2026c}.}
 
 The application of microscopic 3D imaging techniques like \ac{FIBnt} to sensitive multiphase materials like hydrated cement pastes presents several methodological challenges.
 While \ac{FIBnt} allows for high-resolution 3D reconstructions, the intrinsic properties of the cementitious binder, such as its non-conductive nature, inherent porosity, and delicate hydrate phases, require specialised preparation, acquisition, and post-processing strategies.
@@ -61,7 +61,7 @@ However, it may also appear on small structures in front of the \ac{ROI} or even
     \label{fig:fib_liftout}
 \end{figure}
 
-To avoid or at least reduce issues caused by slicing within the bulk material, the \ac{ROI}  can be completely cut free.
+To avoid or at least reduce issues caused by slicing within the bulk material, the \ac{ROI} can be completely cut free.
 A lift-out process can be applied, which is similar to the preparation process of \ac{TEM} lamellas \cite{overwijk.1993, langford.2001a}.
 For this process, a needle is inserted and welded to the \ac{ROI} cube using the platinum coating process (see \zcref{fig:fib_liftout}).
 Afterwards, the cube is completely cut loose from the bulk material and a copper comb is inserted into the SEM.
@@ -87,12 +87,14 @@ Finally, the cube is transferred and subsequently welded to a finger of the comb
 	\end{subfigure}
 
     \caption{
-		The cement cube (\qtyproduct{20 x 20 x 20}{\micro\meter\cubed}) welded to the copper comb. \cite{kleiner.2025f}
+		The cement cube (\qtyproduct{20 x 20 x 20}{\micro\meter\cubed}) welded to the copper comb. \cite{kleiner.2025f,kleiner.2026c}
 	}
     \label{fig:fib_liftout_result}
 \end{figure}
 
 The prepared and separated cube can now be serially cut as illustrated in \zcref{fig:fib_scheme} with significantly reduced shadowing correlating to the gel pores and charging effects, respectively.
+The so obtained cube then allows to reconstruct the volume.
+For example, illustrating the \ac{CSH} phases of an \qty{28}{\day} hydrated \ac{C3S} specimen as shown in \zcref{fig:intro}.
 
 A detailed video tutorial of the \ac{FIBnt} process, the required parameters, and potential sources of errors for cement-based materials was created and published \cite{kleiner.2025b}.
 
@@ -197,7 +199,7 @@ However, the processing time for \ac{BM3D} is significantly higher than for the 
 		\label{fig:edx_noise_f}
 	\end{subfigure}
     \caption{
-      Effect of denoising using the \ac{TV} (split \textsc{Bregman} optimisation) and \ac{BM3D} filters on the raw \ac{EDX}-mappings of \ce{Ca} (high signal) and \ce{S} (low signal).
+      Effect of denoising using the \ac{TV} (split \textsc{Bregman} optimisation) and \ac{BM3D} filters on the raw \ac{EDX}-mappings of \ce{Ca} (high signal) and \ce{S} (low signal). \cite{kleiner.2026c}
     }
     \label{fig:edx_noise}
 \end{figure}
@@ -239,7 +241,7 @@ Following denoising, inter-slice intensity banding ($z$-banding) in the 3D-\ac{E
 	\end{subfigure}
 	\caption{
 		Illustration of the mean brightness variations between \ac{EDX} slices ($z$-banding) and the result of the correction.
-		The images depict the $x$-$z$ plane and the mean values of the denoised \ac{EDX} image stack.
+		The images depict the $x$-$z$ plane and the mean values of the denoised \ac{EDX} image stack. \cite{kleiner.2026c}
 	}
 	\label{fig:sem_z-banding}
 \end{figure}
@@ -285,7 +287,7 @@ For each superpixel, the mean intensity for each element is calculated from the 
 	\end{subfigure}
     \caption{
       Postprocessing of the dataset illustrated on a single slice of the \ac{FIBnt} volume.
-	  The \ac{SLIC}O superpixel segmentation (small multicoloured areas) is half transparently overlaid with an automatic clustering of these superpixels (larger similar coloured areas). \cite{kleiner.2025b}
+	  The \ac{SLIC}O superpixel segmentation (small multicoloured areas) is half transparently overlaid with an automatic clustering of these superpixels (larger similar coloured areas). \cite{kleiner.2025b,kleiner.2026c}
     }
     \label{fig:sem_postprocessing}
 \end{figure}
@@ -319,7 +321,7 @@ This approach facilitates the identification of material phases, resulting in a 
 		\label{fig:clustering_ternary}
 	\end{subfigure}
 	\caption{
-		Visualisation of the final dataset showing the semi-transparent rendering of the \ce{Al}-concentration in the \ac{EDX}-map (a), an overlaid phase position (b), and the clustering result in a ternary \ce{Ca}-\ce{Si}-\ce{Al}-diagram (c).
+		Visualisation of the final dataset showing the semi-transparent rendering of the \ce{Al}-concentration in the \ac{EDX}-map (a), an overlaid phase position (b), and the clustering result in a ternary \ce{Ca}-\ce{Si}-\ce{Al}-diagram (c). \cite{kleiner.2025b,kleiner.2026c}
 	}
 	\label{fig:fib-sem-clustering}
 \end{figure}
@@ -351,7 +353,7 @@ Laser ablation offers an alternative for rapid, high-volume trench creation.
 		\else
 			\animategraphics[palindrome,poster=6,autoplay,width=\textwidth]{5}{methods/laser_prep/tilt}{0}{6}
 		\fi
-        \caption{Laser-prepared bar and trenches (top view).}
+        \caption{Laser-prepared bar and trenches (top view). \cite{kleiner.2026e}}
         \label{fig:laser_prep_tilt_anim}
     \end{subfigure}
     \hfill
@@ -399,7 +401,7 @@ Furthermore, since the specimen was not lifted out of the bulk material, it was 
 		\caption{3D reconstruction of the dataset ({\color{yellow}yellow}: \ac{C3S}, {\color{red}red}: \ac{CSH}).}
     \end{subfigure}
 	\caption{
-		\ac{FIBnt} dataset (\qtyproduct{39.8 x 49.1 x 4.3}{\micro\meter\cubed}) of a \qty{7}{\day} hydrated \ac{C3S} specimen.
+		\ac{FIBnt} dataset (\qtyproduct{39.8 x 49.1 x 4.3}{\micro\meter\cubed}) of a \qty{7}{\day} hydrated \ac{C3S} specimen. \cite{kleiner.2026e}
 	}
 	\label{fig:fib_laser_3D}
 \end{figure}

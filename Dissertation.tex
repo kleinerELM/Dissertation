@@ -6,8 +6,8 @@
 %\def\DRAFTSIMPLIFY{} % comment out for the printable document!
 \def\EXAMVERSION{} % disables some information on the title page
 %\def\PRINTABLE{} % uncomment to disable animated figures
-%\def\REVIEW{}
-\def\SHOWTODOS{}
+\def\REVIEW{}
+%\def\SHOWTODOS{}
 
 \def\myTypeOfDocument{Dissertation}
 \author{Florian Kleiner}
@@ -46,13 +46,17 @@
 
 \ifdefined\PRINTABLE
 	\NewDocumentCommand{\withORCID}{o m}{#2}
+
+	\def\myFirstReviewer{Prof. Dr.-Ing. Horst-Michael Ludwig}
+	\def\mySecondReviewer{Prof. Hong S. Wong}
+	\def\myThirdReviewer{Prof. Dr. habil. Thorsten Schäfer}
 \else
 	\NewDocumentCommand{\withORCID}{o m}{\orcidlinki{#2}{#1}}
+	
+	\def\myFirstReviewer{\withORCID[0000-0002-8998-4936]{Prof. Dr.-Ing. Horst-Michael Ludwig}}
+	\def\mySecondReviewer{\withORCID[0000-0003-2736-4050]{Prof. Hong S. Wong}}
+	\def\myThirdReviewer{\withORCID[0000-0002-7133-8717]{Prof. Dr. habil. Thorsten Schäfer}}
 \fi
-
-\def\myFirstReviewer{\withORCID[0000-0002-8998-4936]{Professor Dr.-Ing. Horst-Michael Ludwig}}
-\def\mySecondReviewer{\withORCID[0000-0003-2736-4050]{Professor Hong S. Wong}}
-\def\myThirdReviewer{\withORCID[0000-0002-7133-8717]{Prof. Dr. habil. Thorsten Schäfer}}
 
 \addbibresource{Dissertation.bib}
 
@@ -89,10 +93,10 @@
 
 		\input{chapter/01-introduction}
 		%\chapter{Literature}
-		  	\input{chapter/01a-lit-cem-hyd}
-		 	\input{chapter/01b-lit-SEM}
-		 	\input{chapter/01c-lit-corr-mic.tex}
-		   	\input{chapter/01d-lit-image-processing}
+			\input{chapter/01a-lit-cem-hyd}
+			\input{chapter/01b-lit-SEM}
+			\input{chapter/01c-lit-corr-mic.tex}
+			\input{chapter/01d-lit-image-processing}
 			\input{chapter/01e-lit-porosity}
 			\input{chapter/01f-lit-modelling}
 			\input{chapter/01g-itz}

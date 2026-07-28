@@ -1,5 +1,6 @@
 \newpage
-\chapter{List of Acronyms}
+\pdfbookmark[0]{List of Acronyms}{List of Acronyms}
+\chapter*{List of Acronyms}
 \markboth{List of Acronyms}{List of Acronyms}
 
 \begin{acronym}[LA-ICP-MS]\itemsep=0pt
@@ -91,8 +92,33 @@
 \end{acronym}
 
 \newpage
+\pdfbookmark[0]{List of Symbols}{List of Symbols}
+\chapter*{List of Symbols}
 \markboth{List of Symbols}{List of Symbols}
-\chapter{List of Symbols}
+
+Please note, that this work uses the \ac{CCN} for most chemical equations (see \zcref{tab:ccn}).
+
+\begin{table}[htbp!]
+	%\centering
+	\caption{\Acl{CCN} (\acs{CCN})}
+	\begin{tabular}{p{2cm}p{3cm}p{0.6\linewidth}}
+		\toprule
+		\acs{CCN}	& Actual formula &	Name \\
+		\midrule
+		A	&\ce{Al2O3}	&	Aluminium oxide \\
+		C	&\ce{CaO}	&	Calcium oxide \\
+		H	&\ce{H2O}	&	Water \\
+		F	&\ce{Fe2O3}	&	Iron(III) oxide \\
+		M	&\ce{MgO}	&	Magnesium oxide \\
+		S	&\ce{SiO2}	&	Silicon dioxide \\
+		$\overline{\text{C}}$	&\ce{CO2}	&	Carbon dioxide \\
+		$\overline{\text{S}}$	&\ce{SO3}	&	Sulfur trioxide \\
+		\bottomrule
+	\end{tabular}
+	\label{tab:ccn}
+\end{table}%
+
+\newpage
 
 \begin{longtable}[l]{p{2.5cm}p{2.7cm}p{0.58\linewidth}}
     \caption{Mathematical symbols used in this thesis}
@@ -186,28 +212,3 @@
     $Z$                         & {--} 									& Atomic number \\
 	$\bar{Z}$					& {--} 									& Average atomic number \\
 \end{longtable}
-
-\markboth{List of Symbols}{List of Symbols}
-\vfill
-%\newpage
-Please note, that this work uses the \ac{CCN} for most chemical equations (see \zcref{tab:ccn}).
-
-\begin{table}[htbp!]
-	%\centering
-	\caption{\Acl{CCN} (\acs{CCN})}
-	\begin{tabular}{p{2cm}p{3cm}p{0.6\linewidth}}
-		\toprule
-		\acs{CCN}	& Actual formula &	Name \\
-		\midrule
-		A	&\ce{Al2O3}	&	Aluminium oxide \\
-		C	&\ce{CaO}	&	Calcium oxide \\
-		H	&\ce{H2O}	&	Water \\
-		F	&\ce{Fe2O3}	&	Iron(III) oxide \\
-		M	&\ce{MgO}	&	Magnesium oxide \\
-		S	&\ce{SiO2}	&	Silicon dioxide \\
-		$\overline{\text{C}}$	&\ce{CO2}	&	Carbon dioxide \\
-		$\overline{\text{S}}$	&\ce{SO3}	&	Sulfur trioxide \\
-		\bottomrule
-	\end{tabular}
-	\label{tab:ccn}
-\end{table}%

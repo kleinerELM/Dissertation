@@ -71,20 +71,28 @@
 			\fi
 
 		\fi
-
+		\selectlanguage{ngerman}
 		\input{additionals/c-titlepage}  % include correct title page
 
 		\ifdefined\DRAFTSIMPLIFY
 		\else
+			\selectlanguage{english}
 			\input{additionals/d-licence}
 			\input{additionals/e-dedication}
+			\selectlanguage{ngerman}
 			\input{additionals/f-acknowledgements}
 		\fi
-
+		
 		\selectlanguage{english}
 		
-		\tableofcontents  % print table of contents
-		\input{additionals/g-symbols}  % include list of symbols
+		\tableofcontents
+		
+		\input{additionals/g-abstract-en}
+		\selectlanguage{ngerman}
+		\input{additionals/g-abstract-de}
+
+		\selectlanguage{english}
+		\input{additionals/h-symbols}  % include list of symbols
 
 	\mainmatter  % start main matter (arabic page numbering)
 		% \ifdefined\REVIEW
@@ -95,7 +103,7 @@
 		%\chapter{Literature}
 			\input{chapter/01a-lit-cem-hyd}
 			\input{chapter/01b-lit-SEM}
-			\input{chapter/01c-lit-corr-mic.tex}
+			\input{chapter/01c-lit-corr-mic}
 			\input{chapter/01d-lit-image-processing}
 			\input{chapter/01e-lit-porosity}
 			\input{chapter/01f-lit-modelling}
@@ -104,17 +112,19 @@
 			\input{chapter/02a-methods}
 			\input{chapter/02b-algorithms}
 			\input{chapter/02c-ebsd-hydrate-correlation}
-		\input{chapter/03-arbib}
-		%\chapter{Correlative microscopy}
-			\input{chapter/04a-correl-micro}
-			\input{chapter/04b-correl-micro}
-		\input{chapter/05-fibnt}
-		%\chapter{Hydrate layers and particle distances}
-			\input{chapter/06-hydrate-rim}
-			\input{chapter/06b-particle-distance}
-			\input{chapter/06c-ebsd-hlt}
-			\input{chapter/06d-hlt-conclusion}
-		\input{chapter/07-pores}
+		\chapter{Method development and results}
+			\input{chapter/03-1-cm-intro}
+				\input{chapter/03-1a-cm-arbib}
+				\input{chapter/03-1b-cm-edx+ni}
+				\input{chapter/03-1c-cm-edx+la-icp-ms}
+			\input{chapter/03-2-fibnt}
+			\input{chapter/03-3-hlt-intro}
+				\input{chapter/03-3a-hlt-validation}
+				\input{chapter/03-3b-hlt-application}
+				\input{chapter/03-3c-hlt-ebsd}
+				\input{chapter/03-3d-hlt-particle-distance}
+				\input{chapter/03-3e-hlt-conclusion}
+			\input{chapter/03-4-pores}
 		\input{chapter/08-summary}
 
 		\input{chapter/99-bibliography}

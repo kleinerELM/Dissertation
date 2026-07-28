@@ -52,7 +52,7 @@ After hardening for \qty{24}{\hour} in an oven at \qty{40}{\celsius}, the specim
 This is done in multiple steps using diamond-oil slurries.
 The particle sizes of the diamond pastes are sequentially reduced (\num{15}, \num{9}, \num{3}, \num{1}, and \qty{0.25}{\micro\meter}).
 
-\subsection{\Acl*{ArBIB} instrumentation}
+\subsection[Argon broad ion beam instrumentation]{\Acl*{ArBIB} instrumentation}
 
 %\ac{ArBIB} is a technique which enables the polishing or milling of a specimen to obtain very clean and flat surfaces utilising one or more \ce{Ar}-ion beams.
 In this study, a triple ion beam milling system (\textit{EM TIC 3X}, \textsc{Leica}) was used (\zcref{fig:bib_device}).
@@ -149,6 +149,8 @@ Combined with \ac{EDX} imaging, the time can increase to multiple days for a sin
 
 \subsection{\Acl*{fs-laser} preparation}
 
+\subsection[Femtosecond laser preparation]{\Acl*{fs-laser} preparation}
+
 In recent years, a new high-throughput technique has emerged using a \ac{fs-laser} to prepare specimen volumes on the order of several hundred~\unit{\micro\meter}.
 In this work, the \ac{fs-laser} preparation device \textit{microPREP PRO FEMTO} by \textsc{3D Micromac} was used to prepare selected areas for a subsequent \ac{FIBnt} process.
 The device is equipped with a \textit{Carbide CB5} \ac{fs-laser} source (pulse duration ca.~\qty{211}{\femto\second}, wavelength of \qty{515}{\nano\meter}, up to \qty{6}{\watt} average power, and \qty{100}{\micro\joule} maximum pulse energy) by \textsc{Light Conversion}.
@@ -244,7 +246,7 @@ Individual outliers (curves with significant pop-in) were manually removed from 
 The following sections give an overview of the methods used for pore size measurements.
 
 \FloatBarrier
-\subsection{\Acl*{MIP}}
+\subsection[Mercury intrusion porosimetry]{\Acl*{MIP}}
 \label{sec:method-mip}
 
 For this work, an \textit{Autopore IV 9500} from \textit{Micromeritics GmbH} was used for the \ac{MIP} measurements.
@@ -254,7 +256,7 @@ However, larger values (above $\approx$ \qty{10}{\micro\meter}) will be ignored,
 
 
 \FloatBarrier
-\subsection{\Acl*{LTDSC}}
+\subsection[Low temperature - differential scanning calorimetry]{\Acl*{LTDSC}}
 \label{fig:ltdsc}
 
 To obtain data about the capillary and gel porosity, an \ac{LTDSC} system (\textit{DSC Polyma 214} from \textsc{Netzsch}), connected to a cooling system (\textit{Intercooler IC70}), was used.
@@ -520,10 +522,10 @@ The densities required to calculate these values are listed in \zcref{tab:densit
 % beta-C2S: monoclin, more dense
 % gamma-C2S:orthorhombi, less dense
 
-\subsection{\Acl*{PSD} from \ac*{SEM}-\ac*{SE} images of \acs*{CSHi}}
+\subsection[PSD from SEM-SE images of inner CSH]{\Acl*{PSD} from \acs{SEM}-\acs*{SE} images of \acs*{CSHi}}
 \label{subsec:algo_psd}
 
-Quantifying nano-pores within \ac{CSHi} based on \ac{SEM}-\ac{SE} images requires the analysis of multiple images to ensure statistical relevance.
+Quantifying nanopores within \ac{CSHi} based on \ac{SEM}-\ac{SE} images requires the analysis of multiple images to ensure statistical relevance.
 Manual segmentation is neither reproducible nor efficient for this task.
 Consequently, a semi-automated image analysis workflow was developed \cite{kleiner.2021}.
 Initially, the images of hydrated \ac{C3S} cross-sections are denoised using \ac{NLM} filtering \cite{buades.2011}.

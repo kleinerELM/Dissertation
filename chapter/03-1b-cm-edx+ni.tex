@@ -1,23 +1,18 @@
-\chapter{Correlative microscopy}
-
-As the use of alternative fuels and supplementary cementitious materials increases, the chemical and micromechanical complexity of clinkers and the resulting binder matrix rises significantly.
-Therefore, localised chemical compositions or mechanical properties of clinkers and hydrated binders are of interest for the hydration dynamics and mechanical properties.
-Techniques like \ac{EDX}, \ac{LAICPMS}, or \ac{NI} with \ac{SEM}-imaging can provide those information.
-Combining multiple of these imaging methods, allows further insights into a specimen (e.g., assignment of a property to a specific phase) that would be difficult to obtain using a each technique on its own.
-However, this approach usually requires good surface preparation and accurate image-to-image alignment (registration).
-This chapter presents workflows for different methods and discusses the possible benefits of correlative microscopy.
-
-\section{Combination of \acs*{EDX} and \acl*{NI} utilising \acs*{ArBIB} milling}
+\FloatBarrier
+\newpage
+\subsection{Combination of \acs*{EDX} and \acl*{NI} utilising \acs*{ArBIB} milling}
 \label{sec:EDX-NI}
 
 \textit{The raw data and the evaluation scripts used within this section are published in \cite{kleiner.2026d}.}
 
-\Acl{NI} is a technique to determine the mechanical properties of a specimen, which requires very flat surfaces \cite{wilson.2018}.
-Mechanical polishing works well for \ac{NI} experiments when done with an oil-based polishing process \cite{gao.2012, wilson.2018}.
-Nevertheless, \ac{ArBIB} milling is a promising preparation method for hydraulic cement-based materials, since it does not require water-free resin embedding, even for porous materials.
-It minimises mechanical damage, as demonstrated in \zcref{sec:bib_pol_fixed_results}, and avoids chemical contamination.
-Furthermore, it prevents the formation of a pronounced relief at the interface of hard (e.g. quartz particles) and soft (e.g. hydrated cement) materials.
-For example, imaging the microstructures of claystone was challenging until the advent of \ac{ArBIB} polishing and milling \cite{yven.2007,houben.2014}.
+The combination of \acl{NI} with \ac{EDX} mapping allows for the direct assignment of mechanical properties, such as hardness and elastic modulus, to specific chemical phases within a material.
+This is particularly powerful for characterising the heterogeneous microstructure of hydrated cement paste.
+A critical prerequisite for reliable \ac{NI} is an very flat surface, as topography can distort the measured properties \cite{wilson.2018}.
+While mechanical polishing is common \cite{gao.2012, wilson.2018}, it can introduce relief between hard and soft phases.
+
+\ac{ArBIB} milling presents a compelling alternative, as it minimises mechanical damage and produces smooth surfaces across phases of differing hardness, such as aggregates and the cement matrix (see \zcref{sec:bib_pol_fixed_results}).
+This is crucial for accurately probing the mechanical properties of the \ac{ITZ}.
+This section demonstrates a workflow combining \ac{ArBIB} preparation with correlative \ac{NI} and \ac{EDX} analysis to investigate the micromechanical landscape of a hydrated cement mortar, with a particular focus on the \ac{ITZ}.
 
 The objective was to obtain a clean and smooth \ac{ITZ} between the binder and a large quartz particle of a \qty{91}{\day} hydrated \acs{CEMI} concrete sample (see \zcref{sec:ni_concrete}).
 As shown in \zcref{fig:lm_ni}, a usable area of $\approx$ \qty{7.5}{\milli\meter\squared} was prepared using \ac{ArBIB} milling.
@@ -117,7 +112,7 @@ Combined with the segmentation results from the \ac{mXRF} dataset, this allows t
 
 At first glance, a significant difference in the overall roughness between the aggregate and the binder area can be observed.
 Calculating the mean $S_{dr}$ value for the aggregate area and the binder area yields \qty{59.7(33.5)}{\percent} and \qty{87.8(41.5)}{\percent}, respectively.
-In other words, the quartz particles have smoother surfaces than the cement binder phase.
+In other words, the quartz particles have slightly smoother surfaces than the cement binder phase.
 This can be attributed to the homogeneous composition and the scarcity of phase boundaries (e.g. pores) within the quartz particles, while the binder matrix contains numerous small phase boundaries and incorporates significant porosity.
 However, especially on the quartz particles, it becomes obvious that irregularities cause a shadowing effect in the direction of the ion beam.
 They cause visible stripes, which are often V-shaped, with the discontinuity at the intersection of the stripes.

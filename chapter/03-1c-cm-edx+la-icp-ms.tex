@@ -1,17 +1,21 @@
 \newpage
-\section{Combination of \acs*{SEM}-\acs*{BSE} + \acs*{EDX} + \acs*{LAICPMS}}
+\subsection{Combination of \acs*{SEM}-\acs*{BSE} + \acs*{EDX} + \acs*{LAICPMS}}
 \label{sec:corr_laicpms}
 
 \textit{The results of this section are published in \cite{kleiner.2022b}. However, another area of the specimen was chosen to discuss the results.}
 
-The production of cement clinker has a high carbon footprint.
-To reduce this footprint, alternative fuels and raw materials, which are often industrial waste products, are used to reduce the primary energy usage and preserve natural resources \cite{schneider.2015}.
-This practice inherently causes the entry of minor (<\,\qtyrange{1.0}{2.0}{\wtpercent}) and trace elements (<\,\qty{0.1}{\wtpercent}) into the kiln system and ultimately into the final clinker product \cite{stephan.1999,barros.2004,thiery.2025}.
-Determining the exact spatial distribution and phase-specific incorporation of these trace elements is of great scientific and practical interest.
-Depending on their specific ionic radius and charge, trace elements are preferentially incorporated into certain clinker phases.
-There, they can substitute host ions, distort the crystal lattice, stabilise specific high-temperature polymorphs, and alter the viscosity of the clinker melt.
-This, in turn, can significantly affect the hydraulic reactivity and the strength development of the resulting cement \cite{stephan.1999, barros.2004, stephan.2006, ludwig.2015}.
-Furthermore, understanding the exact phase association of potentially hazardous heavy metals is crucial for evaluating their immobilisation and long-term leaching behaviour in the hardened concrete \cite{achternbosch.2003, kolovos.2002}.
+The characterisation of complex, heterogeneous materials like cement clinker presents a significant analytical challenge.
+While \ac{SEM}-based techniques such as \ac{BSE} and \ac{EDX} offer high-resolution microstructural and compositional information, their detection limits are often insufficient for quantifying trace elements.
+Conversely, highly sensitive methods like \ac{LAICPMS} provide precise trace element data but lack the spatial resolution to assign these elements to specific micro-phases unequivocally.
+
+A correlative approach, combining high-resolution \ac{SEM}-\ac{EDX} with high-sensitivity \ac{LAICPMS}, overcomes these individual limitations.
+By registering the datasets, the phase maps based on the \ac{EDX} measurements can be used to guide the interpretation of the \ac{LAICPMS} data, enabling a phase-specific quantification of trace elements that would otherwise be impossible.
+
+This section demonstrates the possibilities of this combined methodology for analysing cement clinkers.
+The increasing use of alternative fuels and raw materials introduces a wide range of minor and trace elements into the clinker, which can significantly influence its properties \cite{schneider.2015, stephan.1999, barros.2004, thiery.2025}.
+Determining the precise location of these elements can be of interest for the following reasons.
+Their incorporation into specific clinker phases can distort crystal lattices, stabilise certain polymorphs, and alter hydraulic reactivity, thereby affecting the final performance of the cement \cite{stephan.1999, barros.2004, stephan.2006, ludwig.2015}.
+furthermore, understanding the phase association of potentially hazardous heavy metals is essential for assessing their immobilisation and long-term environmental stability in concrete \cite{achternbosch.2003, kolovos.2002}.
 
 The experiments were carried out on an embedded and polished clinker sample (composition, see \zcref{tab:phase-composition-clinker}).
 The measurement areas are visible as dark spots (\zcref{fig:LAICPMS-specimen}), already indicating the damage induced by the laser ablation.
@@ -626,22 +630,32 @@ The findings are summarised in \zcref{fig:LAICPMS-final-result}.
 This figure visualises the enrichment of elements in \ac{C3S}, \ac{C2S}, and the interstitial phase (\ac{C3A} and \ac{C4AF}).
 Although \ac{C3A}, \ac{C4AF}, and other minor phases could not be reliably distinguished and segmented in all datasets, the enrichment of \ce{Cr} and \ce{Rb} in the water-soluble \ce{K2SO4} remains evident in the presented measurement area.
 
-\section{Conclusions}
+\subsection{Conclusions}
 
 Correlative microscopy serves as a powerful approach for the comprehensive characterisation of heterogeneous materials.
-Using high-resolution \ac{SEM}-\ac{BSE} and \ac{EDX} data to generate phase maps, which can then be combined with lower-resolution data from techniques such as \ac{NI} or \ac{LAICPMS}, has proven to be particularly effective.
+It was demonstrated, that a combination of high-resolution \ac{SEM}-\ac{BSE} and \ac{EDX} data to generate phase maps with lower-resolution data from techniques such as \ac{NI} or \ac{LAICPMS} can be an effective way to assign mechanical or chemical information to specific phases.
+
+\ac{ArBIB} polishing and milling have proven to be a valuable preparation technique for the microstructural characterisation of delicate hydrated cementitious materials, which can be especially useful for correlative microscopy applications.
+This method effectively removes surface contaminants and mechanical preparation artefacts, enabling high-resolution \ac{BSE} and \ac{SE} imaging at low accelerating voltages without the need for conductive coatings.
+However, this approach is limited by potential charging effects and reduced phase contrast compared to high-voltage imaging of coated specimens.
+\ac{ArBIB} milling also offers the distinct advantage of preparing porous samples without resin embedding, thus preserving the native pore structure, especially nanopores.
 
 For micromechanical investigations of hydrated cement concrete, \ac{ArBIB} preparation was shown to be advantageous as it reduces the topographic relief between phases of different hardness, such as aggregates and the cement paste matrix.
 Although the technique can introduce specific surface textures like curtaining, the combination of \ac{SEM}-\ac{BSE}, \ac{EDX}, and \ac{NI} on \ac{ArBIB}-prepared surfaces successfully facilitated the phase-specific determination of mechanical properties.
-A compositional least-squares fitting model was introduced to overcome the limitations of simple quantity-based phase assignment (phase amount of >\,\qty{50}{\percent}), utilising the entire dataset to provide more robust estimates, particularly for rare phases like \acs{C3A}/\acs{C4AF}. This yielded property values more consistent with literature.
+A compositional least-squares fitting model was introduced to overcome the limitations of simple threshold-based phase assignment, utilising the entire dataset to provide more robust estimates, particularly for rare phases like \acs{C3A}/\acs{C4AF}. This yielded property values more consistent with literature.
 This approach highlighted significant differences between anhydrous clinker phases and hydration products, although the precise characterisation of the \ac{ITZ} remained constrained by preparation-induced microcracking.
 Furthermore, pores are assigned higher hardness values than in resin embedded specimens, since the nanoindenter will mostly measure pore backgrounds or crack edges.
-% \pdfcomment[icon=Comment, color=cyan, author=Christane]{% TODO: comment Christane
-% 	und wie ist es mit C-S-H? besonders C-S_Ho sind da die NI werte mit und ohne harz verschieden (feng meinte ja mal er korrigiert die NI werte der hydrates um die werte des epoxidharzes. ich erinnere mich aber nicht genau wie und ob er das -hoffentlich nicht- auch für quarzt macht.)
-% }
+The detailed, phase-specific mechanical data obtained through this correlative workflow are invaluable for refining multi-scale models of concrete, such as those described by \textcite{shittu.2026}.
+By providing accurate input parameters for individual phases, these measurements can enhance the predictive power of models simulating the overall mechanical behaviour and durability of cementitious materials.
 
 The combination of \ac{SEM}-\ac{BSE}, \ac{EDX}, and \ac{LAICPMS} allows to identify the main phases \ac{C3S}, \ac{C2S}, and the interstitial phase within a cement clinker.
 While \ac{SEM}-\ac{EDX} provides the necessary basis for an accurate phase segmentation, \ac{LAICPMS} delivers complementary trace element data.
 It was successfully demonstrated that trace elements are not uniformly distributed but are preferentially incorporated within \ac{C2S} (\ce{Ba}, \ce{V}, \ce{Rb}) and \ce{Al}-rich interstitial phases (\ce{Na}, \ce{Ti}, \ce{Mn}), while \ac{C3S} crystallised with a comparatively low trace element content.
+This demonstrates that trace elements are incorporated differently within individual clinker phases.
+This finding is important for several reasons.
+For example, it impacts clinker reactivity as the incorporation of foreign atoms can distort the crystal lattice.
+This is known to influence the hydration kinetics of the cement as demonstrated e.g. for \ce{B} by \cite{galluccio.2020}.
+The demonstrated method therefore provides a deeper insight into this element distribution, enabling further research on the influence of trace elements on cement reactivity. 
+Furthermore, it can be utilised to research the influence of secondary fuels, as it allows for the verification of the incorporation of heavy metals (e.g. \ce{Cr}) into the clinker matrix. This incorporation is essential for reducing their mobility and ensuring compliance with regulatory limits.
 
 Despite inherent challenges related to differing interaction volumes and image registration, these multi-modal methodologies offer insights into the mechanical properties of hydrated cements and the detailed chemical mineralogy of cement clinker that cannot be achieved with any single method alone.

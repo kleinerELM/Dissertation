@@ -1,15 +1,24 @@
-\chapter{Challenges in 3D nano-tomography of cementitious samples}
+\FloatBarrier
+\newpage
+\section{Challenges in 3D nano-tomography of cementitious samples}
 %\chapter[Focussed ion beam nano tomography]{\Acl*{FIB} nano tomography}
 
 \textit{A few results of this chapter were published and presented on various conferences \cite{kleiner.2021b,kleiner.2021c,kleiner.2025f}. The presented datasets are available in \cite{kleiner.2026c}.}
 
-The application of microscopic 3D imaging techniques like \ac{FIBnt} to sensitive multiphase materials like hydrated cement pastes presents several methodological challenges.
-While \ac{FIBnt} allows for high-resolution 3D reconstructions, the intrinsic properties of the cementitious binder, such as its non-conductive nature, inherent porosity, and delicate hydrate phases, require specialised preparation, acquisition, and post-processing strategies.
-The substitution of clinker with supplementary cementitious materials fundamentally alters and refines the pore network.
-\ac{FIBnt} provides the necessary spatial resolution to directly observe and quantify this complex pore network and the spatial arrangement of intermixed hydrate phases, which bulk methods like \ac{MIP} cannot fully resolve.
-This chapter discusses these specific sample-related challenges alongside developed solutions and alternative methods.
+\Ac{FIBnt} is a technique for the 3D visualisation and characterisation of materials at the nanoscale.
+The method involves the sequential removal of thin layers from a sample surface using a focused ion beam, with each newly exposed cross-section being imaged by an electron beam (see \zcref{sec:lit_fib}).
+This process generates a stack of 2D images that can be reconstructed into a 3D volume, providing detailed insights into the material's microstructure.
 
-\section{Artefacts of the \acs*{FIBnt} process}
+\ac{FIBnt} is a usefull method to address questions that cannot be answered by 2D analysis or other lower-resolution 3D methods alone.
+For example, it allows the direct observation and quantification of the nano-porosity within hydrate phases like \ac{CSH} (see \zcref{subsec:pores_C3S_SEM}).
+Furthermore, it enables the visualisation of the spatial arrangement, morphology, and interconnectivity of hydrate phases, which govern mechanical properties and long-term performance.
+\Ac{FIBnt} also enables the detailed investigation of microstructural features such as the \ac{ITZ} between aggregates and the cement paste, which influences in the mechanical behaviour of mortar and concrete.
+
+However, the application of \ac{FIBnt} to sensitive multiphase materials like hydrated cement pastes presents several methodological challenges.
+The intrinsic properties of the cementitious binder, such as its non-conductive nature, inherent porosity, and delicate hydrate phases, require specialised preparation, acquisition, and post-processing strategies.
+This section discusses these specific sample-related challenges alongside developed solutions and alternative methods to enable reliable 3D nano-tomography of cementitious materials.
+
+\subsection{Artefacts of the \acs*{FIBnt} process}
 
 Due to the destructive nature of the \ac{FIBnt} process, there are a lot of possible artefacts.
 As described in the \ac{ArBIB} sectioning (see \zcref{sec:bib_pol_fixed}), the cutting process can introduce curtaining.
@@ -99,7 +108,7 @@ For example, illustrating the \ac{CSH} phases of an \qty{28}{\day} hydrated \ac{
 A detailed video tutorial of the \ac{FIBnt} process, the required parameters, and potential sources of errors for cement-based materials was created and published \cite{kleiner.2025b}.
 
 %\FloatBarrier
-\section{Evaluation obstacles of individual slices}
+\subsection{Evaluation obstacles of individual slices}
 \label{sec:fib_evaluation_obstacles}
 
 While the specimen is vacuum-infused with a low-viscosity resin, it often occurs that some larger pores are not completely filled.
@@ -146,7 +155,7 @@ While these measures result in a good signal-to-noise ratio for the main compone
 However, it still allows the distinction of the different main phases of the material.
 
 
-\section{Post processing}
+\subsection{Post processing}
 
 Samples prepared via the lift-out process and their resulting datasets require much less post-processing to reduce artefacts.
 However, some issues still remain to be solved.
@@ -216,7 +225,7 @@ This allows the alignment problem to be solved relatively easily.
 Depending on the data acquisition settings it can, however, happen that the \ac{EDX} dataset does not align perfectly with the \ac{BSE} dataset (e.g. due to drift caused by charging).
 Then, additional registration steps, such as the use of landmarks or scale-adjusted transformations, are required to achieve an accurate overlay of the datasets.
 
-\subsection{Development of an evaluation workflow}
+\subsubsection{Development of an evaluation workflow}
 
 Therefore, a \textit{Python} tool utilising \textit{napari} \cite{sofroniew.2025}, a graphical user interface to view and edit 2D as well as 3D image data, was developed.
 This workflow denoises, aligns, visualises, and analyses correlative \ac{BSE} and \ac{EDX} image stacks.
@@ -337,7 +346,7 @@ However, it becomes obvious, that the volume prepared using a \ac{FIB}-\ac{SEM} 
 
 
 
-\section{Laser preparation process}
+\subsection{Laser preparation process}
 
 Using \ac{FIBnt} alone practically limits the size of the \ac{ROI} due to the machine time required.
 Furthermore, issues such as redeposition, charging, and shadowing are primarily caused by geometric constraints of the \ac{FIBnt} process, including the presence of narrow trenches.
@@ -469,13 +478,15 @@ However, the small image section does not allow measuring the higher porosity in
 	Christiane wünscht sich den Einbau der Animation CT-> REM/BSE->FIB-nt. Wo einbauen? Passt irgendwie nicht richtig in das Kapitel rein aus meiner Sicht.
 }
 
-\section{Conclusions}
+\subsection{Conclusions}
 
-\ac{FIBnt} is a powerful tool for 3D characterisation of cementitious materials at the nanoscale.
-However, the standard trenching method within the bulk material is prone to significant artefacts such as shadowing, redeposition, and charging, which can compromise image quality and quantitative analysis.
-The lift-out technique effectively mitigates these issues by isolating the \ac{ROI}, enabling high-quality acquisition of correlative \ac{BSE} and \ac{EDX} datasets.
-Careful selection of imaging parameters is crucial to avoid beam damage, particularly during \ac{EDX} mapping of hydrate phases.
-A comprehensive post-processing workflow involving advanced denoising, precise alignment, and superpixel-based segmentation was developed to extract meaningful phase information from the noisy and misaligned raw data.
+\ac{FIBnt} is valuable tool for the 3D characterisation of cementitious materials at the nanoscale, providing direct insights into the pore and phase microstructure.
+However, the standard trenching method within the bulk material is prone to significant artefacts such as shadowing, redeposition, and charging, which can compromise image quality and hinder quantitative analysis.
+The developed lift-out technique effectively mitigates these issues by isolating the \ac{ROI}, enabling the acquisition of high-quality, correlative \ac{BSE} and \ac{EDX} datasets.
+This is particularly important for accurately mapping the distribution of hydrate phases and quantifying nano-porosity, as will be demonstrated in \zcref{chap:pores}.
+Careful selection of imaging parameters, especially reduced dwell times during \ac{EDX} mapping, was shown to be crucial to avoid electron beam damage to delicate hydrate phases.
+To handle the resulting noisy and misaligned raw data, a comprehensive post-processing workflow was developed, incorporating advanced denoising, precise alignment, and superpixel-based segmentation to extract meaningful and quantitative 3D phase information.
 
-Furthermore, \ac{fs-laser} preparation was introduced as a complementary technique to access larger volumes and specific features like the \ac{ITZ}, although it introduces its own set of challenges related to surface quality and charging on large non-conductive areas.
-Overall, the combination of optimised preparation, careful acquisition, and advanced data processing enables detailed 3D insights into the microstructure of hydrated cement.
+Furthermore, \ac{fs-laser} preparation was introduced as a complementary technique to bridge the gap between nanoscale analysis and microscale representativeness.
+It enables the investigation of larger volumes and specific features like the \ac{ITZ}.
+In conclusion, the combination of optimised preparation, careful acquisition, and advanced data processing workflows presented here improves the reliability of \ac{FIBnt}, turning it into a robust method for obtaining detailed 3D insights into the microstructure of hydrated cement.

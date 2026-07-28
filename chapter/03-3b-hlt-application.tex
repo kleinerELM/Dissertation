@@ -1,23 +1,4 @@
-\chapter{Tool to measure the hydrate layer thickness and particle distances}
-\label{chap:hydrate-rim}
-
-\textit{Some of the results and data presented in this chapter have already been published in \cite{kleiner.2024a,kleiner.2026b}. However, the datasets were significantly extended and re-evaluated.}
-
-The methods presented in \zcref{subsec:algo_hlm, sec:ebsd-hydrate} were applied to pure hydrated \ac{C3S} and \ac{C2S} specimens as well as mixtures of both phases at different ages, which were embedded, polished, and coated with carbon.
-The datasets differ in the imaged area and slightly in \ac{SEM} imaging parameters.
-For example, the accelerating voltage used varied from \qtyrange{10}{15}{\kilo\volt}.
-The raw images are publicly available \cite{kleiner.2023a, kleiner.2025e, kleiner.2025d}.
-Furthermore, the method was adapted to measure particle distances and was combined with \ac{EBSD} measurements \cite{kleiner.2026a}.
-However, the methods first had to be validated.
-
-To correctly simulate the hydration of cement based materials, the knowledge of the development of \ac{CSH} on the micro-scale is of significant interest.
-Image-based \ac{HLT} measurements provide a direct, phase-specific assessment of these reaction rates.
-Additionally, the particle distance analysis directly addresses the rheological challenges associated with supplementary cementitious materials, such as the high water demand and agglomeration tendencies of calcined clays.
-It enables an objective quantification of the dispersion efficiency of superplasticisers or sonication in fresh pastes.
-
-\input{chapter/06a-method-validation}
-
-\section{Influence of the segmentation method}
+\subsection{Influence of the segmentation method}
 
 This section benchmarks and discusses different segmentation methods on a selected specimen.
 The evaluation is performed on a \qtyproduct{0.5 x 0.5}{\milli\meter\squared} section of stitched \ac{SEM}-\ac{BSE} images of \qty{14}{\day}-hydrated \ac{C3S} \cite{kleiner.2024a}.
@@ -155,7 +136,7 @@ In some cases, large-scale \ac{BSE} images may exhibit brightness deviations fro
 These artefacts can significantly influence the thresholding method in particular.
 
 \FloatBarrier
-\section{Single phase analysis}
+\subsection{Single phase analysis}
 
 Initially, the individual phases were analysed.
 The images reveal distinct differences in the morphology of the hydration products.
@@ -462,10 +443,40 @@ It is evident that the \ac{HLT} distributions broaden significantly with increas
     \label{fig:hydration-rim-results}
 \end{figure}
 
+Already in young specimens (<\,\qty{7}{\day}), the growth of \ac{CH} can be observed.
+It usually develops as relatively large crystals, which encapsulate both fully unhydrated and partly hydrated clinker particles.
+Although these crystals are distributed homogeneously throughout the volume, they appear as patches within the overall microstructure of the hydrated material.
+Comparing specimens of different ages reveals that these \ac{CH} crystals hinder the hydration of the encapsulated particles, thereby preserving them for a long time.
+This becomes evident when comparing a \qty{28}{\day} hydrated \ac{C3S} specimen with one that hydrated for \qty{1}{\year} (see \zcref{fig:CH-patches}).
+The \qty{28}{\day} microstructure already reveals the preservation of very small \ac{C3S} particles within the \ac{CH}, while they are already consumed in the surrounding matrix.
+After \qty{1}{\year}, most of the \ac{C3S} has already been consumed and a very dense microstructure has formed.
+However, within and in the direct vicinity of the visible \ac{CH} patches, substantial amounts of \ac{C3S} can still be found.
+
+\begin{figure}[htb!]
+    \centering
+
+	\begin{subfigure}{0.49\textwidth}
+		\includegraphics[width=\textwidth]{hydrate-rim/early-CH/28d.pdf}
+		\caption{\qty{28}{\day} hydrated \ac{C3S}.}
+		\label{fig:CH-patches-28d}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.49\textwidth}
+		\includegraphics[width=\textwidth]{hydrate-rim/early-CH/365d.pdf}
+		\caption{\qty{1}{\year} hydrated \ac{C2S}.}
+		\label{fig:CH-patches-1y}
+	\end{subfigure}
+    \caption{
+		\ac{BSE} images of \qty{28}{\day} and \qty{1}{\year} hydrated \ac{C3S} at the same magnification.
+        The images illustrate the encapsulating and preserving effect of \ac{CH} crystals (marked in {\color{darkred}red}).
+	}
+    \label{fig:CH-patches}
+\end{figure}
+
 
 \FloatBarrier
 %\newpage
-\section{Multi phase analysis}
+\subsection{Multi phase analysis}
 \label{sec:HLT_multi_phase}
 
 Applying the algorithm to mixtures of \ac{C3S} and \ac{C2S} without distinguishing between clinker phases using a simple threshold method is also possible \cite{kleiner.2026b}.
@@ -613,7 +624,7 @@ This can cause a reduced \ac{HLT} measurement around \ac{C2S}.
 
 %\FloatBarrier
 %\newpage
-\section{Statistical analysis of the representativeness of the 2D images}
+\subsection{Statistical analysis of the representativeness of the 2D images}
 
 In this section, the images previously described in \zcref{sec:HLT_multi_phase} were used to assess the minimum area required to obtain a statistically relevant phase composition, using both the \ac{BC} and \ac{BG} methods.
 
@@ -634,7 +645,7 @@ A closer inspection of the images reveals that some clinker particles become enc
 This prevents the dissolution of the clinker and the growth of \ac{CSH} due to the lack of available pore space.
 In older specimens, most of the remaining small unhydrated clinker particles are typically surrounded by \ac{CH}.
 
-\subsection{\Acl*{BC} method}
+\subsubsection[Box counting method]{\Acl*{BC} method}
 
 The result of the \ac{BC} method is a graph as shown in \zcref{fig:lit_box_count}.
 The standard deviation $\sigma$ in \zcref{fig:lit_box_count_b} indicates the decreasing uncertainty as a larger area is analysed.
@@ -753,7 +764,7 @@ Since the phase composition of each image section can be calculated before the r
 Furthermore, it is insensitive to the influence of larger inhomogeneities, such as the rather large \ac{CH} areas or occasionally occurring air voids.
 
 
-\subsection{\Acl*{BG} method}
+\subsubsection[Box growth method]{\Acl*{BG} method}
 
 \zcref{fig:lit_box_growth} shows the result of the \ac{BG} method applied to an image of \qty{28}{\day} hydrated \ac{C3S}.
 This image must be segmented beforehand into pores, unhydrated \ac{C3S}, \ac{CH}, and \ac{CSH}.
@@ -885,7 +896,7 @@ The largest minimum required area is therefore reached if $\sigma_{\text{BG}}$ i
 Since the phase composition must be recalculated for each repeated experiment, this method is significantly slower than the \ac{BC} method.
 
 
-\subsection{Evaluation}
+\subsubsection{Evaluation}
 
 The minimum required area for a standard deviation $\sigma$ of <\,\qty{2}{\percent} was calculated for each phase.
 

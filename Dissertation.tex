@@ -94,7 +94,13 @@
 		\selectlanguage{english}
 		\input{additionals/h-symbols}  % include list of symbols
 
-	\mainmatter  % start main matter (arabic page numbering)
+	% Ersetzt \mainmatter, um das \cleardoublepage-Problem zu umgehen
+	\clearpage
+	\makeatletter
+	\@mainmattertrue
+	\makeatother
+	\pagenumbering{arabic}
+
 		% \ifdefined\REVIEW
 		% 	\linenumbers
 		% \fi
@@ -111,9 +117,9 @@
 		%\chapter{Methods}
 			\input{chapter/02a-methods}
 			\input{chapter/02b-algorithms}
-			\input{chapter/02c-ebsd-hydrate-correlation}
-		\chapter{Method development and results}
-			\input{chapter/03-1-cm-intro}
+		 	\input{chapter/02c-ebsd-hydrate-correlation}
+		% \chapter{Method development and results}
+		   	\input{chapter/03-1-cm-intro}
 				\input{chapter/03-1a-cm-arbib}
 				\input{chapter/03-1b-cm-edx+ni}
 				\input{chapter/03-1c-cm-edx+la-icp-ms}

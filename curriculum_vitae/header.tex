@@ -1,0 +1,133 @@
+%-------------------------
+% Rover Resume 
+% Link: https://github.com/subidit/rover-resume
+%-------------------------
+
+\usepackage[semibold]{raleway}
+%\usepackage[default,semibold]{raleway}
+\usepackage{fontspec}
+\usepackage{fontawesome5}
+\IfFileExists{../font/LinotypeSyntaxCom-Regular.ttf}{
+  \setmainfont{LinotypeSyntaxCom}[
+    Path=../font/,
+    Extension = .ttf,
+    UprightFont=*-Regular,
+    BoldFont=*-Bold,
+    ItalicFont=*-Italic,
+    BoldItalicFont=*-BoldIt
+  ]
+}{
+  \setmainfont{TeX Gyre Termes}
+}
+
+\usepackage[margin=1in,a4paper]{geometry}
+\usepackage{enumitem}
+\setlist[description]{itemsep=0pt,labelindent=1em}
+
+\usepackage{xcolor}
+\usepackage{titlesec}
+
+\setcounter{secnumdepth}{0}
+
+\titlespacing{\section}{0pt}{*4}{*0}
+\titlespacing{\subsection}{0pt}{*3}{-\parskip}
+\titlespacing{\subsubsection}{0pt}{\parskip}{-\parskip}
+\titleformat*{\section}{\color{gray}\huge\fontseries{l}\scshape}
+\titleformat*{\subsection}{\large\bfseries}
+\titleformat*{\subsubsection}{\bfseries\scshape}
+
+\newcommand{\aux}[1]{%
+  $|$ {\normalfont \textsc{#1}}
+}
+\newcommand{\rside}[1]{
+  \hfill {\normalfont \color{gray} \scshape\oldstylenums{\lowercase{#1}}}
+}
+
+\usepackage[bookmarks=false,hidelinks]{hyperref}
+
+\hypersetup{%
+    pdftitle={Curriculum Vitae of \Vorname~\Nachname},
+    pdfauthor={\Vorname~\Nachname},
+    pdfcreator={\Vorname~\Nachname}
+}
+
+\usepackage{csquotes}
+\usepackage{orcidlink}
+\usepackage{polyglossia} % Language handling
+
+\usepackage[
+	style = ext-numeric-comp,
+	backend=biber,
+	sorting=ynt,
+	date = year,
+	articlein = false, %Suppress "In:" biblatex
+	giveninits = true, % abbrevation for first name
+	maxbibnames=99,
+	minbibnames=99,
+	maxcitenames=99,
+	mincitenames=99,
+	defernumbers=true]{biblatex}
+%\AtBeginBibliography{\small}
+
+\DeclareFieldFormat{title}{\mkbibemph{#1}}
+\DeclareFieldFormat[article,incollection,inproceedings]{title}{\mkbibemph{#1}}
+\DeclareFieldFormat{booktitle}{\mkbibemph{#1}}
+\DeclareFieldFormat{journaltitle}{\mkbibemph{#1}}
+
+% Allow name-based highlighting (robust substring matching)
+\usepackage{etoolbox}
+\usepackage{xstring}
+\usepackage{hyphenat}
+% replace - with hyphen in journal title to avoid line break issues
+\DeclareSourcemap{
+  \maps[datatype = bibtex]{
+    \map{
+     \step[fieldsource = journaltitle, match = \regexp{-}, replace = \regexp{\{\\hyp\{\}\}}]
+    }
+  }
+}
+% Ensure 'Sichtbeton' can be hyphenated in dynamically generated .bib entries
+\DeclareSourcemap{
+	\maps[datatype = bibtex]{
+		\map{
+			\step[fieldsource = title, match = \regexp{Sichtbeton}, replace = \regexp{Sicht\\-beton}]
+		}
+	}
+}
+\DeclareNameFormat{author}{%
+	\nameparts{#1}%
+	\edef\givenname{\namepartgiven}%
+	\edef\familyname{\namepartfamily}%
+	% If this name matches the full user name, print full given name and family name and underline
+	\IfSubStr{\givenname}{\Vorname}{%
+		\IfSubStr{\familyname}{\Nachname}{\underline{\StrLeft{\namepartgiven}{1}[\givenninit]\givenninit.\space\namepartfamily}}{%
+			% Given name contains user's first name but family doesn't match: abbreviate given name
+			\StrLeft{\namepartgiven}{1}[\givenninit]\givenninit.\space\namepartfamily}{}
+	}{%
+		% Otherwise abbreviate given name to initial + period
+		\StrLeft{\namepartgiven}{1}[\givenninit]\givenninit.\space\namepartfamily
+	}%
+	\ifthenelse{\value{listcount}<\value{liststop}}{\addcomma\space}{}%
+}
+
+% Use simple title emphasis (sanitization disabled - fix characters in .bib if needed)
+\DeclareFieldFormat{title}{\mkbibemph{#1}}
+\DeclareFieldFormat[article,incollection,inproceedings]{title}{\mkbibemph{#1}}
+\DeclareFieldFormat{booktitle}{\mkbibemph{#1}}
+\DeclareFieldFormat{journaltitle}{\mkbibemph{#1}}
+
+% remove ISBN from printed bibliography
+\AtEveryBibitem{\clearfield{isbn}}
+
+% https://tex.stackexchange.com/questions/134191/line-breaks-of-long-urls-in-biblatex-bibliography
+\setcounter{biburllcpenalty}{7000}
+\setcounter{biburlucpenalty}{8000}
+
+
+% Footer: Lebenslauf info + page x/y in 80% gray
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\fancyhf{}%
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}

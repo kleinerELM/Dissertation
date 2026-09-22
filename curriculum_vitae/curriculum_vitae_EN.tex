@@ -1,0 +1,93 @@
+% !TEX program = xelatex
+\documentclass[11pt]{article}
+
+\newcommand*{\Vorname}{Florian}
+\newcommand*{\Nachname}{Kleiner}
+\newcommand*{\AbsenderStrasse}{Fuldaer Straße 89}
+\newcommand*{\AbsenderPLZOrt}{99423 Weimar}
+\newcommand*{\EMail}{florian.kleiner@uni-weimar.de}
+\newcommand*{\web}{floriankleiner.de}
+%\newcommand*{\OrtDatum}{Weimar, \today}
+\newcommand*{\Geburtstag}{31.07.1987}
+\newcommand*{\Geburtsort}{Leinefelde, Germany}
+\newcommand*{\Ausbildungsgrad}{Dipl.-Ing.}
+\def\authorORCID{0000-0001-6002-0829}
+%\newcommand*{\authorORCID}{0000-0001-6002-0829}
+
+\input{header.tex}
+\setmainlanguage{british}
+\setotherlanguage{ngerman}
+\fancyfoot[L]{\footnotesize\textcolor{gray}{Resume of \Vorname~\Nachname, as of \today}}
+\fancyfoot[R]{\footnotesize\textcolor{gray}{page \thepage\ / \pageref{LastPage}}}
+
+\addbibresource{../Dissertation.bib}
+
+\begin{document}
+
+\begin{center}
+	{\Huge\bfseries\uppercase{\Vorname\ \Nachname}} \\ \medskip
+	{\Large\textbf{\Ausbildungsgrad}} \\ \medskip
+	\small Born: \Geburtstag\ in \Geburtsort \\ \medskip
+
+	\href{mailto:\EMail}{\faEnvelope\ \EMail} \quad %\faPhone\ \Telefon \\
+	\href{https://www.\web}{\faGlobe\ \web} \quad \faHome\ \AbsenderStrasse, \AbsenderPLZOrt \\ \medskip
+	\orcidlinkf{\authorORCID}
+
+\end{center}
+
+\section{Education}
+%=================%
+\begin{description}
+	\item[2007 -- 2008:] Chemistry (Diploma), Friedrich Schiller University Jena (without degree)
+	\item[2008 -- 2014:] Materials Science (Diploma), Bauhaus-Universität Weimar
+	\item[April 2014:] Graduation as Dipl.-Ing., grade 2.2.\\
+		Diploma thesis at Bauhaus-Universität Weimar:\
+		"Characterisation of the influence of thermal conductivity of composite materials on thermochemical heat storage"
+\end{description}
+
+
+\section{Professional Experience}
+%=================%
+\begin{description}
+	\item[2009 -- 2013:] Student Assistant, Chair of Construction Chemistry, Bauhaus-Universität Weimar
+	\item[June -- July 2014:] Research Assistant (maternity cover), Chair of Construction Chemistry, Bauhaus-Universität Weimar
+	\item[Since September 2014:] Freelance Web Developer
+	\item[October 2014 -- April 2015:] Scientific Assistant, Chair of Construction Chemistry and Polymer Materials, Bauhaus-Universität Weimar
+	\item[May 2015 -- December 2018:] Research Assistant, Chair of Construction Chemistry and Polymer Materials, Bauhaus-Universität Weimar
+	\item[September 2020 -- March 2022:] Research Assistant, Research Group for Pandemic Management Thuringia, Leibniz IPHT
+	\item[Since January 2019:] Research Assistant, Chair of Building Materials, Bauhaus-Universität Weimar
+	\item[Since August 2026:] Database Developer, Sonocrete
+\end{description}
+
+
+% \section{Awards}
+% %===============================%
+% \begin{description}
+% 	\item[2016:] WTA Award 2016
+% 	\item[2014:] Förderpreis "dornburger zement" for outstanding theses
+% \end{description}
+
+
+% Include publications adapted from the dissertation bibliography
+%\clearpage
+\section{Publications}
+
+
+% ensure all listed items appear in the bibliography
+\nocite{kleiner.2017,kleiner.2017a,kleiner.2021,kleiner.2021a,kleiner.2021b,kleiner.2021c,kleiner.2021d,kleiner.2021e,kleiner.2021f,kleiner.2021g,kleiner.2021h,kleiner.2022,kleiner.2022a,kleiner.2022b,kleiner.2024,kleiner.2024a,kleiner.2025b,kleiner.2025c,kleiner.2025d,kleiner.2025f,kleiner.2026,kleiner.2026a,kleiner.2026b,kleiner.2026c,kleiner.2026d,kleiner.2026e,kleiner.2026f,kleiner.2026g,kleiner.2026h,kleiner.2026i,kleiner.2026j} % kleiner.2024b,kleiner.2025,kleiner.2025a
+\nocite{vogt.2018,schirmer.2019,naber.2020,jiang.2022,nguyen-tuan.2023,rossler.2023,rossler.2023a,nguyen-tuan.2024,nguyentuan.2024,li.2025,frolov.2025,shittu.2026,li.2026,li.2026a,shittu.2026a,nguyen-tuan.2026a,babazadehshareh.2026}%schmidt.2026,
+
+\subsection{Journal Articles} \medskip
+\newrefcontext[sorting=ynt]
+\printbibliography[heading=none,keyword=myPapers]
+
+\subsection{Conference Contributions} \medskip
+\newrefcontext[labelprefix={K},sorting=ynt]
+\printbibliography[heading=none,keyword=myConferencePapers]
+\small
+The publications \cite{babazadehshareh.2026, shittu.2026a, li.2026a,nguyen-tuan.2026a,kleiner.2026g} are already in press but not yet available online.
+% optional: published data
+% \newrefcontext[labelprefix={D},sorting=ynt]
+% \printbibliography[heading=none,keyword=publishedData,title={Publikationen -- Datensätze}]
+
+\end{document}

@@ -13,6 +13,19 @@
 \usepackage{qrcode}
 \usepackage[hidelinks]{hyperref}
 
+\IfFileExists{../font/LinotypeSyntaxCom-Regular.ttf}{
+  \setmainfont{LinotypeSyntaxCom}[
+    Path=../font/,
+    Extension = .ttf,
+    UprightFont=*-Regular,
+    BoldFont=*-Bold,
+    ItalicFont=*-Italic,
+    BoldItalicFont=*-BoldIt
+  ]
+}{
+  \usepackage{lmodern}
+}
+
 \setstretch{1.2}
 \sisetup{locale = US, range-units=single, product-units=single}
 
@@ -85,11 +98,11 @@
 
 \begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=1.5cm, labelsep=0.5cm, itemsep=0.5em, resume]
     \item \textbf{ArBIB Preparation:} This thesis utilises Argon Broad Ion Beam (ArBIB) polishing (at room temperature and at \qty{-140}{\celsius}) and milling as essential preparation steps for artefact-reduced imaging and characterisation.
-    This methodology allows for the visualisation of native nanopores within dense C-S-H without the interference of embedding media.
-    \item \textbf{Multi-Modal Correlation:} A central focus of this research is the integration of multi-modal data.
-    This is achieved by co-registering SEM-BSE image data and SEM-EDX phase maps with trace element distributions obtained using Laser Ablation - Inductively Coupled Plasma - Mass Spectrometry (LA-ICP-MS) and mechanical property maps obtained by Nanoindentation (NI).
+    This methodology allows for the visualisation of nanopores within dense inner C-S-H without the interference of embedding media.
+    \item \textbf{Multi-Modal Correlation:} A central focus of this research is correlative microscopy.
+    This is achieved by co-registering backscattered electron (BSE) image data and Energy-Dispersive X-ray spectroscopy (EDX) phase maps with trace element distributions obtained using Laser Ablation - Inductively Coupled Plasma - Mass Spectrometry (LA-ICP-MS) and mechanical property maps obtained by Nanoindentation (NI).
     The combination of these data allows the direct assignment of chemical and mechanical properties to the phases of a hydrated cement or clinker.
-    \item \textbf{Automated Python-based tools:} The research presents a newly developed algorithm for the automated measurement of Hydrate Layer Thickness (HLT) from large-scale BSE images, enabling the statistical analysis of hydration progress across hundreds of thousands of individual particles.
+    \item \textbf{Automated Python-based tools:} The research presents a newly developed algorithm for the automated measurement of Hydrate Layer Thickness (HLT) from large-scale BSE images, enabling the statistical analysis of hydration progress across a multitude of individual particles.
     This method can also be adapted to measure particle distances and can be combined with Electron Backscatter Diffraction (EBSD) measurements to investigate whether a dependency exists between crystal orientation and hydrate layer growth.
     \item \textbf{Lift-Out Technique for FIB-nT:} The implementation of the lift-out technique for FIB-nT significantly reduces charging artefacts and stabilises the specimen.
     \item \textbf{Laser Preparation for FIB-nT:} The use of femtosecond (fs) laser ablation enables the rapid preparation of representative volumes for subsequent FIB-nT analyses.
@@ -101,14 +114,15 @@
 \begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=1.5cm, labelsep=0.5cm, itemsep=0.5em, resume]
     \item \textbf{ArBIB Polishing:} It was demonstrated that the preparation of dense inner C-S-H at \qty{-140}{\celsius} results in smaller observable pores.
     This indicates a minor damaging effect of ArBIB polishing at room temperature.
-    \item \textbf{Trace Element Mapping:} It was proven that trace elements such as Ba, V, and Rb preferentially incorporate into belite (\ce{C2S}), whereas Ti and Mn accumulate in the interstitial phases.
-    \item \textbf{Micromechanical Phase Assignment:} The combination of NI-EDX allowed for a direct, non-statistical assignment of mechanical properties to specific hydrate compositions (C-S-H vs. C-A-S-H), in contrast to the traditional statistical deconvolution methods which can oversimplify the phase complexity of the hydrated binder.
-    \item \textbf{Statistical Representativeness:} A systematic area analysis showed that the Representative Elementary Area for phase composition measurements scales with the size of image features: While approx. \qty{0.3}{\milli\meter\squared} is sufficient for homogeneous sample sections of hydrated \ce{C3S}, specimens with large-scale features (e.g., air voids) required over \qty{1.4}{\milli\meter\squared} for statistically reliable results.
+    \item \textbf{Trace Element Mapping:} It was proven that the EDX based phase segmentation can be applied to low resolution LA-ICP-MS datasets. This revealed that within a raw clinker grain trace elements such as Ba, V, and Rb preferentially incorporate into belite (\ce{C2S}), whereas Ti and Mn accumulate in the interstitial phases.
+    \item \textbf{Micromechanical Phase Assignment:} The combination of NI and EDX on hydrated mortar allowed for a direct, non-statistical assignment of mechanical properties to specific hydrate compositions (C-S-H vs. C-A-S-H), in contrast to the traditional statistical deconvolution methods which can oversimplify the phase complexity of the hydrated binder.
+    \newpage
+    \item \textbf{Statistical Representativeness:} A systematic area analysis showed that the representative elementary area for phase composition measurements scales with the size of image features: While approx. \qty{0.3}{\milli\meter\squared} is sufficient for homogeneous sample sections of hydrated \ce{C3S}, specimens with large-scale features (e.g., air voids) required over \qty{1.4}{\milli\meter\squared} for statistically reliable results.
     \item \textbf{Hydrate Layer Growth and Phase Separation:} The HLT analysis quantified the growth of hydration products over time, confirming that \ce{C2S} hydrates significantly slower than \ce{C3S}.
-    In multi-phase mixtures, the algorithm successfully distinguished between the phases, identifying distinct HLT peaks that reflect the individual hydration kinetics of \ce{C3S} and \ce{C2S}.
-    \item \textbf{Hydration Kinetics and Crystal Orientation:} Correlation of the HLT measurements with the crystal orientation of \ce{C3S} indicates that C-S-H growth around \ce{C3S} particles is governed much more by local spatial availability and pore connectivity than by crystallographic orientation.
-    \item \textbf{Quantification of Dispersing Effectiveness:} The use of cryo-FIB-SEM combined with automated inter-particle distance analysis was able to illustrate the dispersing effect of power ultrasound and polycarboxylate ethers in fresh pastes, providing an objective tool for rheological optimisations.
-    \item \textbf{Porosity Measurements:} A multi-method comparison (LT-DSC, mercury intrusion porosimetry, 2D, and 3D imaging) highlighted the advantages and disadvantages of each method. The LT-DSC analyses revealed a clear correlation over time between the reduction of capillary porosity and the formation of gel porosity in \ce{C3S} and \ce{C2S}.
+    In multi-phase mixtures, the algorithm allows to distinguished between the phases, identifying distinct HLT peaks that reflect the individual hydration kinetics of \ce{C3S} and \ce{C2S}.
+    \item \textbf{Hydration Kinetics and Crystal Orientation:} Correlation of the HLT measurements with the crystal orientation of \ce{C3S} indicates that C-S-H growth around \ce{C3S} particles is governed much more by local spatial availability than by crystallographic orientation.
+    \item \textbf{Quantification of Dispersing Effectiveness:} The use of cryo-FIB-SEM combined with automated inter-particle distance analysis was able to illustrate the dispersing effect of power ultrasound and polycarboxylate ethers in fresh cement pastes, providing an objective tool for rheological optimisations.
+    \item \textbf{Porosity Measurements:} A multi-method comparison (Low Temperature - Differential Scanning Calorimetry (LT-DSC), mercury intrusion porosimetry, 2D, and 3D imaging) highlighted the advantages and disadvantages of each method. The LT-DSC analyses revealed a clear correlation over time between the reduction of capillary porosity and the formation of gel porosity in \ce{C3S} and \ce{C2S}.
 \end{enumerate}
 
 \vfill

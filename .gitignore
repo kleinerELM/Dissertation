@@ -316,5 +316,6 @@ figures/fibnt-datasets/Animation/Animation.7z
 figures/literature/tobermorite/14A tobermorite2005.cif
 commit.tmp
 build_*
+!build_parallel.sh
 presentations/*.pdf
 Thesenpapier/*.pdf

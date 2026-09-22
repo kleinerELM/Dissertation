@@ -168,7 +168,7 @@
             "env": {}
         },
         {
-            "name": "build_parallel_script",
+			"name": "build_parallel_script_win",
             "command": "powershell",
             "args": [
                 "-ExecutionPolicy",
@@ -178,6 +178,38 @@
                 "%DOCFILE%"
             ],
             "env": {}
+		},
+		{
+			"name": "build_additionals_win",
+			"command": "powershell",
+			"args": [
+				"-ExecutionPolicy",
+				"Bypass",
+				"-File",
+				"build_parallel.ps1",
+				"%DOCFILE%",
+				"-Additionals"
+			],
+			"env": {}
+		},
+		{
+			"name": "build_parallel_script_linux",
+			"command": "bash",
+			"args": [
+				"build_parallel.sh",
+				"%DOCFILE%"
+			],
+			"env": {}
+		},
+		{
+			"name": "build_additionals_linux",
+			"command": "bash",
+			"args": [
+				"build_parallel.sh",
+				"%DOCFILE%",
+				"--additionals"
+			],
+			"env": {}
         }
 	],
 	"cSpell.language": "en-GB",
@@ -314,9 +346,27 @@
 			]
 		},
 		{
-			"name": "Parallel Print & Digital",
+			"name": "Parallel Print & Digital (win)",
 			"tools": [
-				"build_parallel_script"
+				"build_parallel_script_win"
+			]
+		},
+		{
+			"name": "Build Additionals (win)",
+			"tools": [
+				"build_additionals_win"
+			]
+		},
+		{
+			"name": "Parallel Print & Digital (linux)",
+			"tools": [
+				"build_parallel_script_linux"
+			]
+		},
+		{
+			"name": "Build Additionals (linux)",
+			"tools": [
+				"build_additionals_linux"
 			]
 		}
 	],

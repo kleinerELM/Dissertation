@@ -318,4 +318,5 @@ commit.tmp
 build_*
 !build_parallel.sh
 presentations/*.pdf
-Thesenpapier/*.pdf
+summary_paper/*.pdf
+curriculum_vitae/*.pdf

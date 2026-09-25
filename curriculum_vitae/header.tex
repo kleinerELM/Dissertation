@@ -43,13 +43,12 @@
   \hfill {\normalfont \color{gray} \scshape\oldstylenums{\lowercase{#1}}}
 }
 
-\usepackage[bookmarks=false,hidelinks]{hyperref}
-
-\hypersetup{%
-    pdftitle={Curriculum Vitae of \Vorname~\Nachname},
-    pdfauthor={\Vorname~\Nachname},
-    pdfcreator={\Vorname~\Nachname}
-}
+\usepackage[hidelinks,
+	pdfdisplaydoctitle = true,
+	bookmarks=false,
+	pdftitle={\title},
+    pdfauthor={\Vorname~\Nachname}
+	]{hyperref}
 
 \usepackage{csquotes}
 \usepackage{orcidlink}

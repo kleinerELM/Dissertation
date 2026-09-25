@@ -2,43 +2,41 @@
 % Definitions
 % ################################################
 
-\def\DRAFT{} % comment out for the printable document!
+%\def\DRAFT{} % comment out for the printable document!
 %\def\DRAFTSIMPLIFY{} % comment out for the printable document!
 \def\EXAMVERSION{} % disables some information on the title page
 %\def\PRINTABLE{} % uncomment to disable animated figures
-\def\REVIEW{}
+%\def\REVIEW{}
 %\def\SHOWTODOS{}
 
 \def\myTypeOfDocument{Dissertation}
 \author{Florian Kleiner}
 \def\authorORCID{0000-0001-6002-0829}
+\def\authorTitle{Dipl.-Ing.}
 \def\myUniversity{Bauhaus-Universität Weimar}
 \def\myExamDate{xx.xx.2027}
 \title{Correlative characterisation of clinker phases and hydrated cementitious binders by a variety of modern 2D and 3D imaging techniques}
-\def\myKeywords{SEM EDX {image analysis} cement hydration clinker {specimen preparation}}
+\def\myKeywords{SEM, EDX, EBSD, nanoindentation, {correlative microscopy}, {image analysis}, cement, hydration, clinker, {specimen preparation}}
 \ifdefined\PRINTABLE
 	\def\mySubtitle{Printversion}
 \else
 	\def\mySubtitle{Digitalversion}
 \fi
 
+\documentclass[
+	paper=a4, fontsize = 12,  % font size for \normalsize set to 12
+	toc = bibliography,  % add bibliography to table of contens
+	numbers = noendperiod,  % no dot at the end of chapter and section labels
+	english,
+	open = any, twoside = false,
+]{scrbook}  % document class
+
 \ifdefined\DRAFT
-	\documentclass[
-		paper=a4, twoside = true, fontsize = 12,  % font size for \normalsize set to 12
-		toc = bibliography,  % add bibliography to table of contens
-		numbers = noendperiod,  % no dot at the end of chapter and section labels
-		english,
-		open=any,
-	]{scrbook}  % document class
 \else
-	\documentclass[
-		paper=a4, twoside = true, fontsize = 12,  % font size for \normalsize set to 12
-		% parskip = half,  % paragraphs are separated by 0.5\baselineskip
-		% BCOR = 0cm,  % sets bonding correction (Bindekorrektur) to 0 cm
-		toc = bibliography,  % add bibliography to table of contens
-		numbers = noendperiod,  % no dot at the end of chapter and section labels
-		english,  % set language to english
-	]{scrbook}  % document class
+	\ifdefined\PRINTABLE
+		\KOMAoptions{open=right, twoside=true}
+	\else
+	\fi
 \fi
 
 \input{additionals/a-latex_header.tex}  % import packages and design definitions
@@ -62,15 +60,14 @@
 
 \begin{document}
 	\frontmatter  % start front matter section
-		\ifdefined\DRAFT
-		\else
-			% the cover page is only included in the final digital version
-			\ifdefined\PRINTABLE
-			\else
-				\input{additionals/b-cover}
-			\fi
-
-		\fi
+		% \ifdefined\DRAFT
+		% \else
+		% 	% the cover page is only included in the final digital version
+		% 	\ifdefined\PRINTABLE
+		% 	\else
+		% 		\input{additionals/b-cover}
+		% 	\fi
+		% \fi
 		\selectlanguage{ngerman}
 		\input{additionals/c-titlepage}  % include correct title page
 

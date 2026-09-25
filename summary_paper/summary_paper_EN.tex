@@ -11,7 +11,7 @@
 \usepackage{titlesec}
 \usepackage{titling}
 \usepackage{qrcode}
-\usepackage[hidelinks]{hyperref}
+
 
 \IfFileExists{../font/LinotypeSyntaxCom-Regular.ttf}{
   \setmainfont{LinotypeSyntaxCom}[
@@ -31,6 +31,13 @@
 
 \title{Advanced 2D and 3D characterisation of clinker phases and hydrated cementitious binders by combining a variety of modern imaging and analytical techniques}
 \author{Florian Kleiner}
+
+\usepackage[hidelinks,
+	pdfdisplaydoctitle = true,
+	bookmarks=false,
+	pdftitle={Summary\ of:\ \thetitle},
+    pdfauthor={\theauthor}
+	]{hyperref}
 
 \begin{document}
 
@@ -80,8 +87,8 @@
 \begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=1.5cm, labelsep=0.5cm, itemsep=0.5em]
     \item Cement hydration is a multi-scale process.
     While qualitative microstructural observations are widely obtained, statistically representative, quantitative data analysis is not always the norm in cement-based materials science.
-    \item Conventional image-based characterisation techniques often reach their resolution limits regarding nano-scale porosity, or fail to provide the chemical sensitivity required to assign trace elements to specific mineral phases within the heterogeneous clinker matrix.
-    \item The primary objective of this thesis is to overcome these limitations by establishing correlative microscopy workflows and automated evaluation tools that bridge the gap between high-resolution imaging and physical property determination.
+    \item Conventional imaging techniques often do not provide the required combination of spatial resolution and suitable signals, such as high chemical sensitivity or information on mechanical properties, to correlate these spatially resolved information with each other or with higher-resolution methods such as provided by scanning electron microscopy (SEM).
+    \item The primary objective of this thesis is to overcome these limitations by establishing correlative microscopy workflows and automated evaluation tools that bridge the gap between high-resolution imaging and physical property determination, thereby enabling the prediction of the mechanical and chemical properties of unknown systems.
     \item Consequently, this combination of techniques should yield more information than each method can provide individually.
 \end{enumerate}
 
@@ -90,20 +97,20 @@
 \begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=1.5cm, labelsep=0.5cm, itemsep=0.5em, resume]
     \item \textbf{Preparation Artefacts:} Traditional mechanical polishing often introduces topographic relief and resin smearing, which distorts the representation of the native pore structure and complicates the segmentation of hydrate phases in Scanning Electron Microscopy (SEM).
     \item \textbf{3D Imaging Constraints:} Focused Ion Beam (FIB) nano-tomography (nT) is typically limited to very small, non-representative volumes.
-    Existing workflows struggle with artefacts such as charging and redeposition, hindering the creation of high-quality datasets for microstructural modelling.
+    Existing workflows struggle with artefacts such as charging and redeposition of evaporated material, hindering the creation of high-quality datasets for microstructural modelling.
     \item \textbf{Subjectivity in Data Evaluation:} Many quantitative measures in cement research, such as the thickness of hydrate layers or particle spacing in fresh pastes, rely on manual or semi-automated measurements that are prone to operator bias and low statistical throughput.
 \end{enumerate}
 
 \subsection*{III. Methodology}
 
 \begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=1.5cm, labelsep=0.5cm, itemsep=0.5em, resume]
-    \item \textbf{ArBIB Preparation:} This thesis utilises Argon Broad Ion Beam (ArBIB) polishing (at room temperature and at \qty{-140}{\celsius}) and milling as essential preparation steps for artefact-reduced imaging and characterisation.
+    \item \textbf{ArBIB Preparation:} This thesis utilises Argon Broad Ion Beam (ArBIB) polishing (at room temperature and at \qty{-140}{\celsius}) and ArBIB milling as essential preparation steps for artefact-reduced imaging and characterisation.
     This methodology allows for the visualisation of nanopores within dense inner C-S-H without the interference of embedding media.
     \item \textbf{Multi-Modal Correlation:} A central focus of this research is correlative microscopy.
-    This is achieved by co-registering backscattered electron (BSE) image data and Energy-Dispersive X-ray spectroscopy (EDX) phase maps with trace element distributions obtained using Laser Ablation - Inductively Coupled Plasma - Mass Spectrometry (LA-ICP-MS) and mechanical property maps obtained by Nanoindentation (NI).
+    This is achieved by co-registering backscattered electron (BSE) image data and energy-dispersive X-ray spectroscopy (EDX) phase maps with trace element distributions obtained using Laser Ablation - Inductively Coupled Plasma - Mass Spectrometry (LA-ICP-MS) and mechanical property maps obtained by nanoindentation (NI).
     The combination of these data allows the direct assignment of chemical and mechanical properties to the phases of a hydrated cement or clinker.
     \item \textbf{Automated Python-based tools:} The research presents a newly developed algorithm for the automated measurement of Hydrate Layer Thickness (HLT) from large-scale BSE images, enabling the statistical analysis of hydration progress across a multitude of individual particles.
-    This method can also be adapted to measure particle distances and can be combined with Electron Backscatter Diffraction (EBSD) measurements to investigate whether a dependency exists between crystal orientation and hydrate layer growth.
+    This method can also be adapted to measure particle distances and can be combined with electron backscatter diffraction (EBSD) measurements to investigate whether a dependency exists between crystal orientation and hydrate layer growth.
     \item \textbf{Lift-Out Technique for FIB-nT:} The implementation of the lift-out technique for FIB-nT significantly reduces charging artefacts and stabilises the specimen.
     \item \textbf{Laser Preparation for FIB-nT:} The use of femtosecond (fs) laser ablation enables the rapid preparation of representative volumes for subsequent FIB-nT analyses.
     Furthermore, it allows for the fast preparation of large sections for Interfacial Transition Zone (ITZ) analysis, bridging the gap between nano-scale and bulk analysis.
@@ -114,20 +121,26 @@
 \begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=1.5cm, labelsep=0.5cm, itemsep=0.5em, resume]
     \item \textbf{ArBIB Polishing:} It was demonstrated that the preparation of dense inner C-S-H at \qty{-140}{\celsius} results in smaller observable pores.
     This indicates a minor damaging effect of ArBIB polishing at room temperature.
-    \item \textbf{Trace Element Mapping:} It was proven that the EDX based phase segmentation can be applied to low resolution LA-ICP-MS datasets. This revealed that within a raw clinker grain trace elements such as Ba, V, and Rb preferentially incorporate into belite (\ce{C2S}), whereas Ti and Mn accumulate in the interstitial phases.
+    \item \textbf{Trace Element Mapping:} It was proven that EDX-based phase segmentation can be applied to low-resolution LA-ICP-MS datasets. This revealed that within a raw clinker grain trace elements such as Ba, V, and Rb preferentially incorporate into belite (\ce{C2S}), whereas Ti and Mn accumulate in the interstitial phases.
     \item \textbf{Micromechanical Phase Assignment:} The combination of NI and EDX on hydrated mortar allowed for a direct, non-statistical assignment of mechanical properties to specific hydrate compositions (C-S-H vs. C-A-S-H), in contrast to the traditional statistical deconvolution methods which can oversimplify the phase complexity of the hydrated binder.
     \newpage
     \item \textbf{Statistical Representativeness:} A systematic area analysis showed that the representative elementary area for phase composition measurements scales with the size of image features: While approx. \qty{0.3}{\milli\meter\squared} is sufficient for homogeneous sample sections of hydrated \ce{C3S}, specimens with large-scale features (e.g., air voids) required over \qty{1.4}{\milli\meter\squared} for statistically reliable results.
     \item \textbf{Hydrate Layer Growth and Phase Separation:} The HLT analysis quantified the growth of hydration products over time, confirming that \ce{C2S} hydrates significantly slower than \ce{C3S}.
-    In multi-phase mixtures, the algorithm allows to distinguished between the phases, identifying distinct HLT peaks that reflect the individual hydration kinetics of \ce{C3S} and \ce{C2S}.
-    \item \textbf{Hydration Kinetics and Crystal Orientation:} Correlation of the HLT measurements with the crystal orientation of \ce{C3S} indicates that C-S-H growth around \ce{C3S} particles is governed much more by local spatial availability than by crystallographic orientation.
-    \item \textbf{Quantification of Dispersing Effectiveness:} The use of cryo-FIB-SEM combined with automated inter-particle distance analysis was able to illustrate the dispersing effect of power ultrasound and polycarboxylate ethers in fresh cement pastes, providing an objective tool for rheological optimisations.
-    \item \textbf{Porosity Measurements:} A multi-method comparison (Low Temperature - Differential Scanning Calorimetry (LT-DSC), mercury intrusion porosimetry, 2D, and 3D imaging) highlighted the advantages and disadvantages of each method. The LT-DSC analyses revealed a clear correlation over time between the reduction of capillary porosity and the formation of gel porosity in \ce{C3S} and \ce{C2S}.
+    In multi-phase mixtures, the algorithm allows the phases to be distinguished, identifying distinct HLT peaks that reflect the individual hydration kinetics of \ce{C3S} and \ce{C2S}.
+    \item \textbf{Hydration Kinetics and Crystal Orientation:} Correlation of the HLT measurements with the crystal orientation of \ce{C3S} indicates that C-S-H growth around \ce{C3S} particles is governed more by the local availability of space for crystallisation in the pores than by the crystallographic orientation of the original \ce{C3S} material.
+    \item \textbf{Quantification of Dispersing Effectiveness:} The use of cryo-FIB-SEM combined with automated inter-particle distance analysis was able to illustrate the dispersing effect of high-power ultrasound and polycarboxylate ethers in fresh cement pastes, providing an objective tool for rheological optimisations.
+    \item \textbf{Porosity Measurements:} A multi-method comparison (low-temperature differential scanning calorimetry (LT-DSC), mercury intrusion porosimetry, 2D, and 3D imaging) highlighted the advantages and disadvantages of each method. The LT-DSC analyses revealed a clear correlation over time between the reduction of capillary porosity and the formation of gel porosity in \ce{C3S} and \ce{C2S}.
 \end{enumerate}
 
 \vfill
-\begin{center}
-    \qrcode[height=2cm]{https://github.com/kleinerELM/Dissertation/releases}\hspace*{.5cm}\url{https://github.com/kleinerELM/Dissertation/releases}
-\end{center}
+% \begin{center}
+%     \qrcode[height=2cm]{https://github.com/kleinerELM/Dissertation/releases}\hspace*{.5cm}\url{https://github.com/kleinerELM/Dissertation/releases}
+% \end{center}
+
+\noindent Approved by
+
+\vspace{2cm}
+\noindent\rule{7cm}{0.4pt}\\
+Prof. Dr.-Ing. Horst-Michael Ludwig
 
 \end{document}

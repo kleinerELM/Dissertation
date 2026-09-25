@@ -1,5 +1,9 @@
 # Dissertation von Florian Kleiner
 
+#### (Choose your language / Wählen sie ihre Sprache)
+[![Englisch](https://img.shields.io/badge/Language-English-blue)](README.en-GB.md)
+[![Deutsch](https://img.shields.io/badge/Language-German-green)](README.md)
+
 **Titel der Arbeit:** Advanced 2D and 3D characterisation of clinker phases and hydrated cementitious binders by combining a variety of modern imaging and analytical techniques
 
 <img src="figures/titlepage/Titlepage.svg" width="250" alt="Titelbild">

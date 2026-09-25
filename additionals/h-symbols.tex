@@ -1,4 +1,4 @@
-\clearpage
+
 \pdfbookmark[0]{List of Acronyms}{List of Acronyms}
 \chapter*{List of Acronyms}
 \markboth{List of Acronyms}{List of Acronyms}
@@ -9,7 +9,7 @@
 	\acro{ArBIB}[ArBIB]{argon broad ion beam}
 	\acro{BC}[BC]{box counting}
 	\acro{BG}[BG]{box growth}
-	\acro{BET}[BET]{B\textsc{runauer}-\textsc{Emmett}-\textsc{Teller} theory}%textsc{Brunauer-Emmett-Teller} theory}
+	\acro{BET}[BET]{B\textsc{runauer}-\textsc{Emmett}-\textsc{Teller} theory}
 	\acro{BM3D}[BM3D]{block-matching and 3D filtering}
 	\acro{BSE}[BSE]{backscattered electron}
 	\acro{C2S}[C$_2$S]{dicalcium silicate}
@@ -91,7 +91,6 @@
 	\acro{mXRF}[µ-XRF]{micro X-ray fluorescence spectroscopy}
 \end{acronym}
 
-\clearpage
 \pdfbookmark[0]{List of Symbols}{List of Symbols}
 \chapter*{List of Symbols}
 \markboth{List of Symbols}{List of Symbols}
@@ -212,3 +211,10 @@ Please note, that this work uses the \ac{CCN} for most chemical equations (see \
     $Z$                         & {--} 									& Atomic number \\
 	$\bar{Z}$					& {--} 									& Average atomic number \\
 \end{longtable}
+
+\ifdefined\PRINTABLE
+  \ifdefined\DRAFT
+  \else
+    \clearpage\thispagestyle{empty}\null\clearpage
+  \fi
+\fi

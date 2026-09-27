@@ -10,33 +10,17 @@
 %\def\SHOWTODOS{}
 
 \def\myTypeOfDocument{Dissertation}
-\author{Florian Kleiner}
+\def\thesisAuthor{Florian Kleiner}
 \def\authorORCID{0000-0001-6002-0829}
 \def\authorTitle{Dipl.-Ing.}
 \def\myUniversity{Bauhaus-Universität Weimar}
 \def\myExamDate{xx.xx.2027}
-\title{Correlative characterisation of clinker phases and hydrated cementitious binders by a variety of modern 2D and 3D imaging techniques}
+\def\thesisTitle{Correlative characterisation of clinker phases and hydrated cementitious binders by a variety of modern 2D and 3D imaging techniques}
 \def\myKeywords{SEM, EDX, EBSD, nanoindentation, {correlative microscopy}, {image analysis}, cement, hydration, clinker, {specimen preparation}}
 \ifdefined\PRINTABLE
 	\def\mySubtitle{Printversion}
 \else
 	\def\mySubtitle{Digitalversion}
-\fi
-
-\documentclass[
-	paper=a4, fontsize = 12,  % font size for \normalsize set to 12
-	toc = bibliography,  % add bibliography to table of contens
-	numbers = noendperiod,  % no dot at the end of chapter and section labels
-	english,
-	open = any, twoside = false,
-]{scrbook}  % document class
-
-\ifdefined\DRAFT
-\else
-	\ifdefined\PRINTABLE
-		\KOMAoptions{open=right, twoside=true}
-	\else
-	\fi
 \fi
 
 \input{additionals/a-latex_header.tex}  % import packages and design definitions
@@ -50,7 +34,7 @@
 	\def\myThirdReviewer{Prof. Dr. habil. Thorsten Schäfer}
 \else
 	\NewDocumentCommand{\withORCID}{o m}{\orcidlinki{#2}{#1}}
-	
+
 	\def\myFirstReviewer{\withORCID[0000-0002-8998-4936]{Prof. Dr.-Ing. Horst-Michael Ludwig}}
 	\def\mySecondReviewer{\withORCID[0000-0003-2736-4050]{Prof. Hong S. Wong}}
 	\def\myThirdReviewer{\withORCID[0000-0002-7133-8717]{Prof. Dr. habil. Thorsten Schäfer}}
@@ -79,11 +63,11 @@
 			\selectlanguage{ngerman}
 			\input{additionals/f-acknowledgements}
 		\fi
-		
+
 		\selectlanguage{english}
-		
+
 		\tableofcontents
-		
+
 		\input{additionals/g-abstract-en}
 		\selectlanguage{ngerman}
 		\input{additionals/g-abstract-de}

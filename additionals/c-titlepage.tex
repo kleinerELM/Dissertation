@@ -3,7 +3,7 @@
 	\sffamily{
 
 		{\centering
-			\LARGE\textbf{\@title}\par\large
+			\LARGE\textbf{\thesisTitle}\par\large
 
 			\vspace*{1\baselineskip}
 			\Large\MakeUppercase{\myTypeOfDocument}\large
@@ -27,11 +27,11 @@
 			vorgelegt von
 
 			\ifdefined\PRINTABLE
-				\authorTitle \@author
+				\authorTitle \thesisAuthor
 			\else
-				\authorTitle \orcidlinki{\@author}{\authorORCID}
+				\authorTitle\ \orcidlinki{\thesisAuthor}{\authorORCID}
 			\fi
-			
+
 
 			\vspace*{1\baselineskip}
 
@@ -48,7 +48,7 @@
 						\>	\mySecondReviewer \\
 						\>	\myThirdReviewer
 		\end{tabbing}
-			
+
 		\ifdefined\EXAMVERSION
 		\else
 			\begin{tabbing}

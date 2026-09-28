@@ -20,7 +20,7 @@ The threshold segmentation leads to many erroneously identified phases.
 In contrast, the pixel classification produces a result very close to the manual segmentation.
 However, if \ac{CSHo} is taken into account in the pixel classification, the \ac{HLT} distribution and the calculated $l_\text{max}$ (the most frequent \ac{HLT}) are comparable to the threshold-based segmentation, whilst the data density is significantly reduced (see \zcref{tab:segmentation} and \zcref{fig:hlt_segmentation_influence} \cite{kleiner.2024}, \ac{SI}).
 This data density reduction is caused by a rough segmentation of the \ac{CSHo} and, therefore, a significantly decreased pore space.
-Furthermore, a slightly larger \qty{33.3}{\percent} confidence interval and a significant reduction of the first \ac{HLT} accumulation can be observed when including the \ac{CSHo}.
+Furthermore, a significant reduction of the first \ac{HLT} accumulation can be observed when including the \ac{CSHo}.%a slightly larger \qty{33.3}{\percent} confidence interval and 
 
 \begin{figure}[p]
     \centerline{\includegraphics[width=\textwidth]{hydrate-rim/supplementary/threshold_types.pdf}}
@@ -72,9 +72,9 @@ In many cases, whether \ac{CSHo} or merely an artefact such as a flat edge is be
 		\ac{CSH} in \unit{\areapercent}								& 62.9   & 52.5   & 52.5   & 53.4 \\
 		\ac{CSHo} in \unit{\areapercent}							& {--}   &  8.6   & {--}   & {--} \\
 		clinker in \unit{\areapercent}								& 13.9   & 16.8   & 16.8   & 16.7 \\ \midrule
-		$l_\text{\qty{-33.3}{\percent}}$ in \unit{\micro\meter}		&  1.43  & 1.43   & 1.18   & 1.18 \\
+		%$l_\text{\qty{-33.3}{\percent}}$ in \unit{\micro\meter}		&  1.43  & 1.43   & 1.18   & 1.18 \\
 		$l_\text{max}$ in \unit{\micro\meter}						&  1.85  & 1.94   & 1.52   & 1.52 \\
-		$l_\text{+\qty{33.3}{\percent}}$ in \unit{\micro\meter}		& 2.28   & 2.44   & 1.85   & 1.94 \\
+		%$l_\text{+\qty{33.3}{\percent}}$ in \unit{\micro\meter}		& 2.28   & 2.44   & 1.85   & 1.94 \\
 		\bottomrule
 	\end{tabularx}
 	\label{tab:segmentation}
@@ -305,7 +305,8 @@ This plot is accompanied by a frequency plot of the particle size diameter (grey
         The histogram ({\color{darkgrey}grey}) on top illustrates the logarithmic frequency for each diameter bin in the diagram below.
         The histogram ({\color{orange}orange}) on the right illustrates the frequency of \ac{HLT} measurements as sum of the main diagram.
         The values are thus independent of the frequency of single particle diameters.
-        The yellow markers indicate the confidence interval at a confidence level of \qty{33.3}{\percent} around $l_\text{max}$ (colored {\color{darkgreen}green}).
+        %The yellow markers indicate the confidence interval at a confidence level of \qty{33.3}{\percent} around 
+        The {\color{darkgreen}green} markers indicate $l_\text{max}$.
     }
 	\label{fig:results2d_alite}
 \end{figure}

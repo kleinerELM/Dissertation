@@ -174,9 +174,9 @@
                 "-ExecutionPolicy",
                 "Bypass",
                 "-File",
-                "build_parallel.ps1",
-                "%DOCFILE%"
+				"%WORKSPACE_FOLDER%/build_parallel.ps1",
             ],
+			"cwd": "%WORKSPACE_FOLDER%",
             "env": {}
 		},
 		{
@@ -186,10 +186,10 @@
 				"-ExecutionPolicy",
 				"Bypass",
 				"-File",
-				"build_parallel.ps1",
-				"%DOCFILE%",
+				"%WORKSPACE_FOLDER%/build_parallel.ps1",
 				"-Additionals"
 			],
+			"cwd": "%WORKSPACE_FOLDER%",
 			"env": {}
 		},
 		{

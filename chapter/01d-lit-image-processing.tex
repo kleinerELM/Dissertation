@@ -119,9 +119,10 @@ Many measurements are made by using \ac{BSE} images of embedded and polished hyd
 In other words, all measurements are taken on random sections through particles and their hydrate layers.
 This causes an unavoidable sectioning effect \cite{scrivener.2004}.
 
-In particle size distributions, smaller particles are often over-represented, since the section through the particle tends to occur non-diametrically.
-Starting from a monodisperse distribution of spheres with a true diameter of $d_0$, a size distribution with a modal apparent diameter of $d_\text{app} = \pi d_0  / 4$ is obtained \cite{cuzzi.2017}.
-% https://doi.org/10.1111/maps.12812 <- 2d to 3d hochrechnen mittels fortran code \cite{cuzzi.2017}
+In particle size distributions measured on polished sections, smaller sizes are over-represented in the histogram.
+A section rarely passes through the particle centre, so the recorded diameter is smaller than the true diameter and the count falls into a smaller bin \cite{scrivener.2004}.
+Starting from spheres of one true diameter $d_0$, random sectioning therefore fills every bin below $d_0$.
+The mean of this apparent-diameter distribution is $\bar{d}_\text{app} = \pi d_0 / 4$ \cite{cuzzi.2017}.
 In contrast, the \ac{HLT} around the particle is often overestimated as illustrated in \zcref{fig:sectioning_effect}.
 
 \begin{figure}[htb]
@@ -343,7 +344,7 @@ This method uses multiple images or splits an image (or multiple images) of the 
 However, the number of tiles varies in the literature.
 Then, for each experiment, a growing number of tiles is randomly selected from this tile pool.
 From this selection, the phase composition is then remeasured.
-If these experiments are repeated multiple times, the {\color{red}standard deviation} of the phase composition indicates how much area has to be imaged and analysed to obtain a reasonable phase composition measurement.
+If these experiments are repeated multiple times, the standard deviation of the phase composition indicates how much area has to be imaged and analysed to obtain a reasonable phase composition measurement.
 
 \subsubsection{\acs*{BG} method}
 \label{sec:box_growth}
